@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package selectionprototype;
 
 import java.awt.Color;
@@ -14,32 +9,41 @@ import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
 /**
- *
- * @author Aditya
+ * @brief This class is used as a driver for the SelectionGUI prototype.
+ * @author Aditya Nivarthi
  */
 public class SelectionDriver
 {
     private SelectionGUI window;
     
+    /**
+     * Main driver. Creates a SelectionDriver object.
+     * @param args Program arguments. None are used.
+     */
     public static void main(String[] args) {
         new SelectionDriver();
     }
     
+    /**
+     * @brief Constructor for SelectionDriver object. Sets GUI looks, visibility, and listeners for the mouse.
+     */
     public SelectionDriver() {
         try {
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
         } catch (ClassNotFoundException | IllegalAccessException | InstantiationException | UnsupportedLookAndFeelException e) {
         }
-        //pixel to cell, divide by cell width round down
+        
         this.window = new SelectionGUI();
         this.window.setVisible(true);
-        //this.window.getContentPane().setBackground(Color.BLACK);
         this.window.jPanel1.setBackground(Color.BLACK);
         this.window.jPanel3.setBackground(Color.BLACK);
         
         final Color def = this.window.jPanel1.getBackground();
         final Color def2 = this.window.jPanel3.getBackground();
         
+        /**
+         * @brief Mouse listener on the first panel.
+         */
         this.window.jPanel1.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -51,6 +55,9 @@ public class SelectionDriver
             }
         });
         
+        /**
+         * @brief Mouse listener on the second panel.
+         */
         this.window.jPanel3.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -62,6 +69,9 @@ public class SelectionDriver
             }
         });
         
+        /**
+         * @brief Action listener on the "Ok" button.
+         */
         this.window.jButton4.addActionListener(new ActionListener() {
            public void actionPerformed(ActionEvent e) {
                window.dispose();

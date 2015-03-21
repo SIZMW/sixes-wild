@@ -1,31 +1,33 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package dragprototype;
 
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
 /**
- *
- * @author Aditya
+ * @brief This class is used as the driver for the DragGUI and DragPrototype.
+ * @author Aditya Nivarthi
  */
 public class DragDriver {
     
     private DragGUI window;
     
+    /**
+     * @brief Main driver. Creates a DragDriver object.
+     * @param args Program arguments
+     */
     public static void main(String[] args) {
         new DragDriver();
     }
     
+    /**
+     * @brief Constructor for DragDriver. Sets GUI looks and window visibility.
+     */
     public DragDriver() {
         try {
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
         } catch (ClassNotFoundException | IllegalAccessException | InstantiationException | UnsupportedLookAndFeelException e) {
         }
-        //pixel to cell, divide by cell width round down
+        
         this.window = new DragGUI();
         this.window.setVisible(true);
     }
