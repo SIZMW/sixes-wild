@@ -1,17 +1,21 @@
 package SixesWild.com.mimas.sixeswild.boundaries;
 
-import javax.swing.JPanel;
-import java.awt.GridBagLayout;
-import javax.swing.JButton;
 import java.awt.GridBagConstraints;
-import java.awt.event.ActionListener;
+import java.awt.GridBagLayout;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
 
 public class MainPanel extends JPanel {
 
 	/**
 	 * Create the panel.
 	 */
+	JPanel panel;
+	
 	public MainPanel() {
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		gridBagLayout.columnWidths = new int[]{0, 5, 0};
@@ -21,13 +25,18 @@ public class MainPanel extends JPanel {
 		setLayout(gridBagLayout);
 		
 		JButton btnNewButton = new JButton("Story Levels");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				//this
+			}
+		});
 		GridBagConstraints gbc_btnNewButton = new GridBagConstraints();
 		gbc_btnNewButton.fill = GridBagConstraints.BOTH;
 		gbc_btnNewButton.gridx = 0;
 		gbc_btnNewButton.gridy = 0;
 		add(btnNewButton, gbc_btnNewButton);
 		
-		JPanel panel = new JPanel();
+		panel = new JPanel();
 		GridBagConstraints gbc_panel = new GridBagConstraints();
 		gbc_panel.gridheight = 5;
 		gbc_panel.fill = GridBagConstraints.BOTH;
@@ -36,6 +45,10 @@ public class MainPanel extends JPanel {
 		add(panel, gbc_panel);
 		
 		JButton btnNewButton_1 = new JButton("User Levels");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		GridBagConstraints gbc_btnNewButton_1 = new GridBagConstraints();
 		gbc_btnNewButton_1.fill = GridBagConstraints.BOTH;
 		gbc_btnNewButton_1.gridx = 0;
@@ -71,6 +84,10 @@ public class MainPanel extends JPanel {
 		gbc_btnNewButton_4.gridy = 4;
 		add(btnNewButton_4, gbc_btnNewButton_4);
 
+	}
+	
+	public JPanel getPanel(){
+		return this.panel;
 	}
 
 }
