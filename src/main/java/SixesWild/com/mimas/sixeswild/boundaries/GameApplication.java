@@ -5,58 +5,78 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.UIManager;
 import javax.swing.border.EmptyBorder;
 
+import SixesWild.com.mimas.sixeswild.controllers.OptionsMenuButtonController;
+import SixesWild.com.mimas.sixeswild.controllers.StoryMenuButtonController;
+
+/**
+ * @author Aditya Nivarthi
+ * @brief This class represents the Game application that will run and handle
+ *        the player playing the game Sixes Wild.
+ */
 public class GameApplication {
 
-	private JFrame frame;
-	private MainPanel mainPanel;
-	//private LevelPanel levelPanel; TODO
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					GameApplication window = new GameApplication();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+	JFrame frame;
+	MainPanel mainPanel;
+
+	// TODO Add LevelPanel attribute when it is created.
 
 	/**
-	 * Create the application.
+	 * @brief Constructor for GameApplication class.
 	 */
 	public GameApplication() {
 		initialize();
 	}
 
 	/**
-	 * Initialize the contents of the frame.
+	 * @brief Initialize the contents of the frame.
 	 */
 	private void initialize() {
+		try {
+			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+		} catch (Exception e) {
+		}
+
 		mainPanel = new MainPanel();
 		frame = new JFrame();
 		frame.setBounds(100, 100, 450, 300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		JPanel contentPane = new JPanel();
-		contentPane.setBorder(new EmptyBorder(5,5,5,5));
-		contentPane.setLayout(new BorderLayout(0,0));
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		contentPane.setLayout(new BorderLayout(0, 0));
 		frame.setContentPane(contentPane);
-		//Splash
+
+		// TODO Add splash screen on startup
+
 		frame.getContentPane().add(mainPanel);
-	}
-	
-	public JFrame getFrame(){
-		return this.frame;
-	}
-	
-	public MainPanel getMainPanel(){
-		return this.mainPanel;
+		this.setUpControllers();
 	}
 
+	/**
+	 * @brief Set up the controllers on the various components in the game.
+	 */
+	private void setUpControllers() {
+		this.mainPanel.getStoryLevelMenuButton().addActionListener(
+				new StoryMenuButtonController(this));
+		this.mainPanel.getOptionsMenuButton().addActionListener(
+				new OptionsMenuButtonController(this));
+	}
+
+	/**
+	 * @brief Returns the game frame.
+	 * @return this.frame The game frame.
+	 */
+	public JFrame getFrame() {
+		return this.frame;
+	}
+
+	/**
+	 * @brief Returns the game MainPanel.
+	 * @return this.mainPanel The game MainPanel.
+	 */
+	public MainPanel getMainPanel() {
+		return this.mainPanel;
+	}
 }
