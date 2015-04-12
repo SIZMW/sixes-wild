@@ -6,8 +6,8 @@ package SixesWild.com.mimas.sixeswild.entities;
  */
 public class Board {
 	Square squares[][];
-	final int SIZE_X = 9;
-	final int SIZE_Y = 9;
+	public final int SIZE_X = 9;
+	public final int SIZE_Y = 9;
 	
 	/**
 	 * Constructor for Board class.
