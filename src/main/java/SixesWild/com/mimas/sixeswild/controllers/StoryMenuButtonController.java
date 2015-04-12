@@ -9,9 +9,10 @@ import SixesWild.com.mimas.sixeswild.boundaries.GameApplication;
 import SixesWild.com.mimas.sixeswild.boundaries.LevelSelectionPanel;
 
 /**
+ * This class is the controller to handle redrawing the menu window when the
+ * story mode sub menu is requested.
+ * 
  * @author Aditya Nivarthi
- * @brief This class is the controller to handle redrawing the menu window when
- *        the story mode sub menu is requested.
  */
 public class StoryMenuButtonController implements ActionListener {
 	GameApplication app;
@@ -19,7 +20,8 @@ public class StoryMenuButtonController implements ActionListener {
 	// TODO Add list of levels as attribute
 
 	/**
-	 * @brief Constructor for the StoryMenuButtonController class.
+	 * Constructor for the StoryMenuButtonController class.
+	 * 
 	 * @param app
 	 *            The GameApplication currently running.
 	 */
@@ -28,7 +30,7 @@ public class StoryMenuButtonController implements ActionListener {
 	}
 
 	/**
-	 * @brief Processes the request to show the story mode sub menu.
+	 * Processes the request to show the story mode sub menu.
 	 */
 	public void actionPerformed(ActionEvent e) {
 		JPanel currPanel = app.getMainPanel().getSubMenuPanel();

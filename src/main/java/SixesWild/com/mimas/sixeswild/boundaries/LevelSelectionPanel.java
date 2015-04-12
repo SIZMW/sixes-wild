@@ -11,9 +11,10 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
 /**
+ * This class represents the inner view for selecting a level and displaying a
+ * preview to the player.
+ * 
  * @author Cameron Jones
- * @brief This class represents the inner view for selecting a level and
- *        displaying a preview to the player.
  */
 public class LevelSelectionPanel extends JPanel {
 
@@ -24,7 +25,7 @@ public class LevelSelectionPanel extends JPanel {
 
 	// TODO Add parameter for level list
 	/**
-	 * @brief Constructor for LevelSelectionPanel class.
+	 * Constructor for LevelSelectionPanel class.
 	 */
 	public LevelSelectionPanel() {
 		GridBagLayout gridBagLayout = new GridBagLayout();
@@ -79,7 +80,8 @@ public class LevelSelectionPanel extends JPanel {
 	}
 
 	/**
-	 * @brief Returns the scroll pane of level names.
+	 * Returns the scroll pane of level names.
+	 * 
 	 * @return this.levelScrollPane The scrolling level pane.
 	 */
 	public JScrollPane getLevelScrollPane() {
@@ -87,7 +89,8 @@ public class LevelSelectionPanel extends JPanel {
 	}
 
 	/**
-	 * @brief Returns the "Play Level" button.
+	 * Returns the "Play Level" button.
+	 * 
 	 * @return this.playLevelButton The "Play Level" button.
 	 */
 	public JButton getPlayButton() {
@@ -95,7 +98,8 @@ public class LevelSelectionPanel extends JPanel {
 	}
 
 	/**
-	 * @brief Returns the level selection preview panel.
+	 * Returns the level selection preview panel.
+	 * 
 	 * @return this.previewPanel The level preview panel.
 	 */
 	public JPanel getPreviewPanel() {

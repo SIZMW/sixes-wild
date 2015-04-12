@@ -12,9 +12,10 @@ import SixesWild.com.mimas.sixeswild.controllers.OptionsMenuButtonController;
 import SixesWild.com.mimas.sixeswild.controllers.StoryMenuButtonController;
 
 /**
+ * This class represents the Game application that will run and handle the
+ * player playing the game Sixes Wild.
+ * 
  * @author Aditya Nivarthi
- * @brief This class represents the Game application that will run and handle
- *        the player playing the game Sixes Wild.
  */
 public class GameApplication {
 
@@ -24,14 +25,14 @@ public class GameApplication {
 	// TODO Add LevelPanel attribute when it is created.
 
 	/**
-	 * @brief Constructor for GameApplication class.
+	 * Constructor for GameApplication class.
 	 */
 	public GameApplication() {
 		initialize();
 	}
 
 	/**
-	 * @brief Initialize the contents of the frame.
+	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
 		try {
@@ -55,7 +56,7 @@ public class GameApplication {
 	}
 
 	/**
-	 * @brief Set up the controllers on the various components in the game.
+	 * Set up the controllers on the various components in the game.
 	 */
 	private void setUpControllers() {
 		this.mainPanel.getStoryLevelMenuButton().addActionListener(
@@ -65,7 +66,8 @@ public class GameApplication {
 	}
 
 	/**
-	 * @brief Returns the game frame.
+	 * Returns the game frame.
+	 * 
 	 * @return this.frame The game frame.
 	 */
 	public JFrame getFrame() {
@@ -73,7 +75,8 @@ public class GameApplication {
 	}
 
 	/**
-	 * @brief Returns the game MainPanel.
+	 * Returns the game MainPanel.
+	 * 
 	 * @return this.mainPanel The game MainPanel.
 	 */
 	public MainPanel getMainPanel() {

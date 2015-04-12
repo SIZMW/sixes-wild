@@ -10,9 +10,9 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 /**
+ * This class represents the main view for the menus in the game for Sixes Wild.
+ * 
  * @author Cameron Jones
- * @brief This class represents the main view for the menus in the game for
- *        Sixes Wild.
  */
 public class MainPanel extends JPanel {
 
@@ -24,7 +24,7 @@ public class MainPanel extends JPanel {
 	JButton creditsMenuButton;
 
 	/**
-	 * @brief Constructor for MainPanel class.
+	 * Constructor for MainPanel class.
 	 */
 	public MainPanel() {
 		GridBagLayout gridBagLayout = new GridBagLayout();
@@ -86,7 +86,8 @@ public class MainPanel extends JPanel {
 	}
 
 	/**
-	 * @brief Returns the right sub menu panel.
+	 * Returns the right sub menu panel.
+	 * 
 	 * @return this.subMenuPanel The sub menu panel.
 	 */
 	public JPanel getSubMenuPanel() {
@@ -94,7 +95,8 @@ public class MainPanel extends JPanel {
 	}
 
 	/**
-	 * @brief Returns the story level menu button.
+	 * Returns the story level menu button.
+	 * 
 	 * @return this.storyLevelMenuButton The story level menu button.
 	 */
 	public JButton getStoryLevelMenuButton() {
@@ -102,7 +104,8 @@ public class MainPanel extends JPanel {
 	}
 
 	/**
-	 * @brief Returns the user level menu button.
+	 * Returns the user level menu button.
+	 * 
 	 * @return this.userLevelMenuButton The user level menu button.
 	 */
 	public JButton getUserLevelMenuButton() {
@@ -110,7 +113,8 @@ public class MainPanel extends JPanel {
 	}
 
 	/**
-	 * @brief Returns the badges menu button.
+	 * Returns the badges menu button.
+	 * 
 	 * @return this.badgesMenuButton The badges menu button.
 	 */
 	public JButton getBadgesMenuButton() {
@@ -118,7 +122,8 @@ public class MainPanel extends JPanel {
 	}
 
 	/**
-	 * @brief Returns the options menu button.
+	 * Returns the options menu button.
+	 * 
 	 * @return this.optionsMenuButton The options menu button.
 	 */
 	public JButton getOptionsMenuButton() {
@@ -126,7 +131,8 @@ public class MainPanel extends JPanel {
 	}
 
 	/**
-	 * @brief Returns the credits menu button.
+	 * Returns the credits menu button.
+	 * 
 	 * @return this.creditsMenuButton The credits menu button.
 	 */
 	public JButton getCreditsMenuButton() {

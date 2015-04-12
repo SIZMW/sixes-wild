@@ -14,8 +14,9 @@ import javax.swing.JTextField;
 import javax.swing.JTextPane;
 
 /**
+ * This class represents the options sub menu in the game.
+ * 
  * @author Yahel Nachum
- * @brief This class represents the options sub menu in the game.
  */
 public class OptionsPanel extends JPanel {
 	JButton changeAestheticButton;
@@ -31,7 +32,7 @@ public class OptionsPanel extends JPanel {
 	private String rulesText = "Rule 01: Don't talk about the fight club.";
 
 	/**
-	 * @brief Constructor for the OptionsPanel class.
+	 * Constructor for the OptionsPanel class.
 	 */
 	public OptionsPanel() {
 		GridBagLayout gridBagLayout = new GridBagLayout();
@@ -140,7 +141,8 @@ public class OptionsPanel extends JPanel {
 	}
 
 	/**
-	 * @brief Returns the aesthetic button.
+	 * Returns the aesthetic button.
+	 * 
 	 * @return this.changeAestheticButton The aesthetic button.
 	 */
 	public JButton getAestheticButton() {
@@ -148,7 +150,8 @@ public class OptionsPanel extends JPanel {
 	}
 
 	/**
-	 * @brief Returns the switch user button.
+	 * Returns the switch user button.
+	 * 
 	 * @return this.switchUserButton The switch user button.
 	 */
 	public JButton getSwitchUserButton() {
@@ -156,7 +159,8 @@ public class OptionsPanel extends JPanel {
 	}
 
 	/**
-	 * @brief Returns the reset badges button.
+	 * Returns the reset badges button.
+	 * 
 	 * @return this.resetBadgesButton The reset badges button.
 	 */
 	public JButton getResetBadgesButton() {
@@ -164,7 +168,8 @@ public class OptionsPanel extends JPanel {
 	}
 
 	/**
-	 * @brief Returns the aesthetic drop down menu.
+	 * Returns the aesthetic drop down menu.
+	 * 
 	 * @return this.aestheticDropDownMenu The aesthetic drop down menu.
 	 */
 	public JComboBox<String> getAestheticDropDownMenu() {
@@ -172,7 +177,8 @@ public class OptionsPanel extends JPanel {
 	}
 
 	/**
-	 * @brief Returns the user name text field.
+	 * Returns the user name text field.
+	 * 
 	 * @return this.userNameTextField The user name text field.
 	 */
 	public JTextField getUserNameTextField() {
