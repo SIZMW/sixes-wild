@@ -10,6 +10,7 @@ import javax.swing.border.EmptyBorder;
 
 import SixesWild.com.mimas.sixeswild.controllers.OptionsMenuButtonController;
 import SixesWild.com.mimas.sixeswild.controllers.StoryMenuButtonController;
+import SixesWild.com.mimas.sixeswild.controllers.UserLevelMenuButtonController;
 
 /**
  * This class represents the Game application that will run and handle the
@@ -61,6 +62,10 @@ public class GameApplication {
 	private void setUpControllers() {
 		this.mainPanel.getStoryLevelMenuButton().addActionListener(
 				new StoryMenuButtonController(this));
+		this.mainPanel.getOptionsMenuButton().addActionListener(
+				new OptionsMenuButtonController(this));
+		this.mainPanel.getUserLevelMenuButton().addActionListener(
+				new UserLevelMenuButtonController(this));
 		this.mainPanel.getOptionsMenuButton().addActionListener(
 				new OptionsMenuButtonController(this));
 	}
