@@ -1,13 +1,12 @@
 package SixesWild.com.mimas.sixeswild.boundaries;
 
 import java.awt.BorderLayout;
-import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.UIManager;
 import javax.swing.border.EmptyBorder;
 
+import SixesWild.com.mimas.sixeswild.controllers.BadgesMenuButtonController;
 import SixesWild.com.mimas.sixeswild.controllers.OptionsMenuButtonController;
 import SixesWild.com.mimas.sixeswild.controllers.StoryMenuButtonController;
 import SixesWild.com.mimas.sixeswild.controllers.UserLevelMenuButtonController;
@@ -68,10 +67,15 @@ public class GameApplication {
 				new OptionsMenuButtonController(this));
 		this.mainPanel.getUserLevelMenuButton().addActionListener(
 				new UserLevelMenuButtonController(this));
+<<<<<<< HEAD
 		this.mainPanel.getOptionsMenuButton().addActionListener(
 				new OptionsMenuButtonController(this));
 		this.mainPanel.getCreditsMenuButton().addActionListener(
 				new CreditsMenuButtonController(this));
+=======
+		this.mainPanel.getBadgesMenuButton().addActionListener(
+				new BadgesMenuButtonController(this));
+>>>>>>> a5f57ac294758374eb2c6c5cadd29a6e5ca16939
 	}
 	
 

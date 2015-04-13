@@ -12,8 +12,12 @@ import SixesWild.com.mimas.sixeswild.entities.Board;
 
 public class LevelView extends JPanel {
 
+	TopMenuPanel topMenuPanel;
+	LeftMenuPanel leftMenuPanel;
+	BoardViewPanel boardViewPanel;
+	
 	/**
-	 * Create the panel.
+	 * Constructor for level view
 	 */
 	public LevelView() {
 		GridBagLayout gridBagLayout = new GridBagLayout();
@@ -23,7 +27,8 @@ public class LevelView extends JPanel {
 		gridBagLayout.rowWeights = new double[]{1.0, 10.0, Double.MIN_VALUE};
 		setLayout(gridBagLayout);
 		
-		JPanel topMenuPanel = new TopMenuPanel();
+		// Top menu panel
+		topMenuPanel = new TopMenuPanel();
 		topMenuPanel.setBorder(BorderFactory.createLineBorder(Color.black));
 		GridBagConstraints gbc_topMenuPanel = new GridBagConstraints();
 		gbc_topMenuPanel.gridwidth = 4;
@@ -33,7 +38,8 @@ public class LevelView extends JPanel {
 		gbc_topMenuPanel.gridy = 0;
 		add(topMenuPanel, gbc_topMenuPanel);
 		
-		JPanel leftMenuPanel = new LeftMenuPanel();
+		// Left menu panel
+		leftMenuPanel = new LeftMenuPanel();
 		leftMenuPanel.setBorder(BorderFactory.createLineBorder(Color.black));
 		GridBagConstraints gbc_leftMenuPanel = new GridBagConstraints();
 		gbc_leftMenuPanel.insets = new Insets(0, 0, 0, 0);
@@ -42,15 +48,43 @@ public class LevelView extends JPanel {
 		gbc_leftMenuPanel.gridy = 1;
 		add(leftMenuPanel, gbc_leftMenuPanel);
 		
-		JPanel boardView = new BoardViewPanel(new Board());
-		boardView.setBorder(BorderFactory.createLineBorder(Color.black));
+		// Board view panel
+		boardViewPanel = new BoardViewPanel(new Board());
+		boardViewPanel.setBorder(BorderFactory.createLineBorder(Color.black));
 		GridBagConstraints gbc_boardView = new GridBagConstraints();
 		gbc_boardView.insets = new Insets(0, 0, 0, 0);
 		gbc_boardView.fill = GridBagConstraints.BOTH;
 		gbc_boardView.gridx = 2;
 		gbc_boardView.gridy = 1;
-		add(boardView, gbc_boardView);
+		add(boardViewPanel, gbc_boardView);
 
+	}
+	
+	/**
+	 * Returns top menu panel.
+	 * 
+	 * @return this.topMenuPanel The top menu panel.
+	 */
+	public TopMenuPanel getTopMenuPanel(){
+		return this.topMenuPanel;
+	}
+	
+	/**
+	 * Returns the left menu panel.
+	 * 
+	 * @return this.leftMenuPanel The left menu panel.
+	 */
+	public LeftMenuPanel getLeftMenuPanel(){
+		return this.leftMenuPanel;
+	}
+	
+	/**
+	 * Returns the board view panel.
+	 * 
+	 * @return this.boardViewPanel The board view panel.
+	 */
+	public BoardViewPanel getBoardViewPanel(){
+		return this.boardViewPanel;
 	}
 
 }
