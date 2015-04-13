@@ -67,15 +67,11 @@ public class GameApplication {
 				new OptionsMenuButtonController(this));
 		this.mainPanel.getUserLevelMenuButton().addActionListener(
 				new UserLevelMenuButtonController(this));
-<<<<<<< HEAD
-		this.mainPanel.getOptionsMenuButton().addActionListener(
-				new OptionsMenuButtonController(this));
 		this.mainPanel.getCreditsMenuButton().addActionListener(
 				new CreditsMenuButtonController(this));
-=======
 		this.mainPanel.getBadgesMenuButton().addActionListener(
 				new BadgesMenuButtonController(this));
->>>>>>> a5f57ac294758374eb2c6c5cadd29a6e5ca16939
+
 	}
 	
 
