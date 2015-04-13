@@ -8,6 +8,7 @@ import javax.swing.JPanel;
 import javax.swing.UIManager;
 import javax.swing.border.EmptyBorder;
 
+import SixesWild.com.mimas.sixeswild.controllers.BadgesMenuButtonController;
 import SixesWild.com.mimas.sixeswild.controllers.OptionsMenuButtonController;
 import SixesWild.com.mimas.sixeswild.controllers.StoryMenuButtonController;
 import SixesWild.com.mimas.sixeswild.controllers.UserLevelMenuButtonController;
@@ -66,8 +67,8 @@ public class GameApplication {
 				new OptionsMenuButtonController(this));
 		this.mainPanel.getUserLevelMenuButton().addActionListener(
 				new UserLevelMenuButtonController(this));
-		this.mainPanel.getOptionsMenuButton().addActionListener(
-				new OptionsMenuButtonController(this));
+		this.mainPanel.getBadgesMenuButton().addActionListener(
+				new BadgesMenuButtonController(this));
 	}
 
 	/**

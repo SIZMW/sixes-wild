@@ -3,6 +3,7 @@ package SixesWild.com.mimas.sixeswild.boundaries;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
+import java.util.ArrayList;
 
 import javax.swing.DefaultListModel;
 import javax.swing.JList;
@@ -20,25 +21,26 @@ public class BadgesPanel extends JPanel {
 	DefaultListModel<String> badgeListModel;
 	JScrollPane badgeScrollPane;
 	JPanel previewPanel;
-	
+	ArrayList<String> badgeNames;
 	
 	/**
 	 * Create the panel.
 	 */
-	public BadgesPanel() {
+	public BadgesPanel(ArrayList<String> badgeNames) {
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		gridBagLayout.columnWidths = new int[] { 0, 0, 0 };
 		gridBagLayout.rowHeights = new int[] { 0, 0 };
 		gridBagLayout.columnWeights = new double[] { 1.0, 1.0, Double.MIN_VALUE };
 		gridBagLayout.rowWeights = new double[] { 1.0, Double.MIN_VALUE };
 		setLayout(gridBagLayout);
-
-		// TODO Remove when we populate badge list
+		this.badgeNames = badgeNames;
+		// TODO Remove when we populate level list
 		badgeListModel = new DefaultListModel<String>();
-		for (int i = 0; i < 20; i++) {
-			badgeListModel.addElement("Level " + i);
+		for (int i = 0; i < badgeNames.size(); i++) {
+			badgeListModel.addElement(badgeNames.get(i));
 		}
-
+		
+		
 		// Badge list scroll pane
 		badgeScrollPane = new JScrollPane();
 		JList<String> list = new JList<String>(badgeListModel);
