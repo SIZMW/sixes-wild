@@ -9,7 +9,7 @@ import java.awt.Insets;
 import javax.swing.BorderFactory;
 import javax.swing.JPanel;
 
-import entitiesCopy.Board;
+import SixesWild.com.mimas.sixeswild.entities.Board;
 
 public class BuilderView extends JPanel {
 	BuilderTopPanel builderTopPanel;
@@ -27,6 +27,7 @@ public class BuilderView extends JPanel {
 		gridBagLayout.rowWeights = new double[]{1.0, 10.0, Double.MIN_VALUE};
 		setLayout(gridBagLayout);
 		
+		// Level settings panel
 		levelSettingsPanel = new LevelSettingsPanel();
 		levelSettingsPanel.setBorder(BorderFactory.createLineBorder(Color.black));
 		levelSettingsPanel.setPreferredSize(new Dimension(100, 519));
@@ -38,6 +39,7 @@ public class BuilderView extends JPanel {
 		gbc_levelSettingsPanel.gridy = 0;
 		add(levelSettingsPanel, gbc_levelSettingsPanel);
 		
+		// Builder top panel
 		builderTopPanel = new BuilderTopPanel();
 		builderTopPanel.setBorder(BorderFactory.createLineBorder(Color.black));
 		GridBagConstraints gbc_builderTopPanel = new GridBagConstraints();
@@ -48,6 +50,7 @@ public class BuilderView extends JPanel {
 		gbc_builderTopPanel.gridy = 0;
 		add(builderTopPanel, gbc_builderTopPanel);
 		
+		// Board view panel
 		boardViewPanel = new BoardViewPanel(new Board());
 		boardViewPanel.setBorder(BorderFactory.createLineBorder(Color.black));
 		GridBagConstraints gbc_boardView = new GridBagConstraints();
@@ -60,18 +63,18 @@ public class BuilderView extends JPanel {
 	}
 	
 	/**
-	 * Returns top menu panel.
+	 * Returns builder top panel.
 	 * 
-	 * @return this.topMenuPanel The top menu panel.
+	 * @return this.builderTopPanel The builder top panel.
 	 */
 	public BuilderTopPanel getBuilderTopPanel(){
 		return this.builderTopPanel;
 	}
 	
 	/**
-	 * Returns the left menu panel.
+	 * Returns the level settings panel.
 	 * 
-	 * @return this.leftMenuPanel The left menu panel.
+	 * @return this.levelSettingsPanel The level settings panel.
 	 */
 	public LevelSettingsPanel getLevelSettingsPanel(){
 		return this.levelSettingsPanel;
