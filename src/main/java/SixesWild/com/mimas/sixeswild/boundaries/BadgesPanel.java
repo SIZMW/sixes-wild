@@ -6,6 +6,7 @@ import java.awt.Insets;
 import java.util.ArrayList;
 
 import javax.swing.DefaultListModel;
+import javax.swing.DefaultListSelectionModel;
 import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
@@ -22,11 +23,12 @@ public class BadgesPanel extends JPanel {
 	JScrollPane badgeScrollPane;
 	JPanel previewPanel;
 	ArrayList<String> badgeNames;
+	int highestBadge;
 	
 	/**
 	 * Create the panel.
 	 */
-	public BadgesPanel(ArrayList<String> badgeNames) {
+	public BadgesPanel(ArrayList<String> badgeNames,int highestBadge) {
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		gridBagLayout.columnWidths = new int[] { 0, 0, 0 };
 		gridBagLayout.rowHeights = new int[] { 0, 0 };
@@ -34,12 +36,16 @@ public class BadgesPanel extends JPanel {
 		gridBagLayout.rowWeights = new double[] { 1.0, Double.MIN_VALUE };
 		setLayout(gridBagLayout);
 		this.badgeNames = badgeNames;
+		this.highestBadge = highestBadge;
 		// TODO Remove when we populate level list
 		badgeListModel = new DefaultListModel<String>();
 		for (int i = 0; i < badgeNames.size(); i++) {
 			badgeListModel.addElement(badgeNames.get(i));
+			//badgeListModel.s
 		}
-		
+		for (int i = 0; i < highestBadge; i++){
+			//badgeListModel.
+		}
 		
 		// Badge list scroll pane
 		badgeScrollPane = new JScrollPane();

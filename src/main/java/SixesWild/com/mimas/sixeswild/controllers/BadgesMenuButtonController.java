@@ -53,11 +53,12 @@ public class BadgesMenuButtonController implements ActionListener {
 		gbc_list.gridx = 0;
 		gbc_list.gridy = 0;
 		
+		int highestLevel = 14;
 		ArrayList<String> badgeList = new ArrayList<String>();
 		for(int i = 0; i < 50; i++){
 			badgeList.add("Badge " + (i+1));
 		}
-		currPanel.add(new BadgesPanel(badgeList), gbc_list);
+		currPanel.add(new BadgesPanel(badgeList, highestLevel), gbc_list);
 		currPanel.updateUI();
 	}
 }
