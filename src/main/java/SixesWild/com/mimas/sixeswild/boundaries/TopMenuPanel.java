@@ -23,17 +23,18 @@ public class TopMenuPanel extends JPanel {
 	JButton specialMoveButton2;
 	JButton specialMoveButton3;
 	JButton specialMoveButton4;
+	JButton exitLevelButton;
 
 	/**
 	 * Constructor for the TopMenuPanel class.
 	 */
 	public TopMenuPanel() {
 		GridBagLayout gridBagLayout = new GridBagLayout();
-		gridBagLayout.columnWidths = new int[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+		gridBagLayout.columnWidths = new int[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 				0, 0 };
 		gridBagLayout.rowHeights = new int[] { 0, 0, 0, 0 };
 		gridBagLayout.columnWeights = new double[] { 1.0, 100.0, 1.0, 1.0, 1.0,
-				1.0, 1.0, 1.0, 1.0, 1.0, 1.0, Double.MIN_VALUE };
+				1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, Double.MIN_VALUE };
 		gridBagLayout.rowWeights = new double[] { 1.0, 5.0, 1.0,
 				Double.MIN_VALUE };
 		setLayout(gridBagLayout);
@@ -83,6 +84,15 @@ public class TopMenuPanel extends JPanel {
 		gbc_specialMoveButton4.gridx = 9;
 		gbc_specialMoveButton4.gridy = 1;
 		add(specialMoveButton4, gbc_specialMoveButton4);
+		
+		// Exit level button
+		exitLevelButton = new JButton("Exit Level");
+		exitLevelButton.setPreferredSize(new Dimension(100, 100));
+		GridBagConstraints gbc_exitLevelButton = new GridBagConstraints();
+		gbc_exitLevelButton.insets = new Insets(0, 0, 5, 5);
+		gbc_exitLevelButton.gridx = 11;
+		gbc_exitLevelButton.gridy = 1;
+		add(exitLevelButton, gbc_exitLevelButton);
 	}
 
 	/**
@@ -128,5 +138,14 @@ public class TopMenuPanel extends JPanel {
 	 */
 	public JButton getSpecialMoveButton4() {
 		return this.specialMoveButton4;
+	}
+	
+	/**
+	 * Returns the exit level button.
+	 * 
+	 * @return this.exitLevelButton The exit level button
+	 */
+	public JButton getExitLevelButton(){
+		return this.exitLevelButton;
 	}
 }
