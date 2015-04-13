@@ -5,6 +5,7 @@ import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import javax.swing.JPanel;
 
@@ -51,7 +52,13 @@ public class StoryMenuButtonController implements ActionListener {
 		gbc_list.fill = GridBagConstraints.BOTH;
 		gbc_list.gridx = 0;
 		gbc_list.gridy = 0;
-		currPanel.add(new LevelSelectionPanel(), gbc_list);
+		//TODO: Collect the StoryLevelNames and Put them in the List to populate the view
+		// For Now I have put in fake data
+		ArrayList<String> levelList = new ArrayList<String>();
+		for(int i = 0; i < 50; i++){
+			levelList.add("Story Level " + (i+1));
+		}
+		currPanel.add(new LevelSelectionPanel(levelList), gbc_list);
 		
 		currPanel.updateUI();
 	}

@@ -3,6 +3,7 @@ package SixesWild.com.mimas.sixeswild.boundaries;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
+import java.util.ArrayList;
 
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
@@ -22,23 +23,25 @@ public class LevelSelectionPanel extends JPanel {
 	JScrollPane levelScrollPane;
 	JPanel previewPanel;
 	JButton playLevelButton;
+	ArrayList<String> levelNames;
 
 	// TODO Add parameter for level list
 	/**
 	 * Constructor for LevelSelectionPanel class.
+	 * @param  
 	 */
-	public LevelSelectionPanel() {
+	public LevelSelectionPanel(ArrayList<String> levelNames) {
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		gridBagLayout.columnWidths = new int[] { 0, 0, 0 };
 		gridBagLayout.rowHeights = new int[] { 0, 0 };
 		gridBagLayout.columnWeights = new double[] { 1.0, 1.0, Double.MIN_VALUE };
 		gridBagLayout.rowWeights = new double[] { 1.0, Double.MIN_VALUE };
 		setLayout(gridBagLayout);
-
+		this.levelNames = levelNames;
 		// TODO Remove when we populate level list
 		levelListModel = new DefaultListModel<String>();
-		for (int i = 0; i < 20; i++) {
-			levelListModel.addElement("Level " + i);
+		for (int i = 0; i < levelNames.size(); i++) {
+			levelListModel.addElement(levelNames.get(i));
 		}
 
 		// Level list scroll pane
