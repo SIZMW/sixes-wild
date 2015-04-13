@@ -19,8 +19,20 @@ import javax.swing.JLabel;
 
 public class LeftMenuPanel extends JPanel {
 
+	JPanel starGraphicsPanel;
+	
+	final String POINTS_TEXT = "Points";
+	JPanel pointsPanel;
+	JLabel pointsTextLabel;
+	JLabel pointsLabel;
+	
+	final String MOVES_SLASH_TIME_TEXT = "Moves/Time";
+	JPanel moveSlashTimePanel;
+	JLabel movesSlashTimeTextLabel;
+	JLabel movesSlashTimeLabel;
+	
 	/**
-	 * Create the panel.
+	 * Constructor for LeftMenuPanel class
 	 */
 	public LeftMenuPanel() {
 		GridBagLayout gridBagLayout = new GridBagLayout();
@@ -30,7 +42,8 @@ public class LeftMenuPanel extends JPanel {
 		gridBagLayout.rowWeights = new double[]{1.0, 20.0, 1.0, 5.0, 1.0, 5.0, 1.0, Double.MIN_VALUE};
 		setLayout(gridBagLayout);
 		
-		JPanel starGraphicsPanel = new JPanel();
+		// Graphics for points and stars achieved
+		starGraphicsPanel = new JPanel();
 		starGraphicsPanel.setBorder(BorderFactory.createLineBorder(Color.black));
 		GridBagConstraints gbc_starGraphicsPanel = new GridBagConstraints();
 		gbc_starGraphicsPanel.insets = new Insets(0, 0, 5, 5);
@@ -39,7 +52,8 @@ public class LeftMenuPanel extends JPanel {
 		gbc_starGraphicsPanel.gridy = 1;
 		add(starGraphicsPanel, gbc_starGraphicsPanel);
 		
-		JPanel pointsPanel = new JPanel();
+		// Panel for points
+		pointsPanel = new JPanel();
 		pointsPanel.setBorder(BorderFactory.createLineBorder(Color.black));
 		GridBagConstraints gbc_pointsPanel = new GridBagConstraints();
 		gbc_pointsPanel.insets = new Insets(0, 0, 5, 5);
@@ -54,20 +68,23 @@ public class LeftMenuPanel extends JPanel {
 		gbl_pointsPanel.rowWeights = new double[]{1.0, 1.0, Double.MIN_VALUE};
 		pointsPanel.setLayout(gbl_pointsPanel);
 		
-		JLabel pointsTextLabel = new JLabel("Points");
+		// Label for points text
+		pointsTextLabel = new JLabel(POINTS_TEXT);
 		GridBagConstraints gbc_pointsTextLabel = new GridBagConstraints();
 		gbc_pointsTextLabel.insets = new Insets(0, 0, 5, 0);
 		gbc_pointsTextLabel.gridx = 0;
 		gbc_pointsTextLabel.gridy = 0;
 		pointsPanel.add(pointsTextLabel, gbc_pointsTextLabel);
 		
-		JLabel pointsLabel = new JLabel("XXX");
+		// Label to display numerical points
+		pointsLabel = new JLabel("XXX");
 		GridBagConstraints gbc_pointsLabel = new GridBagConstraints();
 		gbc_pointsLabel.gridx = 0;
 		gbc_pointsLabel.gridy = 1;
 		pointsPanel.add(pointsLabel, gbc_pointsLabel);
 		
-		JPanel moveSlashTimePanel = new JPanel();
+		// Panel for moves/time
+		moveSlashTimePanel = new JPanel();
 		moveSlashTimePanel.setBorder(BorderFactory.createLineBorder(Color.black));
 		GridBagConstraints gbc_moveSlashTimePanel = new GridBagConstraints();
 		gbc_moveSlashTimePanel.insets = new Insets(0, 0, 5, 5);
@@ -82,19 +99,47 @@ public class LeftMenuPanel extends JPanel {
 		gbl_moveSlashTimePanel.rowWeights = new double[]{1.0, 1.0, Double.MIN_VALUE};
 		moveSlashTimePanel.setLayout(gbl_moveSlashTimePanel);
 		
-		JLabel movesSlashTimeTextLabel = new JLabel("Moves/Time");
+		// Label for moves/time text
+		movesSlashTimeTextLabel = new JLabel(MOVES_SLASH_TIME_TEXT);
 		GridBagConstraints gbc_movesSlashTimeTextLabel = new GridBagConstraints();
 		gbc_movesSlashTimeTextLabel.insets = new Insets(0, 0, 5, 0);
 		gbc_movesSlashTimeTextLabel.gridx = 0;
 		gbc_movesSlashTimeTextLabel.gridy = 0;
 		moveSlashTimePanel.add(movesSlashTimeTextLabel, gbc_movesSlashTimeTextLabel);
 		
-		JLabel movesSlashTimeLabel = new JLabel("XXX");
+		// Label to display numerical moves/time
+		movesSlashTimeLabel = new JLabel("XXX");
 		GridBagConstraints gbc_movesSlashTimeLabel = new GridBagConstraints();
 		gbc_movesSlashTimeLabel.gridx = 0;
 		gbc_movesSlashTimeLabel.gridy = 1;
 		moveSlashTimePanel.add(movesSlashTimeLabel, gbc_movesSlashTimeLabel);
 
+	}
+	
+	/**
+	 * Returns the star graphics panel.
+	 * 
+	 * @return this.starGraphicsPanel The star graphics panel.
+	 */
+	public JPanel getStarGraphicsPanel(){
+		return this.starGraphicsPanel;
+	}
+	
+	/**
+	 * Returns the points label.
+	 *
+	 * @return this.pointsLabel The points label.
+	 */
+	public JLabel getPointsLabel(){
+		return this.pointsLabel;
+	}
+	
+	/**
+	 * Returns the moves/time label
+	 * @return this.movesSlashTimeLabel The moves/time label.
+	 */
+	public JLabel getMovesSlashTimeLabel(){
+		return this.movesSlashTimeLabel;
 	}
 
 }
