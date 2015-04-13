@@ -714,6 +714,219 @@ public class LevelSettingsPanel extends JPanel {
 
 	}
 	
+	/**
+	 * Returns user level name text field.
+	 * 
+	 * @return this.userLevelNameTextField The user level name text field.
+	 */
+	public JTextField getUserLevelNameTextField(){
+		return this.userLevelNameTextField;
+	}
 	
-
+	/**
+	 * Returns moves text field.
+	 * 
+	 * @return this.movesTextField The moves text field.
+	 */
+	public JTextField getMovesTextField(){
+		return this.movesTextField;
+	}
+	
+	/**
+	 * Returns timer text field.
+	 * 
+	 * @return this.timerTextField The timer text field.
+	 */
+	public JTextField getTimerTextField(){
+		return this.timerTextField;
+	}
+	
+	/**
+	 * Returns level tType combo box.
+	 * 
+	 * @return this.levelTypeComboBox The level tType combo box.
+	 */
+	public JComboBox<String> getLevelTypeComboBox(){
+		return this.levelTypeComboBox;
+	}
+	
+	/**
+	 * Returns ones text field.
+	 * 
+	 * @return this.onesTextField The ones text field.
+	 */
+	public JTextField getOnesTextField(){
+		return this.onesTextField;
+	}
+	
+	/**
+	 * Returns twos text field.
+	 * 
+	 * @return this.twosTextField The twos text field.
+	 */
+	public JTextField getTwosTextField(){
+		return this.twosTextField;
+	}
+	
+	/**
+	 * Returns threes text field.
+	 * 
+	 * @return this.threesTextField The threes text field.
+	 */
+	public JTextField getThreesTextField(){
+		return this.threesTextField;
+	}
+	
+	/**
+	 * Returns fours text field.
+	 * 
+	 * @return this.foursTextField The fours text field.
+	 */
+	public JTextField getFoursTextField(){
+		return this.foursTextField;
+	}
+	
+	/**
+	 * Returns fives text field.
+	 * 
+	 * @return this.fivesTextField The fives text field.
+	 */
+	public JTextField getFivesTextField(){
+		return this.fivesTextField;
+	}
+	
+	/**
+	 * Returns sixes text field.
+	 * 
+	 * @return this.sixesTextField The sixes text field.
+	 */
+	public JTextField getSixesTextField(){
+		return this.sixesTextField;
+	}
+	
+	/**
+	 * Returns x two multiplier text field.
+	 * 
+	 * @return this.xtwoMultiplierTextField The x two multiplier text field.
+	 */
+	public JTextField xtwoMultiplierTextField(){
+		return this.xtwoMultiplierTextField;
+	}
+	
+	/**
+	 * Returns x three multiplier text field.
+	 * 
+	 * @return this.xthreeMultiplierTextField The x three multiplier text field.
+	 */
+	public JTextField xthreeMultiplierTextField(){
+		return this.xthreeMultiplierTextField;
+	}
+	
+	/**
+	 * Returns special move one minus button.
+	 * 
+	 * @return this.specialMoveOneMinusButton The special move one minus button.
+	 */
+	public JButton getSpecialMoveOneMinusButton(){
+		return this.specialMoveOneMinusButton;
+	}
+	
+	/**
+	 * Returns special move one plus button.
+	 * 
+	 * @return this.specialMoveOnePlusButton The special move one plus button.
+	 */
+	public JButton getSpecialMoveOnePlusButton(){
+		return this.specialMoveOnePlusButton;
+	}
+	
+	/**
+	 * Returns special move two minus button.
+	 * 
+	 * @return this.specialMovetwoMinusButton The special move two minus button.
+	 */
+	public JButton getSpecialMoveTwoMinusButton(){
+		return this.specialMoveTwoMinusButton;
+	}
+	
+	/**
+	 * Returns special move two plus button.
+	 * 
+	 * @return this.specialMoveTwoPlusButton The special move two plus button.
+	 */
+	public JButton getSpecialMoveTwoPlusButton(){
+		return this.specialMoveTwoPlusButton;
+	}
+	
+	/**
+	 * Returns special move three minus button.
+	 * 
+	 * @return this.specialMoveThreeMinusButton The special move three minus button.
+	 */
+	public JButton getSpecialMoveThreeMinusButton(){
+		return this.specialMoveThreeMinusButton;
+	}
+	
+	/**
+	 * Returns special move three plus button.
+	 * 
+	 * @return this.specialMoveThreePlusButton The special move three plus button.
+	 */
+	public JButton getSpecialMoveThreePlusButton(){
+		return this.specialMoveThreePlusButton;
+	}
+	
+	/**
+	 * Returns special move four minus button.
+	 * 
+	 * @return this.specialMoveFourMinusButton The special move four minus button.
+	 */
+	public JButton getSpecialMoveFourMinusButton(){
+		return this.specialMoveFourMinusButton;
+	}
+	
+	/**
+	 * Returns special move four plus button.
+	 * 
+	 * @return this.specialMoveFourPlusButton The special four plus minus button.
+	 */
+	public JButton getSpecialMoveFourPlusButton(){
+		return this.specialMoveFourPlusButton;
+	}
+	
+	/**
+	 * Returns one star score text field.
+	 * 
+	 * @return this.oneStarScoreTextField The one star score text field.
+	 */
+	public JTextField getOneStarScoreTextField(){
+		return this.oneStarScoreTextField;
+	}
+	
+	/**
+	 * Returns two star score text field.
+	 * 
+	 * @return this.twoStarScoreTextField The two star score text field.
+	 */
+	public JTextField getTwoStarScoreTextField(){
+		return this.twoStarScoreTextField;
+	}
+	
+	/**
+	 * Returns three star score text field.
+	 * 
+	 * @return this.threeStarScoreTextField The three star score text field.
+	 */
+	public JTextField getThreeStarScoreTextField(){
+		return this.threeStarScoreTextField;
+	}
+	
+	/**
+	 * Returns tile type combo box.
+	 * 
+	 * @return this.tileTypeComboBox The tile type combo box.
+	 */
+	public JComboBox<String> getTileTypeComboBox(){
+		return this.tileTypeComboBox;
+	}
 }
