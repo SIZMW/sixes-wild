@@ -11,8 +11,10 @@ public class BuilderTopPanel extends JPanel {
 
 	JButton newButton;
 	JButton saveButton;
+	
 	JButton openButton;
 	JComboBox<String> openComboBox;
+	
 	JButton deleteButton;
 	JComboBox<String> deleteComboBox;
 	
@@ -77,5 +79,59 @@ public class BuilderTopPanel extends JPanel {
 		gbc_deleteComboBox.gridy = 0;
 		add(deleteComboBox, gbc_deleteComboBox);
 
+	}
+	
+	/**
+	 * Returns the new button.
+	 * 
+	 * @return this.newButton The new button.
+	 */
+	public JButton getNewButton(){
+		return this.newButton;
+	}
+	
+	/**
+	 * Returns the save button.
+	 * 
+	 * @return this.saveButton The save button.
+	 */
+	public JButton getSaveButton(){
+		return this.saveButton;
+	}
+	
+	/**
+	 * Returns the open button.
+	 * 
+	 * @return this.openButton The open button.
+	 */
+	public JButton getOpenButton(){
+		return this.openButton;
+	}
+	
+	/**
+	 * Returns the open combo box.
+	 * 
+	 * @return this.openComboBox The open combo box.
+	 */
+	public JComboBox<String> getOpenComboBox(){
+		return this.openComboBox;
+	}
+	
+	/**
+	 * Returns the delete button.
+	 * 
+	 * @return this.deleteButton The delete button.
+	 */
+	public JButton getDeleteButton(){
+		return this.deleteButton;
+	}
+	
+	/**
+	 * Returns the delete combo box.
+	 * 
+	 * @return this.deleteComboBox The delete combo box.
+	 */
+	public JComboBox<String> getDeleteComboBox(){
+		return this.deleteComboBox;
 	}
 }

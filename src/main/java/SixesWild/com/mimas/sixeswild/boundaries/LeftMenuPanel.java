@@ -134,6 +134,7 @@ public class LeftMenuPanel extends JPanel {
 		return this.pointsLabel;
 	}
 	
+	//TODO figure out specifics later
 	/**
 	 * Returns the moves/time label
 	 * @return this.movesSlashTimeLabel The moves/time label.
