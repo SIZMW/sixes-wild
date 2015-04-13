@@ -11,6 +11,8 @@ import javax.swing.border.EmptyBorder;
 import SixesWild.com.mimas.sixeswild.controllers.OptionsMenuButtonController;
 import SixesWild.com.mimas.sixeswild.controllers.StoryMenuButtonController;
 import SixesWild.com.mimas.sixeswild.controllers.UserLevelMenuButtonController;
+import SixesWild.com.mimas.sixeswild.controllers.CreditsMenuButtonController;
+
 
 /**
  * This class represents the Game application that will run and handle the
@@ -68,7 +70,10 @@ public class GameApplication {
 				new UserLevelMenuButtonController(this));
 		this.mainPanel.getOptionsMenuButton().addActionListener(
 				new OptionsMenuButtonController(this));
+		this.mainPanel.getCreditsMenuButton().addActionListener(
+				new CreditsMenuButtonController(this));
 	}
+	
 
 	/**
 	 * Returns the game frame.
