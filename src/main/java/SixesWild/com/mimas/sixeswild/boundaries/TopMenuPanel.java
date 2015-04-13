@@ -143,7 +143,7 @@ public class TopMenuPanel extends JPanel {
 	/**
 	 * Returns the exit level button.
 	 * 
-	 * @return this.exitLevelButton The exit level button
+	 * @return this.exitLevelButton The exit level button.
 	 */
 	public JButton getExitLevelButton(){
 		return this.exitLevelButton;
