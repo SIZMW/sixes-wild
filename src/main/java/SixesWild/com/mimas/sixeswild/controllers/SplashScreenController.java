@@ -4,6 +4,8 @@
 package SixesWild.com.mimas.sixeswild.controllers;
 
 
+import java.awt.Container;
+import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
@@ -11,6 +13,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 import javax.swing.JFrame;
+import javax.swing.JPanel;
 
 import SixesWild.com.mimas.sixeswild.boundaries.GameApplication;
 
@@ -68,16 +71,19 @@ public class SplashScreenController implements KeyListener {
 		
 		//if 'enter'
 		if(key == 10){
-		JFrame currentFrame = app.getFrame();
+			Container contentContainer = app.getFrame().getContentPane();
+			JPanel currentPanel = new JPanel();
+			contentContainer.removeAll();
 		
-		currentFrame.getContentPane().removeAll();
+		//currentPanel.getContentPane().removeAll();
 		
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		gridBagLayout.columnWidths = new int[] { 0 };
 		gridBagLayout.rowHeights = new int[] { 0 };
 		gridBagLayout.columnWeights = new double[] { 1.0, Double.MIN_VALUE };
 		gridBagLayout.rowWeights = new double[] { 1.0, Double.MIN_VALUE };
-		currentFrame.setLayout(gridBagLayout);
+		currentPanel.setPreferredSize(new Dimension(800, 600));
+		currentPanel.setLayout(gridBagLayout);
 
 		GridBagConstraints gbc_list = new GridBagConstraints();
 		gbc_list.insets = new Insets(0, 0, 0, 0);
@@ -85,8 +91,10 @@ public class SplashScreenController implements KeyListener {
 		gbc_list.gridx = 0;
 		gbc_list.gridy = 0;
 		
-		currentFrame.getContentPane().add(this.app.getMainPanel(), gbc_list);
-		this.app.getMainPanel().updateUI();
+		currentPanel.add(this.app.getMainPanel(), gbc_list);
+		contentContainer.add(currentPanel);
+		contentContainer.revalidate();
+		contentContainer.repaint();
 		}
 		
 	}
