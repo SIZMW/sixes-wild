@@ -1,4 +1,5 @@
 package SixesWild.com.mimas.sixeswild.boundaries;
+
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
@@ -7,29 +8,38 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JPanel;
 
-
+/**
+ * This class represents the top panel of the level builder. It contains the
+ * level editing options.
+ * 
+ * @author Yahel Nachum
+ */
 public class BuilderTopPanel extends JPanel {
+
+	private static final long serialVersionUID = 1L;
 
 	JButton newButton;
 	JButton saveButton;
-	
+
 	JButton openButton;
 	JComboBox<String> openComboBox;
-	
+
 	JButton deleteButton;
 	JComboBox<String> deleteComboBox;
-	
+
 	/**
 	 * Constructor for BuilderTopPanel class.
 	 */
 	public BuilderTopPanel() {
 		GridBagLayout gridBagLayout = new GridBagLayout();
-		gridBagLayout.columnWidths = new int[]{0, 89, 0, 89, 0, 89, 0, 0, 0, 0, 0, 0, 0};
-		gridBagLayout.rowHeights = new int[]{23, 0};
-		gridBagLayout.columnWeights = new double[]{1.0, 5.0, 1.0, 5.0, 20.0, 5.0, 20.0, 5.0, 5.0, 1.0, 20.0, 1.0, Double.MIN_VALUE};
-		gridBagLayout.rowWeights = new double[]{1.0, Double.MIN_VALUE};
+		gridBagLayout.columnWidths = new int[] { 0, 89, 0, 89, 0, 89, 0, 0, 0,
+				0, 0, 0, 0 };
+		gridBagLayout.rowHeights = new int[] { 23, 0 };
+		gridBagLayout.columnWeights = new double[] { 1.0, 5.0, 1.0, 5.0, 20.0,
+				5.0, 20.0, 5.0, 5.0, 1.0, 20.0, 1.0, Double.MIN_VALUE };
+		gridBagLayout.rowWeights = new double[] { 1.0, Double.MIN_VALUE };
 		setLayout(gridBagLayout);
-		
+
 		// button for creating a new level
 		newButton = new JButton("NEW");
 		GridBagConstraints gbc_newButton = new GridBagConstraints();
@@ -37,7 +47,7 @@ public class BuilderTopPanel extends JPanel {
 		gbc_newButton.gridx = 1;
 		gbc_newButton.gridy = 0;
 		add(newButton, gbc_newButton);
-		
+
 		// button for saving a level
 		saveButton = new JButton("SAVE");
 		GridBagConstraints gbc_saveButton = new GridBagConstraints();
@@ -45,7 +55,7 @@ public class BuilderTopPanel extends JPanel {
 		gbc_saveButton.gridx = 3;
 		gbc_saveButton.gridy = 0;
 		add(saveButton, gbc_saveButton);
-		
+
 		// button for opening a level
 		openButton = new JButton("OPEN");
 		GridBagConstraints gbc_openButton = new GridBagConstraints();
@@ -53,7 +63,7 @@ public class BuilderTopPanel extends JPanel {
 		gbc_openButton.gridx = 5;
 		gbc_openButton.gridy = 0;
 		add(openButton, gbc_openButton);
-		
+
 		// comboBox for opening a level
 		openComboBox = new JComboBox<String>();
 		GridBagConstraints gbc_openComboBox = new GridBagConstraints();
@@ -62,7 +72,7 @@ public class BuilderTopPanel extends JPanel {
 		gbc_openComboBox.gridx = 6;
 		gbc_openComboBox.gridy = 0;
 		add(openComboBox, gbc_openComboBox);
-		
+
 		// button for deleting a level
 		deleteButton = new JButton("DELETE");
 		GridBagConstraints gbc_deleteButton = new GridBagConstraints();
@@ -70,7 +80,7 @@ public class BuilderTopPanel extends JPanel {
 		gbc_deleteButton.gridx = 8;
 		gbc_deleteButton.gridy = 0;
 		add(deleteButton, gbc_deleteButton);
-		
+
 		// comboBox for deleting a level
 		deleteComboBox = new JComboBox<String>();
 		GridBagConstraints gbc_deleteComboBox = new GridBagConstraints();
@@ -81,58 +91,58 @@ public class BuilderTopPanel extends JPanel {
 		add(deleteComboBox, gbc_deleteComboBox);
 
 	}
-	
+
 	/**
 	 * Returns the new button.
 	 * 
 	 * @return this.newButton The new button.
 	 */
-	public JButton getNewButton(){
+	public JButton getNewButton() {
 		return this.newButton;
 	}
-	
+
 	/**
 	 * Returns the save button.
 	 * 
 	 * @return this.saveButton The save button.
 	 */
-	public JButton getSaveButton(){
+	public JButton getSaveButton() {
 		return this.saveButton;
 	}
-	
+
 	/**
 	 * Returns the open button.
 	 * 
 	 * @return this.openButton The open button.
 	 */
-	public JButton getOpenButton(){
+	public JButton getOpenButton() {
 		return this.openButton;
 	}
-	
+
 	/**
 	 * Returns the open combo box.
 	 * 
 	 * @return this.openComboBox The open combo box.
 	 */
-	public JComboBox<String> getOpenComboBox(){
+	public JComboBox<String> getOpenComboBox() {
 		return this.openComboBox;
 	}
-	
+
 	/**
 	 * Returns the delete button.
 	 * 
 	 * @return this.deleteButton The delete button.
 	 */
-	public JButton getDeleteButton(){
+	public JButton getDeleteButton() {
 		return this.deleteButton;
 	}
-	
+
 	/**
 	 * Returns the delete combo box.
 	 * 
 	 * @return this.deleteComboBox The delete combo box.
 	 */
-	public JComboBox<String> getDeleteComboBox(){
+	public JComboBox<String> getDeleteComboBox() {
 		return this.deleteComboBox;
 	}
 }

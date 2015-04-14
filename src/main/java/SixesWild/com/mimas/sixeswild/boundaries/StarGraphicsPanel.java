@@ -18,7 +18,8 @@ public class StarGraphicsPanel extends JPanel {
 
 	private static final long serialVersionUID = 1L;
 
-	Panel starGraphic; // TODO Any reason this isn't a JPanel?
+	Panel starGraphicPanel; // TODO Any reason this isn't a JPanel?
+	JLabel scoreLabel;
 	int scoreNumber;
 
 	/**
@@ -37,29 +38,29 @@ public class StarGraphicsPanel extends JPanel {
 		setLayout(gridBagLayout);
 
 		// Score for JLabel
-		JLabel lblScore = new JLabel("Score: " + scoreNumber);
-		GridBagConstraints gbc_lblScore = new GridBagConstraints();
-		gbc_lblScore.anchor = GridBagConstraints.SOUTHEAST;
-		gbc_lblScore.insets = new Insets(0, 0, 5, 0);
-		gbc_lblScore.gridx = 4;
-		gbc_lblScore.gridy = 0;
-		add(lblScore, gbc_lblScore);
+		scoreLabel = new JLabel("Score: " + scoreNumber);
+		GridBagConstraints gbc_scoreLabel = new GridBagConstraints();
+		gbc_scoreLabel.anchor = GridBagConstraints.SOUTHEAST;
+		gbc_scoreLabel.insets = new Insets(0, 0, 5, 0);
+		gbc_scoreLabel.gridx = 4;
+		gbc_scoreLabel.gridy = 0;
+		add(scoreLabel, gbc_scoreLabel);
 
 		// TODO Add graphic image
 		// Star graphic
-		starGraphic = new Panel();
+		starGraphicPanel = new Panel();
 		GridBagConstraints gbc_panel = new GridBagConstraints();
 		gbc_panel.insets = new Insets(0, 0, 0, 5);
 		gbc_panel.anchor = GridBagConstraints.WEST;
 		gbc_panel.gridx = 1;
 		gbc_panel.gridy = 3;
-		add(starGraphic, gbc_panel);
+		add(starGraphicPanel, gbc_panel);
 
-		GridBagLayout gbl_panel = new GridBagLayout();
-		gbl_panel.columnWidths = new int[] { 0 };
-		gbl_panel.rowHeights = new int[] { 0 };
-		gbl_panel.columnWeights = new double[] { Double.MIN_VALUE };
-		gbl_panel.rowWeights = new double[] { Double.MIN_VALUE };
-		starGraphic.setLayout(gbl_panel);
+		GridBagLayout gbc_starGraphicPanel = new GridBagLayout();
+		gbc_starGraphicPanel.columnWidths = new int[] { 0 };
+		gbc_starGraphicPanel.rowHeights = new int[] { 0 };
+		gbc_starGraphicPanel.columnWeights = new double[] { Double.MIN_VALUE };
+		gbc_starGraphicPanel.rowWeights = new double[] { Double.MIN_VALUE };
+		starGraphicPanel.setLayout(gbc_starGraphicPanel);
 	}
 }

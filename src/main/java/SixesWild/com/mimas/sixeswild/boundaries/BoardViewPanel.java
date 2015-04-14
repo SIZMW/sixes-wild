@@ -16,6 +16,8 @@ import SixesWild.com.mimas.sixeswild.entities.Board;
  */
 public class BoardViewPanel extends JPanel {
 
+	private static final long serialVersionUID = 1L;
+	
 	Board board;
 	
 	/**

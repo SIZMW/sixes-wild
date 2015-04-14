@@ -14,7 +14,6 @@ import SixesWild.com.mimas.sixeswild.controllers.OptionsMenuButtonController;
 import SixesWild.com.mimas.sixeswild.controllers.StoryMenuButtonController;
 import SixesWild.com.mimas.sixeswild.controllers.UserLevelMenuButtonController;
 
-
 /**
  * This class represents the Game application that will run and handle the
  * player playing the game Sixes Wild.

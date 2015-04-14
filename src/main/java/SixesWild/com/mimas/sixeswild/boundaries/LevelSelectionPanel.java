@@ -19,6 +19,8 @@ import javax.swing.JScrollPane;
  */
 public class LevelSelectionPanel extends JPanel {
 
+	private static final long serialVersionUID = 1L;
+
 	DefaultListModel<String> levelListModel;
 	JScrollPane levelScrollPane;
 	JPanel previewPanel;
@@ -28,7 +30,8 @@ public class LevelSelectionPanel extends JPanel {
 	// TODO Add parameter for level list
 	/**
 	 * Constructor for LevelSelectionPanel class.
-	 * @param  
+	 * 
+	 * @param levelNames The names of levels to populate the list.
 	 */
 	public LevelSelectionPanel(ArrayList<String> levelNames) {
 		GridBagLayout gridBagLayout = new GridBagLayout();
@@ -38,7 +41,7 @@ public class LevelSelectionPanel extends JPanel {
 		gridBagLayout.rowWeights = new double[] { 1.0, Double.MIN_VALUE };
 		setLayout(gridBagLayout);
 		this.levelNames = levelNames;
-		// TODO Remove when we populate level list
+		
 		levelListModel = new DefaultListModel<String>();
 		for (int i = 0; i < levelNames.size(); i++) {
 			levelListModel.addElement(levelNames.get(i));

@@ -11,25 +11,35 @@ import javax.swing.JPanel;
 
 import SixesWild.com.mimas.sixeswild.entities.Board;
 
+/**
+ * This class represents the overall view for the level builder.
+ * 
+ * @author Cameron Jones
+ */
 public class BuilderView extends JPanel {
+
+	private static final long serialVersionUID = 1L;
+
 	BuilderTopPanel builderTopPanel;
 	LevelSettingsPanel levelSettingsPanel;
 	BoardViewPanel boardViewPanel;
-	
+
 	/**
 	 * Constructor for level view
 	 */
 	public BuilderView() {
 		GridBagLayout gridBagLayout = new GridBagLayout();
-		gridBagLayout.columnWidths = new int[]{0, 0, 0, 0, 0};
-		gridBagLayout.rowHeights = new int[]{0, 0, 0};
-		gridBagLayout.columnWeights = new double[]{5.0, 1.0, 15.0, 1.0, Double.MIN_VALUE};
-		gridBagLayout.rowWeights = new double[]{1.0, 10.0, Double.MIN_VALUE};
+		gridBagLayout.columnWidths = new int[] { 0, 0, 0, 0, 0 };
+		gridBagLayout.rowHeights = new int[] { 0, 0, 0 };
+		gridBagLayout.columnWeights = new double[] { 5.0, 1.0, 15.0, 1.0,
+				Double.MIN_VALUE };
+		gridBagLayout.rowWeights = new double[] { 1.0, 10.0, Double.MIN_VALUE };
 		setLayout(gridBagLayout);
-		
+
 		// Level settings panel
 		levelSettingsPanel = new LevelSettingsPanel();
-		levelSettingsPanel.setBorder(BorderFactory.createLineBorder(Color.black));
+		levelSettingsPanel.setBorder(BorderFactory
+				.createLineBorder(Color.black));
 		levelSettingsPanel.setPreferredSize(new Dimension(100, 519));
 		GridBagConstraints gbc_levelSettingsPanel = new GridBagConstraints();
 		gbc_levelSettingsPanel.gridheight = 2;
@@ -38,7 +48,7 @@ public class BuilderView extends JPanel {
 		gbc_levelSettingsPanel.gridx = 0;
 		gbc_levelSettingsPanel.gridy = 0;
 		add(levelSettingsPanel, gbc_levelSettingsPanel);
-		
+
 		// Builder top panel
 		builderTopPanel = new BuilderTopPanel();
 		builderTopPanel.setBorder(BorderFactory.createLineBorder(Color.black));
@@ -49,7 +59,7 @@ public class BuilderView extends JPanel {
 		gbc_builderTopPanel.gridx = 1;
 		gbc_builderTopPanel.gridy = 0;
 		add(builderTopPanel, gbc_builderTopPanel);
-		
+
 		// Board view panel
 		boardViewPanel = new BoardViewPanel(new Board());
 		boardViewPanel.setBorder(BorderFactory.createLineBorder(Color.black));
@@ -61,32 +71,31 @@ public class BuilderView extends JPanel {
 		add(boardViewPanel, gbc_boardView);
 
 	}
-	
+
 	/**
 	 * Returns builder top panel.
 	 * 
 	 * @return this.builderTopPanel The builder top panel.
 	 */
-	public BuilderTopPanel getBuilderTopPanel(){
+	public BuilderTopPanel getBuilderTopPanel() {
 		return this.builderTopPanel;
 	}
-	
+
 	/**
 	 * Returns the level settings panel.
 	 * 
 	 * @return this.levelSettingsPanel The level settings panel.
 	 */
-	public LevelSettingsPanel getLevelSettingsPanel(){
+	public LevelSettingsPanel getLevelSettingsPanel() {
 		return this.levelSettingsPanel;
 	}
-	
+
 	/**
 	 * Returns the board view panel.
 	 * 
 	 * @return this.boardViewPanel The board view panel.
 	 */
-	public BoardViewPanel getBoardViewPanel(){
+	public BoardViewPanel getBoardViewPanel() {
 		return this.boardViewPanel;
 	}
-
 }
