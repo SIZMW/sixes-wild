@@ -14,6 +14,7 @@ import SixesWild.com.mimas.sixeswild.controllers.CreditsMenuButtonController;
 import SixesWild.com.mimas.sixeswild.controllers.OptionsMenuButtonController;
 import SixesWild.com.mimas.sixeswild.controllers.StoryMenuButtonController;
 import SixesWild.com.mimas.sixeswild.controllers.UserLevelMenuButtonController;
+import SixesWild.com.mimas.sixeswild.controllers.TitleViewController;
 
 /**
  * This class represents the Game application that will run and handle the
@@ -26,9 +27,9 @@ public class GameApplication {
 	JFrame frame;
 	MainPanel mainPanel;
 	LevelView levelView;
-	BadgesPanel badgePanel;
-	ArrayList<String> listOfBadges;
-	int highestLevel;
+//	BadgesPanel badgePanel;
+//	ArrayList<String> listOfBadges;
+//	int highestLevel;
 	// TODO Add LevelPanel attribute when it is created.
 
 	/**
@@ -46,15 +47,9 @@ public class GameApplication {
 			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
 		} catch (Exception e) {
 		}
-		highestLevel = 14;
-		listOfBadges = new ArrayList<String>();
-		//fill badge list
-		for(int i = 0; i < 50; i++){//TODO change this number to a realistic one
-			listOfBadges.add("Badge " + (i+1));
-		}
+		
 		mainPanel = new MainPanel();
 		levelView = new LevelView();
-		badgePanel = new BadgesPanel(listOfBadges, highestLevel);
 		frame = new JFrame();
 		frame.setBounds(0, 0, 800, 600);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -65,7 +60,9 @@ public class GameApplication {
 		frame.setPreferredSize(new Dimension(800,600));
 
 		// TODO Add splash screen on startup
+		//frame.getContentPane().add(new SplashScreen());
 
+		//frame.getContentPane().removeAll();
 		frame.getContentPane().add(mainPanel);
 		this.setUpControllers();
 	}
@@ -84,7 +81,8 @@ public class GameApplication {
 				new CreditsMenuButtonController(this));
 		this.mainPanel.getBadgesMenuButton().addActionListener(
 				new BadgesMenuButtonController(this));
-		//this.mainPanel.getSubMenuPanel()
+		this.mainPanel.titleMenuView.addKeyListener(
+				new TitleViewController());
 	}
 	
 
@@ -110,11 +108,11 @@ public class GameApplication {
 		return this.levelView;
 	}
 	
-	public ArrayList<String> getListOfBadges() {
-		return listOfBadges;
-	}
-
-	public JPanel getBadgePanel(){
-		return this.badgePanel;
-	}
+//	public ArrayList<String> getListOfBadges() {
+//		return listOfBadges;
+//	}
+//
+//	public JPanel getBadgePanel(){
+//		return this.badgePanel;
+//	}
 }

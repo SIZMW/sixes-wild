@@ -32,7 +32,7 @@ public class BadgesListPanelController implements ActionListener {
 	//The action of viewing the badges 
 	public void actionPerformed(ActionEvent e) {
 		//if a badge is clicked, preview it
-		JPanel currentPanel = app.getBadgePanel();
+		//JPanel currentPanel = app.getBadgePanel();
 		for(int i = 0; i < 50; i ++){
 			//TODO insert images of badges with descriptions
 		}

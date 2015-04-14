@@ -64,7 +64,7 @@ public class StoryMenuButtonController implements ActionListener {
 			levelList.add("Story Level " + (i + 1));
 		}
 
-		currentPanel.add(new LevelSelectionPanel(levelList), gbc_list);
+		currentPanel.add(this.app.getMainPanel().getStoryMenuView(), gbc_list);
 		currentPanel.updateUI();
 	}
 }

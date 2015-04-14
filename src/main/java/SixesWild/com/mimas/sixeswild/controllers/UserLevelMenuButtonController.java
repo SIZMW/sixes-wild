@@ -64,7 +64,7 @@ public class UserLevelMenuButtonController implements ActionListener {
 			levelList.add("User Level " + (i + 1));
 		}
 
-		currentPanel.add(new LevelSelectionPanel(levelList), gbc_list);
+		currentPanel.add(this.app.getMainPanel().getUserMenuView(), gbc_list);
 		currentPanel.updateUI();
 	}
 }

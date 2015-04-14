@@ -51,9 +51,9 @@ public class BadgesMenuButtonController implements ActionListener {
 		gbc_list.gridx = 0;
 		gbc_list.gridy = 0;
 
-		
+		//this.app.getMainPanel().getBadgeMenuView();
 
-		currPanel.add(this.app.getBadgePanel(), gbc_list);
+		currPanel.add(this.app.getMainPanel().getBadgeMenuView(), gbc_list);
 		currPanel.updateUI();
 	}
 }

@@ -56,7 +56,7 @@ public class CreditsMenuButtonController implements ActionListener {
 		gbc_list.gridx = 0;
 		gbc_list.gridy = 0;
 
-		currentPanel.add(new CreditsView(), gbc_list);
+		currentPanel.add(this.app.getMainPanel().getCreditsMenuView(), gbc_list);
 		currentPanel.updateUI();
 	}
 }

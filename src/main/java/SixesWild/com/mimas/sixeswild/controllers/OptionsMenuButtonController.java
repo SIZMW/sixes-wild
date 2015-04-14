@@ -53,7 +53,7 @@ public class OptionsMenuButtonController implements ActionListener {
 		gbc_list.gridx = 0;
 		gbc_list.gridy = 0;
 
-		currentPanel.add(new OptionsPanel(), gbc_list);
+		currentPanel.add(this.app.getMainPanel().getOptionsMenuView(), gbc_list);
 		currentPanel.updateUI();
 	}
 }
