@@ -18,10 +18,10 @@ import javax.swing.JPanel;
 import SixesWild.com.mimas.sixeswild.boundaries.GameApplication;
 
 /**
- * @author owner
+ * @author Cameron Jones
  *
  */
-public class SplashScreenController implements KeyListener {
+public class GameSplashScreenController implements KeyListener {
 	GameApplication app;
 
 	/**
@@ -30,7 +30,7 @@ public class SplashScreenController implements KeyListener {
 	 * @param app
 	 *            The GameApplication currently running.
 	 */
-	public SplashScreenController(GameApplication app) {
+	public GameSplashScreenController(GameApplication app) {
 		this.app = app;
 	}
 
