@@ -33,33 +33,38 @@ public class UserLevelMenuButtonController implements ActionListener {
 		this.app = app;
 	}
 
-	/**
-	 * Processes the request to show the story mode sub menu.
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
 	 */
 	public void actionPerformed(ActionEvent e) {
-		JPanel currPanel = app.getMainPanel().getSubMenuPanel();
-		currPanel.removeAll();
-		
+		JPanel currentPanel = app.getMainPanel().getSubMenuPanel();
+		currentPanel.removeAll();
+
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		gridBagLayout.columnWidths = new int[] { 0 };
 		gridBagLayout.rowHeights = new int[] { 0 };
 		gridBagLayout.columnWeights = new double[] { 1.0, Double.MIN_VALUE };
 		gridBagLayout.rowWeights = new double[] { 1.0, Double.MIN_VALUE };
-		currPanel.setLayout(gridBagLayout);
-		
+		currentPanel.setLayout(gridBagLayout);
+
 		GridBagConstraints gbc_list = new GridBagConstraints();
 		gbc_list.insets = new Insets(0, 0, 0, 0);
 		gbc_list.fill = GridBagConstraints.BOTH;
 		gbc_list.gridx = 0;
 		gbc_list.gridy = 0;
-		//TODO: Collect the StoryLevelNames and Put them in the List to populate the view
-		// For Now I have put in fake data
+
+		// TODO: Collect the StoryLevelNames and Put them in the List to
+		// populate the view
+
 		ArrayList<String> levelList = new ArrayList<String>();
-		for(int i = 0; i < 50; i++){
-			levelList.add("User Level " + (i+1));
+		for (int i = 0; i < 50; i++) {
+			levelList.add("User Level " + (i + 1));
 		}
-		currPanel.add(new LevelSelectionPanel(levelList), gbc_list);
-		
-		currPanel.updateUI();
+
+		currentPanel.add(new LevelSelectionPanel(levelList), gbc_list);
+		currentPanel.updateUI();
 	}
 }

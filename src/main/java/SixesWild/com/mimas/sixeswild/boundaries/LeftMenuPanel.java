@@ -1,20 +1,12 @@
 package SixesWild.com.mimas.sixeswild.boundaries;
-import javax.swing.JPanel;
-
 import java.awt.Color;
-import java.awt.GridBagLayout;
-
-import javax.swing.JTextArea;
-
 import java.awt.GridBagConstraints;
-
-import javax.swing.BorderFactory;
-import javax.swing.JTextPane;
-import javax.swing.JTextField;
-
+import java.awt.GridBagLayout;
 import java.awt.Insets;
 
+import javax.swing.BorderFactory;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
 
 
 public class LeftMenuPanel extends JPanel {

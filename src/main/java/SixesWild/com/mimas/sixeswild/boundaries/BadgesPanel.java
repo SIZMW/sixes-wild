@@ -6,17 +6,13 @@ import java.awt.Insets;
 import java.util.ArrayList;
 
 import javax.swing.DefaultListModel;
-import javax.swing.DefaultListSelectionModel;
+import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
-import javax.swing.JLabel;
 
 public class BadgesPanel extends JPanel {
 
-	/**
-	 * Keeps java happy according to Heineman
-	 */
 	private static final long serialVersionUID = 1L;
 	
 	DefaultListModel<String> badgeListModel;

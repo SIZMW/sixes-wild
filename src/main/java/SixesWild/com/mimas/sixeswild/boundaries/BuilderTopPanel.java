@@ -1,10 +1,11 @@
 package SixesWild.com.mimas.sixeswild.boundaries;
-import javax.swing.JPanel;
-import javax.swing.JButton;
-import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
 import java.awt.Insets;
+
+import javax.swing.JButton;
 import javax.swing.JComboBox;
+import javax.swing.JPanel;
 
 
 public class BuilderTopPanel extends JPanel {

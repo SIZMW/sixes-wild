@@ -7,7 +7,6 @@ import java.awt.Insets;
 
 import javax.swing.JButton;
 import javax.swing.JPanel;
-import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 /**
@@ -17,6 +16,8 @@ import javax.swing.JTextField;
  */
 public class TopMenuPanel extends JPanel {
 
+	private static final long serialVersionUID = 1L;
+	
 	final String MOVE_TEXT = "Move ";
 	JTextField levelNameTextField;
 	JButton specialMoveButton1;
@@ -30,8 +31,8 @@ public class TopMenuPanel extends JPanel {
 	 */
 	public TopMenuPanel() {
 		GridBagLayout gridBagLayout = new GridBagLayout();
-		gridBagLayout.columnWidths = new int[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-				0, 0 };
+		gridBagLayout.columnWidths = new int[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+				0, 0, 0, 0 };
 		gridBagLayout.rowHeights = new int[] { 0, 0, 0, 0 };
 		gridBagLayout.columnWeights = new double[] { 1.0, 100.0, 1.0, 1.0, 1.0,
 				1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, Double.MIN_VALUE };
@@ -84,7 +85,7 @@ public class TopMenuPanel extends JPanel {
 		gbc_specialMoveButton4.gridx = 9;
 		gbc_specialMoveButton4.gridy = 1;
 		add(specialMoveButton4, gbc_specialMoveButton4);
-		
+
 		// Exit level button
 		exitLevelButton = new JButton("Exit Level");
 		exitLevelButton.setPreferredSize(new Dimension(100, 100));
@@ -139,13 +140,13 @@ public class TopMenuPanel extends JPanel {
 	public JButton getSpecialMoveButton4() {
 		return this.specialMoveButton4;
 	}
-	
+
 	/**
 	 * Returns the exit level button.
 	 * 
 	 * @return this.exitLevelButton The exit level button.
 	 */
-	public JButton getExitLevelButton(){
+	public JButton getExitLevelButton() {
 		return this.exitLevelButton;
 	}
 }

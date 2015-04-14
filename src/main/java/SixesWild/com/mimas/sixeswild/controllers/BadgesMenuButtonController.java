@@ -11,8 +11,6 @@ import javax.swing.JPanel;
 
 import SixesWild.com.mimas.sixeswild.boundaries.BadgesPanel;
 import SixesWild.com.mimas.sixeswild.boundaries.GameApplication;
-import SixesWild.com.mimas.sixeswild.boundaries.LevelSelectionPanel;
-import SixesWild.com.mimas.sixeswild.boundaries.OptionsPanel;
 
 /**
  * This class is the controller to handle redrawing the menu window when the
@@ -33,31 +31,36 @@ public class BadgesMenuButtonController implements ActionListener {
 		this.app = app;
 	}
 
-	/**
-	 * Processes the request to show the options sub menu.
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
 	 */
 	public void actionPerformed(ActionEvent e) {
 		JPanel currPanel = app.getMainPanel().getSubMenuPanel();
 		currPanel.removeAll();
-		
+
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		gridBagLayout.columnWidths = new int[] { 0 };
 		gridBagLayout.rowHeights = new int[] { 0 };
 		gridBagLayout.columnWeights = new double[] { 1.0, Double.MIN_VALUE };
 		gridBagLayout.rowWeights = new double[] { 1.0, Double.MIN_VALUE };
 		currPanel.setLayout(gridBagLayout);
-		
+
 		GridBagConstraints gbc_list = new GridBagConstraints();
 		gbc_list.insets = new Insets(0, 0, 0, 0);
 		gbc_list.fill = GridBagConstraints.BOTH;
 		gbc_list.gridx = 0;
 		gbc_list.gridy = 0;
-		
+
 		int highestLevel = 14;
+
 		ArrayList<String> badgeList = new ArrayList<String>();
-		for(int i = 0; i < 50; i++){
-			badgeList.add("Badge " + (i+1));
+		for (int i = 0; i < 50; i++) {
+			badgeList.add("Badge " + (i + 1));
 		}
+
 		currPanel.add(new BadgesPanel(badgeList, highestLevel), gbc_list);
 		currPanel.updateUI();
 	}

@@ -9,11 +9,10 @@ import javax.swing.UIManager;
 import javax.swing.border.EmptyBorder;
 
 import SixesWild.com.mimas.sixeswild.controllers.BadgesMenuButtonController;
+import SixesWild.com.mimas.sixeswild.controllers.CreditsMenuButtonController;
 import SixesWild.com.mimas.sixeswild.controllers.OptionsMenuButtonController;
-import SixesWild.com.mimas.sixeswild.controllers.PlayButtonController;
 import SixesWild.com.mimas.sixeswild.controllers.StoryMenuButtonController;
 import SixesWild.com.mimas.sixeswild.controllers.UserLevelMenuButtonController;
-import SixesWild.com.mimas.sixeswild.controllers.CreditsMenuButtonController;
 
 
 /**

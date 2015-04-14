@@ -19,6 +19,9 @@ import javax.swing.JTextPane;
  * @author Yahel Nachum
  */
 public class OptionsPanel extends JPanel {
+
+	private static final long serialVersionUID = 1L;
+
 	JButton changeAestheticButton;
 	JButton switchUserButton;
 	JButton resetBadgesButton;
