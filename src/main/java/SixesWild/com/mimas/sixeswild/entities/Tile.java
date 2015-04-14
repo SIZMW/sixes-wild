@@ -7,16 +7,18 @@ package SixesWild.com.mimas.sixeswild.entities;
  * @author Aditya Nivarthi
  */
 public abstract class Tile {
-	String type;
+	
+	TileType type;
+	int number;
+	int multiplier;
 
 	/**
 	 * Constructor for Tile object.
-	 * 
-	 * @param type
-	 *            The type of tile.
 	 */
-	public Tile(String type) {
-		this.type = type;
+	public Tile() {
+		this.type = TileType.NULL;
+		this.number = 0;
+		this.multiplier = 0;
 	}
 
 	/**
@@ -24,7 +26,25 @@ public abstract class Tile {
 	 * 
 	 * @return this.type The type of tile.
 	 */
-	public String getType() {
+	public TileType getType() {
 		return this.type;
+	}
+	
+	/**
+	 * Returns the number of the tile.
+	 * 
+	 * @return this.number The number of the tile.
+	 */
+	public int getNumber() {
+		return this.number;
+	}
+
+	/**
+	 * Returns the multiplier of the tile.
+	 * 
+	 * @return this.multiplier The multiplier of the tile.
+	 */
+	public int getMultiplier() {
+		return this.multiplier;
 	}
 }

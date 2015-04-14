@@ -24,7 +24,7 @@ public class Board {
 	public boolean initialize() {
 		for (int i = 0; i < SIZE_X; i++) {
 			for (int j = 0; j < SIZE_Y; j++) {
-				squares[i][j] = new Square(new NumberTile("Number", 1, 1), i, j, false);
+				squares[i][j] = new Square(new NumberTile(1, 1), i, j, false);
 			}
 		}
 		return true;

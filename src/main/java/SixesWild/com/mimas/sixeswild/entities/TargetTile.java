@@ -14,22 +14,11 @@ public class TargetTile extends Tile {
 
 	/**
 	 * Constructor for TargetTile class.
-	 * 
-	 * @param type
-	 *            The type of tile.
 	 */
-	public TargetTile(String type) {
-		super(type);
+	public TargetTile() {
+		super();
+		this.type = TileType.TARGET;
 		this.number = SIX;
+		this.multiplier = 0;
 	}
-
-	/**
-	 * Returns the number for the tile.
-	 * 
-	 * @return this.number The number for this tile.
-	 */
-	public int getNumber() {
-		return this.number;
-	}
-
 }

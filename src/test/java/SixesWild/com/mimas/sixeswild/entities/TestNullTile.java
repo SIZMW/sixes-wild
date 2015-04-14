@@ -4,7 +4,9 @@ import junit.framework.TestCase;
 
 public class TestNullTile extends TestCase {
 	public void testTileMethods() {
-		NullTile tile = new NullTile("NullTile");
-		assertEquals(tile.getType(), "NullTile");
+		NullTile tile = new NullTile();
+		assertEquals(tile.getType(), TileType.NULL);
+		assertEquals(tile.getNumber(), 0);
+		assertEquals(tile.getMultiplier(), 0);
 	}
 }

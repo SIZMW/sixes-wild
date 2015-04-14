@@ -10,12 +10,11 @@ public class NullTile extends Tile {
 
 	/**
 	 * Constructor for NullTile class.
-	 * 
-	 * @param type
-	 *            The type of tile.
 	 */
-	public NullTile(String type) {
-		super(type);
+	public NullTile() {
+		super();
+		this.type = TileType.NULL;
+		this.number = 0;
+		this.multiplier = 0;
 	}
-
 }
