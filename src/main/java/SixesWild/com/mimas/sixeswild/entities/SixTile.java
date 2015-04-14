@@ -7,8 +7,7 @@ package SixesWild.com.mimas.sixeswild.entities;
  * @author Aditya Nivarthi
  */
 public class SixTile extends Tile {
-
-	int number;
+	
 	final int SIX = 6;
 
 	/**
