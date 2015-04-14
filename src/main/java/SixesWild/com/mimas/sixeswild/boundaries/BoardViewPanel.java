@@ -26,6 +26,9 @@ public class BoardViewPanel extends JPanel {
 	Board gameBoard;
 	JLabel labelBoard[][];
 	
+	Border border;
+	GridBagConstraints gbc_panel;
+	
 	/**
 	 * Constructor for BoardViewPanel class.
 	 */
@@ -43,12 +46,10 @@ public class BoardViewPanel extends JPanel {
 		gridBagLayout.rowWeights = new double[] { 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0 };
 		setLayout(gridBagLayout);
 
-		Border border = BorderFactory.createLineBorder(Color.BLACK, 2);
-		GridBagConstraints gbc_panel = new GridBagConstraints();
+		border = BorderFactory.createLineBorder(Color.BLACK, 2);
+		gbc_panel = new GridBagConstraints();
 		gbc_panel.gridheight = 1;
 		gbc_panel.fill = GridBagConstraints.BOTH;
-		
-		// TODO Need to revisit this display code.
 		
 		for (int i = 0; i < 9 ; i++) {
 			for (int j = 0; j < 9; j++) {
@@ -82,6 +83,22 @@ public class BoardViewPanel extends JPanel {
 	 */
 	protected void paintComponent(Graphics g) {
 		super.paintComponent(g);
-		this.setSize(new Dimension(this.getMinOfHeightAndWidth(), this.getMinOfHeightAndWidth()));
+		
+		for (int i = 0; i < 9 ; i++) {
+			for (int j = 0; j < 9; j++) {
+				labelBoard[i][j].setLocation((((this.getWidth() - (((int)this.getWidth() / 9) * 9)) + 10) / 2) + (this.getWidth() / 9 * i), (((this.getHeight() - (((int)this.getHeight() / 9) * 9 )) + 10) / 2) + (this.getHeight() / 9 * j));
+				labelBoard[i][j].setSize(new Dimension(this.getMinOfHeightAndWidth() / 9 - 10, this.getMinOfHeightAndWidth() / 9 - 10));
+				
+				labelBoard[i][j].setBackground(Color.WHITE);
+				labelBoard[i][j].setFont(new Font("Verdana", Font.BOLD, 14));
+				labelBoard[i][j].setOpaque(true);
+				labelBoard[i][j].setBorder(border);
+				
+				gbc_panel.gridx = i + 1;
+				gbc_panel.gridy = j + 1;
+			}
+		}
+		
+		this.updateUI();
 	}
 }
