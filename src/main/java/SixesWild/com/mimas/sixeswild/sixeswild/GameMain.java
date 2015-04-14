@@ -10,7 +10,7 @@ import SixesWild.com.mimas.sixeswild.boundaries.GameApplication;
  * 
  * @author Aditya Nivarthi
  */
-public class Main {
+public class GameMain {
 
 	/**
 	 * Main to launch the game.

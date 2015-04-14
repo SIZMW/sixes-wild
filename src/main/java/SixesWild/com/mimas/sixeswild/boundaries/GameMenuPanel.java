@@ -1,6 +1,5 @@
 package SixesWild.com.mimas.sixeswild.boundaries;
 
-import java.awt.Component;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.util.ArrayList;
@@ -13,7 +12,7 @@ import javax.swing.JPanel;
  * 
  * @author Cameron Jones
  */
-public class MainPanel extends JPanel {
+public class GameMenuPanel extends JPanel {
 
 	private static final long serialVersionUID = 1L;
 	
@@ -31,9 +30,9 @@ public class MainPanel extends JPanel {
 	JButton creditsMenuButton;
 
 	/**
-	 * Constructor for MainPanel class.
+	 * Constructor for GameMenuPanel class.
 	 */
-	public MainPanel() {
+	public GameMenuPanel() {
 		//General Layout Settings
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		gridBagLayout.columnWidths = new int[] { 0, 5, 0 };
