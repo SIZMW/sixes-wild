@@ -13,6 +13,7 @@ import SixesWild.com.mimas.sixeswild.controllers.BadgesMenuButtonController;
 import SixesWild.com.mimas.sixeswild.controllers.CreditsMenuButtonController;
 import SixesWild.com.mimas.sixeswild.controllers.OptionsMenuButtonController;
 import SixesWild.com.mimas.sixeswild.controllers.PlayButtonController;
+import SixesWild.com.mimas.sixeswild.controllers.SplashScreenController;
 import SixesWild.com.mimas.sixeswild.controllers.StoryMenuButtonController;
 import SixesWild.com.mimas.sixeswild.controllers.UserLevelMenuButtonController;
 import SixesWild.com.mimas.sixeswild.controllers.TitleViewController;
@@ -62,10 +63,9 @@ public class GameApplication {
 		frame.setPreferredSize(new Dimension(800, 600));
 
 		// TODO Add splash screen on startup
-		// frame.getContentPane().add(new SplashScreen());
+		 frame.getContentPane().add(new SplashScreen());
 
-		// frame.getContentPane().removeAll();
-		frame.getContentPane().add(mainPanel);
+		
 		this.setUpControllers();
 	}
 
@@ -89,6 +89,8 @@ public class GameApplication {
 				.addActionListener(new PlayButtonController(this));
 		this.mainPanel.getUserMenuView().getPlayButton()
 				.addActionListener(new PlayButtonController(this));
+		this.getFrame().addKeyListener(new SplashScreenController(this));
+		
 
 	}
 
