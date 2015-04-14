@@ -1,4 +1,4 @@
-package SixesWild.com.mimas.sixeswild.controllers;
+package SixesWild.com.mimas.sixeswild.boundaries;
 
 import java.awt.Container;
 import java.awt.Dimension;
@@ -10,17 +10,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JPanel;
 
-import SixesWild.com.mimas.sixeswild.boundaries.ExitButtonController;
-import SixesWild.com.mimas.sixeswild.boundaries.GameApplication;
-import SixesWild.com.mimas.sixeswild.boundaries.LevelView;
-
-/**
- * This class is the controller to handle redrawing the menu window when the
- * story mode sub menu is requested.
- * 
- * @author Aditya Nivarthi
- */
-public class PlayButtonController implements ActionListener {
+public class ExitButtonController implements ActionListener {
 	GameApplication app;
 
 	// TODO Add list of levels as attribute
@@ -31,7 +21,7 @@ public class PlayButtonController implements ActionListener {
 	 * @param app
 	 *            The GameApplication currently running.
 	 */
-	public PlayButtonController(GameApplication app) {
+	public ExitButtonController(GameApplication app) {
 		this.app = app;
 	}
 
@@ -59,13 +49,8 @@ public class PlayButtonController implements ActionListener {
 		gbc_list.fill = GridBagConstraints.BOTH;
 		gbc_list.gridx = 0;
 		gbc_list.gridy = 0;
-
-		LevelView newLevel = new LevelView();
-		this.app.setLevelPanel(newLevel);
-		app.getLevelPanel().getTopMenuPanel().getExitLevelButton()
-				.addActionListener(new ExitButtonController(app));
-
-		currentPanel.add(this.app.getLevelPanel(), gbc_list);
+		
+		currentPanel.add(this.app.getMainPanel(), gbc_list);
 		contentContainer.add(currentPanel);
 		contentContainer.revalidate();
 		contentContainer.repaint();

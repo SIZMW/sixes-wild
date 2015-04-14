@@ -83,11 +83,13 @@ public class GameApplication {
 				new CreditsMenuButtonController(this));
 		this.mainPanel.getBadgesMenuButton().addActionListener(
 				new BadgesMenuButtonController(this));
-		//this.mainPanel.titleMenuView.addKeyListener(new TitleViewController());
+		// this.mainPanel.titleMenuView.addKeyListener(new
+		// TitleViewController());
 		this.mainPanel.getStoryMenuView().getPlayButton()
 				.addActionListener(new PlayButtonController(this));
 		this.mainPanel.getUserMenuView().getPlayButton()
-		.addActionListener(new PlayButtonController(this));
+				.addActionListener(new PlayButtonController(this));
+
 	}
 
 	/**
@@ -117,7 +119,7 @@ public class GameApplication {
 		return this.levelView;
 	}
 
-	public void setLevelPanel(LevelView newLevel){
+	public void setLevelPanel(LevelView newLevel) {
 		this.levelView = newLevel;
 	}
 }
