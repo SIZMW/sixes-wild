@@ -2,11 +2,16 @@ package SixesWild.com.mimas.sixeswild.boundaries;
 
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.Rectangle;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
 
+import javax.swing.BorderFactory;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.SwingConstants;
+import javax.swing.border.Border;
 
 import SixesWild.com.mimas.sixeswild.entities.Board;
 
@@ -18,35 +23,65 @@ public class BoardViewPanel extends JPanel {
 
 	private static final long serialVersionUID = 1L;
 	
-	Board board;
+	Board gameBoard;
+	JLabel labelBoard[][];
 	
 	/**
 	 * Constructor for BoardViewPanel class.
 	 */
 	public BoardViewPanel(Board board) {
 		super();
-		this.board = board;
-		this.setBackground(Color.RED);
-		this.setSize(new Dimension(669, 429));
+		this.gameBoard = board;
+		this.gameBoard.initialize();
 		this.setVisible(true);
+		labelBoard = new JLabel[9][9];
+		
+		GridBagLayout gridBagLayout = new GridBagLayout();
+		gridBagLayout.columnWidths = new int[] { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 };
+		gridBagLayout.rowHeights = new int[] { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 };
+		gridBagLayout.columnWeights = new double[] { 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0 };
+		gridBagLayout.rowWeights = new double[] { 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0 };
+		setLayout(gridBagLayout);
+
+		Border border = BorderFactory.createLineBorder(Color.BLACK, 2);
+		GridBagConstraints gbc_panel = new GridBagConstraints();
+		gbc_panel.gridheight = 1;
+		gbc_panel.fill = GridBagConstraints.BOTH;
+		
+		// TODO Need to revisit this display code.
+		
+		for (int i = 0; i < 9 ; i++) {
+			for (int j = 0; j < 9; j++) {
+				labelBoard[i][j] = new JLabel(gameBoard.getSquare(i, j).getTile().getNumber() + "", SwingConstants.CENTER);
+				labelBoard[i][j].setLocation((((this.getMinOfHeightAndWidth() - (((int)this.getMinOfHeightAndWidth() / 9) * 9)) + 10) / 2) + (this.getMinOfHeightAndWidth() / 9 * i), (((this.getMinOfHeightAndWidth() - (((int)this.getMinOfHeightAndWidth() / 9) * 9 )) + 10) / 2) + (this.getMinOfHeightAndWidth() / 9 * j));
+				labelBoard[i][j].setSize(new Dimension(this.getWidth() / 9 - 20, this.getHeight() / 9 - 20));
+				
+				labelBoard[i][j].setBackground(Color.WHITE);
+				labelBoard[i][j].setFont(new Font("Verdana", Font.BOLD, 14));
+				labelBoard[i][j].setOpaque(true);
+				labelBoard[i][j].setBorder(border);
+				
+				gbc_panel.gridx = i + 1;
+				gbc_panel.gridy = j + 1;
+				
+				this.add(labelBoard[i][j], gbc_panel);
+			}
+		}
 	}
 	
-	//TODO Draw board based on actual board parameter.
+	/**
+	 * Returns the smaller of the height or width dimensions
+	 * @return this.getWidth() or this.getHeight() The dimension that is smaller.
+	 */
+	private int getMinOfHeightAndWidth() {
+		return (this.getWidth() < this.getHeight()) ? this.getWidth() : this.getHeight();
+	}
 	
 	/* (non-Javadoc)
 	 * @see javax.swing.JComponent#paintComponent(java.awt.Graphics)
 	 */
 	protected void paintComponent(Graphics g) {
 		super.paintComponent(g);
-		Graphics2D g2 = (Graphics2D) g;
-		g2.setColor(Color.BLACK);
-		for (int i = 0; i < 9; i++) {
-			for (int j = 0; j < 9; j++) {
-				Rectangle rect = new Rectangle((((this.getWidth() - (((int)this.getWidth() / 9) * 9)) + 10) / 2) + (this.getWidth() / 9 * i), (((this.getHeight() - (((int)this.getHeight() / 9) * 9 )) + 10) / 2) + (this.getHeight() / 9 * j), this.getWidth() / 9 - 10, this.getHeight() / 9 - 10);
-				g2.fill(rect);
-				g2.draw(rect);
-			}
-		}
+		this.setSize(new Dimension(this.getMinOfHeightAndWidth(), this.getMinOfHeightAndWidth()));
 	}
-
 }
