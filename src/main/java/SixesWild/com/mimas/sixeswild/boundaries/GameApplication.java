@@ -12,6 +12,7 @@ import javax.swing.border.EmptyBorder;
 import SixesWild.com.mimas.sixeswild.controllers.BadgesMenuButtonController;
 import SixesWild.com.mimas.sixeswild.controllers.CreditsMenuButtonController;
 import SixesWild.com.mimas.sixeswild.controllers.OptionsMenuButtonController;
+import SixesWild.com.mimas.sixeswild.controllers.PlayButtonController;
 import SixesWild.com.mimas.sixeswild.controllers.StoryMenuButtonController;
 import SixesWild.com.mimas.sixeswild.controllers.UserLevelMenuButtonController;
 import SixesWild.com.mimas.sixeswild.controllers.TitleViewController;
@@ -27,9 +28,10 @@ public class GameApplication {
 	JFrame frame;
 	MainPanel mainPanel;
 	LevelView levelView;
-//	BadgesPanel badgePanel;
-//	ArrayList<String> listOfBadges;
-//	int highestLevel;
+
+	// BadgesPanel badgePanel;
+	// ArrayList<String> listOfBadges;
+	// int highestLevel;
 	// TODO Add LevelPanel attribute when it is created.
 
 	/**
@@ -47,7 +49,7 @@ public class GameApplication {
 			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
 		} catch (Exception e) {
 		}
-		
+
 		mainPanel = new MainPanel();
 		levelView = new LevelView();
 		frame = new JFrame();
@@ -57,12 +59,12 @@ public class GameApplication {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
 		frame.setContentPane(contentPane);
-		frame.setPreferredSize(new Dimension(800,600));
+		frame.setPreferredSize(new Dimension(800, 600));
 
 		// TODO Add splash screen on startup
-		//frame.getContentPane().add(new SplashScreen());
+		// frame.getContentPane().add(new SplashScreen());
 
-		//frame.getContentPane().removeAll();
+		// frame.getContentPane().removeAll();
 		frame.getContentPane().add(mainPanel);
 		this.setUpControllers();
 	}
@@ -81,10 +83,12 @@ public class GameApplication {
 				new CreditsMenuButtonController(this));
 		this.mainPanel.getBadgesMenuButton().addActionListener(
 				new BadgesMenuButtonController(this));
-		this.mainPanel.titleMenuView.addKeyListener(
-				new TitleViewController());
+		//this.mainPanel.titleMenuView.addKeyListener(new TitleViewController());
+		this.mainPanel.getStoryMenuView().getPlayButton()
+				.addActionListener(new PlayButtonController(this));
+		this.mainPanel.getUserMenuView().getPlayButton()
+		.addActionListener(new PlayButtonController(this));
 	}
-	
 
 	/**
 	 * Returns the game frame.
@@ -103,14 +107,17 @@ public class GameApplication {
 	public MainPanel getMainPanel() {
 		return this.mainPanel;
 	}
-	
+
 	/**
 	 * Returns the game levelPanel.
 	 * 
 	 * @return this.levelPanel The game LevelPanel.
 	 */
-	public JPanel getLevelPanel() {
+	public LevelView getLevelPanel() {
 		return this.levelView;
 	}
-	
+
+	public void setLevelPanel(LevelView newLevel){
+		this.levelView = newLevel;
+	}
 }

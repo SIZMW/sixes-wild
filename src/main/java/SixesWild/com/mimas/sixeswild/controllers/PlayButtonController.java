@@ -58,8 +58,10 @@ public class PlayButtonController implements ActionListener {
 		gbc_list.fill = GridBagConstraints.BOTH;
 		gbc_list.gridx = 0;
 		gbc_list.gridy = 0;
-
-		currentPanel.add(new LevelView(), gbc_list);
+		
+		this.app.setLevelPanel(new LevelView());
+		
+		currentPanel.add(this.app.getLevelPanel(), gbc_list);
 		contentContainer.add(currentPanel);
 		contentContainer.revalidate();
 		contentContainer.repaint();

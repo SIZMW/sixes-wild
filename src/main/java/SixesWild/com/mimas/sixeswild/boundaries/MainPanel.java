@@ -175,7 +175,7 @@ public class MainPanel extends JPanel {
 	 * 
 	 * @return this.badgeMenuView The badge menu view.
 	 */
-	public Component getBadgeMenuView() {
+	public BadgesPanel getBadgeMenuView() {
 		return this.badgeMenuView;
 	}
 	
@@ -184,7 +184,7 @@ public class MainPanel extends JPanel {
 	 * 
 	 * @return this.optionMenuView The options menu view.
 	 */
-	public Component getOptionsMenuView() {
+	public OptionsPanel getOptionsMenuView() {
 		return this.optionsMenuView;
 	}
 	
@@ -193,7 +193,7 @@ public class MainPanel extends JPanel {
 	 * 
 	 * @return this.storyMenuView The story menu view.
 	 */
-	public Component getStoryMenuView() {
+	public LevelSelectionPanel getStoryMenuView() {
 		return this.storyMenuView;
 	}
 	
@@ -202,7 +202,7 @@ public class MainPanel extends JPanel {
 	 * 
 	 * @return this.userMenuView The user menu view.
 	 */
-	public Component getUserMenuView() {
+	public LevelSelectionPanel getUserMenuView() {
 		return this.userMenuView;
 	}
 	
@@ -211,7 +211,7 @@ public class MainPanel extends JPanel {
 	 * 
 	 * @return this.creditsMenuView The credits menu view.
 	 */
-	public Component getCreditsMenuView() {
+	public CreditsView getCreditsMenuView() {
 		return this.creditsMenuView;
 	}
 	
@@ -220,7 +220,8 @@ public class MainPanel extends JPanel {
 	 * 
 	 * @return this.titleMenuView The title menu view.
 	 */
-	public Component getTitleMenuView() {
+	public TitleView getTitleMenuView() {
 		return this.titleMenuView;
 	}
+	
 }
