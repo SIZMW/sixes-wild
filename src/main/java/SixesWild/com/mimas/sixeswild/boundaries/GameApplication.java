@@ -61,6 +61,7 @@ public class GameApplication {
 		contentPane.setLayout(new BorderLayout(0, 0));
 		frame.setContentPane(contentPane);
 		frame.setPreferredSize(new Dimension(800, 600));
+		frame.setMinimumSize(new Dimension(470, 350));
 
 		// TODO Add splash screen on startup
 		 frame.getContentPane().add(new SplashScreen());

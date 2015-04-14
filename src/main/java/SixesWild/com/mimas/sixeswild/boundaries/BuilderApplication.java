@@ -43,7 +43,8 @@ public class BuilderApplication {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
 		frame.setContentPane(contentPane);
-		frame.setPreferredSize(new Dimension(800, 600));
+		frame.setPreferredSize(new Dimension(1000, 700));
+		frame.setMinimumSize(new Dimension(1000, 700));
 
 		frame.getContentPane().add(builderView);
 		this.setUpControllers();
