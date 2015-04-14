@@ -1,15 +1,18 @@
 package SixesWild.com.mimas.sixeswild.boundaries;
 
+import java.awt.Component;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.util.ArrayList;
 
+import javax.swing.DefaultListCellRenderer;
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+import javax.swing.ListSelectionModel;
 
 /**
  * This class represents the inner view for selecting a level and displaying a
@@ -50,6 +53,23 @@ public class LevelSelectionPanel extends JPanel {
 		// Level list scroll pane
 		levelScrollPane = new JScrollPane();
 		JList<String> list = new JList<String>(levelListModel);
+		list.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		
+		// TODO Make renderer its own class and use as needed.
+		
+		list.setCellRenderer(new DefaultListCellRenderer() {
+			private static final long serialVersionUID = 1L;
+
+			public Component getListCellRendererComponent(JList list, Object value, int index, boolean isSelected, boolean cellHasFocus) {
+				if (((String)value).contains("0")) {
+					super.getListCellRendererComponent(list, value, index, false, false);
+				} else {
+					super.getListCellRendererComponent(list, value, index, isSelected, cellHasFocus);
+				}
+		        return this;
+			}
+		});
+		
 		levelScrollPane.setViewportView(list);
 
 		GridBagConstraints gbc_list = new GridBagConstraints();
