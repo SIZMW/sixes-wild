@@ -97,4 +97,19 @@ public class BadgesPanel extends JPanel {
 	public JPanel getPreviewPanel() {
 		return this.previewPanel;
 	}
+	/**
+	 * Returns the badge list
+	 * @return this.badgeListModel The list of badges 
+	 */
+	public DefaultListModel<String> getBadgeListModel() {
+		return this.badgeListModel;
+	}
+	/**
+	 * Returns the badge scroll pane
+	 * @return this.badgeScrollPane The scrolling panel with the list of badges
+	 */
+	public JScrollPane getBadgeScrollPane() {
+		return this.badgeScrollPane;
+	}
+	
 }

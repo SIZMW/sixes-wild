@@ -3,7 +3,7 @@ package SixesWild.com.mimas.sixeswild.boundaries;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
-import java.awt.Panel;
+
 
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -18,7 +18,7 @@ public class StarGraphicsPanel extends JPanel {
 
 	private static final long serialVersionUID = 1L;
 
-	Panel starGraphicPanel; // TODO Any reason this isn't a JPanel?
+	JPanel starGraphicPanel;
 	JLabel scoreLabel;
 	int scoreNumber;
 
@@ -48,7 +48,7 @@ public class StarGraphicsPanel extends JPanel {
 
 		// TODO Add graphic image
 		// Star graphic
-		starGraphicPanel = new Panel();
+		starGraphicPanel = new JPanel();
 		GridBagConstraints gbc_panel = new GridBagConstraints();
 		gbc_panel.insets = new Insets(0, 0, 0, 5);
 		gbc_panel.anchor = GridBagConstraints.WEST;
