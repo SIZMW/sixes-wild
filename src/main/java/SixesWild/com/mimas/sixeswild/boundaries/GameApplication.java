@@ -103,16 +103,14 @@ public class GameApplication {
 	public MainPanel getMainPanel() {
 		return this.mainPanel;
 	}
-
+	
+	/**
+	 * Returns the game levelPanel.
+	 * 
+	 * @return this.levelPanel The game LevelPanel.
+	 */
 	public JPanel getLevelPanel() {
 		return this.levelView;
 	}
 	
-//	public ArrayList<String> getListOfBadges() {
-//		return listOfBadges;
-//	}
-//
-//	public JPanel getBadgePanel(){
-//		return this.badgePanel;
-//	}
 }

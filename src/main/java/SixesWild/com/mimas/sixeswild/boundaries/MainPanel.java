@@ -170,26 +170,56 @@ public class MainPanel extends JPanel {
 		return this.creditsMenuButton;
 	}
 
+	/**
+	 * Returns the badge menu view.
+	 * 
+	 * @return this.badgeMenuView The badge menu view.
+	 */
 	public Component getBadgeMenuView() {
 		return this.badgeMenuView;
 	}
 	
+	/**
+	 * Returns the option menu view.
+	 * 
+	 * @return this.optionMenuView The options menu view.
+	 */
 	public Component getOptionsMenuView() {
 		return this.optionsMenuView;
 	}
 	
+	/**
+	 * Returns the story menu view.
+	 * 
+	 * @return this.storyMenuView The story menu view.
+	 */
 	public Component getStoryMenuView() {
 		return this.storyMenuView;
 	}
 	
+	/**
+	 * Returns the user menu view.
+	 * 
+	 * @return this.userMenuView The user menu view.
+	 */
 	public Component getUserMenuView() {
 		return this.userMenuView;
 	}
 	
+	/**
+	 * Returns the credits menu view.
+	 * 
+	 * @return this.creditsMenuView The credits menu view.
+	 */
 	public Component getCreditsMenuView() {
 		return this.creditsMenuView;
 	}
 	
+	/**
+	 * Returns the title menu view.
+	 * 
+	 * @return this.titleMenuView The title menu view.
+	 */
 	public Component getTitleMenuView() {
 		return this.titleMenuView;
 	}
