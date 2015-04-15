@@ -1,5 +1,6 @@
 package SixesWild.com.mimas.sixeswild.boundaries;
 
+import java.awt.Color;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
@@ -12,7 +13,6 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
-import java.awt.Color;
 
 /**
  * This class represents the view used to show badges that the player has
@@ -31,7 +31,9 @@ public class BadgesPanel extends JPanel {
 
 	/**
 	 * Constructor for BadgesPanel class.
-	 * @param badgeNames The list of badge names
+	 * 
+	 * @param badgeNames
+	 *            The list of badge names
 	 */
 	public BadgesPanel(ArrayList<String> badgeNames) {
 		GridBagLayout gridBagLayout = new GridBagLayout();
@@ -41,7 +43,7 @@ public class BadgesPanel extends JPanel {
 		gridBagLayout.rowWeights = new double[] { 1.0, Double.MIN_VALUE };
 		setLayout(gridBagLayout);
 		this.badgeNames = badgeNames;
-		
+
 		// TODO Remove when we populate level list
 		badgeListModel = new DefaultListModel<String>();
 		for (int i = 0; i < badgeNames.size(); i++) {
@@ -76,16 +78,17 @@ public class BadgesPanel extends JPanel {
 		gbl_panel.rowWeights = new double[] { 1.0, 1.0, 1.0, 1.0, 1.0, 1.0,
 				1.0, 1.0, 1.0, 1.0, Double.MIN_VALUE };
 		previewPanel.setLayout(gbl_panel);
-		
-				JLabel lblBadgepreview = new JLabel("BadgePreview", SwingConstants.CENTER);
-				lblBadgepreview.setBorder(new LineBorder(new Color(0, 0, 0)));
-				GridBagConstraints gbc_lblBadgepreview = new GridBagConstraints();
-				gbc_lblBadgepreview.gridheight = 3;
-				gbc_lblBadgepreview.fill = GridBagConstraints.BOTH;
-				gbc_lblBadgepreview.insets = new Insets(0, 0, 5, 5);
-				gbc_lblBadgepreview.gridx = 1;
-				gbc_lblBadgepreview.gridy = 1;
-				previewPanel.add(lblBadgepreview, gbc_lblBadgepreview);
+
+		JLabel lblBadgepreview = new JLabel("BadgePreview",
+				SwingConstants.CENTER);
+		lblBadgepreview.setBorder(new LineBorder(new Color(0, 0, 0)));
+		GridBagConstraints gbc_lblBadgepreview = new GridBagConstraints();
+		gbc_lblBadgepreview.gridheight = 3;
+		gbc_lblBadgepreview.fill = GridBagConstraints.BOTH;
+		gbc_lblBadgepreview.insets = new Insets(0, 0, 5, 5);
+		gbc_lblBadgepreview.gridx = 1;
+		gbc_lblBadgepreview.gridy = 1;
+		previewPanel.add(lblBadgepreview, gbc_lblBadgepreview);
 
 	}
 

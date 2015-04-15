@@ -36,18 +36,20 @@ public class LevelSelectionPanel extends JPanel {
 	/**
 	 * Constructor for LevelSelectionPanel class.
 	 * 
-	 * @param levelNames The names of levels to populate the list.
+	 * @param levelNames
+	 *            The names of levels to populate the list.
 	 */
-	public LevelSelectionPanel(ArrayList<String> levelNames, int highestLevelUnlocked) {
+	public LevelSelectionPanel(ArrayList<String> levelNames,
+			int highestLevelUnlocked) {
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		gridBagLayout.columnWidths = new int[] { 0, 0, 0 };
 		gridBagLayout.rowHeights = new int[] { 0, 0 };
 		gridBagLayout.columnWeights = new double[] { 1.0, 1.0, Double.MIN_VALUE };
 		gridBagLayout.rowWeights = new double[] { 1.0, Double.MIN_VALUE };
 		setLayout(gridBagLayout);
-		
+
 		this.levelNames = levelNames;
-		
+
 		levelListModel = new DefaultListModel<String>();
 		for (int i = 0; i < levelNames.size(); i++) {
 			levelListModel.addElement(levelNames.get(i));
@@ -57,11 +59,11 @@ public class LevelSelectionPanel extends JPanel {
 		levelScrollPane = new JScrollPane();
 		JList<String> list = new JList<String>(levelListModel);
 		list.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-		
+
 		// TODO Make renderer its own class and use as needed.
-		
+
 		list.setCellRenderer(new LevelListCellRenderer(highestLevelUnlocked));
-		
+
 		levelScrollPane.setViewportView(list);
 
 		GridBagConstraints gbc_list = new GridBagConstraints();
@@ -87,25 +89,26 @@ public class LevelSelectionPanel extends JPanel {
 		gbl_panel.rowWeights = new double[] { 1.0, 1.0, 1.0, 1.0, 1.0, 1.0,
 				1.0, 1.0, 1.0, 1.0, Double.MIN_VALUE };
 		previewPanel.setLayout(gbl_panel);
-				
-				JLabel lblLevelPreview = new JLabel("Level Preview", SwingConstants.CENTER);
-				lblLevelPreview.setBorder(new LineBorder(new Color(0, 0, 0)));
-				lblLevelPreview.setBackground(Color.WHITE);
-				GridBagConstraints gbc_lblLevelPreview = new GridBagConstraints();
-				gbc_lblLevelPreview.fill = GridBagConstraints.BOTH;
-				gbc_lblLevelPreview.gridheight = 3;
-				gbc_lblLevelPreview.insets = new Insets(0, 0, 5, 5);
-				gbc_lblLevelPreview.gridx = 1;
-				gbc_lblLevelPreview.gridy = 1;
-				previewPanel.add(lblLevelPreview, gbc_lblLevelPreview);
-		
-				// Play level button
-				playLevelButton = new JButton("Play Level");
-				GridBagConstraints gbc_btnPlay = new GridBagConstraints();
-				gbc_btnPlay.insets = new Insets(0, 0, 0, 5);
-				gbc_btnPlay.gridx = 1;
-				gbc_btnPlay.gridy = 9;
-				previewPanel.add(playLevelButton, gbc_btnPlay);
+
+		JLabel lblLevelPreview = new JLabel("Level Preview",
+				SwingConstants.CENTER);
+		lblLevelPreview.setBorder(new LineBorder(new Color(0, 0, 0)));
+		lblLevelPreview.setBackground(Color.WHITE);
+		GridBagConstraints gbc_lblLevelPreview = new GridBagConstraints();
+		gbc_lblLevelPreview.fill = GridBagConstraints.BOTH;
+		gbc_lblLevelPreview.gridheight = 3;
+		gbc_lblLevelPreview.insets = new Insets(0, 0, 5, 5);
+		gbc_lblLevelPreview.gridx = 1;
+		gbc_lblLevelPreview.gridy = 1;
+		previewPanel.add(lblLevelPreview, gbc_lblLevelPreview);
+
+		// Play level button
+		playLevelButton = new JButton("Play Level");
+		GridBagConstraints gbc_btnPlay = new GridBagConstraints();
+		gbc_btnPlay.insets = new Insets(0, 0, 0, 5);
+		gbc_btnPlay.gridx = 1;
+		gbc_btnPlay.gridy = 9;
+		previewPanel.add(playLevelButton, gbc_btnPlay);
 	}
 
 	/**

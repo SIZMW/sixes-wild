@@ -10,7 +10,7 @@ import SixesWild.com.mimas.sixeswild.boundaries.GameApplication;
  * This class is the controller to handle what badges get drawn when a selection
  * is made in the badge submenu
  * 
- * @author MarcoDuran
+ * @author Marco Duran
  *
  */
 public class BadgesListPanelController implements ActionListener {

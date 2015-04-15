@@ -22,10 +22,8 @@ import SixesWild.com.mimas.sixeswild.boundaries.LevelView;
 public class PlayButtonController implements ActionListener {
 	GameApplication app;
 
-	// TODO Add list of levels as attribute
-
 	/**
-	 * Constructor for the StoryMenuButtonController class.
+	 * Constructor for the PlayButtonController class.
 	 * 
 	 * @param app
 	 *            The GameApplication currently running.

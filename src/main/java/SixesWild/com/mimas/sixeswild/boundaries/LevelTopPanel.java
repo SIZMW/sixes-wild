@@ -17,7 +17,7 @@ import javax.swing.JTextField;
 public class LevelTopPanel extends JPanel {
 
 	private static final long serialVersionUID = 1L;
-	
+
 	final String MOVE_TEXT = "Move ";
 	JTextField levelNameTextField;
 	JButton specialMoveButton1;

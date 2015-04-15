@@ -73,7 +73,7 @@ public class GameApplication {
 		for (int i = 1; i <= 20; i++) {
 			badgesList.add("Badge " + i);
 		}
-		
+
 		// TODO Get from user profile.
 		int highestLevelUnlocked = 10;
 

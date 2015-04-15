@@ -21,14 +21,14 @@ public class BuilderApplication {
 
 	JFrame frame;
 	BuilderView builderView;
-	
+
 	/**
 	 * Constructor for BuilderApplication class.
 	 */
 	public BuilderApplication() {
 		this.initialize();
 	}
-	
+
 	/**
 	 * Initialize the contents of the frame.
 	 */
@@ -37,7 +37,7 @@ public class BuilderApplication {
 			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
 		} catch (Exception e) {
 		}
-		
+
 		builderView = new BuilderView();
 		frame = new JFrame();
 		frame.setBounds(0, 0, 800, 600);
@@ -48,20 +48,21 @@ public class BuilderApplication {
 		frame.setContentPane(contentPane);
 		frame.setPreferredSize(new Dimension(1000, 700));
 		frame.setMinimumSize(new Dimension(1000, 700));
-		
+
 		frame.getContentPane().add(new SplashScreen());
 		this.setUpControllers();
 	}
-	
+
 	/**
 	 * Set up the controllers on the various components in the game.
 	 */
 	private void setUpControllers() {
 		this.getFrame().addKeyListener(new BuilderSplashScreenController(this));
-		
-		this.builderView.builderTopPanel.newButton.addActionListener(new NewLevelButtonController(this));
+
+		this.builderView.builderTopPanel.newButton
+				.addActionListener(new NewLevelButtonController(this));
 	}
-	
+
 	/**
 	 * Returns the game frame.
 	 * 

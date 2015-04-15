@@ -23,10 +23,8 @@ import SixesWild.com.mimas.sixeswild.entities.Board;
 public class NewLevelButtonController implements ActionListener {
 	BuilderApplication app;
 
-	// TODO Add list of levels as attribute
-
 	/**
-	 * Constructor for the StoryMenuButtonController class.
+	 * Constructor for the NewLevelButtonController class.
 	 * 
 	 * @param app
 	 *            The GameApplication currently running.
@@ -45,7 +43,7 @@ public class NewLevelButtonController implements ActionListener {
 		Container contentContainer = app.getFrame().getContentPane();
 		JPanel currentPanel = new JPanel();
 		contentContainer.removeAll();
-		
+
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		gridBagLayout.columnWidths = new int[] { 0 };
 		gridBagLayout.rowHeights = new int[] { 0 };
@@ -59,14 +57,15 @@ public class NewLevelButtonController implements ActionListener {
 		gbc_list.fill = GridBagConstraints.BOTH;
 		gbc_list.gridx = 0;
 		gbc_list.gridy = 0;
-		
-		this.app.getBuilderView().updateBoardViewPanel(new BoardViewPanel(new Board()));
+
+		this.app.getBuilderView().updateBoardViewPanel(
+				new BoardViewPanel(new Board()));
 		this.app.getBuilderView().revalidate();
 		this.app.getBuilderView().repaint();
-		
+
 		currentPanel.add(this.app.getBuilderView(), gbc_list);
 		contentContainer.add(currentPanel);
-		
+
 		contentContainer.revalidate();
 		contentContainer.repaint();
 	}
