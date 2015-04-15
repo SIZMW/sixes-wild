@@ -33,7 +33,8 @@ public class GameMenuView extends JPanel {
 	/**
 	 * Constructor for GameMenuView class.
 	 */
-	public GameMenuView() {
+	public GameMenuView(ArrayList<String> storyLevelList,
+			ArrayList<String> userLevelList, ArrayList<String> badgesList) {
 
 		// General Layout Settings
 		GridBagLayout gridBagLayout = new GridBagLayout();
@@ -54,46 +55,12 @@ public class GameMenuView extends JPanel {
 		gbc_panel.gridy = 0;
 		add(subMenuPanel, gbc_panel);
 
-		// TitlePanel
+		// Menu panels
 		titleMenuView = new TitlePanel();
-
-		// StoryMenuPanel
-		ArrayList<String> storyLevelList = new ArrayList<String>();
-		for(int i = 1; i <= 999; i++){
-			int type = i%4;
-			String levelType = (type == 1) ? "-- Puzzle ":
-							   (type == 2) ? "-- Elimination ":
-							   (type == 3) ? "-- Lightning ": "-- Release ";
-			storyLevelList.add("Story Level " + i + levelType );
-		}
 		storyMenuView = new LevelSelectionPanel(storyLevelList);
-
-		// UserMenuPanel
-		ArrayList<String> userLevelList = new ArrayList<String>();
-		for(int i = 1; i <= 666; i++){
-			int type = i%4;
-			String levelType = (type == 1) ? "-- Puzzle ":
-							   (type == 2) ? "-- Elimination ":
-							   (type == 3) ? "-- Lightning ": "-- Release ";
-			userLevelList.add("User Level " + i + levelType );
-		}
 		userMenuView = new LevelSelectionPanel(userLevelList);
-
-		// BadgesMenuPanel
-		ArrayList<String> badgesList = new ArrayList<String>();
-		for(int i = 1; i <= 20; i++){
-			int type = i%4;
-			String levelType = (type == 1) ? "-- Puzzle ":
-							   (type == 2) ? "-- Elimination ":
-							   (type == 3) ? "-- Lightning ": "-- Release ";
-			badgesList.add("Badge " + i);
-		}
 		badgeMenuView = new BadgesPanel(badgesList);
-
-		// OptionsMenuPanel
 		optionsMenuView = new OptionsPanel();
-
-		// CreditsPanel
 		creditsMenuView = new CreditsPanel();
 
 		// Button Setups
