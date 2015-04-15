@@ -15,6 +15,7 @@ import java.awt.event.KeyListener;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+import SixesWild.com.mimas.sixeswild.boundaries.BuilderApplication;
 import SixesWild.com.mimas.sixeswild.boundaries.GameApplication;
 
 /**
@@ -22,16 +23,16 @@ import SixesWild.com.mimas.sixeswild.boundaries.GameApplication;
  *
  */
 public class BuilderSplashScreenController implements KeyListener {
-	GameApplication app;
+	BuilderApplication app;
 
 	/**
 	 * Constructor for the OptionsMenuButtonController class.
 	 * 
-	 * @param app
+	 * @param builderApplication
 	 *            The GameApplication currently running.
 	 */
-	public BuilderSplashScreenController(GameApplication app) {
-		this.app = app;
+	public BuilderSplashScreenController(BuilderApplication builderApplication) {
+		this.app = builderApplication;
 	}
 
 	/*
@@ -91,7 +92,7 @@ public class BuilderSplashScreenController implements KeyListener {
 		gbc_list.gridx = 0;
 		gbc_list.gridy = 0;
 		
-		currentPanel.add(this.app.getMainPanel(), gbc_list);
+		currentPanel.add(this.app.getBuilderView(), gbc_list);
 		contentContainer.add(currentPanel);
 		contentContainer.revalidate();
 		contentContainer.repaint();
