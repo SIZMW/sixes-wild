@@ -6,102 +6,110 @@ public class SpecialMoves {
 	int swapTileCount;
 	int removeTileCount;
 	int xStacySpecialMoveCount;
-	
+
 	/**
 	 * Constructor for SpecialMoves class.
 	 */
-	public SpecialMoves(){
+	public SpecialMoves() {
 		this.resetBoardCount = 0;
 		this.swapTileCount = 0;
 		this.removeTileCount = 0;
 		this.xStacySpecialMoveCount = 0;
 	}
-	
+
 	/**
 	 * Constructor for SpecialMoves class.
 	 * 
-	 * @param resetBoardCount The reset board count.
-	 * @param swapTileCount The swap tile count.
-	 * @param removeTileCount The remove tile count.
-	 * @param otherSpecialMoveCount The other special move count.
+	 * @param resetBoardCount
+	 *            The reset board count.
+	 * @param swapTileCount
+	 *            The swap tile count.
+	 * @param removeTileCount
+	 *            The remove tile count.
+	 * @param otherSpecialMoveCount
+	 *            The other special move count.
 	 */
-	public SpecialMoves(int resetBoardCount, int swapTileCount, int removeTileCount, int xStacySpecialMoveCount){
+	public SpecialMoves(int resetBoardCount, int swapTileCount,
+			int removeTileCount, int xStacySpecialMoveCount) {
 		this.resetBoardCount = resetBoardCount;
 		this.swapTileCount = swapTileCount;
 		this.removeTileCount = removeTileCount;
 		this.xStacySpecialMoveCount = xStacySpecialMoveCount;
 	}
-	
-	
+
 	/**
 	 * Sets the reset board count.
 	 * 
-	 * @param resetBoardCount The reset board count.
+	 * @param resetBoardCount
+	 *            The reset board count.
 	 */
-	public void setResetBoardCount(int resetBoardCount){
+	public void setResetBoardCount(int resetBoardCount) {
 		this.resetBoardCount = resetBoardCount;
 	}
-	
+
 	/**
 	 * Sets the swap tile count.
 	 * 
-	 * @param swapTileCount The swap tile count.
+	 * @param swapTileCount
+	 *            The swap tile count.
 	 */
-	public void setSwapTileCount(int swapTileCount){
+	public void setSwapTileCount(int swapTileCount) {
 		this.swapTileCount = swapTileCount;
 	}
-	
+
 	/**
 	 * Sets the remove tile count.
 	 * 
-	 * @param removeTileCount The remove tile count.
+	 * @param removeTileCount
+	 *            The remove tile count.
 	 */
-	public void setRemoveTileCount(int removeTileCount){
+	public void setRemoveTileCount(int removeTileCount) {
 		this.removeTileCount = removeTileCount;
 	}
-	
+
 	/**
 	 * Sets the xStacy special move count.
 	 * 
-	 * @param xStacySpecialMoveCount The xStacy special move count. 
+	 * @param xStacySpecialMoveCount
+	 *            The xStacy special move count.
 	 */
-	public void setXStacySpecialMoveCount(int xStacySpecialMoveCount){
+	public void setXStacySpecialMoveCount(int xStacySpecialMoveCount) {
 		this.xStacySpecialMoveCount = xStacySpecialMoveCount;
 	}
-	
+
 	/**
 	 * Returns the reset board count.
 	 * 
 	 * @return this.resetBoardCount The reset board count.
 	 */
-	public int getResetBoardCount(){
+	public int getResetBoardCount() {
 		return this.resetBoardCount;
 	}
-	
+
 	/**
 	 * Returns the swap tile count.
 	 * 
 	 * @return this.swapTileCount The swap tile count.
 	 */
-	public int getSwapTileCount(){
+	public int getSwapTileCount() {
 		return this.swapTileCount;
 	}
-	
+
 	/**
 	 * Returns the remove tile count.
 	 * 
 	 * @return this.removeTileCount The remove tile count.
 	 */
-	public int getRemoveTileCount(){
+	public int getRemoveTileCount() {
 		return this.removeTileCount;
 	}
-	
+
 	/**
 	 * Returns the xStacy special move count.
 	 * 
 	 * @return this.xStacySpecialMoveCount The xStacy special move count.
 	 */
-	public int getXStacySpecialMoveCount(){
+	public int getXStacySpecialMoveCount() {
 		return this.xStacySpecialMoveCount;
 	}
 }

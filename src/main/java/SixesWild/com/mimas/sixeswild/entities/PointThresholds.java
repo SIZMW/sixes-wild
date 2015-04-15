@@ -1,18 +1,19 @@
 package SixesWild.com.mimas.sixeswild.entities;
 
+import java.util.ArrayList;
+import java.util.Collections;
+
 public class PointThresholds {
 
-	int oneStarThreshold;
-	int twoStarThreshold;
-	int threeStarThreshold;
+	ArrayList<Integer> thresholds = new ArrayList<Integer>();
 
 	/**
 	 * Constructor for PointThreshold class.
 	 */
 	public PointThresholds() {
-		this.oneStarThreshold = 0;
-		this.twoStarThreshold = 0;
-		this.threeStarThreshold = 0;
+		this.thresholds.add(0);
+		this.thresholds.add(0);
+		this.thresholds.add(0);
 	}
 
 	/**
@@ -27,66 +28,57 @@ public class PointThresholds {
 	 */
 	public PointThresholds(int oneStarThreshold, int twoStarThreshold,
 			int threeStarThreshold) {
-		setOneStarThreshold(oneStarThreshold);
-		setTwoStarThreshold(twoStarThreshold);
-		setThreeStarThreshold(threeStarThreshold);
+		this.thresholds.add(oneStarThreshold);
+		this.thresholds.add(twoStarThreshold);
+		this.thresholds.add(threeStarThreshold);
+
+		Collections.sort(thresholds);
 	}
 
 	/**
-	 * Sets the one star threshold.
+	 * Sets the star thresholds.
 	 * 
 	 * @param oneStarThreshold
 	 *            The one star threshold.
-	 */
-	public void setOneStarThreshold(int oneStarThreshold) {
-		this.oneStarThreshold = oneStarThreshold;
-	}
-
-	/**
-	 * Sets the two star threshold.
-	 * 
 	 * @param twoStarThreshold
 	 *            The two star threshold.
-	 */
-	public void setTwoStarThreshold(int twoStarThreshold) {
-		this.twoStarThreshold = twoStarThreshold;
-	}
-
-	/**
-	 * Sets the three star threshold.
-	 * 
 	 * @param threeStarThreshold
 	 *            The three star threshold.
 	 */
-	public void setThreeStarThreshold(int threeStarThreshold) {
-		this.threeStarThreshold = threeStarThreshold;
+	public void setStarThresholds(int oneStarThreshold, int twoStarThreshold,
+			int threeStarThreshold) {
+		this.thresholds.set(0, oneStarThreshold);
+		this.thresholds.set(1, twoStarThreshold);
+		this.thresholds.set(2, threeStarThreshold);
+
+		Collections.sort(thresholds);
 	}
 
 	/**
 	 * Returns the one star threshold.
 	 * 
-	 * @return this.oneStarThreshold The one star threshold.
+	 * @return this.thresholds.get(0) The one star threshold.
 	 */
 	public int getOneStarThreshold() {
-		return this.oneStarThreshold;
+		return this.thresholds.get(0);
 	}
 
 	/**
 	 * Returns the two star threshold.
 	 * 
-	 * @return this.twoStarThreshold The two star threshold.
+	 * @return this.thresholds.get(1) The two star threshold.
 	 */
 	public int getTwoStarThreshold() {
-		return this.twoStarThreshold;
+		return this.thresholds.get(1);
 	}
 
 	/**
 	 * Returns the three star threshold.
 	 * 
-	 * @return this.threeStarThreshold The three star threshold.
+	 * @return this.thresholds.get(2) The three star threshold.
 	 */
 	public int getThreeStarThreshold() {
-		return this.threeStarThreshold;
+		return this.thresholds.get(2);
 	}
 
 }
