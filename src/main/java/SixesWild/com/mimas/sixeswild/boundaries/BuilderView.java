@@ -23,6 +23,8 @@ public class BuilderView extends JPanel {
 	BuilderTopPanel builderTopPanel;
 	BuilderSettingsPanel builderSettingsPanel;
 	BoardViewPanel boardViewPanel;
+	
+	private GridBagConstraints gbc_boardView;
 
 	/**
 	 * Constructor for level view
@@ -63,7 +65,7 @@ public class BuilderView extends JPanel {
 		// Board view panel
 		boardViewPanel = new BoardViewPanel(new Board());
 		boardViewPanel.setBorder(BorderFactory.createLineBorder(Color.black));
-		GridBagConstraints gbc_boardView = new GridBagConstraints();
+		gbc_boardView = new GridBagConstraints();
 		gbc_boardView.insets = new Insets(0, 0, 0, 0);
 		gbc_boardView.fill = GridBagConstraints.BOTH;
 		gbc_boardView.gridx = 2;
@@ -99,7 +101,14 @@ public class BuilderView extends JPanel {
 		return this.boardViewPanel;
 	}
 	
-	public void setBoardViewPanel(BoardViewPanel newBoardViewPanel) {
+	/**
+	 * Updates the BoardViewPanel with a new panel. Redraws the panel in the same space as the previous one.
+	 * @param newBoardViewPanel The new board view to draw.
+	 */
+	public void updateBoardViewPanel(BoardViewPanel newBoardViewPanel) {
+		this.remove(this.boardViewPanel);
 		this.boardViewPanel = newBoardViewPanel;
+		this.add(newBoardViewPanel, gbc_boardView);
+		this.updateUI();
 	}
 }
