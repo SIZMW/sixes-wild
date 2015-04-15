@@ -9,6 +9,7 @@ import javax.swing.BorderFactory;
 import javax.swing.JPanel;
 
 import SixesWild.com.mimas.sixeswild.entities.Board;
+import java.awt.Dimension;
 
 /**
  * This class represents the overall view for the level playing view.
@@ -30,13 +31,21 @@ public class LevelView extends JPanel {
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		gridBagLayout.columnWidths = new int[] { 0, 0, 0, 0, 0 };
 		gridBagLayout.rowHeights = new int[] { 0, 0, 0 };
-		gridBagLayout.columnWeights = new double[] { 1.0, 5.0, 15.0, 5.0,
+		gridBagLayout.columnWeights = new double[] { 1.0, 10.0, 15.0, 10.0,
 				Double.MIN_VALUE };
-		gridBagLayout.rowWeights = new double[] { 1.0, 10.0, Double.MIN_VALUE };
+		gridBagLayout.rowWeights = new double[] { 1.0, 15.0, Double.MIN_VALUE };
 		setLayout(gridBagLayout);
 
 		// Top menu panel
 		topMenuPanel = new TopMenuPanel();
+		GridBagLayout gridBagLayout_1 = (GridBagLayout) topMenuPanel.getLayout();
+		gridBagLayout_1.columnWeights = new double[]{0.0, 10000.0, 0.0, 20.0, 0.0, 20.0, 0.0, 20.0, 0.0, 20.0, 0.0, 20.0, 0.0};
+		gridBagLayout_1.columnWidths = new int[]{10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10};
+		topMenuPanel.getExitLevelButton().setPreferredSize(new Dimension(100, 20));
+		topMenuPanel.getSpecialMoveButton4().setPreferredSize(new Dimension(100, 20));
+		topMenuPanel.getSpecialMoveButton3().setPreferredSize(new Dimension(100, 20));
+		topMenuPanel.getSpecialMoveButton2().setPreferredSize(new Dimension(100, 20));
+		topMenuPanel.getSpecialMoveButton1().setPreferredSize(new Dimension(100, 20));
 		topMenuPanel.setBorder(BorderFactory.createLineBorder(Color.black));
 		GridBagConstraints gbc_topMenuPanel = new GridBagConstraints();
 		gbc_topMenuPanel.gridwidth = 4;

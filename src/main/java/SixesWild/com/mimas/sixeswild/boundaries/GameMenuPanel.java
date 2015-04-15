@@ -6,6 +6,8 @@ import java.util.ArrayList;
 
 import javax.swing.JButton;
 import javax.swing.JPanel;
+import java.awt.Dimension;
+import java.awt.Component;
 
 /**
  * This class represents the main view for the menus in the game for Sixes Wild.
@@ -37,7 +39,7 @@ public class GameMenuPanel extends JPanel {
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		gridBagLayout.columnWidths = new int[] { 0, 5, 0 };
 		gridBagLayout.rowHeights = new int[] { 0, 0, 0, 0, 0, 0 };
-		gridBagLayout.columnWeights = new double[] { 1.0, 9.0, Double.MIN_VALUE };
+		gridBagLayout.columnWeights = new double[] { 0.0, 9.0, Double.MIN_VALUE };
 		gridBagLayout.rowWeights = new double[] { 1.0, 1.0, 1.0, 1.0, 1.0,
 				Double.MIN_VALUE };
 		setLayout(gridBagLayout);
@@ -76,6 +78,7 @@ public class GameMenuPanel extends JPanel {
 		//Button Setups
 		  // Story menu button
 		storyLevelMenuButton = new JButton("Story Levels");
+		storyLevelMenuButton.setPreferredSize(new Dimension(150, 23));
 		GridBagConstraints gbc_btnNewButton = new GridBagConstraints();
 		gbc_btnNewButton.fill = GridBagConstraints.BOTH;
 		gbc_btnNewButton.gridx = 0;
