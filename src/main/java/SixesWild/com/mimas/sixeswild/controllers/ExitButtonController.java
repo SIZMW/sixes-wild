@@ -1,4 +1,4 @@
-package SixesWild.com.mimas.sixeswild.boundaries;
+package SixesWild.com.mimas.sixeswild.controllers;
 
 import java.awt.Container;
 import java.awt.Dimension;
@@ -10,13 +10,19 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JPanel;
 
+import SixesWild.com.mimas.sixeswild.boundaries.GameApplication;
+
+/**
+ * This class represents the controller for the exit button on the level in the
+ * game for Sixes Wild.
+ * 
+ * @author Cameron Jones
+ */
 public class ExitButtonController implements ActionListener {
 	GameApplication app;
 
-	// TODO Add list of levels as attribute
-
 	/**
-	 * Constructor for the StoryMenuButtonController class.
+	 * Constructor for the ExitButtonController class.
 	 * 
 	 * @param app
 	 *            The GameApplication currently running.
@@ -49,7 +55,7 @@ public class ExitButtonController implements ActionListener {
 		gbc_list.fill = GridBagConstraints.BOTH;
 		gbc_list.gridx = 0;
 		gbc_list.gridy = 0;
-		
+
 		currentPanel.add(this.app.getMainPanel(), gbc_list);
 		contentContainer.add(currentPanel);
 		contentContainer.revalidate();

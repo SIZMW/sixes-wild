@@ -11,20 +11,26 @@ import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
+/**
+ * This class represents the view used to show badges that the player has
+ * completed or has not completed in the game menu view of Sixes Wild.
+ * 
+ * @author Yahel Nachum
+ */
 public class BadgesPanel extends JPanel {
 
 	private static final long serialVersionUID = 1L;
-	
+
 	DefaultListModel<String> badgeListModel;
 	JScrollPane badgeScrollPane;
 	JPanel previewPanel;
 	ArrayList<String> badgeNames;
-	int highestBadge;
-	
+
 	/**
-	 * Create the panel.
+	 * Constructor for BadgesPanel class.
+	 * @param badgeNames The list of badge names
 	 */
-	public BadgesPanel(ArrayList<String> badgeNames,int highestBadge) {
+	public BadgesPanel(ArrayList<String> badgeNames) {
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		gridBagLayout.columnWidths = new int[] { 0, 0, 0 };
 		gridBagLayout.rowHeights = new int[] { 0, 0 };
@@ -32,17 +38,13 @@ public class BadgesPanel extends JPanel {
 		gridBagLayout.rowWeights = new double[] { 1.0, Double.MIN_VALUE };
 		setLayout(gridBagLayout);
 		this.badgeNames = badgeNames;
-		this.highestBadge = highestBadge;
+		
 		// TODO Remove when we populate level list
 		badgeListModel = new DefaultListModel<String>();
 		for (int i = 0; i < badgeNames.size(); i++) {
 			badgeListModel.addElement(badgeNames.get(i));
-			//badgeListModel.s
 		}
-		for (int i = 0; i < highestBadge; i++){
-			//badgeListModel.
-		}
-		
+
 		// Badge list scroll pane
 		badgeScrollPane = new JScrollPane();
 		JList<String> list = new JList<String>(badgeListModel);
@@ -71,7 +73,7 @@ public class BadgesPanel extends JPanel {
 		gbl_panel.rowWeights = new double[] { 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,
 				0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE };
 		previewPanel.setLayout(gbl_panel);
-		
+
 		JLabel lblBadgepreview = new JLabel("BadgePreview");
 		GridBagConstraints gbc_lblBadgepreview = new GridBagConstraints();
 		gbc_lblBadgepreview.insets = new Insets(0, 0, 5, 0);
@@ -80,6 +82,7 @@ public class BadgesPanel extends JPanel {
 		previewPanel.add(lblBadgepreview, gbc_lblBadgepreview);
 
 	}
+
 	/**
 	 * Returns the scroll pane of level names.
 	 * 
@@ -97,19 +100,22 @@ public class BadgesPanel extends JPanel {
 	public JPanel getPreviewPanel() {
 		return this.previewPanel;
 	}
+
 	/**
 	 * Returns the badge list
-	 * @return this.badgeListModel The list of badges 
+	 * 
+	 * @return this.badgeListModel The list of badges
 	 */
 	public DefaultListModel<String> getBadgeListModel() {
 		return this.badgeListModel;
 	}
+
 	/**
 	 * Returns the badge scroll pane
+	 * 
 	 * @return this.badgeScrollPane The scrolling panel with the list of badges
 	 */
 	public JScrollPane getBadgeScrollPane() {
 		return this.badgeScrollPane;
 	}
-	
 }

@@ -2,7 +2,6 @@ package SixesWild.com.mimas.sixeswild.boundaries;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
-import java.util.ArrayList;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -11,12 +10,11 @@ import javax.swing.border.EmptyBorder;
 
 import SixesWild.com.mimas.sixeswild.controllers.BadgesMenuButtonController;
 import SixesWild.com.mimas.sixeswild.controllers.CreditsMenuButtonController;
+import SixesWild.com.mimas.sixeswild.controllers.GameSplashScreenController;
 import SixesWild.com.mimas.sixeswild.controllers.OptionsMenuButtonController;
 import SixesWild.com.mimas.sixeswild.controllers.PlayButtonController;
-import SixesWild.com.mimas.sixeswild.controllers.GameSplashScreenController;
 import SixesWild.com.mimas.sixeswild.controllers.StoryMenuButtonController;
 import SixesWild.com.mimas.sixeswild.controllers.UserLevelMenuButtonController;
-import SixesWild.com.mimas.sixeswild.controllers.TitleViewController;
 
 /**
  * This class represents the Game application that will run and handle the
@@ -32,8 +30,7 @@ public class GameApplication {
 
 	// BadgesPanel badgePanel;
 	// ArrayList<String> listOfBadges;
-	// int highestLevel;
-	// TODO Add LevelPanel attribute when it is created.
+	// UserProfile currentProfile;
 
 	/**
 	 * Constructor for GameApplication class.
@@ -64,9 +61,8 @@ public class GameApplication {
 		frame.setMinimumSize(new Dimension(470, 350));
 
 		// TODO Add splash screen on startup
-		 frame.getContentPane().add(new SplashScreen());
+		frame.getContentPane().add(new SplashScreen());
 
-		
 		this.setUpControllers();
 	}
 
@@ -91,7 +87,6 @@ public class GameApplication {
 		this.gameMenuPanel.getUserMenuView().getPlayButton()
 				.addActionListener(new PlayButtonController(this));
 		this.getFrame().addKeyListener(new GameSplashScreenController(this));
-		
 
 	}
 

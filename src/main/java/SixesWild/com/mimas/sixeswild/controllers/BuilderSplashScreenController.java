@@ -12,11 +12,9 @@ import java.awt.Insets;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
-import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 import SixesWild.com.mimas.sixeswild.boundaries.BuilderApplication;
-import SixesWild.com.mimas.sixeswild.boundaries.GameApplication;
 
 /**
  * @author Cameron Jones

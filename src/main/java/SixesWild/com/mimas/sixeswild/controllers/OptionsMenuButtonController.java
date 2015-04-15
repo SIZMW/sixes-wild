@@ -9,7 +9,6 @@ import java.awt.event.ActionListener;
 import javax.swing.JPanel;
 
 import SixesWild.com.mimas.sixeswild.boundaries.GameApplication;
-import SixesWild.com.mimas.sixeswild.boundaries.OptionsPanel;
 
 /**
  * This class is the controller to handle redrawing the menu window when the

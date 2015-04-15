@@ -9,7 +9,6 @@ import javax.swing.UIManager;
 import javax.swing.border.EmptyBorder;
 
 import SixesWild.com.mimas.sixeswild.controllers.BuilderSplashScreenController;
-import SixesWild.com.mimas.sixeswild.controllers.GameSplashScreenController;
 
 /**
  * This class represents the Builder application that will run and handle the
@@ -57,7 +56,6 @@ public class BuilderApplication {
 	 * Set up the controllers on the various components in the game.
 	 */
 	private void setUpControllers() {
-		//Splash Screen "Enter" Controller
 		this.getFrame().addKeyListener(new BuilderSplashScreenController(this));
 	}
 	

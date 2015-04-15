@@ -1,6 +1,7 @@
 package SixesWild.com.mimas.sixeswild.boundaries;
 
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
@@ -9,7 +10,6 @@ import javax.swing.BorderFactory;
 import javax.swing.JPanel;
 
 import SixesWild.com.mimas.sixeswild.entities.Board;
-import java.awt.Dimension;
 
 /**
  * This class represents the overall view for the level playing view.

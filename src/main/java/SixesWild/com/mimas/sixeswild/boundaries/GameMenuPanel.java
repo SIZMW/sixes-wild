@@ -1,13 +1,12 @@
 package SixesWild.com.mimas.sixeswild.boundaries;
 
+import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.util.ArrayList;
 
 import javax.swing.JButton;
 import javax.swing.JPanel;
-import java.awt.Dimension;
-import java.awt.Component;
 
 /**
  * This class represents the main view for the menus in the game for Sixes Wild.
@@ -17,7 +16,7 @@ import java.awt.Component;
 public class GameMenuPanel extends JPanel {
 
 	private static final long serialVersionUID = 1L;
-	
+
 	JPanel subMenuPanel;
 	TitleView titleMenuView;
 	LevelSelectionPanel storyMenuView;
@@ -35,7 +34,8 @@ public class GameMenuPanel extends JPanel {
 	 * Constructor for GameMenuPanel class.
 	 */
 	public GameMenuPanel() {
-		//General Layout Settings
+
+		// General Layout Settings
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		gridBagLayout.columnWidths = new int[] { 0, 5, 0 };
 		gridBagLayout.rowHeights = new int[] { 0, 0, 0, 0, 0, 0 };
@@ -44,8 +44,8 @@ public class GameMenuPanel extends JPanel {
 				Double.MIN_VALUE };
 		setLayout(gridBagLayout);
 
-		//Panel Setups
-		  // Sub menu panel
+		// Panel Setups
+		// Sub menu panel
 		subMenuPanel = new JPanel();
 		GridBagConstraints gbc_panel = new GridBagConstraints();
 		gbc_panel.gridheight = 5;
@@ -53,30 +53,30 @@ public class GameMenuPanel extends JPanel {
 		gbc_panel.gridx = 1;
 		gbc_panel.gridy = 0;
 		add(subMenuPanel, gbc_panel);
-		
-		  //TitlePanel
+
+		// TitlePanel
 		titleMenuView = new TitleView();
-		
-		  //StoryMenuPanel
+
+		// StoryMenuPanel
 		ArrayList<String> storyLevelList = new ArrayList<String>();
 		storyMenuView = new LevelSelectionPanel(storyLevelList);
-		
-		  //UserMenuPanel
+
+		// UserMenuPanel
 		ArrayList<String> userLevelList = new ArrayList<String>();
 		userMenuView = new LevelSelectionPanel(userLevelList);
-		
-		  //BadgesMenuPanel
+
+		// BadgesMenuPanel
 		ArrayList<String> badgesList = new ArrayList<String>();
-		badgeMenuView = new BadgesPanel(badgesList, 0);
-		
-		  //OptionsMenuPanel
+		badgeMenuView = new BadgesPanel(badgesList);
+
+		// OptionsMenuPanel
 		optionsMenuView = new OptionsPanel();
-		
-		  //CreditsView
+
+		// CreditsView
 		creditsMenuView = new CreditsView();
-		
-		//Button Setups
-		  // Story menu button
+
+		// Button Setups
+		// Story menu button
 		storyLevelMenuButton = new JButton("Story Levels");
 		storyLevelMenuButton.setPreferredSize(new Dimension(150, 23));
 		GridBagConstraints gbc_btnNewButton = new GridBagConstraints();
@@ -85,7 +85,7 @@ public class GameMenuPanel extends JPanel {
 		gbc_btnNewButton.gridy = 0;
 		add(storyLevelMenuButton, gbc_btnNewButton);
 
-		  // User menu button
+		// User menu button
 		userLevelMenuButton = new JButton("User Levels");
 		GridBagConstraints gbc_btnNewButton_1 = new GridBagConstraints();
 		gbc_btnNewButton_1.fill = GridBagConstraints.BOTH;
@@ -93,7 +93,7 @@ public class GameMenuPanel extends JPanel {
 		gbc_btnNewButton_1.gridy = 1;
 		add(userLevelMenuButton, gbc_btnNewButton_1);
 
-		  // Badges menu button
+		// Badges menu button
 		badgesMenuButton = new JButton("Badges");
 		GridBagConstraints gbc_btnNewButton_2 = new GridBagConstraints();
 		gbc_btnNewButton_2.fill = GridBagConstraints.BOTH;
@@ -101,7 +101,7 @@ public class GameMenuPanel extends JPanel {
 		gbc_btnNewButton_2.gridy = 2;
 		add(badgesMenuButton, gbc_btnNewButton_2);
 
-		  // Options menu button
+		// Options menu button
 		optionsMenuButton = new JButton("Options");
 		GridBagConstraints gbc_btnNewButton_3 = new GridBagConstraints();
 		gbc_btnNewButton_3.fill = GridBagConstraints.BOTH;
@@ -109,7 +109,7 @@ public class GameMenuPanel extends JPanel {
 		gbc_btnNewButton_3.gridy = 3;
 		add(optionsMenuButton, gbc_btnNewButton_3);
 
-		  // Credits menu button
+		// Credits menu button
 		creditsMenuButton = new JButton("Credits");
 		GridBagConstraints gbc_btnNewButton_4 = new GridBagConstraints();
 		gbc_btnNewButton_4.fill = GridBagConstraints.BOTH;
@@ -180,7 +180,7 @@ public class GameMenuPanel extends JPanel {
 	public BadgesPanel getBadgeMenuView() {
 		return this.badgeMenuView;
 	}
-	
+
 	/**
 	 * Returns the option menu view.
 	 * 
@@ -189,7 +189,7 @@ public class GameMenuPanel extends JPanel {
 	public OptionsPanel getOptionsMenuView() {
 		return this.optionsMenuView;
 	}
-	
+
 	/**
 	 * Returns the story menu view.
 	 * 
@@ -198,7 +198,7 @@ public class GameMenuPanel extends JPanel {
 	public LevelSelectionPanel getStoryMenuView() {
 		return this.storyMenuView;
 	}
-	
+
 	/**
 	 * Returns the user menu view.
 	 * 
@@ -207,7 +207,7 @@ public class GameMenuPanel extends JPanel {
 	public LevelSelectionPanel getUserMenuView() {
 		return this.userMenuView;
 	}
-	
+
 	/**
 	 * Returns the credits menu view.
 	 * 
@@ -216,7 +216,7 @@ public class GameMenuPanel extends JPanel {
 	public CreditsView getCreditsMenuView() {
 		return this.creditsMenuView;
 	}
-	
+
 	/**
 	 * Returns the title menu view.
 	 * 
@@ -225,5 +225,4 @@ public class GameMenuPanel extends JPanel {
 	public TitleView getTitleMenuView() {
 		return this.titleMenuView;
 	}
-	
 }
