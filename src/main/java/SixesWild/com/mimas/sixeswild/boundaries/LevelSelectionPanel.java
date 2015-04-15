@@ -43,6 +43,7 @@ public class LevelSelectionPanel extends JPanel {
 		gridBagLayout.columnWeights = new double[] { 1.0, 1.0, Double.MIN_VALUE };
 		gridBagLayout.rowWeights = new double[] { 1.0, Double.MIN_VALUE };
 		setLayout(gridBagLayout);
+		
 		this.levelNames = levelNames;
 		
 		levelListModel = new DefaultListModel<String>();
@@ -61,7 +62,7 @@ public class LevelSelectionPanel extends JPanel {
 			private static final long serialVersionUID = 1L;
 
 			public Component getListCellRendererComponent(JList list, Object value, int index, boolean isSelected, boolean cellHasFocus) {
-				if (((String)value).contains("0")) {
+				if (!((String)value).contains("Level 1--")) {
 					super.getListCellRendererComponent(list, value, index, false, false);
 				} else {
 					super.getListCellRendererComponent(list, value, index, isSelected, cellHasFocus);
