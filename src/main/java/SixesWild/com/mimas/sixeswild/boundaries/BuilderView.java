@@ -8,6 +8,7 @@ import java.awt.Insets;
 
 import javax.swing.BorderFactory;
 import javax.swing.JPanel;
+import javax.swing.border.Border;
 
 import SixesWild.com.mimas.sixeswild.entities.Board;
 
@@ -23,6 +24,7 @@ public class BuilderView extends JPanel {
 	BuilderTopPanel builderTopPanel;
 	BuilderSettingsPanel builderSettingsPanel;
 	BoardViewPanel boardViewPanel;
+	Border boardViewPanelBorder;
 
 	private GridBagConstraints gbc_boardView;
 
@@ -63,8 +65,9 @@ public class BuilderView extends JPanel {
 		add(builderTopPanel, gbc_builderTopPanel);
 
 		// Board view panel
+		boardViewPanelBorder = BorderFactory.createLineBorder(Color.black);
 		boardViewPanel = new BoardViewPanel(new Board());
-		boardViewPanel.setBorder(BorderFactory.createLineBorder(Color.black));
+		boardViewPanel.setBorder(boardViewPanelBorder);
 		gbc_boardView = new GridBagConstraints();
 		gbc_boardView.insets = new Insets(0, 0, 0, 0);
 		gbc_boardView.fill = GridBagConstraints.BOTH;
@@ -111,7 +114,8 @@ public class BuilderView extends JPanel {
 	public void updateBoardViewPanel(BoardViewPanel newBoardViewPanel) {
 		this.remove(this.boardViewPanel);
 		this.boardViewPanel = newBoardViewPanel;
-		this.add(newBoardViewPanel, gbc_boardView);
+		boardViewPanel.setBorder(boardViewPanelBorder);
+		this.add(boardViewPanel, gbc_boardView);
 		this.updateUI();
 	}
 }
