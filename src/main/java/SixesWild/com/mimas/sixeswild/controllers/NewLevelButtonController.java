@@ -12,8 +12,6 @@ import javax.swing.JPanel;
 
 import SixesWild.com.mimas.sixeswild.boundaries.BoardViewPanel;
 import SixesWild.com.mimas.sixeswild.boundaries.BuilderApplication;
-import SixesWild.com.mimas.sixeswild.boundaries.BuilderView;
-import SixesWild.com.mimas.sixeswild.boundaries.LevelView;
 import SixesWild.com.mimas.sixeswild.entities.Board;
 
 /**
@@ -61,12 +59,12 @@ public class NewLevelButtonController implements ActionListener {
 		gbc_list.fill = GridBagConstraints.BOTH;
 		gbc_list.gridx = 0;
 		gbc_list.gridy = 0;
-		BuilderView newBuilderView = new BuilderView();
-
-		newBuilderView.getBuilderTopPanel().getNewButton().addActionListener(new NewLevelButtonController(app));
 		
+		this.app.getBuilderView().updateBoardViewPanel(new BoardViewPanel(new Board()));
+		this.app.getBuilderView().revalidate();
+		this.app.getBuilderView().repaint();
 		
-		currentPanel.add(newBuilderView, gbc_list);
+		currentPanel.add(this.app.getBuilderView(), gbc_list);
 		contentContainer.add(currentPanel);
 		
 		contentContainer.revalidate();
