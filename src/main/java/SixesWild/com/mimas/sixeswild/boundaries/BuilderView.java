@@ -33,9 +33,9 @@ public class BuilderView extends JPanel {
 	 */
 	public BuilderView() {
 		GridBagLayout gridBagLayout = new GridBagLayout();
-		gridBagLayout.columnWidths = new int[] { 0, 0, 0, 0, 0 };
+		gridBagLayout.columnWidths = new int[] { 200, 0, 0, 0, 0 };
 		gridBagLayout.rowHeights = new int[] { 0, 0, 0 };
-		gridBagLayout.columnWeights = new double[] { 5.0, 5.0, 15.0, 5.0,
+		gridBagLayout.columnWeights = new double[] { 5.0, 1.0, 15.0, 1.0,
 				Double.MIN_VALUE };
 		gridBagLayout.rowWeights = new double[] { 1.0, 10.0, Double.MIN_VALUE };
 		setLayout(gridBagLayout);

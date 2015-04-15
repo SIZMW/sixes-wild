@@ -13,6 +13,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
+import java.awt.Dimension;
 
 /**
  * This class represents the level settings panel in the level builder.
@@ -159,6 +160,8 @@ public class BuilderSettingsPanel extends JPanel {
 
 		// Level type label
 		levelTypeLabel = new JLabel("Level Type");
+		levelTypeLabel.setPreferredSize(new Dimension(52, 20));
+		levelTypeLabel.setMinimumSize(new Dimension(52, 20));
 		levelTypeLabel.setBorder(BorderFactory.createLineBorder(Color.black));
 		GridBagConstraints gbc_levelTypeLabel = new GridBagConstraints();
 		gbc_levelTypeLabel.fill = GridBagConstraints.HORIZONTAL;
@@ -180,6 +183,8 @@ public class BuilderSettingsPanel extends JPanel {
 
 		// Moves label
 		movesLabel = new JLabel("Moves");
+		movesLabel.setPreferredSize(new Dimension(31, 20));
+		movesLabel.setMinimumSize(new Dimension(31, 20));
 		movesLabel.setBorder(BorderFactory.createLineBorder(Color.black));
 		GridBagConstraints gbc_movesLabe = new GridBagConstraints();
 		gbc_movesLabe.fill = GridBagConstraints.HORIZONTAL;
@@ -200,6 +205,8 @@ public class BuilderSettingsPanel extends JPanel {
 
 		// Timer label
 		timerLabel = new JLabel("Timer");
+		timerLabel.setPreferredSize(new Dimension(26, 20));
+		timerLabel.setMinimumSize(new Dimension(26, 20));
 		timerLabel.setBorder(BorderFactory.createLineBorder(Color.black));
 		GridBagConstraints gbc_timerLabel = new GridBagConstraints();
 		gbc_timerLabel.fill = GridBagConstraints.HORIZONTAL;
@@ -226,7 +233,7 @@ public class BuilderSettingsPanel extends JPanel {
 		gbc_frequencyPanel.gridy = 5;
 		add(frequencyPanel, gbc_frequencyPanel);
 		GridBagLayout gbl_frequencyPanel = new GridBagLayout();
-		gbl_frequencyPanel.columnWidths = new int[] { 0, 0, 0, 0, 0, 0, 0 };
+		gbl_frequencyPanel.columnWidths = new int[] { 20, 20, 20, 20, 20, 20, 0 };
 		gbl_frequencyPanel.rowHeights = new int[] { 0, 0, 0, 0, 0 };
 		gbl_frequencyPanel.columnWeights = new double[] { 1.0, 1.0, 1.0, 1.0,
 				1.0, 1.0, Double.MIN_VALUE };
@@ -249,6 +256,8 @@ public class BuilderSettingsPanel extends JPanel {
 
 		// Ones label
 		onesLabel = new JLabel("1's");
+		onesLabel.setPreferredSize(new Dimension(20, 14));
+		onesLabel.setMinimumSize(new Dimension(20, 20));
 		onesLabel.setBorder(BorderFactory.createLineBorder(Color.black));
 		GridBagConstraints gbc_onesLabel = new GridBagConstraints();
 		gbc_onesLabel.fill = GridBagConstraints.HORIZONTAL;
@@ -259,6 +268,8 @@ public class BuilderSettingsPanel extends JPanel {
 
 		// Ones text field
 		onesTextField = new JTextField();
+		onesTextField.setPreferredSize(new Dimension(20, 20));
+		onesTextField.setMinimumSize(new Dimension(20, 20));
 		GridBagConstraints gbc_onesTextField = new GridBagConstraints();
 		gbc_onesTextField.insets = new Insets(0, 0, 5, 5);
 		gbc_onesTextField.fill = GridBagConstraints.HORIZONTAL;
@@ -269,6 +280,8 @@ public class BuilderSettingsPanel extends JPanel {
 
 		// Twos label
 		twosLabel = new JLabel("2's");
+		twosLabel.setPreferredSize(new Dimension(20, 14));
+		twosLabel.setMinimumSize(new Dimension(20, 20));
 		twosLabel.setBorder(BorderFactory.createLineBorder(Color.black));
 		GridBagConstraints gbc_twosLabel = new GridBagConstraints();
 		gbc_twosLabel.fill = GridBagConstraints.HORIZONTAL;
@@ -279,6 +292,8 @@ public class BuilderSettingsPanel extends JPanel {
 
 		// Twos text field
 		twosTextField = new JTextField();
+		twosTextField.setPreferredSize(new Dimension(20, 20));
+		twosTextField.setMinimumSize(new Dimension(20, 20));
 		twosTextField.setColumns(10);
 		GridBagConstraints gbc_twosTextField = new GridBagConstraints();
 		gbc_twosTextField.insets = new Insets(0, 0, 5, 5);
@@ -289,6 +304,8 @@ public class BuilderSettingsPanel extends JPanel {
 
 		// Threes label
 		threesLabel = new JLabel("3's");
+		threesLabel.setPreferredSize(new Dimension(20, 14));
+		threesLabel.setMinimumSize(new Dimension(20, 20));
 		threesLabel.setBorder(BorderFactory.createLineBorder(Color.black));
 		GridBagConstraints gbc_threesLabel = new GridBagConstraints();
 		gbc_threesLabel.fill = GridBagConstraints.HORIZONTAL;
@@ -299,6 +316,8 @@ public class BuilderSettingsPanel extends JPanel {
 
 		// Threes text field
 		threesTextField = new JTextField();
+		threesTextField.setPreferredSize(new Dimension(20, 20));
+		threesTextField.setMinimumSize(new Dimension(20, 20));
 		threesTextField.setColumns(10);
 		GridBagConstraints gbc_threesTextField = new GridBagConstraints();
 		gbc_threesTextField.insets = new Insets(0, 0, 5, 0);
@@ -309,6 +328,8 @@ public class BuilderSettingsPanel extends JPanel {
 
 		// Fours label
 		foursLabel = new JLabel("4's");
+		foursLabel.setPreferredSize(new Dimension(20, 14));
+		foursLabel.setMinimumSize(new Dimension(20, 20));
 		foursLabel.setBorder(BorderFactory.createLineBorder(Color.black));
 		GridBagConstraints gbc_foursLabel = new GridBagConstraints();
 		gbc_foursLabel.fill = GridBagConstraints.HORIZONTAL;
@@ -319,6 +340,8 @@ public class BuilderSettingsPanel extends JPanel {
 
 		// Fours text field
 		foursTextField = new JTextField();
+		foursTextField.setPreferredSize(new Dimension(20, 20));
+		foursTextField.setMinimumSize(new Dimension(20, 20));
 		GridBagConstraints gbc_foursTextField = new GridBagConstraints();
 		gbc_foursTextField.insets = new Insets(0, 0, 5, 5);
 		gbc_foursTextField.fill = GridBagConstraints.HORIZONTAL;
@@ -329,6 +352,8 @@ public class BuilderSettingsPanel extends JPanel {
 
 		// Fives label
 		fivesLabel = new JLabel("5's");
+		fivesLabel.setPreferredSize(new Dimension(20, 14));
+		fivesLabel.setMinimumSize(new Dimension(20, 20));
 		fivesLabel.setBorder(BorderFactory.createLineBorder(Color.black));
 		GridBagConstraints gbc_fivesLabel = new GridBagConstraints();
 		gbc_fivesLabel.fill = GridBagConstraints.HORIZONTAL;
@@ -339,6 +364,8 @@ public class BuilderSettingsPanel extends JPanel {
 
 		// Fives text field
 		fivesTextField = new JTextField();
+		fivesTextField.setPreferredSize(new Dimension(20, 20));
+		fivesTextField.setMinimumSize(new Dimension(20, 20));
 		fivesTextField.setColumns(10);
 		GridBagConstraints gbc_fivesTextField = new GridBagConstraints();
 		gbc_fivesTextField.insets = new Insets(0, 0, 5, 5);
@@ -349,6 +376,8 @@ public class BuilderSettingsPanel extends JPanel {
 
 		// Sixes label
 		sixesLabel = new JLabel("6's");
+		sixesLabel.setPreferredSize(new Dimension(20, 14));
+		sixesLabel.setMinimumSize(new Dimension(20, 20));
 		sixesLabel.setBorder(BorderFactory.createLineBorder(Color.black));
 		GridBagConstraints gbc_sixesLabel = new GridBagConstraints();
 		gbc_sixesLabel.fill = GridBagConstraints.HORIZONTAL;
@@ -359,6 +388,8 @@ public class BuilderSettingsPanel extends JPanel {
 
 		// Sixes text field
 		sixesTextField = new JTextField();
+		sixesTextField.setPreferredSize(new Dimension(20, 20));
+		sixesTextField.setMinimumSize(new Dimension(20, 20));
 		sixesTextField.setColumns(10);
 		GridBagConstraints gbc_sixesTextField = new GridBagConstraints();
 		gbc_sixesTextField.insets = new Insets(0, 0, 5, 0);
@@ -369,6 +400,8 @@ public class BuilderSettingsPanel extends JPanel {
 
 		// X two multiplier label
 		xtwoMultiplierLabel = new JLabel("x2 Multiplier");
+		xtwoMultiplierLabel.setMinimumSize(new Dimension(40, 20));
+		xtwoMultiplierLabel.setPreferredSize(new Dimension(40, 20));
 		xtwoMultiplierLabel.setBorder(BorderFactory
 				.createLineBorder(Color.black));
 		GridBagConstraints gbc_xtwosMultiplierLabel = new GridBagConstraints();
@@ -381,6 +414,8 @@ public class BuilderSettingsPanel extends JPanel {
 
 		// X two multiplier text field
 		xtwoMultiplierTextField = new JTextField();
+		xtwoMultiplierTextField.setPreferredSize(new Dimension(20, 20));
+		xtwoMultiplierTextField.setMinimumSize(new Dimension(20, 20));
 		xtwoMultiplierTextField.setColumns(10);
 		GridBagConstraints gbc_xtwoMultiplierTextField = new GridBagConstraints();
 		gbc_xtwoMultiplierTextField.insets = new Insets(0, 0, 0, 5);
@@ -392,6 +427,8 @@ public class BuilderSettingsPanel extends JPanel {
 
 		// X three multiplier label
 		xthreeMultiplierLabel = new JLabel("x3 Multiplier");
+		xthreeMultiplierLabel.setMinimumSize(new Dimension(40, 20));
+		xthreeMultiplierLabel.setPreferredSize(new Dimension(40, 20));
 		xthreeMultiplierLabel.setBorder(BorderFactory
 				.createLineBorder(Color.black));
 		GridBagConstraints gbc_xthreeMultiplierLabel = new GridBagConstraints();
@@ -404,6 +441,8 @@ public class BuilderSettingsPanel extends JPanel {
 
 		// X three multiplier text field
 		xthreeMultiplierTextField = new JTextField();
+		xthreeMultiplierTextField.setPreferredSize(new Dimension(20, 20));
+		xthreeMultiplierTextField.setMinimumSize(new Dimension(20, 20));
 		xthreeMultiplierTextField.setColumns(10);
 		GridBagConstraints gbc_xthreeMultiplierTextField = new GridBagConstraints();
 		gbc_xthreeMultiplierTextField.fill = GridBagConstraints.HORIZONTAL;
@@ -647,6 +686,8 @@ public class BuilderSettingsPanel extends JPanel {
 
 		// One stare score label
 		oneStarScoreLabel = new JLabel("1 Star Score");
+		oneStarScoreLabel.setMinimumSize(new Dimension(59, 20));
+		oneStarScoreLabel.setPreferredSize(new Dimension(59, 20));
 		oneStarScoreLabel
 				.setBorder(BorderFactory.createLineBorder(Color.black));
 		oneStarScoreLabel.setHorizontalAlignment(SwingConstants.CENTER);
@@ -669,6 +710,8 @@ public class BuilderSettingsPanel extends JPanel {
 
 		// Two star score label
 		twoStarScoreLabel = new JLabel("2 Star Score");
+		twoStarScoreLabel.setPreferredSize(new Dimension(59, 20));
+		twoStarScoreLabel.setMinimumSize(new Dimension(59, 20));
 		twoStarScoreLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		twoStarScoreLabel
 				.setBorder(BorderFactory.createLineBorder(Color.black));
@@ -691,6 +734,8 @@ public class BuilderSettingsPanel extends JPanel {
 
 		// Three star score label
 		threeStarScoreLabel = new JLabel("3 Star Score");
+		threeStarScoreLabel.setMinimumSize(new Dimension(59, 20));
+		threeStarScoreLabel.setPreferredSize(new Dimension(59, 20));
 		threeStarScoreLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		threeStarScoreLabel.setBorder(BorderFactory
 				.createLineBorder(Color.black));
@@ -744,6 +789,8 @@ public class BuilderSettingsPanel extends JPanel {
 
 		// Tile type label
 		tileTypeLabel = new JLabel("Tile Type");
+		tileTypeLabel.setMinimumSize(new Dimension(43, 20));
+		tileTypeLabel.setPreferredSize(new Dimension(43, 20));
 		tileTypeLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		tileTypeLabel.setBorder(BorderFactory.createLineBorder(Color.black));
 		GridBagConstraints gbc_tileTypeLabel = new GridBagConstraints();
