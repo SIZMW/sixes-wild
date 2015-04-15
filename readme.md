@@ -14,5 +14,5 @@ Purpose:
 * There is also a level builder in this project, which is used to create levels that can be played in Sixes Wild. The level builder allows modification of the level settings, from frequencies of tiles to the shape of the board.
 
 Execution:
-* To run the level builder, run the main class called "BuilderMain.java". This will open a window that is user interactable for the builder.
-* To run the game application, run the main class caled "GameMain.java". This will open a window that is user interactable for the game.
+* To run the level builder, run the main class called "BuilderMain.java". This will open a window that allows user interaction for the builder.
+* To run the game application, run the main class called "GameMain.java". This will open a window that allows user interaction for the game.
