@@ -66,17 +66,20 @@ public class GameApplication {
 			String levelType = (type == 1) ? ": Puzzle "
 					: (type == 2) ? ": Elimination "
 							: (type == 3) ? ": Lightning " : ": Release ";
-			userLevelList.add("Custom Level " + i + levelType);
+			userLevelList.add("Level " + i + levelType);
 		}
 
 		ArrayList<String> badgesList = new ArrayList<String>();
 		for (int i = 1; i <= 20; i++) {
 			badgesList.add("Badge " + i);
 		}
+		
+		// TODO Get from user profile.
+		int highestLevelUnlocked = 10;
 
 		// Initialize panels and views.
 		gameMenuView = new GameMenuView(storyLevelList, userLevelList,
-				badgesList);
+				badgesList, highestLevelUnlocked);
 		levelView = new LevelView();
 		frame = new JFrame();
 		frame.setBounds(0, 0, 800, 600);

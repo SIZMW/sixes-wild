@@ -34,7 +34,7 @@ public class GameMenuView extends JPanel {
 	 * Constructor for GameMenuView class.
 	 */
 	public GameMenuView(ArrayList<String> storyLevelList,
-			ArrayList<String> userLevelList, ArrayList<String> badgesList) {
+			ArrayList<String> userLevelList, ArrayList<String> badgesList, int highestLevelUnlocked) {
 
 		// General Layout Settings
 		GridBagLayout gridBagLayout = new GridBagLayout();
@@ -57,8 +57,8 @@ public class GameMenuView extends JPanel {
 
 		// Menu panels
 		titleMenuView = new TitlePanel();
-		storyMenuView = new LevelSelectionPanel(storyLevelList);
-		userMenuView = new LevelSelectionPanel(userLevelList);
+		storyMenuView = new LevelSelectionPanel(storyLevelList, highestLevelUnlocked);
+		userMenuView = new LevelSelectionPanel(userLevelList, highestLevelUnlocked);
 		badgeMenuView = new BadgesPanel(badgesList);
 		optionsMenuView = new OptionsPanel();
 		creditsMenuView = new CreditsPanel();

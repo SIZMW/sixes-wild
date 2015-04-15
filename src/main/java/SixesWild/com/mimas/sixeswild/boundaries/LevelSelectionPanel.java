@@ -1,24 +1,19 @@
 package SixesWild.com.mimas.sixeswild.boundaries;
 
-import java.awt.Component;
+import java.awt.Color;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.util.ArrayList;
 
-import javax.swing.DefaultListCellRenderer;
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.ListSelectionModel;
-import javax.swing.JLabel;
 import javax.swing.SwingConstants;
-
-import java.awt.Color;
-
-import javax.swing.border.BevelBorder;
 import javax.swing.border.LineBorder;
 
 /**
@@ -43,7 +38,7 @@ public class LevelSelectionPanel extends JPanel {
 	 * 
 	 * @param levelNames The names of levels to populate the list.
 	 */
-	public LevelSelectionPanel(ArrayList<String> levelNames) {
+	public LevelSelectionPanel(ArrayList<String> levelNames, int highestLevelUnlocked) {
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		gridBagLayout.columnWidths = new int[] { 0, 0, 0 };
 		gridBagLayout.rowHeights = new int[] { 0, 0 };
@@ -65,18 +60,7 @@ public class LevelSelectionPanel extends JPanel {
 		
 		// TODO Make renderer its own class and use as needed.
 		
-		list.setCellRenderer(new DefaultListCellRenderer() {
-			private static final long serialVersionUID = 1L;
-
-			public Component getListCellRendererComponent(JList list, Object value, int index, boolean isSelected, boolean cellHasFocus) {
-				if (!((String)value).contains("Level 1--")) {
-					super.getListCellRendererComponent(list, value, index, false, false);
-				} else {
-					super.getListCellRendererComponent(list, value, index, isSelected, cellHasFocus);
-				}
-		        return this;
-			}
-		});
+		list.setCellRenderer(new LevelListCellRenderer(highestLevelUnlocked));
 		
 		levelScrollPane.setViewportView(list);
 
