@@ -10,17 +10,19 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JPanel;
 
-import SixesWild.com.mimas.sixeswild.boundaries.GameApplication;
+import SixesWild.com.mimas.sixeswild.boundaries.BoardViewPanel;
+import SixesWild.com.mimas.sixeswild.boundaries.BuilderApplication;
 import SixesWild.com.mimas.sixeswild.boundaries.LevelView;
+import SixesWild.com.mimas.sixeswild.entities.Board;
 
 /**
  * This class is the controller to handle redrawing the menu window when the
  * story mode sub menu is requested.
  * 
- * @author Aditya Nivarthi
+ * @author Cameron Jones
  */
 public class NewLevelButtonController implements ActionListener {
-	GameApplication app;
+	BuilderApplication app;
 
 	// TODO Add list of levels as attribute
 
@@ -30,7 +32,7 @@ public class NewLevelButtonController implements ActionListener {
 	 * @param app
 	 *            The GameApplication currently running.
 	 */
-	public NewLevelButtonController(GameApplication app) {
+	public NewLevelButtonController(BuilderApplication app) {
 		this.app = app;
 	}
 
@@ -44,7 +46,7 @@ public class NewLevelButtonController implements ActionListener {
 		Container contentContainer = app.getFrame().getContentPane();
 		JPanel currentPanel = new JPanel();
 		contentContainer.removeAll();
-
+		
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		gridBagLayout.columnWidths = new int[] { 0 };
 		gridBagLayout.rowHeights = new int[] { 0 };
@@ -58,14 +60,18 @@ public class NewLevelButtonController implements ActionListener {
 		gbc_list.fill = GridBagConstraints.BOTH;
 		gbc_list.gridx = 0;
 		gbc_list.gridy = 0;
-
-		LevelView newLevel = new LevelView();
-		this.app.setLevelPanel(newLevel);
-		app.getLevelPanel().getTopMenuPanel().getExitLevelButton()
-				.addActionListener(new ExitButtonController(app));
-
-		currentPanel.add(this.app.getLevelPanel(), gbc_list);
+		
+		this.app.getBuilderView().setBoardViewPanel(new BoardViewPanel(new Board()));
+		this.app.getBuilderView().getBoardViewPanel().revalidate();
+		this.app.getBuilderView().getBoardViewPanel().repaint();
+		this.app.getBuilderView().revalidate();
+		this.app.getBuilderView().repaint();
+		
+		
+		
+		currentPanel.add(this.app.getBuilderView(), gbc_list);
 		contentContainer.add(currentPanel);
+		
 		contentContainer.revalidate();
 		contentContainer.repaint();
 	}

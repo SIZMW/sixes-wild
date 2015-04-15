@@ -19,7 +19,7 @@ public class BoardViewPanel extends JPanel {
 
 	private static final long serialVersionUID = 1L;
 	
-	Board gameBoard;
+	private Board gameBoard;
 	SquareView squareViewBoard[][];
 	
 	Border border;
@@ -30,8 +30,8 @@ public class BoardViewPanel extends JPanel {
 	 */
 	public BoardViewPanel(Board board) {
 		super();
-		this.gameBoard = board;
-		this.gameBoard.initialize();
+		this.setGameBoard(board);
+		this.getGameBoard().initialize();
 		this.setVisible(true);
 		squareViewBoard = new SquareView[9][9];
 		
@@ -49,7 +49,7 @@ public class BoardViewPanel extends JPanel {
 		
 		for (int i = 0; i < 9 ; i++) {
 			for (int j = 0; j < 9; j++) {
-				squareViewBoard[i][j] = new SquareView(this.gameBoard.getSquare(i, j), this.getWidth(), this.getHeight());
+				squareViewBoard[i][j] = new SquareView(this.getGameBoard().getSquare(i, j), this.getWidth(), this.getHeight());
 				
 				gbc_panel.gridx = i + 1;
 				gbc_panel.gridy = j + 1;
@@ -75,5 +75,13 @@ public class BoardViewPanel extends JPanel {
 		}
 		
 		this.updateUI();
+	}
+
+	public Board getGameBoard() {
+		return gameBoard;
+	}
+
+	public void setGameBoard(Board gameBoard) {
+		this.gameBoard = gameBoard;
 	}
 }

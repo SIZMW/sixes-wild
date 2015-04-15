@@ -9,6 +9,7 @@ import javax.swing.UIManager;
 import javax.swing.border.EmptyBorder;
 
 import SixesWild.com.mimas.sixeswild.controllers.BuilderSplashScreenController;
+import SixesWild.com.mimas.sixeswild.controllers.NewLevelButtonController;
 
 /**
  * This class represents the Builder application that will run and handle the
@@ -57,6 +58,8 @@ public class BuilderApplication {
 	 */
 	private void setUpControllers() {
 		this.getFrame().addKeyListener(new BuilderSplashScreenController(this));
+		
+		this.builderView.builderTopPanel.newButton.addActionListener(new NewLevelButtonController(this));
 	}
 	
 	/**

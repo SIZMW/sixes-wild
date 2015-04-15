@@ -98,4 +98,8 @@ public class BuilderView extends JPanel {
 	public BoardViewPanel getBoardViewPanel() {
 		return this.boardViewPanel;
 	}
+	
+	public void setBoardViewPanel(BoardViewPanel newBoardViewPanel) {
+		this.boardViewPanel = newBoardViewPanel;
+	}
 }

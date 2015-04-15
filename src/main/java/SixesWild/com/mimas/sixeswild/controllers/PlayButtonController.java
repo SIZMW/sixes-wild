@@ -17,7 +17,7 @@ import SixesWild.com.mimas.sixeswild.boundaries.LevelView;
  * This class is the controller to handle redrawing the menu window when the
  * story mode sub menu is requested.
  * 
- * @author Aditya Nivarthi
+ * @author Cameron Jones
  */
 public class PlayButtonController implements ActionListener {
 	GameApplication app;
