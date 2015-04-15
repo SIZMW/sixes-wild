@@ -1,16 +1,12 @@
 package SixesWild.com.mimas.sixeswild.boundaries;
 
 import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 
 import javax.swing.BorderFactory;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.SwingConstants;
 import javax.swing.border.Border;
 
 import SixesWild.com.mimas.sixeswild.entities.Board;
@@ -24,7 +20,7 @@ public class BoardViewPanel extends JPanel {
 	private static final long serialVersionUID = 1L;
 	
 	Board gameBoard;
-	JLabel labelBoard[][];
+	SquareView squareViewBoard[][];
 	
 	Border border;
 	GridBagConstraints gbc_panel;
@@ -37,7 +33,7 @@ public class BoardViewPanel extends JPanel {
 		this.gameBoard = board;
 		this.gameBoard.initialize();
 		this.setVisible(true);
-		labelBoard = new JLabel[9][9];
+		squareViewBoard = new SquareView[9][9];
 		
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		gridBagLayout.columnWidths = new int[] { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 };
@@ -53,29 +49,14 @@ public class BoardViewPanel extends JPanel {
 		
 		for (int i = 0; i < 9 ; i++) {
 			for (int j = 0; j < 9; j++) {
-				labelBoard[i][j] = new JLabel(gameBoard.getSquare(i, j).getTile().getNumber() + "", SwingConstants.CENTER);
-				labelBoard[i][j].setLocation((((this.getMinOfHeightAndWidth() - (((int)this.getMinOfHeightAndWidth() / 9) * 9)) + 10) / 2) + (this.getMinOfHeightAndWidth() / 9 * i), (((this.getMinOfHeightAndWidth() - (((int)this.getMinOfHeightAndWidth() / 9) * 9 )) + 10) / 2) + (this.getMinOfHeightAndWidth() / 9 * j));
-				labelBoard[i][j].setSize(new Dimension(this.getWidth() / 9 - 20, this.getHeight() / 9 - 20));
-				
-				labelBoard[i][j].setBackground(Color.WHITE);
-				labelBoard[i][j].setFont(new Font("Verdana", Font.BOLD, 14));
-				labelBoard[i][j].setOpaque(true);
-				labelBoard[i][j].setBorder(border);
+				squareViewBoard[i][j] = new SquareView(this.gameBoard.getSquare(i, j), this.getWidth(), this.getHeight());
 				
 				gbc_panel.gridx = i + 1;
 				gbc_panel.gridy = j + 1;
 				
-				this.add(labelBoard[i][j], gbc_panel);
+				this.add(squareViewBoard[i][j], gbc_panel);
 			}
 		}
-	}
-	
-	/**
-	 * Returns the smaller of the height or width dimensions
-	 * @return this.getWidth() or this.getHeight() The dimension that is smaller.
-	 */
-	private int getMinOfHeightAndWidth() {
-		return (this.getWidth() < this.getHeight()) ? this.getWidth() : this.getHeight();
 	}
 	
 	/* (non-Javadoc)
@@ -86,13 +67,7 @@ public class BoardViewPanel extends JPanel {
 		
 		for (int i = 0; i < 9 ; i++) {
 			for (int j = 0; j < 9; j++) {
-				labelBoard[i][j].setLocation((((this.getWidth() - (((int)this.getWidth() / 9) * 9)) + 10) / 2) + (this.getWidth() / 9 * i), (((this.getHeight() - (((int)this.getHeight() / 9) * 9 )) + 10) / 2) + (this.getHeight() / 9 * j));
-				labelBoard[i][j].setSize(new Dimension(this.getMinOfHeightAndWidth() / 9 - 10, this.getMinOfHeightAndWidth() / 9 - 10));
-				
-				labelBoard[i][j].setBackground(Color.WHITE);
-				labelBoard[i][j].setFont(new Font("Verdana", Font.BOLD, 14));
-				labelBoard[i][j].setOpaque(true);
-				labelBoard[i][j].setBorder(border);
+				squareViewBoard[i][j].updateSquareView(this.getWidth(), this.getHeight());
 				
 				gbc_panel.gridx = i + 1;
 				gbc_panel.gridy = j + 1;

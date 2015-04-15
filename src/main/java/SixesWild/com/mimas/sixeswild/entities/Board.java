@@ -1,5 +1,7 @@
 package SixesWild.com.mimas.sixeswild.entities;
 
+import java.util.ArrayList;
+
 /**
  * This class is used as a representation of the game board for Sixes Wild.
  * @author Aditya Nivarthi
@@ -25,10 +27,18 @@ public class Board {
 	public boolean initialize() {
 		for (int i = 0; i < SIZE_X; i++) {
 			for (int j = 0; j < SIZE_Y; j++) {
-				squares[i][j] = new Square(new NumberTile(i, 1), i, j, false);
+				squares[i][j] = new Square(new NumberTile(this.getRandomNumber(), 1), i, j, false);
 			}
 		}
 		return true;
+	}
+	
+	/**
+	 * Generates a random number for NumberTile for random board generation.
+	 * @return Random value from 1 to 6.
+	 */
+	private int getRandomNumber() {
+		return 1 + (int)(Math.random() * 6);
 	}
 	
 	/**
@@ -41,15 +51,31 @@ public class Board {
 		return squares[x][y];
 	}
 	
+	// TODO
+	/**
+	 * Resets the board.
+	 * @return true
+	 */
 	public boolean resetBoard() {
 		return true;
 	}
 	
+	// TODO
+	/**
+	 * Fills empty squares once a move has been completed.
+	 * @return true
+	 */
 	public boolean fillEmptySquares() {
 		return true;
 	}
 	
-	public boolean removeSelection() {
+	// TODO
+	/**
+	 * Removes the selection of Tiles from the board.
+	 * @param selection The selection of tiles.
+	 * @return true
+	 */
+	public boolean removeSelection(ArrayList<Tile> selection) {
 		return true;
 	}
 }
