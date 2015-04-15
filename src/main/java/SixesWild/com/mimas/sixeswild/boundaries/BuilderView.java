@@ -21,7 +21,7 @@ public class BuilderView extends JPanel {
 	private static final long serialVersionUID = 1L;
 
 	BuilderTopPanel builderTopPanel;
-	LevelSettingsPanel levelSettingsPanel;
+	BuilderSettingsPanel builderSettingsPanel;
 	BoardViewPanel boardViewPanel;
 
 	/**
@@ -37,17 +37,17 @@ public class BuilderView extends JPanel {
 		setLayout(gridBagLayout);
 
 		// Level settings panel
-		levelSettingsPanel = new LevelSettingsPanel();
-		levelSettingsPanel.setBorder(BorderFactory
+		builderSettingsPanel = new BuilderSettingsPanel();
+		builderSettingsPanel.setBorder(BorderFactory
 				.createLineBorder(Color.black));
-		levelSettingsPanel.setPreferredSize(new Dimension(100, 519));
+		builderSettingsPanel.setPreferredSize(new Dimension(100, 519));
 		GridBagConstraints gbc_levelSettingsPanel = new GridBagConstraints();
 		gbc_levelSettingsPanel.gridheight = 2;
 		gbc_levelSettingsPanel.insets = new Insets(0, 0, 0, 0);
 		gbc_levelSettingsPanel.fill = GridBagConstraints.BOTH;
 		gbc_levelSettingsPanel.gridx = 0;
 		gbc_levelSettingsPanel.gridy = 0;
-		add(levelSettingsPanel, gbc_levelSettingsPanel);
+		add(builderSettingsPanel, gbc_levelSettingsPanel);
 
 		// Builder top panel
 		builderTopPanel = new BuilderTopPanel();
@@ -86,8 +86,8 @@ public class BuilderView extends JPanel {
 	 * 
 	 * @return this.levelSettingsPanel The level settings panel.
 	 */
-	public LevelSettingsPanel getLevelSettingsPanel() {
-		return this.levelSettingsPanel;
+	public BuilderSettingsPanel getLevelSettingsPanel() {
+		return this.builderSettingsPanel;
 	}
 
 	/**

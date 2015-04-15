@@ -15,14 +15,14 @@ import javax.swing.JSeparator;
  * 
  * @author Cameron Jones
  */
-public class TitleView extends JPanel {
+public class TitlePanel extends JPanel {
 
 	private static final long serialVersionUID = 1L;
 
 	/**
-	 * Constructor for the TitleView class.
+	 * Constructor for the TitlePanel class.
 	 */
-	public TitleView() {
+	public TitlePanel() {
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		gridBagLayout.columnWidths = new int[] { 0, 0 };
 		gridBagLayout.rowHeights = new int[] { 16, 0, 16, 0 };

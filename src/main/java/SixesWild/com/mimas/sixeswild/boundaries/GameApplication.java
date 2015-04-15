@@ -25,7 +25,7 @@ import SixesWild.com.mimas.sixeswild.controllers.UserLevelMenuButtonController;
 public class GameApplication {
 
 	JFrame frame;
-	GameMenuPanel gameMenuPanel;
+	GameMenuView gameMenuView;
 	LevelView levelView;
 
 	// BadgesPanel badgePanel;
@@ -48,7 +48,7 @@ public class GameApplication {
 		} catch (Exception e) {
 		}
 
-		gameMenuPanel = new GameMenuPanel();
+		gameMenuView = new GameMenuView();
 		levelView = new LevelView();
 		frame = new JFrame();
 		frame.setBounds(0, 0, 800, 600);
@@ -70,21 +70,21 @@ public class GameApplication {
 	 * Set up the controllers on the various components in the game.
 	 */
 	private void setUpControllers() {
-		this.gameMenuPanel.getStoryLevelMenuButton().addActionListener(
+		this.gameMenuView.getStoryLevelMenuButton().addActionListener(
 				new StoryMenuButtonController(this));
-		this.gameMenuPanel.getOptionsMenuButton().addActionListener(
+		this.gameMenuView.getOptionsMenuButton().addActionListener(
 				new OptionsMenuButtonController(this));
-		this.gameMenuPanel.getUserLevelMenuButton().addActionListener(
+		this.gameMenuView.getUserLevelMenuButton().addActionListener(
 				new UserLevelMenuButtonController(this));
-		this.gameMenuPanel.getCreditsMenuButton().addActionListener(
+		this.gameMenuView.getCreditsMenuButton().addActionListener(
 				new CreditsMenuButtonController(this));
-		this.gameMenuPanel.getBadgesMenuButton().addActionListener(
+		this.gameMenuView.getBadgesMenuButton().addActionListener(
 				new BadgesMenuButtonController(this));
 		// this.mainPanel.titleMenuView.addKeyListener(new
-		// TitleViewController());
-		this.gameMenuPanel.getStoryMenuView().getPlayButton()
+		// TitlePanelController());
+		this.gameMenuView.getStoryMenuView().getPlayButton()
 				.addActionListener(new PlayButtonController(this));
-		this.gameMenuPanel.getUserMenuView().getPlayButton()
+		this.gameMenuView.getUserMenuView().getPlayButton()
 				.addActionListener(new PlayButtonController(this));
 		this.getFrame().addKeyListener(new GameSplashScreenController(this));
 
@@ -100,12 +100,12 @@ public class GameApplication {
 	}
 
 	/**
-	 * Returns the game GameMenuPanel.
+	 * Returns the game GameMenuView.
 	 * 
-	 * @return this.mainPanel The game GameMenuPanel.
+	 * @return this.mainPanel The game GameMenuView.
 	 */
-	public GameMenuPanel getMainPanel() {
-		return this.gameMenuPanel;
+	public GameMenuView getMainPanel() {
+		return this.gameMenuView;
 	}
 
 	/**

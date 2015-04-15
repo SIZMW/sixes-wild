@@ -20,8 +20,8 @@ public class LevelView extends JPanel {
 
 	private static final long serialVersionUID = 1L;
 
-	TopMenuPanel topMenuPanel;
-	LeftMenuPanel leftMenuPanel;
+	LevelTopPanel levelTopPanel;
+	LevelStatsPanel levelStatsPanel;
 	BoardViewPanel boardViewPanel;
 
 	/**
@@ -37,33 +37,41 @@ public class LevelView extends JPanel {
 		setLayout(gridBagLayout);
 
 		// Top menu panel
-		topMenuPanel = new TopMenuPanel();
-		GridBagLayout gridBagLayout_1 = (GridBagLayout) topMenuPanel.getLayout();
-		gridBagLayout_1.columnWeights = new double[]{0.0, 10000.0, 0.0, 20.0, 0.0, 20.0, 0.0, 20.0, 0.0, 20.0, 0.0, 20.0, 0.0};
-		gridBagLayout_1.columnWidths = new int[]{10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10};
-		topMenuPanel.getExitLevelButton().setPreferredSize(new Dimension(100, 20));
-		topMenuPanel.getSpecialMoveButton4().setPreferredSize(new Dimension(100, 20));
-		topMenuPanel.getSpecialMoveButton3().setPreferredSize(new Dimension(100, 20));
-		topMenuPanel.getSpecialMoveButton2().setPreferredSize(new Dimension(100, 20));
-		topMenuPanel.getSpecialMoveButton1().setPreferredSize(new Dimension(100, 20));
-		topMenuPanel.setBorder(BorderFactory.createLineBorder(Color.black));
+		levelTopPanel = new LevelTopPanel();
+		GridBagLayout gridBagLayout_1 = (GridBagLayout) levelTopPanel
+				.getLayout();
+		gridBagLayout_1.columnWeights = new double[] { 0.0, 10000.0, 0.0, 20.0,
+				0.0, 20.0, 0.0, 20.0, 0.0, 20.0, 0.0, 20.0, 0.0 };
+		gridBagLayout_1.columnWidths = new int[] { 10, 0, 10, 0, 10, 0, 10, 0,
+				10, 0, 10, 0, 10 };
+		levelTopPanel.getExitLevelButton().setPreferredSize(
+				new Dimension(100, 20));
+		levelTopPanel.getSpecialMoveButton4().setPreferredSize(
+				new Dimension(100, 20));
+		levelTopPanel.getSpecialMoveButton3().setPreferredSize(
+				new Dimension(100, 20));
+		levelTopPanel.getSpecialMoveButton2().setPreferredSize(
+				new Dimension(100, 20));
+		levelTopPanel.getSpecialMoveButton1().setPreferredSize(
+				new Dimension(100, 20));
+		levelTopPanel.setBorder(BorderFactory.createLineBorder(Color.black));
 		GridBagConstraints gbc_topMenuPanel = new GridBagConstraints();
 		gbc_topMenuPanel.gridwidth = 4;
 		gbc_topMenuPanel.insets = new Insets(0, 0, 0, 0);
 		gbc_topMenuPanel.fill = GridBagConstraints.BOTH;
 		gbc_topMenuPanel.gridx = 0;
 		gbc_topMenuPanel.gridy = 0;
-		add(topMenuPanel, gbc_topMenuPanel);
+		add(levelTopPanel, gbc_topMenuPanel);
 
 		// Left menu panel
-		leftMenuPanel = new LeftMenuPanel();
-		leftMenuPanel.setBorder(BorderFactory.createLineBorder(Color.black));
+		levelStatsPanel = new LevelStatsPanel();
+		levelStatsPanel.setBorder(BorderFactory.createLineBorder(Color.black));
 		GridBagConstraints gbc_leftMenuPanel = new GridBagConstraints();
 		gbc_leftMenuPanel.insets = new Insets(0, 0, 0, 0);
 		gbc_leftMenuPanel.fill = GridBagConstraints.BOTH;
 		gbc_leftMenuPanel.gridx = 0;
 		gbc_leftMenuPanel.gridy = 1;
-		add(leftMenuPanel, gbc_leftMenuPanel);
+		add(levelStatsPanel, gbc_leftMenuPanel);
 
 		// Board view panel
 		boardViewPanel = new BoardViewPanel(new Board());
@@ -82,8 +90,8 @@ public class LevelView extends JPanel {
 	 * 
 	 * @return this.topMenuPanel The top menu panel.
 	 */
-	public TopMenuPanel getTopMenuPanel() {
-		return this.topMenuPanel;
+	public LevelTopPanel getTopMenuPanel() {
+		return this.levelTopPanel;
 	}
 
 	/**
@@ -91,8 +99,8 @@ public class LevelView extends JPanel {
 	 * 
 	 * @return this.leftMenuPanel The left menu panel.
 	 */
-	public LeftMenuPanel getLeftMenuPanel() {
-		return this.leftMenuPanel;
+	public LevelStatsPanel getLeftMenuPanel() {
+		return this.levelStatsPanel;
 	}
 
 	/**
@@ -102,5 +110,15 @@ public class LevelView extends JPanel {
 	 */
 	public BoardViewPanel getBoardViewPanel() {
 		return this.boardViewPanel;
+	}
+
+	/**
+	 * Refresh this panel using the application to get new data.
+	 * 
+	 * @param app
+	 *            The game application to refresh from.
+	 */
+	public void refresh(GameApplication app) {
+		// TODO Refresh this panel.
 	}
 }

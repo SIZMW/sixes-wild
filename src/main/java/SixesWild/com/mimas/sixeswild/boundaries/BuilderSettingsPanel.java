@@ -19,7 +19,7 @@ import javax.swing.SwingConstants;
  * 
  * @author Yahel Nachum
  */
-public class LevelSettingsPanel extends JPanel {
+public class BuilderSettingsPanel extends JPanel {
 
 	private static final long serialVersionUID = 1L;
 
@@ -88,9 +88,9 @@ public class LevelSettingsPanel extends JPanel {
 	JComboBox<String> tileTypeComboBox;
 
 	/**
-	 * Constructor for the LevelSettingsPanel class.
+	 * Constructor for the BuilderSettingsPanel class.
 	 */
-	public LevelSettingsPanel() {
+	public BuilderSettingsPanel() {
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		gridBagLayout.columnWidths = new int[] { 0, 0, 0, 0 };
 		gridBagLayout.rowHeights = new int[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,

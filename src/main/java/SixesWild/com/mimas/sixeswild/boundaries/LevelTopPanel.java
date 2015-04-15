@@ -10,11 +10,11 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 /**
- * This class represents the top panel in the level builder.
+ * This class represents the top panel in the level for the game.
  * 
  * @author Yahel Nachum
  */
-public class TopMenuPanel extends JPanel {
+public class LevelTopPanel extends JPanel {
 
 	private static final long serialVersionUID = 1L;
 	
@@ -27,9 +27,9 @@ public class TopMenuPanel extends JPanel {
 	JButton exitLevelButton;
 
 	/**
-	 * Constructor for the TopMenuPanel class.
+	 * Constructor for the LevelTopPanel class.
 	 */
-	public TopMenuPanel() {
+	public LevelTopPanel() {
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		gridBagLayout.columnWidths = new int[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 				0, 0, 0, 0 };

@@ -20,15 +20,15 @@ import javax.swing.SwingConstants;
  * 
  * @author Joey Perez
  */
-public class CreditsView extends JPanel {
+public class CreditsPanel extends JPanel {
 
 	private static final long serialVersionUID = 1L;
 
 	// TODO Come back to format this view later.
 	/**
-	 * Constructor for the CreditsView class.
+	 * Constructor for the CreditsPanel class.
 	 */
-	public CreditsView() {
+	public CreditsPanel() {
 		setForeground(Color.BLUE);
 		setBackground(SystemColor.menu);
 		GridBagLayout gridBagLayout = new GridBagLayout();

@@ -15,7 +15,7 @@ import javax.swing.JPanel;
  * 
  * @author Marco Duran
  */
-public class LeftMenuPanel extends JPanel {
+public class LevelStatsPanel extends JPanel {
 
 	private static final long serialVersionUID = 1L;
 
@@ -32,9 +32,9 @@ public class LeftMenuPanel extends JPanel {
 	JLabel movesSlashTimeLabel;
 
 	/**
-	 * Constructor for LeftMenuPanel class
+	 * Constructor for LevelStatsPanel class
 	 */
-	public LeftMenuPanel() {
+	public LevelStatsPanel() {
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		gridBagLayout.columnWidths = new int[] { 0, 0, 0, 0 };
 		gridBagLayout.rowHeights = new int[] { 0, 0, 0, 0, 0, 0, 0, 0 };

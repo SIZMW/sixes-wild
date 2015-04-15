@@ -13,17 +13,17 @@ import javax.swing.JPanel;
  * 
  * @author Cameron Jones
  */
-public class GameMenuPanel extends JPanel {
+public class GameMenuView extends JPanel {
 
 	private static final long serialVersionUID = 1L;
 
 	JPanel subMenuPanel;
-	TitleView titleMenuView;
+	TitlePanel titleMenuView;
 	LevelSelectionPanel storyMenuView;
 	LevelSelectionPanel userMenuView;
 	BadgesPanel badgeMenuView;
 	OptionsPanel optionsMenuView;
-	CreditsView creditsMenuView;
+	CreditsPanel creditsMenuView;
 	JButton storyLevelMenuButton;
 	JButton userLevelMenuButton;
 	JButton badgesMenuButton;
@@ -31,9 +31,9 @@ public class GameMenuPanel extends JPanel {
 	JButton creditsMenuButton;
 
 	/**
-	 * Constructor for GameMenuPanel class.
+	 * Constructor for GameMenuView class.
 	 */
-	public GameMenuPanel() {
+	public GameMenuView() {
 
 		// General Layout Settings
 		GridBagLayout gridBagLayout = new GridBagLayout();
@@ -55,7 +55,7 @@ public class GameMenuPanel extends JPanel {
 		add(subMenuPanel, gbc_panel);
 
 		// TitlePanel
-		titleMenuView = new TitleView();
+		titleMenuView = new TitlePanel();
 
 		// StoryMenuPanel
 		ArrayList<String> storyLevelList = new ArrayList<String>();
@@ -72,8 +72,8 @@ public class GameMenuPanel extends JPanel {
 		// OptionsMenuPanel
 		optionsMenuView = new OptionsPanel();
 
-		// CreditsView
-		creditsMenuView = new CreditsView();
+		// CreditsPanel
+		creditsMenuView = new CreditsPanel();
 
 		// Button Setups
 		// Story menu button
@@ -213,7 +213,7 @@ public class GameMenuPanel extends JPanel {
 	 * 
 	 * @return this.creditsMenuView The credits menu view.
 	 */
-	public CreditsView getCreditsMenuView() {
+	public CreditsPanel getCreditsMenuView() {
 		return this.creditsMenuView;
 	}
 
@@ -222,7 +222,17 @@ public class GameMenuPanel extends JPanel {
 	 * 
 	 * @return this.titleMenuView The title menu view.
 	 */
-	public TitleView getTitleMenuView() {
+	public TitlePanel getTitleMenuView() {
 		return this.titleMenuView;
+	}
+
+	/**
+	 * Refresh this panel using the application to get new data.
+	 * 
+	 * @param app
+	 *            The game application to refresh from.
+	 */
+	public void refresh(GameApplication app) {
+		// TODO Refresh this panel.
 	}
 }

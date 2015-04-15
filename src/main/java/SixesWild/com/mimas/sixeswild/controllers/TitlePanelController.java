@@ -3,7 +3,7 @@ package SixesWild.com.mimas.sixeswild.controllers;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
-public class TitleViewController implements KeyListener {
+public class TitlePanelController implements KeyListener {
 
 	public void keyPressed(KeyEvent arg0) {
 		// TODO Auto-generated method stub
