@@ -22,6 +22,7 @@ public class TestSquare extends TestCase {
 	
 	public void testSquareTileMethods() {
 		square.removeTile();
+		assertNull(square.getTile());
 		square.addTile(new NumberTile(2, 1));
 		assertEquals(square.getTile().getNumber(), 2);
 		assertEquals(square.getTile().getMultiplier(), 1);
