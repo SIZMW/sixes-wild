@@ -33,8 +33,8 @@ public class SquareView extends JLabel {
 	final Color TWO_COLOR = new Color(0xFF7F00);
 	final Color THREE_COLOR = Color.YELLOW;
 	final Color FOUR_COLOR = Color.GREEN;
-	final Color FIVE_COLOR = Color.BLUE;
-	final Color SIX_COLOR = new Color(0x7D26CD);
+	final Color FIVE_COLOR = Color.CYAN;
+	final Color SIX_COLOR = Color.MAGENTA;
 
 	/**
 	 * Constructor for SquareView class.
