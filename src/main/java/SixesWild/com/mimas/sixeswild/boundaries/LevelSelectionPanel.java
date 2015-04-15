@@ -13,6 +13,13 @@ import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.ListSelectionModel;
+import javax.swing.JLabel;
+import javax.swing.SwingConstants;
+
+import java.awt.Color;
+
+import javax.swing.border.BevelBorder;
+import javax.swing.border.LineBorder;
 
 /**
  * This class represents the inner view for selecting a level and displaying a
@@ -91,19 +98,30 @@ public class LevelSelectionPanel extends JPanel {
 		GridBagLayout gbl_panel = new GridBagLayout();
 		gbl_panel.columnWidths = new int[] { 0, 0, 0, 0 };
 		gbl_panel.rowHeights = new int[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
-		gbl_panel.columnWeights = new double[] { 0.0, 0.0, 0.0,
+		gbl_panel.columnWeights = new double[] { 1.0, 1.0, 1.0,
 				Double.MIN_VALUE };
-		gbl_panel.rowWeights = new double[] { 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,
-				0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE };
+		gbl_panel.rowWeights = new double[] { 1.0, 1.0, 1.0, 1.0, 1.0, 1.0,
+				1.0, 1.0, 1.0, 1.0, Double.MIN_VALUE };
 		previewPanel.setLayout(gbl_panel);
-
-		// Play level button
-		playLevelButton = new JButton("Play Level");
-		GridBagConstraints gbc_btnPlay = new GridBagConstraints();
-		gbc_btnPlay.anchor = GridBagConstraints.SOUTHEAST;
-		gbc_btnPlay.gridx = 2;
-		gbc_btnPlay.gridy = 9;
-		previewPanel.add(playLevelButton, gbc_btnPlay);
+				
+				JLabel lblLevelPreview = new JLabel("Level Preview", SwingConstants.CENTER);
+				lblLevelPreview.setBorder(new LineBorder(new Color(0, 0, 0)));
+				lblLevelPreview.setBackground(Color.WHITE);
+				GridBagConstraints gbc_lblLevelPreview = new GridBagConstraints();
+				gbc_lblLevelPreview.fill = GridBagConstraints.BOTH;
+				gbc_lblLevelPreview.gridheight = 3;
+				gbc_lblLevelPreview.insets = new Insets(0, 0, 5, 5);
+				gbc_lblLevelPreview.gridx = 1;
+				gbc_lblLevelPreview.gridy = 1;
+				previewPanel.add(lblLevelPreview, gbc_lblLevelPreview);
+		
+				// Play level button
+				playLevelButton = new JButton("Play Level");
+				GridBagConstraints gbc_btnPlay = new GridBagConstraints();
+				gbc_btnPlay.insets = new Insets(0, 0, 0, 5);
+				gbc_btnPlay.gridx = 1;
+				gbc_btnPlay.gridy = 9;
+				previewPanel.add(playLevelButton, gbc_btnPlay);
 	}
 
 	/**

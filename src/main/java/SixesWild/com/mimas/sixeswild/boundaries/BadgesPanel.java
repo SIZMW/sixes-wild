@@ -10,6 +10,9 @@ import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+import javax.swing.SwingConstants;
+import javax.swing.border.LineBorder;
+import java.awt.Color;
 
 /**
  * This class represents the view used to show badges that the player has
@@ -68,18 +71,21 @@ public class BadgesPanel extends JPanel {
 		GridBagLayout gbl_panel = new GridBagLayout();
 		gbl_panel.columnWidths = new int[] { 0, 0, 0, 0 };
 		gbl_panel.rowHeights = new int[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
-		gbl_panel.columnWeights = new double[] { 0.0, 0.0, 0.0,
+		gbl_panel.columnWeights = new double[] { 1.0, 1.0, 1.0,
 				Double.MIN_VALUE };
-		gbl_panel.rowWeights = new double[] { 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,
-				0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE };
+		gbl_panel.rowWeights = new double[] { 1.0, 1.0, 1.0, 1.0, 1.0, 1.0,
+				1.0, 1.0, 1.0, 1.0, Double.MIN_VALUE };
 		previewPanel.setLayout(gbl_panel);
-
-		JLabel lblBadgepreview = new JLabel("BadgePreview");
-		GridBagConstraints gbc_lblBadgepreview = new GridBagConstraints();
-		gbc_lblBadgepreview.insets = new Insets(0, 0, 5, 0);
-		gbc_lblBadgepreview.gridx = 2;
-		gbc_lblBadgepreview.gridy = 0;
-		previewPanel.add(lblBadgepreview, gbc_lblBadgepreview);
+		
+				JLabel lblBadgepreview = new JLabel("BadgePreview", SwingConstants.CENTER);
+				lblBadgepreview.setBorder(new LineBorder(new Color(0, 0, 0)));
+				GridBagConstraints gbc_lblBadgepreview = new GridBagConstraints();
+				gbc_lblBadgepreview.gridheight = 3;
+				gbc_lblBadgepreview.fill = GridBagConstraints.BOTH;
+				gbc_lblBadgepreview.insets = new Insets(0, 0, 5, 5);
+				gbc_lblBadgepreview.gridx = 1;
+				gbc_lblBadgepreview.gridy = 1;
+				previewPanel.add(lblBadgepreview, gbc_lblBadgepreview);
 
 	}
 
