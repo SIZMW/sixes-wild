@@ -20,7 +20,7 @@ public class Level {
 	int moveCount;
 	Timer timer;
 	boolean isUnlocked;
-	
+
 	/**
 	 * @param tileFreq
 	 * @param multFreq
@@ -41,7 +41,7 @@ public class Level {
 		this.moveCount = moveCount;
 		this.isUnlocked = isUnlocked;
 	}
-	
+
 	/**
 	 * @param tileFreq
 	 * @param multFreq
@@ -62,7 +62,7 @@ public class Level {
 		this.timer = timer;
 		this.isUnlocked = isUnlocked;
 	}
-	
+
 	/**
 	 * @param squares
 	 * @param type
@@ -85,12 +85,13 @@ public class Level {
 		this.moveCount = 40;
 		this.isUnlocked = true;
 	}
-	
+
 	/**
-	 * 
+	 *
 	 */
 	public Level(){
 		this.tileFreq = new ArrayList<Double>();
+		this.multFreq = new ArrayList<Double>();
 		this.tileFreq.add(.10);
 		this.tileFreq.add(.20);
 		this.tileFreq.add(.30);
