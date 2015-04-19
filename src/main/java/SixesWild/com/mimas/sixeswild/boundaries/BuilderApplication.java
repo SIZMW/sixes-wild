@@ -11,6 +11,7 @@ import javax.swing.border.EmptyBorder;
 import SixesWild.com.mimas.sixeswild.controllers.BuilderSplashScreenController;
 import SixesWild.com.mimas.sixeswild.controllers.NewLevelButtonController;
 import SixesWild.com.mimas.sixeswild.controllers.SpecialMoveFourDecreaseButtonController;
+import SixesWild.com.mimas.sixeswild.controllers.SpecialMoveFourIncreaseButtonController;
 import SixesWild.com.mimas.sixeswild.controllers.SpecialMoveOneDecreaseButtonController;
 import SixesWild.com.mimas.sixeswild.controllers.SpecialMoveOneIncreaseButtonController;
 import SixesWild.com.mimas.sixeswild.controllers.SpecialMoveThreeDecreaseButtonController;
@@ -71,6 +72,8 @@ public class BuilderApplication {
 		this.builderView.builderSettingsPanel.specialMoveOneMinusButton
 				.addActionListener(new SpecialMoveOneDecreaseButtonController(
 						this));
+
+		// Special move decrease and increase buttons
 		this.builderView.builderSettingsPanel.specialMoveOnePlusButton
 				.addActionListener(new SpecialMoveOneIncreaseButtonController(
 						this));
@@ -78,17 +81,20 @@ public class BuilderApplication {
 				.addActionListener(new SpecialMoveTwoDecreaseButtonController(
 						this));
 		this.builderView.builderSettingsPanel.specialMoveTwoPlusButton
-		.addActionListener(new SpecialMoveTwoIncreaseButtonController(
-				this));
+				.addActionListener(new SpecialMoveTwoIncreaseButtonController(
+						this));
 		this.builderView.builderSettingsPanel.specialMoveThreeMinusButton
-		.addActionListener(new SpecialMoveThreeDecreaseButtonController(
-				this));
+				.addActionListener(new SpecialMoveThreeDecreaseButtonController(
+						this));
 		this.builderView.builderSettingsPanel.specialMoveThreePlusButton
-		.addActionListener(new SpecialMoveThreeIncreaseButtonController(
-				this));
+				.addActionListener(new SpecialMoveThreeIncreaseButtonController(
+						this));
 		this.builderView.builderSettingsPanel.specialMoveFourMinusButton
-		.addActionListener(new SpecialMoveFourDecreaseButtonController(
-				this));
+				.addActionListener(new SpecialMoveFourDecreaseButtonController(
+						this));
+		this.builderView.builderSettingsPanel.specialMoveFourPlusButton
+				.addActionListener(new SpecialMoveFourIncreaseButtonController(
+						this));
 	}
 
 	/**
