@@ -12,6 +12,7 @@ import SixesWild.com.mimas.sixeswild.controllers.BuilderSplashScreenController;
 import SixesWild.com.mimas.sixeswild.controllers.NewLevelButtonController;
 import SixesWild.com.mimas.sixeswild.controllers.SpecialMoveOneDecreaseButtonController;
 import SixesWild.com.mimas.sixeswild.controllers.SpecialMoveOneIncreaseButtonController;
+import SixesWild.com.mimas.sixeswild.controllers.SpecialMoveThreeDecreaseButtonController;
 import SixesWild.com.mimas.sixeswild.controllers.SpecialMoveTwoDecreaseButtonController;
 import SixesWild.com.mimas.sixeswild.controllers.SpecialMoveTwoIncreaseButtonController;
 
@@ -76,6 +77,9 @@ public class BuilderApplication {
 						this));
 		this.builderView.builderSettingsPanel.specialMoveTwoPlusButton
 		.addActionListener(new SpecialMoveTwoIncreaseButtonController(
+				this));
+		this.builderView.builderSettingsPanel.specialMoveThreeMinusButton
+		.addActionListener(new SpecialMoveThreeDecreaseButtonController(
 				this));
 	}
 
