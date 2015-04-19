@@ -91,7 +91,7 @@ public class BuilderView extends JPanel {
 	 * 
 	 * @return this.levelSettingsPanel The level settings panel.
 	 */
-	public BuilderSettingsPanel getLevelSettingsPanel() {
+	public BuilderSettingsPanel getBuilderSettingsPanel() {
 		return this.builderSettingsPanel;
 	}
 

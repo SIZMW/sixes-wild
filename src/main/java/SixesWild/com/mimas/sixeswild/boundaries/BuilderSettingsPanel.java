@@ -495,7 +495,7 @@ public class BuilderSettingsPanel extends JPanel {
 		specialMovesPanel.add(specialMoveOnePanel, gbc_specialMoveOnePanel);
 
 		// Special move one label
-		specialMoveOneLabel = new JLabel("###");
+		specialMoveOneLabel = new JLabel("0");
 		specialMoveOneLabel.setBorder(BorderFactory
 				.createLineBorder(Color.black));
 		specialMoveOneLabel.setHorizontalAlignment(SwingConstants.RIGHT);
@@ -520,7 +520,7 @@ public class BuilderSettingsPanel extends JPanel {
 		specialMovesPanel.add(specialMoveThreePanel, gbc_specialMoveThreePanel);
 
 		// Special move three label
-		specialMoveThreeLabel = new JLabel("###");
+		specialMoveThreeLabel = new JLabel("0");
 		specialMoveThreeLabel.setBorder(BorderFactory
 				.createLineBorder(Color.black));
 		specialMoveThreeLabel.setHorizontalAlignment(SwingConstants.RIGHT);
@@ -581,7 +581,7 @@ public class BuilderSettingsPanel extends JPanel {
 		specialMovesPanel.add(specialMoveTwoPanel, gbc_specialMoveTwoPanel);
 
 		// Special move two label
-		specialMoveTwoLabel = new JLabel("###");
+		specialMoveTwoLabel = new JLabel("0");
 		specialMoveTwoLabel.setBorder(BorderFactory
 				.createLineBorder(Color.black));
 		specialMoveTwoLabel.setHorizontalAlignment(SwingConstants.RIGHT);
@@ -606,7 +606,7 @@ public class BuilderSettingsPanel extends JPanel {
 		specialMovesPanel.add(specialMoveFourPanel, gbc_specialMoveFourPanel);
 
 		// Special move four label
-		specialMoveFourLabel = new JLabel("###");
+		specialMoveFourLabel = new JLabel("0");
 		specialMoveFourLabel.setBorder(BorderFactory
 				.createLineBorder(Color.black));
 		specialMoveFourLabel.setHorizontalAlignment(SwingConstants.RIGHT);
@@ -1028,5 +1028,41 @@ public class BuilderSettingsPanel extends JPanel {
 	 */
 	public JComboBox<String> getTileTypeComboBox() {
 		return this.tileTypeComboBox;
+	}
+
+	/**
+	 * Returns special move one label
+	 * 
+	 * @return this.specialMoveOneLabel
+	 */
+	public JLabel getSpecialMoveOneLabel() {
+		return specialMoveOneLabel;
+	}
+
+	/**
+	 * Returns special move Two label
+	 * 
+	 * @return this.specialMoveTwoLabel
+	 */
+	public JLabel getSpecialMoveTwoLabel() {
+		return specialMoveTwoLabel;
+	}
+
+	/**
+	 * Returns special move three label
+	 * 
+	 * @return this.specialMoveThreeLabel
+	 */
+	public JLabel getSpecialMoveThreeLabel() {
+		return specialMoveThreeLabel;
+	}
+
+	/**
+	 * Returns special move four label
+	 * 
+	 * @return this.specialMoveFourLabel
+	 */
+	public JLabel getSpecialMoveFourLabel() {
+		return specialMoveFourLabel;
 	}
 }
