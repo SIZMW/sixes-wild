@@ -67,7 +67,7 @@ public class Board {
 	 * 
 	 * @return Random value from 1 to 6.
 	 */
-	private int getNumber() {
+	protected int getNumber() {
 		if (new Random().nextInt(this.getFrequencyProbability(this.tileFrequencies.get(0))) == 0) {
 			return 1;
 		} else if (new Random().nextInt(this.getFrequencyProbability(this.tileFrequencies.get(1))) == 0) {
@@ -88,7 +88,7 @@ public class Board {
 	 * 
 	 * @return Multiplier value from 1 to 3.
 	 */
-	private int getMultiplier() {
+	protected int getMultiplier() {
 		if (new Random().nextInt(this.getFrequencyProbability(this.multiplierFrequencies.get(0))) == 0) {
 			return 1;
 		} else if (new Random().nextInt(this.getFrequencyProbability(this.multiplierFrequencies.get(1))) == 0) {
@@ -108,7 +108,7 @@ public class Board {
 	 *            The percentage representation of the frequency.
 	 * @return Integer to represent bounds on frequency probability.
 	 */
-	private int getFrequencyProbability(double freq) {
+	protected int getFrequencyProbability(double freq) {
 		return (100 / (int) (this.tileFrequencies.get(0) * 100));
 	}
 
@@ -117,7 +117,7 @@ public class Board {
 	 * 
 	 * @return Random value from 1 to 6.
 	 */
-	private int getRandomNumber() {
+	protected int getRandomNumber() {
 		return 1 + (int) (Math.random() * 6);
 	}
 
@@ -126,10 +126,9 @@ public class Board {
 	 * 
 	 * @return true
 	 */
-	private boolean initialize() {
-		
+	protected boolean initialize() {
 		// TileFrequencies and MultiplierFrequencies have not been initialized
-		if (this.tileFrequencies.equals(null) && this.multiplierFrequencies.equals(null)) {
+		if (this.tileFrequencies == null && this.multiplierFrequencies == null) {
 			this.tileFrequencies = new ArrayList<Double>(Arrays.asList(.1, .2, .3, .3, .05, .05));
 			this.multiplierFrequencies = new ArrayList<Double>(Arrays.asList(.5, .25, .35));
 
