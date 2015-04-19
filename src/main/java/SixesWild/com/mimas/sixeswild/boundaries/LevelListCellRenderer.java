@@ -15,7 +15,7 @@ public class LevelListCellRenderer extends DefaultListCellRenderer {
 		this.highestLevel = highestLevelUnlocked;
 	}
 
-	public Component getListCellRendererComponent(JList list, Object value,
+	public Component getListCellRendererComponent(JList<?> list, Object value,
 			int index, boolean isSelected, boolean cellHasFocus) {
 		int levelNumber = Integer.parseInt(((String) value).substring(
 				((String) value).indexOf(" ") + 1,

@@ -1,6 +1,5 @@
 package SixesWild.com.mimas.sixeswild.entities;
 
-import java.awt.List;
 import java.util.ArrayList;
 
 import javax.swing.Timer;
