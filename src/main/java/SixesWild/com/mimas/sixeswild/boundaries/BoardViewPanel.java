@@ -32,7 +32,7 @@ public class BoardViewPanel extends JPanel {
 	public BoardViewPanel(Board board) {
 		super();
 		this.gameBoard = board;
-		this.gameBoard.initialize();
+		this.gameBoard.randomInitialize();
 		this.setVisible(true);
 		squareViewBoard = new SquareView[9][9];
 
