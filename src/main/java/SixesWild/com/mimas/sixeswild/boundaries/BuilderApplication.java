@@ -10,6 +10,7 @@ import javax.swing.border.EmptyBorder;
 
 import SixesWild.com.mimas.sixeswild.controllers.BuilderSplashScreenController;
 import SixesWild.com.mimas.sixeswild.controllers.NewLevelButtonController;
+import SixesWild.com.mimas.sixeswild.controllers.SpecialMoveFourDecreaseButtonController;
 import SixesWild.com.mimas.sixeswild.controllers.SpecialMoveOneDecreaseButtonController;
 import SixesWild.com.mimas.sixeswild.controllers.SpecialMoveOneIncreaseButtonController;
 import SixesWild.com.mimas.sixeswild.controllers.SpecialMoveThreeDecreaseButtonController;
@@ -84,6 +85,9 @@ public class BuilderApplication {
 				this));
 		this.builderView.builderSettingsPanel.specialMoveThreePlusButton
 		.addActionListener(new SpecialMoveThreeIncreaseButtonController(
+				this));
+		this.builderView.builderSettingsPanel.specialMoveFourMinusButton
+		.addActionListener(new SpecialMoveFourDecreaseButtonController(
 				this));
 	}
 
