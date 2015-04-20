@@ -42,7 +42,7 @@ public class GameBoardViewMouseController extends MouseAdapter {
 	 * @see java.awt.event.MouseAdapter#mouseReleased(java.awt.event.MouseEvent)
 	 */
 	public void mouseReleased(MouseEvent me) {
-		app.getLevelPanel().getBoardViewPanel().applySelection();
+		app.getLevelPanel().getBoardViewPanel().clearSelection();
 		app.getLevelPanel().getBoardViewPanel().updateUI();
 	}
 }

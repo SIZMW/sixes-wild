@@ -129,6 +129,15 @@ public class SquareView extends JLabel {
 	}
 
 	/**
+	 * Returns the square in this SquareView.
+	 * 
+	 * @return this.square The square in this SquareView.
+	 */
+	public Square getSquare() {
+		return this.square;
+	}
+
+	/**
 	 * Updates the position and scaling of the SquareView based on new board
 	 * view panel sizing.
 	 * 

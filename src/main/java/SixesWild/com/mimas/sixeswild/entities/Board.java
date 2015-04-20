@@ -44,7 +44,8 @@ public class Board {
 	 *             squareList has a null Square and therefore board cannot be
 	 *             populated.
 	 */
-	public Board(ArrayList<Square> squareList, ArrayList<Double> tileFreq, ArrayList<Double> multFreq) throws Exception {
+	public Board(ArrayList<Square> squareList, ArrayList<Double> tileFreq,
+			ArrayList<Double> multFreq) throws Exception {
 		this.tileFrequencies = tileFreq;
 		this.multiplierFrequencies = multFreq;
 		this.squares = new Square[SIZE_X][SIZE_Y];
@@ -68,15 +69,20 @@ public class Board {
 	 * @return Random value from 1 to 6.
 	 */
 	protected int getNumber() {
-		if (new Random().nextInt(this.getFrequencyProbability(this.tileFrequencies.get(0))) == 0) {
+		if (new Random().nextInt(this
+				.getFrequencyProbability(this.tileFrequencies.get(0))) == 0) {
 			return 1;
-		} else if (new Random().nextInt(this.getFrequencyProbability(this.tileFrequencies.get(1))) == 0) {
+		} else if (new Random().nextInt(this
+				.getFrequencyProbability(this.tileFrequencies.get(1))) == 0) {
 			return 2;
-		} else if (new Random().nextInt(this.getFrequencyProbability(this.tileFrequencies.get(2))) == 0) {
+		} else if (new Random().nextInt(this
+				.getFrequencyProbability(this.tileFrequencies.get(2))) == 0) {
 			return 3;
-		} else if (new Random().nextInt(this.getFrequencyProbability(this.tileFrequencies.get(3))) == 0) {
+		} else if (new Random().nextInt(this
+				.getFrequencyProbability(this.tileFrequencies.get(3))) == 0) {
 			return 4;
-		} else if (new Random().nextInt(this.getFrequencyProbability(this.tileFrequencies.get(4))) == 0) {
+		} else if (new Random().nextInt(this
+				.getFrequencyProbability(this.tileFrequencies.get(4))) == 0) {
 			return 5;
 		} else {
 			return 6;
@@ -89,9 +95,11 @@ public class Board {
 	 * @return Multiplier value from 1 to 3.
 	 */
 	protected int getMultiplier() {
-		if (new Random().nextInt(this.getFrequencyProbability(this.multiplierFrequencies.get(0))) == 0) {
+		if (new Random().nextInt(this
+				.getFrequencyProbability(this.multiplierFrequencies.get(0))) == 0) {
 			return 1;
-		} else if (new Random().nextInt(this.getFrequencyProbability(this.multiplierFrequencies.get(1))) == 0) {
+		} else if (new Random().nextInt(this
+				.getFrequencyProbability(this.multiplierFrequencies.get(1))) == 0) {
 			return 2;
 		} else {
 			return 3;
@@ -129,21 +137,30 @@ public class Board {
 	protected boolean initialize() {
 		// TileFrequencies and MultiplierFrequencies have not been initialized
 		if (this.tileFrequencies == null && this.multiplierFrequencies == null) {
-			this.tileFrequencies = new ArrayList<Double>(Arrays.asList(.1, .2, .3, .3, .05, .05));
-			this.multiplierFrequencies = new ArrayList<Double>(Arrays.asList(.5, .25, .35));
+			this.tileFrequencies = new ArrayList<Double>(Arrays.asList(.1, .2,
+					.3, .3, .05, .05));
+			this.multiplierFrequencies = new ArrayList<Double>(Arrays.asList(
+					.5, .25, .35));
 
 			for (int i = 0; i < SIZE_X; i++) {
 				for (int j = 0; j < SIZE_Y; j++) {
-					if (squares[i][j].getTile().getType().equals(TileType.NUMBER)) {
-						squares[i][j] = new Square(new NumberTile(this.getNumber(), this.getMultiplier()), i, j, false);
+					if (squares[i][j].getTile().getType()
+							.equals(TileType.NUMBER)) {
+						squares[i][j] = new Square(new NumberTile(
+								this.getNumber(), this.getMultiplier()), i, j,
+								false);
 					}
 				}
 			}
-		} else { // TileFrequencies and MultiplierFrequencies have been initialized
+		} else { // TileFrequencies and MultiplierFrequencies have been
+					// initialized
 			for (int i = 0; i < SIZE_X; i++) {
 				for (int j = 0; j < SIZE_Y; j++) {
-					if (squares[i][j].getTile().getType().equals(TileType.NUMBER)) {
-						squares[i][j] = new Square(new NumberTile(this.getNumber(), this.getMultiplier()), i, j, false);
+					if (squares[i][j].getTile().getType()
+							.equals(TileType.NUMBER)) {
+						squares[i][j] = new Square(new NumberTile(
+								this.getNumber(), this.getMultiplier()), i, j,
+								false);
 					}
 				}
 			}
@@ -160,7 +177,8 @@ public class Board {
 	public boolean randomInitialize() {
 		for (int i = 0; i < SIZE_X; i++) {
 			for (int j = 0; j < SIZE_Y; j++) {
-				squares[i][j] = new Square(new NumberTile(this.getRandomNumber(), 1), i, j, false);
+				squares[i][j] = new Square(new NumberTile(
+						this.getRandomNumber(), 1), i, j, false);
 			}
 		}
 		return true;
@@ -240,6 +258,61 @@ public class Board {
 	 */
 	public boolean fillEmptySquares() {
 		return true;
+	}
+
+	/**
+	 * Returns whether the given selection is valid or not.
+	 * 
+	 * @param selection
+	 *            The selection to verify.
+	 * @return true or false
+	 */
+	public boolean isValidSelection(ArrayList<Square> selection) {
+		if (selection.equals(null)) {
+			return false;
+		}
+
+		for (Square e : selection) {
+			if (e.equals(null)) {
+				return false;
+			}
+		}
+
+		for (int i = 0; i < selection.size() - 1; i++) {
+			if (!this.isSquareNextTo(selection.get(i), selection.get(i + 1))) {
+				return false;
+			}
+		}
+
+		int sum = 0;
+		for (Square e : selection) {
+			if (!e.getTile().getType().equals(TileType.NUMBER)) {
+				return false;
+			}
+			sum += e.getTile().getNumber();
+		}
+
+		if (sum > 6) {
+			return false;
+		}
+
+		return true;
+	}
+
+	/**
+	 * Returns whether two squares are next to each other.
+	 * 
+	 * @param squareOne
+	 *            First square to compare.
+	 * @param squareTwo
+	 *            Second square to compare.
+	 * @return true or false
+	 */
+	protected boolean isSquareNextTo(Square squareOne, Square squareTwo) {
+		return Math.abs(squareOne.getX() - squareTwo.getX()) <= 1
+				&& Math.abs(squareOne.getY() - squareTwo.getY()) == 0
+				|| Math.abs(squareOne.getX() - squareTwo.getX()) == 0
+				&& Math.abs(squareOne.getY() - squareTwo.getY()) <= 1;
 	}
 
 	/**
