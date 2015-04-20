@@ -278,10 +278,22 @@ public class Board {
 			}
 		}
 
-		for (int i = 0; i < selection.size() - 1; i++) {
-			if (!this.isSquareNextTo(selection.get(i), selection.get(i + 1))) {
+		boolean nextTo = false;
+
+		for (int i = 0; i < selection.size(); i++) {
+			for (int j = 0; j < selection.size(); j++) {
+				if (i != j
+						&& this.isSquareNextTo(selection.get(i),
+								selection.get(j))) {
+					nextTo = true;
+				}
+			}
+
+			if (!nextTo) {
 				return false;
 			}
+
+			nextTo = false;
 		}
 
 		int sum = 0;
@@ -309,10 +321,10 @@ public class Board {
 	 * @return true or false
 	 */
 	protected boolean isSquareNextTo(Square squareOne, Square squareTwo) {
-		return Math.abs(squareOne.getX() - squareTwo.getX()) <= 1
-				&& Math.abs(squareOne.getY() - squareTwo.getY()) == 0
-				|| Math.abs(squareOne.getX() - squareTwo.getX()) == 0
-				&& Math.abs(squareOne.getY() - squareTwo.getY()) <= 1;
+		return (Math.abs(squareOne.getX() - squareTwo.getX()) == 1 && Math
+				.abs(squareOne.getY() - squareTwo.getY()) == 0)
+				|| (Math.abs(squareOne.getX() - squareTwo.getX()) == 0 && Math
+						.abs(squareOne.getY() - squareTwo.getY()) == 1);
 	}
 
 	/**
