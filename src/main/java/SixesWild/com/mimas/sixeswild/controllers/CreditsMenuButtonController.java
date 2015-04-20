@@ -14,8 +14,8 @@ import javax.swing.JPanel;
 import SixesWild.com.mimas.sixeswild.boundaries.GameApplication;
 
 /**
- * This class is the controller to handle redrawing the menu window when the
- * credits sub menu is requested.
+ * This controller displays the credits menu when the credits menu button is
+ * pressed.
  * 
  * @author Joey Perez
  */
@@ -23,7 +23,8 @@ public class CreditsMenuButtonController implements ActionListener {
 	GameApplication app;
 
 	/**
-	 * Constructor for CreditsMenuButtonController class.
+	 * Creates a CreditsMenuButtonController instance with the specified
+	 * GameApplication.
 	 * 
 	 * @param app
 	 *            The GameApplication currently running.
@@ -57,7 +58,8 @@ public class CreditsMenuButtonController implements ActionListener {
 		gbc_list.gridy = 0;
 
 		// Add panel to view
-		currentPanel.add(this.app.getMainPanel().getCreditsMenuView(), gbc_list);
+		currentPanel
+				.add(this.app.getMainPanel().getCreditsMenuView(), gbc_list);
 		currentPanel.updateUI();
 	}
 }

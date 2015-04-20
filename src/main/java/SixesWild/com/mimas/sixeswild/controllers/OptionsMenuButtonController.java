@@ -11,8 +11,8 @@ import javax.swing.JPanel;
 import SixesWild.com.mimas.sixeswild.boundaries.GameApplication;
 
 /**
- * This class is the controller to handle redrawing the menu window when the
- * options sub menu is requested.
+ * This controller displays the options menu when the options menu button is
+ * pressed.
  * 
  * @author Aditya Nivarthi
  */
@@ -20,7 +20,8 @@ public class OptionsMenuButtonController implements ActionListener {
 	GameApplication app;
 
 	/**
-	 * Constructor for the OptionsMenuButtonController class.
+	 * Creates a OptionsMenuButtonController instance with the specified
+	 * GameApplication.
 	 * 
 	 * @param app
 	 *            The GameApplication currently running.

@@ -15,8 +15,8 @@ import SixesWild.com.mimas.sixeswild.boundaries.BuilderApplication;
 import SixesWild.com.mimas.sixeswild.entities.Board;
 
 /**
- * This class is the controller to handle redrawing the menu window when the
- * story mode sub menu is requested.
+ * This controller creates a new level to edit in the level builder when the new
+ * button is pressed.
  * 
  * @author Cameron Jones
  */
@@ -24,10 +24,11 @@ public class NewLevelButtonController implements ActionListener {
 	BuilderApplication app;
 
 	/**
-	 * Constructor for the NewLevelButtonController class.
+	 * Creates a NewLevelButtonController instance with the specified
+	 * BuilderApplication.
 	 * 
 	 * @param app
-	 *            The GameApplication currently running.
+	 *            The BuilderApplication currently running.
 	 */
 	public NewLevelButtonController(BuilderApplication app) {
 		this.app = app;

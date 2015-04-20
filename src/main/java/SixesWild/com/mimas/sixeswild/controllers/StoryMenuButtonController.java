@@ -12,8 +12,8 @@ import javax.swing.JPanel;
 import SixesWild.com.mimas.sixeswild.boundaries.GameApplication;
 
 /**
- * This class is the controller to handle redrawing the menu window when the
- * story mode sub menu is requested.
+ * This controller displays the story level menu when the story level menu
+ * button is pressed.
  * 
  * @author Aditya Nivarthi
  */
@@ -23,7 +23,8 @@ public class StoryMenuButtonController implements ActionListener {
 	// TODO Add list of levels as attribute
 
 	/**
-	 * Constructor for the StoryMenuButtonController class.
+	 * Creates a StoryMenuButtonController instance with the specified
+	 * GameApplication.
 	 * 
 	 * @param app
 	 *            The GameApplication currently running.

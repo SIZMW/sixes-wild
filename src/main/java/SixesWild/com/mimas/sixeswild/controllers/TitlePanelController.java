@@ -4,7 +4,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 /**
- * This class is the controller for the title panel in the main menu.
+ * This controller manages the title panel in the main menu.
  * 
  * @author Cameron Jones
  */
@@ -38,5 +38,4 @@ public class TitlePanelController implements KeyListener {
 	public void keyTyped(KeyEvent arg0) {
 
 	}
-
 }

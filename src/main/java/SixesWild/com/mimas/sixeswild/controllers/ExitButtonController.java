@@ -13,8 +13,8 @@ import javax.swing.JPanel;
 import SixesWild.com.mimas.sixeswild.boundaries.GameApplication;
 
 /**
- * This class represents the controller for the exit button on the level in the
- * game for Sixes Wild.
+ * This controller handles exiting a level and returning to the previous menu
+ * screen in the game.
  * 
  * @author Cameron Jones
  */
@@ -22,7 +22,8 @@ public class ExitButtonController implements ActionListener {
 	GameApplication app;
 
 	/**
-	 * Constructor for the ExitButtonController class.
+	 * Creates an ExitButtonController instance with the specified
+	 * GameApplication.
 	 * 
 	 * @param app
 	 *            The GameApplication currently running.

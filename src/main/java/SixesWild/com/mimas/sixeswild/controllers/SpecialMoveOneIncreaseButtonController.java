@@ -6,8 +6,8 @@ import java.awt.event.ActionListener;
 import SixesWild.com.mimas.sixeswild.boundaries.BuilderApplication;
 
 /**
- * This class is the controller to handle increasing the number of special moves
- * for special move on in the builder settings panel.
+ * This controller increments the count of special move one for a level in the
+ * level builder.
  * 
  * @author Aditya Nivarthi
  */
@@ -15,7 +15,8 @@ public class SpecialMoveOneIncreaseButtonController implements ActionListener {
 	BuilderApplication app;
 
 	/**
-	 * Constructor for the SpecialMoveOneIncreaseButtonController class.
+	 * Creates a SpecialMoveOneIncreaseButtonController with the specified
+	 * BuilderApplication.
 	 * 
 	 * @param app
 	 *            The GameApplication currently running.

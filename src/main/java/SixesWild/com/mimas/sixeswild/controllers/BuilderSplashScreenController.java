@@ -8,48 +8,31 @@ import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
+import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
 
 import javax.swing.JPanel;
 
 import SixesWild.com.mimas.sixeswild.boundaries.BuilderApplication;
 
 /**
- * This class represents the splash screen controller for the builder view when
- * it first opens.
+ * This controller displays the splash screen prior to displaying the level
+ * builder when the application is started.
  * 
  * @author Joey Perez
  */
-public class BuilderSplashScreenController implements KeyListener {
+public class BuilderSplashScreenController extends KeyAdapter {
 	BuilderApplication app;
 
 	/**
-	 * Constructor for the BuilderSplashScreenController class.
+	 * Creates a GameSplashScreenController with the specified
+	 * BuilderApplication.
 	 * 
-	 * @param builderApplication
-	 *            The GameApplication currently running.
+	 * @param app
+	 *            The BuilderApplication currently running.
 	 */
 	public BuilderSplashScreenController(BuilderApplication builderApplication) {
 		this.app = builderApplication;
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see java.awt.event.KeyListener#keyReleased(java.awt.event.KeyEvent)
-	 */
-	public void keyReleased(KeyEvent arg0) {
-
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see java.awt.event.KeyListener#keyTyped(java.awt.event.KeyEvent)
-	 */
-	public void keyTyped(KeyEvent arg0) {
-
 	}
 
 	/*

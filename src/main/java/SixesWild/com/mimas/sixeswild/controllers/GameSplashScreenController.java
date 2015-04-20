@@ -5,46 +5,30 @@ import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
+import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
 
 import javax.swing.JPanel;
 
 import SixesWild.com.mimas.sixeswild.boundaries.GameApplication;
 
 /**
+ * This controller displays the splash screen prior to displaying the game menu
+ * when the application is started.
+ * 
  * @author Joey Perez
- *
  */
-public class GameSplashScreenController implements KeyListener {
+public class GameSplashScreenController extends KeyAdapter {
 	GameApplication app;
 
 	/**
-	 * Constructor for the OptionsMenuButtonController class.
+	 * Creates a GameSplashScreenController with the specified GameApplication.
 	 * 
 	 * @param app
 	 *            The GameApplication currently running.
 	 */
 	public GameSplashScreenController(GameApplication app) {
 		this.app = app;
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see java.awt.event.KeyListener#keyReleased(java.awt.event.KeyEvent)
-	 */
-	public void keyReleased(KeyEvent arg0) {
-
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see java.awt.event.KeyListener#keyTyped(java.awt.event.KeyEvent)
-	 */
-	public void keyTyped(KeyEvent arg0) {
-
 	}
 
 	/*

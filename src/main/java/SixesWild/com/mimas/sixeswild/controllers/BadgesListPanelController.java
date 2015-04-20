@@ -7,8 +7,8 @@ import java.util.ArrayList;
 import SixesWild.com.mimas.sixeswild.boundaries.GameApplication;
 
 /**
- * This class is the controller to handle what badges get drawn when a selection
- * is made in the badge submenu
+ * This controller displays the preview for the selected badge in the badges
+ * list menu.
  * 
  * @author Marco Duran
  *
@@ -18,7 +18,8 @@ public class BadgesListPanelController implements ActionListener {
 	ArrayList<String> badgeList;
 
 	/**
-	 * Constructor for BadgesListPanelController class.
+	 * Creates a BadgesListPanelController instance with the specified
+	 * GameApplication.
 	 * 
 	 * @param app
 	 *            The GameApplication that is currently running

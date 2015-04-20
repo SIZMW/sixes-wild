@@ -6,8 +6,8 @@ import java.awt.event.MouseEvent;
 import SixesWild.com.mimas.sixeswild.boundaries.GameApplication;
 
 /**
- * This class represents the controller for handling mouse events on the
- * BoardViewPanel.
+ * This controller handles mouse presses and releases when selecting tiles on
+ * the Board during the game.
  * 
  * @author Aditya Nivarthi
  */
@@ -16,7 +16,8 @@ public class GameBoardViewMouseController extends MouseAdapter {
 	GameApplication app;
 
 	/**
-	 * Constructor for GameBoardViewMouseController class.
+	 * Creates a GameBoardViewMouseController instance with the specified
+	 * GameApplication.
 	 * 
 	 * @param app
 	 *            The currently running GameApplication.
