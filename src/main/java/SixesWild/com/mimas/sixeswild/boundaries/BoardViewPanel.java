@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
+import java.util.ArrayList;
 
 import javax.swing.BorderFactory;
 import javax.swing.JPanel;
@@ -22,6 +23,7 @@ public class BoardViewPanel extends JPanel {
 
 	Board gameBoard;
 	SquareView squareViewBoard[][];
+	ArrayList<SquareView> currentSelection;
 
 	Border border;
 	GridBagConstraints gbc_panel;
@@ -31,11 +33,16 @@ public class BoardViewPanel extends JPanel {
 	 */
 	public BoardViewPanel(Board board) {
 		super();
+
+		// Attributes
 		this.gameBoard = board;
 		this.gameBoard.randomInitialize();
 		this.setVisible(true);
 		squareViewBoard = new SquareView[9][9];
+		border = BorderFactory.createLineBorder(Color.BLACK, 2);
+		currentSelection = new ArrayList<SquareView>();
 
+		// Layout
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		gridBagLayout.columnWidths = new int[] { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
 				1 };
@@ -46,26 +53,11 @@ public class BoardViewPanel extends JPanel {
 				1.0, 1.0, 1.0, 1.0, 1.0 };
 		setLayout(gridBagLayout);
 
-		border = BorderFactory.createLineBorder(Color.BLACK, 2);
 		gbc_panel = new GridBagConstraints();
 		gbc_panel.gridheight = 1;
 		gbc_panel.fill = GridBagConstraints.BOTH;
 
-		this.initialize();
-	}
-
-	public void initialize() {
-		for (int i = 0; i < 9; i++) {
-			for (int j = 0; j < 9; j++) {
-				squareViewBoard[i][j] = new SquareView(this.getGameBoard()
-						.getSquare(i, j), this.getWidth(), this.getHeight());
-
-				gbc_panel.gridx = i + 1;
-				gbc_panel.gridy = j + 1;
-
-				this.add(squareViewBoard[i][j], gbc_panel);
-			}
-		}
+		this.draw();
 	}
 
 	/*
@@ -80,9 +72,6 @@ public class BoardViewPanel extends JPanel {
 			for (int j = 0; j < 9; j++) {
 				squareViewBoard[i][j].updateSquareView(this.getWidth(),
 						this.getHeight());
-
-				gbc_panel.gridx = i + 1;
-				gbc_panel.gridy = j + 1;
 			}
 		}
 
@@ -90,23 +79,78 @@ public class BoardViewPanel extends JPanel {
 	}
 
 	/**
-	 * Returns the game board in this view.
+	 * Checks whether mouse coordinates are selecting the given SquareView.
 	 * 
-	 * @return this.gameBoard The game board in this view.
+	 * @param mx
+	 *            X coordinate of mouse.
+	 * @param my
+	 *            Y coordinate of mouse.
+	 * @param squareView
+	 *            The SquareView to check selection on.
+	 * @return true or false
 	 */
-	public Board getGameBoard() {
-		return this.gameBoard;
+	protected boolean validateSelection(int mx, int my, SquareView squareView) {
+		return mx - squareView.getX() > 0
+				&& mx - squareView.getX() < squareView.getWidth()
+				&& my - squareView.getY() > 0
+				&& my - squareView.getY() < squareView.getHeight();
 	}
 
 	/**
-	 * Updates the game board to the new board and redraws it into the view.
-	 * 
-	 * @param gameBoard
-	 *            The new game board.
+	 * Draws the board of SquareViews to the panel.
 	 */
-	public void updateGameBoard(Board gameBoard) {
-		this.gameBoard = gameBoard;
+	public void draw() {
+		for (int i = 0; i < gameBoard.SIZE_X; i++) {
+			for (int j = 0; j < gameBoard.SIZE_Y; j++) {
+				squareViewBoard[i][j] = new SquareView(
+						this.gameBoard.getSquare(i, j), this.getWidth(),
+						this.getHeight());
+
+				gbc_panel.gridx = i + 1;
+				gbc_panel.gridy = j + 1;
+
+				this.add(squareViewBoard[i][j], gbc_panel);
+			}
+		}
+	}
+
+	/**
+	 * Redraws the board of SquareViews to the panel.
+	 */
+	public void redraw() {
 		this.removeAll();
-		this.initialize();
+		this.draw();
+	}
+
+	/**
+	 * Updates the current square selection based on mouse coordinates.
+	 * 
+	 * @param mx
+	 *            X coordiante of mouse.
+	 * @param my
+	 *            Y coordinate of mouse.
+	 */
+	public void updateSelection(int mx, int my) {
+		for (int i = 0; i < gameBoard.SIZE_X; i++) {
+			for (int j = 0; j < gameBoard.SIZE_Y; j++) {
+				if (this.validateSelection(mx, my, squareViewBoard[i][j])) {
+					this.squareViewBoard[i][j].setSelected(true);
+					this.currentSelection.add(squareViewBoard[i][j]);
+				}
+			}
+		}
+	}
+
+	/**
+	 * Applies selection to board.
+	 */
+	public void applySelection() {
+		for (int i = 0; i < gameBoard.SIZE_X; i++) {
+			for (int j = 0; j < gameBoard.SIZE_Y; j++) {
+				this.squareViewBoard[i][j].setSelected(false);
+			}
+		}
+
+		this.currentSelection.clear();
 	}
 }

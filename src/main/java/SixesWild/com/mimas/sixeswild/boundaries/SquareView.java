@@ -3,6 +3,7 @@ package SixesWild.com.mimas.sixeswild.boundaries;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
+import java.awt.Graphics;
 
 import javax.swing.BorderFactory;
 import javax.swing.JLabel;
@@ -24,8 +25,10 @@ public class SquareView extends JLabel {
 	Square square;
 	int boardWidth;
 	int boardHeight;
+	boolean isSelected;
 
 	Border border;
+	Border selectedBorder;
 
 	// TODO Integrate this with aesthetics and themes.
 	// Default color constants
@@ -52,6 +55,7 @@ public class SquareView extends JLabel {
 		this.boardHeight = boardHeight;
 
 		border = BorderFactory.createLineBorder(Color.BLACK, 2);
+		selectedBorder = BorderFactory.createLineBorder(Color.YELLOW, 2);
 
 		this.setHorizontalAlignment(SwingConstants.CENTER);
 		this.setOpaque(true);
@@ -62,7 +66,7 @@ public class SquareView extends JLabel {
 
 		switch (this.square.getTile().getType()) {
 		case NULL:
-			this.setText("");
+			this.setText("  ");
 			break;
 		default:
 			this.setText(this.square.getTile().getNumber() + "");
@@ -83,7 +87,7 @@ public class SquareView extends JLabel {
 	 * 
 	 * @return The smaller value, height or width of the board.
 	 */
-	private int getMinOfHeightAndWidth() {
+	protected int getMinOfHeightAndWidth() {
 		return (this.boardWidth < this.boardHeight) ? this.boardWidth
 				: this.boardHeight;
 	}
@@ -95,7 +99,7 @@ public class SquareView extends JLabel {
 	 *            The number of the Tile.
 	 * @return One of the defined color constants.
 	 */
-	private Color getColorByNumber(int number) {
+	protected Color getColorByNumber(int number) {
 		switch (number) {
 		case 1:
 			return ONE_COLOR;
@@ -115,15 +119,28 @@ public class SquareView extends JLabel {
 	}
 
 	/**
-	 * Updates the positon and scaling of the SquareView based on new board view
-	 * panel sizing.
+	 * Sets the selected state of this SquareView.
+	 * 
+	 * @param selected
+	 *            State of selected.
+	 */
+	public void setSelected(boolean selected) {
+		this.isSelected = selected;
+	}
+
+	/**
+	 * Updates the position and scaling of the SquareView based on new board
+	 * view panel sizing.
 	 * 
 	 * @param boardWidth
+	 *            The new board width.
 	 * @param boardHeight
+	 *            The new board height.
 	 */
 	public void updateSquareView(int boardWidth, int boardHeight) {
 		this.boardWidth = boardWidth;
 		this.boardHeight = boardHeight;
+
 		this.setLocation(
 				(((this.boardWidth - (((int) this.boardWidth / 9) * 9)) + 10) / 2)
 						+ (this.boardWidth / 9 * this.square.getX()),
@@ -131,5 +148,20 @@ public class SquareView extends JLabel {
 						+ (this.boardHeight / 9 * this.square.getY()));
 		this.setSize(new Dimension(this.getMinOfHeightAndWidth() / 9 - 20, this
 				.getMinOfHeightAndWidth() / 9 - 20));
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see javax.swing.JComponent#paintComponent(java.awt.Graphics)
+	 */
+	protected void paintComponent(Graphics g) {
+		super.paintComponent(g);
+
+		if (isSelected) {
+			this.setBorder(selectedBorder);
+		} else {
+			this.setBorder(border);
+		}
 	}
 }
