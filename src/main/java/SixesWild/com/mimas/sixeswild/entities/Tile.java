@@ -7,7 +7,7 @@ package SixesWild.com.mimas.sixeswild.entities;
  * @author Aditya Nivarthi
  */
 public abstract class Tile {
-	
+
 	TileType type;
 	int number;
 	int multiplier;
@@ -29,7 +29,7 @@ public abstract class Tile {
 	public TileType getType() {
 		return this.type;
 	}
-	
+
 	/**
 	 * Returns the number of the tile.
 	 * 

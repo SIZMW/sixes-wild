@@ -23,6 +23,8 @@ public class TitlePanel extends JPanel {
 	 * Constructor for the TitlePanel class.
 	 */
 	public TitlePanel() {
+
+		// Layout for panel
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		gridBagLayout.columnWidths = new int[] { 0, 0 };
 		gridBagLayout.rowHeights = new int[] { 16, 0, 16, 0 };
@@ -31,9 +33,11 @@ public class TitlePanel extends JPanel {
 				Double.MIN_VALUE };
 		setLayout(gridBagLayout);
 
-		// Sixes wild label
+		// Sixes Wild label
 		JLabel gameTitleLabel = new JLabel("Sixes Wild");
 		gameTitleLabel.setFont(new Font("Tahoma", Font.PLAIN, 36));
+
+		// Layout for Sixes Wild label
 		GridBagConstraints gbc_gameTitleLabel = new GridBagConstraints();
 		gbc_gameTitleLabel.fill = GridBagConstraints.VERTICAL;
 		gbc_gameTitleLabel.gridx = 0;
@@ -44,6 +48,8 @@ public class TitlePanel extends JPanel {
 		JSeparator separator = new JSeparator();
 		separator.setBackground(Color.BLACK);
 		separator.setForeground(Color.BLACK);
+
+		// Layout for separator
 		GridBagConstraints gbc_separator = new GridBagConstraints();
 		gbc_separator.fill = GridBagConstraints.HORIZONTAL;
 		gbc_separator.insets = new Insets(0, 0, 5, 0);
@@ -54,6 +60,8 @@ public class TitlePanel extends JPanel {
 		// Basic rules
 		JLabel infoLabel = new JLabel(
 				"This is where the basic rules and stuff go");
+
+		// Layout for basic rules
 		GridBagConstraints gbc_infoLabel = new GridBagConstraints();
 		gbc_infoLabel.fill = GridBagConstraints.VERTICAL;
 		gbc_infoLabel.gridx = 0;

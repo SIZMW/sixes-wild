@@ -3,12 +3,18 @@ package SixesWild.com.mimas.sixeswild.entities;
 import java.util.ArrayList;
 import java.util.Collections;
 
+/**
+ * This class represents the point thresholds that a level will have. It
+ * aggregates the point thresholds into one class.
+ * 
+ * @author Yahel Nachum
+ */
 public class PointThresholds {
 
 	ArrayList<Integer> thresholds = new ArrayList<Integer>();
 
 	/**
-	 * Constructor for PointThreshold class.
+	 * Default constructor for PointThreshold class.
 	 */
 	public PointThresholds() {
 		this.thresholds.add(0);
@@ -17,7 +23,7 @@ public class PointThresholds {
 	}
 
 	/**
-	 * Constructor for PointThreshold class.
+	 * Parameterized constructor for PointThreshold class.
 	 * 
 	 * @param oneStarThreshold
 	 *            The one star threshold integer.

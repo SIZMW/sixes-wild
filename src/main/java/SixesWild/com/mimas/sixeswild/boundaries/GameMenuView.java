@@ -46,7 +46,6 @@ public class GameMenuView extends JPanel {
 				Double.MIN_VALUE };
 		setLayout(gridBagLayout);
 
-		// Panel Setups
 		// Sub menu panel
 		subMenuPanel = new JPanel();
 		GridBagConstraints gbc_panel = new GridBagConstraints();
@@ -66,10 +65,11 @@ public class GameMenuView extends JPanel {
 		optionsMenuView = new OptionsPanel();
 		creditsMenuView = new CreditsPanel();
 
-		// Button Setups
 		// Story menu button
 		storyLevelMenuButton = new JButton("Story Levels");
 		storyLevelMenuButton.setPreferredSize(new Dimension(150, 23));
+
+		// Layout for story menu button
 		GridBagConstraints gbc_btnNewButton = new GridBagConstraints();
 		gbc_btnNewButton.fill = GridBagConstraints.BOTH;
 		gbc_btnNewButton.gridx = 0;
@@ -78,6 +78,8 @@ public class GameMenuView extends JPanel {
 
 		// User menu button
 		userLevelMenuButton = new JButton("User Levels");
+
+		// Layout for user menu button
 		GridBagConstraints gbc_btnNewButton_1 = new GridBagConstraints();
 		gbc_btnNewButton_1.fill = GridBagConstraints.BOTH;
 		gbc_btnNewButton_1.gridx = 0;
@@ -86,6 +88,8 @@ public class GameMenuView extends JPanel {
 
 		// Badges menu button
 		badgesMenuButton = new JButton("Badges");
+
+		// Layout for badges menu button
 		GridBagConstraints gbc_btnNewButton_2 = new GridBagConstraints();
 		gbc_btnNewButton_2.fill = GridBagConstraints.BOTH;
 		gbc_btnNewButton_2.gridx = 0;
@@ -94,6 +98,8 @@ public class GameMenuView extends JPanel {
 
 		// Options menu button
 		optionsMenuButton = new JButton("Options");
+
+		// Layout for options menu button
 		GridBagConstraints gbc_btnNewButton_3 = new GridBagConstraints();
 		gbc_btnNewButton_3.fill = GridBagConstraints.BOTH;
 		gbc_btnNewButton_3.gridx = 0;
@@ -102,6 +108,8 @@ public class GameMenuView extends JPanel {
 
 		// Credits menu button
 		creditsMenuButton = new JButton("Credits");
+
+		// Layout for credits menu button
 		GridBagConstraints gbc_btnNewButton_4 = new GridBagConstraints();
 		gbc_btnNewButton_4.fill = GridBagConstraints.BOTH;
 		gbc_btnNewButton_4.gridx = 0;

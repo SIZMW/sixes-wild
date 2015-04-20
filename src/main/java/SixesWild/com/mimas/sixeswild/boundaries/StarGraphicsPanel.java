@@ -25,8 +25,11 @@ public class StarGraphicsPanel extends JPanel {
 	 * Constructor for StarGraphicsPanel class.
 	 */
 	public StarGraphicsPanel(int scoreNumber) {
+
+		// Attributes
 		this.scoreNumber = scoreNumber;
 
+		// Layout of panel
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		gridBagLayout.columnWidths = new int[] { 0, 0, 0, 0, 0, 0 };
 		gridBagLayout.rowHeights = new int[] { 0, 0, 0, 0, 0 };
@@ -36,8 +39,10 @@ public class StarGraphicsPanel extends JPanel {
 				Double.MIN_VALUE };
 		setLayout(gridBagLayout);
 
-		// Score for JLabel
+		// Score label
 		scoreLabel = new JLabel("Score: " + scoreNumber);
+
+		// Layout for score label
 		GridBagConstraints gbc_scoreLabel = new GridBagConstraints();
 		gbc_scoreLabel.anchor = GridBagConstraints.SOUTHEAST;
 		gbc_scoreLabel.insets = new Insets(0, 0, 5, 0);
@@ -48,6 +53,8 @@ public class StarGraphicsPanel extends JPanel {
 		// TODO Add graphic image
 		// Star graphic
 		starGraphicPanel = new JPanel();
+
+		// Layout for star graphic
 		GridBagConstraints gbc_panel = new GridBagConstraints();
 		gbc_panel.insets = new Insets(0, 0, 0, 5);
 		gbc_panel.anchor = GridBagConstraints.WEST;

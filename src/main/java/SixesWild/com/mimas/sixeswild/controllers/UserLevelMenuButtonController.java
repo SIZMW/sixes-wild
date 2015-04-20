@@ -18,12 +18,11 @@ import SixesWild.com.mimas.sixeswild.boundaries.GameApplication;
  * @author Aditya Nivarthi
  */
 public class UserLevelMenuButtonController implements ActionListener {
+
 	GameApplication app;
 
-	// TODO Add list of levels as attribute
-
 	/**
-	 * Constructor for the StoryMenuButtonController class.
+	 * Constructor for the UserLevelMenuButtonController class.
 	 * 
 	 * @param app
 	 *            The GameApplication currently running.
@@ -42,6 +41,7 @@ public class UserLevelMenuButtonController implements ActionListener {
 		JPanel currentPanel = app.getMainPanel().getSubMenuPanel();
 		currentPanel.removeAll();
 
+		// Layout
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		gridBagLayout.columnWidths = new int[] { 0 };
 		gridBagLayout.rowHeights = new int[] { 0 };

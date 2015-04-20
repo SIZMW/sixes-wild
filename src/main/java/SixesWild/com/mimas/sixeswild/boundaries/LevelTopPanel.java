@@ -30,6 +30,8 @@ public class LevelTopPanel extends JPanel {
 	 * Constructor for the LevelTopPanel class.
 	 */
 	public LevelTopPanel() {
+
+		// Layout for panel
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		gridBagLayout.columnWidths = new int[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 				0, 0, 0, 0 };
@@ -40,9 +42,11 @@ public class LevelTopPanel extends JPanel {
 				Double.MIN_VALUE };
 		setLayout(gridBagLayout);
 
-		// Level name text
+		// Level name text field
 		levelNameTextField = new JTextField();
 		levelNameTextField.setEditable(false);
+
+		// Layout for level name text field
 		GridBagConstraints gbc_levelNameText = new GridBagConstraints();
 		gbc_levelNameText.insets = new Insets(0, 0, 5, 5);
 		gbc_levelNameText.fill = GridBagConstraints.HORIZONTAL;
@@ -53,6 +57,8 @@ public class LevelTopPanel extends JPanel {
 		// Special move button 1
 		specialMoveButton1 = new JButton(MOVE_TEXT + 1);
 		specialMoveButton1.setPreferredSize(new Dimension(100, 100));
+
+		// Layout for special move button 1
 		GridBagConstraints gbc_specialMoveButton1 = new GridBagConstraints();
 		gbc_specialMoveButton1.insets = new Insets(0, 0, 5, 5);
 		gbc_specialMoveButton1.gridx = 3;
@@ -62,6 +68,8 @@ public class LevelTopPanel extends JPanel {
 		// Special move button 2
 		specialMoveButton2 = new JButton(MOVE_TEXT + 2);
 		specialMoveButton2.setPreferredSize(new Dimension(100, 100));
+
+		// Layout for special move button 2
 		GridBagConstraints gbc_specialMoveButton2 = new GridBagConstraints();
 		gbc_specialMoveButton2.insets = new Insets(0, 0, 5, 5);
 		gbc_specialMoveButton2.gridx = 5;
@@ -71,6 +79,8 @@ public class LevelTopPanel extends JPanel {
 		// Special move button 3
 		specialMoveButton3 = new JButton(MOVE_TEXT + 3);
 		specialMoveButton3.setPreferredSize(new Dimension(100, 100));
+
+		// Layout for special move button 3
 		GridBagConstraints gbc_specialMoveButton3 = new GridBagConstraints();
 		gbc_specialMoveButton3.insets = new Insets(0, 0, 5, 5);
 		gbc_specialMoveButton3.gridx = 7;
@@ -80,6 +90,8 @@ public class LevelTopPanel extends JPanel {
 		// Special move button 4
 		specialMoveButton4 = new JButton(MOVE_TEXT + 4);
 		specialMoveButton4.setPreferredSize(new Dimension(100, 100));
+
+		// Layout for special move button 4
 		GridBagConstraints gbc_specialMoveButton4 = new GridBagConstraints();
 		gbc_specialMoveButton4.insets = new Insets(0, 0, 5, 5);
 		gbc_specialMoveButton4.gridx = 9;
@@ -89,6 +101,8 @@ public class LevelTopPanel extends JPanel {
 		// Exit level button
 		exitLevelButton = new JButton("Exit Level");
 		exitLevelButton.setPreferredSize(new Dimension(100, 100));
+
+		// Layout for exit level button
 		GridBagConstraints gbc_exitLevelButton = new GridBagConstraints();
 		gbc_exitLevelButton.insets = new Insets(0, 0, 5, 5);
 		gbc_exitLevelButton.gridx = 11;

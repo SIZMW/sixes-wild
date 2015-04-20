@@ -42,6 +42,7 @@ public class StoryMenuButtonController implements ActionListener {
 		JPanel currentPanel = app.getMainPanel().getSubMenuPanel();
 		currentPanel.removeAll();
 
+		// Layout
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		gridBagLayout.columnWidths = new int[] { 0 };
 		gridBagLayout.rowHeights = new int[] { 0 };

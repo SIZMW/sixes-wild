@@ -32,6 +32,8 @@ public class BuilderView extends JPanel {
 	 * Constructor for level view
 	 */
 	public BuilderView() {
+
+		// Layout for view
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		gridBagLayout.columnWidths = new int[] { 200, 0, 0, 0, 0 };
 		gridBagLayout.rowHeights = new int[] { 0, 0, 0 };
@@ -45,6 +47,8 @@ public class BuilderView extends JPanel {
 		builderSettingsPanel.setBorder(BorderFactory
 				.createLineBorder(Color.black));
 		builderSettingsPanel.setPreferredSize(new Dimension(100, 519));
+
+		// Layout for level settings panel
 		GridBagConstraints gbc_levelSettingsPanel = new GridBagConstraints();
 		gbc_levelSettingsPanel.gridheight = 2;
 		gbc_levelSettingsPanel.insets = new Insets(0, 0, 0, 0);
@@ -56,6 +60,8 @@ public class BuilderView extends JPanel {
 		// Builder top panel
 		builderTopPanel = new BuilderTopPanel();
 		builderTopPanel.setBorder(BorderFactory.createLineBorder(Color.black));
+
+		// Layout for builder top panel
 		GridBagConstraints gbc_builderTopPanel = new GridBagConstraints();
 		gbc_builderTopPanel.gridwidth = 3;
 		gbc_builderTopPanel.insets = new Insets(0, 0, 0, 0);
@@ -68,6 +74,8 @@ public class BuilderView extends JPanel {
 		boardViewPanelBorder = BorderFactory.createLineBorder(Color.black);
 		boardViewPanel = new BoardViewPanel(new Board());
 		boardViewPanel.setBorder(boardViewPanelBorder);
+
+		// Layout for board view panel
 		gbc_boardView = new GridBagConstraints();
 		gbc_boardView.insets = new Insets(0, 0, 0, 0);
 		gbc_boardView.fill = GridBagConstraints.BOTH;

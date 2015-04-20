@@ -13,7 +13,8 @@ import javax.swing.border.Border;
 import SixesWild.com.mimas.sixeswild.entities.Board;
 
 /**
- * This class is used to view the board entity within a panel in the game.
+ * This class represents the view used to display the game board in the level
+ * view of the game and builder.
  * 
  * @author Aditya Nivarthi
  */
@@ -24,7 +25,6 @@ public class BoardViewPanel extends JPanel {
 	Board gameBoard;
 	SquareView squareViewBoard[][];
 	ArrayList<SquareView> currentSelection;
-
 	Border border;
 	GridBagConstraints gbc_panel;
 
@@ -42,7 +42,7 @@ public class BoardViewPanel extends JPanel {
 		border = BorderFactory.createLineBorder(Color.BLACK, 2);
 		currentSelection = new ArrayList<SquareView>();
 
-		// Layout
+		// Layout for panel
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		gridBagLayout.columnWidths = new int[] { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
 				1 };
@@ -52,7 +52,6 @@ public class BoardViewPanel extends JPanel {
 		gridBagLayout.rowWeights = new double[] { 1.0, 1.0, 1.0, 1.0, 1.0, 1.0,
 				1.0, 1.0, 1.0, 1.0, 1.0 };
 		setLayout(gridBagLayout);
-
 		gbc_panel = new GridBagConstraints();
 		gbc_panel.gridheight = 1;
 		gbc_panel.fill = GridBagConstraints.BOTH;

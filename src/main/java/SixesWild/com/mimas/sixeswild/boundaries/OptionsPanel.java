@@ -38,6 +38,8 @@ public class OptionsPanel extends JPanel {
 	 * Constructor for the OptionsPanel class.
 	 */
 	public OptionsPanel() {
+
+		// Layout for panel
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		gridBagLayout.columnWidths = new int[] { 0, 0 };
 		gridBagLayout.rowHeights = new int[] { 0, 0, 0, 0 };
@@ -48,12 +50,15 @@ public class OptionsPanel extends JPanel {
 
 		// Upper options panel
 		upperOptionsPanel = new JPanel();
+
+		// Layout for upper options panel
 		GridBagConstraints gbc_panel = new GridBagConstraints();
 		gbc_panel.insets = new Insets(0, 0, 5, 0);
 		gbc_panel.fill = GridBagConstraints.BOTH;
 		gbc_panel.gridx = 0;
 		gbc_panel.gridy = 0;
 		add(upperOptionsPanel, gbc_panel);
+
 		GridBagLayout gbl_panel = new GridBagLayout();
 		gbl_panel.columnWidths = new int[] { 0, 0, 0, 0, 0 };
 		gbl_panel.rowHeights = new int[] { 0, 0, 0, 0, 0, 0, 0, 0 };
@@ -65,6 +70,8 @@ public class OptionsPanel extends JPanel {
 
 		// Switch user button
 		switchUserButton = new JButton("Switch User");
+
+		// Layout for switch user button
 		GridBagConstraints gbc_switchUserButton = new GridBagConstraints();
 		gbc_switchUserButton.insets = new Insets(0, 0, 5, 5);
 		gbc_switchUserButton.gridx = 1;
@@ -73,6 +80,8 @@ public class OptionsPanel extends JPanel {
 
 		// User name text field
 		userNameTextField = new JTextField();
+
+		// Layout for user name text field
 		GridBagConstraints gbc_textField = new GridBagConstraints();
 		gbc_textField.insets = new Insets(0, 0, 5, 5);
 		gbc_textField.fill = GridBagConstraints.HORIZONTAL;
@@ -83,6 +92,8 @@ public class OptionsPanel extends JPanel {
 
 		// Change aesthetic button
 		changeAestheticButton = new JButton("Change Style");
+
+		// Layout for change aesthetic button
 		GridBagConstraints gbc_changeStyleButton = new GridBagConstraints();
 		gbc_changeStyleButton.insets = new Insets(0, 0, 5, 5);
 		gbc_changeStyleButton.gridx = 1;
@@ -91,6 +102,8 @@ public class OptionsPanel extends JPanel {
 
 		// Aesthetic drop down menu
 		aestheticDropDownMenu = new JComboBox<String>();
+
+		// Layout for aesthetic drop down menu
 		GridBagConstraints gbc_comboBox = new GridBagConstraints();
 		gbc_comboBox.insets = new Insets(0, 0, 5, 5);
 		gbc_comboBox.fill = GridBagConstraints.HORIZONTAL;
@@ -100,6 +113,8 @@ public class OptionsPanel extends JPanel {
 
 		// Reset badges button
 		resetBadgesButton = new JButton("Reset Badges");
+
+		// Layout for reset badges button
 		GridBagConstraints gbc_resetBadgesButton = new GridBagConstraints();
 		gbc_resetBadgesButton.insets = new Insets(0, 0, 5, 5);
 		gbc_resetBadgesButton.gridx = 1;
@@ -108,6 +123,8 @@ public class OptionsPanel extends JPanel {
 
 		// Rules separator
 		rulesSeparator = new JSeparator();
+
+		// Layout for rules separator
 		GridBagConstraints gbc_separator = new GridBagConstraints();
 		gbc_separator.fill = GridBagConstraints.BOTH;
 		gbc_separator.insets = new Insets(0, 0, 5, 0);
@@ -117,11 +134,14 @@ public class OptionsPanel extends JPanel {
 
 		// Rules panel
 		rulesPanel = new JPanel();
+
+		// Layout for rules panel
 		GridBagConstraints gbc_panel_2 = new GridBagConstraints();
 		gbc_panel_2.fill = GridBagConstraints.BOTH;
 		gbc_panel_2.gridx = 0;
 		gbc_panel_2.gridy = 2;
 		add(rulesPanel, gbc_panel_2);
+
 		GridBagLayout gbl_panel_2 = new GridBagLayout();
 		gbl_panel_2.columnWidths = new int[] { 0, 0, 0, 0 };
 		gbl_panel_2.rowHeights = new int[] { 0, 0, 0, 0 };
@@ -134,6 +154,8 @@ public class OptionsPanel extends JPanel {
 		rulesTextPane = new JTextPane();
 		rulesTextPane.setText(rulesText);
 		rulesTextPane.setEditable(false);
+
+		// Layout for rules text pane
 		GridBagConstraints gbc_txtpnRules = new GridBagConstraints();
 		gbc_txtpnRules.insets = new Insets(0, 0, 5, 5);
 		gbc_txtpnRules.fill = GridBagConstraints.BOTH;

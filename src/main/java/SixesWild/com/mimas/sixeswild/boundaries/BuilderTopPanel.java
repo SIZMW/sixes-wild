@@ -31,6 +31,8 @@ public class BuilderTopPanel extends JPanel {
 	 * Constructor for BuilderTopPanel class.
 	 */
 	public BuilderTopPanel() {
+
+		// Layout for panel
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		gridBagLayout.columnWidths = new int[] { 0, 89, 0, 89, 0, 89, 0, 0, 0,
 				0, 0, 0, 0 };
@@ -40,32 +42,40 @@ public class BuilderTopPanel extends JPanel {
 		gridBagLayout.rowWeights = new double[] { 1.0, Double.MIN_VALUE };
 		setLayout(gridBagLayout);
 
-		// button for creating a new level
+		// New level button
 		newButton = new JButton("NEW");
+
+		// Layout for new level button
 		GridBagConstraints gbc_newButton = new GridBagConstraints();
 		gbc_newButton.insets = new Insets(0, 0, 0, 5);
 		gbc_newButton.gridx = 1;
 		gbc_newButton.gridy = 0;
 		add(newButton, gbc_newButton);
 
-		// button for saving a level
+		// Save level button
 		saveButton = new JButton("SAVE");
+
+		// Layout for save level button
 		GridBagConstraints gbc_saveButton = new GridBagConstraints();
 		gbc_saveButton.insets = new Insets(0, 0, 0, 5);
 		gbc_saveButton.gridx = 3;
 		gbc_saveButton.gridy = 0;
 		add(saveButton, gbc_saveButton);
 
-		// button for opening a level
+		// Open level button
 		openButton = new JButton("OPEN");
+
+		// Layout for open level button
 		GridBagConstraints gbc_openButton = new GridBagConstraints();
 		gbc_openButton.insets = new Insets(0, 0, 0, 5);
 		gbc_openButton.gridx = 5;
 		gbc_openButton.gridy = 0;
 		add(openButton, gbc_openButton);
 
-		// comboBox for opening a level
+		// Open level combo box
 		openComboBox = new JComboBox<String>();
+
+		// Layout for open level combo box
 		GridBagConstraints gbc_openComboBox = new GridBagConstraints();
 		gbc_openComboBox.insets = new Insets(0, 0, 0, 5);
 		gbc_openComboBox.fill = GridBagConstraints.HORIZONTAL;
@@ -73,16 +83,20 @@ public class BuilderTopPanel extends JPanel {
 		gbc_openComboBox.gridy = 0;
 		add(openComboBox, gbc_openComboBox);
 
-		// button for deleting a level
+		// Delete level button
 		deleteButton = new JButton("DELETE");
+
+		// Layout for delete level button
 		GridBagConstraints gbc_deleteButton = new GridBagConstraints();
 		gbc_deleteButton.insets = new Insets(0, 0, 0, 5);
 		gbc_deleteButton.gridx = 8;
 		gbc_deleteButton.gridy = 0;
 		add(deleteButton, gbc_deleteButton);
 
-		// comboBox for deleting a level
+		// Delete level combo box
 		deleteComboBox = new JComboBox<String>();
+
+		// Layout for delete level combo box
 		GridBagConstraints gbc_deleteComboBox = new GridBagConstraints();
 		gbc_deleteComboBox.insets = new Insets(0, 0, 0, 5);
 		gbc_deleteComboBox.fill = GridBagConstraints.HORIZONTAL;

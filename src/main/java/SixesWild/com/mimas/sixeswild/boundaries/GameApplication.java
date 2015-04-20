@@ -29,6 +29,7 @@ public class GameApplication {
 	GameMenuView gameMenuView;
 	LevelView levelView;
 
+	// TODO
 	// BadgesPanel badgePanel;
 	// ArrayList<String> listOfBadges;
 	// UserProfile currentProfile;
@@ -142,6 +143,12 @@ public class GameApplication {
 		return this.levelView;
 	}
 
+	/**
+	 * Sets the LevelPanel to the given levelView.
+	 * 
+	 * @param newLevel
+	 *            The LevelView to display.
+	 */
 	public void setLevelPanel(LevelView newLevel) {
 		this.levelView = newLevel;
 	}

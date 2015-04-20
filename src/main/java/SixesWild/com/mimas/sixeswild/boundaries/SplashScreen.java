@@ -22,6 +22,8 @@ public class SplashScreen extends JPanel {
 	 * Constructor for SplashScreen class.
 	 */
 	public SplashScreen() {
+
+		// Layout for panel
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		gridBagLayout.columnWidths = new int[] { 0, 0 };
 		gridBagLayout.rowHeights = new int[] { 0, 0, 0, 0, 0, 0, 0, 0, 0 };
@@ -33,6 +35,8 @@ public class SplashScreen extends JPanel {
 		// Game title label
 		JLabel lblSixesWild = new JLabel("Sixes Wild");
 		lblSixesWild.setFont(new Font("Tahoma", Font.PLAIN, 48));
+
+		// Layout for game title label
 		GridBagConstraints gbc_lblSixesWild = new GridBagConstraints();
 		gbc_lblSixesWild.insets = new Insets(0, 0, 0, 0);
 		gbc_lblSixesWild.gridx = 0;
@@ -41,6 +45,8 @@ public class SplashScreen extends JPanel {
 
 		// Instructions to proceed label
 		JLabel lblPressEnter = new JLabel("**** PRESS ENTER ****");
+
+		// Layout for instructions to proceed label
 		GridBagConstraints gbc_lblPressEnter = new GridBagConstraints();
 		gbc_lblPressEnter.insets = new Insets(0, 0, 0, 0);
 		gbc_lblPressEnter.gridx = 0;
@@ -51,6 +57,8 @@ public class SplashScreen extends JPanel {
 		JLabel lblTeamMimas = new JLabel(
 				"Team Mimas: Marco Duran, Cameron Jones, Yahel Nachum, Aditya Nivarthi, Joey Perez");
 		lblTeamMimas.setFont(new Font("Tahoma", Font.PLAIN, 11));
+
+		// Layout for team names label
 		GridBagConstraints gbc_lblTeamMimas = new GridBagConstraints();
 		gbc_lblTeamMimas.fill = GridBagConstraints.VERTICAL;
 		gbc_lblTeamMimas.gridx = 0;

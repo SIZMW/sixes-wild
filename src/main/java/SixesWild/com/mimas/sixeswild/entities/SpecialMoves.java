@@ -1,5 +1,11 @@
 package SixesWild.com.mimas.sixeswild.entities;
 
+/**
+ * This class represents the special moves that each level will have. It
+ * aggregates all the special moves and their amounts into one class.
+ * 
+ * @author Yahel Nachum
+ */
 public class SpecialMoves {
 
 	int resetBoardCount;
@@ -8,7 +14,7 @@ public class SpecialMoves {
 	int xStacySpecialMoveCount;
 
 	/**
-	 * Constructor for SpecialMoves class.
+	 * Default constructor for SpecialMoves class.
 	 */
 	public SpecialMoves() {
 		this.resetBoardCount = 0;
@@ -18,7 +24,7 @@ public class SpecialMoves {
 	}
 
 	/**
-	 * Constructor for SpecialMoves class.
+	 * Parameterized constructor for SpecialMoves class.
 	 * 
 	 * @param resetBoardCount
 	 *            The reset board count.

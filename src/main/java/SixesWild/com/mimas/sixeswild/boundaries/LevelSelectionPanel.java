@@ -33,6 +33,7 @@ public class LevelSelectionPanel extends JPanel {
 	ArrayList<String> levelNames;
 
 	// TODO Add parameter for level list
+
 	/**
 	 * Constructor for LevelSelectionPanel class.
 	 * 
@@ -41,6 +42,11 @@ public class LevelSelectionPanel extends JPanel {
 	 */
 	public LevelSelectionPanel(ArrayList<String> levelNames,
 			int highestLevelUnlocked) {
+
+		// Attributes
+		this.levelNames = levelNames;
+
+		// Layout for panel
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		gridBagLayout.columnWidths = new int[] { 0, 0, 0 };
 		gridBagLayout.rowHeights = new int[] { 0, 0 };
@@ -48,8 +54,7 @@ public class LevelSelectionPanel extends JPanel {
 		gridBagLayout.rowWeights = new double[] { 1.0, Double.MIN_VALUE };
 		setLayout(gridBagLayout);
 
-		this.levelNames = levelNames;
-
+		// Add the list of level names
 		levelListModel = new DefaultListModel<String>();
 		for (int i = 0; i < levelNames.size(); i++) {
 			levelListModel.addElement(levelNames.get(i));
@@ -59,13 +64,10 @@ public class LevelSelectionPanel extends JPanel {
 		levelScrollPane = new JScrollPane();
 		JList<String> list = new JList<String>(levelListModel);
 		list.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-
-		// TODO Make renderer its own class and use as needed.
-
 		list.setCellRenderer(new LevelListCellRenderer(highestLevelUnlocked));
-
 		levelScrollPane.setViewportView(list);
 
+		// Layout for level list scroll pane
 		GridBagConstraints gbc_list = new GridBagConstraints();
 		gbc_list.insets = new Insets(0, 0, 0, 0);
 		gbc_list.fill = GridBagConstraints.BOTH;
@@ -75,6 +77,8 @@ public class LevelSelectionPanel extends JPanel {
 
 		// Preview panel
 		JPanel previewPanel = new JPanel();
+
+		// Layout for preview panel
 		GridBagConstraints gbc_panel = new GridBagConstraints();
 		gbc_panel.fill = GridBagConstraints.BOTH;
 		gbc_panel.gridx = 1;
@@ -90,10 +94,13 @@ public class LevelSelectionPanel extends JPanel {
 				1.0, 1.0, 1.0, 1.0, Double.MIN_VALUE };
 		previewPanel.setLayout(gbl_panel);
 
+		// Level preview label
 		JLabel lblLevelPreview = new JLabel("Level Preview",
 				SwingConstants.CENTER);
 		lblLevelPreview.setBorder(new LineBorder(new Color(0, 0, 0)));
 		lblLevelPreview.setBackground(Color.WHITE);
+
+		// Layout for level preview label
 		GridBagConstraints gbc_lblLevelPreview = new GridBagConstraints();
 		gbc_lblLevelPreview.fill = GridBagConstraints.BOTH;
 		gbc_lblLevelPreview.gridheight = 3;
@@ -104,6 +111,8 @@ public class LevelSelectionPanel extends JPanel {
 
 		// Play level button
 		playLevelButton = new JButton("Play Level");
+
+		// Layout for play level button
 		GridBagConstraints gbc_btnPlay = new GridBagConstraints();
 		gbc_btnPlay.insets = new Insets(0, 0, 0, 5);
 		gbc_btnPlay.gridx = 1;

@@ -74,8 +74,8 @@ public class BuilderSettingsPanel extends JPanel {
 	JButton specialMoveFourMinusButton;
 	JButton specialMoveFourPlusButton;
 
-	JPanel scoreCutoffsPanel;
-	JLabel scoreCutoffsLabel;
+	JPanel pointThresholdsPanel;
+	JLabel pointThresholdsLabel;
 	JLabel oneStarScoreLabel;
 	JLabel twoStarScoreLabel;
 	JLabel threeStarScoreLabel;
@@ -92,6 +92,8 @@ public class BuilderSettingsPanel extends JPanel {
 	 * Constructor for the BuilderSettingsPanel class.
 	 */
 	public BuilderSettingsPanel() {
+
+		// Layout for panel
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		gridBagLayout.columnWidths = new int[] { 0, 0, 0, 0 };
 		gridBagLayout.rowHeights = new int[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
@@ -108,6 +110,8 @@ public class BuilderSettingsPanel extends JPanel {
 		levelSettingLabel
 				.setBorder(BorderFactory.createLineBorder(Color.black));
 		levelSettingLabel.setFont(new Font("Tahoma", Font.PLAIN, 24));
+
+		// Layout for level settings label
 		GridBagConstraints gbc_levelSettingLabel = new GridBagConstraints();
 		gbc_levelSettingLabel.fill = GridBagConstraints.HORIZONTAL;
 		gbc_levelSettingLabel.insets = new Insets(0, 0, 5, 5);
@@ -123,6 +127,8 @@ public class BuilderSettingsPanel extends JPanel {
 		gbc_generalSettingsPanel.gridx = 1;
 		gbc_generalSettingsPanel.gridy = 3;
 		add(generalSettingsPanel, gbc_generalSettingsPanel);
+
+		// Layout for general settings panel
 		GridBagLayout gbl_generalSettingsPanel = new GridBagLayout();
 		gbl_generalSettingsPanel.columnWidths = new int[] { 0, 0, 0, 0, 0 };
 		gbl_generalSettingsPanel.rowHeights = new int[] { 0, 0, 0, 0, 0 };
@@ -137,6 +143,8 @@ public class BuilderSettingsPanel extends JPanel {
 		nameLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		nameLabel.setBorder(BorderFactory.createLineBorder(Color.black));
 		nameLabel.setFont(new Font("Tahoma", Font.PLAIN, 16));
+
+		// Layout for name label
 		GridBagConstraints gbc_nameLabel = new GridBagConstraints();
 		gbc_nameLabel.fill = GridBagConstraints.HORIZONTAL;
 		gbc_nameLabel.gridwidth = 4;
@@ -148,6 +156,8 @@ public class BuilderSettingsPanel extends JPanel {
 		// User level name text field
 		userLevelNameTextField = new JTextField();
 		userLevelNameTextField.setText("UserLvlName");
+
+		// Layout for user level name text field
 		GridBagConstraints gbc_userLevelNameTextField = new GridBagConstraints();
 		gbc_userLevelNameTextField.gridwidth = 4;
 		gbc_userLevelNameTextField.insets = new Insets(0, 0, 5, 0);
@@ -163,6 +173,8 @@ public class BuilderSettingsPanel extends JPanel {
 		levelTypeLabel.setPreferredSize(new Dimension(52, 20));
 		levelTypeLabel.setMinimumSize(new Dimension(52, 20));
 		levelTypeLabel.setBorder(BorderFactory.createLineBorder(Color.black));
+
+		// Layout for level type label
 		GridBagConstraints gbc_levelTypeLabel = new GridBagConstraints();
 		gbc_levelTypeLabel.fill = GridBagConstraints.HORIZONTAL;
 		gbc_levelTypeLabel.gridwidth = 2;
@@ -173,6 +185,8 @@ public class BuilderSettingsPanel extends JPanel {
 
 		// Level type combo box
 		levelTypeComboBox = new JComboBox<String>();
+
+		// Layout for level type combo box
 		GridBagConstraints gbc_levelTypeComboBox = new GridBagConstraints();
 		gbc_levelTypeComboBox.insets = new Insets(0, 0, 5, 0);
 		gbc_levelTypeComboBox.gridwidth = 2;
@@ -186,6 +200,8 @@ public class BuilderSettingsPanel extends JPanel {
 		movesLabel.setPreferredSize(new Dimension(31, 20));
 		movesLabel.setMinimumSize(new Dimension(31, 20));
 		movesLabel.setBorder(BorderFactory.createLineBorder(Color.black));
+
+		// Layout for moves label
 		GridBagConstraints gbc_movesLabe = new GridBagConstraints();
 		gbc_movesLabe.fill = GridBagConstraints.HORIZONTAL;
 		gbc_movesLabe.insets = new Insets(0, 0, 0, 5);
@@ -195,6 +211,8 @@ public class BuilderSettingsPanel extends JPanel {
 
 		// Moves text field
 		movesTextField = new JTextField();
+
+		// Layout for moves text field
 		GridBagConstraints gbc_movesTextField = new GridBagConstraints();
 		gbc_movesTextField.insets = new Insets(0, 0, 0, 5);
 		gbc_movesTextField.fill = GridBagConstraints.HORIZONTAL;
@@ -208,6 +226,8 @@ public class BuilderSettingsPanel extends JPanel {
 		timerLabel.setPreferredSize(new Dimension(26, 20));
 		timerLabel.setMinimumSize(new Dimension(26, 20));
 		timerLabel.setBorder(BorderFactory.createLineBorder(Color.black));
+
+		// Layout for timer label
 		GridBagConstraints gbc_timerLabel = new GridBagConstraints();
 		gbc_timerLabel.fill = GridBagConstraints.HORIZONTAL;
 		gbc_timerLabel.insets = new Insets(0, 0, 0, 5);
@@ -218,6 +238,8 @@ public class BuilderSettingsPanel extends JPanel {
 		// Timer text field
 		timerTextField = new JTextField();
 		GridBagConstraints gbc_timerTextField = new GridBagConstraints();
+
+		// Layout for timer text field
 		gbc_timerTextField.fill = GridBagConstraints.HORIZONTAL;
 		gbc_timerTextField.gridx = 3;
 		gbc_timerTextField.gridy = 3;
@@ -226,12 +248,15 @@ public class BuilderSettingsPanel extends JPanel {
 
 		// Frequency panel
 		frequencyPanel = new JPanel();
+
+		// Layout for frequency panel
 		GridBagConstraints gbc_frequencyPanel = new GridBagConstraints();
 		gbc_frequencyPanel.insets = new Insets(0, 0, 5, 5);
 		gbc_frequencyPanel.fill = GridBagConstraints.BOTH;
 		gbc_frequencyPanel.gridx = 1;
 		gbc_frequencyPanel.gridy = 5;
 		add(frequencyPanel, gbc_frequencyPanel);
+
 		GridBagLayout gbl_frequencyPanel = new GridBagLayout();
 		gbl_frequencyPanel.columnWidths = new int[] { 20, 20, 20, 20, 20, 20, 0 };
 		gbl_frequencyPanel.rowHeights = new int[] { 0, 0, 0, 0, 0 };
@@ -246,6 +271,8 @@ public class BuilderSettingsPanel extends JPanel {
 		frequencyLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		frequencyLabel.setBorder(BorderFactory.createLineBorder(Color.black));
 		frequencyLabel.setFont(new Font("Tahoma", Font.PLAIN, 16));
+
+		// Layout for frequency label
 		GridBagConstraints gbc_frequencyLabel = new GridBagConstraints();
 		gbc_frequencyLabel.fill = GridBagConstraints.HORIZONTAL;
 		gbc_frequencyLabel.gridwidth = 6;
@@ -259,6 +286,8 @@ public class BuilderSettingsPanel extends JPanel {
 		onesLabel.setPreferredSize(new Dimension(20, 14));
 		onesLabel.setMinimumSize(new Dimension(20, 20));
 		onesLabel.setBorder(BorderFactory.createLineBorder(Color.black));
+
+		// Layout for ones label
 		GridBagConstraints gbc_onesLabel = new GridBagConstraints();
 		gbc_onesLabel.fill = GridBagConstraints.HORIZONTAL;
 		gbc_onesLabel.insets = new Insets(0, 0, 5, 5);
@@ -270,6 +299,8 @@ public class BuilderSettingsPanel extends JPanel {
 		onesTextField = new JTextField();
 		onesTextField.setPreferredSize(new Dimension(20, 20));
 		onesTextField.setMinimumSize(new Dimension(20, 20));
+
+		// Layout for ones text field
 		GridBagConstraints gbc_onesTextField = new GridBagConstraints();
 		gbc_onesTextField.insets = new Insets(0, 0, 5, 5);
 		gbc_onesTextField.fill = GridBagConstraints.HORIZONTAL;
@@ -283,6 +314,8 @@ public class BuilderSettingsPanel extends JPanel {
 		twosLabel.setPreferredSize(new Dimension(20, 14));
 		twosLabel.setMinimumSize(new Dimension(20, 20));
 		twosLabel.setBorder(BorderFactory.createLineBorder(Color.black));
+
+		// Layout for twos label
 		GridBagConstraints gbc_twosLabel = new GridBagConstraints();
 		gbc_twosLabel.fill = GridBagConstraints.HORIZONTAL;
 		gbc_twosLabel.insets = new Insets(0, 0, 5, 5);
@@ -295,6 +328,8 @@ public class BuilderSettingsPanel extends JPanel {
 		twosTextField.setPreferredSize(new Dimension(20, 20));
 		twosTextField.setMinimumSize(new Dimension(20, 20));
 		twosTextField.setColumns(10);
+
+		// Layout for twos text field
 		GridBagConstraints gbc_twosTextField = new GridBagConstraints();
 		gbc_twosTextField.insets = new Insets(0, 0, 5, 5);
 		gbc_twosTextField.fill = GridBagConstraints.HORIZONTAL;
@@ -307,6 +342,8 @@ public class BuilderSettingsPanel extends JPanel {
 		threesLabel.setPreferredSize(new Dimension(20, 14));
 		threesLabel.setMinimumSize(new Dimension(20, 20));
 		threesLabel.setBorder(BorderFactory.createLineBorder(Color.black));
+
+		// Layout for threes label
 		GridBagConstraints gbc_threesLabel = new GridBagConstraints();
 		gbc_threesLabel.fill = GridBagConstraints.HORIZONTAL;
 		gbc_threesLabel.insets = new Insets(0, 0, 5, 5);
@@ -319,6 +356,8 @@ public class BuilderSettingsPanel extends JPanel {
 		threesTextField.setPreferredSize(new Dimension(20, 20));
 		threesTextField.setMinimumSize(new Dimension(20, 20));
 		threesTextField.setColumns(10);
+
+		// Layout for threes text field
 		GridBagConstraints gbc_threesTextField = new GridBagConstraints();
 		gbc_threesTextField.insets = new Insets(0, 0, 5, 0);
 		gbc_threesTextField.fill = GridBagConstraints.HORIZONTAL;
@@ -331,6 +370,8 @@ public class BuilderSettingsPanel extends JPanel {
 		foursLabel.setPreferredSize(new Dimension(20, 14));
 		foursLabel.setMinimumSize(new Dimension(20, 20));
 		foursLabel.setBorder(BorderFactory.createLineBorder(Color.black));
+
+		// Layout for fours label
 		GridBagConstraints gbc_foursLabel = new GridBagConstraints();
 		gbc_foursLabel.fill = GridBagConstraints.HORIZONTAL;
 		gbc_foursLabel.insets = new Insets(0, 0, 5, 5);
@@ -342,6 +383,8 @@ public class BuilderSettingsPanel extends JPanel {
 		foursTextField = new JTextField();
 		foursTextField.setPreferredSize(new Dimension(20, 20));
 		foursTextField.setMinimumSize(new Dimension(20, 20));
+
+		// Layout for fours text field
 		GridBagConstraints gbc_foursTextField = new GridBagConstraints();
 		gbc_foursTextField.insets = new Insets(0, 0, 5, 5);
 		gbc_foursTextField.fill = GridBagConstraints.HORIZONTAL;
@@ -355,6 +398,8 @@ public class BuilderSettingsPanel extends JPanel {
 		fivesLabel.setPreferredSize(new Dimension(20, 14));
 		fivesLabel.setMinimumSize(new Dimension(20, 20));
 		fivesLabel.setBorder(BorderFactory.createLineBorder(Color.black));
+
+		// Layout for fives label
 		GridBagConstraints gbc_fivesLabel = new GridBagConstraints();
 		gbc_fivesLabel.fill = GridBagConstraints.HORIZONTAL;
 		gbc_fivesLabel.insets = new Insets(0, 0, 5, 5);
@@ -367,6 +412,8 @@ public class BuilderSettingsPanel extends JPanel {
 		fivesTextField.setPreferredSize(new Dimension(20, 20));
 		fivesTextField.setMinimumSize(new Dimension(20, 20));
 		fivesTextField.setColumns(10);
+
+		// Layout for fives text field
 		GridBagConstraints gbc_fivesTextField = new GridBagConstraints();
 		gbc_fivesTextField.insets = new Insets(0, 0, 5, 5);
 		gbc_fivesTextField.fill = GridBagConstraints.HORIZONTAL;
@@ -379,6 +426,8 @@ public class BuilderSettingsPanel extends JPanel {
 		sixesLabel.setPreferredSize(new Dimension(20, 14));
 		sixesLabel.setMinimumSize(new Dimension(20, 20));
 		sixesLabel.setBorder(BorderFactory.createLineBorder(Color.black));
+
+		// Layout for sixes label
 		GridBagConstraints gbc_sixesLabel = new GridBagConstraints();
 		gbc_sixesLabel.fill = GridBagConstraints.HORIZONTAL;
 		gbc_sixesLabel.insets = new Insets(0, 0, 5, 5);
@@ -391,6 +440,8 @@ public class BuilderSettingsPanel extends JPanel {
 		sixesTextField.setPreferredSize(new Dimension(20, 20));
 		sixesTextField.setMinimumSize(new Dimension(20, 20));
 		sixesTextField.setColumns(10);
+
+		// Layout for sixes text field
 		GridBagConstraints gbc_sixesTextField = new GridBagConstraints();
 		gbc_sixesTextField.insets = new Insets(0, 0, 5, 0);
 		gbc_sixesTextField.fill = GridBagConstraints.HORIZONTAL;
@@ -404,6 +455,8 @@ public class BuilderSettingsPanel extends JPanel {
 		xtwoMultiplierLabel.setPreferredSize(new Dimension(40, 20));
 		xtwoMultiplierLabel.setBorder(BorderFactory
 				.createLineBorder(Color.black));
+
+		// Layout for X two multiplier label
 		GridBagConstraints gbc_xtwosMultiplierLabel = new GridBagConstraints();
 		gbc_xtwosMultiplierLabel.fill = GridBagConstraints.HORIZONTAL;
 		gbc_xtwosMultiplierLabel.gridwidth = 2;
@@ -417,6 +470,8 @@ public class BuilderSettingsPanel extends JPanel {
 		xtwoMultiplierTextField.setPreferredSize(new Dimension(20, 20));
 		xtwoMultiplierTextField.setMinimumSize(new Dimension(20, 20));
 		xtwoMultiplierTextField.setColumns(10);
+
+		// Layout for X two multiplier text field
 		GridBagConstraints gbc_xtwoMultiplierTextField = new GridBagConstraints();
 		gbc_xtwoMultiplierTextField.insets = new Insets(0, 0, 0, 5);
 		gbc_xtwoMultiplierTextField.fill = GridBagConstraints.HORIZONTAL;
@@ -431,6 +486,8 @@ public class BuilderSettingsPanel extends JPanel {
 		xthreeMultiplierLabel.setPreferredSize(new Dimension(40, 20));
 		xthreeMultiplierLabel.setBorder(BorderFactory
 				.createLineBorder(Color.black));
+
+		// Layout for X three multiplier label
 		GridBagConstraints gbc_xthreeMultiplierLabel = new GridBagConstraints();
 		gbc_xthreeMultiplierLabel.fill = GridBagConstraints.HORIZONTAL;
 		gbc_xthreeMultiplierLabel.gridwidth = 2;
@@ -444,6 +501,8 @@ public class BuilderSettingsPanel extends JPanel {
 		xthreeMultiplierTextField.setPreferredSize(new Dimension(20, 20));
 		xthreeMultiplierTextField.setMinimumSize(new Dimension(20, 20));
 		xthreeMultiplierTextField.setColumns(10);
+
+		// Layout for X three multiplier text field
 		GridBagConstraints gbc_xthreeMultiplierTextField = new GridBagConstraints();
 		gbc_xthreeMultiplierTextField.fill = GridBagConstraints.HORIZONTAL;
 		gbc_xthreeMultiplierTextField.gridx = 5;
@@ -459,6 +518,8 @@ public class BuilderSettingsPanel extends JPanel {
 		gbc_specialMovesPanel.gridx = 1;
 		gbc_specialMovesPanel.gridy = 7;
 		add(specialMovesPanel, gbc_specialMovesPanel);
+
+		// Layout for special moves panel
 		GridBagLayout gbl_specialMovesPanel = new GridBagLayout();
 		gbl_specialMovesPanel.columnWidths = new int[] { 0, 0, 0, 0, 0, 0, 0 };
 		gbl_specialMovesPanel.rowHeights = new int[] { 0, 0, 0, 0, 0, 0 };
@@ -474,6 +535,8 @@ public class BuilderSettingsPanel extends JPanel {
 		specialMovesLabel
 				.setBorder(BorderFactory.createLineBorder(Color.black));
 		specialMovesLabel.setHorizontalAlignment(SwingConstants.CENTER);
+
+		// Layout for special moves label
 		GridBagConstraints gbc_specialMovesLabel = new GridBagConstraints();
 		gbc_specialMovesLabel.fill = GridBagConstraints.HORIZONTAL;
 		gbc_specialMovesLabel.gridwidth = 6;
@@ -482,10 +545,12 @@ public class BuilderSettingsPanel extends JPanel {
 		gbc_specialMovesLabel.gridy = 0;
 		specialMovesPanel.add(specialMovesLabel, gbc_specialMovesLabel);
 
-		// Special moves one panel
+		// Special move one panel
 		specialMoveOnePanel = new JPanel();
 		specialMoveOnePanel.setBorder(BorderFactory
 				.createLineBorder(Color.black));
+
+		// Layout for special move one panel
 		GridBagConstraints gbc_specialMoveOnePanel = new GridBagConstraints();
 		gbc_specialMoveOnePanel.gridheight = 2;
 		gbc_specialMoveOnePanel.insets = new Insets(0, 0, 5, 5);
@@ -499,6 +564,8 @@ public class BuilderSettingsPanel extends JPanel {
 		specialMoveOneLabel.setBorder(BorderFactory
 				.createLineBorder(Color.black));
 		specialMoveOneLabel.setHorizontalAlignment(SwingConstants.RIGHT);
+
+		// Layout for special move one label
 		GridBagConstraints gbc_specialMoveOneLabel = new GridBagConstraints();
 		gbc_specialMoveOneLabel.fill = GridBagConstraints.HORIZONTAL;
 		gbc_specialMoveOneLabel.gridwidth = 2;
@@ -511,6 +578,8 @@ public class BuilderSettingsPanel extends JPanel {
 		specialMoveThreePanel = new JPanel();
 		specialMoveThreePanel.setBorder(BorderFactory
 				.createLineBorder(Color.black));
+
+		// Layout for special move three panel
 		GridBagConstraints gbc_specialMoveThreePanel = new GridBagConstraints();
 		gbc_specialMoveThreePanel.gridheight = 2;
 		gbc_specialMoveThreePanel.insets = new Insets(0, 0, 5, 5);
@@ -524,6 +593,8 @@ public class BuilderSettingsPanel extends JPanel {
 		specialMoveThreeLabel.setBorder(BorderFactory
 				.createLineBorder(Color.black));
 		specialMoveThreeLabel.setHorizontalAlignment(SwingConstants.RIGHT);
+
+		// Layout for special move three label
 		GridBagConstraints gbc_specialMoveThreeLabel = new GridBagConstraints();
 		gbc_specialMoveThreeLabel.fill = GridBagConstraints.HORIZONTAL;
 		gbc_specialMoveThreeLabel.gridwidth = 2;
@@ -534,6 +605,8 @@ public class BuilderSettingsPanel extends JPanel {
 
 		// Special move one minus button
 		specialMoveOneMinusButton = new JButton("-");
+
+		// Layout for special move one minus button
 		GridBagConstraints gbc_specialMoveOneMinusButton = new GridBagConstraints();
 		gbc_specialMoveOneMinusButton.insets = new Insets(0, 0, 5, 5);
 		gbc_specialMoveOneMinusButton.gridx = 1;
@@ -543,6 +616,8 @@ public class BuilderSettingsPanel extends JPanel {
 
 		// Special move one plus button
 		specialMoveOnePlusButton = new JButton("+");
+
+		// Layout for special move one plus button
 		GridBagConstraints gbc_specialMoveOnePlusButton = new GridBagConstraints();
 		gbc_specialMoveOnePlusButton.insets = new Insets(0, 0, 5, 5);
 		gbc_specialMoveOnePlusButton.gridx = 2;
@@ -552,6 +627,8 @@ public class BuilderSettingsPanel extends JPanel {
 
 		// Special move three minus button
 		specialMoveThreeMinusButton = new JButton("-");
+
+		// Layout for special move three minus button
 		GridBagConstraints gbc_specialMoveThreeMinusButton = new GridBagConstraints();
 		gbc_specialMoveThreeMinusButton.insets = new Insets(0, 0, 5, 5);
 		gbc_specialMoveThreeMinusButton.gridx = 4;
@@ -561,6 +638,8 @@ public class BuilderSettingsPanel extends JPanel {
 
 		// Special move three plus button
 		specialMoveThreePlusButton = new JButton("+");
+
+		// Layout for special move three plus button
 		GridBagConstraints gbc_specialMoveThreePlusButton = new GridBagConstraints();
 		gbc_specialMoveThreePlusButton.insets = new Insets(0, 0, 5, 0);
 		gbc_specialMoveThreePlusButton.gridx = 5;
@@ -572,6 +651,8 @@ public class BuilderSettingsPanel extends JPanel {
 		specialMoveTwoPanel = new JPanel();
 		specialMoveTwoPanel.setBorder(BorderFactory
 				.createLineBorder(Color.black));
+
+		// Layout for special move two panel
 		GridBagConstraints gbc_specialMoveTwoPanel = new GridBagConstraints();
 		gbc_specialMoveTwoPanel.gridheight = 2;
 		gbc_specialMoveTwoPanel.insets = new Insets(0, 0, 0, 5);
@@ -584,6 +665,8 @@ public class BuilderSettingsPanel extends JPanel {
 		specialMoveTwoLabel = new JLabel("0");
 		specialMoveTwoLabel.setBorder(BorderFactory
 				.createLineBorder(Color.black));
+
+		// Layout for special move two label
 		specialMoveTwoLabel.setHorizontalAlignment(SwingConstants.RIGHT);
 		GridBagConstraints gbc_specialMoveTwoLabel = new GridBagConstraints();
 		gbc_specialMoveTwoLabel.fill = GridBagConstraints.HORIZONTAL;
@@ -593,10 +676,12 @@ public class BuilderSettingsPanel extends JPanel {
 		gbc_specialMoveTwoLabel.gridy = 3;
 		specialMovesPanel.add(specialMoveTwoLabel, gbc_specialMoveTwoLabel);
 
-		// Special move for panel
+		// Special move four panel
 		specialMoveFourPanel = new JPanel();
 		specialMoveFourPanel.setBorder(BorderFactory
 				.createLineBorder(Color.black));
+
+		// Layout for special move four panel
 		GridBagConstraints gbc_specialMoveFourPanel = new GridBagConstraints();
 		gbc_specialMoveFourPanel.gridheight = 2;
 		gbc_specialMoveFourPanel.insets = new Insets(0, 0, 0, 5);
@@ -609,6 +694,8 @@ public class BuilderSettingsPanel extends JPanel {
 		specialMoveFourLabel = new JLabel("0");
 		specialMoveFourLabel.setBorder(BorderFactory
 				.createLineBorder(Color.black));
+
+		// Layout for special move four label
 		specialMoveFourLabel.setHorizontalAlignment(SwingConstants.RIGHT);
 		GridBagConstraints gbc_specialMoveFourLabel = new GridBagConstraints();
 		gbc_specialMoveFourLabel.fill = GridBagConstraints.HORIZONTAL;
@@ -620,6 +707,8 @@ public class BuilderSettingsPanel extends JPanel {
 
 		// Special move two minus button
 		specialMoveTwoMinusButton = new JButton("-");
+
+		// Layout for special move two minus button
 		GridBagConstraints gbc_specialMoveTwoMinusButton = new GridBagConstraints();
 		gbc_specialMoveTwoMinusButton.insets = new Insets(0, 0, 0, 5);
 		gbc_specialMoveTwoMinusButton.gridx = 1;
@@ -629,6 +718,8 @@ public class BuilderSettingsPanel extends JPanel {
 
 		// Special move two plus button
 		specialMoveTwoPlusButton = new JButton("+");
+
+		// Layout for special move two plus button
 		GridBagConstraints gbc_specialMoveTwoPlusButton = new GridBagConstraints();
 		gbc_specialMoveTwoPlusButton.insets = new Insets(0, 0, 0, 5);
 		gbc_specialMoveTwoPlusButton.gridx = 2;
@@ -638,6 +729,8 @@ public class BuilderSettingsPanel extends JPanel {
 
 		// Special move four minus button
 		specialMoveFourMinusButton = new JButton("-");
+
+		// Layout for special move four minus button
 		GridBagConstraints gbc_specialMoveFourMinusButton = new GridBagConstraints();
 		gbc_specialMoveFourMinusButton.insets = new Insets(0, 0, 0, 5);
 		gbc_specialMoveFourMinusButton.gridx = 4;
@@ -647,65 +740,78 @@ public class BuilderSettingsPanel extends JPanel {
 
 		// Special move four plus button
 		specialMoveFourPlusButton = new JButton("+");
+
+		// Layout for special move four plus button
 		GridBagConstraints gbc_specialMoveFourPlusButton = new GridBagConstraints();
 		gbc_specialMoveFourPlusButton.gridx = 5;
 		gbc_specialMoveFourPlusButton.gridy = 4;
 		specialMovesPanel.add(specialMoveFourPlusButton,
 				gbc_specialMoveFourPlusButton);
 
-		// Score cut offs panel
-		scoreCutoffsPanel = new JPanel();
-		GridBagConstraints gbc_scoreCutoffsPanel = new GridBagConstraints();
-		gbc_scoreCutoffsPanel.insets = new Insets(0, 0, 5, 5);
-		gbc_scoreCutoffsPanel.fill = GridBagConstraints.BOTH;
-		gbc_scoreCutoffsPanel.gridx = 1;
-		gbc_scoreCutoffsPanel.gridy = 9;
-		add(scoreCutoffsPanel, gbc_scoreCutoffsPanel);
-		GridBagLayout gbl_scoreCutoffsPanel = new GridBagLayout();
-		gbl_scoreCutoffsPanel.columnWidths = new int[] { 0, 0, 0 };
-		gbl_scoreCutoffsPanel.rowHeights = new int[] { 0, 0, 0, 0, 0 };
-		gbl_scoreCutoffsPanel.columnWeights = new double[] { 1.0, 1.0,
-				Double.MIN_VALUE };
-		gbl_scoreCutoffsPanel.rowWeights = new double[] { 0.0, 0.0, 0.0, 0.0,
-				Double.MIN_VALUE };
-		scoreCutoffsPanel.setLayout(gbl_scoreCutoffsPanel);
+		// Point thresholds panel
+		pointThresholdsPanel = new JPanel();
 
-		// Score cut offs label
-		scoreCutoffsLabel = new JLabel("Score Cutoffs");
-		scoreCutoffsLabel.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		scoreCutoffsLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		scoreCutoffsLabel
-				.setBorder(BorderFactory.createLineBorder(Color.black));
-		GridBagConstraints gbc_scoreCutoffsLabel = new GridBagConstraints();
-		gbc_scoreCutoffsLabel.fill = GridBagConstraints.HORIZONTAL;
-		gbc_scoreCutoffsLabel.gridwidth = 2;
-		gbc_scoreCutoffsLabel.insets = new Insets(0, 0, 5, 5);
-		gbc_scoreCutoffsLabel.gridx = 0;
-		gbc_scoreCutoffsLabel.gridy = 0;
-		scoreCutoffsPanel.add(scoreCutoffsLabel, gbc_scoreCutoffsLabel);
+		// Layout for point thresholds panel
+		GridBagConstraints gbc_pointThresholdsPanel = new GridBagConstraints();
+		gbc_pointThresholdsPanel.insets = new Insets(0, 0, 5, 5);
+		gbc_pointThresholdsPanel.fill = GridBagConstraints.BOTH;
+		gbc_pointThresholdsPanel.gridx = 1;
+		gbc_pointThresholdsPanel.gridy = 9;
+		add(pointThresholdsPanel, gbc_pointThresholdsPanel);
 
-		// One stare score label
+		GridBagLayout gbl_pointThresholdsPanel = new GridBagLayout();
+		gbl_pointThresholdsPanel.columnWidths = new int[] { 0, 0, 0 };
+		gbl_pointThresholdsPanel.rowHeights = new int[] { 0, 0, 0, 0, 0 };
+		gbl_pointThresholdsPanel.columnWeights = new double[] { 1.0, 1.0,
+				Double.MIN_VALUE };
+		gbl_pointThresholdsPanel.rowWeights = new double[] { 0.0, 0.0, 0.0,
+				0.0, Double.MIN_VALUE };
+		pointThresholdsPanel.setLayout(gbl_pointThresholdsPanel);
+
+		// Point thresholds label
+		pointThresholdsLabel = new JLabel("Score Cutoffs");
+		pointThresholdsLabel.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		pointThresholdsLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		pointThresholdsLabel.setBorder(BorderFactory
+				.createLineBorder(Color.black));
+
+		// Layout for point thresholds label
+		GridBagConstraints gbc_pointThresholdsLabel = new GridBagConstraints();
+		gbc_pointThresholdsLabel.fill = GridBagConstraints.HORIZONTAL;
+		gbc_pointThresholdsLabel.gridwidth = 2;
+		gbc_pointThresholdsLabel.insets = new Insets(0, 0, 5, 5);
+		gbc_pointThresholdsLabel.gridx = 0;
+		gbc_pointThresholdsLabel.gridy = 0;
+		pointThresholdsPanel
+				.add(pointThresholdsLabel, gbc_pointThresholdsLabel);
+
+		// One star score label
 		oneStarScoreLabel = new JLabel("1 Star Score");
 		oneStarScoreLabel.setMinimumSize(new Dimension(59, 20));
 		oneStarScoreLabel.setPreferredSize(new Dimension(59, 20));
 		oneStarScoreLabel
 				.setBorder(BorderFactory.createLineBorder(Color.black));
 		oneStarScoreLabel.setHorizontalAlignment(SwingConstants.CENTER);
+
+		// Layout for one star score label
 		GridBagConstraints gbc_oneStarScoreLabel = new GridBagConstraints();
 		gbc_oneStarScoreLabel.fill = GridBagConstraints.HORIZONTAL;
 		gbc_oneStarScoreLabel.insets = new Insets(0, 0, 5, 5);
 		gbc_oneStarScoreLabel.gridx = 0;
 		gbc_oneStarScoreLabel.gridy = 1;
-		scoreCutoffsPanel.add(oneStarScoreLabel, gbc_oneStarScoreLabel);
+		pointThresholdsPanel.add(oneStarScoreLabel, gbc_oneStarScoreLabel);
 
 		// One star score text field
 		oneStarScoreTextField = new JTextField();
+
+		// Layout for one star score text field
 		GridBagConstraints gbc_oneStarScoreTextField = new GridBagConstraints();
 		gbc_oneStarScoreTextField.insets = new Insets(0, 0, 5, 0);
 		gbc_oneStarScoreTextField.fill = GridBagConstraints.HORIZONTAL;
 		gbc_oneStarScoreTextField.gridx = 1;
 		gbc_oneStarScoreTextField.gridy = 1;
-		scoreCutoffsPanel.add(oneStarScoreTextField, gbc_oneStarScoreTextField);
+		pointThresholdsPanel.add(oneStarScoreTextField,
+				gbc_oneStarScoreTextField);
 		oneStarScoreTextField.setColumns(10);
 
 		// Two star score label
@@ -715,22 +821,27 @@ public class BuilderSettingsPanel extends JPanel {
 		twoStarScoreLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		twoStarScoreLabel
 				.setBorder(BorderFactory.createLineBorder(Color.black));
+
+		// Layout for two star score label
 		GridBagConstraints gbc_twoStarScoreLabel = new GridBagConstraints();
 		gbc_twoStarScoreLabel.fill = GridBagConstraints.HORIZONTAL;
 		gbc_twoStarScoreLabel.insets = new Insets(0, 0, 5, 5);
 		gbc_twoStarScoreLabel.gridx = 0;
 		gbc_twoStarScoreLabel.gridy = 2;
-		scoreCutoffsPanel.add(twoStarScoreLabel, gbc_twoStarScoreLabel);
+		pointThresholdsPanel.add(twoStarScoreLabel, gbc_twoStarScoreLabel);
 
 		// Two star score text field
 		twoStarScoreTextField = new JTextField();
 		twoStarScoreTextField.setColumns(10);
+
+		// Layout for two star score text field
 		GridBagConstraints gbc_twoStarScoreTextField = new GridBagConstraints();
 		gbc_twoStarScoreTextField.insets = new Insets(0, 0, 5, 0);
 		gbc_twoStarScoreTextField.fill = GridBagConstraints.HORIZONTAL;
 		gbc_twoStarScoreTextField.gridx = 1;
 		gbc_twoStarScoreTextField.gridy = 2;
-		scoreCutoffsPanel.add(twoStarScoreTextField, gbc_twoStarScoreTextField);
+		pointThresholdsPanel.add(twoStarScoreTextField,
+				gbc_twoStarScoreTextField);
 
 		// Three star score label
 		threeStarScoreLabel = new JLabel("3 Star Score");
@@ -739,31 +850,38 @@ public class BuilderSettingsPanel extends JPanel {
 		threeStarScoreLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		threeStarScoreLabel.setBorder(BorderFactory
 				.createLineBorder(Color.black));
+
+		// Layout for three star score label
 		GridBagConstraints gbc_threeStarScoreLabel = new GridBagConstraints();
 		gbc_threeStarScoreLabel.fill = GridBagConstraints.HORIZONTAL;
 		gbc_threeStarScoreLabel.insets = new Insets(0, 0, 0, 5);
 		gbc_threeStarScoreLabel.gridx = 0;
 		gbc_threeStarScoreLabel.gridy = 3;
-		scoreCutoffsPanel.add(threeStarScoreLabel, gbc_threeStarScoreLabel);
+		pointThresholdsPanel.add(threeStarScoreLabel, gbc_threeStarScoreLabel);
 
 		// Three star score text field
 		threeStarScoreTextField = new JTextField();
 		threeStarScoreTextField.setColumns(10);
+
+		// Layout for three star score text field
 		GridBagConstraints gbc_threeStarScoreTextField = new GridBagConstraints();
 		gbc_threeStarScoreTextField.fill = GridBagConstraints.HORIZONTAL;
 		gbc_threeStarScoreTextField.gridx = 1;
 		gbc_threeStarScoreTextField.gridy = 3;
-		scoreCutoffsPanel.add(threeStarScoreTextField,
+		pointThresholdsPanel.add(threeStarScoreTextField,
 				gbc_threeStarScoreTextField);
 
 		// Tile settings panel
 		tileSettingsPanel = new JPanel();
+
+		// Layout for tile settings panel
 		GridBagConstraints gbc_tileSettingsPanel = new GridBagConstraints();
 		gbc_tileSettingsPanel.insets = new Insets(0, 0, 5, 5);
 		gbc_tileSettingsPanel.fill = GridBagConstraints.BOTH;
 		gbc_tileSettingsPanel.gridx = 1;
 		gbc_tileSettingsPanel.gridy = 11;
 		add(tileSettingsPanel, gbc_tileSettingsPanel);
+
 		GridBagLayout gbl_tileSettingsPanel = new GridBagLayout();
 		gbl_tileSettingsPanel.columnWidths = new int[] { 0, 0, 0 };
 		gbl_tileSettingsPanel.rowHeights = new int[] { 0, 0, 0 };
@@ -779,6 +897,8 @@ public class BuilderSettingsPanel extends JPanel {
 		tileSettingsLabel.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		tileSettingsLabel
 				.setBorder(BorderFactory.createLineBorder(Color.black));
+
+		// Layout for tile settings label
 		GridBagConstraints gbc_tileSettingsLabel = new GridBagConstraints();
 		gbc_tileSettingsLabel.fill = GridBagConstraints.HORIZONTAL;
 		gbc_tileSettingsLabel.gridwidth = 2;
@@ -793,6 +913,8 @@ public class BuilderSettingsPanel extends JPanel {
 		tileTypeLabel.setPreferredSize(new Dimension(43, 20));
 		tileTypeLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		tileTypeLabel.setBorder(BorderFactory.createLineBorder(Color.black));
+
+		// Layout for tile type label
 		GridBagConstraints gbc_tileTypeLabel = new GridBagConstraints();
 		gbc_tileTypeLabel.fill = GridBagConstraints.HORIZONTAL;
 		gbc_tileTypeLabel.insets = new Insets(0, 0, 0, 5);
@@ -802,6 +924,8 @@ public class BuilderSettingsPanel extends JPanel {
 
 		// Tile type combo box
 		tileTypeComboBox = new JComboBox<String>();
+
+		// Layout for tile type combo box
 		GridBagConstraints gbc_tileTypeComboBox = new GridBagConstraints();
 		gbc_tileTypeComboBox.fill = GridBagConstraints.HORIZONTAL;
 		gbc_tileTypeComboBox.gridx = 1;

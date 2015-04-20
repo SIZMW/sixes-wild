@@ -44,6 +44,7 @@ public class NewLevelButtonController implements ActionListener {
 		JPanel currentPanel = new JPanel();
 		contentContainer.removeAll();
 
+		// Layout
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		gridBagLayout.columnWidths = new int[] { 0 };
 		gridBagLayout.rowHeights = new int[] { 0 };
@@ -58,6 +59,7 @@ public class NewLevelButtonController implements ActionListener {
 		gbc_list.gridx = 0;
 		gbc_list.gridy = 0;
 
+		// Update view
 		this.app.getBuilderView().updateBoardViewPanel(
 				new BoardViewPanel(new Board()));
 		this.app.getBuilderView().revalidate();

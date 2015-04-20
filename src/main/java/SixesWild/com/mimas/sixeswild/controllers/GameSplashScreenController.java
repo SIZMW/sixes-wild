@@ -63,10 +63,11 @@ public class GameSplashScreenController implements KeyListener {
 		if (key == 10) {
 			Container contentContainer = app.getFrame().getContentPane();
 			JPanel currentPanel = new JPanel();
-			JPanel currPanel = app.getMainPanel().getSubMenuPanel();
-			currPanel.removeAll();
+			JPanel subMenuPanel = app.getMainPanel().getSubMenuPanel();
+			subMenuPanel.removeAll();
 			contentContainer.removeAll();
 
+			// Layout
 			GridBagLayout gridBagLayout = new GridBagLayout();
 			gridBagLayout.columnWidths = new int[] { 0 };
 			gridBagLayout.rowHeights = new int[] { 0 };
@@ -80,29 +81,15 @@ public class GameSplashScreenController implements KeyListener {
 			gbc_list.fill = GridBagConstraints.BOTH;
 			gbc_list.gridx = 0;
 			gbc_list.gridy = 0;
-			
-
-//			GridBagLayout gridBagLayout = new GridBagLayout();
-//			gridBagLayout.columnWidths = new int[] { 0 };
-//			gridBagLayout.rowHeights = new int[] { 0 };
-//			gridBagLayout.columnWeights = new double[] { 1.0, Double.MIN_VALUE };
-//			gridBagLayout.rowWeights = new double[] { 1.0, Double.MIN_VALUE };
-//			currentPanel.setLayout(gridBagLayout);
-//
-//			GridBagConstraints gbc_list = new GridBagConstraints();
-//			gbc_list.insets = new Insets(0, 0, 0, 0);
-//			gbc_list.fill = GridBagConstraints.BOTH;
-//			gbc_list.gridx = 0;
-//			gbc_list.gridy = 0;
-
-			currPanel.add(this.app.getMainPanel().getTitleMenuView(), gbc_list);
-			currPanel.updateUI();
+	
+			// Update view
+			subMenuPanel.add(this.app.getMainPanel().getTitleMenuView(), gbc_list);
+			subMenuPanel.updateUI();
 			
 			currentPanel.add(this.app.getMainPanel(), gbc_list);
 			contentContainer.add(currentPanel);
 			contentContainer.revalidate();
 			contentContainer.repaint();
-			
 		}
 	}
 }

@@ -47,6 +47,7 @@ public class BuilderApplication {
 		}
 
 		builderView = new BuilderView();
+		
 		frame = new JFrame();
 		frame.setBounds(0, 0, 800, 600);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -56,8 +57,8 @@ public class BuilderApplication {
 		frame.setContentPane(contentPane);
 		frame.setPreferredSize(new Dimension(1000, 700));
 		frame.setMinimumSize(new Dimension(1000, 700));
-
 		frame.getContentPane().add(new SplashScreen());
+		
 		this.setUpControllers();
 	}
 
