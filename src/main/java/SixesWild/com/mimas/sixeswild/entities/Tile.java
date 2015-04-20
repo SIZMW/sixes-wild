@@ -1,19 +1,21 @@
 package SixesWild.com.mimas.sixeswild.entities;
 
 /**
- * This class is used as a representation of the Tile entity for Sixes Wild. It
- * represents abstract tile that is used to define the specific types of tiles.
+ * This class is used as a representation of the tile entity. It represents
+ * abstract tile that is used to define the sub class types of tiles.
  * 
  * @author Aditya Nivarthi
  */
 public abstract class Tile {
 
+	final int SIX = 6;
+	
 	TileType type;
 	int number;
 	int multiplier;
 
 	/**
-	 * Constructor for Tile object.
+	 * Constructor for Tile class.
 	 */
 	public Tile() {
 		this.type = TileType.NULL;
@@ -22,7 +24,7 @@ public abstract class Tile {
 	}
 
 	/**
-	 * Returns the type from this tile.1
+	 * Returns the type from this tile.
 	 * 
 	 * @return this.type The type of tile.
 	 */

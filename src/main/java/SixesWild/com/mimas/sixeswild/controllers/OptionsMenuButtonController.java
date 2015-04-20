@@ -39,7 +39,7 @@ public class OptionsMenuButtonController implements ActionListener {
 		JPanel currentPanel = app.getMainPanel().getSubMenuPanel();
 		currentPanel.removeAll();
 
-		// Layout
+		// Layout for panel
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		gridBagLayout.columnWidths = new int[] { 0 };
 		gridBagLayout.rowHeights = new int[] { 0 };
@@ -53,6 +53,7 @@ public class OptionsMenuButtonController implements ActionListener {
 		gbc_list.gridx = 0;
 		gbc_list.gridy = 0;
 
+		// Add panel to view
 		currentPanel
 				.add(this.app.getMainPanel().getOptionsMenuView(), gbc_list);
 		currentPanel.updateUI();

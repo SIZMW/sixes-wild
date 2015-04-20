@@ -39,6 +39,7 @@ public class BadgesMenuButtonController implements ActionListener {
 		JPanel currPanel = app.getMainPanel().getSubMenuPanel();
 		currPanel.removeAll();
 
+		// Layout for panel
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		gridBagLayout.columnWidths = new int[] { 0 };
 		gridBagLayout.rowHeights = new int[] { 0 };
@@ -52,6 +53,7 @@ public class BadgesMenuButtonController implements ActionListener {
 		gbc_list.gridx = 0;
 		gbc_list.gridy = 0;
 
+		// Add panel to view
 		currPanel.add(this.app.getMainPanel().getBadgeMenuView(), gbc_list);
 		currPanel.updateUI();
 	}

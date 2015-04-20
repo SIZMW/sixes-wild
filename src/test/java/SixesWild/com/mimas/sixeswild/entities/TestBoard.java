@@ -36,7 +36,7 @@ public class TestBoard extends TestCase {
 		// Setup
 		board.initialize();
 		Square square = new Square(new NumberTile(1, 1), 0, 0, false);
-		board.setSquare(square.getTile(), square.getX(), square.getY(), square.isMarked());
+		board.setSquare(square.getTile(), square.getX(), square.getY(), square.getMarked());
 
 		// Verify result
 		assertEquals(square.getTile(), board.getSquare(square.getX(), square.getY()).getTile());

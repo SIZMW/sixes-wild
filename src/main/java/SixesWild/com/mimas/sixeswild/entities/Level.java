@@ -5,22 +5,28 @@ import java.util.ArrayList;
 import javax.swing.Timer;
 
 /**
- * @author Cameron
- *
+ * This class is used as a representation of the level entity. It defines the
+ * playable level that describes all the constraints and properties of each
+ * specific level in the game.
+ * 
+ * @author Cameron Jones
  */
 public class Level {
+
+	LevelType type;
 	ArrayList<Double> tileFreq;
 	ArrayList<Double> multFreq;
-	LevelType type;
+	SpecialMoves specialMoves;
+	PointThresholds pointThresholds;
 	String name;
 	Board board;
-	//SpecialMoveConstraints specialMoveConstraints;
-	PointThresholds pointThresholds;
-	int moveCount;
 	Timer timer;
+	int moveCount;
 	boolean isUnlocked;
 
 	/**
+	 * Constructor for Level class.
+	 * 
 	 * @param tileFreq
 	 * @param multFreq
 	 * @param type
@@ -30,18 +36,22 @@ public class Level {
 	 * @param moveCount
 	 * @param isUnlocked
 	 */
-	public Level(ArrayList<Double> tileFreq, ArrayList<Double> multFreq, LevelType type, String name, ArrayList<Square> squares, PointThresholds pointThresholds, int moveCount, boolean isUnlocked){
+	public Level(ArrayList<Double> tileFreq, ArrayList<Double> multFreq,
+			LevelType type, String name, ArrayList<Square> squares,
+			PointThresholds pointThresholds, int moveCount, boolean isUnlocked) {
 		this.tileFreq = tileFreq;
 		this.multFreq = multFreq;
 		this.type = type;
 		this.name = name;
-		//this.board = new Board(squares, tileFreq, multFreq);
+		// this.board = new Board(squares, tileFreq, multFreq);
 		this.pointThresholds = pointThresholds;
 		this.moveCount = moveCount;
 		this.isUnlocked = isUnlocked;
 	}
 
 	/**
+	 * Constructor for Level class.
+	 * 
 	 * @param tileFreq
 	 * @param multFreq
 	 * @param type
@@ -51,12 +61,14 @@ public class Level {
 	 * @param timer
 	 * @param isUnlocked
 	 */
-	public Level(ArrayList<Double> tileFreq, ArrayList<Double> multFreq, LevelType type, String name, ArrayList<Square> squares, PointThresholds pointThresholds, Timer timer, boolean isUnlocked){
+	public Level(ArrayList<Double> tileFreq, ArrayList<Double> multFreq,
+			LevelType type, String name, ArrayList<Square> squares,
+			PointThresholds pointThresholds, Timer timer, boolean isUnlocked) {
 		this.tileFreq = tileFreq;
 		this.multFreq = multFreq;
 		this.type = type;
 		this.name = name;
-		//this.board = new Board(squares, tileFreq, multFreq);
+		// this.board = new Board(squares, tileFreq, multFreq);
 		this.pointThresholds = pointThresholds;
 		this.timer = timer;
 		this.isUnlocked = isUnlocked;
@@ -66,7 +78,7 @@ public class Level {
 	 * @param squares
 	 * @param type
 	 */
-	public Level(ArrayList<Square> squares, String type){
+	public Level(ArrayList<Square> squares, String type) {
 		this.tileFreq = new ArrayList<Double>();
 		this.tileFreq.add(.10);
 		this.tileFreq.add(.20);
@@ -86,9 +98,9 @@ public class Level {
 	}
 
 	/**
-	 *
+	 * Default constructor for Level class.
 	 */
-	public Level(){
+	public Level() {
 		this.tileFreq = new ArrayList<Double>();
 		this.multFreq = new ArrayList<Double>();
 		this.tileFreq.add(.10);

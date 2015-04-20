@@ -34,6 +34,7 @@ public class SpecialMoveTwoDecreaseButtonController implements ActionListener {
 		int value = Integer.parseInt(this.app.getBuilderView()
 				.getBuilderSettingsPanel().getSpecialMoveTwoLabel().getText());
 
+		// Modify value
 		if (value <= 0) {
 			value = 0;
 		} else {

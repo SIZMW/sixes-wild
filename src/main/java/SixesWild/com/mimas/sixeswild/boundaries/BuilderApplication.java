@@ -21,7 +21,7 @@ import SixesWild.com.mimas.sixeswild.controllers.SpecialMoveTwoIncreaseButtonCon
 
 /**
  * This class represents the Builder application that will run and handle the
- * player building the levels for Sixes Wild.
+ * player building the levels for the level builder.
  * 
  * @author Aditya Nivarthi
  */
@@ -40,14 +40,16 @@ public class BuilderApplication {
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize() {
+	protected void initialize() {
 		try {
 			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
 		} catch (Exception e) {
 		}
 
+		// Initialize panels and views
 		builderView = new BuilderView();
-		
+
+		// Initialize frame
 		frame = new JFrame();
 		frame.setBounds(0, 0, 800, 600);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -58,14 +60,14 @@ public class BuilderApplication {
 		frame.setPreferredSize(new Dimension(1000, 700));
 		frame.setMinimumSize(new Dimension(1000, 700));
 		frame.getContentPane().add(new SplashScreen());
-		
+
 		this.setUpControllers();
 	}
 
 	/**
 	 * Set up the controllers on the various components in the game.
 	 */
-	private void setUpControllers() {
+	protected void setUpControllers() {
 		this.getFrame().addKeyListener(new BuilderSplashScreenController(this));
 
 		this.builderView.builderTopPanel.newButton

@@ -19,7 +19,7 @@ import SixesWild.com.mimas.sixeswild.controllers.UserLevelMenuButtonController;
 
 /**
  * This class represents the Game application that will run and handle the
- * player playing the game Sixes Wild.
+ * player playing the game.
  * 
  * @author Aditya Nivarthi
  */
@@ -44,7 +44,7 @@ public class GameApplication {
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize() {
+	protected void initialize() {
 		try {
 			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
 		} catch (Exception e) {
@@ -82,6 +82,8 @@ public class GameApplication {
 		gameMenuView = new GameMenuView(storyLevelList, userLevelList,
 				badgesList, highestLevelUnlocked);
 		levelView = new LevelView();
+
+		// Initialize frame
 		frame = new JFrame();
 		frame.setBounds(0, 0, 800, 600);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -98,7 +100,7 @@ public class GameApplication {
 	/**
 	 * Set up the controllers on the various components in the game.
 	 */
-	private void setUpControllers() {
+	protected void setUpControllers() {
 		this.gameMenuView.getStoryLevelMenuButton().addActionListener(
 				new StoryMenuButtonController(this));
 		this.gameMenuView.getOptionsMenuButton().addActionListener(

@@ -34,6 +34,7 @@ public class SpecialMoveOneIncreaseButtonController implements ActionListener {
 		int value = Integer.parseInt(this.app.getBuilderView()
 				.getBuilderSettingsPanel().getSpecialMoveOneLabel().getText());
 
+		// Modify value
 		value++;
 
 		this.app.getBuilderView().getBuilderSettingsPanel()

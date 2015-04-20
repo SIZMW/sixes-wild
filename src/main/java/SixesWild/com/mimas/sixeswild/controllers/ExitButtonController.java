@@ -42,6 +42,7 @@ public class ExitButtonController implements ActionListener {
 		JPanel currentPanel = new JPanel();
 		contentContainer.removeAll();
 
+		// Layout for panel
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		gridBagLayout.columnWidths = new int[] { 0 };
 		gridBagLayout.rowHeights = new int[] { 0 };
@@ -56,6 +57,7 @@ public class ExitButtonController implements ActionListener {
 		gbc_list.gridx = 0;
 		gbc_list.gridy = 0;
 
+		// Add panel to view
 		currentPanel.add(this.app.getMainPanel(), gbc_list);
 		contentContainer.add(currentPanel);
 		contentContainer.revalidate();

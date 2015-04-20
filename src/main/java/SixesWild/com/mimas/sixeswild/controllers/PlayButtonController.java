@@ -43,6 +43,7 @@ public class PlayButtonController implements ActionListener {
 		JPanel currentPanel = new JPanel();
 		contentContainer.removeAll();
 
+		// Layout for panel
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		gridBagLayout.columnWidths = new int[] { 0 };
 		gridBagLayout.rowHeights = new int[] { 0 };
@@ -57,11 +58,12 @@ public class PlayButtonController implements ActionListener {
 		gbc_list.gridx = 0;
 		gbc_list.gridy = 0;
 
+		// Create new view
 		LevelView newLevel = new LevelView();
 		this.app.setLevelPanel(newLevel);
-
 		this.setUpControllers();
 
+		// Add panel to view
 		currentPanel.add(this.app.getLevelPanel(), gbc_list);
 		contentContainer.add(currentPanel);
 		contentContainer.revalidate();

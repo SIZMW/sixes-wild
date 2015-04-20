@@ -1,8 +1,9 @@
 package SixesWild.com.mimas.sixeswild.entities;
 
 /**
- * This class represents the special moves that each level will have. It
- * aggregates all the special moves and their amounts into one class.
+ * This class is used as a representation of the special moves entity. It
+ * aggregates the amount of special moves available for each level into one
+ * class.
  * 
  * @author Yahel Nachum
  */

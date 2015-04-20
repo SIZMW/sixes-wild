@@ -34,6 +34,7 @@ public class SpecialMoveFourDecreaseButtonController implements ActionListener {
 		int value = Integer.parseInt(this.app.getBuilderView()
 				.getBuilderSettingsPanel().getSpecialMoveFourLabel().getText());
 
+		// Modify value
 		if (value <= 0) {
 			value = 0;
 		} else {

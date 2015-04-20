@@ -1,8 +1,8 @@
 package SixesWild.com.mimas.sixeswild.entities;
 
 /**
- * This class is used as a representation of the null type in Sixes Wild. It is
- * used to mark places that are not populated with tiles in a game.
+ * This class is used as a representation of the null tile entity. It is used to
+ * mark places that are not populated with playable tiles in a game.
  * 
  * @author Aditya Nivarthi
  */

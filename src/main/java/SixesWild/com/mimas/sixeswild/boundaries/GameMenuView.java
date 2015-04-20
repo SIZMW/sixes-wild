@@ -9,7 +9,7 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 
 /**
- * This class represents the main view for the menus in the game for Sixes Wild.
+ * This class represents the main view for the menus in the game.
  * 
  * @author Cameron Jones
  */

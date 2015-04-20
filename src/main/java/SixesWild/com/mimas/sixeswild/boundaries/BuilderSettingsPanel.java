@@ -1155,36 +1155,36 @@ public class BuilderSettingsPanel extends JPanel {
 	}
 
 	/**
-	 * Returns special move one label
+	 * Returns special move one label.
 	 * 
-	 * @return this.specialMoveOneLabel
+	 * @return this.specialMoveOneLabel The special move one label.
 	 */
 	public JLabel getSpecialMoveOneLabel() {
 		return specialMoveOneLabel;
 	}
 
 	/**
-	 * Returns special move Two label
+	 * Returns special move two label.
 	 * 
-	 * @return this.specialMoveTwoLabel
+	 * @return this.specialMoveTwoLabel The special move two label.
 	 */
 	public JLabel getSpecialMoveTwoLabel() {
 		return specialMoveTwoLabel;
 	}
 
 	/**
-	 * Returns special move three label
+	 * Returns special move three label.
 	 * 
-	 * @return this.specialMoveThreeLabel
+	 * @return this.specialMoveThreeLabel The special move three label.
 	 */
 	public JLabel getSpecialMoveThreeLabel() {
 		return specialMoveThreeLabel;
 	}
 
 	/**
-	 * Returns special move four label
+	 * Returns special move four label.
 	 * 
-	 * @return this.specialMoveFourLabel
+	 * @return this.specialMoveFourLabel The special move four label.
 	 */
 	public JLabel getSpecialMoveFourLabel() {
 		return specialMoveFourLabel;

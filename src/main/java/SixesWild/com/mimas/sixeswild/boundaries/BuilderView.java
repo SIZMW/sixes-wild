@@ -29,7 +29,7 @@ public class BuilderView extends JPanel {
 	private GridBagConstraints gbc_boardView;
 
 	/**
-	 * Constructor for level view
+	 * Constructor for BuilderView class.
 	 */
 	public BuilderView() {
 

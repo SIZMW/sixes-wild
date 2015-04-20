@@ -14,7 +14,7 @@ import SixesWild.com.mimas.sixeswild.entities.Square;
 
 /**
  * This class represents the square view that is used to show tiles on the board
- * view panel for the game in Sixes Wild.
+ * view panel for the game.
  * 
  * @author Aditya Nivarthi
  */

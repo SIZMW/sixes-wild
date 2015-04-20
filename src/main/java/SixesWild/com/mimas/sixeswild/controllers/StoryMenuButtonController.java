@@ -42,7 +42,7 @@ public class StoryMenuButtonController implements ActionListener {
 		JPanel currentPanel = app.getMainPanel().getSubMenuPanel();
 		currentPanel.removeAll();
 
-		// Layout
+		// Layout for panel
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		gridBagLayout.columnWidths = new int[] { 0 };
 		gridBagLayout.rowHeights = new int[] { 0 };
@@ -64,6 +64,7 @@ public class StoryMenuButtonController implements ActionListener {
 			levelList.add("Story Level " + (i + 1));
 		}
 
+		// Add panel to view
 		currentPanel.add(this.app.getMainPanel().getStoryMenuView(), gbc_list);
 		currentPanel.updateUI();
 	}

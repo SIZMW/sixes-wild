@@ -5,8 +5,8 @@ import java.awt.EventQueue;
 import SixesWild.com.mimas.sixeswild.boundaries.BuilderApplication;
 
 /**
- * This class is used to create and run an instance of the BuilderApplication for
- * Sixes Wild.
+ * This class is used to create and run an instance of the BuilderApplication
+ * for the level builder.
  * 
  * @author Aditya Nivarthi
  */

@@ -41,7 +41,7 @@ public class UserLevelMenuButtonController implements ActionListener {
 		JPanel currentPanel = app.getMainPanel().getSubMenuPanel();
 		currentPanel.removeAll();
 
-		// Layout
+		// Layout for panel
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		gridBagLayout.columnWidths = new int[] { 0 };
 		gridBagLayout.rowHeights = new int[] { 0 };
@@ -63,6 +63,7 @@ public class UserLevelMenuButtonController implements ActionListener {
 			levelList.add("User Level " + (i + 1));
 		}
 
+		// Add panel to view
 		currentPanel.add(this.app.getMainPanel().getUserMenuView(), gbc_list);
 		currentPanel.updateUI();
 	}

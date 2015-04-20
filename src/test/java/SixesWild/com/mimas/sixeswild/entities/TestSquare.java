@@ -36,7 +36,7 @@ public class TestSquare extends TestCase {
 		assertEquals(square.getX(), 0);
 		assertEquals(square.getY(), 0);
 		assertEquals(square.getTile().getType(), TileType.NUMBER);
-		assertEquals(square.isMarked(), false);
+		assertEquals(square.getMarked(), false);
 	}
 
 	/**
@@ -54,8 +54,8 @@ public class TestSquare extends TestCase {
 	 * Tests all the Square marked methods.
 	 */
 	public void testSquareMarkedMethods() {
-		assertEquals(square.isMarked(), false);
+		assertEquals(square.getMarked(), false);
 		square.setMarked(true);
-		assertEquals(square.isMarked(), true);
+		assertEquals(square.getMarked(), true);
 	}
 }

@@ -1,8 +1,9 @@
 package SixesWild.com.mimas.sixeswild.entities;
 
 /**
- * This class is used as a representation of the positions in the game board for
- * Sixes Wild. The board has fixes square positions, each of which holds a tile.
+ * This class is used as a representation of the square entity. It defines a
+ * position in the game board where tiles are placed. Squares are fixed in the
+ * game board.
  * 
  * @author Aditya Nivarthi
  */
@@ -86,7 +87,7 @@ public class Square {
 	 * 
 	 * @return this.marked The marked attribute of the square.
 	 */
-	public boolean isMarked() {
+	public boolean getMarked() {
 		return this.marked;
 	}
 

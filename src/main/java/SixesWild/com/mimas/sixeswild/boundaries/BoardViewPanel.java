@@ -15,7 +15,7 @@ import SixesWild.com.mimas.sixeswild.entities.Square;
 
 /**
  * This class represents the view used to display the game board in the level
- * view of the game and builder.
+ * view of the game and the builder.
  * 
  * @author Aditya Nivarthi
  */
@@ -31,6 +31,9 @@ public class BoardViewPanel extends JPanel {
 
 	/**
 	 * Constructor for BoardViewPanel class.
+	 * 
+	 * @param board
+	 *            The game board to display.
 	 */
 	public BoardViewPanel(Board board) {
 		super();
@@ -68,6 +71,7 @@ public class BoardViewPanel extends JPanel {
 	protected void paintComponent(Graphics g) {
 		super.paintComponent(g);
 
+		// Update each SquareView in the board
 		for (int i = 0; i < 9; i++) {
 			for (int j = 0; j < 9; j++) {
 				squareViewBoard[i][j].updateSquareView(this.getWidth(),
@@ -79,7 +83,9 @@ public class BoardViewPanel extends JPanel {
 	}
 
 	/**
-	 * Checks whether mouse coordinates are selecting the given SquareView.
+	 * Checks whether mouse coordinates are selecting the given SquareView by
+	 * checking if the mouse coordinates are within the width and height of the
+	 * given SquareView.
 	 * 
 	 * @param mx
 	 *            X coordinate of mouse.
@@ -104,12 +110,17 @@ public class BoardViewPanel extends JPanel {
 	 * @return true or false
 	 */
 	protected boolean validateSquareSelection() {
+
+		// Verify there is more than one SquareView in the list
 		if (currentSelection.size() > 1) {
+
+			// Convert SquareViews to Squares before passing to the board
 			ArrayList<Square> squares = new ArrayList<Square>();
 			for (SquareView e : this.currentSelection) {
 				squares.add(e.getSquare());
 			}
 
+			// Board checks for valid selection
 			return this.gameBoard.isValidSelection(squares);
 		}
 		return true;
@@ -168,6 +179,9 @@ public class BoardViewPanel extends JPanel {
 	public void updateSelection(int mx, int my) {
 		for (int i = 0; i < gameBoard.SIZE_X; i++) {
 			for (int j = 0; j < gameBoard.SIZE_Y; j++) {
+
+				// If the SquareView is selected in a valid manner, update the
+				// SquareView and add it to the current selection
 				if (this.validateMouseSelection(mx, my, squareViewBoard[i][j])) {
 					this.squareViewBoard[i][j].setSelected(true);
 					this.addToCurrentSelection(squareViewBoard[i][j]);
@@ -175,6 +189,7 @@ public class BoardViewPanel extends JPanel {
 			}
 		}
 
+		// If the selection is not valid, clear the entire selection
 		if (!this.validateSquareSelection()) {
 			this.clearSelection();
 		}
@@ -186,10 +201,13 @@ public class BoardViewPanel extends JPanel {
 	public void clearSelection() {
 		for (int i = 0; i < gameBoard.SIZE_X; i++) {
 			for (int j = 0; j < gameBoard.SIZE_Y; j++) {
+
+				// Set all the SquareViews to the normal state
 				this.squareViewBoard[i][j].setSelected(false);
 			}
 		}
 
+		// Empty the current selection
 		this.currentSelection.clear();
 	}
 }

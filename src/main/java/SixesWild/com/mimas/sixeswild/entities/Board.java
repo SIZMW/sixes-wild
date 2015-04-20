@@ -7,7 +7,8 @@ import java.util.Iterator;
 import java.util.Random;
 
 /**
- * This class is used as a representation of the game board for Sixes Wild.
+ * This class is used as a representation of the game board. It defines the
+ * squares and board logic required to make moves in the game.
  * 
  * @author Aditya Nivarthi
  */
@@ -21,7 +22,7 @@ public class Board {
 	ArrayList<Double> tileFrequencies;
 
 	/**
-	 * Constructor for Board class.
+	 * Default constructor for Board class.
 	 */
 	public Board() {
 		this.squares = new Square[SIZE_X][SIZE_Y];
@@ -50,12 +51,14 @@ public class Board {
 		this.multiplierFrequencies = multFreq;
 		this.squares = new Square[SIZE_X][SIZE_Y];
 
+		// Verify all squares exist
 		for (Square e : squareList) {
 			if (e.equals(null)) {
 				throw new Exception("Null square on board construction");
 			}
 		}
 
+		// Add squares into internal board
 		for (Square e : squareList) {
 			this.squares[e.getX()][e.getY()] = e;
 		}
@@ -122,6 +125,7 @@ public class Board {
 
 	/**
 	 * Generates a random number for a NumberTile for random board generation.
+	 * TODO Will be removed.
 	 * 
 	 * @return Random value from 1 to 6.
 	 */
@@ -195,9 +199,12 @@ public class Board {
 	 * @return true or false
 	 */
 	public boolean setSquare(Tile tile, int x, int y, boolean marked) {
+
+		// Verify tile exists
 		if (tile.equals(null)) {
 			return false;
 		}
+
 		this.squares[x][y] = new Square(tile, x, y, marked);
 		return true;
 	}
@@ -233,7 +240,7 @@ public class Board {
 			}
 		}
 
-		// Seed for shuffling
+		// Shuffle the list of tiles
 		long seed = System.nanoTime();
 		Collections.shuffle(squaresList, new Random(seed));
 		Iterator<Square> squareIterator = squaresList.iterator();
@@ -268,20 +275,27 @@ public class Board {
 	 * @return true or false
 	 */
 	public boolean isValidSelection(ArrayList<Square> selection) {
+
+		// Verify selection exists
 		if (selection.equals(null)) {
 			return false;
 		}
 
+		// Verify squares exist
 		for (Square e : selection) {
 			if (e.equals(null)) {
 				return false;
 			}
 		}
 
+		// Check if each square is next to at least one other square in the
+		// selection. This allows for the "T" move.
 		boolean nextTo = false;
 
 		for (int i = 0; i < selection.size(); i++) {
 			for (int j = 0; j < selection.size(); j++) {
+
+				// Don't check square against itself
 				if (i != j
 						&& this.isSquareNextTo(selection.get(i),
 								selection.get(j))) {
@@ -289,21 +303,27 @@ public class Board {
 				}
 			}
 
+			// If a square was not next to any other ones
 			if (!nextTo) {
 				return false;
 			}
 
+			// Reset boolean
 			nextTo = false;
 		}
 
+		// Check sum of selection of squares
 		int sum = 0;
 		for (Square e : selection) {
+
+			// Check for invalid types in selection
 			if (!e.getTile().getType().equals(TileType.NUMBER)) {
 				return false;
 			}
 			sum += e.getTile().getNumber();
 		}
 
+		// Invalid sum
 		if (sum > 6) {
 			return false;
 		}
@@ -312,7 +332,9 @@ public class Board {
 	}
 
 	/**
-	 * Returns whether two squares are next to each other.
+	 * Returns whether two squares are next to each other. Checks if squares are
+	 * vertically or horizontally adjacent, but not diagonally next to each
+	 * other.
 	 * 
 	 * @param squareOne
 	 *            First square to compare.
@@ -335,16 +357,21 @@ public class Board {
 	 * @return true
 	 */
 	public boolean removeSelection(ArrayList<Square> selection) {
+
+		// Verify selection exists
 		if (selection.equals(null)) {
 			return false;
 		}
 
+		// Verify squares exist
 		for (Square e : selection) {
 			if (e.equals(null)) {
 				return false;
 			}
 		}
 
+		// Remove square
+		// TODO Need to revise this
 		for (Square e : selection) {
 			squares[e.getX()][e.getY()] = null;
 		}

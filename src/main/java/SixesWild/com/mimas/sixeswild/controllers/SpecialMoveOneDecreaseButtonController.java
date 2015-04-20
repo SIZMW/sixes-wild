@@ -34,6 +34,7 @@ public class SpecialMoveOneDecreaseButtonController implements ActionListener {
 		int value = Integer.parseInt(this.app.getBuilderView()
 				.getBuilderSettingsPanel().getSpecialMoveOneLabel().getText());
 
+		// Modify value
 		if (value <= 0) {
 			value = 0;
 		} else {

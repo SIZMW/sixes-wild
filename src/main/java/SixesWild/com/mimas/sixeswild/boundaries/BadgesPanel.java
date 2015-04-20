@@ -33,7 +33,7 @@ public class BadgesPanel extends JPanel {
 	 * Constructor for BadgesPanel class.
 	 * 
 	 * @param badgeNames
-	 *            The list of badge names
+	 *            The list of badge names.
 	 */
 	public BadgesPanel(ArrayList<String> badgeNames) {
 
@@ -47,7 +47,7 @@ public class BadgesPanel extends JPanel {
 		gridBagLayout.columnWeights = new double[] { 1.0, 1.0, Double.MIN_VALUE };
 		gridBagLayout.rowWeights = new double[] { 1.0, Double.MIN_VALUE };
 		setLayout(gridBagLayout);
-		
+
 		// Add the list of badge names
 		badgeListModel = new DefaultListModel<String>();
 		for (int i = 0; i < badgeNames.size(); i++) {
@@ -119,18 +119,18 @@ public class BadgesPanel extends JPanel {
 	}
 
 	/**
-	 * Returns the badge list
+	 * Returns the badge list.
 	 * 
-	 * @return this.badgeListModel The list of badges
+	 * @return this.badgeListModel The list of badges.
 	 */
 	public DefaultListModel<String> getBadgeListModel() {
 		return this.badgeListModel;
 	}
 
 	/**
-	 * Returns the badge scroll pane
+	 * Returns the badge scroll pane.
 	 * 
-	 * @return this.badgeScrollPane The scrolling panel with the list of badges
+	 * @return this.badgeScrollPane The scrolling panel with the list of badges.
 	 */
 	public JScrollPane getBadgeScrollPane() {
 		return this.badgeScrollPane;

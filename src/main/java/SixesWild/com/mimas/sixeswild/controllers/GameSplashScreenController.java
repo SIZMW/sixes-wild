@@ -1,6 +1,3 @@
-/**
- * 
- */
 package SixesWild.com.mimas.sixeswild.controllers;
 
 import java.awt.Container;
@@ -67,7 +64,7 @@ public class GameSplashScreenController implements KeyListener {
 			subMenuPanel.removeAll();
 			contentContainer.removeAll();
 
-			// Layout
+			// Layout for panel
 			GridBagLayout gridBagLayout = new GridBagLayout();
 			gridBagLayout.columnWidths = new int[] { 0 };
 			gridBagLayout.rowHeights = new int[] { 0 };
@@ -75,17 +72,18 @@ public class GameSplashScreenController implements KeyListener {
 			gridBagLayout.rowWeights = new double[] { 1.0, Double.MIN_VALUE };
 			currentPanel.setPreferredSize(new Dimension(800, 600));
 			currentPanel.setLayout(gridBagLayout);
-			
+
 			GridBagConstraints gbc_list = new GridBagConstraints();
 			gbc_list.insets = new Insets(0, 0, 0, 0);
 			gbc_list.fill = GridBagConstraints.BOTH;
 			gbc_list.gridx = 0;
 			gbc_list.gridy = 0;
-	
-			// Update view
-			subMenuPanel.add(this.app.getMainPanel().getTitleMenuView(), gbc_list);
+
+			// Add panel to view
+			subMenuPanel.add(this.app.getMainPanel().getTitleMenuView(),
+					gbc_list);
 			subMenuPanel.updateUI();
-			
+
 			currentPanel.add(this.app.getMainPanel(), gbc_list);
 			contentContainer.add(currentPanel);
 			contentContainer.revalidate();

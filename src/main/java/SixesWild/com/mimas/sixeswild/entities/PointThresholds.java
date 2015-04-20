@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 /**
- * This class represents the point thresholds that a level will have. It
- * aggregates the point thresholds into one class.
+ * This class is used as a representation of the point thresholds entity. It
+ * aggregates the point threshold values for each level into one class.
  * 
  * @author Yahel Nachum
  */

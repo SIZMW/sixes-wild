@@ -34,6 +34,7 @@ public class SpecialMoveFourIncreaseButtonController implements ActionListener {
 		int value = Integer.parseInt(this.app.getBuilderView()
 				.getBuilderSettingsPanel().getSpecialMoveFourLabel().getText());
 
+		// Modify value
 		value++;
 
 		this.app.getBuilderView().getBuilderSettingsPanel()

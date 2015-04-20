@@ -34,6 +34,7 @@ public class SpecialMoveTwoIncreaseButtonController implements ActionListener {
 		int value = Integer.parseInt(this.app.getBuilderView()
 				.getBuilderSettingsPanel().getSpecialMoveTwoLabel().getText());
 
+		// Modify value
 		value++;
 
 		this.app.getBuilderView().getBuilderSettingsPanel()

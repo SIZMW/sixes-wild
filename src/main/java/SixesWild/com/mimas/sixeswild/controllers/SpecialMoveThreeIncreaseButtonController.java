@@ -34,6 +34,7 @@ public class SpecialMoveThreeIncreaseButtonController implements ActionListener 
 		int value = Integer.parseInt(this.app.getBuilderView()
 				.getBuilderSettingsPanel().getSpecialMoveThreeLabel().getText());
 
+		// Modify value
 		value++;
 
 		this.app.getBuilderView().getBuilderSettingsPanel()
