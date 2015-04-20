@@ -61,6 +61,8 @@ public class PlayButtonController implements ActionListener {
 		this.app.setLevelPanel(newLevel);
 		app.getLevelPanel().getTopMenuPanel().getExitLevelButton()
 				.addActionListener(new ExitButtonController(app));
+		app.getLevelPanel().getBoardViewPanel().addMouseListener(new GameBoardViewMouseController(app));
+		app.getLevelPanel().getBoardViewPanel().addMouseMotionListener(new GameBoardViewMouseMotionController(app));
 
 		currentPanel.add(this.app.getLevelPanel(), gbc_list);
 		contentContainer.add(currentPanel);
