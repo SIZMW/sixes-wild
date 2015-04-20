@@ -1,9 +1,9 @@
 package SixesWild.com.mimas.sixeswild.entities;
 
 /**
- * This class is used as a representation of the square entity. It defines a
- * position in the game board where tiles are placed. Squares are fixed in the
- * game board.
+ * Square is the representation of one position on the Board. They can be
+ * marked, have a position noted by coordinates, and have a Tile to hold and
+ * represent.
  * 
  * @author Aditya Nivarthi
  */
@@ -15,7 +15,8 @@ public class Square {
 	boolean marked;
 
 	/**
-	 * Constructor for Square class.
+	 * Creates a Square instance with the specified Tile, x and y coordinates, and marked
+	 * attribute.
 	 * 
 	 * @param tile
 	 *            The tile in this square.
@@ -36,7 +37,7 @@ public class Square {
 	/**
 	 * Returns the tile in the square.
 	 * 
-	 * @return this.tile The tile in the square.
+	 * @return Tile tile
 	 */
 	public Tile getTile() {
 		return this.tile;
@@ -47,7 +48,7 @@ public class Square {
 	 * 
 	 * @param tile
 	 *            The tile to add.
-	 * @return true
+	 * @return true if the Tile is added.
 	 */
 	public boolean addTile(Tile tile) {
 		this.tile = tile;
@@ -57,7 +58,7 @@ public class Square {
 	/**
 	 * Removes the tile from the square.
 	 * 
-	 * @return true
+	 * @return true if the Tile is removed.
 	 */
 	public boolean removeTile() {
 		this.tile = null;
@@ -67,7 +68,7 @@ public class Square {
 	/**
 	 * Returns the x position of this square.
 	 * 
-	 * @return this.xPosition The x position of the square.
+	 * @return Integer x coordinate
 	 */
 	public int getX() {
 		return this.xPosition;
@@ -76,7 +77,7 @@ public class Square {
 	/**
 	 * Returns the y position of this square.
 	 * 
-	 * @return this.yPosition The y position of the square.
+	 * @return Integer y coordinate
 	 */
 	public int getY() {
 		return this.yPosition;
@@ -85,7 +86,7 @@ public class Square {
 	/**
 	 * Returns the marked attribute of the square.
 	 * 
-	 * @return this.marked The marked attribute of the square.
+	 * @return Boolean marked attribute
 	 */
 	public boolean getMarked() {
 		return this.marked;
@@ -96,7 +97,7 @@ public class Square {
 	 * 
 	 * @param mark
 	 *            The value of being marked to set for the square.
-	 * @return true
+	 * @return true if marked attribute is updated.
 	 */
 	public boolean setMarked(boolean mark) {
 		this.marked = mark;

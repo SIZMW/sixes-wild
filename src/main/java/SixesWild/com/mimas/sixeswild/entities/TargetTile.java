@@ -1,15 +1,17 @@
 package SixesWild.com.mimas.sixeswild.entities;
 
 /**
- * This class is used as a representation of the target tile entity. It defines
- * the position where a six number tile must land in the "Release" game type.
+ * TargetTile is one type of Tile that exists on a Board. It represents the
+ * position in the board where SixTiles must fall during the "Release" game
+ * type. It has all the attributes of a Tile.
  * 
  * @author Aditya Nivarthi
  */
 public class TargetTile extends Tile {
 
 	/**
-	 * Constructor for TargetTile class.
+	 * Creates a TargetTile instance with TARGET type, number 6 and multiplier
+	 * 0.
 	 */
 	public TargetTile() {
 		this.type = TileType.TARGET;

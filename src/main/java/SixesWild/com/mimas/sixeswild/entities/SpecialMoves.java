@@ -1,9 +1,8 @@
 package SixesWild.com.mimas.sixeswild.entities;
 
 /**
- * This class is used as a representation of the special moves entity. It
- * aggregates the amount of special moves available for each level into one
- * class.
+ * SpecialMoves is an aggregation entity to hold all the counts of special moves
+ * in a Level.
  * 
  * @author Yahel Nachum
  */
@@ -15,7 +14,8 @@ public class SpecialMoves {
 	int xStacySpecialMoveCount;
 
 	/**
-	 * Default constructor for SpecialMoves class.
+	 * Creates a SpecialMoves instance with 0 as count for all the special move
+	 * types.
 	 */
 	public SpecialMoves() {
 		this.resetBoardCount = 0;
@@ -25,7 +25,8 @@ public class SpecialMoves {
 	}
 
 	/**
-	 * Parameterized constructor for SpecialMoves class.
+	 * Creates a SpecialMoves instance with the specified counts for all the
+	 * special move types.
 	 * 
 	 * @param resetBoardCount
 	 *            The reset board count.
@@ -87,7 +88,7 @@ public class SpecialMoves {
 	/**
 	 * Returns the reset board count.
 	 * 
-	 * @return this.resetBoardCount The reset board count.
+	 * @return Integer reset board count
 	 */
 	public int getResetBoardCount() {
 		return this.resetBoardCount;
@@ -96,7 +97,7 @@ public class SpecialMoves {
 	/**
 	 * Returns the swap tile count.
 	 * 
-	 * @return this.swapTileCount The swap tile count.
+	 * @return Integer swap tile count
 	 */
 	public int getSwapTileCount() {
 		return this.swapTileCount;
@@ -105,7 +106,7 @@ public class SpecialMoves {
 	/**
 	 * Returns the remove tile count.
 	 * 
-	 * @return this.removeTileCount The remove tile count.
+	 * @return Integer remove tile count
 	 */
 	public int getRemoveTileCount() {
 		return this.removeTileCount;
@@ -114,7 +115,7 @@ public class SpecialMoves {
 	/**
 	 * Returns the xStacy special move count.
 	 * 
-	 * @return this.xStacySpecialMoveCount The xStacy special move count.
+	 * @return Integer xStacy special move count
 	 */
 	public int getXStacySpecialMoveCount() {
 		return this.xStacySpecialMoveCount;

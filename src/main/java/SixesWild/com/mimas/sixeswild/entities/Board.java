@@ -7,8 +7,9 @@ import java.util.Iterator;
 import java.util.Random;
 
 /**
- * This class is used as a representation of the game board. It defines the
- * squares and board logic required to make moves in the game.
+ * Board is the playing area that stores Squares and Tiles. It represents the
+ * area where moves are made, validated, processed and executed. It handles
+ * regeneration of new Tiles based on frequencies and probabilities.
  * 
  * @author Aditya Nivarthi
  */
@@ -22,7 +23,8 @@ public class Board {
 	ArrayList<Double> tileFrequencies;
 
 	/**
-	 * Default constructor for Board class.
+	 * Creates a Board instance with an empty board, null tile frequencies and
+	 * null multiplier frequencies.
 	 */
 	public Board() {
 		this.squares = new Square[SIZE_X][SIZE_Y];
@@ -33,7 +35,8 @@ public class Board {
 	}
 
 	/**
-	 * Parameterized constructor for Board class.
+	 * Creates a Board instance with a populated board, specified tile
+	 * frequencies and specified multiplier frequencies.
 	 * 
 	 * @param squareList
 	 *            List of squares to populate the board
@@ -117,7 +120,7 @@ public class Board {
 	 * 
 	 * @param freq
 	 *            The percentage representation of the frequency.
-	 * @return Integer to represent bounds on frequency probability.
+	 * @return Integer to represent upper bound on frequency probability.
 	 */
 	protected int getFrequencyProbability(double freq) {
 		return (100 / (int) (this.tileFrequencies.get(0) * 100));
@@ -136,7 +139,7 @@ public class Board {
 	/**
 	 * Initializes the board for the game.
 	 * 
-	 * @return true
+	 * @return true if successfully initialized; false otherwise.
 	 */
 	protected boolean initialize() {
 		// TileFrequencies and MultiplierFrequencies have not been initialized
@@ -176,7 +179,7 @@ public class Board {
 	/**
 	 * Initializes the board for the game. TODO Will be removed.
 	 * 
-	 * @return true
+	 * @return true if successfully initialized; false otherwise.
 	 */
 	public boolean randomInitialize() {
 		for (int i = 0; i < SIZE_X; i++) {
@@ -193,10 +196,14 @@ public class Board {
 	 * attributes.
 	 * 
 	 * @param tile
+	 *            The tile to set.
 	 * @param x
+	 *            X coordinate of the Square to set.
 	 * @param y
+	 *            Y coordinate of the Square to set.
 	 * @param marked
-	 * @return true or false
+	 *            Marked attribute to set on the Square.
+	 * @return true if successfully set; false otherwise.
 	 */
 	public boolean setSquare(Tile tile, int x, int y, boolean marked) {
 
@@ -226,7 +233,7 @@ public class Board {
 	 * Resets the board. Gets all the current squares on the board, shuffles the
 	 * list and replaces the squares on the board.
 	 * 
-	 * @return true
+	 * @return true if successfully reset; false otherwise.
 	 */
 	public boolean resetBoard() {
 		ArrayList<Square> squaresList = new ArrayList<Square>();
@@ -261,7 +268,7 @@ public class Board {
 	/**
 	 * Fills empty squares once a move has been completed.
 	 * 
-	 * @return true
+	 * @return true if successfully filled Board; false otherwise.
 	 */
 	public boolean fillEmptySquares() {
 		return true;
@@ -272,7 +279,7 @@ public class Board {
 	 * 
 	 * @param selection
 	 *            The selection to verify.
-	 * @return true or false
+	 * @return true if selection is valid; false otherwise.
 	 */
 	public boolean isValidSelection(ArrayList<Square> selection) {
 
@@ -340,7 +347,7 @@ public class Board {
 	 *            First square to compare.
 	 * @param squareTwo
 	 *            Second square to compare.
-	 * @return true or false
+	 * @return true if Squares are next to each other; false otherwise.
 	 */
 	protected boolean isSquareNextTo(Square squareOne, Square squareTwo) {
 		return (Math.abs(squareOne.getX() - squareTwo.getX()) == 1 && Math
@@ -354,7 +361,8 @@ public class Board {
 	 * 
 	 * @param selection
 	 *            The selection of tiles.
-	 * @return true
+	 * @return true if successfully removed selection from Board; false
+	 *         otherwise.
 	 */
 	public boolean removeSelection(ArrayList<Square> selection) {
 

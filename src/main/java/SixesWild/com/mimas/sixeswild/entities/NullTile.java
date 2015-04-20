@@ -1,15 +1,15 @@
 package SixesWild.com.mimas.sixeswild.entities;
 
 /**
- * This class is used as a representation of the null tile entity. It is used to
- * mark places that are not populated with playable tiles in a game.
+ * NullTile is one type of Tile that exists on a Board. It represents a position
+ * that has no other type of tile. It cannot be moved or interacted with.
  * 
  * @author Aditya Nivarthi
  */
 public class NullTile extends Tile {
 
 	/**
-	 * Constructor for NullTile class.
+	 * Creates a NullTile instance with NULL type, number 0 and multiplier 0.
 	 */
 	public NullTile() {
 		super();

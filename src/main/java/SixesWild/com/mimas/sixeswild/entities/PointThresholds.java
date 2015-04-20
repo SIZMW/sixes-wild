@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 /**
- * This class is used as a representation of the point thresholds entity. It
- * aggregates the point threshold values for each level into one class.
+ * PointThresholds is an aggregation entity that holds all the point thresholds
+ * for a Level. It has the one, two and three star point values for a Level.
  * 
  * @author Yahel Nachum
  */
@@ -14,7 +14,7 @@ public class PointThresholds {
 	ArrayList<Integer> thresholds = new ArrayList<Integer>();
 
 	/**
-	 * Default constructor for PointThreshold class.
+	 * Creates a PointThresholds instance with 0 for all thresholds.
 	 */
 	public PointThresholds() {
 		this.thresholds.add(0);
@@ -23,7 +23,7 @@ public class PointThresholds {
 	}
 
 	/**
-	 * Parameterized constructor for PointThreshold class.
+	 * Creates a PointThresholds instance with the specified threshold values.
 	 * 
 	 * @param oneStarThreshold
 	 *            The one star threshold integer.
@@ -42,7 +42,7 @@ public class PointThresholds {
 	}
 
 	/**
-	 * Sets the star thresholds.
+	 * Sets the point thresholds to the specified values.
 	 * 
 	 * @param oneStarThreshold
 	 *            The one star threshold.
@@ -63,7 +63,7 @@ public class PointThresholds {
 	/**
 	 * Returns the one star threshold.
 	 * 
-	 * @return this.thresholds.get(0) The one star threshold.
+	 * @return Integer one star threshold
 	 */
 	public int getOneStarThreshold() {
 		return this.thresholds.get(0);
@@ -72,7 +72,7 @@ public class PointThresholds {
 	/**
 	 * Returns the two star threshold.
 	 * 
-	 * @return this.thresholds.get(1) The two star threshold.
+	 * @return Integer two star threshold
 	 */
 	public int getTwoStarThreshold() {
 		return this.thresholds.get(1);
@@ -81,10 +81,9 @@ public class PointThresholds {
 	/**
 	 * Returns the three star threshold.
 	 * 
-	 * @return this.thresholds.get(2) The three star threshold.
+	 * @return Integer three star threshold
 	 */
 	public int getThreeStarThreshold() {
 		return this.thresholds.get(2);
 	}
-
 }
