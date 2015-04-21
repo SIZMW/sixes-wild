@@ -31,16 +31,17 @@ public abstract class Level {
 	 * @param pointThresholds
 	 * @param moveCount
 	 * @param isUnlocked
+	 * @throws Exception 
 	 */
 	public Level(ArrayList<Double> tileFreq, ArrayList<Double> multFreq,
 				LevelType type, String name, Tile tiles[][],
-				PointThresholds pointThresholds, int moveCount) {
+				PointThresholds pointThresholds, int moveCount) throws Exception {
 		this.type = type;
 		this.name = name;
 		try {
 			this.board = new Board(tiles, tileFreq, multFreq);
 		} catch (Exception e) {
-			
+			//throw e;
 		}
 		
 		this.pointThresholds = pointThresholds;
