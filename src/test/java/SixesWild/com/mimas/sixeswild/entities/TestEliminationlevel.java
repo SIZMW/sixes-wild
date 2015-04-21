@@ -19,6 +19,18 @@ public class TestEliminationlevel extends TestCase {
 		Tile tiles[][] = new Tile[9][9];
 		PointThresholds pointThresholds = new PointThresholds(); 
 		int moveCount = 100;
+		
+		tileFreq.add(.1);
+		tileFreq.add(.1);
+		tileFreq.add(.2);
+		tileFreq.add(.2);
+		tileFreq.add(.2);
+		tileFreq.add(.2);
+		
+		multFreq.add(.3);
+		multFreq.add(.4);
+		multFreq.add(.3);
+		
 		for(int i = 0; i < 9; i++)
 		{
 			for(int j = 0; j < 9; j++)
