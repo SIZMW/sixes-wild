@@ -48,22 +48,28 @@ public class Board {
 	 *             squareList has a null Square and therefore board cannot be
 	 *             populated.
 	 */
-	public Board(ArrayList<Square> squareList, ArrayList<Double> tileFreq,
+	public Board(Tile tiles[][], ArrayList<Double> tileFreq,
 			ArrayList<Double> multFreq) throws Exception {
 		this.tileFrequencies = tileFreq;
 		this.multiplierFrequencies = multFreq;
 		this.squares = new Square[SIZE_X][SIZE_Y];
-
-		// Verify all squares exist
-		for (Square e : squareList) {
-			if (e.equals(null)) {
-				throw new Exception("Null Square on Board Construction");
+		
+		if (tiles == null) {
+			throw new Exception("Null tile list for board construction.");
+		}
+		
+		for (int i = 0; i < this.SIZE_X; i++) {
+			for (int j = 0; j < this.SIZE_Y; j++) {
+				if (tiles[i][j] == null) {
+					throw new Exception("Null tile in list for board construction.");
+				}
 			}
 		}
-
-		// Add squares into internal board
-		for (Square e : squareList) {
-			this.squares[e.getX()][e.getY()] = e;
+		
+		for (int i = 0; i < this.SIZE_X; i++) {
+			for (int j = 0; j < this.SIZE_Y; j++) {
+				this.squares[i][j] = new Square(tiles[i][j], i, j, false);
+			}
 		}
 
 		this.initialize();

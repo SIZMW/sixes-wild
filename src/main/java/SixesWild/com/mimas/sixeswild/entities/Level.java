@@ -1,6 +1,5 @@
 package SixesWild.com.mimas.sixeswild.entities;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 import javax.swing.Timer;
@@ -34,11 +33,16 @@ public abstract class Level {
 	 * @param isUnlocked
 	 */
 	public Level(ArrayList<Double> tileFreq, ArrayList<Double> multFreq,
-				LevelType type, String name, Tile squares[][],
+				LevelType type, String name, Tile tiles[][],
 				PointThresholds pointThresholds, int moveCount) {
 		this.type = type;
 		this.name = name;
-		this.board = new Board(squares, tileFreq, multFreq);
+		try {
+			this.board = new Board(tiles, tileFreq, multFreq);
+		} catch (Exception e) {
+			
+		}
+		
 		this.pointThresholds = pointThresholds;
 		this.moveCount = moveCount;
 		this.timer = null;
@@ -62,7 +66,12 @@ public abstract class Level {
 		
 		this.type = type;
 		this.name = name;
-		this.board = new Board(squares, tileFreq, multFreq);
+		try {
+			this.board = new Board(squares, tileFreq, multFreq);
+		} catch (Exception e) {
+
+		}
+		
 		this.pointThresholds = pointThresholds;
 		this.timer = timer;
 		this.moveCount = 0;
