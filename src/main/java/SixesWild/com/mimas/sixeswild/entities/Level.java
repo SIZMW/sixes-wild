@@ -101,6 +101,7 @@ public abstract class Level {
 	}
 
 	/**
+	 * Returns the LevelType
 	 * @return type
 	 */
 	public LevelType getType() {
@@ -108,6 +109,7 @@ public abstract class Level {
 	}
 
 	/**
+	 * Set the LevelType
 	 * @param type
 	 */
 	public void setType(LevelType type) {
@@ -115,6 +117,7 @@ public abstract class Level {
 	}
 
 	/**
+	 * Return the Name of the Level
 	 * @return name
 	 */
 	public String getName() {
@@ -122,6 +125,7 @@ public abstract class Level {
 	}
 
 	/**
+	 * Set the Name the Level
 	 * @param name
 	 */
 	public void setName(String name) {
