@@ -1,5 +1,6 @@
 package SixesWild.com.mimas.sixeswild.entities;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 import javax.swing.Timer;
@@ -11,19 +12,15 @@ import javax.swing.Timer;
  * 
  * @author Cameron Jones
  */
-public class Level {
+public abstract class Level {
 
 	LevelType type;
-	ArrayList<Double> tileFreq;
-	ArrayList<Double> multFreq;
 	SpecialMoves specialMoves;
 	PointThresholds pointThresholds;
 	String name;
 	Board board;
 	Timer timer;
 	int moveCount;
-	boolean isUnlocked;
-
 	/**
 	 * Constructor for Level class.
 	 * 
@@ -37,16 +34,14 @@ public class Level {
 	 * @param isUnlocked
 	 */
 	public Level(ArrayList<Double> tileFreq, ArrayList<Double> multFreq,
-			LevelType type, String name, ArrayList<Square> squares,
-			PointThresholds pointThresholds, int moveCount, boolean isUnlocked) {
-		this.tileFreq = tileFreq;
-		this.multFreq = multFreq;
+				LevelType type, String name, Tile squares[][],
+				PointThresholds pointThresholds, int moveCount) {
 		this.type = type;
 		this.name = name;
-		// this.board = new Board(squares, tileFreq, multFreq);
+		this.board = new Board(squares, tileFreq, multFreq);
 		this.pointThresholds = pointThresholds;
 		this.moveCount = moveCount;
-		this.isUnlocked = isUnlocked;
+		this.timer = null;
 	}
 
 	/**
@@ -62,90 +57,38 @@ public class Level {
 	 * @param isUnlocked
 	 */
 	public Level(ArrayList<Double> tileFreq, ArrayList<Double> multFreq,
-			LevelType type, String name, ArrayList<Square> squares,
-			PointThresholds pointThresholds, Timer timer, boolean isUnlocked) {
-		this.tileFreq = tileFreq;
-		this.multFreq = multFreq;
+			LevelType type, String name, Tile squares[][],
+			PointThresholds pointThresholds, Timer timer) {
+		
 		this.type = type;
 		this.name = name;
-		// this.board = new Board(squares, tileFreq, multFreq);
+		this.board = new Board(squares, tileFreq, multFreq);
 		this.pointThresholds = pointThresholds;
 		this.timer = timer;
-		this.isUnlocked = isUnlocked;
-	}
-
-	/**
-	 * @param squares
-	 * @param type
-	 */
-	public Level(ArrayList<Square> squares, String type) {
-		this.tileFreq = new ArrayList<Double>();
-		this.tileFreq.add(.10);
-		this.tileFreq.add(.20);
-		this.tileFreq.add(.30);
-		this.tileFreq.add(.30);
-		this.tileFreq.add(.05);
-		this.tileFreq.add(.05);
-		this.multFreq.add(.95);
-		this.multFreq.add(.025);
-		this.multFreq.add(.025);
-		this.type = LevelType.PUZZLE;
-		this.name = "No Name";
-		this.board = new Board();
-		this.pointThresholds = new PointThresholds();
-		this.moveCount = 40;
-		this.isUnlocked = true;
+		this.moveCount = 0;
 	}
 
 	/**
 	 * Default constructor for Level class.
 	 */
 	public Level() {
-		this.tileFreq = new ArrayList<Double>();
-		this.multFreq = new ArrayList<Double>();
-		this.tileFreq.add(.10);
-		this.tileFreq.add(.20);
-		this.tileFreq.add(.30);
-		this.tileFreq.add(.30);
-		this.tileFreq.add(.05);
-		this.tileFreq.add(.05);
-		this.multFreq.add(.95);
-		this.multFreq.add(.025);
-		this.multFreq.add(.025);
+		ArrayList<Double> tileFreq = new ArrayList<Double>();
+		ArrayList<Double> multFreq = new ArrayList<Double>();
+		tileFreq.add(.10);
+		tileFreq.add(.20);
+		tileFreq.add(.30);
+		tileFreq.add(.30);
+		tileFreq.add(.05);
+		tileFreq.add(.05);
+		multFreq.add(.95);
+		multFreq.add(.025);
+		multFreq.add(.025);
 		this.type = LevelType.PUZZLE;
 		this.name = "No Name";
 		this.board = new Board();
 		this.pointThresholds = new PointThresholds();
 		this.moveCount = 40;
-		this.isUnlocked = true;
-	}
-
-	/**
-	 * @return tileFreq
-	 */
-	public ArrayList<Double> getTileFreq() {
-		return tileFreq;
-	}
-
-	/**
-	 * @param tileFreq
-	 */
-	public void setTileFreq(ArrayList<Double> tileFreq) {
-		this.tileFreq = tileFreq;
-	}
-
-	/**
-	 * @return multFreq
-	 */
-	public ArrayList<Double> getMultFreq() {
-		return multFreq;
-	}
-
-	/**
-	 * @param multFreq
-	 */
-	public void setMultFreq(ArrayList<Double> multFreq) {
-		this.multFreq = multFreq;
+		this.timer = null;
 	}
 
 	/**
@@ -232,17 +175,4 @@ public class Level {
 		this.timer = timer;
 	}
 
-	/**
-	 * @return isUnlocked
-	 */
-	public boolean isUnlocked() {
-		return isUnlocked;
-	}
-
-	/**
-	 * @param isUnlocked
-	 */
-	public void setUnlocked(boolean isUnlocked) {
-		this.isUnlocked = isUnlocked;
-	}
 }
