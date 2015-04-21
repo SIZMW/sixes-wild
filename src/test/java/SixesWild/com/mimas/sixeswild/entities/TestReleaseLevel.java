@@ -7,18 +7,18 @@ import junit.framework.TestCase;
 /**
  * This test case handles testing all the methods for Level.
  * 
- * @author Joey Perez
+ * @author Cameron Jones
  */
-public class TestPuzzleLevel extends TestCase {
+public class TestReleaseLevel extends TestCase {
 
 	/**
-	 * Test all methods for Level.
+	 * Test all methods for ReleaseLevel.
 	 */
 	public void testPuzzleLevel() {
 		ArrayList<Double> tileFreq = new ArrayList<Double>();    //DONE
 		ArrayList<Double> multFreq = new ArrayList<Double>();    //DONE
-		LevelType levelType = LevelType.PUZZLE;                  //DONE
-		String levelName = "testPuzzle";                         //DONE
+		LevelType levelType = LevelType.RELEASE;                 //DONE
+		String levelName = "testRelease";                        //DONE
 		Tile tiles[][] = new Tile[9][9];
 		PointThresholds pointThresholds = new PointThresholds(); //DONE
 		
@@ -39,11 +39,11 @@ public class TestPuzzleLevel extends TestCase {
 			}
 		}
 		
-		PuzzleLevel level;
+		ReleaseLevel level;
 		try {
-			level = new PuzzleLevel(tileFreq, multFreq, levelType, levelName, tiles, pointThresholds, 50);
+			level = new ReleaseLevel(tileFreq, multFreq, levelType, levelName, tiles, pointThresholds, 50);
 			assertEquals(levelName, level.name);
-			assertEquals(LevelType.PUZZLE, level.type);
+			assertEquals(LevelType.RELEASE, level.type);
 			assertEquals(tileFreq, level.board.tileFrequencies);
 			assertEquals(pointThresholds, level.pointThresholds);
 			assertEquals(multFreq, level.board.multiplierFrequencies);
@@ -57,14 +57,14 @@ public class TestPuzzleLevel extends TestCase {
 		
 		tiles[0][0] = null;
 		try {
-		     PuzzleLevel failure = new PuzzleLevel(tileFreq, multFreq, levelType, levelName, tiles, pointThresholds, 9);
+		     ReleaseLevel failure = new ReleaseLevel(tileFreq, multFreq, levelType, levelName, tiles, pointThresholds, 9);
 		     fail( "Missing Exception" );
 		} catch( Exception e ) {
 		     assertTrue(true);
 		}
 		
 		try {
-		     PuzzleLevel failure = new PuzzleLevel(tileFreq, multFreq, levelType, levelName, null, pointThresholds, 9);
+			ReleaseLevel failure = new ReleaseLevel(tileFreq, multFreq, levelType, levelName, null, pointThresholds, 9);
 		     fail( "Missing Exception" );
 		} catch( Exception e ) {
 		     assertTrue(true);
