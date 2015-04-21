@@ -11,9 +11,12 @@ public class Aesthetic {
 	Color background;
 	Color tileOne, tileTwo, tileThree,
 		  tileFour, tileFive, tileSix;
+	Color target, nullTile, marked;
 	
 	/** Constructor for the aesthetic */
-	public Aesthetic(String name, Color background, Color tileOne, Color tileTwo, Color tileThree, Color tileFour, Color tileFive, Color tileSix){
+	public Aesthetic(String name, Color background, Color tileOne, Color tileTwo,
+					Color tileThree, Color tileFour, Color tileFive, Color tileSix,
+					Color target, Color nullTile){
 		this.name = name;
 		this.background = background;
 		this.tileOne = tileOne;
@@ -22,6 +25,9 @@ public class Aesthetic {
 		this.tileFour = tileFour;
 		this.tileFive = tileFive;
 		this.tileSix = tileSix;
+		this.target = target;
+		this.nullTile = nullTile;
+		this.marked = Color.GRAY;
 	}
 	/** Receives the name of the aesthetic */
 	public String getName(){
@@ -58,6 +64,20 @@ public class Aesthetic {
 		return this.tileSix;
 	}
 	
+	/** Receives the color for marked tile */
+	public Color getMarkedColor(){
+		return this.marked;
+	}
+	
+	/** Receives the color for target tile */
+	public Color getTargetColor(){
+		return this.target;
+	}
+	
+	/** Receives the color for null tile */
+	public Color getNullTileColor(){
+		return this.nullTile;
+	}
 	/** Receives the color for tile one */
 	public Color getBackgroundColor(){
 		return this.background;
