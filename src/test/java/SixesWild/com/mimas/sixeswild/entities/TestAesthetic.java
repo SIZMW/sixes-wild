@@ -17,7 +17,9 @@ public class TestAesthetic extends TestCase {
 	Color magenta;
 	Color yellow;
 	Color gray;
+	String name;
 	public void setUp(){
+		name = "Test";
 		red = Color.RED;
 		black = Color.BLACK;
 		blue = Color.BLUE;
@@ -26,7 +28,7 @@ public class TestAesthetic extends TestCase {
 		yellow = Color.YELLOW;
 		gray = Color.GRAY;
 		
-		aesthetic = new Aesthetic(gray, red, black, blue, green, magenta, yellow);
+		aesthetic = new Aesthetic(name, gray, red, black, blue, green, magenta, yellow);
 	
 	}
 	
@@ -34,6 +36,7 @@ public class TestAesthetic extends TestCase {
 	
 	/** Tests all of the Aesthetic methods */
 	public void testAestheticMethods(){
+		assertEquals(aesthetic.getName(), name);
 		assertEquals(aesthetic.getBackgroundColor(), gray);
 		assertEquals(aesthetic.getTileOneColor(), red);
 		assertEquals(aesthetic.getTileTwoColor(), black);

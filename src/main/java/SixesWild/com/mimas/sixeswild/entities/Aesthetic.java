@@ -7,12 +7,14 @@ import java.awt.Color;
  *
  */
 public class Aesthetic {
+	String name;
 	Color background;
 	Color tileOne, tileTwo, tileThree,
 		  tileFour, tileFive, tileSix;
 	
 	/** Constructor for the aesthetic */
-	public Aesthetic(Color background, Color tileOne, Color tileTwo, Color tileThree, Color tileFour, Color tileFive, Color tileSix){
+	public Aesthetic(String name, Color background, Color tileOne, Color tileTwo, Color tileThree, Color tileFour, Color tileFive, Color tileSix){
+		this.name = name;
 		this.background = background;
 		this.tileOne = tileOne;
 		this.tileTwo = tileTwo;
@@ -20,6 +22,10 @@ public class Aesthetic {
 		this.tileFour = tileFour;
 		this.tileFive = tileFive;
 		this.tileSix = tileSix;
+	}
+	/** Receives the name of the aesthetic */
+	public String getName(){
+		return this.name;
 	}
 	
 	/** Receives the color for tile one */
