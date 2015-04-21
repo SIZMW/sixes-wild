@@ -57,7 +57,7 @@ public class Board {
 		// Verify all squares exist
 		for (Square e : squareList) {
 			if (e.equals(null)) {
-				throw new Exception("Null square on board construction");
+				throw new Exception("Null Square on Board Construction");
 			}
 		}
 
