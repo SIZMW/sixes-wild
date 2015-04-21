@@ -16,10 +16,11 @@ public class EliminationLevel extends Level{
 	 * @param tiles
 	 * @param pointThresholds
 	 * @param moveCount
+	 * @throws Exception 
 	 */
 	public EliminationLevel(ArrayList<Double> tileFreq, ArrayList<Double> multFreq,
 			LevelType type, String name, Tile tiles[][],
-			PointThresholds pointThresholds, int moveCount) {
+			PointThresholds pointThresholds, int moveCount) throws Exception {
 		super();
 		this.type = type;
 		this.name = name;
@@ -30,7 +31,7 @@ public class EliminationLevel extends Level{
 		try {
 			this.board = new Board(tiles, tileFreq, multFreq);
 		} catch (Exception e) {
-			
+			throw e;
 		}
 	}
 }
