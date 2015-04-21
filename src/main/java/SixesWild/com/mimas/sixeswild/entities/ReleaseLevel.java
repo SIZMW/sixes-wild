@@ -10,20 +10,137 @@ public class ReleaseLevel extends Level {
 	PointThresholds pointThresholds;
 	String name;
 	Board board;
-	//Timer timer;
 	int moveCount;
 	boolean isUnlocked;
 	
-	public ReleaseLevel(){
-		this.type = LevelType.PUZZLE;
+	public ReleaseLevel(ArrayList<Double> tileFreq, ArrayList<Double> multFreq,
+		String name, ArrayList<Square> squares,
+		PointThresholds pointThresholds, int moveCount, boolean isUnlocked) {
 		this.tileFreq = tileFreq;
 		this.multFreq = multFreq;
-		this.specialMoves = specialMoves;
-		this.pointThresholds = pointThresholds;
+		this.type = LevelType.RELEASE;
 		this.name = name;
-		this.board = new Board();
+		//TODO:Verify this is okay....
+		try {
+			this.board = new Board(squares, tileFreq, multFreq);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		this.pointThresholds = pointThresholds;
 		this.moveCount = moveCount;
-		this.isUnlocked = false;
+		this.isUnlocked = isUnlocked;
+	}
+	
+	public ReleaseLevel() {
+		this.tileFreq = new ArrayList<Double>();
+		this.multFreq = new ArrayList<Double>();
+		this.tileFreq.add(.10);
+		this.tileFreq.add(.20);
+		this.tileFreq.add(.30);
+		this.tileFreq.add(.30);
+		this.tileFreq.add(.05);
+		this.tileFreq.add(.05);
+		this.multFreq.add(.95);
+		this.multFreq.add(.025);
+		this.multFreq.add(.025);
+		this.type = LevelType.ELIMINATION;
+		this.name = "No Name: Release Constructor - Empty";
+		this.board = new Board();
+		this.pointThresholds = new PointThresholds();
+		this.moveCount = 40;
+		this.isUnlocked = true;
+	}
+	
+	public ReleaseLevel(ArrayList<Square> squares) {
+		this.tileFreq = new ArrayList<Double>();
+		this.tileFreq.add(.10);
+		this.tileFreq.add(.20);
+		this.tileFreq.add(.30);
+		this.tileFreq.add(.30);
+		this.tileFreq.add(.05);
+		this.tileFreq.add(.05);
+		this.multFreq.add(.95);
+		this.multFreq.add(.025);
+		this.multFreq.add(.025);
+		this.type = LevelType.RELEASE;
+		this.name = "No Name: Release Constructor - Squares";
+		this.board = new Board();
+		this.pointThresholds = new PointThresholds();
+		this.moveCount = 40;
+		this.isUnlocked = true;
+	}
+
+	public LevelType getType() {
+		return type;
+	}
+
+	public void setType(LevelType type) {
+		this.type = type;
+	}
+
+	public ArrayList<Double> getTileFreq() {
+		return tileFreq;
+	}
+
+	public void setTileFreq(ArrayList<Double> tileFreq) {
+		this.tileFreq = tileFreq;
+	}
+
+	public ArrayList<Double> getMultFreq() {
+		return multFreq;
+	}
+
+	public void setMultFreq(ArrayList<Double> multFreq) {
+		this.multFreq = multFreq;
+	}
+
+	public SpecialMoves getSpecialMoves() {
+		return specialMoves;
+	}
+
+	public void setSpecialMoves(SpecialMoves specialMoves) {
+		this.specialMoves = specialMoves;
+	}
+
+	public PointThresholds getPointThresholds() {
+		return pointThresholds;
+	}
+
+	public void setPointThresholds(PointThresholds pointThresholds) {
+		this.pointThresholds = pointThresholds;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public Board getBoard() {
+		return board;
+	}
+
+	public void setBoard(Board board) {
+		this.board = board;
+	}
+
+	public int getMoveCount() {
+		return moveCount;
+	}
+
+	public void setMoveCount(int moveCount) {
+		this.moveCount = moveCount;
+	}
+
+	public boolean isUnlocked() {
+		return isUnlocked;
+	}
+
+	public void setUnlocked(boolean isUnlocked) {
+		this.isUnlocked = isUnlocked;
 	}
 
 }
