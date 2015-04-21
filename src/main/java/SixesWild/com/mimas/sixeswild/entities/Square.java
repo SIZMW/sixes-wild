@@ -13,10 +13,11 @@ public class Square {
 	int xPosition;
 	int yPosition;
 	boolean marked;
+	boolean isSelected;
 
 	/**
-	 * Creates a Square instance with the specified Tile, x and y coordinates, and marked
-	 * attribute.
+	 * Creates a Square instance with the specified Tile, x and y coordinates,
+	 * and marked attribute.
 	 * 
 	 * @param tile
 	 *            The tile in this square.
@@ -32,6 +33,7 @@ public class Square {
 		this.xPosition = x;
 		this.yPosition = y;
 		this.marked = marked;
+		this.isSelected = false;
 	}
 
 	/**
@@ -102,5 +104,40 @@ public class Square {
 	public boolean setMarked(boolean mark) {
 		this.marked = mark;
 		return true;
+	}
+
+	public boolean getSelected() {
+		return this.isSelected;
+	}
+
+	public boolean setSelected(boolean selected) {
+		this.isSelected = selected;
+		return true;
+	}
+
+	public boolean equals(Object o) {
+		if (o == null) {
+			return false;
+		}
+
+		if (o instanceof Square) {
+			Square s = (Square) o;
+			return this.tile.equals(s.getTile()) && this.xPosition == s.getX()
+					&& this.yPosition == s.getY()
+					&& this.marked == s.getMarked()
+					&& this.isSelected == s.getSelected();
+		}
+
+		return false;
+	}
+
+	public int hashCode() {
+		int result = 17;
+		int constVal = 37;
+		return result
+				* constVal
+				* ((this.isSelected ? 0 : 1) + (this.marked ? 0 : 1)
+						+ this.xPosition + this.yPosition + this.tile
+							.hashCode());
 	}
 }

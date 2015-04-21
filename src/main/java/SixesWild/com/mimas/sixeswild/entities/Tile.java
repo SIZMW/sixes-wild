@@ -49,4 +49,26 @@ public abstract class Tile {
 	public int getMultiplier() {
 		return this.multiplier;
 	}
+
+	public boolean equals(Object o) {
+		if (o == null) {
+			return false;
+		}
+
+		if (o instanceof Tile) {
+			Tile t = (Tile) o;
+			return this.type.equals(t.getType())
+					&& this.number == t.getNumber()
+					&& this.multiplier == t.getMultiplier();
+		}
+
+		return false;
+	}
+
+	public int hashCode() {
+		int result = 17;
+		int constVal = 37;
+		return result * constVal
+				* (this.type.hashCode() + this.number + this.multiplier);
+	}
 }
