@@ -111,6 +111,10 @@ public class BuilderTopPanel extends JPanel {
 
 		// Delete level combo box
 		deleteComboBox = new JComboBox<String>();
+		deleteComboBox.addItem(dummyLevel1);
+		deleteComboBox.addItem(dummyLevel2);
+		deleteComboBox.addItem(dummyLevel3);
+		deleteComboBox.addItem(dummyLevel4);
 
 		// Layout for delete level combo box
 		GridBagConstraints gbc_deleteComboBox = new GridBagConstraints();
