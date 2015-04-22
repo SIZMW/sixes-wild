@@ -3,35 +3,48 @@ package SixesWild.com.mimas.sixeswild.entities;
 import java.util.ArrayList;
 
 /**
- * @author Cameron
- *
+ * This class is used as a representation of the elimination level type. The
+ * goal in this level is to mark all the squares and create moves using each of
+ * the squares at least once.
+ * 
+ * @author Cameron Jones
  */
-public class EliminationLevel extends Level{
-	
+public class EliminationLevel extends Level {
+
 	/**
+	 * Creates an EliminationLevel instance with the specified tile frequencies,
+	 * multiplier frequencies, type, name, tile list, point thresholds and move
+	 * count.
+	 * 
 	 * @param tileFreq
+	 *            The tile frequencies for the level.
 	 * @param multFreq
+	 *            The multiplier frequencies for the level.
 	 * @param type
+	 *            The type of level.
 	 * @param name
+	 *            The name of the level.
 	 * @param tiles
+	 *            The list of tiles for the board in the level.
 	 * @param pointThresholds
+	 *            The point threshold values for the level.
 	 * @param moveCount
-	 * @throws Exception 
+	 *            The number of moves for the level.
 	 */
-	public EliminationLevel(ArrayList<Double> tileFreq, ArrayList<Double> multFreq,
-			LevelType type, String name, Tile tiles[][],
-			PointThresholds pointThresholds, int moveCount) throws Exception {
+	public EliminationLevel(ArrayList<Double> tileFreq,
+			ArrayList<Double> multFreq, LevelType type, String name,
+			Tile tiles[][], PointThresholds pointThresholds, int moveCount) {
 		super();
 		this.type = type;
 		this.name = name;
 		this.pointThresholds = pointThresholds;
 		this.moveCount = moveCount;
 		this.timer = null;
-		
+
 		try {
 			this.board = new Board(tiles, tileFreq, multFreq);
 		} catch (Exception e) {
-			throw e;
+
 		}
 	}
 }

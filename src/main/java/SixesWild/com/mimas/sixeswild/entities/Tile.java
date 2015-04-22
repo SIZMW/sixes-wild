@@ -51,6 +51,11 @@ public abstract class Tile {
 		return this.multiplier;
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
 	public boolean equals(Object o) {
 		if (o == null) {
 			return false;
@@ -66,6 +71,11 @@ public abstract class Tile {
 		return false;
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#hashCode()
+	 */
 	public int hashCode() {
 		int result = 17;
 		int constVal = 37;
