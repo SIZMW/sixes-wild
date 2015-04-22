@@ -21,6 +21,7 @@ import SixesWild.com.mimas.sixeswild.entities.Selection;
 import SixesWild.com.mimas.sixeswild.entities.SixTile;
 import SixesWild.com.mimas.sixeswild.entities.Square;
 import SixesWild.com.mimas.sixeswild.entities.TargetTile;
+import SixesWild.com.mimas.sixeswild.entities.Tile;
 import SixesWild.com.mimas.sixeswild.entities.TileType;
 
 /**
@@ -319,5 +320,9 @@ public class BoardViewPanel extends JPanel {
 				}
 			}
 		}
+	}
+
+	public Board getBoard() {
+		return this.gameBoard;
 	}
 }

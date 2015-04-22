@@ -12,6 +12,7 @@ import javax.swing.border.EmptyBorder;
 import SixesWild.com.mimas.sixeswild.controllers.BuilderBoardViewMouseController;
 import SixesWild.com.mimas.sixeswild.controllers.BuilderSplashScreenController;
 import SixesWild.com.mimas.sixeswild.controllers.NewLevelButtonController;
+import SixesWild.com.mimas.sixeswild.controllers.SaveButtonController;
 import SixesWild.com.mimas.sixeswild.controllers.SpecialMoveFourDecreaseButtonController;
 import SixesWild.com.mimas.sixeswild.controllers.SpecialMoveFourIncreaseButtonController;
 import SixesWild.com.mimas.sixeswild.controllers.SpecialMoveOneDecreaseButtonController;
@@ -110,6 +111,7 @@ public class BuilderApplication {
 						this));
 		this.builderView.boardViewPanel
 				.addMouseListener(new BuilderBoardViewMouseController(this));
+		this.builderView.builderTopPanel.saveButton.addActionListener(new SaveButtonController(this));
 	}
 
 	/**
