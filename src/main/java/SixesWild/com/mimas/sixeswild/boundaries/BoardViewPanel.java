@@ -39,7 +39,6 @@ public class BoardViewPanel extends JPanel {
 	final String htmlFormat1 = "<html><font size=6>";
 	final String htmlFormat2 = "    </font><font size=2>";
 	final String htmlFormat3 = "</font></html>";
-	// &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
 	// Panel attributes
 	Aesthetic boardAesthetic;

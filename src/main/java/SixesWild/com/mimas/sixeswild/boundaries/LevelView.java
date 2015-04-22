@@ -152,14 +152,4 @@ public class LevelView extends JPanel {
 	public BoardViewPanel getBoardViewPanel() {
 		return this.boardViewPanel;
 	}
-
-	/**
-	 * Refresh this panel using the application to get new data.
-	 * 
-	 * @param app
-	 *            The game application to refresh from.
-	 */
-	public void refresh(GameApplication app) {
-		// TODO Refresh this panel.
-	}
 }

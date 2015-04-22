@@ -308,7 +308,7 @@ public class Board {
 		return true;
 	}
 
-	// TODO
+	// TODO Complete the filling logic
 	/**
 	 * Fills empty squares once a move has been completed.
 	 * 

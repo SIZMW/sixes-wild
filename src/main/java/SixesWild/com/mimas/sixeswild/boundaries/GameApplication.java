@@ -30,13 +30,11 @@ public class GameApplication {
 	JFrame frame;
 	GameMenuView gameMenuView;
 	LevelView levelView;
-	Aesthetic aesthetic1;
-	Aesthetic aesthetic2;
-	Aesthetic aesthetic3;
-	
-	
 
-	// TODO
+	ArrayList<Aesthetic> aestheticList;
+	Aesthetic currentAesthetic;
+
+	// TODO Add these attributes to GameApplication
 	// BadgesPanel badgePanel;
 	// ArrayList<String> listOfBadges;
 	// UserProfile currentProfile;
@@ -56,6 +54,10 @@ public class GameApplication {
 			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
 		} catch (Exception e) {
 		}
+
+		// Set up aesthetics
+		aestheticList = new ArrayList<Aesthetic>();
+		this.setUpAesthetics();
 
 		// TODO Read this from disk or user profile as necessary.
 		// Initialize lists for GameMenuView
@@ -82,31 +84,13 @@ public class GameApplication {
 			badgesList.add("Badge " + i);
 		}
 
-		aesthetic1 = new Aesthetic("ROYGBIV", Color.white, Color.RED, new Color(
-				0xFF7F00), Color.YELLOW, Color.GREEN, Color.CYAN,
-				Color.MAGENTA, new Color(0x7D26CD), Color.lightGray);
-		
-		aesthetic2 = new Aesthetic("CoolColor", Color.white, Color.BLUE, new Color(
-				0x0099CC), new Color(0x99CCFF), Color.GREEN, Color.CYAN,
-				new Color(0x9966FF), new Color(0x33CCFF), Color.lightGray);
-		
-		aesthetic3 = new Aesthetic("SuperRed", Color.white, Color.RED, new Color(
-				0xFF7F00), new Color(0xCC0000), new Color(0x990000), new Color(0xCC3300),
-				new Color(0xCC6600), new Color(0x800000), Color.lightGray);
-		
-		ArrayList<Aesthetic> listOfAesthetics = new ArrayList<Aesthetic>();
-		listOfAesthetics.add(aesthetic1);
-		listOfAesthetics.add(aesthetic2);
-		listOfAesthetics.add(aesthetic3);
-
-
 		// TODO Get from user profile.
 		int highestLevelUnlocked = 10;
 
 		// Initialize panels and views.
 		gameMenuView = new GameMenuView(storyLevelList, userLevelList,
-				badgesList,listOfAesthetics, highestLevelUnlocked);
-		levelView = new LevelView(this.aesthetic1);
+				badgesList, aestheticList, highestLevelUnlocked);
+		levelView = new LevelView(this.aestheticList.get(0));
 
 		// Initialize frame
 		frame = new JFrame();
@@ -119,6 +103,7 @@ public class GameApplication {
 		frame.setPreferredSize(new Dimension(1000, 700));
 		frame.setMinimumSize(new Dimension(1000, 700));
 		frame.getContentPane().add(new SplashScreen());
+
 		this.setUpControllers();
 	}
 
@@ -141,6 +126,25 @@ public class GameApplication {
 		this.gameMenuView.getUserMenuView().getPlayButton()
 				.addActionListener(new PlayButtonController(this));
 		this.getFrame().addKeyListener(new GameSplashScreenController(this));
+	}
+
+	/**
+	 * Set up the aesthetic options to apply to the game.
+	 */
+	protected void setUpAesthetics() {
+		aestheticList.add(new Aesthetic("ROYGBIV", Color.white, Color.RED,
+				new Color(0xFF7F00), Color.YELLOW, Color.GREEN, Color.CYAN,
+				Color.MAGENTA, new Color(0x7D26CD), Color.lightGray));
+		aestheticList.add(new Aesthetic("CoolColor", Color.white, Color.BLUE,
+				new Color(0x0099CC), new Color(0x99CCFF), Color.GREEN,
+				Color.CYAN, new Color(0x9966FF), new Color(0x33CCFF),
+				Color.lightGray));
+		aestheticList.add(new Aesthetic("SuperRed", Color.white, Color.RED,
+				new Color(0xFF7F00), new Color(0xCC0000), new Color(0x990000),
+				new Color(0xCC3300), new Color(0xCC6600), new Color(0x800000),
+				Color.lightGray));
+
+		currentAesthetic = aestheticList.get(0);
 	}
 
 	/**
@@ -181,11 +185,29 @@ public class GameApplication {
 	}
 
 	/**
-	 * Returns the aesthetic of this application.
+	 * Returns the current aesthetic of this application.
 	 * 
 	 * @return Aesthetic for game application
 	 */
-	public Aesthetic getAesthetic() {
-		return this.aesthetic1;
+	public Aesthetic getCurrentAesthetic() {
+		return this.currentAesthetic;
+	}
+
+	/**
+	 * Sets the current aesthetic based on the given name.
+	 * 
+	 * @param name
+	 *            The name of the aesthetic.
+	 * @return true if aesthetic is found and set; false otherwise.
+	 */
+	public boolean setCurrentAesthetic(String name) {
+		for (Aesthetic e : aestheticList) {
+			if (e.getName().equals(name)) {
+				currentAesthetic = e;
+				return true;
+			}
+		}
+
+		return false;
 	}
 }

@@ -34,7 +34,6 @@ public class OptionsPanel extends JPanel {
 	JTextField userNameTextField;
 	JTextPane rulesTextPane;
 	JSeparator rulesSeparator;
-	
 
 	private String rulesText = "Rule 01: Don't talk about the fight club.";
 
@@ -95,7 +94,7 @@ public class OptionsPanel extends JPanel {
 		userNameTextField.setColumns(10);
 
 		// Change aesthetic button
-		changeAestheticButton = new JButton("Change Style");
+		changeAestheticButton = new JButton("Change Aesthetic");
 
 		// Layout for change aesthetic button
 		GridBagConstraints gbc_changeStyleButton = new GridBagConstraints();
@@ -106,14 +105,11 @@ public class OptionsPanel extends JPanel {
 
 		// Aesthetic drop down menu
 		aestheticDropDownMenu = new JComboBox<String>();
-		String aesthetic1 = aestheticList.get(0).getName();
-		String aesthetic2 = aestheticList.get(1).getName();
-		String aesthetic3 = aestheticList.get(2).getName();
-		//Finish adding this 
-		aestheticDropDownMenu.addItem(aesthetic1);
-		aestheticDropDownMenu.addItem(aesthetic2);
-		aestheticDropDownMenu.addItem(aesthetic3);
-		
+
+		// Add aesthetic names
+		for (Aesthetic e : aestheticList) {
+			aestheticDropDownMenu.addItem(e.getName());
+		}
 
 		// Layout for aesthetic drop down menu
 		GridBagConstraints gbc_comboBox = new GridBagConstraints();

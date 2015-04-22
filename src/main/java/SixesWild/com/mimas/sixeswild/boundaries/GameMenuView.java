@@ -238,14 +238,4 @@ public class GameMenuView extends JPanel {
 	public TitlePanel getTitleMenuView() {
 		return this.titleMenuView;
 	}
-
-	/**
-	 * Refresh this panel using the application to get new data.
-	 * 
-	 * @param app
-	 *            The game application to refresh from.
-	 */
-	public void refresh(GameApplication app) {
-		// TODO Refresh this panel.
-	}
 }

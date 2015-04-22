@@ -54,9 +54,22 @@ public class OptionsMenuButtonController implements ActionListener {
 		gbc_list.gridx = 0;
 		gbc_list.gridy = 0;
 
+		this.setUpControllers();
+
 		// Add panel to view
 		currentPanel
 				.add(this.app.getMainPanel().getOptionsMenuView(), gbc_list);
 		currentPanel.updateUI();
+	}
+
+	/**
+	 * Set up controllers for the options menu view.
+	 */
+	protected void setUpControllers() {
+		this.app.getMainPanel()
+				.getOptionsMenuView()
+				.getAestheticButton()
+				.addActionListener(
+						new ChangeAestheticButtonController(this.app));
 	}
 }
