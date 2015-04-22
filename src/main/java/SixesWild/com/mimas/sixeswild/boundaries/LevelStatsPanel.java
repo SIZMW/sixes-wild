@@ -32,7 +32,7 @@ public class LevelStatsPanel extends JPanel {
 	JLabel movesSlashTimeLabel;
 
 	/**
-	 * Constructor for LevelStatsPanel class
+	 * Creates a LevelStatsPanel instance.
 	 */
 	public LevelStatsPanel() {
 
@@ -143,7 +143,7 @@ public class LevelStatsPanel extends JPanel {
 	/**
 	 * Returns the star graphics panel.
 	 * 
-	 * @return this.starGraphicsPanel The star graphics panel.
+	 * @return JPanel for star graphics
 	 */
 	public JPanel getStarGraphicsPanel() {
 		return this.starGraphicsPanel;
@@ -152,7 +152,7 @@ public class LevelStatsPanel extends JPanel {
 	/**
 	 * Returns the points label.
 	 *
-	 * @return this.pointsLabel The points label.
+	 * @return JLabel for points
 	 */
 	public JLabel getPointsLabel() {
 		return this.pointsLabel;
@@ -162,7 +162,7 @@ public class LevelStatsPanel extends JPanel {
 	/**
 	 * Returns the moves/time label
 	 * 
-	 * @return this.movesSlashTimeLabel The moves/time label.
+	 * @return JLabel for timer or moves left
 	 */
 	public JLabel getMovesSlashTimeLabel() {
 		return this.movesSlashTimeLabel;

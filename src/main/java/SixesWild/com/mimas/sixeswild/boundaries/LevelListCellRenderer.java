@@ -17,7 +17,8 @@ public class LevelListCellRenderer extends DefaultListCellRenderer {
 	int highestLevel;
 
 	/**
-	 * Constructor for LevelListCellRenderer.
+	 * Creates a LevelListCellRenderer instance with the specified highest level
+	 * unlocked.
 	 * 
 	 * @param highestLevelUnlocked
 	 *            The highest level unlocked.

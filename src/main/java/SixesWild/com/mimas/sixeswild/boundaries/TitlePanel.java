@@ -20,7 +20,7 @@ public class TitlePanel extends JPanel {
 	private static final long serialVersionUID = 1L;
 
 	/**
-	 * Constructor for the TitlePanel class.
+	 * Creates a TitlePanel instance.
 	 */
 	public TitlePanel() {
 

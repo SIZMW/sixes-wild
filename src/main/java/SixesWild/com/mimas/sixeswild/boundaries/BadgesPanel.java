@@ -101,18 +101,9 @@ public class BadgesPanel extends JPanel {
 	}
 
 	/**
-	 * Returns the scroll pane of level names.
-	 * 
-	 * @return this.levelScrollPane The scrolling level pane.
-	 */
-	public JScrollPane getLevelScrollPane() {
-		return this.badgeScrollPane;
-	}
-
-	/**
 	 * Returns the level selection preview panel.
 	 * 
-	 * @return this.previewPanel The level preview panel.
+	 * @return JPanel preview panel
 	 */
 	public JPanel getPreviewPanel() {
 		return this.previewPanel;
@@ -121,7 +112,7 @@ public class BadgesPanel extends JPanel {
 	/**
 	 * Returns the badge list.
 	 * 
-	 * @return this.badgeListModel The list of badges.
+	 * @return DefaultListModel for the badge list
 	 */
 	public DefaultListModel<String> getBadgeListModel() {
 		return this.badgeListModel;
@@ -130,7 +121,7 @@ public class BadgesPanel extends JPanel {
 	/**
 	 * Returns the badge scroll pane.
 	 * 
-	 * @return this.badgeScrollPane The scrolling panel with the list of badges.
+	 * @return JScrollPane for the badge list pane
 	 */
 	public JScrollPane getBadgeScrollPane() {
 		return this.badgeScrollPane;

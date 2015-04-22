@@ -35,7 +35,8 @@ public class LevelSelectionPanel extends JPanel {
 	// TODO Add parameter for level list
 
 	/**
-	 * Constructor for LevelSelectionPanel class.
+	 * Creates a LevelSelectionPanel instance with the specified level names and
+	 * highest level unlocked.
 	 * 
 	 * @param levelNames
 	 *            The names of levels to populate the list.
@@ -123,7 +124,7 @@ public class LevelSelectionPanel extends JPanel {
 	/**
 	 * Returns the scroll pane of level names.
 	 * 
-	 * @return this.levelScrollPane The scrolling level pane.
+	 * @return JScrollPane for level list pane
 	 */
 	public JScrollPane getLevelScrollPane() {
 		return this.levelScrollPane;
@@ -132,7 +133,7 @@ public class LevelSelectionPanel extends JPanel {
 	/**
 	 * Returns the "Play Level" button.
 	 * 
-	 * @return this.playLevelButton The "Play Level" button.
+	 * @return JButton for playing a level
 	 */
 	public JButton getPlayButton() {
 		return this.playLevelButton;
@@ -141,7 +142,7 @@ public class LevelSelectionPanel extends JPanel {
 	/**
 	 * Returns the level selection preview panel.
 	 * 
-	 * @return this.previewPanel The level preview panel.
+	 * @return JPanel for preview panel
 	 */
 	public JPanel getPreviewPanel() {
 		return this.previewPanel;

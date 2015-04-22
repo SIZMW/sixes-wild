@@ -35,7 +35,7 @@ public class OptionsPanel extends JPanel {
 	private String rulesText = "Rule 01: Don't talk about the fight club.";
 
 	/**
-	 * Constructor for the OptionsPanel class.
+	 * Creates an OptionsPanel instance.
 	 */
 	public OptionsPanel() {
 
@@ -168,7 +168,7 @@ public class OptionsPanel extends JPanel {
 	/**
 	 * Returns the aesthetic button.
 	 * 
-	 * @return this.changeAestheticButton The aesthetic button.
+	 * @return JButton for applying aesthetics
 	 */
 	public JButton getAestheticButton() {
 		return this.changeAestheticButton;
@@ -177,7 +177,7 @@ public class OptionsPanel extends JPanel {
 	/**
 	 * Returns the switch user button.
 	 * 
-	 * @return this.switchUserButton The switch user button.
+	 * @return JButton for switching users
 	 */
 	public JButton getSwitchUserButton() {
 		return this.switchUserButton;
@@ -186,7 +186,7 @@ public class OptionsPanel extends JPanel {
 	/**
 	 * Returns the reset badges button.
 	 * 
-	 * @return this.resetBadgesButton The reset badges button.
+	 * @return JButton for resetting badges
 	 */
 	public JButton getResetBadgesButton() {
 		return this.resetBadgesButton;
@@ -195,7 +195,7 @@ public class OptionsPanel extends JPanel {
 	/**
 	 * Returns the aesthetic drop down menu.
 	 * 
-	 * @return this.aestheticDropDownMenu The aesthetic drop down menu.
+	 * @return JComboBox for the aesthetics list
 	 */
 	public JComboBox<String> getAestheticDropDownMenu() {
 		return this.aestheticDropDownMenu;
@@ -204,7 +204,7 @@ public class OptionsPanel extends JPanel {
 	/**
 	 * Returns the user name text field.
 	 * 
-	 * @return this.userNameTextField The user name text field.
+	 * @return JTextField for the user name
 	 */
 	public JTextField getUserNameTextField() {
 		return this.userNameTextField;

@@ -16,6 +16,8 @@ import javax.swing.border.Border;
 import SixesWild.com.mimas.sixeswild.entities.Aesthetic;
 import SixesWild.com.mimas.sixeswild.entities.Board;
 import SixesWild.com.mimas.sixeswild.entities.Selection;
+import SixesWild.com.mimas.sixeswild.entities.Square;
+import SixesWild.com.mimas.sixeswild.entities.TileType;
 
 /**
  * This class represents the view used to display the game board in the level
@@ -26,13 +28,14 @@ import SixesWild.com.mimas.sixeswild.entities.Selection;
 public class BoardViewPanel extends JPanel {
 
 	private static final long serialVersionUID = 1L;
-	
+
 	final int SIZE_X = 9;
 	final int SIZE_Y = 9;
 
+	// Panel attributes
 	Aesthetic boardAesthetic;
 	Board gameBoard;
-	JLabel squareViewBoard[][];
+	JLabel squareViews[][];
 	Selection currentSelection;
 	Border boardViewborder;
 	GridBagConstraints gbc_boardViewPanel;
@@ -42,10 +45,12 @@ public class BoardViewPanel extends JPanel {
 	Border squareViewSelectedBorder;
 
 	/**
-	 * Constructor for BoardViewPanel class.
+	 * Creates a BoardViewPanel instance with the specified Board and Aesthetic.
 	 * 
 	 * @param board
 	 *            The game board to display.
+	 * @param aesthetic
+	 *            The aesthetic to use for tile colors.
 	 */
 	public BoardViewPanel(Board board, Aesthetic aesthetic) {
 		super();
@@ -53,14 +58,15 @@ public class BoardViewPanel extends JPanel {
 		// Attributes
 		this.gameBoard = board;
 		this.boardAesthetic = aesthetic;
-		
+
 		this.currentSelection = new Selection();
 		this.squareViewBorder = BorderFactory.createLineBorder(Color.BLACK, 2);
-		this.squareViewSelectedBorder = BorderFactory.createLineBorder(Color.YELLOW, 2);
-		this.squareViewBoard = new JLabel[this.SIZE_X][this.SIZE_Y];
+		this.squareViewSelectedBorder = BorderFactory.createLineBorder(
+				Color.YELLOW, 2);
+		this.squareViews = new JLabel[this.SIZE_X][this.SIZE_Y];
 		this.boardViewborder = BorderFactory.createLineBorder(Color.BLACK, 2);
 		this.gameBoard.randomInitialize();
-		
+
 		this.setVisible(true);
 
 		// Layout for panel
@@ -77,70 +83,112 @@ public class BoardViewPanel extends JPanel {
 		this.gbc_boardViewPanel.gridheight = 1;
 		this.gbc_boardViewPanel.fill = GridBagConstraints.BOTH;
 
+		// Initialize board view
 		this.initializeBoardView();
 	}
-	
+
+	/**
+	 * Gets the smaller of the board height or width for resizing purposes.
+	 * 
+	 * @return Integer value of the smaller dimension
+	 */
 	protected int getMinOfHeightAndWidth() {
-		return (this.getWidth() < this.getHeight()) ? this.getWidth()
-				: this.getHeight();
+		return (this.getWidth() < this.getHeight()) ? this.getWidth() : this
+				.getHeight();
 	}
 
-	protected Color getColorByNumber(int number) {
-		switch (number) {
+	/**
+	 * Returns the corresponding color based on the attributes of the Square.
+	 * 
+	 * @param square
+	 *            The square to retrieve a Color for.
+	 * @return Color based on aesthetic values
+	 */
+	protected Color getSquareColor(Square square) {
+
+		// Marked attribute
+		if (square.getMarked()) {
+			return this.boardAesthetic.getMarkedColor();
+		}
+
+		// Check by tile number
+		switch (square.getTile().getNumber()) {
+		case 0:
+			// Check tile type
+			if (square.getTile().getType().equals(TileType.NULL)) {
+				return this.boardAesthetic.getNullTileColor();
+			} else if (square.getTile().getType().equals(TileType.TARGET)) {
+				return this.boardAesthetic.getTargetColor();
+			}
 		case 1:
-			return boardAesthetic.getTileOneColor();
+			return this.boardAesthetic.getTileOneColor();
 		case 2:
-			return boardAesthetic.getTileTwoColor();
+			return this.boardAesthetic.getTileTwoColor();
 		case 3:
-			return boardAesthetic.getTileThreeColor();
+			return this.boardAesthetic.getTileThreeColor();
 		case 4:
-			return boardAesthetic.getTileFourColor();
+			return this.boardAesthetic.getTileFourColor();
 		case 5:
-			return boardAesthetic.getTileFiveColor();
+			return this.boardAesthetic.getTileFiveColor();
 		case 6:
-			return boardAesthetic.getTileSixColor();
+			return this.boardAesthetic.getTileSixColor();
 		default:
 			return Color.WHITE;
 		}
 	}
-	
+
+	/**
+	 * Initializes the board view and adds it to the panel.
+	 */
 	protected void initializeBoardView() {
 		for (int i = 0; i < this.SIZE_X; i++) {
 			for (int j = 0; j < this.SIZE_Y; j++) {
-				squareViewBoard[i][j] = new JLabel();
-				squareViewBoard[i][j].setHorizontalAlignment(SwingConstants.CENTER);
-				squareViewBoard[i][j].setOpaque(true);
-				squareViewBoard[i][j].setFont(new Font("Monospace", Font.BOLD, 18));
-				squareViewBoard[i][j].setBorder(this.squareViewBorder);
-				squareViewBoard[i][j].setBackground(this.getColorByNumber(this.gameBoard.getSquare(i, j).getTile().getNumber()));
-				
+
+				// Initialize the JLabel
+				squareViews[i][j] = new JLabel();
+				squareViews[i][j].setHorizontalAlignment(SwingConstants.CENTER);
+				squareViews[i][j].setOpaque(true);
+				squareViews[i][j].setFont(new Font("Monospace", Font.BOLD, 18));
+				squareViews[i][j].setBorder(this.squareViewBorder);
+				squareViews[i][j].setBackground(this
+						.getSquareColor(this.gameBoard.getSquare(i, j)));
+
+				// Determine text
 				switch (this.gameBoard.getSquare(i, j).getTile().getType()) {
 				case NULL:
-					squareViewBoard[i][j].setText("  ");
+					squareViews[i][j].setText("  ");
 					break;
 				default:
-					squareViewBoard[i][j].setText(this.gameBoard.getSquare(i, j).getTile().getNumber() + "");
+					squareViews[i][j].setText(this.gameBoard.getSquare(i, j)
+							.getTile().getNumber()
+							+ "");
 					break;
 				}
 
-				squareViewBoard[i][j].setLocation(
-						(((this.getWidth() - (((int) this.getWidth() / 9) * 9)) + 10) / 2)
-								+ (this.getWidth() / 9 * this.gameBoard.getSquare(i, j).getX()),
-						(((this.getHeight() - (((int) this.getHeight() / 9) * 9)) + 10) / 2)
-								+ (this.getHeight() / 9 * this.gameBoard.getSquare(i, j).getY()));
-				squareViewBoard[i][j].setSize(new Dimension(this.getMinOfHeightAndWidth() / 9 - 20, this
+				// Determine the position and size
+				squareViews[i][j]
+						.setLocation(
+								(((this.getWidth() - (((int) this.getWidth() / 9) * 9)) + 10) / 2)
+										+ (this.getWidth() / 9 * this.gameBoard
+												.getSquare(i, j).getX()),
+								(((this.getHeight() - (((int) this.getHeight() / 9) * 9)) + 10) / 2)
+										+ (this.getHeight() / 9 * this.gameBoard
+												.getSquare(i, j).getY()));
+				squareViews[i][j].setSize(new Dimension(this
+						.getMinOfHeightAndWidth() / 9 - 20, this
 						.getMinOfHeightAndWidth() / 9 - 20));
-				
+
+				// Determine border based on selected attribute
 				if (gameBoard.getSquare(i, j).getSelected()) {
-					squareViewBoard[i][j].setBorder(squareViewSelectedBorder);
+					squareViews[i][j].setBorder(squareViewSelectedBorder);
 				} else {
-					squareViewBoard[i][j].setBorder(squareViewBorder);
+					squareViews[i][j].setBorder(squareViewBorder);
 				}
-				
+
+				// Update position and add to panel
 				gbc_boardViewPanel.gridx = i + 1;
 				gbc_boardViewPanel.gridy = j + 1;
-
-				this.add(squareViewBoard[i][j], gbc_boardViewPanel);
+				this.add(squareViews[i][j], gbc_boardViewPanel);
 			}
 		}
 	}
@@ -168,10 +216,9 @@ public class BoardViewPanel extends JPanel {
 	 *            Y coordinate of mouse.
 	 * @param squareView
 	 *            The SquareView to check selection on.
-	 * @return true or false
+	 * @return true if the squareView is selected; false otherwise.
 	 */
-	protected boolean validateMouseSelection(int mx, int my,
-			JLabel squareView) {
+	protected boolean validateMouseSelection(int mx, int my, JLabel squareView) {
 		return mx - squareView.getX() > 0
 				&& mx - squareView.getX() < squareView.getWidth()
 				&& my - squareView.getY() > 0
@@ -188,10 +235,11 @@ public class BoardViewPanel extends JPanel {
 	 */
 	public void updateSelection(int mx, int my) {
 		for (int i = 0; i < gameBoard.SIZE_X; i++) {
-			for (int j = 0; j < gameBoard.SIZE_Y; j++) {				
+			for (int j = 0; j < gameBoard.SIZE_Y; j++) {
 				// If the SquareView is selected in a valid manner, update the
-				// SquareView and add it to the current selection
-				if (this.validateMouseSelection(mx, my, squareViewBoard[i][j])) {
+				// corresponding Square and add the Square to the current
+				// selection.
+				if (this.validateMouseSelection(mx, my, squareViews[i][j])) {
 					this.gameBoard.getSquare(i, j).setSelected(true);
 					this.currentSelection.add(gameBoard.getSquare(i, j));
 				}

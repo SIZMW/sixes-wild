@@ -1,6 +1,5 @@
 package SixesWild.com.mimas.sixeswild.controllers;
 
-import java.awt.Color;
 import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.GridBagConstraints;
@@ -13,7 +12,6 @@ import javax.swing.JPanel;
 
 import SixesWild.com.mimas.sixeswild.boundaries.BoardViewPanel;
 import SixesWild.com.mimas.sixeswild.boundaries.BuilderApplication;
-import SixesWild.com.mimas.sixeswild.entities.Aesthetic;
 import SixesWild.com.mimas.sixeswild.entities.Board;
 
 /**

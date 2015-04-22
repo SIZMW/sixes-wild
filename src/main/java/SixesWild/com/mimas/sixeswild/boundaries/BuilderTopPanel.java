@@ -28,7 +28,7 @@ public class BuilderTopPanel extends JPanel {
 	JComboBox<String> deleteComboBox;
 
 	/**
-	 * Constructor for BuilderTopPanel class.
+	 * Creates a BuilderTopPanel instance.
 	 */
 	public BuilderTopPanel() {
 
@@ -103,13 +103,12 @@ public class BuilderTopPanel extends JPanel {
 		gbc_deleteComboBox.gridx = 10;
 		gbc_deleteComboBox.gridy = 0;
 		add(deleteComboBox, gbc_deleteComboBox);
-
 	}
 
 	/**
 	 * Returns the new button.
 	 * 
-	 * @return this.newButton The new button.
+	 * @return JButton for creating a new level
 	 */
 	public JButton getNewButton() {
 		return this.newButton;
@@ -118,7 +117,7 @@ public class BuilderTopPanel extends JPanel {
 	/**
 	 * Returns the save button.
 	 * 
-	 * @return this.saveButton The save button.
+	 * @return JButton for saving a level
 	 */
 	public JButton getSaveButton() {
 		return this.saveButton;
@@ -127,7 +126,7 @@ public class BuilderTopPanel extends JPanel {
 	/**
 	 * Returns the open button.
 	 * 
-	 * @return this.openButton The open button.
+	 * @return JButton for opening a level
 	 */
 	public JButton getOpenButton() {
 		return this.openButton;
@@ -136,7 +135,7 @@ public class BuilderTopPanel extends JPanel {
 	/**
 	 * Returns the open combo box.
 	 * 
-	 * @return this.openComboBox The open combo box.
+	 * @return JComboBox for open level list
 	 */
 	public JComboBox<String> getOpenComboBox() {
 		return this.openComboBox;
@@ -145,7 +144,7 @@ public class BuilderTopPanel extends JPanel {
 	/**
 	 * Returns the delete button.
 	 * 
-	 * @return this.deleteButton The delete button.
+	 * @return JButton for deleting a level
 	 */
 	public JButton getDeleteButton() {
 		return this.deleteButton;
@@ -154,7 +153,7 @@ public class BuilderTopPanel extends JPanel {
 	/**
 	 * Returns the delete combo box.
 	 * 
-	 * @return this.deleteComboBox The delete combo box.
+	 * @return JComboBox for delete level list
 	 */
 	public JComboBox<String> getDeleteComboBox() {
 		return this.deleteComboBox;

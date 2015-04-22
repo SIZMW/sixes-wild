@@ -106,15 +106,32 @@ public class Square {
 		return true;
 	}
 
+	/**
+	 * Returns the selected attribute of the square.
+	 * 
+	 * @return Boolean selected attribute
+	 */
 	public boolean getSelected() {
 		return this.isSelected;
 	}
 
+	/**
+	 * Sets the selected attribute of the square.
+	 * 
+	 * @param selected
+	 *            The value of being selected to set for the square.
+	 * @return true if selected attribute is updated.
+	 */
 	public boolean setSelected(boolean selected) {
 		this.isSelected = selected;
 		return true;
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
 	public boolean equals(Object o) {
 		if (o == null) {
 			return false;
@@ -131,6 +148,11 @@ public class Square {
 		return false;
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#hashCode()
+	 */
 	public int hashCode() {
 		int result = 17;
 		int constVal = 37;

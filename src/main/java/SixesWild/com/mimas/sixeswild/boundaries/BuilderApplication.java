@@ -49,8 +49,11 @@ public class BuilderApplication {
 		} catch (Exception e) {
 		}
 
-		aesthetic = new Aesthetic("ROYGBIV", Color.white, Color.RED, new Color(0xFF7F00), Color.YELLOW, Color.GREEN, Color.CYAN, Color.MAGENTA, new Color(0x7D26CD), Color.lightGray);
-		
+		// TODO Verify the creation of the aesthetic is valid here
+		aesthetic = new Aesthetic("ROYGBIV", Color.white, Color.RED, new Color(
+				0xFF7F00), Color.YELLOW, Color.GREEN, Color.CYAN,
+				Color.MAGENTA, new Color(0x7D26CD), Color.lightGray);
+
 		// Initialize panels and views
 		builderView = new BuilderView(this.aesthetic);
 
@@ -66,6 +69,7 @@ public class BuilderApplication {
 		frame.setMinimumSize(new Dimension(1000, 700));
 		frame.getContentPane().add(new SplashScreen());
 
+		// Set up controllers
 		this.setUpControllers();
 	}
 
@@ -108,7 +112,7 @@ public class BuilderApplication {
 	/**
 	 * Returns the game frame.
 	 * 
-	 * @return this.frame The game frame.
+	 * @return JFrame for builder application
 	 */
 	public JFrame getFrame() {
 		return this.frame;
@@ -117,12 +121,17 @@ public class BuilderApplication {
 	/**
 	 * Returns the game BuilderView.
 	 * 
-	 * @return this.builderView The game BuilerView.
+	 * @return BuilderView for builder application
 	 */
 	public BuilderView getBuilderView() {
 		return this.builderView;
 	}
-	
+
+	/**
+	 * Returns the aesthetic of this application.
+	 * 
+	 * @return Aesthetic for builder application
+	 */
 	public Aesthetic getAesthetic() {
 		return this.aesthetic;
 	}

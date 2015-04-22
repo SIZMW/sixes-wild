@@ -22,7 +22,10 @@ public class StarGraphicsPanel extends JPanel {
 	int scoreNumber;
 
 	/**
-	 * Constructor for StarGraphicsPanel class.
+	 * Creates a StarGraphicsPanel with the specified score value.
+	 * 
+	 * @param scoreNumber
+	 *            The score for the given level.
 	 */
 	public StarGraphicsPanel(int scoreNumber) {
 

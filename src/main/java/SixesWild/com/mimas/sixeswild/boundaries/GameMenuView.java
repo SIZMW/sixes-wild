@@ -31,7 +31,17 @@ public class GameMenuView extends JPanel {
 	JButton creditsMenuButton;
 
 	/**
-	 * Constructor for GameMenuView class.
+	 * Creates a GameMenuView instance with the specified story level list, user
+	 * level list, badges list and highest level unlocked.
+	 * 
+	 * @param storyLevelList
+	 *            The list of story levels.
+	 * @param userLevelList
+	 *            The list of user levels.
+	 * @param badgesList
+	 *            The list of badges.
+	 * @param highestLevelUnlocked
+	 *            The highest number level that is unlocked to play.
 	 */
 	public GameMenuView(ArrayList<String> storyLevelList,
 			ArrayList<String> userLevelList, ArrayList<String> badgesList,
@@ -120,7 +130,7 @@ public class GameMenuView extends JPanel {
 	/**
 	 * Returns the right sub menu panel.
 	 * 
-	 * @return this.subMenuPanel The sub menu panel.
+	 * @return JPanel for the sub menu panel
 	 */
 	public JPanel getSubMenuPanel() {
 		return this.subMenuPanel;
@@ -129,7 +139,7 @@ public class GameMenuView extends JPanel {
 	/**
 	 * Returns the story level menu button.
 	 * 
-	 * @return this.storyLevelMenuButton The story level menu button.
+	 * @return JButton for the story level menu
 	 */
 	public JButton getStoryLevelMenuButton() {
 		return this.storyLevelMenuButton;
@@ -138,7 +148,7 @@ public class GameMenuView extends JPanel {
 	/**
 	 * Returns the user level menu button.
 	 * 
-	 * @return this.userLevelMenuButton The user level menu button.
+	 * @return JButton for the user level menu
 	 */
 	public JButton getUserLevelMenuButton() {
 		return this.userLevelMenuButton;
@@ -147,7 +157,7 @@ public class GameMenuView extends JPanel {
 	/**
 	 * Returns the badges menu button.
 	 * 
-	 * @return this.badgesMenuButton The badges menu button.
+	 * @return JButton for the badges menu
 	 */
 	public JButton getBadgesMenuButton() {
 		return this.badgesMenuButton;
@@ -156,7 +166,7 @@ public class GameMenuView extends JPanel {
 	/**
 	 * Returns the options menu button.
 	 * 
-	 * @return this.optionsMenuButton The options menu button.
+	 * @return JButton for the options menu
 	 */
 	public JButton getOptionsMenuButton() {
 		return this.optionsMenuButton;
@@ -165,7 +175,7 @@ public class GameMenuView extends JPanel {
 	/**
 	 * Returns the credits menu button.
 	 * 
-	 * @return this.creditsMenuButton The credits menu button.
+	 * @return JButton for the credits menu
 	 */
 	public JButton getCreditsMenuButton() {
 		return this.creditsMenuButton;
@@ -174,7 +184,7 @@ public class GameMenuView extends JPanel {
 	/**
 	 * Returns the badge menu view.
 	 * 
-	 * @return this.badgeMenuView The badge menu view.
+	 * @return BadgesPanel for the badges menu
 	 */
 	public BadgesPanel getBadgeMenuView() {
 		return this.badgeMenuView;
@@ -183,7 +193,7 @@ public class GameMenuView extends JPanel {
 	/**
 	 * Returns the option menu view.
 	 * 
-	 * @return this.optionMenuView The options menu view.
+	 * @return OptionsPanel for the options menu
 	 */
 	public OptionsPanel getOptionsMenuView() {
 		return this.optionsMenuView;
@@ -192,7 +202,7 @@ public class GameMenuView extends JPanel {
 	/**
 	 * Returns the story menu view.
 	 * 
-	 * @return this.storyMenuView The story menu view.
+	 * @return LevelSelectionPanel for the story level menu
 	 */
 	public LevelSelectionPanel getStoryMenuView() {
 		return this.storyMenuView;
@@ -201,7 +211,7 @@ public class GameMenuView extends JPanel {
 	/**
 	 * Returns the user menu view.
 	 * 
-	 * @return this.userMenuView The user menu view.
+	 * @return LevelSelectionPanel for the user level menu
 	 */
 	public LevelSelectionPanel getUserMenuView() {
 		return this.userMenuView;
@@ -210,7 +220,7 @@ public class GameMenuView extends JPanel {
 	/**
 	 * Returns the credits menu view.
 	 * 
-	 * @return this.creditsMenuView The credits menu view.
+	 * @return CreditsPanel for the credits menu
 	 */
 	public CreditsPanel getCreditsMenuView() {
 		return this.creditsMenuView;
@@ -219,7 +229,7 @@ public class GameMenuView extends JPanel {
 	/**
 	 * Returns the title menu view.
 	 * 
-	 * @return this.titleMenuView The title menu view.
+	 * @return TitlePanel for the title menu
 	 */
 	public TitlePanel getTitleMenuView() {
 		return this.titleMenuView;

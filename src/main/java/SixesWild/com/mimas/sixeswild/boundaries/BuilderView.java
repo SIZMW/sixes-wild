@@ -31,10 +31,13 @@ public class BuilderView extends JPanel {
 	private GridBagConstraints gbc_boardView;
 
 	/**
-	 * Constructor for BuilderView class.
+	 * Creates a BuilderView instance with the specified Aesthetic.
+	 * 
+	 * @param aesthetic
+	 *            The aesthetic to use in this view.
 	 */
 	public BuilderView(Aesthetic aesthetic) {
-		
+
 		// Attributes
 		this.builderViewAesthetic = aesthetic;
 
@@ -77,7 +80,8 @@ public class BuilderView extends JPanel {
 
 		// Board view panel
 		boardViewPanelBorder = BorderFactory.createLineBorder(Color.black);
-		boardViewPanel = new BoardViewPanel(new Board(), this.builderViewAesthetic);
+		boardViewPanel = new BoardViewPanel(new Board(),
+				this.builderViewAesthetic);
 		boardViewPanel.setBorder(boardViewPanelBorder);
 
 		// Layout for board view panel
@@ -87,13 +91,12 @@ public class BuilderView extends JPanel {
 		gbc_boardView.gridx = 2;
 		gbc_boardView.gridy = 1;
 		add(boardViewPanel, gbc_boardView);
-
 	}
 
 	/**
 	 * Returns builder top panel.
 	 * 
-	 * @return this.builderTopPanel The builder top panel.
+	 * @return BuilderTopPanel for the level builder
 	 */
 	public BuilderTopPanel getBuilderTopPanel() {
 		return this.builderTopPanel;
@@ -102,7 +105,7 @@ public class BuilderView extends JPanel {
 	/**
 	 * Returns the level settings panel.
 	 * 
-	 * @return this.levelSettingsPanel The level settings panel.
+	 * @return BuilderSettingsPanel for the level builder
 	 */
 	public BuilderSettingsPanel getBuilderSettingsPanel() {
 		return this.builderSettingsPanel;
@@ -111,7 +114,7 @@ public class BuilderView extends JPanel {
 	/**
 	 * Returns the board view panel.
 	 * 
-	 * @return this.boardViewPanel The board view panel.
+	 * @return BoardViewPanel for the level builder
 	 */
 	public BoardViewPanel getBoardViewPanel() {
 		return this.boardViewPanel;

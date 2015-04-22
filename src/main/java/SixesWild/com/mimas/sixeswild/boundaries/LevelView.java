@@ -27,10 +27,13 @@ public class LevelView extends JPanel {
 	Aesthetic levelViewAesthetic;
 
 	/**
-	 * Constructor for level view
+	 * Creates a LevelView instance with the specified Aesthetic.
+	 * 
+	 * @param aesthetic
+	 *            The aesthetic to use for this view.
 	 */
 	public LevelView(Aesthetic aesthetic) {
-		
+
 		// Attributes
 		this.levelViewAesthetic = aesthetic;
 
@@ -86,7 +89,8 @@ public class LevelView extends JPanel {
 		add(levelStatsPanel, gbc_leftMenuPanel);
 
 		// Board view panel
-		boardViewPanel = new BoardViewPanel(new Board(), this.levelViewAesthetic);
+		boardViewPanel = new BoardViewPanel(new Board(),
+				this.levelViewAesthetic);
 		boardViewPanel.setBorder(BorderFactory.createLineBorder(Color.black));
 
 		// Layout for board view panel
@@ -102,7 +106,7 @@ public class LevelView extends JPanel {
 	/**
 	 * Returns top menu panel.
 	 * 
-	 * @return this.topMenuPanel The top menu panel.
+	 * @return LevelTopPanel for the level view
 	 */
 	public LevelTopPanel getTopMenuPanel() {
 		return this.levelTopPanel;
@@ -111,7 +115,7 @@ public class LevelView extends JPanel {
 	/**
 	 * Returns the left menu panel.
 	 * 
-	 * @return this.leftMenuPanel The left menu panel.
+	 * @return LevelStatsPanel for the level view
 	 */
 	public LevelStatsPanel getLeftMenuPanel() {
 		return this.levelStatsPanel;
@@ -120,7 +124,7 @@ public class LevelView extends JPanel {
 	/**
 	 * Returns the board view panel.
 	 * 
-	 * @return this.boardViewPanel The board view panel.
+	 * @return BoardViewPanel for the level view
 	 */
 	public BoardViewPanel getBoardViewPanel() {
 		return this.boardViewPanel;

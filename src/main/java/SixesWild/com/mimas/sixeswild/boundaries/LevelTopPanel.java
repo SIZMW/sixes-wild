@@ -27,7 +27,7 @@ public class LevelTopPanel extends JPanel {
 	JButton exitLevelButton;
 
 	/**
-	 * Constructor for the LevelTopPanel class.
+	 * Creates a LevelTopPanel instance.
 	 */
 	public LevelTopPanel() {
 
@@ -113,7 +113,7 @@ public class LevelTopPanel extends JPanel {
 	/**
 	 * Returns the level name text field.
 	 * 
-	 * @return this.levelNameTextField The level name text field.
+	 * @return JTextField for level name
 	 */
 	public JTextField getLevelNameTextField() {
 		return this.levelNameTextField;
@@ -122,7 +122,7 @@ public class LevelTopPanel extends JPanel {
 	/**
 	 * Returns the special move button 1.
 	 * 
-	 * @return this.specialMoveButton1 The special move button 1.
+	 * @return JButton for special move 1
 	 */
 	public JButton getSpecialMoveButton1() {
 		return this.specialMoveButton1;
@@ -131,7 +131,7 @@ public class LevelTopPanel extends JPanel {
 	/**
 	 * Returns the special move button 2.
 	 * 
-	 * @return this.specialMoveButton1 The special move button 2.
+	 * @return JButton for special move 2
 	 */
 	public JButton getSpecialMoveButton2() {
 		return this.specialMoveButton2;
@@ -140,7 +140,7 @@ public class LevelTopPanel extends JPanel {
 	/**
 	 * Returns the special move button 3.
 	 * 
-	 * @return this.specialMoveButton1 The special move button 3.
+	 * @return JButton for special move 3
 	 */
 	public JButton getSpecialMoveButton3() {
 		return this.specialMoveButton3;
@@ -149,7 +149,7 @@ public class LevelTopPanel extends JPanel {
 	/**
 	 * Returns the special move button 4.
 	 * 
-	 * @return this.specialMoveButton1 The special move button 4.
+	 * @return JButton for special move 4
 	 */
 	public JButton getSpecialMoveButton4() {
 		return this.specialMoveButton4;
@@ -158,7 +158,7 @@ public class LevelTopPanel extends JPanel {
 	/**
 	 * Returns the exit level button.
 	 * 
-	 * @return this.exitLevelButton The exit level button.
+	 * @return JButton for exiting a level
 	 */
 	public JButton getExitLevelButton() {
 		return this.exitLevelButton;

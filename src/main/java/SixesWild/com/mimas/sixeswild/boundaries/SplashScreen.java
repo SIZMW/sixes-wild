@@ -19,7 +19,7 @@ public class SplashScreen extends JPanel {
 	private static final long serialVersionUID = 1L;
 
 	/**
-	 * Constructor for SplashScreen class.
+	 * Creates a SplashScreen instance.
 	 */
 	public SplashScreen() {
 

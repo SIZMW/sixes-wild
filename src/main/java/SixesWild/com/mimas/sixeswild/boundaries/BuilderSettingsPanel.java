@@ -937,7 +937,7 @@ public class BuilderSettingsPanel extends JPanel {
 	/**
 	 * Returns user level name text field.
 	 * 
-	 * @return this.userLevelNameTextField The user level name text field.
+	 * @return JTextField for user level name
 	 */
 	public JTextField getUserLevelNameTextField() {
 		return this.userLevelNameTextField;
@@ -946,7 +946,7 @@ public class BuilderSettingsPanel extends JPanel {
 	/**
 	 * Returns moves text field.
 	 * 
-	 * @return this.movesTextField The moves text field.
+	 * @return JTextField for move count
 	 */
 	public JTextField getMovesTextField() {
 		return this.movesTextField;
@@ -955,7 +955,7 @@ public class BuilderSettingsPanel extends JPanel {
 	/**
 	 * Returns timer text field.
 	 * 
-	 * @return this.timerTextField The timer text field.
+	 * @return JTextField for timer
 	 */
 	public JTextField getTimerTextField() {
 		return this.timerTextField;
@@ -964,7 +964,7 @@ public class BuilderSettingsPanel extends JPanel {
 	/**
 	 * Returns level tType combo box.
 	 * 
-	 * @return this.levelTypeComboBox The level tType combo box.
+	 * @return JComboBox for level types
 	 */
 	public JComboBox<String> getLevelTypeComboBox() {
 		return this.levelTypeComboBox;
@@ -973,7 +973,7 @@ public class BuilderSettingsPanel extends JPanel {
 	/**
 	 * Returns ones text field.
 	 * 
-	 * @return this.onesTextField The ones text field.
+	 * @return JTextField for ones frequency
 	 */
 	public JTextField getOnesTextField() {
 		return this.onesTextField;
@@ -982,7 +982,7 @@ public class BuilderSettingsPanel extends JPanel {
 	/**
 	 * Returns twos text field.
 	 * 
-	 * @return this.twosTextField The twos text field.
+	 * @return JTextField for twos frequency
 	 */
 	public JTextField getTwosTextField() {
 		return this.twosTextField;
@@ -991,7 +991,7 @@ public class BuilderSettingsPanel extends JPanel {
 	/**
 	 * Returns threes text field.
 	 * 
-	 * @return this.threesTextField The threes text field.
+	 * @return JTextField for threes frequency
 	 */
 	public JTextField getThreesTextField() {
 		return this.threesTextField;
@@ -1000,7 +1000,7 @@ public class BuilderSettingsPanel extends JPanel {
 	/**
 	 * Returns fours text field.
 	 * 
-	 * @return this.foursTextField The fours text field.
+	 * @return JTextField for fours frequency
 	 */
 	public JTextField getFoursTextField() {
 		return this.foursTextField;
@@ -1009,7 +1009,7 @@ public class BuilderSettingsPanel extends JPanel {
 	/**
 	 * Returns fives text field.
 	 * 
-	 * @return this.fivesTextField The fives text field.
+	 * @return JTextField for fives frequency
 	 */
 	public JTextField getFivesTextField() {
 		return this.fivesTextField;
@@ -1018,7 +1018,7 @@ public class BuilderSettingsPanel extends JPanel {
 	/**
 	 * Returns sixes text field.
 	 * 
-	 * @return this.sixesTextField The sixes text field.
+	 * @return JTextField for sixes frequency
 	 */
 	public JTextField getSixesTextField() {
 		return this.sixesTextField;
@@ -1027,7 +1027,7 @@ public class BuilderSettingsPanel extends JPanel {
 	/**
 	 * Returns x two multiplier text field.
 	 * 
-	 * @return this.xtwoMultiplierTextField The x two multiplier text field.
+	 * @return JTextField for x two multiplier
 	 */
 	public JTextField xtwoMultiplierTextField() {
 		return this.xtwoMultiplierTextField;
@@ -1036,7 +1036,7 @@ public class BuilderSettingsPanel extends JPanel {
 	/**
 	 * Returns x three multiplier text field.
 	 * 
-	 * @return this.xthreeMultiplierTextField The x three multiplier text field.
+	 * @return JTextField for x three multiplier
 	 */
 	public JTextField xthreeMultiplierTextField() {
 		return this.xthreeMultiplierTextField;
@@ -1045,7 +1045,7 @@ public class BuilderSettingsPanel extends JPanel {
 	/**
 	 * Returns special move one minus button.
 	 * 
-	 * @return this.specialMoveOneMinusButton The special move one minus button.
+	 * @return JButton for decreasing special move one
 	 */
 	public JButton getSpecialMoveOneMinusButton() {
 		return this.specialMoveOneMinusButton;
@@ -1054,7 +1054,7 @@ public class BuilderSettingsPanel extends JPanel {
 	/**
 	 * Returns special move one plus button.
 	 * 
-	 * @return this.specialMoveOnePlusButton The special move one plus button.
+	 * @return JButton for increasing special move one
 	 */
 	public JButton getSpecialMoveOnePlusButton() {
 		return this.specialMoveOnePlusButton;
@@ -1063,7 +1063,7 @@ public class BuilderSettingsPanel extends JPanel {
 	/**
 	 * Returns special move two minus button.
 	 * 
-	 * @return this.specialMovetwoMinusButton The special move two minus button.
+	 * @return JButton for decreasing special move two
 	 */
 	public JButton getSpecialMoveTwoMinusButton() {
 		return this.specialMoveTwoMinusButton;
@@ -1072,7 +1072,7 @@ public class BuilderSettingsPanel extends JPanel {
 	/**
 	 * Returns special move two plus button.
 	 * 
-	 * @return this.specialMoveTwoPlusButton The special move two plus button.
+	 * @return JButton for increasing special move two
 	 */
 	public JButton getSpecialMoveTwoPlusButton() {
 		return this.specialMoveTwoPlusButton;
@@ -1081,8 +1081,7 @@ public class BuilderSettingsPanel extends JPanel {
 	/**
 	 * Returns special move three minus button.
 	 * 
-	 * @return this.specialMoveThreeMinusButton The special move three minus
-	 *         button.
+	 * @return JButton for decreasing special move three
 	 */
 	public JButton getSpecialMoveThreeMinusButton() {
 		return this.specialMoveThreeMinusButton;
@@ -1091,8 +1090,7 @@ public class BuilderSettingsPanel extends JPanel {
 	/**
 	 * Returns special move three plus button.
 	 * 
-	 * @return this.specialMoveThreePlusButton The special move three plus
-	 *         button.
+	 * @return JButton for increasing special move three
 	 */
 	public JButton getSpecialMoveThreePlusButton() {
 		return this.specialMoveThreePlusButton;
@@ -1101,8 +1099,7 @@ public class BuilderSettingsPanel extends JPanel {
 	/**
 	 * Returns special move four minus button.
 	 * 
-	 * @return this.specialMoveFourMinusButton The special move four minus
-	 *         button.
+	 * @return JButton for decreasing special move four
 	 */
 	public JButton getSpecialMoveFourMinusButton() {
 		return this.specialMoveFourMinusButton;
@@ -1111,8 +1108,7 @@ public class BuilderSettingsPanel extends JPanel {
 	/**
 	 * Returns special move four plus button.
 	 * 
-	 * @return this.specialMoveFourPlusButton The special four plus minus
-	 *         button.
+	 * @return JButton for increasing special move four
 	 */
 	public JButton getSpecialMoveFourPlusButton() {
 		return this.specialMoveFourPlusButton;
@@ -1121,7 +1117,7 @@ public class BuilderSettingsPanel extends JPanel {
 	/**
 	 * Returns one star score text field.
 	 * 
-	 * @return this.oneStarScoreTextField The one star score text field.
+	 * @return JTextField for one star score
 	 */
 	public JTextField getOneStarScoreTextField() {
 		return this.oneStarScoreTextField;
@@ -1130,7 +1126,7 @@ public class BuilderSettingsPanel extends JPanel {
 	/**
 	 * Returns two star score text field.
 	 * 
-	 * @return this.twoStarScoreTextField The two star score text field.
+	 * @return JTextField for two star score
 	 */
 	public JTextField getTwoStarScoreTextField() {
 		return this.twoStarScoreTextField;
@@ -1139,7 +1135,7 @@ public class BuilderSettingsPanel extends JPanel {
 	/**
 	 * Returns three star score text field.
 	 * 
-	 * @return this.threeStarScoreTextField The three star score text field.
+	 * @return JTextField for three star score
 	 */
 	public JTextField getThreeStarScoreTextField() {
 		return this.threeStarScoreTextField;
@@ -1148,7 +1144,7 @@ public class BuilderSettingsPanel extends JPanel {
 	/**
 	 * Returns tile type combo box.
 	 * 
-	 * @return this.tileTypeComboBox The tile type combo box.
+	 * @return JComboBox for tile types
 	 */
 	public JComboBox<String> getTileTypeComboBox() {
 		return this.tileTypeComboBox;
@@ -1157,7 +1153,7 @@ public class BuilderSettingsPanel extends JPanel {
 	/**
 	 * Returns special move one label.
 	 * 
-	 * @return this.specialMoveOneLabel The special move one label.
+	 * @return JLabel for special move one
 	 */
 	public JLabel getSpecialMoveOneLabel() {
 		return specialMoveOneLabel;
@@ -1166,7 +1162,7 @@ public class BuilderSettingsPanel extends JPanel {
 	/**
 	 * Returns special move two label.
 	 * 
-	 * @return this.specialMoveTwoLabel The special move two label.
+	 * @return JLabel for special move two
 	 */
 	public JLabel getSpecialMoveTwoLabel() {
 		return specialMoveTwoLabel;
@@ -1175,7 +1171,7 @@ public class BuilderSettingsPanel extends JPanel {
 	/**
 	 * Returns special move three label.
 	 * 
-	 * @return this.specialMoveThreeLabel The special move three label.
+	 * @return JLabel for special move three
 	 */
 	public JLabel getSpecialMoveThreeLabel() {
 		return specialMoveThreeLabel;
@@ -1184,7 +1180,7 @@ public class BuilderSettingsPanel extends JPanel {
 	/**
 	 * Returns special move four label.
 	 * 
-	 * @return this.specialMoveFourLabel The special move four label.
+	 * @return JLabel for special move four
 	 */
 	public JLabel getSpecialMoveFourLabel() {
 		return specialMoveFourLabel;

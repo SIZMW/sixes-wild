@@ -20,7 +20,7 @@ public class CreditsPanel extends JPanel {
 	private static final long serialVersionUID = 1L;
 
 	/**
-	 * Constructor for the CreditsPanel class.
+	 * Creates a CreditsPanel instance.
 	 */
 	public CreditsPanel() {
 

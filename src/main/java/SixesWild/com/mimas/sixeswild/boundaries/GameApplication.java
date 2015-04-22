@@ -38,7 +38,7 @@ public class GameApplication {
 	// UserProfile currentProfile;
 
 	/**
-	 * Constructor for GameApplication class.
+	 * Creates a GameApplication instance.
 	 */
 	public GameApplication() {
 		this.initialize();
@@ -77,12 +77,13 @@ public class GameApplication {
 		for (int i = 1; i <= 20; i++) {
 			badgesList.add("Badge " + i);
 		}
-		
-		aesthetic = new Aesthetic("ROYGBIV", Color.white, Color.RED, new Color(0xFF7F00), Color.YELLOW, Color.GREEN, Color.CYAN, Color.MAGENTA, new Color(0x7D26CD), Color.lightGray);
+
+		aesthetic = new Aesthetic("ROYGBIV", Color.white, Color.RED, new Color(
+				0xFF7F00), Color.YELLOW, Color.GREEN, Color.CYAN,
+				Color.MAGENTA, new Color(0x7D26CD), Color.lightGray);
 
 		// TODO Get from user profile.
 		int highestLevelUnlocked = 10;
-		
 
 		// Initialize panels and views.
 		gameMenuView = new GameMenuView(storyLevelList, userLevelList,
@@ -127,7 +128,7 @@ public class GameApplication {
 	/**
 	 * Returns the game frame.
 	 * 
-	 * @return this.frame The game frame.
+	 * @return JFrame for the game application
 	 */
 	public JFrame getFrame() {
 		return this.frame;
@@ -136,7 +137,7 @@ public class GameApplication {
 	/**
 	 * Returns the game GameMenuView.
 	 * 
-	 * @return this.mainPanel The game GameMenuView.
+	 * @return GameMenuView for the game application
 	 */
 	public GameMenuView getMainPanel() {
 		return this.gameMenuView;
@@ -145,7 +146,7 @@ public class GameApplication {
 	/**
 	 * Returns the game levelPanel.
 	 * 
-	 * @return this.levelPanel The game LevelPanel.
+	 * @return LevelView for the game application
 	 */
 	public LevelView getLevelPanel() {
 		return this.levelView;
@@ -160,7 +161,12 @@ public class GameApplication {
 	public void setLevelPanel(LevelView newLevel) {
 		this.levelView = newLevel;
 	}
-	
+
+	/**
+	 * Returns the aesthetic of this application.
+	 * 
+	 * @return Aesthetic for game application
+	 */
 	public Aesthetic getAesthetic() {
 		return this.aesthetic;
 	}
