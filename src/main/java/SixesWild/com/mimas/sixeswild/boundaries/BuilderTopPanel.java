@@ -26,6 +26,11 @@ public class BuilderTopPanel extends JPanel {
 
 	JButton deleteButton;
 	JComboBox<String> deleteComboBox;
+	
+	String dummyLevel1;
+	String dummyLevel2;
+	String dummyLevel3;
+	String dummyLevel4;
 
 	/**
 	 * Creates a BuilderTopPanel instance.
@@ -65,6 +70,7 @@ public class BuilderTopPanel extends JPanel {
 		// Open level button
 		openButton = new JButton("OPEN");
 
+
 		// Layout for open level button
 		GridBagConstraints gbc_openButton = new GridBagConstraints();
 		gbc_openButton.insets = new Insets(0, 0, 0, 5);
@@ -74,7 +80,17 @@ public class BuilderTopPanel extends JPanel {
 
 		// Open level combo box
 		openComboBox = new JComboBox<String>();
-
+		//TODO add levels with the file opening system
+		dummyLevel1 = "Level1";
+		dummyLevel2 = "Level2";
+		dummyLevel3 = "Level3";
+		dummyLevel4 = "Level4";
+		
+		openComboBox.addItem(dummyLevel1);
+		openComboBox.addItem(dummyLevel2);
+		openComboBox.addItem(dummyLevel3);
+		openComboBox.addItem(dummyLevel4);
+		
 		// Layout for open level combo box
 		GridBagConstraints gbc_openComboBox = new GridBagConstraints();
 		gbc_openComboBox.insets = new Insets(0, 0, 0, 5);
