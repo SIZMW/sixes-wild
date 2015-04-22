@@ -29,9 +29,11 @@ import SixesWild.com.mimas.sixeswild.entities.UserProfile;
 public final class XMLParser {
 
 	/**
-	 * Takes in a file name and extracts the information from it to create a level.
+	 * Takes in a file name and extracts the information from it to create a
+	 * level.
 	 * 
-	 * @param fileName A String of the file name.
+	 * @param fileName
+	 *            A String of the file name.
 	 * @return A level with all the attributes taken from the xml file.
 	 */
 	public static Level fileToLevel(String fileName) {
@@ -169,15 +171,24 @@ public final class XMLParser {
 		return null;
 	}
 
+	/**
+	 * Writes a level to an output file.
+	 * 
+	 * @param level
+	 *            The level object to save to file.
+	 * @return true if successful; false otherwise.
+	 */
 	public static boolean levelToFile(Level level) {
 
 		return false;
 	}
 
 	/**
-	 * Takes in a file name and extracts the information from it to create a user profile.
+	 * Takes in a file name and extracts the information from it to create a
+	 * user profile.
 	 * 
-	 * @param fileName A String of the file name.
+	 * @param fileName
+	 *            A String of the file name.
 	 * @return A UserProfile with all the attributes taken from the xml file.
 	 */
 	public static UserProfile fileToUserProfile(String fileName) {
@@ -250,6 +261,13 @@ public final class XMLParser {
 		return null;
 	}
 
+	/**
+	 * Writes a user profile to an output file.
+	 * 
+	 * @param userProfile
+	 *            The user profile to save to file.
+	 * @return true if successful; false otherwise.
+	 */
 	public static boolean userProfileToFile(UserProfile userProfile) {
 
 		return false;
