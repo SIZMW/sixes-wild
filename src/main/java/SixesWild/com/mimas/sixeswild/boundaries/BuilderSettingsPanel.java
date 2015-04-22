@@ -15,6 +15,9 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
+import SixesWild.com.mimas.sixeswild.entities.LevelType;
+import SixesWild.com.mimas.sixeswild.entities.TileType;
+
 /**
  * This class represents the level settings panel in the level builder.
  * 
@@ -35,6 +38,10 @@ public class BuilderSettingsPanel extends JPanel {
 	JTextField movesTextField;
 	JTextField timerTextField;
 	JComboBox<String> levelTypeComboBox;
+	String puzzle;
+	String elimination;
+	String lightning;
+	String release;
 
 	JPanel frequencyPanel;
 	JLabel frequencyLabel;
@@ -87,6 +94,11 @@ public class BuilderSettingsPanel extends JPanel {
 	JLabel tileSettingsLabel;
 	JLabel tileTypeLabel;
 	JComboBox<String> tileTypeComboBox;
+	String numberTile;
+	String targetTile;
+	String nullTile;
+	String sixTile;
+	
 
 	/**
 	 * Constructor for the BuilderSettingsPanel class.
@@ -185,6 +197,14 @@ public class BuilderSettingsPanel extends JPanel {
 
 		// Level type combo box
 		levelTypeComboBox = new JComboBox<String>();
+		puzzle = LevelType.PUZZLE.toString();
+		elimination = LevelType.ELIMINATION.toString();
+		lightning = LevelType.LIGHTNING.toString();
+		release = LevelType.RELEASE.toString();
+		levelTypeComboBox.addItem(puzzle);
+		levelTypeComboBox.addItem(elimination);
+		levelTypeComboBox.addItem(lightning);
+		levelTypeComboBox.addItem(release);
 
 		// Layout for level type combo box
 		GridBagConstraints gbc_levelTypeComboBox = new GridBagConstraints();
@@ -924,6 +944,15 @@ public class BuilderSettingsPanel extends JPanel {
 
 		// Tile type combo box
 		tileTypeComboBox = new JComboBox<String>();
+		numberTile = TileType.NUMBER.toString();
+		targetTile = TileType.TARGET.toString();
+		nullTile = TileType.NULL.toString();
+		sixTile = TileType.SIX.toString();
+		tileTypeComboBox.addItem(numberTile);
+		tileTypeComboBox.addItem(targetTile);
+		tileTypeComboBox.addItem(nullTile);
+		tileTypeComboBox.addItem(sixTile);
+		
 
 		// Layout for tile type combo box
 		GridBagConstraints gbc_tileTypeComboBox = new GridBagConstraints();
