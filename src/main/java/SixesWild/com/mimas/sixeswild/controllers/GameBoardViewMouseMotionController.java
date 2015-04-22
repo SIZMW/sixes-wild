@@ -33,7 +33,7 @@ public class GameBoardViewMouseMotionController extends MouseAdapter {
 	 */
 	public void mouseDragged(MouseEvent me) {
 		app.getLevelPanel().getBoardViewPanel()
-				.updateSelection(me.getX(), me.getY());
+				.updateGameSelection(me.getX(), me.getY());
 		app.getLevelPanel().getBoardViewPanel().updateUI();
 	}
 }

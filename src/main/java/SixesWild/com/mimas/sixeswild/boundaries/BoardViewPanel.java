@@ -15,8 +15,12 @@ import javax.swing.border.Border;
 
 import SixesWild.com.mimas.sixeswild.entities.Aesthetic;
 import SixesWild.com.mimas.sixeswild.entities.Board;
+import SixesWild.com.mimas.sixeswild.entities.NullTile;
+import SixesWild.com.mimas.sixeswild.entities.NumberTile;
 import SixesWild.com.mimas.sixeswild.entities.Selection;
+import SixesWild.com.mimas.sixeswild.entities.SixTile;
 import SixesWild.com.mimas.sixeswild.entities.Square;
+import SixesWild.com.mimas.sixeswild.entities.TargetTile;
 import SixesWild.com.mimas.sixeswild.entities.TileType;
 
 /**
@@ -31,6 +35,11 @@ public class BoardViewPanel extends JPanel {
 
 	final int SIZE_X = 9;
 	final int SIZE_Y = 9;
+	
+	final String htmlFormat1 = "<html><font size=6>";
+	final String htmlFormat2 = "    </font><font size=2>";
+	final String htmlFormat3 = "</font></html>";
+	//&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
 	// Panel attributes
 	Aesthetic boardAesthetic;
@@ -159,9 +168,10 @@ public class BoardViewPanel extends JPanel {
 					squareViews[i][j].setText("  ");
 					break;
 				default:
-					squareViews[i][j].setText(this.gameBoard.getSquare(i, j)
+					squareViews[i][j].setText(htmlFormat1 + this.gameBoard.getSquare(i, j)
 							.getTile().getNumber()
-							+ "");
+							+ htmlFormat2 + "x" + this.gameBoard.getSquare(i, j)
+							.getTile().getMultiplier() + htmlFormat3);
 					break;
 				}
 
@@ -233,7 +243,7 @@ public class BoardViewPanel extends JPanel {
 	 * @param my
 	 *            Y coordinate of mouse.
 	 */
-	public void updateSelection(int mx, int my) {
+	public void updateGameSelection(int mx, int my) {
 		for (int i = 0; i < gameBoard.SIZE_X; i++) {
 			for (int j = 0; j < gameBoard.SIZE_Y; j++) {
 				// If the SquareView is selected in a valid manner, update the
@@ -248,14 +258,14 @@ public class BoardViewPanel extends JPanel {
 
 		// If the selection is not valid, clear the entire selection
 		if (!this.currentSelection.isValidSelection()) {
-			this.clearSelection();
+			this.clearGameSelection();
 		}
 	}
 
 	/**
 	 * Clears the current selection.
 	 */
-	public void clearSelection() {
+	public void clearGameSelection() {
 		for (int i = 0; i < gameBoard.SIZE_X; i++) {
 			for (int j = 0; j < gameBoard.SIZE_Y; j++) {
 
@@ -266,5 +276,35 @@ public class BoardViewPanel extends JPanel {
 
 		// Empty the current selection
 		this.currentSelection.clear();
+	}
+
+	public void updateBuilderSelection(int mx, int my, TileType type) {
+		for (int i = 0; i < gameBoard.SIZE_X; i++) {
+			for (int j = 0; j < gameBoard.SIZE_Y; j++) {
+				// If the SquareView is selected in a valid manner, update the
+				// corresponding Square and add the Square to the current
+				// selection.
+				if (this.validateMouseSelection(mx, my, squareViews[i][j])) {
+					switch (type) {
+					case NULL:
+						this.gameBoard.setSquare(new NullTile(), i, j, false);
+						break;
+					case NUMBER:
+						this.gameBoard.setSquare(new NumberTile(this.gameBoard.getRandomNumber(), 1), i, j, false);
+						break;
+					case TARGET:
+						this.gameBoard.setSquare(new TargetTile(), i, j, false);
+						break;
+					case SIX:
+						this.gameBoard.setSquare(new SixTile(), i, j, false);
+						break;
+					default:
+						this.gameBoard.setSquare(new NullTile(), i, j, false);
+						break;
+					}
+
+				}
+			}
+		}
 	}
 }

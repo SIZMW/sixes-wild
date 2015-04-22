@@ -53,19 +53,20 @@ public class Board {
 		this.tileFrequencies = tileFreq;
 		this.multiplierFrequencies = multFreq;
 		this.squares = new Square[SIZE_X][SIZE_Y];
-		
+
 		if (tiles == null) {
 			throw new Exception("Null tile list for board construction.");
 		}
-		
+
 		for (int i = 0; i < this.SIZE_X; i++) {
 			for (int j = 0; j < this.SIZE_Y; j++) {
 				if (tiles[i][j] == null) {
-					throw new Exception("Null tile in list for board construction.");
+					throw new Exception(
+							"Null tile in list for board construction.");
 				}
 			}
 		}
-		
+
 		for (int i = 0; i < this.SIZE_X; i++) {
 			for (int j = 0; j < this.SIZE_Y; j++) {
 				this.squares[i][j] = new Square(tiles[i][j], i, j, false);
@@ -134,11 +135,10 @@ public class Board {
 
 	/**
 	 * Generates a random number for a NumberTile for random board generation.
-	 * TODO Will be removed.
 	 * 
 	 * @return Random value from 1 to 6.
 	 */
-	protected int getRandomNumber() {
+	public int getRandomNumber() {
 		return 1 + (int) (Math.random() * 6);
 	}
 
@@ -149,7 +149,10 @@ public class Board {
 	 */
 	protected boolean initialize() {
 		// TileFrequencies and MultiplierFrequencies have not been initialized
-		if (this.tileFrequencies == null && this.multiplierFrequencies == null) {
+		// properly
+		if ((this.tileFrequencies == null && this.multiplierFrequencies == null)
+				|| (this.tileFrequencies.size() < 3 || this.multiplierFrequencies
+						.size() < 3)) {
 			this.tileFrequencies = new ArrayList<Double>(Arrays.asList(.1, .2,
 					.3, .3, .05, .05));
 			this.multiplierFrequencies = new ArrayList<Double>(Arrays.asList(
@@ -233,6 +236,24 @@ public class Board {
 	 */
 	public Square getSquare(int x, int y) {
 		return squares[x][y];
+	}
+
+	/**
+	 * Returns the tile frequencies for the board.
+	 * 
+	 * @return ArrayList<Double> of frequencies
+	 */
+	public ArrayList<Double> getTileFrequencies() {
+		return this.tileFrequencies;
+	}
+
+	/**
+	 * Returns the multiplier frequencies for the board.
+	 * 
+	 * @return ArrayList<Double> of frequencies
+	 */
+	public ArrayList<Double> getMultiplierFrequencies() {
+		return this.multiplierFrequencies;
 	}
 
 	/**
