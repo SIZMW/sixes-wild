@@ -1,52 +1,77 @@
 package SixesWild.com.mimas.sixeswild.entities;
+
 /**
+ * Badge contains the information about each badge, such as its name,
+ * description, unlock status and requirements for unlocking.
  * 
  * @author Marco Duran
- * This class will display all of the information for the badges
- *
  */
 public class Badge {
 	String name;
 	String description;
 	boolean isUnlocked;
-	
-	public Badge(String name, String description, boolean isUnlocked){
+
+	/**
+	 * Creates a Badge instance with the specified name, description and
+	 * unlocked status.
+	 * 
+	 * @param name
+	 *            The name of the badge.
+	 * @param description
+	 *            The description of the badge.
+	 * @param isUnlocked
+	 *            The locked status of the badge.
+	 */
+	public Badge(String name, String description, boolean isUnlocked) {
 		this.name = name;
 		this.description = description;
 		this.isUnlocked = isUnlocked;
 	}
-	/** Makes the badge unlocked */
-	public void unlock(){
+
+	/**
+	 * Unlocks the badge.
+	 */
+	public void unlock() {
 		this.isUnlocked = true;
 	}
-	
-	/** Makes the badge locked */
-	public void lock(){
+
+	/**
+	 * Locks the badge.
+	 */
+	public void lock() {
 		this.isUnlocked = false;
 	}
-	
-	/**Receives the description of the badge */
-	public String getDescription(){
+
+	/**
+	 * Returns the description of the badge.
+	 * 
+	 * @return String for description
+	 */
+	public String getDescription() {
 		return this.description;
 	}
-	
-	/**Receives the name of the badge */
-	public String getName(){
+
+	/**
+	 * Returns the name of the badge.
+	 * 
+	 * @return String for name
+	 */
+	public String getName() {
 		return this.name;
 	}
-	
-	/**Gives a check to see if the badge is able to be unlocked */
-	//TODO criteria for unlock is needed
-	public boolean unlockNow(){
+
+	/**
+	 * Determines if this badge can be unlocked.
+	 * 
+	 * @return true if can be unlocked; false otherwise.
+	 */
+	public boolean unlockNow() {
 		boolean unlocked = false;
-		if(this.isUnlocked == true){
+		if (this.isUnlocked == true) {
 			unlocked = true;
 			return unlocked;
-		}
-		else{
+		} else {
 			return unlocked;
 		}
 	}
-	
-	
 }
