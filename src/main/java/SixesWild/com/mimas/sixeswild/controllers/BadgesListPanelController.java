@@ -11,7 +11,6 @@ import SixesWild.com.mimas.sixeswild.boundaries.GameApplication;
  * list menu.
  * 
  * @author Marco Duran
- *
  */
 public class BadgesListPanelController implements ActionListener {
 	GameApplication app;
@@ -27,17 +26,17 @@ public class BadgesListPanelController implements ActionListener {
 	public BadgesListPanelController(GameApplication app) {
 		this.app = app;
 		badgeList = new ArrayList<String>();
-
 	}
 
-	// The action of viewing the badges
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
+	 */
 	public void actionPerformed(ActionEvent e) {
-		// if a badge is clicked, preview it
-		// JPanel currentPanel = app.getBadgePanel();
 		for (int i = 0; i < 50; i++) {
 			// TODO insert images of badges with descriptions
 		}
-
 	}
-
 }
