@@ -290,7 +290,7 @@ public class BoardViewPanel extends JPanel {
 						this.gameBoard.setSquare(new NullTile(), i, j, false);
 						break;
 					case NUMBER:
-						this.gameBoard.setSquare(new NumberTile(this.gameBoard.getRandomNumber(), 1), i, j, false);
+						this.gameBoard.setSquare(new NumberTile(this.gameBoard.getRandomNumber(), this.gameBoard.getRandomMultiplier()), i, j, false);
 						break;
 					case TARGET:
 						this.gameBoard.setSquare(new TargetTile(), i, j, false);

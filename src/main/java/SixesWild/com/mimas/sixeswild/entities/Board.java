@@ -143,6 +143,15 @@ public class Board {
 	}
 
 	/**
+	 * Generates a random number for a multiplier for random board generation.
+	 * 
+	 * @return Random value from 1 to 3.
+	 */
+	public int getRandomMultiplier() {
+		return 1 + (int) (Math.random() * 3);
+	}
+
+	/**
 	 * Initializes the board for the game.
 	 * 
 	 * @return true if successfully initialized; false otherwise.
