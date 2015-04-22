@@ -63,6 +63,7 @@ public class NewLevelButtonController implements ActionListener {
 		// Add panel to view
 		this.app.getBuilderView().updateBoardViewPanel(
 				new BoardViewPanel(new Board(), app.getAesthetic()));
+		this.app.getBuilderView().getBoardViewPanel().addMouseListener(new BuilderBoardViewMouseController(this.app));
 		this.app.getBuilderView().revalidate();
 		this.app.getBuilderView().repaint();
 
