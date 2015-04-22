@@ -30,7 +30,11 @@ public class GameApplication {
 	JFrame frame;
 	GameMenuView gameMenuView;
 	LevelView levelView;
-	Aesthetic aesthetic;
+	Aesthetic aesthetic1;
+	Aesthetic aesthetic2;
+	Aesthetic aesthetic3;
+	
+	
 
 	// TODO
 	// BadgesPanel badgePanel;
@@ -78,17 +82,31 @@ public class GameApplication {
 			badgesList.add("Badge " + i);
 		}
 
-		aesthetic = new Aesthetic("ROYGBIV", Color.white, Color.RED, new Color(
+		aesthetic1 = new Aesthetic("ROYGBIV", Color.white, Color.RED, new Color(
 				0xFF7F00), Color.YELLOW, Color.GREEN, Color.CYAN,
 				Color.MAGENTA, new Color(0x7D26CD), Color.lightGray);
+		
+		aesthetic2 = new Aesthetic("CoolColor", Color.white, Color.BLUE, new Color(
+				0x0099CC), new Color(0x99CCFF), Color.GREEN, Color.CYAN,
+				new Color(0x9966FF), new Color(0x33CCFF), Color.lightGray);
+		
+		aesthetic3 = new Aesthetic("SuperRed", Color.white, Color.RED, new Color(
+				0xFF7F00), new Color(0xCC0000), new Color(0x990000), new Color(0xCC3300),
+				new Color(0xCC6600), new Color(0x800000), Color.lightGray);
+		
+		ArrayList<Aesthetic> listOfAesthetics = new ArrayList<Aesthetic>();
+		listOfAesthetics.add(aesthetic1);
+		listOfAesthetics.add(aesthetic2);
+		listOfAesthetics.add(aesthetic3);
+
 
 		// TODO Get from user profile.
 		int highestLevelUnlocked = 10;
 
 		// Initialize panels and views.
 		gameMenuView = new GameMenuView(storyLevelList, userLevelList,
-				badgesList, highestLevelUnlocked);
-		levelView = new LevelView(this.aesthetic);
+				badgesList,listOfAesthetics, highestLevelUnlocked);
+		levelView = new LevelView(this.aesthetic1);
 
 		// Initialize frame
 		frame = new JFrame();
@@ -168,6 +186,6 @@ public class GameApplication {
 	 * @return Aesthetic for game application
 	 */
 	public Aesthetic getAesthetic() {
-		return this.aesthetic;
+		return this.aesthetic1;
 	}
 }

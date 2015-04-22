@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
+import java.util.ArrayList;
 
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
@@ -12,6 +13,8 @@ import javax.swing.JPanel;
 import javax.swing.JSeparator;
 import javax.swing.JTextField;
 import javax.swing.JTextPane;
+
+import SixesWild.com.mimas.sixeswild.entities.Aesthetic;
 
 /**
  * This class represents the options sub menu in the game.
@@ -31,13 +34,14 @@ public class OptionsPanel extends JPanel {
 	JTextField userNameTextField;
 	JTextPane rulesTextPane;
 	JSeparator rulesSeparator;
+	
 
 	private String rulesText = "Rule 01: Don't talk about the fight club.";
 
 	/**
 	 * Creates an OptionsPanel instance.
 	 */
-	public OptionsPanel() {
+	public OptionsPanel(ArrayList<Aesthetic> aestheticList) {
 
 		// Layout for panel
 		GridBagLayout gridBagLayout = new GridBagLayout();
@@ -102,6 +106,14 @@ public class OptionsPanel extends JPanel {
 
 		// Aesthetic drop down menu
 		aestheticDropDownMenu = new JComboBox<String>();
+		String aesthetic1 = aestheticList.get(0).getName();
+		String aesthetic2 = aestheticList.get(1).getName();
+		String aesthetic3 = aestheticList.get(2).getName();
+		//Finish adding this 
+		aestheticDropDownMenu.addItem(aesthetic1);
+		aestheticDropDownMenu.addItem(aesthetic2);
+		aestheticDropDownMenu.addItem(aesthetic3);
+		
 
 		// Layout for aesthetic drop down menu
 		GridBagConstraints gbc_comboBox = new GridBagConstraints();

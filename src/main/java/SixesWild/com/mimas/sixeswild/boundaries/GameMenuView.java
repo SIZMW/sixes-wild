@@ -8,6 +8,8 @@ import java.util.ArrayList;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
+import SixesWild.com.mimas.sixeswild.entities.Aesthetic;
+
 /**
  * This class represents the main view for the menus in the game.
  * 
@@ -40,12 +42,14 @@ public class GameMenuView extends JPanel {
 	 *            The list of user levels.
 	 * @param badgesList
 	 *            The list of badges.
+	 * @param aestheticList
+	 * 			  The list of aesthetics that were created.
 	 * @param highestLevelUnlocked
 	 *            The highest number level that is unlocked to play.
 	 */
 	public GameMenuView(ArrayList<String> storyLevelList,
 			ArrayList<String> userLevelList, ArrayList<String> badgesList,
-			int highestLevelUnlocked) {
+			ArrayList<Aesthetic> aestheticList, int highestLevelUnlocked) {
 
 		// General Layout Settings
 		GridBagLayout gridBagLayout = new GridBagLayout();
@@ -72,7 +76,7 @@ public class GameMenuView extends JPanel {
 		userMenuView = new LevelSelectionPanel(userLevelList,
 				highestLevelUnlocked);
 		badgeMenuView = new BadgesPanel(badgesList);
-		optionsMenuView = new OptionsPanel();
+		optionsMenuView = new OptionsPanel(aestheticList);
 		creditsMenuView = new CreditsPanel();
 
 		// Story menu button
