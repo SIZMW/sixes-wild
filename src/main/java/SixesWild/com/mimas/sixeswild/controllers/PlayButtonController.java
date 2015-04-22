@@ -60,7 +60,7 @@ public class PlayButtonController implements ActionListener {
 		gbc_list.gridy = 0;
 
 		// Create new view
-		LevelView newLevel = new LevelView();
+		LevelView newLevel = new LevelView(app.getAesthetic());
 		this.app.setLevelPanel(newLevel);
 		this.setUpControllers();
 
