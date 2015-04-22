@@ -1,6 +1,7 @@
 package SixesWild.com.mimas.sixeswild.boundaries;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Dimension;
 import java.util.ArrayList;
 
@@ -16,6 +17,7 @@ import SixesWild.com.mimas.sixeswild.controllers.OptionsMenuButtonController;
 import SixesWild.com.mimas.sixeswild.controllers.PlayButtonController;
 import SixesWild.com.mimas.sixeswild.controllers.StoryMenuButtonController;
 import SixesWild.com.mimas.sixeswild.controllers.UserLevelMenuButtonController;
+import SixesWild.com.mimas.sixeswild.entities.Aesthetic;
 
 /**
  * This class represents the Game application that will run and handle the
@@ -28,6 +30,7 @@ public class GameApplication {
 	JFrame frame;
 	GameMenuView gameMenuView;
 	LevelView levelView;
+	Aesthetic aesthetic;
 
 	// TODO
 	// BadgesPanel badgePanel;
@@ -74,14 +77,17 @@ public class GameApplication {
 		for (int i = 1; i <= 20; i++) {
 			badgesList.add("Badge " + i);
 		}
+		
+		aesthetic = new Aesthetic("ROYGBIV", Color.white, Color.RED, new Color(0xFF7F00), Color.YELLOW, Color.GREEN, Color.CYAN, Color.MAGENTA, new Color(0x7D26CD), Color.lightGray);
 
 		// TODO Get from user profile.
 		int highestLevelUnlocked = 10;
+		
 
 		// Initialize panels and views.
 		gameMenuView = new GameMenuView(storyLevelList, userLevelList,
 				badgesList, highestLevelUnlocked);
-		levelView = new LevelView();
+		levelView = new LevelView(this.aesthetic);
 
 		// Initialize frame
 		frame = new JFrame();
@@ -153,5 +159,9 @@ public class GameApplication {
 	 */
 	public void setLevelPanel(LevelView newLevel) {
 		this.levelView = newLevel;
+	}
+	
+	public Aesthetic getAesthetic() {
+		return this.aesthetic;
 	}
 }

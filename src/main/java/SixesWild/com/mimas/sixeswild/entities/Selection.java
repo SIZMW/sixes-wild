@@ -12,11 +12,20 @@ public class Selection {
 	}
 
 	public boolean add(Square square) {
+		if (square == null) {
+			return false;
+		}
+		
 		return squareSet.add(square);
 	}
 
 	public boolean remove(Square square) {
 		return squareSet.remove(square);
+	}
+	
+	public boolean clear() {
+		squareSet.clear();
+		return true;
 	}
 
 	/**
@@ -43,27 +52,22 @@ public class Selection {
 	 * @return true if selection is valid; false otherwise.
 	 */
 	public boolean isValidSelection() {
-		// Verify selection exists
-		if (squareSet.equals(null)) {
-			return false;
+		
+		if (this.squareSet.size() <= 1) {
+			return true;
 		}
-
-		// Verify squares exist
-		for (Square e : squareSet) {
-			if (e.equals(null)) {
-				return false;
-			}
-		}
+		
+		Object squareArray[] = this.squareSet.toArray();
 
 		// Check if each square is next to at least one other square in the
 		// selection. This allows for the "T" move.
 		boolean nextTo = false;
 
-		for (Square e : squareSet) {
-			for (Square f : squareSet) {
+		for (int i = 0; i < squareArray.length; i++) {
+			for (int j = 0; j < squareArray.length; j++) {
 
 				// Don't check square against itself
-				if (!e.equals(f) && this.isSquareNextTo(e, f)) {
+				if (i != j && this.isSquareNextTo((Square)squareArray[i], (Square)squareArray[j])) {
 					nextTo = true;
 				}
 			}

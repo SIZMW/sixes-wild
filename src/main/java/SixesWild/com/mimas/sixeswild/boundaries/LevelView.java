@@ -9,6 +9,7 @@ import java.awt.Insets;
 import javax.swing.BorderFactory;
 import javax.swing.JPanel;
 
+import SixesWild.com.mimas.sixeswild.entities.Aesthetic;
 import SixesWild.com.mimas.sixeswild.entities.Board;
 
 /**
@@ -23,11 +24,15 @@ public class LevelView extends JPanel {
 	LevelTopPanel levelTopPanel;
 	LevelStatsPanel levelStatsPanel;
 	BoardViewPanel boardViewPanel;
+	Aesthetic levelViewAesthetic;
 
 	/**
 	 * Constructor for level view
 	 */
-	public LevelView() {
+	public LevelView(Aesthetic aesthetic) {
+		
+		// Attributes
+		this.levelViewAesthetic = aesthetic;
 
 		// Layout for view
 		GridBagLayout gridBagLayout = new GridBagLayout();
@@ -81,7 +86,7 @@ public class LevelView extends JPanel {
 		add(levelStatsPanel, gbc_leftMenuPanel);
 
 		// Board view panel
-		boardViewPanel = new BoardViewPanel(new Board());
+		boardViewPanel = new BoardViewPanel(new Board(), this.levelViewAesthetic);
 		boardViewPanel.setBorder(BorderFactory.createLineBorder(Color.black));
 
 		// Layout for board view panel

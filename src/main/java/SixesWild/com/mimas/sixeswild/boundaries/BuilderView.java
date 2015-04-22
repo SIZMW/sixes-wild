@@ -10,6 +10,7 @@ import javax.swing.BorderFactory;
 import javax.swing.JPanel;
 import javax.swing.border.Border;
 
+import SixesWild.com.mimas.sixeswild.entities.Aesthetic;
 import SixesWild.com.mimas.sixeswild.entities.Board;
 
 /**
@@ -25,13 +26,17 @@ public class BuilderView extends JPanel {
 	BuilderSettingsPanel builderSettingsPanel;
 	BoardViewPanel boardViewPanel;
 	Border boardViewPanelBorder;
+	Aesthetic builderViewAesthetic;
 
 	private GridBagConstraints gbc_boardView;
 
 	/**
 	 * Constructor for BuilderView class.
 	 */
-	public BuilderView() {
+	public BuilderView(Aesthetic aesthetic) {
+		
+		// Attributes
+		this.builderViewAesthetic = aesthetic;
 
 		// Layout for view
 		GridBagLayout gridBagLayout = new GridBagLayout();
@@ -72,7 +77,7 @@ public class BuilderView extends JPanel {
 
 		// Board view panel
 		boardViewPanelBorder = BorderFactory.createLineBorder(Color.black);
-		boardViewPanel = new BoardViewPanel(new Board());
+		boardViewPanel = new BoardViewPanel(new Board(), this.builderViewAesthetic);
 		boardViewPanel.setBorder(boardViewPanelBorder);
 
 		// Layout for board view panel

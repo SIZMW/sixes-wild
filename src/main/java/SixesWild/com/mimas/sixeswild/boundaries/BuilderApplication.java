@@ -1,6 +1,7 @@
 package SixesWild.com.mimas.sixeswild.boundaries;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Dimension;
 
 import javax.swing.JFrame;
@@ -18,6 +19,7 @@ import SixesWild.com.mimas.sixeswild.controllers.SpecialMoveThreeDecreaseButtonC
 import SixesWild.com.mimas.sixeswild.controllers.SpecialMoveThreeIncreaseButtonController;
 import SixesWild.com.mimas.sixeswild.controllers.SpecialMoveTwoDecreaseButtonController;
 import SixesWild.com.mimas.sixeswild.controllers.SpecialMoveTwoIncreaseButtonController;
+import SixesWild.com.mimas.sixeswild.entities.Aesthetic;
 
 /**
  * This class represents the Builder application that will run and handle the
@@ -29,6 +31,7 @@ public class BuilderApplication {
 
 	JFrame frame;
 	BuilderView builderView;
+	Aesthetic aesthetic;
 
 	/**
 	 * Constructor for BuilderApplication class.
@@ -46,8 +49,10 @@ public class BuilderApplication {
 		} catch (Exception e) {
 		}
 
+		aesthetic = new Aesthetic("ROYGBIV", Color.white, Color.RED, new Color(0xFF7F00), Color.YELLOW, Color.GREEN, Color.CYAN, Color.MAGENTA, new Color(0x7D26CD), Color.lightGray);
+		
 		// Initialize panels and views
-		builderView = new BuilderView();
+		builderView = new BuilderView(this.aesthetic);
 
 		// Initialize frame
 		frame = new JFrame();
@@ -116,5 +121,9 @@ public class BuilderApplication {
 	 */
 	public BuilderView getBuilderView() {
 		return this.builderView;
+	}
+	
+	public Aesthetic getAesthetic() {
+		return this.aesthetic;
 	}
 }
