@@ -56,6 +56,10 @@ public class Selection {
 		return true;
 	}
 
+	public Object[] getArray() {
+		return squareSet.toArray();
+	}
+
 	/**
 	 * Returns whether two squares are next to each other. Checks if squares are
 	 * vertically or horizontally adjacent, but not diagonally next to each
@@ -75,7 +79,8 @@ public class Selection {
 	}
 
 	/**
-	 * Returns whether the given selection is valid or not.
+	 * Returns whether the given selection is valid or not, based on squares
+	 * being next to one another and sum of the tiles in the squares.
 	 * 
 	 * @return true if selection is valid; false otherwise.
 	 */
@@ -83,7 +88,7 @@ public class Selection {
 
 		// If selection has only one tile, allow more to be selected
 		if (this.squareSet.size() <= 1) {
-			return true;
+			return false;
 		}
 
 		Object squareArray[] = this.squareSet.toArray();
@@ -112,6 +117,43 @@ public class Selection {
 			nextTo = false;
 		}
 
+		return this.isValidSumSelection();
+	}
+
+	/**
+	 * Returns whether the sum of the tiles in the squares in the current
+	 * selection is equal to 6 or not.
+	 * 
+	 * @return true if sum equals 6; false otherwise.
+	 */
+	public boolean isValidSumSelection() {
+		// Check sum of selection of squares
+		int sum = 0;
+		for (Square e : squareSet) {
+
+			// Check for invalid types in selection
+			if (!e.getTile().getType().equals(TileType.NUMBER)) {
+				return false;
+			}
+			sum += e.getTile().getNumber();
+		}
+
+		// Invalid sum
+		if (sum != 6) {
+			return false;
+		} else {
+			return true;
+		}
+	}
+
+	/**
+	 * Returns whether the current selection is valid in regards to the sum
+	 * still being smaller than 6. Determines if the current move should still
+	 * be allowed to continue.
+	 * 
+	 * @return true if sum is less than 6; false otherwise.
+	 */
+	public boolean isSelectionSumStillValid() {
 		// Check sum of selection of squares
 		int sum = 0;
 		for (Square e : squareSet) {
@@ -126,8 +168,8 @@ public class Selection {
 		// Invalid sum
 		if (sum > 6) {
 			return false;
+		} else {
+			return true;
 		}
-
-		return true;
 	}
 }

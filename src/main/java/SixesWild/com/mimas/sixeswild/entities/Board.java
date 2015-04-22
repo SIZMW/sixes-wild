@@ -315,6 +315,14 @@ public class Board {
 	 * @return true if successfully filled Board; false otherwise.
 	 */
 	public boolean fillEmptySquares() {
+		for (int i = 0; i < this.SIZE_X; i++) {
+			for (int j = 0; j < this.SIZE_Y; j++) {
+				if (squares[i][j].getTile() == null) {
+					squares[i][j].addTile(new NullTile());
+				}
+			}
+		}
+
 		return true;
 	}
 
@@ -326,7 +334,9 @@ public class Board {
 	 * @return true if successfully removed selection from Board; false
 	 *         otherwise.
 	 */
-	public boolean removeSelection(ArrayList<Square> selection) {
+	public boolean removeSelection(Selection selection) {
+
+		Object[] squareArray = selection.getArray();
 
 		// Verify selection exists
 		if (selection.equals(null)) {
@@ -334,16 +344,17 @@ public class Board {
 		}
 
 		// Verify squares exist
-		for (Square e : selection) {
-			if (e.equals(null)) {
+		for (int i = 0; i < squareArray.length; i++) {
+			if (((Square) squareArray[i]).equals(null)) {
 				return false;
 			}
 		}
 
 		// Remove square
 		// TODO Need to revise this
-		for (Square e : selection) {
-			squares[e.getX()][e.getY()] = null;
+		for (int i = 0; i < squareArray.length; i++) {
+			squares[((Square) squareArray[i]).getX()][((Square) squareArray[i])
+					.getY()].removeTile();
 		}
 		return true;
 	}
