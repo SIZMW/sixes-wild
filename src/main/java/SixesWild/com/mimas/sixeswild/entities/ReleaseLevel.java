@@ -30,10 +30,11 @@ public class ReleaseLevel extends Level {
 	 *            The point threshold values for the level.
 	 * @param moveCount
 	 *            The number of moves for the level.
+	 * @throws Exception 
 	 */
 	public ReleaseLevel(ArrayList<Double> tileFreq, ArrayList<Double> multFreq,
 			LevelType type, String name, Tile tiles[][],
-			PointThresholds pointThresholds, int moveCount) {
+			PointThresholds pointThresholds, int moveCount) throws Exception {
 		super();
 		this.type = type;
 		this.name = name;
@@ -44,7 +45,7 @@ public class ReleaseLevel extends Level {
 		try {
 			this.board = new Board(tiles, tileFreq, multFreq);
 		} catch (Exception e) {
-
+			throw e;
 		}
 	}
 }
