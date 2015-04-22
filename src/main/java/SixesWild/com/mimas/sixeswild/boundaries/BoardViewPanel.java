@@ -21,7 +21,6 @@ import SixesWild.com.mimas.sixeswild.entities.Selection;
 import SixesWild.com.mimas.sixeswild.entities.SixTile;
 import SixesWild.com.mimas.sixeswild.entities.Square;
 import SixesWild.com.mimas.sixeswild.entities.TargetTile;
-import SixesWild.com.mimas.sixeswild.entities.Tile;
 import SixesWild.com.mimas.sixeswild.entities.TileType;
 
 /**
@@ -75,7 +74,6 @@ public class BoardViewPanel extends JPanel {
 				Color.YELLOW, 2);
 		this.squareViews = new JLabel[this.SIZE_X][this.SIZE_Y];
 		this.boardViewborder = BorderFactory.createLineBorder(Color.BLACK, 2);
-		this.gameBoard.randomInitialize();
 
 		this.setBackground(this.boardAesthetic.getBackgroundColor());
 		this.setVisible(true);

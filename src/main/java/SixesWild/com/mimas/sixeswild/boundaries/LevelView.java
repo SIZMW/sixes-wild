@@ -5,12 +5,16 @@ import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 import javax.swing.BorderFactory;
 import javax.swing.JPanel;
 
 import SixesWild.com.mimas.sixeswild.entities.Aesthetic;
 import SixesWild.com.mimas.sixeswild.entities.Board;
+import SixesWild.com.mimas.sixeswild.entities.NumberTile;
+import SixesWild.com.mimas.sixeswild.entities.Tile;
 
 /**
  * This class represents the overall view for the level playing view.
@@ -88,18 +92,37 @@ public class LevelView extends JPanel {
 		gbc_leftMenuPanel.gridy = 1;
 		add(levelStatsPanel, gbc_leftMenuPanel);
 
-		// Board view panel
-		boardViewPanel = new BoardViewPanel(new Board(),
-				this.levelViewAesthetic);
-		boardViewPanel.setBorder(BorderFactory.createLineBorder(Color.black));
+		// Temporary generation for frequency based board.
+		ArrayList<Double> tileFrequencies = new ArrayList<Double>(
+				Arrays.asList(.1, .2, .3, .3, .05, .05));
+		ArrayList<Double> multiplierFrequencies = new ArrayList<Double>(
+				Arrays.asList(.5, .25, .25));
+		Tile tiles[][] = new Tile[9][9];
 
-		// Layout for board view panel
-		GridBagConstraints gbc_boardView = new GridBagConstraints();
-		gbc_boardView.insets = new Insets(0, 0, 0, 0);
-		gbc_boardView.fill = GridBagConstraints.BOTH;
-		gbc_boardView.gridx = 2;
-		gbc_boardView.gridy = 1;
-		add(boardViewPanel, gbc_boardView);
+		for (int i = 0; i < 9; i++) {
+			for (int j = 0; j < 9; j++) {
+				tiles[i][j] = new NumberTile(3, 2);
+			}
+		}
+
+		try {
+			Board board = new Board(tiles, tileFrequencies,
+					multiplierFrequencies);
+			// Board view panel
+			boardViewPanel = new BoardViewPanel(board, this.levelViewAesthetic);
+			boardViewPanel.setBorder(BorderFactory
+					.createLineBorder(Color.black));
+
+			// Layout for board view panel
+			GridBagConstraints gbc_boardView = new GridBagConstraints();
+			gbc_boardView.insets = new Insets(0, 0, 0, 0);
+			gbc_boardView.fill = GridBagConstraints.BOTH;
+			gbc_boardView.gridx = 2;
+			gbc_boardView.gridy = 1;
+			add(boardViewPanel, gbc_boardView);
+		} catch (Exception e) {
+			System.out.println("Null error on board creation.");
+		}
 
 	}
 

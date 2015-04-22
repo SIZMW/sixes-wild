@@ -77,25 +77,31 @@ public class Board {
 	}
 
 	/**
-	 * Generates a random number for NumberTile for random board generation.
+	 * Returns a random number for NumberTile for random board generation.
+	 * Generates a random value from 0 up to 100 and determines the number based
+	 * on the value's location in the generated ranges. The ranges are
+	 * determined by the frequencies of the tiles.
 	 * 
 	 * @return Random value from 1 to 6.
 	 */
 	protected int getNumber() {
-		if (new Random().nextInt(this
-				.getFrequencyProbability(this.tileFrequencies.get(0))) == 0) {
+		int value = new Random().nextInt(100);
+
+		int rangeOne = (int) (this.tileFrequencies.get(0) * 100);
+		int rangeTwo = rangeOne + (int) (this.tileFrequencies.get(1) * 100);
+		int rangeThree = rangeTwo + (int) (this.tileFrequencies.get(2) * 100);
+		int rangeFour = rangeThree + (int) (this.tileFrequencies.get(3) * 100);
+		int rangeFive = rangeFour + (int) (this.tileFrequencies.get(4) * 100);
+
+		if (value < rangeOne) {
 			return 1;
-		} else if (new Random().nextInt(this
-				.getFrequencyProbability(this.tileFrequencies.get(1))) == 0) {
+		} else if (value < rangeTwo) {
 			return 2;
-		} else if (new Random().nextInt(this
-				.getFrequencyProbability(this.tileFrequencies.get(2))) == 0) {
+		} else if (value < rangeThree) {
 			return 3;
-		} else if (new Random().nextInt(this
-				.getFrequencyProbability(this.tileFrequencies.get(3))) == 0) {
+		} else if (value < rangeFour) {
 			return 4;
-		} else if (new Random().nextInt(this
-				.getFrequencyProbability(this.tileFrequencies.get(4))) == 0) {
+		} else if (value < rangeFive) {
 			return 5;
 		} else {
 			return 6;
@@ -104,33 +110,25 @@ public class Board {
 
 	/**
 	 * Returns a multiplier value based on the frequencies of the board.
+	 * Generates a random value from 0 up to 100 and determines the number based
+	 * on the value's location in the generated ranges. The ranges are
+	 * determined by the frequencies of the multipliers.
 	 * 
 	 * @return Multiplier value from 1 to 3.
 	 */
 	protected int getMultiplier() {
-		if (new Random().nextInt(this
-				.getFrequencyProbability(this.multiplierFrequencies.get(0))) == 0) {
+		int value = new Random().nextInt(100);
+
+		int rangeOne = (int) (this.tileFrequencies.get(0) * 100);
+		int rangeTwo = rangeOne + (int) (this.tileFrequencies.get(1) * 100);
+
+		if (value < rangeOne) {
 			return 1;
-		} else if (new Random().nextInt(this
-				.getFrequencyProbability(this.multiplierFrequencies.get(1))) == 0) {
+		} else if (value < rangeTwo) {
 			return 2;
 		} else {
 			return 3;
 		}
-	}
-
-	/**
-	 * Returns an integer representation of the frequency. This integer
-	 * represents the maximum of the range from 1 to this value to generate a
-	 * random integer from that simulates the percentage of getting a value in
-	 * the range.
-	 * 
-	 * @param freq
-	 *            The percentage representation of the frequency.
-	 * @return Integer to represent upper bound on frequency probability.
-	 */
-	protected int getFrequencyProbability(double freq) {
-		return (100 / (int) (this.tileFrequencies.get(0) * 100));
 	}
 
 	/**
@@ -186,6 +184,16 @@ public class Board {
 						squares[i][j] = new Square(new NumberTile(
 								this.getNumber(), this.getMultiplier()), i, j,
 								false);
+					} else if (squares[i][j].getTile().getType()
+							.equals(TileType.NULL)) {
+						squares[i][j] = new Square(new NullTile(), i, j, false);
+					} else if (squares[i][j].getTile().getType()
+							.equals(TileType.TARGET)) {
+						squares[i][j] = new Square(new TargetTile(), i, j,
+								false);
+					} else if (squares[i][j].getTile().getType()
+							.equals(TileType.SIX)) {
+						squares[i][j] = new Square(new SixTile(), i, j, false);
 					}
 				}
 			}
