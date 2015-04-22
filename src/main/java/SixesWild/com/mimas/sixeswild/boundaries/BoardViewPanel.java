@@ -35,11 +35,11 @@ public class BoardViewPanel extends JPanel {
 
 	final int SIZE_X = 9;
 	final int SIZE_Y = 9;
-	
+
 	final String htmlFormat1 = "<html><font size=6>";
 	final String htmlFormat2 = "    </font><font size=2>";
 	final String htmlFormat3 = "</font></html>";
-	//&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	// &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
 	// Panel attributes
 	Aesthetic boardAesthetic;
@@ -165,25 +165,34 @@ public class BoardViewPanel extends JPanel {
 				// Determine text
 				switch (this.gameBoard.getSquare(i, j).getTile().getType()) {
 				case NULL:
-					squareViews[i][j].setText(htmlFormat1 + this.gameBoard.getSquare(i, j)
-							.getTile().getNumber()
-							+ htmlFormat2 + "x" + this.gameBoard.getSquare(i, j)
-							.getTile().getMultiplier() + htmlFormat3);
-					squareViews[i][j].setForeground(squareViews[i][j].getBackground());
+					squareViews[i][j].setText(htmlFormat1
+							+ this.gameBoard.getSquare(i, j).getTile()
+									.getNumber()
+							+ htmlFormat2
+							+ "x"
+							+ this.gameBoard.getSquare(i, j).getTile()
+									.getMultiplier() + htmlFormat3);
+					squareViews[i][j].setForeground(squareViews[i][j]
+							.getBackground());
 					break;
 				case TARGET:
 					squareViews[i][j].setText(htmlFormat1 + "&nbsp;" + "X"
 							+ htmlFormat2 + htmlFormat3);
 					break;
 				case SIX:
-					squareViews[i][j].setText(htmlFormat1 + this.gameBoard.getSquare(i, j)
-							.getTile().getNumber() + htmlFormat2 + "T" + htmlFormat3);
+					squareViews[i][j].setText(htmlFormat1
+							+ this.gameBoard.getSquare(i, j).getTile()
+									.getNumber() + htmlFormat2 + "T"
+							+ htmlFormat3);
 					break;
 				default:
-					squareViews[i][j].setText(htmlFormat1 + this.gameBoard.getSquare(i, j)
-							.getTile().getNumber()
-							+ htmlFormat2 + "x" + this.gameBoard.getSquare(i, j)
-							.getTile().getMultiplier() + htmlFormat3);
+					squareViews[i][j].setText(htmlFormat1
+							+ this.gameBoard.getSquare(i, j).getTile()
+									.getNumber()
+							+ htmlFormat2
+							+ "x"
+							+ this.gameBoard.getSquare(i, j).getTile()
+									.getMultiplier() + htmlFormat3);
 					break;
 				}
 
@@ -256,7 +265,7 @@ public class BoardViewPanel extends JPanel {
 	 *            Y coordinate of mouse.
 	 */
 	public void updateGameSelection(int mx, int my) {
-		for (int i = 0; i < gameBoard.SIZE_X; i++) {
+		outerloop: for (int i = 0; i < gameBoard.SIZE_X; i++) {
 			for (int j = 0; j < gameBoard.SIZE_Y; j++) {
 				// If the SquareView is selected in a valid manner, update the
 				// corresponding Square and add the Square to the current
@@ -264,13 +273,9 @@ public class BoardViewPanel extends JPanel {
 				if (this.validateMouseSelection(mx, my, squareViews[i][j])) {
 					this.gameBoard.getSquare(i, j).setSelected(true);
 					this.currentSelection.add(gameBoard.getSquare(i, j));
+					break outerloop;
 				}
 			}
-		}
-
-		// If the selection is not valid, clear the entire selection
-		if (!this.currentSelection.isValidSelection()) {
-			this.clearGameSelection();
 		}
 	}
 
@@ -290,19 +295,33 @@ public class BoardViewPanel extends JPanel {
 		this.currentSelection.clear();
 	}
 
+	/**
+	 * Updates the mouse press locations with specified tiles when requested in
+	 * the level builder.
+	 * 
+	 * @param mx
+	 *            X coordinate of mouse.
+	 * @param my
+	 *            Y coordinate of mouse.
+	 * @param type
+	 *            The type of tile to place.
+	 */
 	public void updateBuilderSelection(int mx, int my, TileType type) {
-		for (int i = 0; i < gameBoard.SIZE_X; i++) {
+		outerloop: for (int i = 0; i < gameBoard.SIZE_X; i++) {
 			for (int j = 0; j < gameBoard.SIZE_Y; j++) {
 				// If the SquareView is selected in a valid manner, update the
-				// corresponding Square and add the Square to the current
-				// selection.
+				// selected tile to the new tile type.
 				if (this.validateMouseSelection(mx, my, squareViews[i][j])) {
 					switch (type) {
 					case NULL:
 						this.gameBoard.setSquare(new NullTile(), i, j, false);
 						break;
 					case NUMBER:
-						this.gameBoard.setSquare(new NumberTile(this.gameBoard.getRandomNumber(), this.gameBoard.getRandomMultiplier()), i, j, false);
+						this.gameBoard.setSquare(
+								new NumberTile(
+										this.gameBoard.getRandomNumber(),
+										this.gameBoard.getRandomMultiplier()),
+								i, j, false);
 						break;
 					case TARGET:
 						this.gameBoard.setSquare(new TargetTile(), i, j, false);
@@ -314,13 +333,39 @@ public class BoardViewPanel extends JPanel {
 						this.gameBoard.setSquare(new NullTile(), i, j, false);
 						break;
 					}
-
+					break outerloop;
 				}
 			}
 		}
 	}
 
+	/**
+	 * Returns the board from this view.
+	 * 
+	 * @return Board game board
+	 */
 	public Board getBoard() {
 		return this.gameBoard;
+	}
+
+	/**
+	 * Returns the current selection of squares.
+	 * 
+	 * @return Selection current selection
+	 */
+	public Selection getCurrentSelection() {
+		return this.currentSelection;
+	}
+
+	/**
+	 * Executes the selection in the current selection. Removes the tiles and
+	 * fills the empty squares with newly generated tiles.
+	 * 
+	 * @return true if successful; false otherwise.
+	 */
+	public boolean doSelectionMove() {
+		this.gameBoard.removeSelection(this.currentSelection);
+		this.gameBoard.fillEmptySquares();
+		return true;
 	}
 }
