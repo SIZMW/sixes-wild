@@ -15,7 +15,7 @@ public class TargetTile extends Tile {
 	 */
 	public TargetTile() {
 		this.type = TileType.TARGET;
-		this.number = this.SIX;
+		this.number = this.ZERO;
 		this.multiplier = 0;
 	}
 }

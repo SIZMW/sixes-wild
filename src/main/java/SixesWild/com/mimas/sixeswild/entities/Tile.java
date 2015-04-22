@@ -9,6 +9,7 @@ package SixesWild.com.mimas.sixeswild.entities;
 public abstract class Tile {
 
 	final int SIX = 6;
+	final int ZERO = 0;
 
 	TileType type;
 	int number;

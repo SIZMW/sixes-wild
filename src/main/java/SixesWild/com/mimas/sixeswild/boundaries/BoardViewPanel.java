@@ -76,6 +76,7 @@ public class BoardViewPanel extends JPanel {
 		this.boardViewborder = BorderFactory.createLineBorder(Color.BLACK, 2);
 		this.gameBoard.randomInitialize();
 
+		this.setBackground(this.boardAesthetic.getBackgroundColor());
 		this.setVisible(true);
 
 		// Layout for panel
@@ -165,7 +166,19 @@ public class BoardViewPanel extends JPanel {
 				// Determine text
 				switch (this.gameBoard.getSquare(i, j).getTile().getType()) {
 				case NULL:
-					squareViews[i][j].setText("  ");
+					squareViews[i][j].setText(htmlFormat1 + this.gameBoard.getSquare(i, j)
+							.getTile().getNumber()
+							+ htmlFormat2 + "x" + this.gameBoard.getSquare(i, j)
+							.getTile().getMultiplier() + htmlFormat3);
+					squareViews[i][j].setForeground(squareViews[i][j].getBackground());
+					break;
+				case TARGET:
+					squareViews[i][j].setText(htmlFormat1 + "&nbsp;" + "X"
+							+ htmlFormat2 + htmlFormat3);
+					break;
+				case SIX:
+					squareViews[i][j].setText(htmlFormat1 + this.gameBoard.getSquare(i, j)
+							.getTile().getNumber() + htmlFormat2 + "T" + htmlFormat3);
 					break;
 				default:
 					squareViews[i][j].setText(htmlFormat1 + this.gameBoard.getSquare(i, j)

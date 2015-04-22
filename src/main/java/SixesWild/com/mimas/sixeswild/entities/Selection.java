@@ -3,26 +3,54 @@ package SixesWild.com.mimas.sixeswild.entities;
 import java.util.HashSet;
 import java.util.Set;
 
+/**
+ * Selection is the entity that defines the current Square selection that the
+ * player requests during the game.
+ * 
+ * @author Aditya Nivarthi
+ */
 public class Selection {
 
 	protected Set<Square> squareSet;
 
+	/**
+	 * Creates a Selection instance.
+	 */
 	public Selection() {
 		squareSet = new HashSet<Square>();
 	}
 
+	/**
+	 * Adds the given square to the selection.
+	 * 
+	 * @param square
+	 *            The Square to add to the selection.
+	 * @return true if Square was added; false otherwise.
+	 */
 	public boolean add(Square square) {
 		if (square == null) {
 			return false;
 		}
-		
+
 		return squareSet.add(square);
 	}
 
+	/**
+	 * Removes the given square from the selection.
+	 * 
+	 * @param square
+	 *            The Square to remove from the selection.
+	 * @return Result of Set remove method.
+	 */
 	public boolean remove(Square square) {
 		return squareSet.remove(square);
 	}
-	
+
+	/**
+	 * Clears the entire selection.
+	 * 
+	 * @return true on success; false otherwise.
+	 */
 	public boolean clear() {
 		squareSet.clear();
 		return true;
@@ -52,11 +80,12 @@ public class Selection {
 	 * @return true if selection is valid; false otherwise.
 	 */
 	public boolean isValidSelection() {
-		
+
+		// If selection has only one tile, allow more to be selected
 		if (this.squareSet.size() <= 1) {
 			return true;
 		}
-		
+
 		Object squareArray[] = this.squareSet.toArray();
 
 		// Check if each square is next to at least one other square in the
@@ -67,7 +96,9 @@ public class Selection {
 			for (int j = 0; j < squareArray.length; j++) {
 
 				// Don't check square against itself
-				if (i != j && this.isSquareNextTo((Square)squareArray[i], (Square)squareArray[j])) {
+				if (i != j
+						&& this.isSquareNextTo((Square) squareArray[i],
+								(Square) squareArray[j])) {
 					nextTo = true;
 				}
 			}
