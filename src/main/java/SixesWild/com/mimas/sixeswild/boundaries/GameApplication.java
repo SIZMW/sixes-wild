@@ -13,6 +13,7 @@ import javax.swing.border.EmptyBorder;
 import SixesWild.com.mimas.sixeswild.controllers.BadgesMenuButtonController;
 import SixesWild.com.mimas.sixeswild.controllers.CreditsMenuButtonController;
 import SixesWild.com.mimas.sixeswild.controllers.GameSplashScreenController;
+import SixesWild.com.mimas.sixeswild.controllers.MenuTypes;
 import SixesWild.com.mimas.sixeswild.controllers.OptionsMenuButtonController;
 import SixesWild.com.mimas.sixeswild.controllers.PlayButtonController;
 import SixesWild.com.mimas.sixeswild.controllers.StoryMenuButtonController;
@@ -85,7 +86,7 @@ public class GameApplication {
 		}
 
 		// TODO Get from user profile.
-		int highestLevelUnlocked = 10;
+		int highestLevelUnlocked = 5;
 
 		// Initialize panels and views.
 		gameMenuView = new GameMenuView(storyLevelList, userLevelList,
@@ -122,9 +123,9 @@ public class GameApplication {
 		this.gameMenuView.getBadgesMenuButton().addActionListener(
 				new BadgesMenuButtonController(this));
 		this.gameMenuView.getStoryMenuView().getPlayButton()
-				.addActionListener(new PlayButtonController(this));
+				.addActionListener(new PlayButtonController(this, MenuTypes.STORY));
 		this.gameMenuView.getUserMenuView().getPlayButton()
-				.addActionListener(new PlayButtonController(this));
+				.addActionListener(new PlayButtonController(this, MenuTypes.USER));
 		this.getFrame().addKeyListener(new GameSplashScreenController(this));
 	}
 

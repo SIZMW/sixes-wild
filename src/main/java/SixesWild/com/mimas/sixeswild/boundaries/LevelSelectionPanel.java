@@ -31,6 +31,7 @@ public class LevelSelectionPanel extends JPanel {
 	JPanel previewPanel;
 	JButton playLevelButton;
 	ArrayList<String> levelNames;
+	JList<String> levelList;
 
 	// TODO Add parameter for level list
 
@@ -63,10 +64,10 @@ public class LevelSelectionPanel extends JPanel {
 
 		// Level list scroll pane
 		levelScrollPane = new JScrollPane();
-		JList<String> list = new JList<String>(levelListModel);
-		list.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-		list.setCellRenderer(new LevelListCellRenderer(highestLevelUnlocked));
-		levelScrollPane.setViewportView(list);
+		levelList = new JList<String>(levelListModel);
+		levelList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		levelList.setCellRenderer(new LevelListCellRenderer(highestLevelUnlocked));
+		levelScrollPane.setViewportView(levelList);
 
 		// Layout for level list scroll pane
 		GridBagConstraints gbc_list = new GridBagConstraints();
@@ -146,5 +147,9 @@ public class LevelSelectionPanel extends JPanel {
 	 */
 	public JPanel getPreviewPanel() {
 		return this.previewPanel;
+	}
+	
+	public JList<String> getLevelList(){
+		return this.levelList;
 	}
 }

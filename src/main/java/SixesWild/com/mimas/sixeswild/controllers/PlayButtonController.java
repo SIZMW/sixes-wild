@@ -12,6 +12,8 @@ import javax.swing.JPanel;
 
 import SixesWild.com.mimas.sixeswild.boundaries.GameApplication;
 import SixesWild.com.mimas.sixeswild.boundaries.LevelView;
+import SixesWild.com.mimas.sixeswild.entities.Level;
+import SixesWild.com.mimas.sixeswild.sixeswild.XMLParser;
 
 /**
  * This controller creates and displays the level when the play button is
@@ -21,6 +23,7 @@ import SixesWild.com.mimas.sixeswild.boundaries.LevelView;
  */
 public class PlayButtonController implements ActionListener {
 	GameApplication app;
+	MenuTypes menuType;
 
 	/**
 	 * Creates a PlayButtonController instance with the specified
@@ -29,8 +32,9 @@ public class PlayButtonController implements ActionListener {
 	 * @param app
 	 *            The GameApplication currently running.
 	 */
-	public PlayButtonController(GameApplication app) {
+	public PlayButtonController(GameApplication app, MenuTypes menuType) {
 		this.app = app;
+		this.menuType = menuType;
 	}
 
 	/*
@@ -42,7 +46,6 @@ public class PlayButtonController implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		Container contentContainer = app.getFrame().getContentPane();
 		JPanel currentPanel = new JPanel();
-		contentContainer.removeAll();
 
 		// Layout for panel
 		GridBagLayout gridBagLayout = new GridBagLayout();
@@ -60,15 +63,32 @@ public class PlayButtonController implements ActionListener {
 		gbc_list.gridy = 0;
 
 		// Create new view
-		LevelView newLevel = new LevelView(app.getCurrentAesthetic());
-		this.app.setLevelPanel(newLevel);
-		this.setUpControllers();
+		// Find the Current Selection
+		int levelNumber;
+		if(menuType.equals(MenuTypes.STORY)){
+			levelNumber = app.getMainPanel().getStoryMenuView().getLevelList().getSelectedIndex()+1;
+		}
+		else{
+			levelNumber = app.getMainPanel().getUserMenuView().getLevelList().getSelectedIndex()+1;
+		}
+		
+		Level newLevel = XMLParser.fileToLevel(Integer.toString(levelNumber)+".xml");
+		if(newLevel == null){
+			System.out.println("Level Not Found");
+		}
+		else{
+			contentContainer.removeAll();
+			LevelView newLevelView = new LevelView (app.getCurrentAesthetic(), newLevel);
+			this.app.setLevelPanel(newLevelView);
+			this.setUpControllers();
 
-		// Add panel to view
-		currentPanel.add(this.app.getLevelPanel(), gbc_list);
-		contentContainer.add(currentPanel);
-		contentContainer.revalidate();
-		contentContainer.repaint();
+			// Add panel to view
+			currentPanel.add(this.app.getLevelPanel(), gbc_list);
+			contentContainer.add(currentPanel);
+			contentContainer.revalidate();
+			contentContainer.repaint();
+		}
+		
 	}
 
 	/**
