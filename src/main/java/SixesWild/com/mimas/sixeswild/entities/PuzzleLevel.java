@@ -34,8 +34,8 @@ public class PuzzleLevel extends Level {
 	 */
 	public PuzzleLevel(ArrayList<Double> tileFreq,
 			ArrayList<Double> multFreq, LevelType type, String name,
-			Tile tiles[][], PointThresholds pointThresholds, int moveCount, SpecialMoves specialMoves) throws Exception {
-		super(tileFreq, multFreq, type, name, tiles, pointThresholds, moveCount, specialMoves);
+			Tile tiles[][], PointThresholds pointThresholds, int moveCount, SpecialMoves specialMoves, int levelNumber) throws Exception {
+				super(tileFreq, multFreq, type, name, tiles, pointThresholds, moveCount, specialMoves, levelNumber);
 
 	}
 }

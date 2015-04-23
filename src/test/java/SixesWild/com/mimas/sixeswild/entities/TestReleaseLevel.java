@@ -14,7 +14,7 @@ public class TestReleaseLevel extends TestCase {
 	/**
 	 * Test all methods for ReleaseLevel.
 	 */
-	public void testPuzzleLevel() {
+	public void testReleaseLevel() {
 		ArrayList<Double> tileFreq = new ArrayList<Double>(); // DONE
 		ArrayList<Double> multFreq = new ArrayList<Double>(); // DONE
 		LevelType levelType = LevelType.RELEASE; // DONE
@@ -22,6 +22,8 @@ public class TestReleaseLevel extends TestCase {
 		Tile tiles[][] = new Tile[9][9];
 		PointThresholds pointThresholds = new PointThresholds(); // DONE
 		SpecialMoves specialMoves = new SpecialMoves();
+		int levelNumber = 1;
+		
 		tileFreq.add(.10);
 		tileFreq.add(.20);
 		tileFreq.add(.30);
@@ -42,7 +44,7 @@ public class TestReleaseLevel extends TestCase {
 		ReleaseLevel level;
 		try {
 			level = new ReleaseLevel(tileFreq, multFreq, levelType, levelName,
-					tiles, pointThresholds, 50, specialMoves);
+					tiles, pointThresholds, 50, specialMoves, levelNumber);
 			assertEquals(levelName, level.name);
 			assertEquals(LevelType.RELEASE, level.type);
 			assertEquals(tileFreq, level.board.tileFrequencies);
@@ -56,7 +58,7 @@ public class TestReleaseLevel extends TestCase {
 		tiles[0][0] = null;
 		try {
 			new ReleaseLevel(tileFreq, multFreq, levelType, levelName, tiles,
-					pointThresholds, 9, specialMoves);
+					pointThresholds, 9, specialMoves, levelNumber);
 			fail("Missing Exception");
 		} catch (Exception e) {
 			assertTrue(true);
@@ -64,7 +66,7 @@ public class TestReleaseLevel extends TestCase {
 
 		try {
 			new ReleaseLevel(tileFreq, multFreq, levelType, levelName, null,
-					pointThresholds, 9, specialMoves);
+					pointThresholds, 9, specialMoves, levelNumber);
 			fail("Missing Exception");
 		} catch (Exception e) {
 			assertTrue(true);

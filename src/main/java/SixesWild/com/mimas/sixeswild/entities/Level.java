@@ -20,6 +20,7 @@ public abstract class Level {
 	Board board;
 	Timer timer;
 	int moveCount;
+	int levelNumber;
 
 	/**
 	 * 
@@ -44,7 +45,7 @@ public abstract class Level {
 	 */
 	public Level(ArrayList<Double> tileFreq, ArrayList<Double> multFreq,
 			LevelType type, String name, Tile tiles[][],
-			PointThresholds pointThresholds, int moveCount, SpecialMoves specialMoves) throws Exception {
+			PointThresholds pointThresholds, int moveCount, SpecialMoves specialMoves, int levelNumber) throws Exception {
 		this.type = type;
 		this.name = name;
 		this.pointThresholds = pointThresholds;
@@ -80,7 +81,7 @@ public abstract class Level {
 	 */
 	public Level(ArrayList<Double> tileFreq, ArrayList<Double> multFreq,
 			LevelType type, String name, Tile tiles[][],
-			PointThresholds pointThresholds, Timer timer, SpecialMoves specialMoves) throws Exception {
+			PointThresholds pointThresholds, Timer timer, SpecialMoves specialMoves, int levelNumber) throws Exception {
 		this.type = type;
 		this.name = name;
 		this.pointThresholds = pointThresholds;
@@ -252,5 +253,18 @@ public abstract class Level {
 	 */
 	public SpecialMoves getSpecialMoves(){
 		return this.specialMoves;
+	}
+	
+	/**
+	 * Returns the LevelNumber
+	 * 
+	 * @return this.levelNumber;
+	 */
+	public int getLevelNumber(){
+		return this.levelNumber;
+	}
+	
+	public void setLevelNumber(int newNumber){
+		this.levelNumber = newNumber;
 	}
 }
