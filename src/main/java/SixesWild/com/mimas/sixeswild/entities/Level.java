@@ -40,10 +40,11 @@ public abstract class Level {
 	 *            The point threshold values for the level.
 	 * @param moveCount
 	 *            The number of moves for the level.
+	 * @throws Exception 
 	 */
 	public Level(ArrayList<Double> tileFreq, ArrayList<Double> multFreq,
 			LevelType type, String name, Tile tiles[][],
-			PointThresholds pointThresholds, int moveCount) {
+			PointThresholds pointThresholds, int moveCount) throws Exception {
 		this.type = type;
 		this.name = name;
 		this.pointThresholds = pointThresholds;
@@ -52,7 +53,7 @@ public abstract class Level {
 		try {
 			this.board = new Board(tiles, tileFreq, multFreq);
 		} catch (Exception e) {
-
+			throw e;
 		}
 	}
 
@@ -74,10 +75,11 @@ public abstract class Level {
 	 *            The point threshold values for the level.
 	 * @param timer
 	 *            The timer for the level.
+	 * @throws Exception 
 	 */
 	public Level(ArrayList<Double> tileFreq, ArrayList<Double> multFreq,
 			LevelType type, String name, Tile tiles[][],
-			PointThresholds pointThresholds, Timer timer) {
+			PointThresholds pointThresholds, Timer timer) throws Exception {
 		this.type = type;
 		this.name = name;
 		this.pointThresholds = pointThresholds;
@@ -87,7 +89,7 @@ public abstract class Level {
 		try {
 			this.board = new Board(tiles, tileFreq, multFreq);
 		} catch (Exception e) {
-
+			throw e;
 		}
 	}
 

@@ -31,16 +31,12 @@ public class LightningLevel extends Level {
 	 *            The point threshold values for the level.
 	 * @param timerCount
 	 *            The timer amount for the level.
+	 * @throws Exception 
 	 */
 	public LightningLevel(ArrayList<Double> tileFreq,
 			ArrayList<Double> multFreq, LevelType type, String name,
-			Tile tiles[][], PointThresholds pointThresholds, int timerCount) {
+			Tile tiles[][], PointThresholds pointThresholds, int timerCount) throws Exception {
 		super(tileFreq, multFreq, type, name, tiles, pointThresholds, new Timer(timerCount,null));
-
-		try {
-			this.board = new Board(tiles, tileFreq, multFreq);
-		} catch (Exception e) {
-
-		}
+	
 	}
 }

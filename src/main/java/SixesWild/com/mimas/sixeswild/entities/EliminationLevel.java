@@ -39,10 +39,5 @@ public class EliminationLevel extends Level {
 			Tile tiles[][], PointThresholds pointThresholds, int moveCount) throws Exception {
 		super(tileFreq, multFreq, type, name, tiles, pointThresholds, moveCount);
 
-		try {
-			this.board = new Board(tiles, tileFreq, multFreq);
-		} catch (Exception e) {
-			throw e;
-		}
 	}
 }
