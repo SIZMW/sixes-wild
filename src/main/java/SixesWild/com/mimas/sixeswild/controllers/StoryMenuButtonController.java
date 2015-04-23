@@ -6,6 +6,8 @@ import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javax.swing.JPanel;
 
@@ -18,6 +20,8 @@ import SixesWild.com.mimas.sixeswild.boundaries.GameApplication;
  * @author Aditya Nivarthi
  */
 public class StoryMenuButtonController implements ActionListener {
+
+	private static final Logger logger = Logger.getGlobal();
 	GameApplication app;
 
 	// TODO Add list of levels as attribute
@@ -68,5 +72,7 @@ public class StoryMenuButtonController implements ActionListener {
 		// Add panel to view
 		currentPanel.add(this.app.getMainPanel().getStoryMenuView(), gbc_list);
 		currentPanel.updateUI();
+
+		logger.log(Level.FINE, "Story level menu requested and displayed.");
 	}
 }

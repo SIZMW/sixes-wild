@@ -7,6 +7,7 @@ import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.logging.Logger;
 
 import javax.swing.JPanel;
 
@@ -23,6 +24,8 @@ import SixesWild.com.mimas.sixeswild.sixeswild.XMLParser;
  * @author Cameron Jones
  */
 public class PlayButtonController implements ActionListener {
+
+	private static final Logger logger = Logger.getGlobal();
 	GameApplication app;
 	MenuTypes menuType;
 
@@ -67,21 +70,26 @@ public class PlayButtonController implements ActionListener {
 		// Find the Current Selection
 		int levelNumber;
 		Level newLevel;
-		if(menuType.equals(MenuTypes.STORY)){
-			levelNumber = app.getMainPanel().getStoryMenuView().getLevelList().getSelectedIndex()+1;
-			newLevel = XMLParser.fileToLevel("storylevels\\" + Integer.toString(levelNumber) + ".xml");
+
+		if (menuType.equals(MenuTypes.STORY)) {
+			levelNumber = app.getMainPanel().getStoryMenuView().getLevelList()
+					.getSelectedIndex() + 1;
+			newLevel = XMLParser.fileToLevel("storylevels\\"
+					+ Integer.toString(levelNumber) + ".xml");
+		} else {
+			levelNumber = app.getMainPanel().getUserMenuView().getLevelList()
+					.getSelectedIndex() + 1;
+			newLevel = XMLParser.fileToLevel("userlevels\\"
+					+ Integer.toString(levelNumber) + ".xml");
 		}
-		else{
-			levelNumber = app.getMainPanel().getUserMenuView().getLevelList().getSelectedIndex()+1;
-			newLevel = XMLParser.fileToLevel("userlevels\\" + Integer.toString(levelNumber) + ".xml");
-		}
-		
-		if(newLevel == null){
-			System.out.println("Level Not Found");
-		}
-		else{
+
+		if (newLevel == null) {
+			logger.log(java.util.logging.Level.WARNING,
+					"Level selected was not found.");
+		} else {
 			contentContainer.removeAll();
-			LevelView newLevelView = new LevelView (app.getCurrentAesthetic(), newLevel);
+			LevelView newLevelView = new LevelView(app.getCurrentAesthetic(),
+					newLevel);
 			this.app.setLevelPanel(newLevelView);
 			this.setUpControllers();
 
@@ -91,7 +99,9 @@ public class PlayButtonController implements ActionListener {
 			contentContainer.revalidate();
 			contentContainer.repaint();
 		}
-		
+
+		logger.log(java.util.logging.Level.FINE,
+				"Level view requested, level loaded and displayed.");
 	}
 
 	/**
@@ -106,5 +116,8 @@ public class PlayButtonController implements ActionListener {
 				.getBoardViewPanel()
 				.addMouseMotionListener(
 						new GameBoardViewMouseMotionController(app));
+
+		logger.log(java.util.logging.Level.FINE,
+				"Level view controllers initialized.");
 	}
 }

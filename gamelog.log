@@ -1,26 +1,122 @@
-Apr 23, 2015 11:19:47 AM SixesWild.com.mimas.sixeswild.sixeswild.GameMain$1 run
+Apr 23, 2015 11:49:59 AM SixesWild.com.mimas.sixeswild.sixeswild.GameMain$1 run
 INFO: GameMain initialized.
-Apr 23, 2015 11:19:47 AM SixesWild.com.mimas.sixeswild.boundaries.GameApplication setUpAesthetics
+Apr 23, 2015 11:49:59 AM SixesWild.com.mimas.sixeswild.boundaries.GameApplication setUpAesthetics
 FINE: GameApplication aesthetic listing initialized.
-Apr 23, 2015 11:19:47 AM SixesWild.com.mimas.sixeswild.boundaries.BoardViewPanel <init>
+Apr 23, 2015 11:49:59 AM SixesWild.com.mimas.sixeswild.boundaries.BoardViewPanel <init>
 FINE: Board and layout initialized
-Apr 23, 2015 11:19:48 AM SixesWild.com.mimas.sixeswild.boundaries.GameApplication initialize
+Apr 23, 2015 11:50:00 AM SixesWild.com.mimas.sixeswild.boundaries.GameApplication initialize
 FINE: GameApplication frame initialized.
-Apr 23, 2015 11:19:48 AM SixesWild.com.mimas.sixeswild.boundaries.GameApplication setUpControllers
+Apr 23, 2015 11:50:00 AM SixesWild.com.mimas.sixeswild.boundaries.GameApplication setUpControllers
 FINE: GameApplication controllers initialized.
-Apr 23, 2015 11:19:54 AM SixesWild.com.mimas.sixeswild.boundaries.BoardViewPanel <init>
+Apr 23, 2015 11:50:02 AM SixesWild.com.mimas.sixeswild.controllers.StoryMenuButtonController actionPerformed
+FINE: Story level menu requested and displayed.
+Apr 23, 2015 11:50:04 AM SixesWild.com.mimas.sixeswild.controllers.UserLevelMenuButtonController actionPerformed
+FINE: User level menu requested and displayed.
+Apr 23, 2015 11:50:05 AM SixesWild.com.mimas.sixeswild.controllers.BadgesMenuButtonController actionPerformed
+FINE: Badges menu requested and displayed.
+Apr 23, 2015 11:50:06 AM SixesWild.com.mimas.sixeswild.controllers.OptionsMenuButtonController setUpControllers
+FINE: Options menu controllers initialized.
+Apr 23, 2015 11:50:06 AM SixesWild.com.mimas.sixeswild.controllers.OptionsMenuButtonController actionPerformed
+FINE: Options menu requested and displayed.
+Apr 23, 2015 11:50:07 AM SixesWild.com.mimas.sixeswild.controllers.CreditsMenuButtonController actionPerformed
+FINE: Credits menu requested and displayed.
+Apr 23, 2015 11:50:08 AM SixesWild.com.mimas.sixeswild.controllers.OptionsMenuButtonController setUpControllers
+FINE: Options menu controllers initialized.
+Apr 23, 2015 11:50:08 AM SixesWild.com.mimas.sixeswild.controllers.OptionsMenuButtonController actionPerformed
+FINE: Options menu requested and displayed.
+Apr 23, 2015 11:50:14 AM SixesWild.com.mimas.sixeswild.boundaries.GameApplication setCurrentAesthetic
+FINE: GameApplication aesthetic change to: SuperRed
+Apr 23, 2015 11:50:14 AM SixesWild.com.mimas.sixeswild.boundaries.GameApplication setCurrentAesthetic
+FINE: GameApplication aesthetic change to: SuperRed
+Apr 23, 2015 11:50:28 AM SixesWild.com.mimas.sixeswild.boundaries.GameApplication setCurrentAesthetic
+FINE: GameApplication aesthetic change to: SuperRed
+Apr 23, 2015 11:50:28 AM SixesWild.com.mimas.sixeswild.boundaries.GameApplication setCurrentAesthetic
+FINE: GameApplication aesthetic change to: SuperRed
+Apr 23, 2015 11:50:32 AM SixesWild.com.mimas.sixeswild.controllers.OptionsMenuButtonController setUpControllers
+FINE: Options menu controllers initialized.
+Apr 23, 2015 11:50:32 AM SixesWild.com.mimas.sixeswild.controllers.OptionsMenuButtonController actionPerformed
+FINE: Options menu requested and displayed.
+Apr 23, 2015 11:50:33 AM SixesWild.com.mimas.sixeswild.controllers.BadgesMenuButtonController actionPerformed
+FINE: Badges menu requested and displayed.
+Apr 23, 2015 11:50:36 AM SixesWild.com.mimas.sixeswild.controllers.UserLevelMenuButtonController actionPerformed
+FINE: User level menu requested and displayed.
+Apr 23, 2015 11:50:38 AM SixesWild.com.mimas.sixeswild.controllers.StoryMenuButtonController actionPerformed
+FINE: Story level menu requested and displayed.
+Apr 23, 2015 11:50:40 AM SixesWild.com.mimas.sixeswild.boundaries.BoardViewPanel <init>
 FINE: Board and layout initialized
-Apr 23, 2015 11:19:56 AM SixesWild.com.mimas.sixeswild.boundaries.BoardViewPanel updateGameSelection
-FINE: Updating selection. Square found at: {2, 2}
-Apr 23, 2015 11:19:56 AM SixesWild.com.mimas.sixeswild.boundaries.BoardViewPanel clearGameSelection
+Apr 23, 2015 11:50:40 AM SixesWild.com.mimas.sixeswild.controllers.PlayButtonController setUpControllers
+FINE: Level view controllers initialized.
+Apr 23, 2015 11:50:40 AM SixesWild.com.mimas.sixeswild.controllers.PlayButtonController actionPerformed
+FINE: Level view requested, level loaded and displayed.
+Apr 23, 2015 11:50:44 AM SixesWild.com.mimas.sixeswild.boundaries.BoardViewPanel updateGameSelection
+FINE: Updating selection. Square found at: {4, 0}
+Apr 23, 2015 11:50:45 AM SixesWild.com.mimas.sixeswild.boundaries.BoardViewPanel updateGameSelection
+FINE: Updating selection. Square found at: {4, 1}
+Apr 23, 2015 11:50:45 AM SixesWild.com.mimas.sixeswild.boundaries.BoardViewPanel updateGameSelection
+FINE: Updating selection. Square found at: {4, 1}
+Apr 23, 2015 11:50:45 AM SixesWild.com.mimas.sixeswild.boundaries.BoardViewPanel updateGameSelection
+FINE: Updating selection. Square found at: {4, 1}
+Apr 23, 2015 11:50:45 AM SixesWild.com.mimas.sixeswild.boundaries.BoardViewPanel updateGameSelection
+FINE: Updating selection. Square found at: {4, 1}
+Apr 23, 2015 11:50:45 AM SixesWild.com.mimas.sixeswild.boundaries.BoardViewPanel updateGameSelection
+FINE: Updating selection. Square found at: {4, 1}
+Apr 23, 2015 11:50:46 AM SixesWild.com.mimas.sixeswild.boundaries.BoardViewPanel doSelectionMove
+INFO: Selection move processed.
+Apr 23, 2015 11:50:46 AM SixesWild.com.mimas.sixeswild.boundaries.BoardViewPanel clearGameSelection
 INFO: Selection move cleared.
-Apr 23, 2015 11:19:59 AM SixesWild.com.mimas.sixeswild.boundaries.BoardViewPanel updateGameSelection
-FINE: Updating selection. Square found at: {2, 2}
-Apr 23, 2015 11:19:59 AM SixesWild.com.mimas.sixeswild.boundaries.BoardViewPanel clearGameSelection
+Apr 23, 2015 11:50:49 AM SixesWild.com.mimas.sixeswild.boundaries.BoardViewPanel updateGameSelection
+FINE: Updating selection. Square found at: {5, 1}
+Apr 23, 2015 11:50:50 AM SixesWild.com.mimas.sixeswild.boundaries.BoardViewPanel updateGameSelection
+FINE: Updating selection. Square found at: {4, 0}
+Apr 23, 2015 11:50:50 AM SixesWild.com.mimas.sixeswild.boundaries.BoardViewPanel clearGameSelection
 INFO: Selection move cleared.
-Apr 23, 2015 11:20:05 AM SixesWild.com.mimas.sixeswild.boundaries.BoardViewPanel updateGameSelection
+Apr 23, 2015 11:50:50 AM SixesWild.com.mimas.sixeswild.boundaries.BoardViewPanel updateGameSelection
+FINE: Updating selection. Square found at: {4, 0}
+Apr 23, 2015 11:50:50 AM SixesWild.com.mimas.sixeswild.boundaries.BoardViewPanel clearGameSelection
+INFO: Selection move cleared.
+Apr 23, 2015 11:50:54 AM SixesWild.com.mimas.sixeswild.boundaries.BoardViewPanel updateGameSelection
+FINE: Updating selection. Square found at: {1, 1}
+Apr 23, 2015 11:50:55 AM SixesWild.com.mimas.sixeswild.boundaries.BoardViewPanel updateGameSelection
+FINE: Updating selection. Square found at: {1, 1}
+Apr 23, 2015 11:50:55 AM SixesWild.com.mimas.sixeswild.boundaries.BoardViewPanel updateGameSelection
 FINE: Updating selection. Square found at: {2, 1}
-Apr 23, 2015 11:20:05 AM SixesWild.com.mimas.sixeswild.boundaries.BoardViewPanel clearGameSelection
+Apr 23, 2015 11:50:55 AM SixesWild.com.mimas.sixeswild.boundaries.BoardViewPanel updateGameSelection
+FINE: Updating selection. Square found at: {2, 1}
+Apr 23, 2015 11:50:55 AM SixesWild.com.mimas.sixeswild.boundaries.BoardViewPanel updateGameSelection
+FINE: Updating selection. Square found at: {2, 1}
+Apr 23, 2015 11:50:55 AM SixesWild.com.mimas.sixeswild.boundaries.BoardViewPanel doSelectionMove
+INFO: Selection move processed.
+Apr 23, 2015 11:50:55 AM SixesWild.com.mimas.sixeswild.boundaries.BoardViewPanel clearGameSelection
 INFO: Selection move cleared.
-Apr 23, 2015 11:20:09 AM SixesWild.com.mimas.sixeswild.controllers.ExitButtonController actionPerformed
+Apr 23, 2015 11:50:57 AM SixesWild.com.mimas.sixeswild.boundaries.BoardViewPanel updateGameSelection
+FINE: Updating selection. Square found at: {1, 0}
+Apr 23, 2015 11:50:57 AM SixesWild.com.mimas.sixeswild.boundaries.BoardViewPanel updateGameSelection
+FINE: Updating selection. Square found at: {1, 1}
+Apr 23, 2015 11:50:57 AM SixesWild.com.mimas.sixeswild.boundaries.BoardViewPanel updateGameSelection
+FINE: Updating selection. Square found at: {1, 1}
+Apr 23, 2015 11:50:57 AM SixesWild.com.mimas.sixeswild.boundaries.BoardViewPanel updateGameSelection
+FINE: Updating selection. Square found at: {1, 1}
+Apr 23, 2015 11:50:57 AM SixesWild.com.mimas.sixeswild.boundaries.BoardViewPanel updateGameSelection
+FINE: Updating selection. Square found at: {1, 1}
+Apr 23, 2015 11:50:57 AM SixesWild.com.mimas.sixeswild.boundaries.BoardViewPanel updateGameSelection
+FINE: Updating selection. Square found at: {2, 1}
+Apr 23, 2015 11:50:57 AM SixesWild.com.mimas.sixeswild.boundaries.BoardViewPanel updateGameSelection
+FINE: Updating selection. Square found at: {2, 1}
+Apr 23, 2015 11:50:58 AM SixesWild.com.mimas.sixeswild.boundaries.BoardViewPanel doSelectionMove
+INFO: Selection move processed.
+Apr 23, 2015 11:50:58 AM SixesWild.com.mimas.sixeswild.boundaries.BoardViewPanel clearGameSelection
+INFO: Selection move cleared.
+Apr 23, 2015 11:51:00 AM SixesWild.com.mimas.sixeswild.boundaries.BoardViewPanel updateGameSelection
+FINE: Updating selection. Square found at: {7, 8}
+Apr 23, 2015 11:51:00 AM SixesWild.com.mimas.sixeswild.boundaries.BoardViewPanel updateGameSelection
+FINE: Updating selection. Square found at: {7, 8}
+Apr 23, 2015 11:51:00 AM SixesWild.com.mimas.sixeswild.boundaries.BoardViewPanel updateGameSelection
+FINE: Updating selection. Square found at: {8, 8}
+Apr 23, 2015 11:51:00 AM SixesWild.com.mimas.sixeswild.boundaries.BoardViewPanel updateGameSelection
+FINE: Updating selection. Square found at: {8, 8}
+Apr 23, 2015 11:51:00 AM SixesWild.com.mimas.sixeswild.boundaries.BoardViewPanel updateGameSelection
+FINE: Updating selection. Square found at: {8, 8}
+Apr 23, 2015 11:51:01 AM SixesWild.com.mimas.sixeswild.boundaries.BoardViewPanel clearGameSelection
+INFO: Selection move cleared.
+Apr 23, 2015 11:51:05 AM SixesWild.com.mimas.sixeswild.controllers.ExitButtonController actionPerformed
 FINE: Exited level.

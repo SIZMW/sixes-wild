@@ -29,7 +29,7 @@ import SixesWild.com.mimas.sixeswild.entities.MenuTypes;
  * @author Aditya Nivarthi
  */
 public class GameApplication {
-	
+
 	private static final Logger logger = Logger.getGlobal();
 
 	JFrame frame;
@@ -60,7 +60,7 @@ public class GameApplication {
 		} catch (Exception e) {
 			logger.log(Level.WARNING, "System look and feel failed to load.", e);
 		}
-		
+
 		// Set up aesthetics
 		aestheticList = new ArrayList<Aesthetic>();
 		this.setUpAesthetics();
@@ -109,7 +109,7 @@ public class GameApplication {
 		frame.setPreferredSize(new Dimension(1000, 700));
 		frame.setMinimumSize(new Dimension(1000, 700));
 		frame.getContentPane().add(new SplashScreen());
-		
+
 		logger.log(Level.FINE, "GameApplication frame initialized.");
 
 		this.setUpControllers();
@@ -129,12 +129,18 @@ public class GameApplication {
 				new CreditsMenuButtonController(this));
 		this.gameMenuView.getBadgesMenuButton().addActionListener(
 				new BadgesMenuButtonController(this));
-		this.gameMenuView.getStoryMenuView().getPlayButton()
-				.addActionListener(new PlayButtonController(this, MenuTypes.STORY));
-		this.gameMenuView.getUserMenuView().getPlayButton()
-				.addActionListener(new PlayButtonController(this, MenuTypes.USER));
+		this.gameMenuView
+				.getStoryMenuView()
+				.getPlayButton()
+				.addActionListener(
+						new PlayButtonController(this, MenuTypes.STORY));
+		this.gameMenuView
+				.getUserMenuView()
+				.getPlayButton()
+				.addActionListener(
+						new PlayButtonController(this, MenuTypes.USER));
 		this.getFrame().addKeyListener(new GameSplashScreenController(this));
-		
+
 		logger.log(Level.FINE, "GameApplication controllers initialized.");
 	}
 
@@ -155,7 +161,7 @@ public class GameApplication {
 				Color.lightGray));
 
 		currentAesthetic = aestheticList.get(0);
-		
+
 		logger.log(Level.FINE, "GameApplication aesthetic listing initialized.");
 	}
 
@@ -216,7 +222,8 @@ public class GameApplication {
 		for (Aesthetic e : aestheticList) {
 			if (e.getName().equals(name)) {
 				currentAesthetic = e;
-				logger.log(Level.FINE, "GameApplication aesthetic change to: " + e.getName());
+				logger.log(Level.FINE, "GameApplication aesthetic change to: "
+						+ e.getName());
 				return true;
 			}
 		}

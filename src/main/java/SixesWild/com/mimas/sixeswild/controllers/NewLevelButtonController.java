@@ -7,6 +7,8 @@ import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javax.swing.JPanel;
 
@@ -21,6 +23,8 @@ import SixesWild.com.mimas.sixeswild.entities.Board;
  * @author Cameron Jones
  */
 public class NewLevelButtonController implements ActionListener {
+
+	private static final Logger logger = Logger.getGlobal();
 	BuilderApplication app;
 
 	/**
@@ -63,7 +67,9 @@ public class NewLevelButtonController implements ActionListener {
 		// Add panel to view
 		this.app.getBuilderView().updateBoardViewPanel(
 				new BoardViewPanel(new Board(), app.getAesthetic()));
-		this.app.getBuilderView().getBoardViewPanel().addMouseListener(new BuilderBoardViewMouseController(this.app));
+		this.app.getBuilderView()
+				.getBoardViewPanel()
+				.addMouseListener(new BuilderBoardViewMouseController(this.app));
 		this.app.getBuilderView().revalidate();
 		this.app.getBuilderView().repaint();
 
@@ -72,5 +78,7 @@ public class NewLevelButtonController implements ActionListener {
 
 		contentContainer.revalidate();
 		contentContainer.repaint();
+
+		logger.log(Level.FINE, "New level requested for builder.");
 	}
 }

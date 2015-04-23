@@ -5,6 +5,8 @@ import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javax.swing.JPanel;
 
@@ -17,6 +19,8 @@ import SixesWild.com.mimas.sixeswild.boundaries.GameApplication;
  * @author Aditya Nivarthi
  */
 public class OptionsMenuButtonController implements ActionListener {
+
+	private static final Logger logger = Logger.getGlobal();
 	GameApplication app;
 
 	/**
@@ -60,6 +64,8 @@ public class OptionsMenuButtonController implements ActionListener {
 		currentPanel
 				.add(this.app.getMainPanel().getOptionsMenuView(), gbc_list);
 		currentPanel.updateUI();
+
+		logger.log(Level.FINE, "Options menu requested and displayed.");
 	}
 
 	/**
@@ -71,5 +77,7 @@ public class OptionsMenuButtonController implements ActionListener {
 				.getAestheticButton()
 				.addActionListener(
 						new ChangeAestheticButtonController(this.app));
+
+		logger.log(Level.FINE, "Options menu controllers initialized.");
 	}
 }

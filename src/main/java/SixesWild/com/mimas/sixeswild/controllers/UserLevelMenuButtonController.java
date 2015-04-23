@@ -6,6 +6,8 @@ import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javax.swing.JPanel;
 
@@ -19,6 +21,7 @@ import SixesWild.com.mimas.sixeswild.boundaries.GameApplication;
  */
 public class UserLevelMenuButtonController implements ActionListener {
 
+	private static final Logger logger = Logger.getGlobal();
 	GameApplication app;
 
 	/**
@@ -67,5 +70,7 @@ public class UserLevelMenuButtonController implements ActionListener {
 		// Add panel to view
 		currentPanel.add(this.app.getMainPanel().getUserMenuView(), gbc_list);
 		currentPanel.updateUI();
+
+		logger.log(Level.FINE, "User level menu requested and displayed.");
 	}
 }

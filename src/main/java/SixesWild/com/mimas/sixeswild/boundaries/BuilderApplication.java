@@ -32,7 +32,7 @@ import SixesWild.com.mimas.sixeswild.entities.Aesthetic;
  * @author Aditya Nivarthi
  */
 public class BuilderApplication {
-	
+
 	private static final Logger logger = Logger.getGlobal();
 
 	JFrame frame;
@@ -77,7 +77,7 @@ public class BuilderApplication {
 		frame.getContentPane().add(new SplashScreen());
 
 		logger.log(Level.FINE, "BuilderApplication frame initialized.");
-		
+
 		// Set up controllers
 		this.setUpControllers();
 	}
@@ -118,8 +118,9 @@ public class BuilderApplication {
 						this));
 		this.builderView.boardViewPanel
 				.addMouseListener(new BuilderBoardViewMouseController(this));
-		this.builderView.builderTopPanel.saveButton.addActionListener(new SaveButtonController(this));
-		
+		this.builderView.builderTopPanel.saveButton
+				.addActionListener(new SaveButtonController(this));
+
 		logger.log(Level.FINE, "BuilderApplication controllers initialized.");
 	}
 
