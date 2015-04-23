@@ -11,7 +11,7 @@ import java.util.ArrayList;
 public class UserProfile {
 
 	String userName;
-	int highestLevel;
+	int highestUnlockedLevel;
 	ArrayList<String> badgesEarned;
 	ArrayList<LevelHighScore> levelHighScores;
 	String aestheticName;
@@ -24,7 +24,7 @@ public class UserProfile {
 	 */
 	public UserProfile(String userName) {
 		this.userName = userName;
-		this.highestLevel = 1;
+		this.highestUnlockedLevel = 1;
 		this.badgesEarned = new ArrayList<String>();
 		this.levelHighScores = new ArrayList<LevelHighScore>();
 		this.aestheticName = "";
@@ -44,8 +44,8 @@ public class UserProfile {
 	 * 
 	 * @return An Integer of the highest level unlocked by the user.
 	 */
-	public int getHighestLevel() {
-		return highestLevel;
+	public int getHighestUnlockedLevel() {
+		return highestUnlockedLevel;
 	}
 
 	/**
@@ -55,6 +55,23 @@ public class UserProfile {
 	 */
 	public ArrayList<String> getBadgesEarned() {
 		return badgesEarned;
+	}
+	
+	/**
+	 * Returns whether or not the badge name given is earned by the user.
+	 * 
+	 * @param badgeName
+	 *            A String of the badge name that is being looked for.
+	 * @return A boolean that tells whether or not the badge has been earned by
+	 *         the user.
+	 */
+	public boolean hasBadge(String badgeName) {
+		for (String badge : badgesEarned) {
+			if (badge.equals(badgeName)) {
+				return true;
+			}
+		}
+		return false;
 	}
 
 	/**
@@ -85,6 +102,25 @@ public class UserProfile {
 
 		return -1;
 	}
+	
+	/**
+	 * Returns the stars equivalent of a high score for the given level.
+	 * 
+	 * @param level
+	 *            An int of the level that the stars will be taken from.
+	 * @return An int of the stars equivalent of the high score of the level
+	 *         wanted. Returns -1 if the level was not found in the list.
+	 */
+	public int getStarsOfLevel(int level) {
+		for (LevelHighScore lhs : levelHighScores) {
+			if (lhs.getLevel() == level) {
+				return lhs.getStars();
+			}
+		}
+
+		return -1;
+	}
+
 
 	/**
 	 * Gets the aesthetic that the user uses.
@@ -130,7 +166,7 @@ public class UserProfile {
 	 *            An Integer of the highest level unlocked by the player.
 	 */
 	public void setHighestLevel(int highestLevel) {
-		this.highestLevel = highestLevel;
+		this.highestUnlockedLevel = highestLevel;
 	}
 
 	/**
@@ -216,7 +252,7 @@ public class UserProfile {
 	public String toString() {
 		String str = "";
 		str += "User Name: " + userName + "\n";
-		str += "	Highest Level: " + highestLevel + "\n";
+		str += "	Highest Level: " + highestUnlockedLevel + "\n";
 		str += "	Badges Earned:\n";
 		for (String badge : badgesEarned) {
 			str += "		" + badge + "\n";

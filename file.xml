@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<UserProfile user="Rihanna">
+<HighestLevelUnlocked>10</HighestLevelUnlocked>
+<Badges>
+<Name>Rasputin</Name>
+<Name>Stalin</Name>
+<Name>Obama</Name>
+</Badges>
+<LevelScores>
+<Level level="1" score="5" stars="2"/>
+<Level level="2" score="240" stars="1"/>
+<Level level="3" score="123" stars="3"/>
+</LevelScores>
+<Aesthetic>Rainbow Unicorns</Aesthetic>
+</UserProfile>

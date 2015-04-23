@@ -29,7 +29,7 @@ public class TestUserProfile extends TestCase {
 	 */
 	public void testDefaultUserProfile() {
 		assertEquals(name, currentProfile.getUserName());
-		assertEquals(1, currentProfile.getHighestLevel());
+		assertEquals(1, currentProfile.getHighestUnlockedLevel());
 		assertEquals(0, currentProfile.getBadgesEarned().size());
 		assertEquals(0, currentProfile.getLevelHighScore().size());
 		assertEquals("", currentProfile.getAestheticName());
@@ -77,7 +77,7 @@ public class TestUserProfile extends TestCase {
 		// Set highest level
 		currentProfile.setHighestLevel(3);
 		currentProfile.addLevelHighScore(3, 3, 3);
-		assertEquals(3, currentProfile.getHighestLevel());
+		assertEquals(3, currentProfile.getHighestUnlockedLevel());
 
 		// Get LevelHighScore object
 		LevelHighScore score = currentProfile.getLevelHighScore(3);
