@@ -36,8 +36,8 @@ public class EliminationLevel extends Level {
 	 */
 	public EliminationLevel(ArrayList<Double> tileFreq,
 			ArrayList<Double> multFreq, LevelType type, String name,
-			Tile tiles[][], PointThresholds pointThresholds, int moveCount) throws Exception {
-		super(tileFreq, multFreq, type, name, tiles, pointThresholds, moveCount);
+			Tile tiles[][], PointThresholds pointThresholds, int moveCount, SpecialMoves specialMoves) throws Exception {
+		super(tileFreq, multFreq, type, name, tiles, pointThresholds, moveCount, specialMoves);
 
 	}
 }

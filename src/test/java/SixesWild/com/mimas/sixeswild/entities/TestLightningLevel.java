@@ -22,7 +22,8 @@ public class TestLightningLevel extends TestCase {
 		String levelName = "testLightning"; // DONE
 		Tile tiles[][] = new Tile[9][9];
 		PointThresholds pointThresholds = new PointThresholds(); // DONE
-
+		SpecialMoves specialMoves = new SpecialMoves();
+		
 		tileFreq.add(.10);
 		tileFreq.add(.20);
 		tileFreq.add(.30);
@@ -43,7 +44,7 @@ public class TestLightningLevel extends TestCase {
 		LightningLevel level;
 		try {
 			level = new LightningLevel(tileFreq, multFreq, levelType, levelName,
-					tiles, pointThresholds, 50);
+					tiles, pointThresholds, 50, specialMoves);
 			assertEquals(levelName, level.getName());
 			assertEquals(LevelType.LIGHTNING, level.getType());
 			assertEquals(tileFreq, level.board.getTileFrequencies());
@@ -57,7 +58,7 @@ public class TestLightningLevel extends TestCase {
 		tiles[0][0] = null;
 		try {
 			new PuzzleLevel(tileFreq, multFreq, levelType, levelName, tiles,
-					pointThresholds, 9);
+					pointThresholds, 9, specialMoves);
 			fail("Missing Exception");
 		} catch (Exception e) {
 			assertTrue(true);
@@ -65,7 +66,7 @@ public class TestLightningLevel extends TestCase {
 
 		try {
 			new PuzzleLevel(tileFreq, multFreq, levelType, levelName, null,
-					pointThresholds, 9);
+					pointThresholds, 9, specialMoves);
 			fail("Missing Exception");
 		} catch (Exception e) {
 			assertTrue(true);

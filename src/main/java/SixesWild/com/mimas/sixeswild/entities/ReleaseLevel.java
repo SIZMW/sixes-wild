@@ -32,10 +32,10 @@ public class ReleaseLevel extends Level {
 	 *            The number of moves for the level.
 	 * @throws Exception 
 	 */
-	public ReleaseLevel(ArrayList<Double> tileFreq, ArrayList<Double> multFreq,
-			LevelType type, String name, Tile tiles[][],
-			PointThresholds pointThresholds, int moveCount) throws Exception {
-		super(tileFreq, multFreq, type, name, tiles, pointThresholds, moveCount);
+	public ReleaseLevel(ArrayList<Double> tileFreq,
+			ArrayList<Double> multFreq, LevelType type, String name,
+			Tile tiles[][], PointThresholds pointThresholds, int moveCount, SpecialMoves specialMoves) throws Exception {
+		super(tileFreq, multFreq, type, name, tiles, pointThresholds, moveCount, specialMoves);
 
 	}
 }

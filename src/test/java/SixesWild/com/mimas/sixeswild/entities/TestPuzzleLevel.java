@@ -21,7 +21,8 @@ public class TestPuzzleLevel extends TestCase {
 		String levelName = "testPuzzle"; // DONE
 		Tile tiles[][] = new Tile[9][9];
 		PointThresholds pointThresholds = new PointThresholds(); // DONE
-
+		SpecialMoves specialMoves = new SpecialMoves();
+		
 		tileFreq.add(.10);
 		tileFreq.add(.20);
 		tileFreq.add(.30);
@@ -42,7 +43,7 @@ public class TestPuzzleLevel extends TestCase {
 		PuzzleLevel level;
 		try {
 			level = new PuzzleLevel(tileFreq, multFreq, levelType, levelName,
-					tiles, pointThresholds, 50);
+					tiles, pointThresholds, 50, specialMoves);
 			assertEquals(levelName, level.name);
 			assertEquals(LevelType.PUZZLE, level.type);
 			assertEquals(tileFreq, level.board.tileFrequencies);
@@ -56,7 +57,7 @@ public class TestPuzzleLevel extends TestCase {
 		tiles[0][0] = null;
 		try {
 			new PuzzleLevel(tileFreq, multFreq, levelType, levelName, tiles,
-					pointThresholds, 9);
+					pointThresholds, 9, specialMoves);
 			fail("Missing Exception");
 		} catch (Exception e) {
 			assertTrue(true);
@@ -64,7 +65,7 @@ public class TestPuzzleLevel extends TestCase {
 
 		try {
 			new PuzzleLevel(tileFreq, multFreq, levelType, levelName, null,
-					pointThresholds, 9);
+					pointThresholds, 9, specialMoves);
 			fail("Missing Exception");
 		} catch (Exception e) {
 			assertTrue(true);

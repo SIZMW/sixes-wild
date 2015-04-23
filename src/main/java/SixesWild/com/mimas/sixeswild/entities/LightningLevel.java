@@ -35,8 +35,8 @@ public class LightningLevel extends Level {
 	 */
 	public LightningLevel(ArrayList<Double> tileFreq,
 			ArrayList<Double> multFreq, LevelType type, String name,
-			Tile tiles[][], PointThresholds pointThresholds, int timerCount) throws Exception {
-		super(tileFreq, multFreq, type, name, tiles, pointThresholds, new Timer(timerCount,null));
+			Tile tiles[][], PointThresholds pointThresholds, int timerCount, SpecialMoves specialMoves) throws Exception {
+		super(tileFreq, multFreq, type, name, tiles, pointThresholds, new Timer(timerCount,null), specialMoves);
 	
 	}
 }
