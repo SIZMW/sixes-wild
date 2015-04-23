@@ -138,7 +138,7 @@ public final class XMLParser {
 					} else {
 						throw new Exception("Invalid tile type!");
 					}
-					tiles[i][j] = t;
+					tiles[j][i] = t;
 					j++;
 				}
 			}
