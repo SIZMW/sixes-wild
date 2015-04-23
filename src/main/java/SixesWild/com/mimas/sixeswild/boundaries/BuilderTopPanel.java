@@ -3,10 +3,13 @@ package SixesWild.com.mimas.sixeswild.boundaries;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
+import java.util.ArrayList;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JPanel;
+
+import SixesWild.com.mimas.sixeswild.sixeswild.XMLParser;
 
 /**
  * This class represents the top panel of the level builder. It contains the
@@ -26,16 +29,16 @@ public class BuilderTopPanel extends JPanel {
 
 	JButton deleteButton;
 	JComboBox<String> deleteComboBox;
-	
-	String dummyLevel1;
-	String dummyLevel2;
-	String dummyLevel3;
-	String dummyLevel4;
+
+	ArrayList<String> userLevelList;
 
 	/**
 	 * Creates a BuilderTopPanel instance.
 	 */
 	public BuilderTopPanel() {
+
+		// Attributes
+		userLevelList = XMLParser.getLevelFileNames(XMLParser.USER_DIR);
 
 		// Layout for panel
 		GridBagLayout gridBagLayout = new GridBagLayout();
@@ -70,7 +73,6 @@ public class BuilderTopPanel extends JPanel {
 		// Open level button
 		openButton = new JButton("OPEN");
 
-
 		// Layout for open level button
 		GridBagConstraints gbc_openButton = new GridBagConstraints();
 		gbc_openButton.insets = new Insets(0, 0, 0, 5);
@@ -80,17 +82,11 @@ public class BuilderTopPanel extends JPanel {
 
 		// Open level combo box
 		openComboBox = new JComboBox<String>();
-		//TODO add levels with the file opening system
-		dummyLevel1 = "Level1";
-		dummyLevel2 = "Level2";
-		dummyLevel3 = "Level3";
-		dummyLevel4 = "Level4";
-		
-		openComboBox.addItem(dummyLevel1);
-		openComboBox.addItem(dummyLevel2);
-		openComboBox.addItem(dummyLevel3);
-		openComboBox.addItem(dummyLevel4);
-		
+
+		for (String e : userLevelList) {
+			openComboBox.addItem(e);
+		}
+
 		// Layout for open level combo box
 		GridBagConstraints gbc_openComboBox = new GridBagConstraints();
 		gbc_openComboBox.insets = new Insets(0, 0, 0, 5);
@@ -111,10 +107,10 @@ public class BuilderTopPanel extends JPanel {
 
 		// Delete level combo box
 		deleteComboBox = new JComboBox<String>();
-		deleteComboBox.addItem(dummyLevel1);
-		deleteComboBox.addItem(dummyLevel2);
-		deleteComboBox.addItem(dummyLevel3);
-		deleteComboBox.addItem(dummyLevel4);
+
+		for (String e : userLevelList) {
+			deleteComboBox.addItem(e);
+		}
 
 		// Layout for delete level combo box
 		GridBagConstraints gbc_deleteComboBox = new GridBagConstraints();
