@@ -35,7 +35,9 @@ public class GameBoardViewMouseController extends MouseAdapter {
 		app.getLevelPanel().getBoardViewPanel()
 				.updateGameSelection(me.getX(), me.getY());
 		if (!app.getLevelPanel().getBoardViewPanel().getCurrentSelection()
-				.isSelectionSumStillValid()) {
+				.isSelectionSumStillValid()
+				|| !app.getLevelPanel().getBoardViewPanel()
+						.getCurrentSelection().isValidPositionSelection()) {
 			app.getLevelPanel().getBoardViewPanel().clearGameSelection();
 		}
 		app.getLevelPanel().getBoardViewPanel().updateUI();

@@ -79,14 +79,14 @@ public class Selection {
 	}
 
 	/**
-	 * Returns whether the given selection is valid or not, based on squares
-	 * being next to one another and sum of the tiles in the squares.
+	 * Returns whether the selection is valid or not, based on squares being
+	 * next to one another and sum of the tiles in the squares.
 	 * 
 	 * @return true if selection is valid; false otherwise.
 	 */
 	public boolean isValidSelection() {
 
-		// If selection has only one tile, allow more to be selected
+		// If selection has only one tile
 		if (this.squareSet.size() <= 1) {
 			return false;
 		}
@@ -118,6 +118,48 @@ public class Selection {
 		}
 
 		return this.isValidSumSelection();
+	}
+
+	/**
+	 * Returns whether the selection is currently valid or not, based on the
+	 * squares being next to each other. This is used to determine if the move
+	 * should continue onward or be reset.
+	 * 
+	 * @return true if selection is valid; false otherwise.
+	 */
+	public boolean isValidPositionSelection() {
+
+		// If selection has only one tile, allow more to be selected
+		if (this.squareSet.size() <= 1) {
+			return true;
+		}
+
+		Object squareArray[] = this.squareSet.toArray();
+
+		// Check if each square is next to at least one other square in the
+		// selection. This allows for the "T" move.
+		boolean nextTo = false;
+
+		for (int i = 0; i < squareArray.length; i++) {
+			for (int j = 0; j < squareArray.length; j++) {
+
+				// Don't check square against itself
+				if (i != j
+						&& this.isSquareNextTo((Square) squareArray[i],
+								(Square) squareArray[j])) {
+					nextTo = true;
+				}
+			}
+
+			// If a square was not next to any other ones
+			if (!nextTo) {
+				return false;
+			}
+
+			// Reset boolean
+			nextTo = false;
+		}
+		return true;
 	}
 
 	/**
