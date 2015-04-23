@@ -1,7 +1,16 @@
 package SixesWild.com.mimas.sixeswild.sixeswild;
 
+import java.util.ArrayList;
+
 import junit.framework.TestCase;
+import SixesWild.com.mimas.sixeswild.entities.Level;
+import SixesWild.com.mimas.sixeswild.entities.LevelType;
+import SixesWild.com.mimas.sixeswild.entities.NullTile;
+import SixesWild.com.mimas.sixeswild.entities.NumberTile;
+import SixesWild.com.mimas.sixeswild.entities.PointThresholds;
 import SixesWild.com.mimas.sixeswild.entities.PuzzleLevel;
+import SixesWild.com.mimas.sixeswild.entities.SpecialMoves;
+import SixesWild.com.mimas.sixeswild.entities.Tile;
 import SixesWild.com.mimas.sixeswild.entities.TileType;
 import SixesWild.com.mimas.sixeswild.entities.UserProfile;
 
@@ -76,5 +85,67 @@ public class TestXMLParser extends TestCase{
 	public void testXMLParserFileToLevelName(){
 		String levelName = XMLParser.fileToLevelName("testLevelProfileXML.xml");
 		assertEquals(levelName, "Supercalifragilisticexpialidocious");
+	}
+	
+	public void testXMLParserLevelToFile(){
+		// make a level
+		ArrayList<Double> tileFreq = new ArrayList<Double>(); // DONE
+		ArrayList<Double> multFreq = new ArrayList<Double>(); // DONE
+		LevelType levelType = LevelType.PUZZLE; // DONE
+		String levelName = "testPuzzle"; // DONE
+		Tile tiles[][] = new Tile[9][9];
+		PointThresholds pointThresholds = new PointThresholds(); // DONE
+		SpecialMoves specialMoves = new SpecialMoves();
+		int levelNumber = 5;
+		
+		tileFreq.add(.10);
+		tileFreq.add(.20);
+		tileFreq.add(.30);
+		tileFreq.add(.30);
+		tileFreq.add(.05);
+		tileFreq.add(.05);
+
+		multFreq.add(.95);
+		multFreq.add(.025);
+		multFreq.add(.025);
+
+		for (int i = 0; i < 9; i++) {
+			for (int j = 0; j < 9; j++) {
+				if(j < 2){
+					tiles[i][j] = new NullTile();
+				}
+				else{
+					tiles[i][j] = new NumberTile(3, 2);
+				}
+			}
+		}
+		PuzzleLevel level1;
+		try {
+			level1 = new PuzzleLevel(tileFreq, multFreq, levelType, levelName,
+					tiles, pointThresholds, 50, specialMoves, levelNumber);
+			
+			// change the level to a file and then turn it back into a level
+			XMLParser.levelToFile(level1);
+			Level level2 = XMLParser.fileToLevel("5.xml");
+			
+			// make sure the two levels have the same attributes
+			assertEquals(level1.getLevelNumber(), level2.getLevelNumber());
+			assertEquals(level1.getMoveCount(), level2.getMoveCount());
+			assertEquals(level1.getName(), level2.getName());
+			assertEquals(level1.getType(), level2.getType());
+			
+			assertEquals(level1.getPointThresholds().getOneStarThreshold(), level2.getPointThresholds().getOneStarThreshold());
+			assertEquals(level1.getPointThresholds().getTwoStarThreshold(), level2.getPointThresholds().getTwoStarThreshold());
+			assertEquals(level1.getPointThresholds().getThreeStarThreshold(), level2.getPointThresholds().getThreeStarThreshold());
+			
+			assertEquals(level1.getSpecialMoves().getRemoveTileCount(), level2.getSpecialMoves().getRemoveTileCount());
+			assertEquals(level1.getSpecialMoves().getResetBoardCount(), level2.getSpecialMoves().getResetBoardCount());
+			assertEquals(level1.getSpecialMoves().getSwapTileCount(), level2.getSpecialMoves().getSwapTileCount());
+			assertEquals(level1.getSpecialMoves().getXStacySpecialMoveCount(), level2.getSpecialMoves().getXStacySpecialMoveCount());
+			
+			assertEquals(level1.getBoard().getSquare(1, 7).getTile().getType(), level2.getBoard().getSquare(1, 7).getTile().getType());
+		} catch (Exception e1){
+			
+		}	
 	}
 }

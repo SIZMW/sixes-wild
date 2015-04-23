@@ -365,7 +365,7 @@ public final class XMLParser {
 			for(int i = 0; i < 9; i++){
 				String row = "";
 				for(int j = 0; j < 9; j++){
-					row += instanceToChar(board.getSquare(i, j).getTile());
+					row += instanceToChar(board.getSquare(j, i).getTile());
 					if(j != 8){
 						row += " ";
 					}
