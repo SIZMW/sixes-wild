@@ -78,6 +78,8 @@ public class TestUserProfile extends TestCase {
 		currentProfile.setHighestLevel(3);
 		currentProfile.addLevelHighScore(3, 3, 3);
 		assertEquals(3, currentProfile.getHighestUnlockedLevel());
+		assertEquals(3, currentProfile.getHighScoreOfLevel(3));
+		assertEquals(3, currentProfile.getStarsOfLevel(3));
 
 		// Get LevelHighScore object
 		LevelHighScore score = currentProfile.getLevelHighScore(3);
@@ -109,6 +111,8 @@ public class TestUserProfile extends TestCase {
 
 		currentProfile.setBadgesEarned(badges);
 		assertEquals(currentProfile.getBadgesEarned().get(0), "Hi");
+		
+		assertTrue(currentProfile.hasBadge("Hi"));
 	}
 
 	/**
