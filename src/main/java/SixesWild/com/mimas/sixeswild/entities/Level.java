@@ -52,6 +52,7 @@ public abstract class Level {
 		this.moveCount = moveCount;
 		this.timer = null;
 		this.specialMoves = specialMoves;
+		this.levelNumber = levelNumber;
 		try {
 			this.board = new Board(tiles, tileFreq, multFreq);
 		} catch (Exception e) {
@@ -88,6 +89,7 @@ public abstract class Level {
 		this.timer = timer;
 		this.moveCount = 0;
 		this.specialMoves = specialMoves;
+		this.levelNumber = levelNumber;
 		try {
 			this.board = new Board(tiles, tileFreq, multFreq);
 		} catch (Exception e) {
@@ -121,6 +123,7 @@ public abstract class Level {
 		this.pointThresholds = new PointThresholds();
 		this.moveCount = 40;
 		this.timer = null;
+		this.levelNumber = 0;
 	}
 
 	/**
