@@ -44,8 +44,8 @@ import SixesWild.com.mimas.sixeswild.entities.UserProfile;
  */
 public final class XMLParser {
 
-	public static final String STORY_DIR = "./storylevels";
-	public static final String USER_DIR = "./userlevels";
+	public static final String STORY_DIR = "./storylevels/";
+	public static final String USER_DIR = "./userlevels/";
 
 	private static final Logger logger = Logger.getGlobal();
 
@@ -132,7 +132,7 @@ public final class XMLParser {
 				fileNames.add(listFiles[i].getName().substring(0,
 						listFiles[i].getName().lastIndexOf("."))
 						+ ": "
-						+ XMLParser.fileToLevelName(directory + "/"
+						+ XMLParser.fileToLevelName(directory
 								+ listFiles[i].getName()));
 			}
 		}
@@ -253,7 +253,7 @@ public final class XMLParser {
 					} else if (c == 'S') {
 						t = new SixTile();
 					} else {
-						throw new Exception("Invalid tile type!");
+						throw new Exception("Invalid tile type.");
 					}
 					tiles[j][i] = t;
 					j++;
@@ -490,8 +490,8 @@ public final class XMLParser {
 			Transformer transformer = transformerFactory.newTransformer();
 			transformer.setOutputProperty(OutputKeys.INDENT, "yes");
 			DOMSource source = new DOMSource(doc);
-			StreamResult result = new StreamResult(new File("userlevels\\" +
-					level.getLevelNumber() + ".xml"));
+			StreamResult result = new StreamResult(new File(XMLParser.USER_DIR
+					+ level.getLevelNumber() + ".xml"));
 			transformer.transform(source, result);
 
 			logger.log(java.util.logging.Level.INFO,

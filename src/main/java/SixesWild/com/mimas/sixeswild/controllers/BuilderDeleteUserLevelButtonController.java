@@ -43,14 +43,13 @@ public class BuilderDeleteUserLevelButtonController implements ActionListener {
 				.getItemCount() > 0) {
 			String fileName = ((String) this.app.getBuilderView()
 					.getBuilderTopPanel().getDeleteComboBox().getSelectedItem())
-					.substring(3);
+					.substring(0, 1);
 			fileName += ".xml";
-			fileName = fileName.substring(fileName.indexOf(" ") + 1);
 			logger.log(Level.INFO, fileName);
 
 			// Open the file to delete
 			try {
-				File level = new File(XMLParser.USER_DIR + "/" + fileName);
+				File level = new File(XMLParser.USER_DIR + fileName);
 
 				if (level.delete()) {
 					logger.log(Level.INFO, "Deleted successfully.");
