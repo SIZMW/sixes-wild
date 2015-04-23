@@ -32,6 +32,8 @@ import SixesWild.com.mimas.sixeswild.entities.MenuTypes;
 public class GameApplication {
 
 	private static final Logger logger = Logger.getGlobal();
+	private static final String STORY_DIR = "./storylevels";
+	private static final String USER_DIR = "./userlevels";
 
 	JFrame frame;
 	GameMenuView gameMenuView;
@@ -67,8 +69,8 @@ public class GameApplication {
 		this.setUpAesthetics();
 
 		// Initialize lists for GameMenuView
-		ArrayList<String> storyLevelList = this.getStoryLevelFileNames();
-		ArrayList<String> userLevelList = this.getUserLevelFileNames();
+		ArrayList<String> storyLevelList = this.getLevelFileNames(STORY_DIR);
+		ArrayList<String> userLevelList = this.getLevelFileNames(USER_DIR);
 
 		ArrayList<String> badgesList = new ArrayList<String>();
 		for (int i = 1; i <= 20; i++) {
@@ -151,12 +153,15 @@ public class GameApplication {
 	}
 
 	/**
-	 * Gets the list of story level files to load to the list selection.
+	 * Gets the list of level files to load to the list selection from the given
+	 * directory.
 	 * 
+	 * @param directory
+	 *            The directory to load levels from.
 	 * @return ArrayList<String> story level names
 	 */
-	protected ArrayList<String> getStoryLevelFileNames() {
-		File folder = new File("./storylevels");
+	protected ArrayList<String> getLevelFileNames(String directory) {
+		File folder = new File(directory);
 		File[] listFiles = folder.listFiles();
 		ArrayList<String> fileNames = new ArrayList<String>();
 		String extension = "xml";
@@ -174,32 +179,8 @@ public class GameApplication {
 			}
 		}
 
-		return fileNames;
-	}
-
-	/**
-	 * Gets the list of user level files to load to the list selection.
-	 * 
-	 * @return ArrayList<String> user level names
-	 */
-	protected ArrayList<String> getUserLevelFileNames() {
-		File folder = new File("./userlevels");
-		File[] listFiles = folder.listFiles();
-		ArrayList<String> fileNames = new ArrayList<String>();
-		String extension = "xml";
-
-		for (int i = 0; i < listFiles.length; i++) {
-			if (listFiles[i].isFile()
-					&& listFiles[i]
-							.getName()
-							.substring(
-									listFiles[i].getName().lastIndexOf(".") + 1,
-									listFiles[i].getName().length())
-							.equals(extension)) {
-				fileNames.add(listFiles[i].getName().substring(0,
-						listFiles[i].getName().lastIndexOf(".")));
-			}
-		}
+		logger.log(Level.INFO, "Level list loaded from disk. Directory: "
+				+ directory);
 
 		return fileNames;
 	}
@@ -261,7 +242,7 @@ public class GameApplication {
 		for (Aesthetic e : aestheticList) {
 			if (e.getName().equals(name)) {
 				currentAesthetic = e;
-				logger.log(Level.FINE, "GameApplication aesthetic change to: "
+				logger.log(Level.FINE, "GameApplication aesthetic changed to: "
 						+ e.getName());
 				return true;
 			}
