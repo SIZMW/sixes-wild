@@ -88,8 +88,8 @@ public final class XMLParser {
 
 			// ******* level number not used anywhere ???? ******
 			// Get level number
-			String levelNumber = doc.getElementsByTagName("Level").item(0)
-					.getAttributes().item(0).getNodeValue();
+			int levelNumber = Integer.parseInt(doc.getElementsByTagName("Level").item(0)
+					.getAttributes().item(0).getNodeValue());
 
 			// Get level name
 			String levelName = doc.getElementsByTagName("Name").item(0)
@@ -186,20 +186,20 @@ public final class XMLParser {
 			if (levelType.equals("Puzzle")) {
 				return new PuzzleLevel(tileFrequencies, multiplierFrequencies,
 						LevelType.PUZZLE, levelName, tiles, pointThresholds,
-						moveCount, specialMoves);
+						moveCount, specialMoves, levelNumber);
 			} else if (levelType.equals("Release")) {
 				return new ReleaseLevel(tileFrequencies, multiplierFrequencies,
 						LevelType.RELEASE, levelName, tiles, pointThresholds,
-						moveCount, specialMoves);
+						moveCount, specialMoves, levelNumber);
 			} else if (levelType.equals("Lightning")) {
 				return new LightningLevel(tileFrequencies,
 						multiplierFrequencies, LevelType.LIGHTNING, levelName,
-						tiles, pointThresholds, timer, specialMoves);
+						tiles, pointThresholds, timer, specialMoves, levelNumber);
 			} else if (levelType.equals("Elimination")) {
 				return new EliminationLevel(tileFrequencies,
 						multiplierFrequencies, LevelType.ELIMINATION,
 						levelName, tiles, pointThresholds, moveCount,
-						specialMoves);
+						specialMoves, levelNumber);
 			} else {
 				throw new Exception("Invalid Level Type!");
 			}
@@ -398,5 +398,42 @@ public final class XMLParser {
 		}
 
 		return false;
+	}
+	
+	public static void main(String[] args) {
+		ArrayList<Double> tileFreq = new ArrayList<Double>(); // DONE
+		ArrayList<Double> multFreq = new ArrayList<Double>(); // DONE
+		LevelType levelType = LevelType.PUZZLE; // DONE
+		String levelName = "testPuzzle"; // DONE
+		Tile tiles[][] = new Tile[9][9];
+		PointThresholds pointThresholds = new PointThresholds(); // DONE
+		SpecialMoves specialMoves = new SpecialMoves();
+		int levelNumber = 5;
+		
+		tileFreq.add(.10);
+		tileFreq.add(.20);
+		tileFreq.add(.30);
+		tileFreq.add(.30);
+		tileFreq.add(.05);
+		tileFreq.add(.05);
+
+		multFreq.add(.95);
+		multFreq.add(.025);
+		multFreq.add(.025);
+
+		for (int i = 0; i < 9; i++) {
+			for (int j = 0; j < 9; j++) {
+				tiles[i][j] = new NumberTile(3, 2);
+			}
+		}
+
+		PuzzleLevel level;
+		try {
+			level = new PuzzleLevel(tileFreq, multFreq, levelType, levelName,
+					tiles, pointThresholds, 50, specialMoves, levelNumber);
+			XMLParser.levelToFile(level);
+		} catch (Exception e1){
+			
+		}		
 	}
 }
