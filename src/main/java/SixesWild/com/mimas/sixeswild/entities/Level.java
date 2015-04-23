@@ -48,7 +48,6 @@ public abstract class Level {
 		this.name = name;
 		this.pointThresholds = pointThresholds;
 		this.moveCount = moveCount;
-
 		this.timer = null;
 		try {
 			this.board = new Board(tiles, tileFreq, multFreq);

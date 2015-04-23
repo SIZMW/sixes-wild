@@ -2,6 +2,8 @@ package SixesWild.com.mimas.sixeswild.entities;
 
 import java.util.ArrayList;
 
+import javax.swing.Timer;
+
 /**
  * This class is used as a representation of the elimination level type. The
  * goal in this level is to mark all the squares and create moves using each of
@@ -35,12 +37,7 @@ public class EliminationLevel extends Level {
 	public EliminationLevel(ArrayList<Double> tileFreq,
 			ArrayList<Double> multFreq, LevelType type, String name,
 			Tile tiles[][], PointThresholds pointThresholds, int moveCount) throws Exception {
-		super();
-		this.type = type;
-		this.name = name;
-		this.pointThresholds = pointThresholds;
-		this.moveCount = moveCount;
-		this.timer = null;
+		super(tileFreq, multFreq, type, name, tiles, pointThresholds, moveCount);
 
 		try {
 			this.board = new Board(tiles, tileFreq, multFreq);

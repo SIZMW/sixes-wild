@@ -35,12 +35,7 @@ public class PuzzleLevel extends Level {
 	public PuzzleLevel(ArrayList<Double> tileFreq, ArrayList<Double> multFreq,
 			LevelType type, String name, Tile tiles[][],
 			PointThresholds pointThresholds, int moveCount) throws Exception {
-		super();
-		this.type = type;
-		this.name = name;
-		this.pointThresholds = pointThresholds;
-		this.moveCount = moveCount;
-		this.timer = null;
+		super(tileFreq, multFreq, type, name, tiles, pointThresholds, moveCount);
 
 		try {
 			this.board = new Board(tiles, tileFreq, multFreq);
