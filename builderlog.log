@@ -1,8 +1,0 @@
-Apr 23, 2015 12:09:11 PM SixesWild.com.mimas.sixeswild.sixeswild.BuilderMain$1 run
-INFO: BuilderMain initialized.
-Apr 23, 2015 12:09:11 PM SixesWild.com.mimas.sixeswild.boundaries.BoardViewPanel <init>
-FINE: Board and layout initialized
-Apr 23, 2015 12:09:11 PM SixesWild.com.mimas.sixeswild.boundaries.BuilderApplication initialize
-FINE: BuilderApplication frame initialized.
-Apr 23, 2015 12:09:11 PM SixesWild.com.mimas.sixeswild.boundaries.BuilderApplication setUpControllers
-FINE: BuilderApplication controllers initialized.

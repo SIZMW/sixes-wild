@@ -234,7 +234,7 @@ public class Board {
 	public boolean setSquare(Tile tile, int x, int y, boolean marked) {
 
 		// Verify tile exists
-		if (tile.equals(null)) {
+		if (tile == null) {
 			return false;
 		}
 
@@ -384,19 +384,12 @@ public class Board {
 	 */
 	public boolean removeSelection(Selection selection) {
 
-		Object[] squareArray = selection.getArray();
-
 		// Verify selection exists
-		if (selection.equals(null)) {
+		if (selection == null) {
 			return false;
 		}
-
-		// Verify squares exist
-		for (int i = 0; i < squareArray.length; i++) {
-			if (((Square) squareArray[i]).equals(null)) {
-				return false;
-			}
-		}
+		
+		Object[] squareArray = selection.getArray();
 
 		// Remove square
 		// TODO Need to revise this
