@@ -13,6 +13,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
+import java.awt.Dimension;
 
 /**
  * This class represents the view used to show badges that the player has
@@ -57,6 +58,9 @@ public class BadgesPanel extends JPanel {
 		// Badge list scroll pane
 		badgeScrollPane = new JScrollPane();
 		JList<String> list = new JList<String>(badgeListModel);
+		list.setPreferredSize(new Dimension(100, 100));
+		list.setMinimumSize(new Dimension(100, 100));
+		list.setMaximumSize(new Dimension(100, 100));
 		badgeScrollPane.setViewportView(list);
 
 		// Layout for scroll pane
@@ -88,6 +92,10 @@ public class BadgesPanel extends JPanel {
 		// Badges preview label
 		JLabel badgesPreviewLabel = new JLabel("BadgePreview",
 				SwingConstants.CENTER);
+		badgesPreviewLabel.setBackground(Color.WHITE);
+		badgesPreviewLabel.setPreferredSize(new Dimension(66, 14));
+		badgesPreviewLabel.setMinimumSize(new Dimension(66, 14));
+		badgesPreviewLabel.setMaximumSize(new Dimension(66, 14));
 		badgesPreviewLabel.setBorder(new LineBorder(new Color(0, 0, 0)));
 
 		// Layout for preview label
