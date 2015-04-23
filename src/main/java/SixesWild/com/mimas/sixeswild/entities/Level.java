@@ -234,4 +234,22 @@ public abstract class Level {
 	public void setTimer(Timer timer) {
 		this.timer = timer;
 	}
+	
+	/**
+	 * Sets the SpecialMoves
+	 * 
+	 * @param newSpecialMoves
+	 */
+	public void setSpecialMoves(SpecialMoves newSpecialMoves){
+		this.specialMoves = newSpecialMoves;
+	}
+	
+	/**
+	 * Returns the Levels Special Moves
+	 * 
+	 * @return this.specialMoves
+	 */
+	public SpecialMoves getSpecialMoves(){
+		return this.specialMoves;
+	}
 }
