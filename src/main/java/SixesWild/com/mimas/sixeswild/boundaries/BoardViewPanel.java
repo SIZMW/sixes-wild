@@ -364,6 +364,7 @@ public class BoardViewPanel extends JPanel {
 	 */
 	public boolean doSelectionMove() {
 		this.gameBoard.removeSelection(this.currentSelection);
+		this.gameBoard.shiftTilesDownward();
 		this.gameBoard.fillEmptySquares();
 		return true;
 	}

@@ -308,7 +308,54 @@ public class Board {
 		return true;
 	}
 
-	// TODO Complete the filling logic
+	/**
+	 * Gets the next non empty Square above a given board position. Recursively
+	 * finds Square that has a tile. If no Square found, returns null.
+	 * 
+	 * @param x
+	 *            X coordinate of Square to search above.
+	 * @param y
+	 *            Y coordinate of Square to search above.
+	 * @return Square with Tile if exists; null otherwise.
+	 */
+	protected Square getNextNonEmptySquare(int x, int y) {
+		if (y <= 0) {
+			return null;
+		} else if (squares[x][y - 1].getTile() != null) {
+			return squares[x][y - 1];
+		} else {
+			return this.getNextNonEmptySquare(x, y - 1);
+		}
+	}
+
+	/**
+	 * Moves tiles downward vertically to fill in any empty Squares.
+	 * 
+	 * @return true if successful; false otherwise.
+	 */
+	public boolean shiftTilesDownward() {
+		for (int i = 0; i < this.SIZE_X; i++) {
+			for (int j = this.SIZE_Y - 1; j > 0; j--) {
+				if (squares[i][j].getTile() == null) {
+					Square square = this.getNextNonEmptySquare(i, j);
+
+					if (square == null) {
+
+					} else if (square.getTile().getType().equals(TileType.NULL)
+							|| square.getTile().getType()
+									.equals(TileType.TARGET)) {
+
+					} else {
+						squares[i][j].addTile(square.getTile());
+						square.removeTile();
+					}
+				}
+			}
+		}
+
+		return true;
+	}
+
 	/**
 	 * Fills empty squares once a move has been completed.
 	 * 
@@ -318,7 +365,8 @@ public class Board {
 		for (int i = 0; i < this.SIZE_X; i++) {
 			for (int j = 0; j < this.SIZE_Y; j++) {
 				if (squares[i][j].getTile() == null) {
-					squares[i][j].addTile(new NullTile());
+					squares[i][j].addTile(new NumberTile(this.getNumber(), this
+							.getMultiplier()));
 				}
 			}
 		}
