@@ -3,6 +3,7 @@ package SixesWild.com.mimas.sixeswild.boundaries;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.io.File;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -65,25 +66,9 @@ public class GameApplication {
 		aestheticList = new ArrayList<Aesthetic>();
 		this.setUpAesthetics();
 
-		// TODO Read this from disk or user profile as necessary.
 		// Initialize lists for GameMenuView
-		ArrayList<String> storyLevelList = new ArrayList<String>();
-		for (int i = 1; i <= 999; i++) {
-			int type = i % 4;
-			String levelType = (type == 1) ? ": Puzzle "
-					: (type == 2) ? ": Elimination "
-							: (type == 3) ? ": Lightning " : ": Release ";
-			storyLevelList.add("Level " + i + levelType);
-		}
-
-		ArrayList<String> userLevelList = new ArrayList<String>();
-		for (int i = 1; i <= 666; i++) {
-			int type = i % 4;
-			String levelType = (type == 1) ? ": Puzzle "
-					: (type == 2) ? ": Elimination "
-							: (type == 3) ? ": Lightning " : ": Release ";
-			userLevelList.add("Level " + i + levelType);
-		}
+		ArrayList<String> storyLevelList = this.getStoryLevelFileNames();
+		ArrayList<String> userLevelList = this.getUserLevelFileNames();
 
 		ArrayList<String> badgesList = new ArrayList<String>();
 		for (int i = 1; i <= 20; i++) {
@@ -163,6 +148,60 @@ public class GameApplication {
 		currentAesthetic = aestheticList.get(0);
 
 		logger.log(Level.FINE, "GameApplication aesthetic listing initialized.");
+	}
+
+	/**
+	 * Gets the list of story level files to load to the list selection.
+	 * 
+	 * @return ArrayList<String> story level names
+	 */
+	protected ArrayList<String> getStoryLevelFileNames() {
+		File folder = new File("./storylevels");
+		File[] listFiles = folder.listFiles();
+		ArrayList<String> fileNames = new ArrayList<String>();
+		String extension = "xml";
+
+		for (int i = 0; i < listFiles.length; i++) {
+			if (listFiles[i].isFile()
+					&& listFiles[i]
+							.getName()
+							.substring(
+									listFiles[i].getName().lastIndexOf(".") + 1,
+									listFiles[i].getName().length())
+							.equals(extension)) {
+				fileNames.add(listFiles[i].getName().substring(0,
+						listFiles[i].getName().lastIndexOf(".")));
+			}
+		}
+
+		return fileNames;
+	}
+
+	/**
+	 * Gets the list of user level files to load to the list selection.
+	 * 
+	 * @return ArrayList<String> user level names
+	 */
+	protected ArrayList<String> getUserLevelFileNames() {
+		File folder = new File("./userlevels");
+		File[] listFiles = folder.listFiles();
+		ArrayList<String> fileNames = new ArrayList<String>();
+		String extension = "xml";
+
+		for (int i = 0; i < listFiles.length; i++) {
+			if (listFiles[i].isFile()
+					&& listFiles[i]
+							.getName()
+							.substring(
+									listFiles[i].getName().lastIndexOf(".") + 1,
+									listFiles[i].getName().length())
+							.equals(extension)) {
+				fileNames.add(listFiles[i].getName().substring(0,
+						listFiles[i].getName().lastIndexOf(".")));
+			}
+		}
+
+		return fileNames;
 	}
 
 	/**

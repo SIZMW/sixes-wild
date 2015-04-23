@@ -39,9 +39,7 @@ public class LevelListCellRenderer extends DefaultListCellRenderer {
 			int index, boolean isSelected, boolean cellHasFocus) {
 
 		// Get level number
-		int levelNumber = Integer.parseInt(((String) value).substring(
-				((String) value).indexOf(" ") + 1,
-				((String) value).indexOf(":")));
+		int levelNumber = Integer.parseInt(((String) value));
 
 		// Unlock levels up to and including the highest unlocked level
 		if (this.highestLevel <= levelNumber) {

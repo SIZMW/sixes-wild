@@ -5,7 +5,6 @@ import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -60,14 +59,6 @@ public class StoryMenuButtonController implements ActionListener {
 		gbc_list.fill = GridBagConstraints.BOTH;
 		gbc_list.gridx = 0;
 		gbc_list.gridy = 0;
-
-		// TODO Collect the StoryLevelNames and Put them in the List to populate
-		// the view
-
-		ArrayList<String> levelList = new ArrayList<String>();
-		for (int i = 0; i < 50; i++) {
-			levelList.add("Story Level " + (i + 1));
-		}
 
 		// Add panel to view
 		currentPanel.add(this.app.getMainPanel().getStoryMenuView(), gbc_list);
