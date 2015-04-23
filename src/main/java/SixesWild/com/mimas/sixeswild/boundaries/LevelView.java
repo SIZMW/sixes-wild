@@ -7,6 +7,7 @@ import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.logging.Logger;
 
 import javax.swing.BorderFactory;
 import javax.swing.JPanel;
@@ -24,6 +25,7 @@ import SixesWild.com.mimas.sixeswild.entities.Tile;
  */
 public class LevelView extends JPanel {
 
+	private static final Logger logger = Logger.getGlobal();
 	private static final long serialVersionUID = 1L;
 
 	LevelTopPanel levelTopPanel;
@@ -122,11 +124,12 @@ public class LevelView extends JPanel {
 			gbc_boardView.gridy = 1;
 			add(boardViewPanel, gbc_boardView);
 		} catch (Exception e) {
-			System.out.println("Null error on board creation.");
+			logger.log(java.util.logging.Level.SEVERE,
+					"Received null error on board creation.", e);
 		}
 
 	}
-	
+
 	public LevelView(Aesthetic aesthetic, Level newLevel) {
 
 		// Attributes
@@ -144,7 +147,7 @@ public class LevelView extends JPanel {
 		// Top menu panel
 		levelTopPanel = new LevelTopPanel();
 		levelTopPanel.setLevelNameTextField(newLevel.getName());
-		
+
 		// Layout for top menu panel
 		GridBagLayout gridBagLayout_1 = (GridBagLayout) levelTopPanel
 				.getLayout();

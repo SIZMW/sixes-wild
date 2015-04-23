@@ -32,9 +32,10 @@ import SixesWild.com.mimas.sixeswild.sixeswild.XMLParser;
  */
 public class GameApplication {
 
+	public static final String STORY_DIR = "./storylevels";
+	public static final String USER_DIR = "./userlevels";
+
 	private static final Logger logger = Logger.getGlobal();
-	private static final String STORY_DIR = "./storylevels";
-	private static final String USER_DIR = "./userlevels";
 
 	JFrame frame;
 	GameMenuView gameMenuView;
@@ -176,8 +177,10 @@ public class GameApplication {
 									listFiles[i].getName().length())
 							.equals(extension)) {
 				fileNames.add(listFiles[i].getName().substring(0,
-						listFiles[i].getName().lastIndexOf(".")) + ": " + XMLParser.fileToLevelName(directory + "/"
-						+ listFiles[i].getName()));
+						listFiles[i].getName().lastIndexOf("."))
+						+ ": "
+						+ XMLParser.fileToLevelName(directory + "/"
+								+ listFiles[i].getName()));
 			}
 		}
 
