@@ -1,60 +1,38 @@
-Apr 23, 2015 1:45:00 PM SixesWild.com.mimas.sixeswild.sixeswild.GameMain$1 run
+Apr 23, 2015 1:52:58 PM SixesWild.com.mimas.sixeswild.sixeswild.GameMain$1 run
 INFO: GameMain initialized.
-Apr 23, 2015 1:45:00 PM SixesWild.com.mimas.sixeswild.boundaries.GameApplication setUpAesthetics
+Apr 23, 2015 1:52:58 PM SixesWild.com.mimas.sixeswild.boundaries.GameApplication setUpAesthetics
 FINE: GameApplication aesthetic listing initialized.
-Apr 23, 2015 1:45:00 PM SixesWild.com.mimas.sixeswild.boundaries.GameApplication getLevelFileNames
+Apr 23, 2015 1:52:58 PM SixesWild.com.mimas.sixeswild.boundaries.GameApplication getLevelFileNames
 INFO: Level list loaded from disk. Directory: ./storylevels
-Apr 23, 2015 1:45:00 PM SixesWild.com.mimas.sixeswild.boundaries.GameApplication getLevelFileNames
+Apr 23, 2015 1:52:58 PM SixesWild.com.mimas.sixeswild.boundaries.GameApplication getLevelFileNames
 INFO: Level list loaded from disk. Directory: ./userlevels
-Apr 23, 2015 1:45:01 PM SixesWild.com.mimas.sixeswild.boundaries.BoardViewPanel <init>
+Apr 23, 2015 1:52:58 PM SixesWild.com.mimas.sixeswild.boundaries.BoardViewPanel <init>
 FINE: Board and layout initialized
-Apr 23, 2015 1:45:01 PM SixesWild.com.mimas.sixeswild.boundaries.GameApplication initialize
+Apr 23, 2015 1:52:58 PM SixesWild.com.mimas.sixeswild.boundaries.GameApplication initialize
 FINE: GameApplication frame initialized.
-Apr 23, 2015 1:45:01 PM SixesWild.com.mimas.sixeswild.boundaries.GameApplication setUpControllers
+Apr 23, 2015 1:52:58 PM SixesWild.com.mimas.sixeswild.boundaries.GameApplication setUpControllers
 FINE: GameApplication controllers initialized.
-Apr 23, 2015 1:45:04 PM SixesWild.com.mimas.sixeswild.controllers.StoryMenuButtonController actionPerformed
+Apr 23, 2015 1:53:02 PM SixesWild.com.mimas.sixeswild.controllers.StoryMenuButtonController actionPerformed
 FINE: Story level menu requested and displayed.
-Apr 23, 2015 1:45:09 PM SixesWild.com.mimas.sixeswild.boundaries.BoardViewPanel <init>
+Apr 23, 2015 1:53:05 PM SixesWild.com.mimas.sixeswild.boundaries.BoardViewPanel <init>
 FINE: Board and layout initialized
-Apr 23, 2015 1:45:09 PM SixesWild.com.mimas.sixeswild.controllers.PlayButtonController setUpControllers
+Apr 23, 2015 1:53:05 PM SixesWild.com.mimas.sixeswild.controllers.PlayButtonController setUpControllers
 FINE: Level view controllers initialized.
-Apr 23, 2015 1:45:09 PM SixesWild.com.mimas.sixeswild.controllers.PlayButtonController actionPerformed
+Apr 23, 2015 1:53:05 PM SixesWild.com.mimas.sixeswild.controllers.PlayButtonController actionPerformed
 FINE: Level view requested, level loaded and displayed.
-Apr 23, 2015 1:45:14 PM SixesWild.com.mimas.sixeswild.boundaries.BoardViewPanel updateGameSelection
-FINE: Updating selection. Square found at: {2, 3}
-Apr 23, 2015 1:45:14 PM SixesWild.com.mimas.sixeswild.boundaries.BoardViewPanel updateGameSelection
-FINE: Updating selection. Square found at: {2, 4}
-Apr 23, 2015 1:45:14 PM SixesWild.com.mimas.sixeswild.boundaries.BoardViewPanel clearGameSelection
-INFO: Selection move cleared.
-Apr 23, 2015 1:45:14 PM SixesWild.com.mimas.sixeswild.boundaries.BoardViewPanel updateGameSelection
-FINE: Updating selection. Square found at: {2, 4}
-Apr 23, 2015 1:45:14 PM SixesWild.com.mimas.sixeswild.boundaries.BoardViewPanel updateGameSelection
-FINE: Updating selection. Square found at: {2, 4}
-Apr 23, 2015 1:45:14 PM SixesWild.com.mimas.sixeswild.boundaries.BoardViewPanel updateGameSelection
-FINE: Updating selection. Square found at: {2, 5}
-Apr 23, 2015 1:45:14 PM SixesWild.com.mimas.sixeswild.boundaries.BoardViewPanel updateGameSelection
-FINE: Updating selection. Square found at: {2, 5}
-Apr 23, 2015 1:45:14 PM SixesWild.com.mimas.sixeswild.boundaries.BoardViewPanel updateGameSelection
-FINE: Updating selection. Square found at: {2, 5}
-Apr 23, 2015 1:45:14 PM SixesWild.com.mimas.sixeswild.boundaries.BoardViewPanel updateGameSelection
-FINE: Updating selection. Square found at: {2, 5}
-Apr 23, 2015 1:45:15 PM SixesWild.com.mimas.sixeswild.boundaries.BoardViewPanel doSelectionMove
-INFO: Selection move processed.
-Apr 23, 2015 1:45:15 PM SixesWild.com.mimas.sixeswild.boundaries.BoardViewPanel clearGameSelection
-INFO: Selection move cleared.
-Apr 23, 2015 1:45:17 PM SixesWild.com.mimas.sixeswild.boundaries.BoardViewPanel updateGameSelection
-FINE: Updating selection. Square found at: {1, 5}
-Apr 23, 2015 1:45:17 PM SixesWild.com.mimas.sixeswild.boundaries.BoardViewPanel updateGameSelection
-FINE: Updating selection. Square found at: {2, 5}
-Apr 23, 2015 1:45:17 PM SixesWild.com.mimas.sixeswild.boundaries.BoardViewPanel clearGameSelection
-INFO: Selection move cleared.
-Apr 23, 2015 1:45:17 PM SixesWild.com.mimas.sixeswild.boundaries.BoardViewPanel updateGameSelection
-FINE: Updating selection. Square found at: {2, 5}
-Apr 23, 2015 1:45:17 PM SixesWild.com.mimas.sixeswild.boundaries.BoardViewPanel updateGameSelection
-FINE: Updating selection. Square found at: {2, 5}
-Apr 23, 2015 1:45:17 PM SixesWild.com.mimas.sixeswild.boundaries.BoardViewPanel updateGameSelection
-FINE: Updating selection. Square found at: {2, 5}
-Apr 23, 2015 1:45:17 PM SixesWild.com.mimas.sixeswild.boundaries.BoardViewPanel updateGameSelection
-FINE: Updating selection. Square found at: {2, 5}
-Apr 23, 2015 1:45:18 PM SixesWild.com.mimas.sixeswild.boundaries.BoardViewPanel clearGameSelection
-INFO: Selection move cleared.
+Apr 23, 2015 1:53:13 PM SixesWild.com.mimas.sixeswild.controllers.ExitButtonController actionPerformed
+FINE: Exited level.
+Apr 23, 2015 1:53:16 PM SixesWild.com.mimas.sixeswild.boundaries.BoardViewPanel <init>
+FINE: Board and layout initialized
+Apr 23, 2015 1:53:16 PM SixesWild.com.mimas.sixeswild.controllers.PlayButtonController setUpControllers
+FINE: Level view controllers initialized.
+Apr 23, 2015 1:53:16 PM SixesWild.com.mimas.sixeswild.controllers.PlayButtonController actionPerformed
+FINE: Level view requested, level loaded and displayed.
+Apr 23, 2015 1:53:20 PM SixesWild.com.mimas.sixeswild.controllers.ExitButtonController actionPerformed
+FINE: Exited level.
+Apr 23, 2015 1:53:23 PM SixesWild.com.mimas.sixeswild.boundaries.BoardViewPanel <init>
+FINE: Board and layout initialized
+Apr 23, 2015 1:53:23 PM SixesWild.com.mimas.sixeswild.controllers.PlayButtonController setUpControllers
+FINE: Level view controllers initialized.
+Apr 23, 2015 1:53:23 PM SixesWild.com.mimas.sixeswild.controllers.PlayButtonController actionPerformed
+FINE: Level view requested, level loaded and displayed.

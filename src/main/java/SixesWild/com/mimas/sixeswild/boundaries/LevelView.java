@@ -143,7 +143,8 @@ public class LevelView extends JPanel {
 
 		// Top menu panel
 		levelTopPanel = new LevelTopPanel();
-
+		levelTopPanel.setLevelNameTextField(newLevel.getName());
+		
 		// Layout for top menu panel
 		GridBagLayout gridBagLayout_1 = (GridBagLayout) levelTopPanel
 				.getLayout();

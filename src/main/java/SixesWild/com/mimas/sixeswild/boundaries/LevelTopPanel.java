@@ -118,6 +118,15 @@ public class LevelTopPanel extends JPanel {
 	public JTextField getLevelNameTextField() {
 		return this.levelNameTextField;
 	}
+	
+	/**
+	 * Sets the Level Name
+	 * 
+	 * @param levelName
+	 */
+	public void setLevelNameTextField(String levelName) {
+		this.levelNameTextField.setText(levelName);
+	}
 
 	/**
 	 * Returns the special move button 1.
