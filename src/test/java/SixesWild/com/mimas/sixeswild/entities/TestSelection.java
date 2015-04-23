@@ -95,4 +95,19 @@ public class TestSelection extends TestCase {
 		selection.add(new Square(new NumberTile(2, 1), 2, 1, false));
 		assertFalse(selection.isValidSelection());
 	}
+
+	/**
+	 * Test the selection validity by square positions in selection.
+	 */
+	public void testValidPositionSelection() {
+		selection.add(new Square(new NumberTile(1, 1), 1, 1, false));
+		assertTrue(selection.isValidPositionSelection());
+		
+		selection.add(new Square(new NumberTile(2, 1), 2, 1, false));
+		selection.add(new Square(new NumberTile(2, 1), 3, 1, false));
+		assertTrue(selection.isValidPositionSelection());
+
+		selection.add(new Square(new NumberTile(1, 1), 5, 1, false));
+		assertFalse(selection.isValidPositionSelection());
+	}
 }
