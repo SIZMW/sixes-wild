@@ -65,4 +65,17 @@ public class TestSquare extends TestCase {
 	public void testSelected() {
 		assertTrue(square.setSelected(true));
 	}
+
+	/**
+	 * Tests the equals method on Square.
+	 */
+	public void testEquals() {
+		Square square2 = new Square(new NumberTile(1, 1), 0, 1, false);
+		assertFalse(square.equals(square2));
+
+		String name = "hi";
+		assertFalse(square.equals(name));
+
+		assertFalse(square.equals(null));
+	}
 }
