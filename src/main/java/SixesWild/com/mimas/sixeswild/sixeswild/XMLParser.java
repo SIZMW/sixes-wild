@@ -490,7 +490,7 @@ public final class XMLParser {
 			Transformer transformer = transformerFactory.newTransformer();
 			transformer.setOutputProperty(OutputKeys.INDENT, "yes");
 			DOMSource source = new DOMSource(doc);
-			StreamResult result = new StreamResult(new File(
+			StreamResult result = new StreamResult(new File("userlevels\\" +
 					level.getLevelNumber() + ".xml"));
 			transformer.transform(source, result);
 

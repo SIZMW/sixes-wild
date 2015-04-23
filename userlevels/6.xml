@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Level number="6">
+<Name>Cams Level Two</Name>
+<Type>PUZZLE</Type>
+<TileFrequency>
+<Tile frequency="0.95" number="1"/>
+<Tile frequency="0.01" number="2"/>
+<Tile frequency="0.01" number="3"/>
+<Tile frequency="0.01" number="4"/>
+<Tile frequency="0.01" number="5"/>
+<Tile frequency="0.01" number="6"/>
+<Multiplier frequency="0.2" times="2"/>
+<Multiplier frequency="0.2" times="3"/>
+</TileFrequency>
+<SpecialMoveConstraints>
+<ResetBoard>5</ResetBoard>
+<SwapTile>3</SwapTile>
+<RemoveTile>4</RemoveTile>
+<OtherMove>2</OtherMove>
+</SpecialMoveConstraints>
+<PointThresholds>
+<Point>1</Point>
+<Point>2</Point>
+<Point>3</Point>
+</PointThresholds>
+<PlayingConstraints>
+<MoveCount>99</MoveCount>
+<Timer>0</Timer>
+</PlayingConstraints>
+<Board>
+<Row>N N N N N N N N N</Row>
+<Row>N N N N N N N N N</Row>
+<Row>N N N N N N N N N</Row>
+<Row>U N N N N N N N U</Row>
+<Row>U U U U N U U U U</Row>
+<Row>U N N N N N N N U</Row>
+<Row>N N N N N N N N N</Row>
+<Row>N N N N N N N N N</Row>
+<Row>N N N N N N N N N</Row>
+</Board>
+</Level>

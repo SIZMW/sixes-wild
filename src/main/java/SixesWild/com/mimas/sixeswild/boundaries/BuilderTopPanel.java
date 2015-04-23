@@ -193,4 +193,8 @@ public class BuilderTopPanel extends JPanel {
 		}
 		return true;
 	}
+	
+	public ArrayList<String> getUserLevelList(){
+		return this.userLevelList;
+	}
 }
