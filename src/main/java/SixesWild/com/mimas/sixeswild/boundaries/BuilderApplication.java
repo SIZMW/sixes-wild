@@ -12,6 +12,7 @@ import javax.swing.UIManager;
 import javax.swing.border.EmptyBorder;
 
 import SixesWild.com.mimas.sixeswild.controllers.BuilderBoardViewMouseController;
+import SixesWild.com.mimas.sixeswild.controllers.BuilderDeleteUserLevelButtonController;
 import SixesWild.com.mimas.sixeswild.controllers.BuilderSplashScreenController;
 import SixesWild.com.mimas.sixeswild.controllers.NewLevelButtonController;
 import SixesWild.com.mimas.sixeswild.controllers.SaveButtonController;
@@ -92,6 +93,9 @@ public class BuilderApplication {
 				.addActionListener(new NewLevelButtonController(this));
 		this.builderView.builderSettingsPanel.specialMoveOneMinusButton
 				.addActionListener(new SpecialMoveOneDecreaseButtonController(
+						this));
+		this.builderView.builderTopPanel.deleteButton
+				.addActionListener(new BuilderDeleteUserLevelButtonController(
 						this));
 
 		// Special move decrease and increase buttons

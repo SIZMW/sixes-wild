@@ -37,9 +37,6 @@ public class BuilderTopPanel extends JPanel {
 	 */
 	public BuilderTopPanel() {
 
-		// Attributes
-		userLevelList = XMLParser.getLevelFileNames(XMLParser.USER_DIR);
-
 		// Layout for panel
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		gridBagLayout.columnWidths = new int[] { 0, 89, 0, 89, 0, 89, 0, 0, 0,
@@ -83,10 +80,6 @@ public class BuilderTopPanel extends JPanel {
 		// Open level combo box
 		openComboBox = new JComboBox<String>();
 
-		for (String e : userLevelList) {
-			openComboBox.addItem(e);
-		}
-
 		// Layout for open level combo box
 		GridBagConstraints gbc_openComboBox = new GridBagConstraints();
 		gbc_openComboBox.insets = new Insets(0, 0, 0, 5);
@@ -108,10 +101,6 @@ public class BuilderTopPanel extends JPanel {
 		// Delete level combo box
 		deleteComboBox = new JComboBox<String>();
 
-		for (String e : userLevelList) {
-			deleteComboBox.addItem(e);
-		}
-
 		// Layout for delete level combo box
 		GridBagConstraints gbc_deleteComboBox = new GridBagConstraints();
 		gbc_deleteComboBox.insets = new Insets(0, 0, 0, 5);
@@ -119,6 +108,8 @@ public class BuilderTopPanel extends JPanel {
 		gbc_deleteComboBox.gridx = 10;
 		gbc_deleteComboBox.gridy = 0;
 		add(deleteComboBox, gbc_deleteComboBox);
+
+		this.updateComboBoxes();
 	}
 
 	/**
@@ -173,5 +164,33 @@ public class BuilderTopPanel extends JPanel {
 	 */
 	public JComboBox<String> getDeleteComboBox() {
 		return this.deleteComboBox;
+	}
+
+	/**
+	 * Removes all entries from the combo boxes for updating them with new level
+	 * lists.
+	 * 
+	 * @return true if successful; false otherwise.
+	 */
+	public boolean clearComboBoxes() {
+		openComboBox.removeAllItems();
+		deleteComboBox.removeAllItems();
+
+		return true;
+	}
+
+	/**
+	 * Updates the drop down menus with the list of user levels.
+	 * 
+	 * @return true if successful; false otherwise.
+	 */
+	public boolean updateComboBoxes() {
+		userLevelList = XMLParser.getLevelFileNames(XMLParser.USER_DIR);
+
+		for (String e : userLevelList) {
+			openComboBox.addItem(e);
+			deleteComboBox.addItem(e);
+		}
+		return true;
 	}
 }
