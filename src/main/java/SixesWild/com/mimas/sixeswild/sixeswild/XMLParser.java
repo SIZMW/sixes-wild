@@ -38,10 +38,12 @@ public final class XMLParser {
 	/**
 	 * Gets the level name of the specified file.
 	 * 
-	 * @param fileName The xml file that contains all the information for a singular level.
+	 * @param fileName
+	 *            The xml file that contains all the information for a singular
+	 *            level.
 	 * @return A String that is the level name taken from the specified file.
 	 */
-	public static String fileToLevelName(String fileName){
+	public static String fileToLevelName(String fileName) {
 		try {
 
 			// Set up xml file for reading
@@ -55,16 +57,16 @@ public final class XMLParser {
 			// Get level name
 			String levelName = doc.getElementsByTagName("Name").item(0)
 					.getTextContent();
-			
+
 			return levelName;
-			
+
 		} catch (Exception e) {
 			System.out.println("File Not Found!");
 		}
 
 		return null;
 	}
-	
+
 	/**
 	 * Takes in a file name and extracts the information from it to create a
 	 * level.
@@ -130,7 +132,8 @@ public final class XMLParser {
 			int otherMoveMoves = Integer
 					.parseInt(doc.getElementsByTagName("OtherMove").item(0)
 							.getTextContent());
-			SpecialMoves specialMoves = new SpecialMoves(resetBoardMoves, swapTileMoves, removeTileMoves, otherMoveMoves);
+			SpecialMoves specialMoves = new SpecialMoves(resetBoardMoves,
+					swapTileMoves, removeTileMoves, otherMoveMoves);
 
 			// Get point thresholds
 			ArrayList<Integer> points = new ArrayList<Integer>();
@@ -195,7 +198,8 @@ public final class XMLParser {
 			} else if (levelType.equals("Elimination")) {
 				return new EliminationLevel(tileFrequencies,
 						multiplierFrequencies, LevelType.ELIMINATION,
-						levelName, tiles, pointThresholds, moveCount, specialMoves);
+						levelName, tiles, pointThresholds, moveCount,
+						specialMoves);
 			} else {
 				throw new Exception("Invalid Level Type!");
 			}
@@ -303,20 +307,21 @@ public final class XMLParser {
 	 * @param userProfile
 	 *            The user profile to save to file.
 	 * @return true if successful; false otherwise.
-	 * @throws Exception 
+	 * @throws Exception
 	 */
-	public static boolean userProfileToFile(UserProfile userProfile){
-				
+	public static boolean userProfileToFile(UserProfile userProfile) {
+
 		try {
-			if(userProfile == null){
+			if (userProfile == null) {
 				throw new Exception("Cannot Pass Null UserProfile!");
 			}
-			 
+
 			// Set up for creating xml hierarchy
-			DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
+			DocumentBuilderFactory docFactory = DocumentBuilderFactory
+					.newInstance();
 			DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
 			Document doc = docBuilder.newDocument();
-			
+
 			// UserProfile tag
 			Element userProfileElement = doc.createElement("UserProfile");
 			doc.appendChild(userProfileElement);
@@ -327,68 +332,71 @@ public final class XMLParser {
 			userProfileElement.setAttributeNode(userNameAttr);
 
 			// Highest level unlocked tag/text
-			Element highestLevelUnlockedElement = doc.createElement("HighestLevelUnlocked");
-			highestLevelUnlockedElement.appendChild(doc.createTextNode("" + userProfile.getHighestUnlockedLevel()));
+			Element highestLevelUnlockedElement = doc
+					.createElement("HighestLevelUnlocked");
+			highestLevelUnlockedElement.appendChild(doc.createTextNode(""
+					+ userProfile.getHighestUnlockedLevel()));
 			userProfileElement.appendChild(highestLevelUnlockedElement);
-			
+
 			// Badges tag
 			Element badgesElement = doc.createElement("Badges");
 			userProfileElement.appendChild(badgesElement);
-			
+
 			// Badge's name tag/text
-			for(String badgeString: userProfile.getBadgesEarned()){
+			for (String badgeString : userProfile.getBadgesEarned()) {
 				Element badgeElement = doc.createElement("Name");
 				badgeElement.appendChild(doc.createTextNode(badgeString));
-				badgesElement.appendChild(badgeElement);	
+				badgesElement.appendChild(badgeElement);
 			}
-			
+
 			// Level Scores tag
 			Element levelScoresElement = doc.createElement("LevelScores");
 			userProfileElement.appendChild(levelScoresElement);
-			
+
 			// Level tag and attributes
-			for(LevelHighScore lhs: userProfile.getLevelHighScore()){
-			
+			for (LevelHighScore lhs : userProfile.getLevelHighScore()) {
+
 				Element levelElement = doc.createElement("Level");
 				levelScoresElement.appendChild(levelElement);
-				
+
 				Attr levelAttr = doc.createAttribute("level");
 				levelAttr.setValue("" + lhs.getLevel());
 				levelElement.setAttributeNode(levelAttr);
-				
+
 				Attr scoreAttr = doc.createAttribute("score");
 				scoreAttr.setValue("" + lhs.getHighScore());
 				levelElement.setAttributeNode(scoreAttr);
-				
+
 				Attr starsAttr = doc.createAttribute("stars");
 				starsAttr.setValue("" + lhs.getStars());
 				levelElement.setAttributeNode(starsAttr);
 			}
-			
+
 			// Aesthetic tag/text
 			Element aestheticElement = doc.createElement("Aesthetic");
-			aestheticElement.appendChild(doc.createTextNode(userProfile.getAestheticName()));
+			aestheticElement.appendChild(doc.createTextNode(userProfile
+					.getAestheticName()));
 			userProfileElement.appendChild(aestheticElement);
-	 
-			/* Write out the xml hierarchy to an actual file
-			 * xml file name is user's name + "Profile.xml" */
-			TransformerFactory transformerFactory = TransformerFactory.newInstance();
+
+			/*
+			 * Write out the xml hierarchy to an actual file xml file name is
+			 * user's name + "Profile.xml"
+			 */
+			TransformerFactory transformerFactory = TransformerFactory
+					.newInstance();
 			Transformer transformer = transformerFactory.newTransformer();
 			transformer.setOutputProperty(OutputKeys.INDENT, "yes");
 			DOMSource source = new DOMSource(doc);
-			StreamResult result = new StreamResult(new File(userProfile.getUserName() + "Profile.xml"));
+			StreamResult result = new StreamResult(new File(
+					userProfile.getUserName() + "Profile.xml"));
 			transformer.transform(source, result);
-	 
+
 			System.out.println("File saved!");
-			
+
 		} catch (Exception e) {
 			System.out.println("File Not Saved!");
 		}
-		
+
 		return false;
-	}
-	
-	public static void main(String[] args) {
-		
 	}
 }

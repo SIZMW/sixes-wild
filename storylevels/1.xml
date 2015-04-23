@@ -3,7 +3,7 @@
 <Level number="1">
 	
 	<!-- Global Attributes of a level -->
-	<Name>Level 1</Name>
+	<Name>The First Level</Name>
 	<Type>Puzzle</Type>
 	
 	<!-- Frequencies of tiles and multipliers -->

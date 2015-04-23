@@ -22,6 +22,7 @@ import SixesWild.com.mimas.sixeswild.controllers.StoryMenuButtonController;
 import SixesWild.com.mimas.sixeswild.controllers.UserLevelMenuButtonController;
 import SixesWild.com.mimas.sixeswild.entities.Aesthetic;
 import SixesWild.com.mimas.sixeswild.entities.MenuTypes;
+import SixesWild.com.mimas.sixeswild.sixeswild.XMLParser;
 
 /**
  * This class represents the Game application that will run and handle the
@@ -175,7 +176,8 @@ public class GameApplication {
 									listFiles[i].getName().length())
 							.equals(extension)) {
 				fileNames.add(listFiles[i].getName().substring(0,
-						listFiles[i].getName().lastIndexOf(".")));
+						listFiles[i].getName().lastIndexOf(".")) + ": " + XMLParser.fileToLevelName(directory + "/"
+						+ listFiles[i].getName()));
 			}
 		}
 
