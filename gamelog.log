@@ -1,0 +1,24 @@
+Apr 23, 2015 7:32:49 PM SixesWild.com.mimas.sixeswild.sixeswild.GameMain$1 run
+INFO: GameMain initialized.
+Apr 23, 2015 7:32:49 PM SixesWild.com.mimas.sixeswild.boundaries.GameApplication setUpAesthetics
+FINE: GameApplication aesthetic listing initialized.
+Apr 23, 2015 7:32:49 PM SixesWild.com.mimas.sixeswild.sixeswild.XMLParser getLevelFileNames
+INFO: Level list loaded from disk. Directory: ./storylevels
+Apr 23, 2015 7:32:49 PM SixesWild.com.mimas.sixeswild.sixeswild.XMLParser getLevelFileNames
+INFO: Level list loaded from disk. Directory: ./userlevels
+Apr 23, 2015 7:32:50 PM SixesWild.com.mimas.sixeswild.boundaries.BoardViewPanel <init>
+FINE: Board and layout initialized
+Apr 23, 2015 7:32:50 PM SixesWild.com.mimas.sixeswild.boundaries.GameApplication initialize
+FINE: GameApplication frame initialized.
+Apr 23, 2015 7:32:50 PM SixesWild.com.mimas.sixeswild.boundaries.GameApplication setUpControllers
+FINE: GameApplication controllers initialized.
+Apr 23, 2015 7:32:53 PM SixesWild.com.mimas.sixeswild.controllers.UserLevelMenuButtonController actionPerformed
+FINE: User level menu requested and displayed.
+Apr 23, 2015 7:32:55 PM SixesWild.com.mimas.sixeswild.controllers.StoryMenuButtonController actionPerformed
+FINE: Story level menu requested and displayed.
+Apr 23, 2015 7:32:56 PM SixesWild.com.mimas.sixeswild.controllers.UserLevelMenuButtonController actionPerformed
+FINE: User level menu requested and displayed.
+Apr 23, 2015 7:33:10 PM SixesWild.com.mimas.sixeswild.controllers.StoryMenuButtonController actionPerformed
+FINE: Story level menu requested and displayed.
+Apr 23, 2015 7:33:14 PM SixesWild.com.mimas.sixeswild.controllers.UserLevelMenuButtonController actionPerformed
+FINE: User level menu requested and displayed.
