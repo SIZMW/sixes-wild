@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<Level number="4">
+	
+	<!-- Global Attributes of a level -->
+	<Name>Level 4</Name>
+	<Type>Release</Type>
+	
+	<!-- Frequencies of tiles and multipliers -->
+	<TileFrequency>
+	
+		<Tile number="1" frequency="5.2"></Tile>
+		<Tile number="2" frequency="3.2"></Tile>
+		<Tile number="3" frequency="3.5"></Tile>
+		<Tile number="4" frequency="6.7"></Tile>
+		<Tile number="5" frequency="8.23"></Tile>
+		<Tile number="6" frequency="73.17"></Tile>
+		
+		<Multiplier times="2" frequency="35.3"></Multiplier>
+		<Multiplier times="3" frequency="31.3"></Multiplier>
+		
+	</TileFrequency>
+	
+	<!-- Number of special moves -->
+	<SpecialMoveConstraints>
+	
+		<ResetBoard>100</ResetBoard>
+		<SwapTile>104</SwapTile>
+		<RemoveTile>120</RemoveTile>
+		<OtherMove>140</OtherMove>
+		
+	</SpecialMoveConstraints>
+	
+	<!-- Star point thresholds -->
+	<PointThresholds>
+	
+		<Point>100</Point>
+		<Point>200</Point>
+		<Point>300</Point>
+	
+	</PointThresholds>
+	
+	<!-- Player constraints for level -->
+	<PlayingConstraints>
+	
+		<MoveCount>80</MoveCount>
+		<Timer>0</Timer>
+		
+	</PlayingConstraints>
+	
+	<!-- Board -->
+	<Board>
+	
+		<!-- Legend:         -->
+		<!-- U = null spot   -->
+		<!-- N = number spot -->
+		<!-- T = Target Tile -->
+		<!-- S = six tile    -->
+	
+		<Row>N N N N N N N N N</Row>
+		<Row>N N N N N N N N N</Row>
+		<Row>N N N N N N N N N</Row>
+		<Row>N N N N N N N N N</Row>
+		<Row>N N N N N N N N N</Row>
+		<Row>N N N N N N N N N</Row>
+		<Row>S S S S S S S S S</Row>
+		<Row>N N N N N N N N N</Row>
+		<Row>T T T T T T T T T</Row>
+	
+	</Board>
+	
+</Level>
