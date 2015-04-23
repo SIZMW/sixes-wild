@@ -3,7 +3,6 @@ package SixesWild.com.mimas.sixeswild.boundaries;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
-import java.io.File;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -31,9 +30,6 @@ import SixesWild.com.mimas.sixeswild.sixeswild.XMLParser;
  * @author Aditya Nivarthi
  */
 public class GameApplication {
-
-	public static final String STORY_DIR = "./storylevels";
-	public static final String USER_DIR = "./userlevels";
 
 	private static final Logger logger = Logger.getGlobal();
 
@@ -71,8 +67,8 @@ public class GameApplication {
 		this.setUpAesthetics();
 
 		// Initialize lists for GameMenuView
-		ArrayList<String> storyLevelList = this.getLevelFileNames(STORY_DIR);
-		ArrayList<String> userLevelList = this.getLevelFileNames(USER_DIR);
+		ArrayList<String> storyLevelList = XMLParser.getLevelFileNames(XMLParser.STORY_DIR);
+		ArrayList<String> userLevelList = XMLParser.getLevelFileNames(XMLParser.USER_DIR);
 
 		ArrayList<String> badgesList = new ArrayList<String>();
 		for (int i = 1; i <= 20; i++) {
@@ -152,42 +148,6 @@ public class GameApplication {
 		currentAesthetic = aestheticList.get(0);
 
 		logger.log(Level.FINE, "GameApplication aesthetic listing initialized.");
-	}
-
-	/**
-	 * Gets the list of level files to load to the list selection from the given
-	 * directory.
-	 * 
-	 * @param directory
-	 *            The directory to load levels from.
-	 * @return ArrayList<String> story level names
-	 */
-	protected ArrayList<String> getLevelFileNames(String directory) {
-		File folder = new File(directory);
-		File[] listFiles = folder.listFiles();
-		ArrayList<String> fileNames = new ArrayList<String>();
-		String extension = "xml";
-
-		for (int i = 0; i < listFiles.length; i++) {
-			if (listFiles[i].isFile()
-					&& listFiles[i]
-							.getName()
-							.substring(
-									listFiles[i].getName().lastIndexOf(".") + 1,
-									listFiles[i].getName().length())
-							.equals(extension)) {
-				fileNames.add(listFiles[i].getName().substring(0,
-						listFiles[i].getName().lastIndexOf("."))
-						+ ": "
-						+ XMLParser.fileToLevelName(directory + "/"
-								+ listFiles[i].getName()));
-			}
-		}
-
-		logger.log(Level.INFO, "Level list loaded from disk. Directory: "
-				+ directory);
-
-		return fileNames;
 	}
 
 	/**

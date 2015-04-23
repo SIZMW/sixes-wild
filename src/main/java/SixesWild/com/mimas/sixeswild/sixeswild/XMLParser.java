@@ -44,7 +44,35 @@ import SixesWild.com.mimas.sixeswild.entities.UserProfile;
  */
 public final class XMLParser {
 
+	public static final String STORY_DIR = "./storylevels";
+	public static final String USER_DIR = "./userlevels";
+
 	private static final Logger logger = Logger.getGlobal();
+
+	/**
+	 * Returns the character representation of the tile based on its type.
+	 * 
+	 * @param tile
+	 *            The tile to represent as a character.
+	 * @return A character for representation
+	 * @throws Exception
+	 *             on invalid type
+	 */
+	protected static char instanceToChar(Tile tile) throws Exception {
+		if (tile.getType().equals(TileType.NUMBER)) {
+			return 'N';
+		} else if (tile.getType().equals(TileType.NULL)) {
+			return 'U';
+		} else if (tile.getType().equals(TileType.SIX)) {
+			return 'S';
+		} else if (tile.getType().equals(TileType.TARGET)) {
+			return 'T';
+		} else {
+			logger.log(java.util.logging.Level.SEVERE,
+					"Invalid tile type requested for character conversion.");
+			throw new Exception("Invalid Tile Type!");
+		}
+	}
 
 	/**
 	 * Gets the level name of the specified file.
@@ -54,7 +82,7 @@ public final class XMLParser {
 	 *            level.
 	 * @return String name for the level; null if not found.
 	 */
-	public static String fileToLevelName(String fileName) {
+	protected static String fileToLevelName(String fileName) {
 		try {
 
 			// Set up XML file for reading
@@ -77,6 +105,42 @@ public final class XMLParser {
 		}
 
 		return null;
+	}
+
+	/**
+	 * Gets the list of level files to load to the list selection from the given
+	 * directory.
+	 * 
+	 * @param directory
+	 *            The directory to load levels from.
+	 * @return ArrayList<String> story level names
+	 */
+	public static ArrayList<String> getLevelFileNames(String directory) {
+		File folder = new File(directory);
+		File[] listFiles = folder.listFiles();
+		ArrayList<String> fileNames = new ArrayList<String>();
+		String extension = "xml";
+
+		for (int i = 0; i < listFiles.length; i++) {
+			if (listFiles[i].isFile()
+					&& listFiles[i]
+							.getName()
+							.substring(
+									listFiles[i].getName().lastIndexOf(".") + 1,
+									listFiles[i].getName().length())
+							.equals(extension)) {
+				fileNames.add(listFiles[i].getName().substring(0,
+						listFiles[i].getName().lastIndexOf("."))
+						+ ": "
+						+ XMLParser.fileToLevelName(directory + "/"
+								+ listFiles[i].getName()));
+			}
+		}
+
+		logger.log(java.util.logging.Level.INFO,
+				"Level list loaded from disk. Directory: " + directory);
+
+		return fileNames;
 	}
 
 	/**
@@ -622,30 +686,5 @@ public final class XMLParser {
 		}
 
 		return false;
-	}
-
-	/**
-	 * Returns the character representation of the tile based on its type.
-	 * 
-	 * @param tile
-	 *            The tile to represent as a character.
-	 * @return A character for representation
-	 * @throws Exception
-	 *             on invalid type
-	 */
-	private static char instanceToChar(Tile tile) throws Exception {
-		if (tile.getType().equals(TileType.NUMBER)) {
-			return 'N';
-		} else if (tile.getType().equals(TileType.NULL)) {
-			return 'U';
-		} else if (tile.getType().equals(TileType.SIX)) {
-			return 'S';
-		} else if (tile.getType().equals(TileType.TARGET)) {
-			return 'T';
-		} else {
-			logger.log(java.util.logging.Level.SEVERE,
-					"Invalid tile type requested for character conversion.");
-			throw new Exception("Invalid Tile Type!");
-		}
 	}
 }
