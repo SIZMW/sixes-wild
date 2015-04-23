@@ -58,4 +58,11 @@ public class TestSquare extends TestCase {
 		square.setMarked(true);
 		assertEquals(square.getMarked(), true);
 	}
+
+	/**
+	 * Tests the selected attribute of the Square.
+	 */
+	public void testSelected() {
+		assertTrue(square.setSelected(true));
+	}
 }

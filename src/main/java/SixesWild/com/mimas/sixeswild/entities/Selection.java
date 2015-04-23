@@ -126,7 +126,7 @@ public class Selection {
 	 * 
 	 * @return true if sum equals 6; false otherwise.
 	 */
-	public boolean isValidSumSelection() {
+	protected boolean isValidSumSelection() {
 		// Check sum of selection of squares
 		int sum = 0;
 		for (Square e : squareSet) {
