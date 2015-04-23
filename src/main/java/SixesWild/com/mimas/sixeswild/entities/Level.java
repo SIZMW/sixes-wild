@@ -44,12 +44,13 @@ public abstract class Level {
 	 */
 	public Level(ArrayList<Double> tileFreq, ArrayList<Double> multFreq,
 			LevelType type, String name, Tile tiles[][],
-			PointThresholds pointThresholds, int moveCount) throws Exception {
+			PointThresholds pointThresholds, int moveCount, SpecialMoves specialMoves) throws Exception {
 		this.type = type;
 		this.name = name;
 		this.pointThresholds = pointThresholds;
 		this.moveCount = moveCount;
 		this.timer = null;
+		this.specialMoves = specialMoves;
 		try {
 			this.board = new Board(tiles, tileFreq, multFreq);
 		} catch (Exception e) {
@@ -79,13 +80,13 @@ public abstract class Level {
 	 */
 	public Level(ArrayList<Double> tileFreq, ArrayList<Double> multFreq,
 			LevelType type, String name, Tile tiles[][],
-			PointThresholds pointThresholds, Timer timer) throws Exception {
+			PointThresholds pointThresholds, Timer timer, SpecialMoves specialMoves) throws Exception {
 		this.type = type;
 		this.name = name;
 		this.pointThresholds = pointThresholds;
 		this.timer = timer;
 		this.moveCount = 0;
-
+		this.specialMoves = specialMoves;
 		try {
 			this.board = new Board(tiles, tileFreq, multFreq);
 		} catch (Exception e) {
