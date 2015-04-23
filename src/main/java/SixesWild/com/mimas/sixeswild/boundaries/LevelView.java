@@ -172,7 +172,7 @@ public class LevelView extends JPanel {
 		add(levelTopPanel, gbc_topMenuPanel);
 
 		// Level stats panel
-		levelStatsPanel = new LevelStatsPanel();
+		levelStatsPanel = new LevelStatsPanel(newLevel.getMoveCount());
 		levelStatsPanel.setBorder(BorderFactory.createLineBorder(Color.black));
 
 		// Layout for level stats panel
