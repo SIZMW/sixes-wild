@@ -17,10 +17,10 @@ public class TestXMLParser extends TestCase{
 		assertEquals(level.getPointThresholds().getTwoStarThreshold(), 200);
 		assertEquals(level.getPointThresholds().getThreeStarThreshold(), 300);
 		assertEquals(level.getBoard().getSquare(0, 0).getTile().getType(), TileType.NUMBER);
-		assertEquals(level.getBoard().getSquare(1, 6).getTile().getType(), TileType.TARGET);
-		assertEquals(level.getBoard().getSquare(4, 1).getTile().getType(), TileType.NULL);
-		assertEquals(level.getBoard().getSquare(8, 1).getTile().getType(), TileType.NULL);
-		assertEquals(level.getBoard().getSquare(7, 6).getTile().getType(), TileType.SIX);
+		assertEquals(level.getBoard().getSquare(6, 1).getTile().getType(), TileType.TARGET);
+		assertEquals(level.getBoard().getSquare(1, 4).getTile().getType(), TileType.NULL);
+		assertEquals(level.getBoard().getSquare(1, 8).getTile().getType(), TileType.NULL);
+		assertEquals(level.getBoard().getSquare(6, 7).getTile().getType(), TileType.SIX);
 	}
 	
 	public void testXMLParserFileToUserProfile(){
