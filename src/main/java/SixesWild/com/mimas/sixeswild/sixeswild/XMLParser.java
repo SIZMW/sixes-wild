@@ -38,6 +38,36 @@ import SixesWild.com.mimas.sixeswild.entities.UserProfile;
 public final class XMLParser {
 
 	/**
+	 * Gets the level name of the specified file.
+	 * 
+	 * @param fileName The xml file that contains all the information for a singular level.
+	 * @return A String that is the level name taken from the specified file.
+	 */
+	public static String fileToLevelName(String fileName){
+		try {
+
+			// Set up xml file for reading
+			File fXmlFile = new File(fileName);
+			DocumentBuilderFactory dbFactory = DocumentBuilderFactory
+					.newInstance();
+			DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
+			Document doc = dBuilder.parse(fXmlFile);
+			doc.getDocumentElement().normalize();
+
+			// Get level name
+			String levelName = doc.getElementsByTagName("Name").item(0)
+					.getTextContent();
+			
+			return levelName;
+			
+		} catch (Exception e) {
+			System.out.println("File Not Found!");
+		}
+
+		return null;
+	}
+	
+	/**
 	 * Takes in a file name and extracts the information from it to create a
 	 * level.
 	 * 
@@ -90,8 +120,6 @@ public final class XMLParser {
 								.getAttributes().item(0).getNodeValue()));
 			}
 
-			// ******** no way to access special moves in levels ???????
-			// *********
 			// Get special move constraints
 			int resetBoardMoves = Integer.parseInt(doc
 					.getElementsByTagName("ResetBoard").item(0)

@@ -72,4 +72,9 @@ public class TestXMLParser extends TestCase{
 		assertEquals(userProfile1.getStarsOfLevel(3), userProfile2.getStarsOfLevel(3));
 		
 	}	
+	
+	public void testXMLParserFileToLevelName(){
+		String levelName = XMLParser.fileToLevelName("testLevelProfileXML.xml");
+		assertEquals(levelName, "Supercalifragilisticexpialidocious");
+	}
 }
