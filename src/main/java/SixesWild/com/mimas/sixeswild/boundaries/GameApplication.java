@@ -4,6 +4,8 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -13,12 +15,12 @@ import javax.swing.border.EmptyBorder;
 import SixesWild.com.mimas.sixeswild.controllers.BadgesMenuButtonController;
 import SixesWild.com.mimas.sixeswild.controllers.CreditsMenuButtonController;
 import SixesWild.com.mimas.sixeswild.controllers.GameSplashScreenController;
-import SixesWild.com.mimas.sixeswild.controllers.MenuTypes;
 import SixesWild.com.mimas.sixeswild.controllers.OptionsMenuButtonController;
 import SixesWild.com.mimas.sixeswild.controllers.PlayButtonController;
 import SixesWild.com.mimas.sixeswild.controllers.StoryMenuButtonController;
 import SixesWild.com.mimas.sixeswild.controllers.UserLevelMenuButtonController;
 import SixesWild.com.mimas.sixeswild.entities.Aesthetic;
+import SixesWild.com.mimas.sixeswild.entities.MenuTypes;
 
 /**
  * This class represents the Game application that will run and handle the
@@ -27,6 +29,8 @@ import SixesWild.com.mimas.sixeswild.entities.Aesthetic;
  * @author Aditya Nivarthi
  */
 public class GameApplication {
+	
+	private static final Logger logger = Logger.getGlobal();
 
 	JFrame frame;
 	GameMenuView gameMenuView;
@@ -54,8 +58,9 @@ public class GameApplication {
 		try {
 			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
 		} catch (Exception e) {
+			logger.log(Level.WARNING, "System look and feel failed to load.", e);
 		}
-
+		
 		// Set up aesthetics
 		aestheticList = new ArrayList<Aesthetic>();
 		this.setUpAesthetics();
@@ -104,6 +109,8 @@ public class GameApplication {
 		frame.setPreferredSize(new Dimension(1000, 700));
 		frame.setMinimumSize(new Dimension(1000, 700));
 		frame.getContentPane().add(new SplashScreen());
+		
+		logger.log(Level.FINE, "GameApplication frame initialized.");
 
 		this.setUpControllers();
 	}
@@ -127,6 +134,8 @@ public class GameApplication {
 		this.gameMenuView.getUserMenuView().getPlayButton()
 				.addActionListener(new PlayButtonController(this, MenuTypes.USER));
 		this.getFrame().addKeyListener(new GameSplashScreenController(this));
+		
+		logger.log(Level.FINE, "GameApplication controllers initialized.");
 	}
 
 	/**
@@ -146,6 +155,8 @@ public class GameApplication {
 				Color.lightGray));
 
 		currentAesthetic = aestheticList.get(0);
+		
+		logger.log(Level.FINE, "GameApplication aesthetic listing initialized.");
 	}
 
 	/**
@@ -205,10 +216,12 @@ public class GameApplication {
 		for (Aesthetic e : aestheticList) {
 			if (e.getName().equals(name)) {
 				currentAesthetic = e;
+				logger.log(Level.FINE, "GameApplication aesthetic change to: " + e.getName());
 				return true;
 			}
 		}
 
+		logger.log(Level.FINE, "GameApplication aesthetic failed to change.");
 		return false;
 	}
 }

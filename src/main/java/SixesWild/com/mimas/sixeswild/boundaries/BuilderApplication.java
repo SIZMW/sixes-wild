@@ -3,6 +3,8 @@ package SixesWild.com.mimas.sixeswild.boundaries;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -30,6 +32,8 @@ import SixesWild.com.mimas.sixeswild.entities.Aesthetic;
  * @author Aditya Nivarthi
  */
 public class BuilderApplication {
+	
+	private static final Logger logger = Logger.getGlobal();
 
 	JFrame frame;
 	BuilderView builderView;
@@ -49,6 +53,7 @@ public class BuilderApplication {
 		try {
 			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
 		} catch (Exception e) {
+			logger.log(Level.WARNING, "System look and feel failed to load.", e);
 		}
 
 		// TODO Verify the creation of the aesthetic is valid here
@@ -71,6 +76,8 @@ public class BuilderApplication {
 		frame.setMinimumSize(new Dimension(1000, 700));
 		frame.getContentPane().add(new SplashScreen());
 
+		logger.log(Level.FINE, "BuilderApplication frame initialized.");
+		
 		// Set up controllers
 		this.setUpControllers();
 	}
@@ -112,6 +119,8 @@ public class BuilderApplication {
 		this.builderView.boardViewPanel
 				.addMouseListener(new BuilderBoardViewMouseController(this));
 		this.builderView.builderTopPanel.saveButton.addActionListener(new SaveButtonController(this));
+		
+		logger.log(Level.FINE, "BuilderApplication controllers initialized.");
 	}
 
 	/**

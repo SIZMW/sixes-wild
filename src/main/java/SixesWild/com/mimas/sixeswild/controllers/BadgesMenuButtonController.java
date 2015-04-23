@@ -5,6 +5,8 @@ import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javax.swing.JPanel;
 
@@ -17,6 +19,8 @@ import SixesWild.com.mimas.sixeswild.boundaries.GameApplication;
  * @author Aditya Nivarthi
  */
 public class BadgesMenuButtonController implements ActionListener {
+	
+	private static final Logger logger = Logger.getGlobal();
 	GameApplication app;
 
 	/**
@@ -57,5 +61,7 @@ public class BadgesMenuButtonController implements ActionListener {
 		// Add panel to view
 		currPanel.add(this.app.getMainPanel().getBadgeMenuView(), gbc_list);
 		currPanel.updateUI();
+		
+		logger.log(Level.FINE, "Badges menu requested and displayed.");
 	}
 }

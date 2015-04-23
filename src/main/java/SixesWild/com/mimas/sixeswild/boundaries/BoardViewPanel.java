@@ -6,6 +6,8 @@ import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javax.swing.BorderFactory;
 import javax.swing.JLabel;
@@ -31,6 +33,7 @@ import SixesWild.com.mimas.sixeswild.entities.TileType;
  */
 public class BoardViewPanel extends JPanel {
 
+	private static final Logger logger = Logger.getGlobal();
 	private static final long serialVersionUID = 1L;
 
 	final int SIZE_X = 9;
@@ -90,6 +93,8 @@ public class BoardViewPanel extends JPanel {
 		this.gbc_boardViewPanel = new GridBagConstraints();
 		this.gbc_boardViewPanel.gridheight = 1;
 		this.gbc_boardViewPanel.fill = GridBagConstraints.BOTH;
+		
+		logger.log(Level.FINE, "Board and layout initialized");
 
 		// Initialize board view
 		this.initializeBoardView();
@@ -272,6 +277,8 @@ public class BoardViewPanel extends JPanel {
 				if (this.validateMouseSelection(mx, my, squareViews[i][j])) {
 					this.gameBoard.getSquare(i, j).setSelected(true);
 					this.currentSelection.add(gameBoard.getSquare(i, j));
+					
+					logger.log(Level.FINE, "Updating selection. Square found at: {" + i + ", " + j + "}");
 					break outerloop;
 				}
 			}
@@ -291,6 +298,7 @@ public class BoardViewPanel extends JPanel {
 		}
 
 		// Empty the current selection
+		logger.log(Level.INFO, "Selection move cleared.");
 		this.currentSelection.clear();
 	}
 
@@ -332,6 +340,8 @@ public class BoardViewPanel extends JPanel {
 						this.gameBoard.setSquare(new NullTile(), i, j, false);
 						break;
 					}
+					
+					logger.log(Level.FINE, "Updated mouse selection at: {" + i + ", " + j + "} with tile type: " + type.toString());
 					break outerloop;
 				}
 			}
@@ -366,6 +376,8 @@ public class BoardViewPanel extends JPanel {
 		this.gameBoard.removeSelection(this.currentSelection);
 		this.gameBoard.shiftTilesDownward();
 		this.gameBoard.fillEmptySquares();
+		
+		logger.log(Level.INFO, "Selection move processed.");
 		return true;
 	}
 }
