@@ -197,20 +197,23 @@ public final class XMLParser {
 			}
 
 			// Create level using all the information read
-			if (levelType.equals("Puzzle")) {
+			if (levelType.toUpperCase().equals(LevelType.PUZZLE.toString())) {
 				return new PuzzleLevel(tileFrequencies, multiplierFrequencies,
 						LevelType.PUZZLE, levelName, tiles, pointThresholds,
 						moveCount, specialMoves, levelNumber);
-			} else if (levelType.equals("Release")) {
+			} else if (levelType.toUpperCase().equals(
+					LevelType.RELEASE.toString())) {
 				return new ReleaseLevel(tileFrequencies, multiplierFrequencies,
 						LevelType.RELEASE, levelName, tiles, pointThresholds,
 						moveCount, specialMoves, levelNumber);
-			} else if (levelType.equals("Lightning")) {
+			} else if (levelType.toUpperCase().equals(
+					LevelType.LIGHTNING.toString())) {
 				return new LightningLevel(tileFrequencies,
 						multiplierFrequencies, LevelType.LIGHTNING, levelName,
 						tiles, pointThresholds, timer, specialMoves,
 						levelNumber);
-			} else if (levelType.equals("Elimination")) {
+			} else if (levelType.toUpperCase().equals(
+					LevelType.ELIMINATION.toString())) {
 				return new EliminationLevel(tileFrequencies,
 						multiplierFrequencies, LevelType.ELIMINATION,
 						levelName, tiles, pointThresholds, moveCount,
@@ -264,8 +267,8 @@ public final class XMLParser {
 
 			// Level type element
 			Element levelTypeElement = doc.createElement("Type");
-			levelTypeElement.appendChild(doc.createTextNode(XMLParser
-					.levelTypeToParserType("" + level.getType())));
+			levelTypeElement.appendChild(doc.createTextNode(""
+					+ level.getType().toString()));
 			levelElement.appendChild(levelTypeElement);
 
 			// Tile frequency element
@@ -619,22 +622,6 @@ public final class XMLParser {
 		}
 
 		return false;
-	}
-
-	private static String levelTypeToParserType(String type) throws Exception {
-		if (type.equals("PUZZLE")) {
-			return "Puzzle";
-		} else if (type.equals("RELEASE")) {
-			return "Release";
-		} else if (type.equals("ELIMINATION")) {
-			return "Elimination";
-		} else if (type.equals("LIGHTNING")) {
-			return "Lightning";
-		} else {
-			logger.log(java.util.logging.Level.SEVERE,
-					"Invalid level type requested.");
-			throw new Exception("Type Given Is Not Supported!");
-		}
 	}
 
 	/**
