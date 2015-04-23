@@ -15,6 +15,7 @@ import javax.swing.JScrollPane;
 import javax.swing.ListSelectionModel;
 import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
+import java.awt.Dimension;
 
 /**
  * This class represents the inner view for selecting a level and displaying a
@@ -65,6 +66,9 @@ public class LevelSelectionPanel extends JPanel {
 		// Level list scroll pane
 		levelScrollPane = new JScrollPane();
 		levelList = new JList<String>(levelListModel);
+		levelList.setMaximumSize(new Dimension(100, 100));
+		levelList.setPreferredSize(new Dimension(100, 100));
+		levelList.setMinimumSize(new Dimension(100, 100));
 		levelList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		levelList.setCellRenderer(new LevelListCellRenderer(highestLevelUnlocked));
 		levelScrollPane.setViewportView(levelList);
