@@ -2,8 +2,6 @@ package SixesWild.com.mimas.sixeswild.entities;
 
 import java.util.ArrayList;
 
-import javax.swing.Timer;
-
 /**
  * This class is used as a representation of the elimination level type. The
  * goal in this level is to mark all the squares and create moves using each of

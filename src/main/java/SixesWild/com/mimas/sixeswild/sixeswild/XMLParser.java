@@ -1,6 +1,5 @@
 package SixesWild.com.mimas.sixeswild.sixeswild;
 
-import java.awt.EventQueue;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.StringTokenizer;
@@ -18,7 +17,6 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 
-import SixesWild.com.mimas.sixeswild.boundaries.GameApplication;
 import SixesWild.com.mimas.sixeswild.entities.EliminationLevel;
 import SixesWild.com.mimas.sixeswild.entities.Level;
 import SixesWild.com.mimas.sixeswild.entities.LevelHighScore;
