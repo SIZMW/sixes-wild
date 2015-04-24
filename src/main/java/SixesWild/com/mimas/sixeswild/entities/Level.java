@@ -90,41 +90,38 @@ public abstract class Level {
 		this.moveCount = 0;
 		this.specialMoves = specialMoves;
 		this.levelNumber = levelNumber;
-		try {
-			this.board = new Board(tiles, tileFreq, multFreq);
-		} catch (Exception e) {
-			throw e;
-		}
+		
+		this.board = new Board(tiles, tileFreq, multFreq);
 	}
 
 	/**
 	 * Creates a Level instance.
 	 */
-	public Level() {
-		ArrayList<Double> tileFreq = new ArrayList<Double>();
-		ArrayList<Double> multFreq = new ArrayList<Double>();
-
-		tileFreq.add(.10);
-		tileFreq.add(.20);
-		tileFreq.add(.30);
-		tileFreq.add(.30);
-		tileFreq.add(.05);
-		tileFreq.add(.05);
-		multFreq.add(.95);
-		multFreq.add(.025);
-		multFreq.add(.025);
-
-		this.type = LevelType.PUZZLE;
-		this.name = "No Name";
-		
-		// TODO Please modify the board creation in the future
-		this.board = new Board();
-		
-		this.pointThresholds = new PointThresholds();
-		this.moveCount = 40;
-		this.timer = null;
-		this.levelNumber = 0;
-	}
+//	public Level() {
+//		ArrayList<Double> tileFreq = new ArrayList<Double>();
+//		ArrayList<Double> multFreq = new ArrayList<Double>();
+//
+//		tileFreq.add(.10);
+//		tileFreq.add(.20);
+//		tileFreq.add(.30);
+//		tileFreq.add(.30);
+//		tileFreq.add(.05);
+//		tileFreq.add(.05);
+//		multFreq.add(.95);
+//		multFreq.add(.025);
+//		multFreq.add(.025);
+//
+//		this.type = LevelType.PUZZLE;
+//		this.name = "No Name";
+//		
+//		// TODO Please modify the board creation in the future
+//		this.board = new Board();
+//		
+//		this.pointThresholds = new PointThresholds();
+//		this.moveCount = 40;
+//		this.timer = null;
+//		this.levelNumber = 0;
+//	}
 
 	/**
 	 * Returns the type of level.
