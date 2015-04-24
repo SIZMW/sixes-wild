@@ -7,9 +7,9 @@ package SixesWild.com.mimas.sixeswild.entities;
  * @author Marco Duran
  */
 public class Badge {
-	String name;
-	String description;
-	boolean isUnlocked;
+	protected String name;
+	protected String description;
+	protected boolean isUnlocked;
 
 	/**
 	 * Creates a Badge instance with the specified name, description and

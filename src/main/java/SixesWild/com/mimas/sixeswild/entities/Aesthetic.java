@@ -9,10 +9,10 @@ import java.awt.Color;
  * @author Marco Duran
  */
 public class Aesthetic {
-	String name;
-	Color background;
-	Color tileOne, tileTwo, tileThree, tileFour, tileFive, tileSix;
-	Color target, nullTile, marked;
+	protected String name;
+	protected Color background;
+	protected Color tileOne, tileTwo, tileThree, tileFour, tileFive, tileSix;
+	protected Color target, nullTile, marked;
 
 	/**
 	 * Creates an Aesthetic instance with the specified name and Colors.
