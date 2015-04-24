@@ -2,4 +2,4 @@
 /.metadata/
 /.settings/
 /RemoteSystemsTempFiles/
-
+*.log
