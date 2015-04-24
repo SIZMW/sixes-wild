@@ -7,6 +7,8 @@ import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -15,6 +17,8 @@ import javax.swing.JPanel;
 import SixesWild.com.mimas.sixeswild.boundaries.BoardViewPanel;
 import SixesWild.com.mimas.sixeswild.boundaries.BuilderApplication;
 import SixesWild.com.mimas.sixeswild.entities.Board;
+import SixesWild.com.mimas.sixeswild.entities.NullTile;
+import SixesWild.com.mimas.sixeswild.entities.Tile;
 
 /**
  * This controller creates a new level to edit in the level builder when the new
@@ -26,6 +30,10 @@ public class NewLevelButtonController implements ActionListener {
 
 	private static final Logger logger = Logger.getGlobal();
 	BuilderApplication app;
+	Board nullBoard;
+	Tile nullTiles[][];
+	ArrayList<Double> tileFreq;
+	ArrayList<Double> multFreq;
 
 	/**
 	 * Creates a NewLevelButtonController instance with the specified
@@ -64,9 +72,27 @@ public class NewLevelButtonController implements ActionListener {
 		gbc_list.gridx = 0;
 		gbc_list.gridy = 0;
 
+		//Populates a null board
+				nullTiles = new Tile[9][9];
+				for(int i = 0; i < 9; i++){
+					for(int j = 0; j < 9; j++){
+						nullTiles[i][j] = new NullTile();
+					}
+				}
+				//Creates tile frequencies
+				tileFreq = new ArrayList<Double>(Arrays.asList(.1, .2, .3, .3,
+						.05, .05));
+				//creates multiplier frequencies
+				multFreq = new ArrayList<Double>(Arrays.asList(.5, .25,
+						.25));
+				try {
+					nullBoard = new Board(nullTiles, tileFreq, multFreq);
+				} catch (Exception exc){
+				}
+		
 		// Add panel to view
 		this.app.getBuilderView().updateBoardViewPanel(
-				new BoardViewPanel(new Board(), app.getAesthetic()));
+				new BoardViewPanel(nullBoard, app.getAesthetic()));
 		this.app.getBuilderView()
 				.getBoardViewPanel()
 				.addMouseListener(new BuilderBoardViewMouseController(this.app));

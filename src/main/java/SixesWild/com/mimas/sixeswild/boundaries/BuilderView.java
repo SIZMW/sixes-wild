@@ -5,6 +5,8 @@ import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 import javax.swing.BorderFactory;
 import javax.swing.JPanel;
@@ -12,6 +14,8 @@ import javax.swing.border.Border;
 
 import SixesWild.com.mimas.sixeswild.entities.Aesthetic;
 import SixesWild.com.mimas.sixeswild.entities.Board;
+import SixesWild.com.mimas.sixeswild.entities.NullTile;
+import SixesWild.com.mimas.sixeswild.entities.Tile;
 
 /**
  * This class represents the overall view for the level builder.
@@ -26,6 +30,10 @@ public class BuilderView extends JPanel {
 	BuilderSettingsPanel builderSettingsPanel;
 	BoardViewPanel boardViewPanel;
 	Border boardViewPanelBorder;
+	Board nullBoard;
+	Tile nullTiles[][];
+	ArrayList<Double> tileFreq;
+	ArrayList<Double> multFreq;
 	Aesthetic builderViewAesthetic;
 
 	private GridBagConstraints gbc_boardView;
@@ -78,9 +86,27 @@ public class BuilderView extends JPanel {
 		gbc_builderTopPanel.gridy = 0;
 		add(builderTopPanel, gbc_builderTopPanel);
 
+		//Populates a null board
+		nullTiles = new Tile[9][9];
+		for(int i = 0; i < 9; i++){
+			for(int j = 0; j < 9; j++){
+				nullTiles[i][j] = new NullTile();
+			}
+		}
+		//Creates tile frequencies
+		tileFreq = new ArrayList<Double>(Arrays.asList(.1, .2, .3, .3,
+				.05, .05));
+		//creates multiplier frequencies
+		multFreq = new ArrayList<Double>(Arrays.asList(.5, .25,
+				.25));
+		try {
+			nullBoard = new Board(nullTiles, tileFreq, multFreq);
+		} catch (Exception e){
+		}
+		
 		// Board view panel
 		boardViewPanelBorder = BorderFactory.createLineBorder(Color.black);
-		boardViewPanel = new BoardViewPanel(new Board(),
+		boardViewPanel = new BoardViewPanel(nullBoard,
 				this.builderViewAesthetic);
 		boardViewPanel.setBorder(boardViewPanelBorder);
 
