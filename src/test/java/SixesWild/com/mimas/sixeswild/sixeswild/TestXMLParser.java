@@ -18,7 +18,7 @@ public class TestXMLParser extends TestCase{
 
 	public void testXMLParserFileToLevel(){
 		// tests reading from file and creating a level out of the xml
-		PuzzleLevel level = (PuzzleLevel) XMLParser.fileToLevel("testLevelProfileXML.xml");
+		PuzzleLevel level = (PuzzleLevel) XMLParser.fileToLevel(XMLParser.USER_DIR + "2.xml");
 		
 		assertEquals(level.getName(), "Supercalifragilisticexpialidocious");
 		assertEquals(level.getMoveCount(), 5);
@@ -83,7 +83,7 @@ public class TestXMLParser extends TestCase{
 	}	
 	
 	public void testXMLParserFileToLevelName(){
-		String levelName = XMLParser.fileToLevelName("testLevelProfileXML.xml");
+		String levelName = XMLParser.fileToLevelName(XMLParser.USER_DIR + "2.xml");
 		assertEquals(levelName, "Supercalifragilisticexpialidocious");
 	}
 	
@@ -126,7 +126,7 @@ public class TestXMLParser extends TestCase{
 			
 			// change the level to a file and then turn it back into a level
 			XMLParser.levelToFile(level1);
-			Level level2 = XMLParser.fileToLevel("5.xml");
+			Level level2 = XMLParser.fileToLevel(XMLParser.USER_DIR + "1.xml");
 			
 			// make sure the two levels have the same attributes
 			assertEquals(level1.getLevelNumber(), level2.getLevelNumber());

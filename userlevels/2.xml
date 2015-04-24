@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<Level number="2">
+<Level number="1">
 	
 	<!-- Global Attributes of a level -->
-	<Name>Level 2</Name>
-	<Type>Elimination</Type>
+	<Name>Supercalifragilisticexpialidocious</Name>
+	<Type>Puzzle</Type>
 	
 	<!-- Frequencies of tiles and multipliers -->
 	<TileFrequency>
@@ -44,7 +44,7 @@
 	<PlayingConstraints>
 	
 		<MoveCount>5</MoveCount>
-		<Timer>0</Timer>
+		<Timer>10</Timer>
 		
 	</PlayingConstraints>
 	
@@ -57,15 +57,15 @@
 		<!-- T = Target Tile -->
 		<!-- S = six tile    -->
 	
-		<Row>U N N N N N N N U</Row>
-		<Row>U N N N N N N N U</Row>
-		<Row>U N N N N N N N U</Row>
-		<Row>U N N N N N N N U</Row>
-		<Row>U N N N N N N N U</Row>
-		<Row>U N N N N N N N U</Row>
-		<Row>S S S S S S S S S</Row>
-		<Row>U U U U U U U U U</Row>
-		<Row>U U U U U U U U U</Row>
+		<Row>N N N N N N N N N</Row>
+		<Row>N N N N N N T N N</Row>
+		<Row>N N N T N N N N N</Row>
+		<Row>N N N N N N N N N</Row>
+		<Row>N U N N N N N S N</Row>
+		<Row>N N N N N N N N N</Row>
+		<Row>N N N N N N N N N</Row>
+		<Row>N N S N N N S N N</Row>
+		<Row>N U N N N N N U N</Row>
 	
 	</Board>
 	

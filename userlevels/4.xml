@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<Level number="4">
+<Level number="2">
 	
 	<!-- Global Attributes of a level -->
-	<Name>Level 4</Name>
-	<Type>Release</Type>
+	<Name>Level 2</Name>
+	<Type>Elimination</Type>
 	
 	<!-- Frequencies of tiles and multipliers -->
 	<TileFrequency>
@@ -43,7 +43,7 @@
 	<!-- Player constraints for level -->
 	<PlayingConstraints>
 	
-		<MoveCount>80</MoveCount>
+		<MoveCount>5</MoveCount>
 		<Timer>0</Timer>
 		
 	</PlayingConstraints>
@@ -57,15 +57,15 @@
 		<!-- T = Target Tile -->
 		<!-- S = six tile    -->
 	
-		<Row>N N N N N N N N N</Row>
-		<Row>N N N N N N N N N</Row>
-		<Row>N N N N N N N N N</Row>
-		<Row>N N N N N N N N N</Row>
-		<Row>N N N N N N N N N</Row>
-		<Row>N N N N N N N N N</Row>
+		<Row>U N N N N N N N U</Row>
+		<Row>U N N N N N N N U</Row>
+		<Row>U N N N N N N N U</Row>
+		<Row>U N N N N N N N U</Row>
+		<Row>U N N N N N N N U</Row>
+		<Row>U N N N N N N N U</Row>
 		<Row>S S S S S S S S S</Row>
-		<Row>N N N N N N N N N</Row>
-		<Row>T T T T T T T T T</Row>
+		<Row>U U U U U U U U U</Row>
+		<Row>U U U U U U U U U</Row>
 	
 	</Board>
 	

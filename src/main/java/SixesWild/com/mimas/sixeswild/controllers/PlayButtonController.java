@@ -74,12 +74,12 @@ public class PlayButtonController implements ActionListener {
 		if (menuType.equals(MenuTypes.STORY)) {
 			levelNumber = app.getMainPanel().getStoryMenuView().getLevelList()
 					.getSelectedIndex() + 1;
-			newLevel = XMLParser.fileToLevel("storylevels\\"
+			newLevel = XMLParser.fileToLevel(XMLParser.STORY_DIR
 					+ Integer.toString(levelNumber) + ".xml");
 		} else {
 			levelNumber = app.getMainPanel().getUserMenuView().getLevelList()
 					.getSelectedIndex() + 1;
-			newLevel = XMLParser.fileToLevel("userlevels\\"
+			newLevel = XMLParser.fileToLevel(XMLParser.USER_DIR
 					+ Integer.toString(levelNumber) + ".xml");
 		}
 

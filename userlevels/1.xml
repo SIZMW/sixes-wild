@@ -1,72 +1,41 @@
-<?xml version="1.0" encoding="utf-8"?>
-
-<Level number="1">
-	
-	<!-- Global Attributes of a level -->
-	<Name>Level 1</Name>
-	<Type>Puzzle</Type>
-	
-	<!-- Frequencies of tiles and multipliers -->
-	<TileFrequency>
-	
-		<Tile number="1" frequency="5.2"></Tile>
-		<Tile number="2" frequency="3.2"></Tile>
-		<Tile number="3" frequency="3.5"></Tile>
-		<Tile number="4" frequency="6.7"></Tile>
-		<Tile number="5" frequency="8.23"></Tile>
-		<Tile number="6" frequency="73.17"></Tile>
-		
-		<Multiplier times="2" frequency="35.3"></Multiplier>
-		<Multiplier times="3" frequency="31.3"></Multiplier>
-		
-	</TileFrequency>
-	
-	<!-- Number of special moves -->
-	<SpecialMoveConstraints>
-	
-		<ResetBoard>100</ResetBoard>
-		<SwapTile>104</SwapTile>
-		<RemoveTile>120</RemoveTile>
-		<OtherMove>140</OtherMove>
-		
-	</SpecialMoveConstraints>
-	
-	<!-- Star point thresholds -->
-	<PointThresholds>
-	
-		<Point>100</Point>
-		<Point>200</Point>
-		<Point>300</Point>
-	
-	</PointThresholds>
-	
-	<!-- Player constraints for level -->
-	<PlayingConstraints>
-	
-		<MoveCount>5</MoveCount>
-		<Timer>0</Timer>
-		
-	</PlayingConstraints>
-	
-	<!-- Board -->
-	<Board>
-	
-		<!-- Legend:         -->
-		<!-- U = null spot   -->
-		<!-- N = number spot -->
-		<!-- T = Target Tile -->
-		<!-- S = six tile    -->
-	
-		<Row>N U N U N U N U N</Row>
-		<Row>N N U N U N U N N</Row>
-		<Row>N N N U N U N N N</Row>
-		<Row>N N N N U N N N N</Row>
-		<Row>N N N S S S N N N</Row>
-		<Row>N N N N U N N N N</Row>
-		<Row>N N N U N U N N N</Row>
-		<Row>N N U N U N U N N</Row>
-		<Row>N U N U N U N U N</Row>
-	
-	</Board>
-	
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Level number="5">
+<Name>testPuzzle</Name>
+<Type>PUZZLE</Type>
+<TileFrequency>
+<Tile frequency="0.1" number="1"/>
+<Tile frequency="0.2" number="2"/>
+<Tile frequency="0.3" number="3"/>
+<Tile frequency="0.3" number="4"/>
+<Tile frequency="0.05" number="5"/>
+<Tile frequency="0.05" number="6"/>
+<Multiplier frequency="0.025" times="2"/>
+<Multiplier frequency="0.025" times="3"/>
+</TileFrequency>
+<SpecialMoveConstraints>
+<ResetBoard>0</ResetBoard>
+<SwapTile>0</SwapTile>
+<RemoveTile>0</RemoveTile>
+<OtherMove>0</OtherMove>
+</SpecialMoveConstraints>
+<PointThresholds>
+<Point>0</Point>
+<Point>0</Point>
+<Point>0</Point>
+</PointThresholds>
+<PlayingConstraints>
+<MoveCount>50</MoveCount>
+<Timer>0</Timer>
+</PlayingConstraints>
+<Board>
+<Row>U U U U U U U U U</Row>
+<Row>U U U U U U U U U</Row>
+<Row>N N N N N N N N N</Row>
+<Row>N N N N N N N N N</Row>
+<Row>N N N N N N N N N</Row>
+<Row>N N N N N N N N N</Row>
+<Row>N N N N N N N N N</Row>
+<Row>N N N N N N N N N</Row>
+<Row>N N N N N N N N N</Row>
+</Board>
 </Level>

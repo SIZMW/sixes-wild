@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<Level number="3">
+<Level number="1">
 	
 	<!-- Global Attributes of a level -->
-	<Name>Level 3</Name>
-	<Type>Lightning</Type>
+	<Name>Level 1</Name>
+	<Type>Puzzle</Type>
 	
 	<!-- Frequencies of tiles and multipliers -->
 	<TileFrequency>
@@ -43,8 +43,8 @@
 	<!-- Player constraints for level -->
 	<PlayingConstraints>
 	
-		<MoveCount>0</MoveCount>
-		<Timer>10</Timer>
+		<MoveCount>5</MoveCount>
+		<Timer>0</Timer>
 		
 	</PlayingConstraints>
 	
@@ -57,15 +57,15 @@
 		<!-- T = Target Tile -->
 		<!-- S = six tile    -->
 	
-		<Row>N N N N N N N N N</Row>
-		<Row>N N N N N N N N N</Row>
-		<Row>N N N N N N N N N</Row>
-		<Row>N N N N N N N N N</Row>
-		<Row>N N N N N N N N N</Row>
-		<Row>N N N N N N N N N</Row>
-		<Row>N N N N N N N N N</Row>
-		<Row>N N N N N N N N N</Row>
-		<Row>N N N N N N N N N</Row>
+		<Row>N U N U N U N U N</Row>
+		<Row>N N U N U N U N N</Row>
+		<Row>N N N U N U N N N</Row>
+		<Row>N N N N U N N N N</Row>
+		<Row>N N N S S S N N N</Row>
+		<Row>N N N N U N N N N</Row>
+		<Row>N N N U N U N N N</Row>
+		<Row>N N U N U N U N N</Row>
+		<Row>N U N U N U N U N</Row>
 	
 	</Board>
 	
