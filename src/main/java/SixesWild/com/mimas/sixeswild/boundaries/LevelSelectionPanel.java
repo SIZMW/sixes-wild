@@ -1,7 +1,6 @@
 package SixesWild.com.mimas.sixeswild.boundaries;
 
 import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
@@ -16,6 +15,7 @@ import javax.swing.JScrollPane;
 import javax.swing.ListSelectionModel;
 import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
+import java.awt.Dimension;
 
 /**
  * This class represents the inner view for selecting a level and displaying a

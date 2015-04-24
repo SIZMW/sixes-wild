@@ -1,7 +1,6 @@
 package SixesWild.com.mimas.sixeswild.boundaries;
 
 import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
@@ -14,6 +13,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
+import java.awt.Dimension;
 
 /**
  * This class represents the view used to show badges that the player has
