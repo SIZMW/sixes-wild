@@ -17,13 +17,16 @@ import SixesWild.com.mimas.sixeswild.boundaries.BuilderApplication;
  * @author Aditya Nivarthi
  */
 public class BuilderMain {
-	
+
 	public static final Logger logger = Logger.getGlobal();
 	private static FileHandler loggingFileHandler;
 	private static ConsoleHandler loggingConsoleHandler;
 
 	/**
 	 * Main to launch the builder.
+	 * 
+	 * @param args
+	 *            Runtime arguments.
 	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -52,7 +55,7 @@ public class BuilderMain {
 
 					logger.setLevel(Level.ALL);
 					logger.log(Level.INFO, "BuilderMain initialized.");
-					
+
 					// Start builder
 					BuilderApplication window = new BuilderApplication();
 					window.getFrame().setVisible(true);

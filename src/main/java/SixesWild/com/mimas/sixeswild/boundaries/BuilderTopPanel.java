@@ -21,16 +21,16 @@ public class BuilderTopPanel extends JPanel {
 
 	private static final long serialVersionUID = 1L;
 
-	JButton newButton;
-	JButton saveButton;
+	protected JButton newButton;
+	protected JButton saveButton;
 
-	JButton openButton;
-	JComboBox<String> openComboBox;
+	protected JButton openButton;
+	protected JComboBox<String> openComboBox;
 
-	JButton deleteButton;
-	JComboBox<String> deleteComboBox;
+	protected JButton deleteButton;
+	protected JComboBox<String> deleteComboBox;
 
-	ArrayList<String> userLevelList;
+	protected ArrayList<String> userLevelList;
 
 	/**
 	 * Creates a BuilderTopPanel instance.
@@ -113,54 +113,54 @@ public class BuilderTopPanel extends JPanel {
 	}
 
 	/**
-	 * Returns the new button.
+	 * Returns the newButton object for this panel.
 	 * 
-	 * @return JButton for creating a new level
+	 * @return the newButton property
 	 */
 	public JButton getNewButton() {
 		return this.newButton;
 	}
 
 	/**
-	 * Returns the save button.
+	 * Returns the saveButton object for this panel.
 	 * 
-	 * @return JButton for saving a level
+	 * @return the saveButton property
 	 */
 	public JButton getSaveButton() {
 		return this.saveButton;
 	}
 
 	/**
-	 * Returns the open button.
+	 * Returns the openButton object for this panel.
 	 * 
-	 * @return JButton for opening a level
+	 * @return the openButton property
 	 */
 	public JButton getOpenButton() {
 		return this.openButton;
 	}
 
 	/**
-	 * Returns the open combo box.
+	 * Returns the openComboBox object for this panel.
 	 * 
-	 * @return JComboBox for open level list
+	 * @return the openComboBox property
 	 */
 	public JComboBox<String> getOpenComboBox() {
 		return this.openComboBox;
 	}
 
 	/**
-	 * Returns the delete button.
+	 * Returns the deleteButton object for this panel.
 	 * 
-	 * @return JButton for deleting a level
+	 * @return the deleteButton property
 	 */
 	public JButton getDeleteButton() {
 		return this.deleteButton;
 	}
 
 	/**
-	 * Returns the delete combo box.
+	 * Returns the deleteComboBox object for this panel.
 	 * 
-	 * @return JComboBox for delete level list
+	 * @return the deleteComboBox property
 	 */
 	public JComboBox<String> getDeleteComboBox() {
 		return this.deleteComboBox;
@@ -170,7 +170,7 @@ public class BuilderTopPanel extends JPanel {
 	 * Removes all entries from the combo boxes for updating them with new level
 	 * lists.
 	 * 
-	 * @return true if successful; false otherwise.
+	 * @return true if successful.
 	 */
 	public boolean clearComboBoxes() {
 		openComboBox.removeAllItems();
@@ -182,7 +182,7 @@ public class BuilderTopPanel extends JPanel {
 	/**
 	 * Updates the drop down menus with the list of user levels.
 	 * 
-	 * @return true if successful; false otherwise.
+	 * @return true if successful.
 	 */
 	public boolean updateComboBoxes() {
 		userLevelList = XMLParser.getLevelFileNames(XMLParser.USER_DIR);
@@ -193,8 +193,13 @@ public class BuilderTopPanel extends JPanel {
 		}
 		return true;
 	}
-	
-	public ArrayList<String> getUserLevelList(){
+
+	/**
+	 * Returns the userLevelList object for this panel.
+	 * 
+	 * @return the userLevelList property
+	 */
+	public ArrayList<String> getUserLevelList() {
 		return this.userLevelList;
 	}
 }

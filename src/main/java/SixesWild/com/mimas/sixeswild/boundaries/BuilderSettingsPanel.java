@@ -27,77 +27,72 @@ public class BuilderSettingsPanel extends JPanel {
 
 	private static final long serialVersionUID = 1L;
 
-	JLabel levelSettingLabel;
+	protected JLabel levelSettingLabel;
 
-	JPanel generalSettingsPanel;
-	JLabel nameLabel;
-	JLabel levelTypeLabel;
-	JLabel movesLabel;
-	JLabel timerLabel;
-	JTextField userLevelNameTextField;
-	JTextField movesTextField;
-	JTextField timerTextField;
-	JComboBox<String> levelTypeComboBox;
+	protected JPanel generalSettingsPanel;
+	protected JLabel nameLabel;
+	protected JLabel levelTypeLabel;
+	protected JLabel movesLabel;
+	protected JLabel timerLabel;
+	protected JTextField userLevelNameTextField;
+	protected JTextField movesTextField;
+	protected JTextField timerTextField;
+	protected JComboBox<String> levelTypeComboBox;
 
-	JPanel frequencyPanel;
-	JLabel frequencyLabel;
-	JLabel onesLabel;
-	JLabel twosLabel;
-	JLabel threesLabel;
-	JLabel foursLabel;
-	JLabel fivesLabel;
-	JLabel sixesLabel;
-	JLabel xtwoMultiplierLabel;
-	JLabel xthreeMultiplierLabel;
-	JTextField onesTextField;
-	JTextField twosTextField;
-	JTextField threesTextField;
-	JTextField foursTextField;
-	JTextField fivesTextField;
-	JTextField sixesTextField;
-	JTextField xtwoMultiplierTextField;
-	JTextField xthreeMultiplierTextField;
+	protected JPanel frequencyPanel;
+	protected JLabel frequencyLabel;
+	protected JLabel onesLabel;
+	protected JLabel twosLabel;
+	protected JLabel threesLabel;
+	protected JLabel foursLabel;
+	protected JLabel fivesLabel;
+	protected JLabel sixesLabel;
+	protected JLabel xtwoMultiplierLabel;
+	protected JLabel xthreeMultiplierLabel;
+	protected JTextField onesTextField;
+	protected JTextField twosTextField;
+	protected JTextField threesTextField;
+	protected JTextField foursTextField;
+	protected JTextField fivesTextField;
+	protected JTextField sixesTextField;
+	protected JTextField twoMultiplierTextField;
+	protected JTextField threeMultiplierTextField;
 
-	JPanel specialMovesPanel;
-	JLabel specialMovesLabel;
-	JPanel specialMoveOnePanel;
-	JPanel specialMoveTwoPanel;
-	JPanel specialMoveThreePanel;
-	JPanel specialMoveFourPanel;
-	JLabel specialMoveOneLabel;
-	JLabel specialMoveTwoLabel;
-	JLabel specialMoveThreeLabel;
-	JLabel specialMoveFourLabel;
-	JButton specialMoveOneMinusButton;
-	JButton specialMoveOnePlusButton;
-	JButton specialMoveTwoMinusButton;
-	JButton specialMoveTwoPlusButton;
-	JButton specialMoveThreeMinusButton;
-	JButton specialMoveThreePlusButton;
-	JButton specialMoveFourMinusButton;
-	JButton specialMoveFourPlusButton;
+	protected JPanel specialMovesPanel;
+	protected JLabel specialMovesLabel;
+	protected JPanel specialMoveOnePanel;
+	protected JPanel specialMoveTwoPanel;
+	protected JPanel specialMoveThreePanel;
+	protected JPanel specialMoveFourPanel;
+	protected JLabel specialMoveOneLabel;
+	protected JLabel specialMoveTwoLabel;
+	protected JLabel specialMoveThreeLabel;
+	protected JLabel specialMoveFourLabel;
+	protected JButton specialMoveOneMinusButton;
+	protected JButton specialMoveOnePlusButton;
+	protected JButton specialMoveTwoMinusButton;
+	protected JButton specialMoveTwoPlusButton;
+	protected JButton specialMoveThreeMinusButton;
+	protected JButton specialMoveThreePlusButton;
+	protected JButton specialMoveFourMinusButton;
+	protected JButton specialMoveFourPlusButton;
 
-	JPanel pointThresholdsPanel;
-	JLabel pointThresholdsLabel;
-	JLabel oneStarScoreLabel;
-	JLabel twoStarScoreLabel;
-	JLabel threeStarScoreLabel;
-	JTextField oneStarScoreTextField;
-	JTextField twoStarScoreTextField;
-	JTextField threeStarScoreTextField;
+	protected JPanel pointThresholdsPanel;
+	protected JLabel pointThresholdsLabel;
+	protected JLabel oneStarScoreLabel;
+	protected JLabel twoStarScoreLabel;
+	protected JLabel threeStarScoreLabel;
+	protected JTextField oneStarScoreTextField;
+	protected JTextField twoStarScoreTextField;
+	protected JTextField threeStarScoreTextField;
 
-	JPanel tileSettingsPanel;
-	JLabel tileSettingsLabel;
-	JLabel tileTypeLabel;
-	JComboBox<String> tileTypeComboBox;
-	String numberTile;
-	String targetTile;
-	String nullTile;
-	String sixTile;
-	
+	protected JPanel tileSettingsPanel;
+	protected JLabel tileSettingsLabel;
+	protected JLabel tileTypeLabel;
+	protected JComboBox<String> tileTypeComboBox;
 
 	/**
-	 * Constructor for the BuilderSettingsPanel class.
+	 * Creates a BuilderSettingsPanel instance.
 	 */
 	public BuilderSettingsPanel() {
 
@@ -487,11 +482,11 @@ public class BuilderSettingsPanel extends JPanel {
 		frequencyPanel.add(xtwoMultiplierLabel, gbc_xtwosMultiplierLabel);
 
 		// X two multiplier text field
-		xtwoMultiplierTextField = new JTextField();
-		xtwoMultiplierTextField.setPreferredSize(new Dimension(20, 20));
-		xtwoMultiplierTextField.setMinimumSize(new Dimension(20, 20));
-		xtwoMultiplierTextField.setColumns(10);
-		xtwoMultiplierTextField.setText("0");
+		twoMultiplierTextField = new JTextField();
+		twoMultiplierTextField.setPreferredSize(new Dimension(20, 20));
+		twoMultiplierTextField.setMinimumSize(new Dimension(20, 20));
+		twoMultiplierTextField.setColumns(10);
+		twoMultiplierTextField.setText("0");
 
 		// Layout for X two multiplier text field
 		GridBagConstraints gbc_xtwoMultiplierTextField = new GridBagConstraints();
@@ -499,8 +494,7 @@ public class BuilderSettingsPanel extends JPanel {
 		gbc_xtwoMultiplierTextField.fill = GridBagConstraints.HORIZONTAL;
 		gbc_xtwoMultiplierTextField.gridx = 2;
 		gbc_xtwoMultiplierTextField.gridy = 3;
-		frequencyPanel
-				.add(xtwoMultiplierTextField, gbc_xtwoMultiplierTextField);
+		frequencyPanel.add(twoMultiplierTextField, gbc_xtwoMultiplierTextField);
 
 		// X three multiplier label
 		xthreeMultiplierLabel = new JLabel("x3 Multiplier");
@@ -519,18 +513,18 @@ public class BuilderSettingsPanel extends JPanel {
 		frequencyPanel.add(xthreeMultiplierLabel, gbc_xthreeMultiplierLabel);
 
 		// X three multiplier text field
-		xthreeMultiplierTextField = new JTextField();
-		xthreeMultiplierTextField.setPreferredSize(new Dimension(20, 20));
-		xthreeMultiplierTextField.setMinimumSize(new Dimension(20, 20));
-		xthreeMultiplierTextField.setColumns(10);
-		xthreeMultiplierTextField.setText("0");
+		threeMultiplierTextField = new JTextField();
+		threeMultiplierTextField.setPreferredSize(new Dimension(20, 20));
+		threeMultiplierTextField.setMinimumSize(new Dimension(20, 20));
+		threeMultiplierTextField.setColumns(10);
+		threeMultiplierTextField.setText("0");
 
 		// Layout for X three multiplier text field
 		GridBagConstraints gbc_xthreeMultiplierTextField = new GridBagConstraints();
 		gbc_xthreeMultiplierTextField.fill = GridBagConstraints.HORIZONTAL;
 		gbc_xthreeMultiplierTextField.gridx = 5;
 		gbc_xthreeMultiplierTextField.gridy = 3;
-		frequencyPanel.add(xthreeMultiplierTextField,
+		frequencyPanel.add(threeMultiplierTextField,
 				gbc_xthreeMultiplierTextField);
 
 		// Special moves panel
@@ -950,15 +944,10 @@ public class BuilderSettingsPanel extends JPanel {
 
 		// Tile type combo box
 		tileTypeComboBox = new JComboBox<String>();
-		numberTile = TileType.NUMBER.toString();
-		targetTile = TileType.TARGET.toString();
-		nullTile = TileType.NULL.toString();
-		sixTile = TileType.SIX.toString();
-		tileTypeComboBox.addItem(numberTile);
-		tileTypeComboBox.addItem(targetTile);
-		tileTypeComboBox.addItem(nullTile);
-		tileTypeComboBox.addItem(sixTile);
-		
+		tileTypeComboBox.addItem(TileType.NUMBER.toString());
+		tileTypeComboBox.addItem(TileType.TARGET.toString());
+		tileTypeComboBox.addItem(TileType.NULL.toString());
+		tileTypeComboBox.addItem(TileType.SIX.toString());
 
 		// Layout for tile type combo box
 		GridBagConstraints gbc_tileTypeComboBox = new GridBagConstraints();
@@ -966,256 +955,255 @@ public class BuilderSettingsPanel extends JPanel {
 		gbc_tileTypeComboBox.gridx = 1;
 		gbc_tileTypeComboBox.gridy = 1;
 		tileSettingsPanel.add(tileTypeComboBox, gbc_tileTypeComboBox);
-
 	}
 
 	/**
-	 * Returns user level name text field.
+	 * Returns the userLevelNameTextField object for this panel.
 	 * 
-	 * @return JTextField for user level name
+	 * @return the userLevelNameTextField property.
 	 */
 	public JTextField getUserLevelNameTextField() {
 		return this.userLevelNameTextField;
 	}
 
 	/**
-	 * Returns moves text field.
+	 * Returns the movesTextField object for this panel.
 	 * 
-	 * @return JTextField for move count
+	 * @return the movesTextField property.
 	 */
 	public JTextField getMovesTextField() {
 		return this.movesTextField;
 	}
 
 	/**
-	 * Returns timer text field.
+	 * Returns the timerTextField object for this panel.
 	 * 
-	 * @return JTextField for timer
+	 * @return the timerTextField property.
 	 */
 	public JTextField getTimerTextField() {
 		return this.timerTextField;
 	}
 
 	/**
-	 * Returns level tType combo box.
+	 * Returns the levelTypeComboBox object for this panel.
 	 * 
-	 * @return JComboBox for level types
+	 * @return the levelTypeComboBox property.
 	 */
 	public JComboBox<String> getLevelTypeComboBox() {
 		return this.levelTypeComboBox;
 	}
 
 	/**
-	 * Returns ones text field.
+	 * Returns the onesTextField object for this panel.
 	 * 
-	 * @return JTextField for ones frequency
+	 * @return the onesTextField property.
 	 */
 	public JTextField getOnesTextField() {
 		return this.onesTextField;
 	}
 
 	/**
-	 * Returns twos text field.
+	 * Returns the twosTextField object for this panel.
 	 * 
-	 * @return JTextField for twos frequency
+	 * @return the twosTextField property.
 	 */
 	public JTextField getTwosTextField() {
 		return this.twosTextField;
 	}
 
 	/**
-	 * Returns threes text field.
+	 * Returns the threesTextField object for this panel.
 	 * 
-	 * @return JTextField for threes frequency
+	 * @return the threesTextField property.
 	 */
 	public JTextField getThreesTextField() {
 		return this.threesTextField;
 	}
 
 	/**
-	 * Returns fours text field.
+	 * Returns the foursTextField object for this panel.
 	 * 
-	 * @return JTextField for fours frequency
+	 * @return the foursTextField property.
 	 */
 	public JTextField getFoursTextField() {
 		return this.foursTextField;
 	}
 
 	/**
-	 * Returns fives text field.
+	 * Returns the fivesTextField object for this panel.
 	 * 
-	 * @return JTextField for fives frequency
+	 * @return the fivesTextField property.
 	 */
 	public JTextField getFivesTextField() {
 		return this.fivesTextField;
 	}
 
 	/**
-	 * Returns sixes text field.
+	 * Returns the sixesTextField object for this panel.
 	 * 
-	 * @return JTextField for sixes frequency
+	 * @return the sixesTextField property.
 	 */
 	public JTextField getSixesTextField() {
 		return this.sixesTextField;
 	}
 
 	/**
-	 * Returns x two multiplier text field.
+	 * Returns the twoMultiplierTextField object for this panel.
 	 * 
-	 * @return JTextField for x two multiplier
+	 * @return the twoMultiplierTextField property.
 	 */
-	public JTextField xtwoMultiplierTextField() {
-		return this.xtwoMultiplierTextField;
+	public JTextField getTwoMultiplierTextField() {
+		return this.twoMultiplierTextField;
 	}
 
 	/**
-	 * Returns x three multiplier text field.
+	 * Returns the threeMultiplierTextField object for this panel.
 	 * 
-	 * @return JTextField for x three multiplier
+	 * @return the threeMultiplierTextField property.
 	 */
-	public JTextField xthreeMultiplierTextField() {
-		return this.xthreeMultiplierTextField;
+	public JTextField getThreeMultiplierTextField() {
+		return this.threeMultiplierTextField;
 	}
 
 	/**
-	 * Returns special move one minus button.
+	 * Returns the specialMoveOneMinusButton object for this panel.
 	 * 
-	 * @return JButton for decreasing special move one
+	 * @return the specialMoveOneMinusButton property.
 	 */
 	public JButton getSpecialMoveOneMinusButton() {
 		return this.specialMoveOneMinusButton;
 	}
 
 	/**
-	 * Returns special move one plus button.
+	 * Returns the specialMoveOnePlusButton object for this panel.
 	 * 
-	 * @return JButton for increasing special move one
+	 * @return the specialMoveOnePlusButton property.
 	 */
 	public JButton getSpecialMoveOnePlusButton() {
 		return this.specialMoveOnePlusButton;
 	}
 
 	/**
-	 * Returns special move two minus button.
+	 * Returns the specialMoveTwoMinusButton object for this panel.
 	 * 
-	 * @return JButton for decreasing special move two
+	 * @return the specialMoveTwoMinusButton property.
 	 */
 	public JButton getSpecialMoveTwoMinusButton() {
 		return this.specialMoveTwoMinusButton;
 	}
 
 	/**
-	 * Returns special move two plus button.
+	 * Returns the specialMoveTwoPlusButton object for this panel.
 	 * 
-	 * @return JButton for increasing special move two
+	 * @return the specialMoveTwoPlusButton property.
 	 */
 	public JButton getSpecialMoveTwoPlusButton() {
 		return this.specialMoveTwoPlusButton;
 	}
 
 	/**
-	 * Returns special move three minus button.
+	 * Returns the specialMoveThreeMinusButton object for this panel.
 	 * 
-	 * @return JButton for decreasing special move three
+	 * @return the specialMoveThreeMinusButton property.
 	 */
 	public JButton getSpecialMoveThreeMinusButton() {
 		return this.specialMoveThreeMinusButton;
 	}
 
 	/**
-	 * Returns special move three plus button.
+	 * Returns the specialMoveThreePlusButton object for this panel.
 	 * 
-	 * @return JButton for increasing special move three
+	 * @return the specialMoveThreePlusButton property.
 	 */
 	public JButton getSpecialMoveThreePlusButton() {
 		return this.specialMoveThreePlusButton;
 	}
 
 	/**
-	 * Returns special move four minus button.
+	 * Returns the specialMoveFourMinusButton object for this panel.
 	 * 
-	 * @return JButton for decreasing special move four
+	 * @return the specialMoveFourMinusButton property.
 	 */
 	public JButton getSpecialMoveFourMinusButton() {
 		return this.specialMoveFourMinusButton;
 	}
 
 	/**
-	 * Returns special move four plus button.
+	 * Returns the specialMoveFourPlusButton object for this panel.
 	 * 
-	 * @return JButton for increasing special move four
+	 * @return the specialMoveFourPlusButton property.
 	 */
 	public JButton getSpecialMoveFourPlusButton() {
 		return this.specialMoveFourPlusButton;
 	}
 
 	/**
-	 * Returns one star score text field.
+	 * Returns the oneStarScoreTextField object for this panel.
 	 * 
-	 * @return JTextField for one star score
+	 * @return the oneStarScoreTextField property.
 	 */
 	public JTextField getOneStarScoreTextField() {
 		return this.oneStarScoreTextField;
 	}
 
 	/**
-	 * Returns two star score text field.
+	 * Returns the twoStarScoreTextField object for this panel.
 	 * 
-	 * @return JTextField for two star score
+	 * @return the twoStarScoreTextField property.
 	 */
 	public JTextField getTwoStarScoreTextField() {
 		return this.twoStarScoreTextField;
 	}
 
 	/**
-	 * Returns three star score text field.
+	 * Returns the threeStarScoreTextField object for this panel.
 	 * 
-	 * @return JTextField for three star score
+	 * @return the threeStarScoreTextField property.
 	 */
 	public JTextField getThreeStarScoreTextField() {
 		return this.threeStarScoreTextField;
 	}
 
 	/**
-	 * Returns tile type combo box.
+	 * Returns the tileTypeComboBox object for this panel.
 	 * 
-	 * @return JComboBox for tile types
+	 * @return the tileTypeComboBox property
 	 */
 	public JComboBox<String> getTileTypeComboBox() {
 		return this.tileTypeComboBox;
 	}
 
 	/**
-	 * Returns special move one label.
+	 * Returns the specialMoveOneLabel object for this panel.
 	 * 
-	 * @return JLabel for special move one
+	 * @return the specialMoveOneLabel property
 	 */
 	public JLabel getSpecialMoveOneLabel() {
 		return specialMoveOneLabel;
 	}
 
 	/**
-	 * Returns special move two label.
+	 * Returns the specialMoveTwoLabel object for this panel.
 	 * 
-	 * @return JLabel for special move two
+	 * @return the specialMoveTwoLabel property
 	 */
 	public JLabel getSpecialMoveTwoLabel() {
 		return specialMoveTwoLabel;
 	}
 
 	/**
-	 * Returns special move three label.
+	 * Returns the specialMoveThreeLabel object for this panel.
 	 * 
-	 * @return JLabel for special move three
+	 * @return the specialMoveThreeLabel property
 	 */
 	public JLabel getSpecialMoveThreeLabel() {
 		return specialMoveThreeLabel;
 	}
 
 	/**
-	 * Returns special move four label.
+	 * Returns the specialMoveFourLabel object for this panel.
 	 * 
-	 * @return JLabel for special move four
+	 * @return the specialMoveFourLabel property
 	 */
 	public JLabel getSpecialMoveFourLabel() {
 		return specialMoveFourLabel;

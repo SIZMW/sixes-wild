@@ -24,6 +24,9 @@ public class GameMain {
 
 	/**
 	 * Main to launch the game.
+	 * 
+	 * @param args
+	 *            Runtime arguments.
 	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {

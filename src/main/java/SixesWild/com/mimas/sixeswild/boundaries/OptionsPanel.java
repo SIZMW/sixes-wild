@@ -25,20 +25,25 @@ public class OptionsPanel extends JPanel {
 
 	private static final long serialVersionUID = 1L;
 
-	JButton changeAestheticButton;
-	JButton switchUserButton;
-	JButton resetBadgesButton;
-	JComboBox<String> aestheticDropDownMenu;
-	JPanel upperOptionsPanel;
-	JPanel rulesPanel;
-	JTextField userNameTextField;
-	JTextPane rulesTextPane;
-	JSeparator rulesSeparator;
+	protected JButton changeAestheticButton;
+	protected JButton switchUserButton;
+	protected JButton resetBadgesButton;
+	protected JComboBox<String> aestheticDropDownMenu;
+	protected JPanel upperOptionsPanel;
+	protected JPanel rulesPanel;
+	protected JTextField userNameTextField;
+	protected JTextPane rulesTextPane;
+	protected JSeparator rulesSeparator;
 
+	// TODO Modify this text
 	private String rulesText = "Rule 01: Don't talk about the fight club.";
 
 	/**
-	 * Creates an OptionsPanel instance.
+	 * Creates an OptionsPanel instance with the specified aesthetic list.
+	 * 
+	 * @param aestheticList
+	 *            The list of aesthetics to populate in the aesthetic drop down
+	 *            menu.
 	 */
 	public OptionsPanel(ArrayList<Aesthetic> aestheticList) {
 
@@ -174,45 +179,45 @@ public class OptionsPanel extends JPanel {
 	}
 
 	/**
-	 * Returns the aesthetic button.
+	 * Returns the changeAestheticButton object for this panel.
 	 * 
-	 * @return JButton for applying aesthetics
+	 * @return the changeAestheticButton property
 	 */
 	public JButton getAestheticButton() {
 		return this.changeAestheticButton;
 	}
 
 	/**
-	 * Returns the switch user button.
+	 * Returns the switchUserButton object for this panel.
 	 * 
-	 * @return JButton for switching users
+	 * @return the switchUserButton property
 	 */
 	public JButton getSwitchUserButton() {
 		return this.switchUserButton;
 	}
 
 	/**
-	 * Returns the reset badges button.
+	 * Returns the resetBadgesButton object for this panel.
 	 * 
-	 * @return JButton for resetting badges
+	 * @return the resetBadgesButton property
 	 */
 	public JButton getResetBadgesButton() {
 		return this.resetBadgesButton;
 	}
 
 	/**
-	 * Returns the aesthetic drop down menu.
+	 * Returns the aestheticDropDownMenu object for this panel.
 	 * 
-	 * @return JComboBox for the aesthetics list
+	 * @return the aestheticDropDownMenu property
 	 */
 	public JComboBox<String> getAestheticDropDownMenu() {
 		return this.aestheticDropDownMenu;
 	}
 
 	/**
-	 * Returns the user name text field.
+	 * Returns the userNameTextField object for this panel.
 	 * 
-	 * @return JTextField for the user name
+	 * @return the userNameTextField property
 	 */
 	public JTextField getUserNameTextField() {
 		return this.userNameTextField;

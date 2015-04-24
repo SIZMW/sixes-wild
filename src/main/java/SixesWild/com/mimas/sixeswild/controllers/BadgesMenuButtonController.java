@@ -41,7 +41,7 @@ public class BadgesMenuButtonController implements ActionListener {
 	 * java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
 	 */
 	public void actionPerformed(ActionEvent e) {
-		JPanel currPanel = app.getMainPanel().getSubMenuPanel();
+		JPanel currPanel = app.getGameMenuView().getSubMenuPanel();
 		currPanel.removeAll();
 
 		// Layout for panel
@@ -59,7 +59,7 @@ public class BadgesMenuButtonController implements ActionListener {
 		gbc_list.gridy = 0;
 
 		// Add panel to view
-		currPanel.add(this.app.getMainPanel().getBadgeMenuView(), gbc_list);
+		currPanel.add(this.app.getGameMenuView().getBadgeMenuView(), gbc_list);
 		currPanel.updateUI();
 		
 		logger.log(Level.FINE, "Badges menu requested and displayed.");

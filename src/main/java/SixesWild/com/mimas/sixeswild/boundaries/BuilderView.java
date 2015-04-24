@@ -26,20 +26,19 @@ public class BuilderView extends JPanel {
 
 	private static final long serialVersionUID = 1L;
 
-	BuilderTopPanel builderTopPanel;
-	BuilderSettingsPanel builderSettingsPanel;
-	BoardViewPanel boardViewPanel;
-	Border boardViewPanelBorder;
-	Board nullBoard;
-	Tile nullTiles[][];
-	ArrayList<Double> tileFreq;
-	ArrayList<Double> multFreq;
-	Aesthetic builderViewAesthetic;
-
-	private GridBagConstraints gbc_boardView;
+	protected BuilderTopPanel builderTopPanel;
+	protected BuilderSettingsPanel builderSettingsPanel;
+	protected BoardViewPanel boardViewPanel;
+	protected Border boardViewPanelBorder;
+	protected Board nullBoard;
+	protected Tile nullTiles[][];
+	protected ArrayList<Double> tileFreq;
+	protected ArrayList<Double> multFreq;
+	protected Aesthetic builderViewAesthetic;
+	protected GridBagConstraints gbc_boardView;
 
 	/**
-	 * Creates a BuilderView instance with the specified Aesthetic.
+	 * Creates a BuilderView instance with the specified aesthetic.
 	 * 
 	 * @param aesthetic
 	 *            The aesthetic to use in this view.
@@ -86,24 +85,23 @@ public class BuilderView extends JPanel {
 		gbc_builderTopPanel.gridy = 0;
 		add(builderTopPanel, gbc_builderTopPanel);
 
-		//Populates a null board
+		// Populates a null board
 		nullTiles = new Tile[9][9];
-		for(int i = 0; i < 9; i++){
-			for(int j = 0; j < 9; j++){
+		for (int i = 0; i < 9; i++) {
+			for (int j = 0; j < 9; j++) {
 				nullTiles[i][j] = new NullTile();
 			}
 		}
-		//Creates tile frequencies
-		tileFreq = new ArrayList<Double>(Arrays.asList(.1, .2, .3, .3,
-				.05, .05));
-		//creates multiplier frequencies
-		multFreq = new ArrayList<Double>(Arrays.asList(.5, .25,
-				.25));
+		// Creates tile frequencies
+		tileFreq = new ArrayList<Double>(
+				Arrays.asList(.1, .2, .3, .3, .05, .05));
+		// creates multiplier frequencies
+		multFreq = new ArrayList<Double>(Arrays.asList(.5, .25, .25));
 		try {
 			nullBoard = new Board(nullTiles, tileFreq, multFreq);
-		} catch (Exception e){
+		} catch (Exception e) {
 		}
-		
+
 		// Board view panel
 		boardViewPanelBorder = BorderFactory.createLineBorder(Color.black);
 		boardViewPanel = new BoardViewPanel(nullBoard,
@@ -120,35 +118,34 @@ public class BuilderView extends JPanel {
 	}
 
 	/**
-	 * Returns builder top panel.
+	 * Returns the builderTopPanel object for this panel.
 	 * 
-	 * @return BuilderTopPanel for the level builder
+	 * @return the builderTopPanel property
 	 */
 	public BuilderTopPanel getBuilderTopPanel() {
 		return this.builderTopPanel;
 	}
 
 	/**
-	 * Returns the level settings panel.
+	 * Returns the builderSettingsPanel object for this panel.
 	 * 
-	 * @return BuilderSettingsPanel for the level builder
+	 * @return the builderSettingsPanel property
 	 */
 	public BuilderSettingsPanel getBuilderSettingsPanel() {
 		return this.builderSettingsPanel;
 	}
 
 	/**
-	 * Returns the board view panel.
+	 * Returns the boardViewPanel object for this panel.
 	 * 
-	 * @return BoardViewPanel for the level builder
+	 * @return the boardViewPanel property
 	 */
 	public BoardViewPanel getBoardViewPanel() {
 		return this.boardViewPanel;
 	}
 
 	/**
-	 * Updates the BoardViewPanel with a new panel. Redraws the panel in the
-	 * same space as the previous one.
+	 * Updates the boardViewPanel with the specified panel.
 	 * 
 	 * @param newBoardViewPanel
 	 *            The new board view to draw.

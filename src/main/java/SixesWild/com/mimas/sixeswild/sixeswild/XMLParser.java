@@ -150,7 +150,7 @@ public final class XMLParser {
 	 * 
 	 * @param directory
 	 *            The directory to load levels from.
-	 * @return ArrayList<String> story level names
+	 * @return ArrayList<String> level names
 	 */
 	public static ArrayList<String> getLevelFileNames(String directory) {
 		File folder = new File(directory);

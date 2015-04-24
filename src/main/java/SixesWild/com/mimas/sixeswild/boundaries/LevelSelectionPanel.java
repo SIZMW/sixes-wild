@@ -27,14 +27,12 @@ public class LevelSelectionPanel extends JPanel {
 
 	private static final long serialVersionUID = 1L;
 
-	DefaultListModel<String> levelListModel;
-	JScrollPane levelScrollPane;
-	JPanel previewPanel;
-	JButton playLevelButton;
-	ArrayList<String> levelNames;
-	JList<String> levelList;
-
-	// TODO Add parameter for level list
+	protected DefaultListModel<String> levelListModel;
+	protected JScrollPane levelScrollPane;
+	protected JPanel previewPanel;
+	protected JButton playLevelButton;
+	protected ArrayList<String> levelNames;
+	protected JList<String> levelList;
 
 	/**
 	 * Creates a LevelSelectionPanel instance with the specified level names and
@@ -70,7 +68,8 @@ public class LevelSelectionPanel extends JPanel {
 		levelList.setPreferredSize(new Dimension(100, 100));
 		levelList.setMinimumSize(new Dimension(100, 100));
 		levelList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-		levelList.setCellRenderer(new LevelListCellRenderer(highestLevelUnlocked));
+		levelList.setCellRenderer(new LevelListCellRenderer(
+				highestLevelUnlocked));
 		levelScrollPane.setViewportView(levelList);
 
 		// Layout for level list scroll pane
@@ -127,33 +126,38 @@ public class LevelSelectionPanel extends JPanel {
 	}
 
 	/**
-	 * Returns the scroll pane of level names.
+	 * Returns the levelScrollPane object for this panel.
 	 * 
-	 * @return JScrollPane for level list pane
+	 * @return the levelScrollPane property
 	 */
 	public JScrollPane getLevelScrollPane() {
 		return this.levelScrollPane;
 	}
 
 	/**
-	 * Returns the "Play Level" button.
+	 * Returns the playLevelButton object for this panel.
 	 * 
-	 * @return JButton for playing a level
+	 * @return the playLevelButton property
 	 */
 	public JButton getPlayButton() {
 		return this.playLevelButton;
 	}
 
 	/**
-	 * Returns the level selection preview panel.
+	 * Returns the previewPanel object for this panel.
 	 * 
-	 * @return JPanel for preview panel
+	 * @return the previewPanel property
 	 */
 	public JPanel getPreviewPanel() {
 		return this.previewPanel;
 	}
-	
-	public JList<String> getLevelList(){
+
+	/**
+	 * Returns the levelList object for this panel.
+	 * 
+	 * @return the levelList property
+	 */
+	public JList<String> getLevelList() {
 		return this.levelList;
 	}
 }

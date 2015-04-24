@@ -36,12 +36,12 @@ public class BuilderApplication {
 
 	private static final Logger logger = Logger.getGlobal();
 
-	JFrame frame;
-	BuilderView builderView;
-	Aesthetic aesthetic;
+	protected JFrame frame;
+	protected BuilderView builderView;
+	protected Aesthetic aesthetic;
 
 	/**
-	 * Constructor for BuilderApplication class.
+	 * Creates a BuilderApplication instance and initializes it.
 	 */
 	public BuilderApplication() {
 		this.initialize();
@@ -57,7 +57,6 @@ public class BuilderApplication {
 			logger.log(Level.WARNING, "System look and feel failed to load.", e);
 		}
 
-		// TODO Verify the creation of the aesthetic is valid here
 		aesthetic = new Aesthetic("ROYGBIV", Color.white, Color.RED, new Color(
 				0xFF7F00), Color.YELLOW, Color.GREEN, Color.CYAN,
 				Color.MAGENTA, new Color(0x7D26CD), Color.lightGray);
@@ -129,27 +128,27 @@ public class BuilderApplication {
 	}
 
 	/**
-	 * Returns the game frame.
+	 * Returns the frame object for this class.
 	 * 
-	 * @return JFrame for builder application
+	 * @return the frame property
 	 */
 	public JFrame getFrame() {
 		return this.frame;
 	}
 
 	/**
-	 * Returns the game BuilderView.
+	 * Returns the builderView object for this class.
 	 * 
-	 * @return BuilderView for builder application
+	 * @return the builderView property
 	 */
 	public BuilderView getBuilderView() {
 		return this.builderView;
 	}
 
 	/**
-	 * Returns the aesthetic of this application.
+	 * Returns the aesthetic object for this class.
 	 * 
-	 * @return Aesthetic for builder application
+	 * @return the aesthetic property
 	 */
 	public Aesthetic getAesthetic() {
 		return this.aesthetic;

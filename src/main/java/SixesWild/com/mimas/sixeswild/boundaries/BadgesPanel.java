@@ -1,6 +1,7 @@
 package SixesWild.com.mimas.sixeswild.boundaries;
 
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
@@ -13,7 +14,6 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
-import java.awt.Dimension;
 
 /**
  * This class represents the view used to show badges that the player has
@@ -25,13 +25,15 @@ public class BadgesPanel extends JPanel {
 
 	private static final long serialVersionUID = 1L;
 
-	DefaultListModel<String> badgeListModel;
-	JScrollPane badgeScrollPane;
-	JPanel previewPanel;
-	ArrayList<String> badgeNames;
+	// Panel attributes
+	protected DefaultListModel<String> badgeListModel;
+	protected JScrollPane badgeScrollPane;
+	protected JPanel previewPanel;
+	protected ArrayList<String> badgeNames;
+	protected JLabel badgesPreviewLabel;
 
 	/**
-	 * Constructor for BadgesPanel class.
+	 * Creates a BadgesPanel instance with the specified list of badge names.
 	 * 
 	 * @param badgeNames
 	 *            The list of badge names.
@@ -50,13 +52,13 @@ public class BadgesPanel extends JPanel {
 		setLayout(gridBagLayout);
 
 		// Add the list of badge names
-		badgeListModel = new DefaultListModel<String>();
-		for (int i = 0; i < badgeNames.size(); i++) {
-			badgeListModel.addElement(badgeNames.get(i));
+		this.badgeListModel = new DefaultListModel<String>();
+		for (String e : this.badgeNames) {
+			this.badgeListModel.addElement(e);
 		}
 
 		// Badge list scroll pane
-		badgeScrollPane = new JScrollPane();
+		this.badgeScrollPane = new JScrollPane();
 		JList<String> list = new JList<String>(badgeListModel);
 		list.setPreferredSize(new Dimension(100, 100));
 		list.setMinimumSize(new Dimension(100, 100));
@@ -72,7 +74,7 @@ public class BadgesPanel extends JPanel {
 		add(badgeScrollPane, gbc_list);
 
 		// Preview panel
-		JPanel previewPanel = new JPanel();
+		this.previewPanel = new JPanel();
 		GridBagConstraints gbc_panel = new GridBagConstraints();
 		gbc_panel.fill = GridBagConstraints.BOTH;
 		gbc_panel.gridx = 1;
@@ -90,8 +92,7 @@ public class BadgesPanel extends JPanel {
 		previewPanel.setLayout(gbl_panel);
 
 		// Badges preview label
-		JLabel badgesPreviewLabel = new JLabel("BadgePreview",
-				SwingConstants.CENTER);
+		badgesPreviewLabel = new JLabel("BadgePreview", SwingConstants.CENTER);
 		badgesPreviewLabel.setBackground(Color.WHITE);
 		badgesPreviewLabel.setPreferredSize(new Dimension(66, 14));
 		badgesPreviewLabel.setMinimumSize(new Dimension(66, 14));
@@ -105,31 +106,31 @@ public class BadgesPanel extends JPanel {
 		gbc_lblBadgepreview.insets = new Insets(0, 0, 5, 5);
 		gbc_lblBadgepreview.gridx = 1;
 		gbc_lblBadgepreview.gridy = 1;
-		previewPanel.add(badgesPreviewLabel, gbc_lblBadgepreview);
+		this.previewPanel.add(badgesPreviewLabel, gbc_lblBadgepreview);
 	}
 
 	/**
-	 * Returns the level selection preview panel.
+	 * Returns the previewPanel object for this panel.
 	 * 
-	 * @return JPanel preview panel
+	 * @return the previewPanel property
 	 */
 	public JPanel getPreviewPanel() {
 		return this.previewPanel;
 	}
 
 	/**
-	 * Returns the badge list.
+	 * Returns the badgeNamesobject for this panel.
 	 * 
-	 * @return DefaultListModel for the badge list
+	 * @return the badgeNames property
 	 */
-	public DefaultListModel<String> getBadgeListModel() {
-		return this.badgeListModel;
+	public ArrayList<String> getBadgeNameList() {
+		return this.badgeNames;
 	}
 
 	/**
-	 * Returns the badge scroll pane.
+	 * Returns the badgeScrollPane object for this panel.
 	 * 
-	 * @return JScrollPane for the badge list pane
+	 * @return the badgeScrollPane property
 	 */
 	public JScrollPane getBadgeScrollPane() {
 		return this.badgeScrollPane;

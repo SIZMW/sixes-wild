@@ -43,7 +43,7 @@ public class StoryMenuButtonController implements ActionListener {
 	 * java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
 	 */
 	public void actionPerformed(ActionEvent e) {
-		JPanel currentPanel = app.getMainPanel().getSubMenuPanel();
+		JPanel currentPanel = app.getGameMenuView().getSubMenuPanel();
 		currentPanel.removeAll();
 
 		// Layout for panel
@@ -61,7 +61,7 @@ public class StoryMenuButtonController implements ActionListener {
 		gbc_list.gridy = 0;
 
 		// Add panel to view
-		currentPanel.add(this.app.getMainPanel().getStoryMenuView(), gbc_list);
+		currentPanel.add(this.app.getGameMenuView().getStoryMenuView(), gbc_list);
 		currentPanel.updateUI();
 
 		logger.log(Level.FINE, "Story level menu requested and displayed.");

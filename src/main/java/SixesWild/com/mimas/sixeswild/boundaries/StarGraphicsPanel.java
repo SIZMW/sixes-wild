@@ -17,9 +17,9 @@ public class StarGraphicsPanel extends JPanel {
 
 	private static final long serialVersionUID = 1L;
 
-	JPanel starGraphicPanel;
-	JLabel scoreLabel;
-	int scoreNumber;
+	protected JPanel starGraphicPanel;
+	protected JLabel scoreLabel;
+	protected int scoreNumber;
 
 	/**
 	 * Creates a StarGraphicsPanel with the specified score value.
@@ -71,5 +71,28 @@ public class StarGraphicsPanel extends JPanel {
 		gbc_starGraphicPanel.columnWeights = new double[] { Double.MIN_VALUE };
 		gbc_starGraphicPanel.rowWeights = new double[] { Double.MIN_VALUE };
 		starGraphicPanel.setLayout(gbc_starGraphicPanel);
+	}
+
+	/**
+	 * Returns the starGraphicPanel object for this panel.
+	 * 
+	 * @return the starGraphicPanel property
+	 */
+	public JPanel getStarGraphicPanel() {
+		return this.starGraphicPanel;
+	}
+
+	/**
+	 * Sets the specified panel to the starGraphicPanel object for this panel.
+	 * 
+	 * @param panel
+	 *            The starGraphicPanel object for this panel.
+	 * @return true if successful.
+	 */
+	public boolean setStarGraphicPanel(JPanel panel) {
+		this.remove(this.starGraphicPanel);
+		this.starGraphicPanel = panel;
+		this.add(this.starGraphicPanel);
+		return true;
 	}
 }

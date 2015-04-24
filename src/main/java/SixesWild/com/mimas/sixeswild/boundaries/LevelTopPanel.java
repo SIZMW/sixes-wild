@@ -18,13 +18,13 @@ public class LevelTopPanel extends JPanel {
 
 	private static final long serialVersionUID = 1L;
 
-	final String MOVE_TEXT = "Move ";
-	JTextField levelNameTextField;
-	JButton specialMoveButton1;
-	JButton specialMoveButton2;
-	JButton specialMoveButton3;
-	JButton specialMoveButton4;
-	JButton exitLevelButton;
+	protected final String MOVE_TEXT = "Move ";
+	protected JTextField levelNameTextField;
+	protected JButton specialMoveButton1;
+	protected JButton specialMoveButton2;
+	protected JButton specialMoveButton3;
+	protected JButton specialMoveButton4;
+	protected JButton exitLevelButton;
 
 	/**
 	 * Creates a LevelTopPanel instance.
@@ -111,63 +111,66 @@ public class LevelTopPanel extends JPanel {
 	}
 
 	/**
-	 * Returns the level name text field.
+	 * Returns the levelNameTextField object for this panel.
 	 * 
-	 * @return JTextField for level name
+	 * @return the levelNameTextField property
 	 */
 	public JTextField getLevelNameTextField() {
 		return this.levelNameTextField;
 	}
-	
+
 	/**
-	 * Sets the Level Name
+	 * Sets the name of the level.
 	 * 
 	 * @param levelName
+	 *            The level name to set.
+	 * @return true if successful.
 	 */
-	public void setLevelNameTextField(String levelName) {
+	public boolean setLevelNameTextField(String levelName) {
 		this.levelNameTextField.setText(levelName);
+		return true;
 	}
 
 	/**
-	 * Returns the special move button 1.
+	 * Returns the specialMoveButton1 object for this panel.
 	 * 
-	 * @return JButton for special move 1
+	 * @return the specialMoveButton1 property
 	 */
 	public JButton getSpecialMoveButton1() {
 		return this.specialMoveButton1;
 	}
 
 	/**
-	 * Returns the special move button 2.
+	 * Returns the specialMoveButton2 object for this panel.
 	 * 
-	 * @return JButton for special move 2
+	 * @return the specialMoveButton2 property
 	 */
 	public JButton getSpecialMoveButton2() {
 		return this.specialMoveButton2;
 	}
 
 	/**
-	 * Returns the special move button 3.
+	 * Returns the specialMoveButton3 object for this panel.
 	 * 
-	 * @return JButton for special move 3
+	 * @return the specialMoveButton3 property
 	 */
 	public JButton getSpecialMoveButton3() {
 		return this.specialMoveButton3;
 	}
 
 	/**
-	 * Returns the special move button 4.
+	 * Returns the specialMoveButton4 object for this panel.
 	 * 
-	 * @return JButton for special move 4
+	 * @return the specialMoveButton4 property
 	 */
 	public JButton getSpecialMoveButton4() {
 		return this.specialMoveButton4;
 	}
 
 	/**
-	 * Returns the exit level button.
+	 * Returns the exitLevelButton object for this panel.
 	 * 
-	 * @return JButton for exiting a level
+	 * @return the exitLevelButton property
 	 */
 	public JButton getExitLevelButton() {
 		return this.exitLevelButton;

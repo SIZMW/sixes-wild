@@ -19,17 +19,17 @@ public class LevelStatsPanel extends JPanel {
 
 	private static final long serialVersionUID = 1L;
 
-	JPanel starGraphicsPanel;
+	protected JPanel starGraphicsPanel;
 
-	final String POINTS_TEXT = "Points";
-	JPanel pointsPanel;
-	JLabel pointsTextLabel;
-	JLabel pointsLabel;
+	protected final String POINTS_TEXT = "Points";
+	protected JPanel pointsPanel;
+	protected JLabel pointsTextLabel;
+	protected JLabel pointsLabel;
 
-	final String MOVES_SLASH_TIME_TEXT = "Moves/Time";
-	JPanel moveSlashTimePanel;
-	JLabel movesSlashTimeTextLabel;
-	JLabel movesSlashTimeLabel;
+	protected final String MOVES_SLASH_TIME_TEXT = "Moves/Time";
+	protected JPanel moveSlashTimePanel;
+	protected JLabel movesSlashTimeTextLabel;
+	protected JLabel movesSlashTimeLabel;
 
 	/**
 	 * Creates a LevelStatsPanel instance.
@@ -140,6 +140,12 @@ public class LevelStatsPanel extends JPanel {
 		moveSlashTimePanel.add(movesSlashTimeLabel, gbc_movesSlashTimeLabel);
 	}
 
+	/**
+	 * Creates a LevelStatsPanel instance with the specified move count.
+	 * 
+	 * @param moveCount
+	 *            The move count to set in this panel.
+	 */
 	public LevelStatsPanel(int moveCount) {
 
 		// Layout for panel
@@ -245,30 +251,30 @@ public class LevelStatsPanel extends JPanel {
 		gbc_movesSlashTimeLabel.gridy = 1;
 		moveSlashTimePanel.add(movesSlashTimeLabel, gbc_movesSlashTimeLabel);
 	}
-	
+
 	/**
-	 * Returns the star graphics panel.
+	 * Returns the starGraphicsPanel object for this panel.
 	 * 
-	 * @return JPanel for star graphics
+	 * @return the starGraphicsPanel property
 	 */
 	public JPanel getStarGraphicsPanel() {
 		return this.starGraphicsPanel;
 	}
 
 	/**
-	 * Returns the points label.
-	 *
-	 * @return JLabel for points
+	 * Returns the pointsLabel object for this panel.
+	 * 
+	 * @return the pointsLabel property
 	 */
 	public JLabel getPointsLabel() {
 		return this.pointsLabel;
 	}
 
-	// TODO figure out specifics later
+	// TODO Display moves or timer
 	/**
-	 * Returns the moves/time label
+	 * Returns the movesSlashTimeLabel object for this panel.
 	 * 
-	 * @return JLabel for timer or moves left
+	 * @return the movesSlashTimeLabel property
 	 */
 	public JLabel getMovesSlashTimeLabel() {
 		return this.movesSlashTimeLabel;

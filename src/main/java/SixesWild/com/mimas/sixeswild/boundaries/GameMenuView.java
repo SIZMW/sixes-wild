@@ -19,18 +19,18 @@ public class GameMenuView extends JPanel {
 
 	private static final long serialVersionUID = 1L;
 
-	JPanel subMenuPanel;
-	TitlePanel titleMenuView;
-	LevelSelectionPanel storyMenuView;
-	LevelSelectionPanel userMenuView;
-	BadgesPanel badgeMenuView;
-	OptionsPanel optionsMenuView;
-	CreditsPanel creditsMenuView;
-	JButton storyLevelMenuButton;
-	JButton userLevelMenuButton;
-	JButton badgesMenuButton;
-	JButton optionsMenuButton;
-	JButton creditsMenuButton;
+	protected JPanel subMenuPanel;
+	protected TitlePanel titleMenuView;
+	protected LevelSelectionPanel storyMenuView;
+	protected LevelSelectionPanel userMenuView;
+	protected BadgesPanel badgeMenuView;
+	protected OptionsPanel optionsMenuView;
+	protected CreditsPanel creditsMenuView;
+	protected JButton storyLevelMenuButton;
+	protected JButton userLevelMenuButton;
+	protected JButton badgesMenuButton;
+	protected JButton optionsMenuButton;
+	protected JButton creditsMenuButton;
 
 	/**
 	 * Creates a GameMenuView instance with the specified story level list, user
@@ -43,13 +43,14 @@ public class GameMenuView extends JPanel {
 	 * @param badgesList
 	 *            The list of badges.
 	 * @param aestheticList
-	 * 			  The list of aesthetics that were created.
+	 *            The list of aesthetics that were created.
 	 * @param highestLevelUnlocked
 	 *            The highest number level that is unlocked to play.
 	 */
 	public GameMenuView(ArrayList<String> storyLevelList,
 			ArrayList<String> userLevelList, ArrayList<String> badgesList,
-			ArrayList<Aesthetic> aestheticList, int storyHighestUnlocked, int userHighestUnlocked) {
+			ArrayList<Aesthetic> aestheticList, int storyHighestUnlocked,
+			int userHighestUnlocked) {
 
 		// General Layout Settings
 		GridBagLayout gridBagLayout = new GridBagLayout();
@@ -132,108 +133,108 @@ public class GameMenuView extends JPanel {
 	}
 
 	/**
-	 * Returns the right sub menu panel.
+	 * Returns the subMenuPanel object for this panel.
 	 * 
-	 * @return JPanel for the sub menu panel
+	 * @return the subMenuPanel property
 	 */
 	public JPanel getSubMenuPanel() {
 		return this.subMenuPanel;
 	}
 
 	/**
-	 * Returns the story level menu button.
+	 * Returns the storyLevelMenuButton object for this panel.
 	 * 
-	 * @return JButton for the story level menu
+	 * @return the storyLevelMenuButton property
 	 */
 	public JButton getStoryLevelMenuButton() {
 		return this.storyLevelMenuButton;
 	}
 
 	/**
-	 * Returns the user level menu button.
+	 * Returns the userLevelMenuButton object for this panel.
 	 * 
-	 * @return JButton for the user level menu
+	 * @return the userLevelMenuButton property
 	 */
 	public JButton getUserLevelMenuButton() {
 		return this.userLevelMenuButton;
 	}
 
 	/**
-	 * Returns the badges menu button.
+	 * Returns the badgesMenuButton object for this panel.
 	 * 
-	 * @return JButton for the badges menu
+	 * @return the badgesMenuButton property
 	 */
 	public JButton getBadgesMenuButton() {
 		return this.badgesMenuButton;
 	}
 
 	/**
-	 * Returns the options menu button.
+	 * Returns the optionsMenuButton object for this panel.
 	 * 
-	 * @return JButton for the options menu
+	 * @return the optionsMenuButton property
 	 */
 	public JButton getOptionsMenuButton() {
 		return this.optionsMenuButton;
 	}
 
 	/**
-	 * Returns the credits menu button.
+	 * Returns the creditsMenuButton object for this panel.
 	 * 
-	 * @return JButton for the credits menu
+	 * @return the creditsMenuButton property
 	 */
 	public JButton getCreditsMenuButton() {
 		return this.creditsMenuButton;
 	}
 
 	/**
-	 * Returns the badge menu view.
+	 * Returns the badgeMenuView object for this panel.
 	 * 
-	 * @return BadgesPanel for the badges menu
+	 * @return the badgeMenuView property
 	 */
 	public BadgesPanel getBadgeMenuView() {
 		return this.badgeMenuView;
 	}
 
 	/**
-	 * Returns the option menu view.
+	 * Returns the optionsMenuView object for this panel.
 	 * 
-	 * @return OptionsPanel for the options menu
+	 * @return the optionsMenuView property
 	 */
 	public OptionsPanel getOptionsMenuView() {
 		return this.optionsMenuView;
 	}
 
 	/**
-	 * Returns the story menu view.
+	 * Returns the storyMenuView object for this panel.
 	 * 
-	 * @return LevelSelectionPanel for the story level menu
+	 * @return the storyMenuView property
 	 */
 	public LevelSelectionPanel getStoryMenuView() {
 		return this.storyMenuView;
 	}
 
 	/**
-	 * Returns the user menu view.
+	 * Returns the userMenuView object for this panel.
 	 * 
-	 * @return LevelSelectionPanel for the user level menu
+	 * @return the userMenuView property
 	 */
 	public LevelSelectionPanel getUserMenuView() {
 		return this.userMenuView;
 	}
 
 	/**
-	 * Returns the credits menu view.
+	 * Returns the creditsMenuView object for this panel.
 	 * 
-	 * @return CreditsPanel for the credits menu
+	 * @return the creditsMenuView property
 	 */
 	public CreditsPanel getCreditsMenuView() {
 		return this.creditsMenuView;
 	}
 
 	/**
-	 * Returns the title menu view.
+	 * Returns the titleMenuView object for this panel.
 	 * 
-	 * @return TitlePanel for the title menu
+	 * @return the titleMenuView property
 	 */
 	public TitlePanel getTitleMenuView() {
 		return this.titleMenuView;

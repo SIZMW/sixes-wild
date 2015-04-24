@@ -14,7 +14,7 @@ import javax.swing.JList;
 public class LevelListCellRenderer extends DefaultListCellRenderer {
 
 	private static final long serialVersionUID = 1L;
-	int highestLevel;
+	protected int highestLevel;
 
 	/**
 	 * Creates a LevelListCellRenderer instance with the specified highest level
@@ -39,13 +39,12 @@ public class LevelListCellRenderer extends DefaultListCellRenderer {
 			int index, boolean isSelected, boolean cellHasFocus) {
 
 		// Get level number
-		int levelNumber = Integer.parseInt(
-				((String) value).substring(0, 1));
+		int levelNumber = Integer.parseInt(((String) value).substring(0, 1));
 
 		// Unlock levels up to and including the highest unlocked level
 		if (this.highestLevel < levelNumber) {
 			super.getListCellRendererComponent(list, value, index, false, false);
-		} else { // Lock all other levels
+		} else {
 			super.getListCellRendererComponent(list, value, index, isSelected,
 					cellHasFocus);
 		}

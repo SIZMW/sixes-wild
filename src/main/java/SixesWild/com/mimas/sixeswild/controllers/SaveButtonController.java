@@ -172,7 +172,7 @@ public class SaveButtonController implements ActionListener {
 		mf3 = 0.4;
 
 		try {
-			mf2 = Math.abs(Double.parseDouble(bsp.xtwoMultiplierTextField()
+			mf2 = Math.abs(Double.parseDouble(bsp.getTwoMultiplierTextField()
 					.getText()));
 		} catch (NumberFormatException nfe) {
 			logger.log(java.util.logging.Level.WARNING,
@@ -181,7 +181,7 @@ public class SaveButtonController implements ActionListener {
 		}
 
 		try {
-			mf3 = Math.abs(Double.parseDouble(bsp.xthreeMultiplierTextField()
+			mf3 = Math.abs(Double.parseDouble(bsp.getThreeMultiplierTextField()
 					.getText()));
 		} catch (NumberFormatException nfe) {
 			logger.log(java.util.logging.Level.WARNING,

@@ -44,7 +44,7 @@ public class GameSplashScreenController extends KeyAdapter {
 		if (key == 10) {
 			Container contentContainer = app.getFrame().getContentPane();
 			JPanel currentPanel = new JPanel();
-			JPanel subMenuPanel = app.getMainPanel().getSubMenuPanel();
+			JPanel subMenuPanel = app.getGameMenuView().getSubMenuPanel();
 			subMenuPanel.removeAll();
 			contentContainer.removeAll();
 
@@ -64,11 +64,11 @@ public class GameSplashScreenController extends KeyAdapter {
 			gbc_list.gridy = 0;
 
 			// Add panel to view
-			subMenuPanel.add(this.app.getMainPanel().getTitleMenuView(),
+			subMenuPanel.add(this.app.getGameMenuView().getTitleMenuView(),
 					gbc_list);
 			subMenuPanel.updateUI();
 
-			currentPanel.add(this.app.getMainPanel(), gbc_list);
+			currentPanel.add(this.app.getGameMenuView(), gbc_list);
 			contentContainer.add(currentPanel);
 			contentContainer.revalidate();
 			contentContainer.repaint();

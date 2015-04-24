@@ -34,20 +34,20 @@ public class GameApplication {
 
 	private static final Logger logger = Logger.getGlobal();
 
-	JFrame frame;
-	GameMenuView gameMenuView;
-	LevelView levelView;
+	protected JFrame frame;
+	protected GameMenuView gameMenuView;
+	protected LevelView levelView;
 
-	ArrayList<Aesthetic> aestheticList;
-	Aesthetic currentAesthetic;
-	UserProfile currentUserProfile;
+	protected ArrayList<Aesthetic> aestheticList;
+	protected Aesthetic currentAesthetic;
+	protected UserProfile currentUserProfile;
 
-	// TODO Add these attributes to GameApplication
+	// TODO Add these attributes
 	// BadgesPanel badgePanel;
 	// ArrayList<String> listOfBadges;
 
 	/**
-	 * Creates a GameApplication instance.
+	 * Creates a GameApplication instance and initializes it.
 	 */
 	public GameApplication() {
 		this.initialize();
@@ -81,11 +81,12 @@ public class GameApplication {
 		// TODO Get from user profile.
 		int storyHighestUnlocked = 5;
 		int userHighestUnlocked = 10;
-		
+
 		// Initialize panels and views.
 		gameMenuView = new GameMenuView(storyLevelList, userLevelList,
-				badgesList, aestheticList, storyHighestUnlocked, userHighestUnlocked);
-		levelView = new LevelView(this.aestheticList.get(0));
+				badgesList, aestheticList, storyHighestUnlocked,
+				userHighestUnlocked);
+		levelView = new LevelView(currentAesthetic);
 
 		// Initialize frame
 		frame = new JFrame();
@@ -101,6 +102,7 @@ public class GameApplication {
 
 		logger.log(Level.FINE, "GameApplication frame initialized.");
 
+		// Set up controllers
 		this.setUpControllers();
 	}
 
@@ -155,55 +157,57 @@ public class GameApplication {
 	}
 
 	/**
-	 * Returns the game frame.
+	 * Returns the frame object for this class.
 	 * 
-	 * @return JFrame for the game application
+	 * @return the frame property
 	 */
 	public JFrame getFrame() {
 		return this.frame;
 	}
 
 	/**
-	 * Returns the game GameMenuView.
+	 * Returns the gameMenuView object for this class.
 	 * 
-	 * @return GameMenuView for the game application
+	 * @return the gameMenuView property
 	 */
-	public GameMenuView getMainPanel() {
+	public GameMenuView getGameMenuView() {
 		return this.gameMenuView;
 	}
 
 	/**
-	 * Returns the game levelPanel.
+	 * Returns the levelView object for this class.
 	 * 
-	 * @return LevelView for the game application
+	 * @return the levelView property
 	 */
 	public LevelView getLevelPanel() {
 		return this.levelView;
 	}
 
 	/**
-	 * Sets the LevelPanel to the given levelView.
+	 * Sets the levelView object to the specified LevelView.
 	 * 
 	 * @param newLevel
-	 *            The LevelView to display.
+	 *            The levelView object for this class.
+	 * @return true if successful.
 	 */
-	public void setLevelPanel(LevelView newLevel) {
+	public boolean setLevelPanel(LevelView newLevel) {
 		this.levelView = newLevel;
+		return true;
 	}
 
 	/**
-	 * Returns the current aesthetic of this application.
+	 * Returns the currentAesthetic object for this class.
 	 * 
-	 * @return Aesthetic for game application
+	 * @return the currentAesthetic property
 	 */
 	public Aesthetic getCurrentAesthetic() {
 		return this.currentAesthetic;
 	}
 
 	/**
-	 * Returns the current user profile of this application.
+	 * Returns the currentUserProfile object for this class.
 	 * 
-	 * @return UserProfile for game application
+	 * @return the currentUserProfile property
 	 */
 	public UserProfile getCurrentUserProfile() {
 		return this.currentUserProfile;
@@ -213,8 +217,9 @@ public class GameApplication {
 	 * Sets the current aesthetic based on the given name.
 	 * 
 	 * @param name
-	 *            The name of the aesthetic.
-	 * @return true if aesthetic is found and set; false otherwise.
+	 *            The name of the aesthetic to load.
+	 * @return true if aesthetic is found and set; false if a new profile was
+	 *         created.
 	 */
 	public boolean setCurrentAesthetic(String name) {
 		for (Aesthetic e : aestheticList) {
@@ -234,8 +239,9 @@ public class GameApplication {
 	 * Sets the current user profile.
 	 * 
 	 * @param name
-	 *            The name of the user to load a user profile for.
-	 * @return true if profile was found; false if a new one was created.
+	 *            The name of the user to load.
+	 * @return true if profile was found and set; false if a new profile was
+	 *         created.
 	 */
 	public boolean setCurrentUserProfile(String name) {
 		for (String e : XMLParser.getUserProfileNames()) {

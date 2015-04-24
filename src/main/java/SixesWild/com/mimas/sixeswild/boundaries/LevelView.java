@@ -28,13 +28,13 @@ public class LevelView extends JPanel {
 	private static final Logger logger = Logger.getGlobal();
 	private static final long serialVersionUID = 1L;
 
-	LevelTopPanel levelTopPanel;
-	LevelStatsPanel levelStatsPanel;
-	BoardViewPanel boardViewPanel;
-	Aesthetic levelViewAesthetic;
+	protected LevelTopPanel levelTopPanel;
+	protected LevelStatsPanel levelStatsPanel;
+	protected BoardViewPanel boardViewPanel;
+	protected Aesthetic levelViewAesthetic;
 
 	/**
-	 * Creates a LevelView instance with the specified Aesthetic.
+	 * Creates a LevelView instance with the specified aesthetic.
 	 * 
 	 * @param aesthetic
 	 *            The aesthetic to use for this view.
@@ -130,6 +130,14 @@ public class LevelView extends JPanel {
 
 	}
 
+	/**
+	 * Creates a LevelView instance with the specified aesthetic and level.
+	 * 
+	 * @param aesthetic
+	 *            The aesthetic to use for this view.
+	 * @param newLevel
+	 *            The level to populate in this view.
+	 */
 	public LevelView(Aesthetic aesthetic, Level newLevel) {
 
 		// Attributes
@@ -202,27 +210,27 @@ public class LevelView extends JPanel {
 	}
 
 	/**
-	 * Returns top menu panel.
+	 * Returns the levelTopPanel object for this panel.
 	 * 
-	 * @return LevelTopPanel for the level view
+	 * @return the levelTopPanel property
 	 */
 	public LevelTopPanel getTopMenuPanel() {
 		return this.levelTopPanel;
 	}
 
 	/**
-	 * Returns the left menu panel.
+	 * Returns the levelStatsPanel object for this panel.
 	 * 
-	 * @return LevelStatsPanel for the level view
+	 * @return the levelStatsPanel property
 	 */
 	public LevelStatsPanel getLeftMenuPanel() {
 		return this.levelStatsPanel;
 	}
 
 	/**
-	 * Returns the board view panel.
+	 * Returns the boardViewPanel object for this panel.
 	 * 
-	 * @return BoardViewPanel for the level view
+	 * @return the boardViewPanel property
 	 */
 	public BoardViewPanel getBoardViewPanel() {
 		return this.boardViewPanel;

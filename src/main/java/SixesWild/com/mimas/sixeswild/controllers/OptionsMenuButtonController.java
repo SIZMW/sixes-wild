@@ -41,7 +41,7 @@ public class OptionsMenuButtonController implements ActionListener {
 	 * java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
 	 */
 	public void actionPerformed(ActionEvent e) {
-		JPanel currentPanel = app.getMainPanel().getSubMenuPanel();
+		JPanel currentPanel = app.getGameMenuView().getSubMenuPanel();
 		currentPanel.removeAll();
 
 		// Layout for panel
@@ -62,7 +62,7 @@ public class OptionsMenuButtonController implements ActionListener {
 
 		// Add panel to view
 		currentPanel
-				.add(this.app.getMainPanel().getOptionsMenuView(), gbc_list);
+				.add(this.app.getGameMenuView().getOptionsMenuView(), gbc_list);
 		currentPanel.updateUI();
 
 		logger.log(Level.FINE, "Options menu requested and displayed.");
@@ -72,12 +72,12 @@ public class OptionsMenuButtonController implements ActionListener {
 	 * Set up controllers for the options menu view.
 	 */
 	protected void setUpControllers() {
-		this.app.getMainPanel()
+		this.app.getGameMenuView()
 				.getOptionsMenuView()
 				.getAestheticButton()
 				.addActionListener(
 						new ChangeAestheticButtonController(this.app));
-		this.app.getMainPanel().getOptionsMenuView().getSwitchUserButton()
+		this.app.getGameMenuView().getOptionsMenuView().getSwitchUserButton()
 				.addActionListener(new SwitchUserButtonController(this.app));
 
 		logger.log(Level.FINE, "Options menu controllers initialized.");

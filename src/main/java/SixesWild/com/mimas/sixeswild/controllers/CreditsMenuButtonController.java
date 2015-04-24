@@ -44,7 +44,7 @@ public class CreditsMenuButtonController implements ActionListener {
 	 * java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
 	 */
 	public void actionPerformed(ActionEvent e) {
-		JPanel currentPanel = app.getMainPanel().getSubMenuPanel();
+		JPanel currentPanel = app.getGameMenuView().getSubMenuPanel();
 		currentPanel.removeAll();
 
 		// Layout for panel
@@ -63,7 +63,7 @@ public class CreditsMenuButtonController implements ActionListener {
 
 		// Add panel to view
 		currentPanel
-				.add(this.app.getMainPanel().getCreditsMenuView(), gbc_list);
+				.add(this.app.getGameMenuView().getCreditsMenuView(), gbc_list);
 		currentPanel.updateUI();
 		
 		logger.log(Level.FINE, "Credits menu requested and displayed.");
