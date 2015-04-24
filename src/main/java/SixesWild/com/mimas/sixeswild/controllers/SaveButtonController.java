@@ -18,6 +18,12 @@ import SixesWild.com.mimas.sixeswild.entities.SpecialMoves;
 import SixesWild.com.mimas.sixeswild.entities.Tile;
 import SixesWild.com.mimas.sixeswild.sixeswild.XMLParser;
 
+/**
+ * This controller handles saving the builder level to a file when the save
+ * button is pressed.
+ * 
+ * @author Cameron Jones
+ */
 public class SaveButtonController implements ActionListener {
 
 	private static final Logger logger = Logger.getGlobal();
@@ -45,10 +51,10 @@ public class SaveButtonController implements ActionListener {
 				.getBuilderSettingsPanel();
 		Level newLevel;
 
-		// Print Out the Level Name
+		// Level name
 		String levelName = bsp.getUserLevelNameTextField().getText();
 
-		// Determine the levelNumber
+		// Determine the level number
 		int levelNumber;
 		if (app.getBuilderView().getBuilderTopPanel().getUserLevelList()
 				.contains(levelName)) {
@@ -59,24 +65,97 @@ public class SaveButtonController implements ActionListener {
 					.getUserLevelList().size() + 1;
 		}
 
-		// Print Out the Level Type
+		// Level type
 		String levelType = bsp.getLevelTypeComboBox().getSelectedItem()
 				.toString();
 
-		// Print Out the Moves
-		int moveCount = Integer.parseInt(bsp.getMovesTextField().getText());
+		// Move count
+		int moveCount = 50;
 
-		// Print Out Timer
-		int timerCount = Integer.parseInt(bsp.getTimerTextField().getText());
+		try {
+			moveCount = Math.abs(Integer.parseInt(bsp.getMovesTextField()
+					.getText()));
+		} catch (NumberFormatException nfe) {
+			logger.log(java.util.logging.Level.WARNING,
+					"Failed to parse move count. Reverting to stock value of: "
+							+ moveCount);
+		}
 
-		// Print Out Frequency of Tiles Grid
+		// Timer
+		int timerCount = 50;
+
+		try {
+			timerCount = Math.abs(Integer.parseInt(bsp.getTimerTextField()
+					.getText()));
+		} catch (NumberFormatException nfe) {
+			logger.log(java.util.logging.Level.WARNING,
+					"Failed to parse timer count. Reverting to stock value of: "
+							+ timerCount);
+		}
+
+		// Tile frequencies
 		Double tf1, tf2, tf3, tf4, tf5, tf6;
-		tf1 = Double.parseDouble(bsp.getOnesTextField().getText());
-		tf2 = Double.parseDouble(bsp.getTwosTextField().getText());
-		tf3 = Double.parseDouble(bsp.getThreesTextField().getText());
-		tf4 = Double.parseDouble(bsp.getFoursTextField().getText());
-		tf5 = Double.parseDouble(bsp.getFivesTextField().getText());
-		tf6 = Double.parseDouble(bsp.getSixesTextField().getText());
+		tf1 = 0.2;
+		tf2 = 0.2;
+		tf3 = 0.2;
+		tf4 = 0.2;
+		tf5 = 0.1;
+		tf6 = 0.1;
+
+		try {
+			tf1 = Math
+					.abs(Double.parseDouble(bsp.getOnesTextField().getText()));
+		} catch (NumberFormatException nfe) {
+			logger.log(java.util.logging.Level.WARNING,
+					"Failed to parse tile frequency 1. Reverting to stock value of: "
+							+ tf1);
+		}
+
+		try {
+			tf2 = Math
+					.abs(Double.parseDouble(bsp.getTwosTextField().getText()));
+		} catch (NumberFormatException nfe) {
+			logger.log(java.util.logging.Level.WARNING,
+					"Failed to parse tile frequency 2. Reverting to stock value of: "
+							+ tf2);
+		}
+
+		try {
+			tf3 = Math.abs(Double.parseDouble(bsp.getThreesTextField()
+					.getText()));
+		} catch (NumberFormatException nfe) {
+			logger.log(java.util.logging.Level.WARNING,
+					"Failed to parse tile frequency 3. Reverting to stock value of: "
+							+ tf3);
+		}
+
+		try {
+			tf4 = Math.abs(Double
+					.parseDouble(bsp.getFoursTextField().getText()));
+		} catch (NumberFormatException nfe) {
+			logger.log(java.util.logging.Level.WARNING,
+					"Failed to parse tile frequency 4. Reverting to stock value of: "
+							+ tf4);
+		}
+
+		try {
+			tf5 = Math.abs(Double
+					.parseDouble(bsp.getFivesTextField().getText()));
+		} catch (NumberFormatException nfe) {
+			logger.log(java.util.logging.Level.WARNING,
+					"Failed to parse tile frequency 5. Reverting to stock value of: "
+							+ tf5);
+		}
+
+		try {
+			tf6 = Math.abs(Double
+					.parseDouble(bsp.getSixesTextField().getText()));
+		} catch (NumberFormatException nfe) {
+			logger.log(java.util.logging.Level.WARNING,
+					"Failed to parse tile frequency 6. Reverting to stock value of: "
+							+ tf6);
+		}
+
 		ArrayList<Double> tileFreq = new ArrayList<Double>();
 		tileFreq.add(tf1);
 		tileFreq.add(tf2);
@@ -85,17 +164,36 @@ public class SaveButtonController implements ActionListener {
 		tileFreq.add(tf5);
 		tileFreq.add(tf6);
 
-		// Print Out Frequency of Multiplier Grid
+		// Multiplier frequencies
 		Double mf1, mf2, mf3;
-		mf2 = Double.parseDouble(bsp.xtwoMultiplierTextField().getText());
-		mf3 = Double.parseDouble(bsp.xthreeMultiplierTextField().getText());
+		mf2 = 0.4;
+		mf3 = 0.4;
+
+		try {
+			mf2 = Math.abs(Double.parseDouble(bsp.xtwoMultiplierTextField()
+					.getText()));
+		} catch (NumberFormatException nfe) {
+			logger.log(java.util.logging.Level.WARNING,
+					"Failed to parse multiplier frequency 2. Reverting to stock value of: "
+							+ mf2);
+		}
+
+		try {
+			mf3 = Math.abs(Double.parseDouble(bsp.xthreeMultiplierTextField()
+					.getText()));
+		} catch (NumberFormatException nfe) {
+			logger.log(java.util.logging.Level.WARNING,
+					"Failed to parse multiplier frequency 3. Reverting to stock value of: "
+							+ mf3);
+		}
+
 		mf1 = (1.00 - ((mf2) + (mf3)));
 		ArrayList<Double> multFreq = new ArrayList<Double>();
 		multFreq.add(mf1);
 		multFreq.add(mf2);
 		multFreq.add(mf3);
 
-		// Print Out Special Moves Counts
+		// Special move counts
 		int m1, m2, m3, m4;
 		m1 = Integer.parseInt(bsp.getSpecialMoveOneLabel().getText());
 		m2 = Integer.parseInt(bsp.getSpecialMoveTwoLabel().getText());
@@ -103,11 +201,39 @@ public class SaveButtonController implements ActionListener {
 		m4 = Integer.parseInt(bsp.getSpecialMoveFourLabel().getText());
 		SpecialMoves specialMoves = new SpecialMoves(m1, m2, m3, m4);
 
-		// Print Out Score CutOffs
+		// Point thresholds
 		int s1, s2, s3;
-		s1 = Integer.parseInt(bsp.getOneStarScoreTextField().getText());
-		s2 = Integer.parseInt(bsp.getTwoStarScoreTextField().getText());
-		s3 = Integer.parseInt(bsp.getThreeStarScoreTextField().getText());
+		s1 = 100;
+		s2 = 1000;
+		s3 = 10000;
+
+		try {
+			s1 = Math.abs(Integer.parseInt(bsp.getOneStarScoreTextField()
+					.getText()));
+		} catch (NumberFormatException nfe) {
+			logger.log(java.util.logging.Level.WARNING,
+					"Failed to parse point threshold 1. Reverting to stock value of: "
+							+ s1);
+		}
+
+		try {
+			s2 = Math.abs(Integer.parseInt(bsp.getTwoStarScoreTextField()
+					.getText()));
+		} catch (NumberFormatException nfe) {
+			logger.log(java.util.logging.Level.WARNING,
+					"Failed to parse point threshold 2. Reverting to stock value of: "
+							+ s2);
+		}
+
+		try {
+			s3 = Math.abs(Integer.parseInt(bsp.getThreeStarScoreTextField()
+					.getText()));
+		} catch (NumberFormatException nfe) {
+			logger.log(java.util.logging.Level.WARNING,
+					"Failed to parse point threshold 3. Reverting to stock value of: "
+							+ s3);
+		}
+
 		PointThresholds pointThresholds = new PointThresholds(s1, s2, s3);
 
 		// Print Out a Grid Version of the Level
