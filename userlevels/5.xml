@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Level number="5">
+<Name>testPuzzle</Name>
+<Type>PUZZLE</Type>
+<TileFrequency>
+<Tile frequency="0.1" number="1"/>
+<Tile frequency="0.2" number="2"/>
+<Tile frequency="0.3" number="3"/>
+<Tile frequency="0.3" number="4"/>
+<Tile frequency="0.05" number="5"/>
+<Tile frequency="0.05" number="6"/>
+<Multiplier frequency="0.025" times="2"/>
+<Multiplier frequency="0.025" times="3"/>
+</TileFrequency>
+<SpecialMoveConstraints>
+<ResetBoard>0</ResetBoard>
+<SwapTile>0</SwapTile>
+<RemoveTile>0</RemoveTile>
+<OtherMove>0</OtherMove>
+</SpecialMoveConstraints>
+<PointThresholds>
+<Point>0</Point>
+<Point>0</Point>
+<Point>0</Point>
+</PointThresholds>
+<PlayingConstraints>
+<MoveCount>50</MoveCount>
+<Timer>0</Timer>
+</PlayingConstraints>
+<Board>
+<Row>U U U U U U U U U</Row>
+<Row>U U U U U U U U U</Row>
+<Row>N N N N N N N N N</Row>
+<Row>N N N N N N N N N</Row>
+<Row>N N N N N N N N N</Row>
+<Row>N N N N N N N N N</Row>
+<Row>N N N N N N N N N</Row>
+<Row>N N N N N N N N N</Row>
+<Row>N N N N N N N N N</Row>
+</Board>
+</Level>

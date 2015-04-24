@@ -49,7 +49,7 @@ public class GameMenuView extends JPanel {
 	 */
 	public GameMenuView(ArrayList<String> storyLevelList,
 			ArrayList<String> userLevelList, ArrayList<String> badgesList,
-			ArrayList<Aesthetic> aestheticList, int highestLevelUnlocked) {
+			ArrayList<Aesthetic> aestheticList, int storyHighestUnlocked, int userHighestUnlocked) {
 
 		// General Layout Settings
 		GridBagLayout gridBagLayout = new GridBagLayout();
@@ -72,9 +72,9 @@ public class GameMenuView extends JPanel {
 		// Menu panels
 		titleMenuView = new TitlePanel();
 		storyMenuView = new LevelSelectionPanel(storyLevelList,
-				highestLevelUnlocked);
+				storyHighestUnlocked);
 		userMenuView = new LevelSelectionPanel(userLevelList,
-				highestLevelUnlocked);
+				userHighestUnlocked);
 		badgeMenuView = new BadgesPanel(badgesList);
 		optionsMenuView = new OptionsPanel(aestheticList);
 		creditsMenuView = new CreditsPanel();

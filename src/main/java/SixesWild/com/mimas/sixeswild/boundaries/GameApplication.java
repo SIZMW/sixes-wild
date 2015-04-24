@@ -79,11 +79,12 @@ public class GameApplication {
 		}
 
 		// TODO Get from user profile.
-		int highestLevelUnlocked = 5;
-
+		int storyHighestUnlocked = 5;
+		int userHighestUnlocked = 10;
+		
 		// Initialize panels and views.
 		gameMenuView = new GameMenuView(storyLevelList, userLevelList,
-				badgesList, aestheticList, highestLevelUnlocked);
+				badgesList, aestheticList, storyHighestUnlocked, userHighestUnlocked);
 		levelView = new LevelView(this.aestheticList.get(0));
 
 		// Initialize frame

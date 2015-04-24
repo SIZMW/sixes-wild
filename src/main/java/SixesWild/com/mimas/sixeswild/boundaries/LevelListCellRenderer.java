@@ -43,7 +43,7 @@ public class LevelListCellRenderer extends DefaultListCellRenderer {
 				((String) value).substring(0, 1));
 
 		// Unlock levels up to and including the highest unlocked level
-		if (this.highestLevel <= levelNumber) {
+		if (this.highestLevel < levelNumber) {
 			super.getListCellRendererComponent(list, value, index, false, false);
 		} else { // Lock all other levels
 			super.getListCellRendererComponent(list, value, index, isSelected,
