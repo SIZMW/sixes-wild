@@ -34,7 +34,7 @@ public class TestXMLParser extends TestCase{
 	
 	public void testXMLParserFileToUserProfile(){
 		// tests reading from a file and creating a user profile out of the xml
-		UserProfile userProfile = XMLParser.fileToUserProfile("testUserProfileXML.xml");
+		UserProfile userProfile = XMLParser.fileToUserProfile("TestProfile.xml");
 		
 		assertEquals(userProfile.getUserName(), "Rihanna");
 		assertEquals(userProfile.getHighestUnlockedLevel(), 10);
