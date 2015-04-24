@@ -73,8 +73,9 @@ public class SaveButtonController implements ActionListener {
 		int moveCount = 50;
 
 		try {
-			moveCount = Math.abs(Integer.parseInt(bsp.getMovesTextField()
-					.getText()));
+			moveCount = (Math.abs(Integer.parseInt(bsp.getMovesTextField()
+					.getText())) > 0) ? Math.abs(Integer.parseInt(bsp
+					.getMovesTextField().getText())) : moveCount;
 		} catch (NumberFormatException nfe) {
 			logger.log(java.util.logging.Level.WARNING,
 					"Failed to parse move count. Reverting to stock value of: "
@@ -85,8 +86,9 @@ public class SaveButtonController implements ActionListener {
 		int timerCount = 50;
 
 		try {
-			timerCount = Math.abs(Integer.parseInt(bsp.getTimerTextField()
-					.getText()));
+			timerCount = (Math.abs(Integer.parseInt(bsp.getTimerTextField()
+					.getText())) > 10) ? Math.abs(Integer.parseInt(bsp
+					.getTimerTextField().getText())) : timerCount;
 		} catch (NumberFormatException nfe) {
 			logger.log(java.util.logging.Level.WARNING,
 					"Failed to parse timer count. Reverting to stock value of: "
