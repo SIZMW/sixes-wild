@@ -96,7 +96,7 @@ public class TestXMLParser extends TestCase{
 		Tile tiles[][] = new Tile[9][9];
 		PointThresholds pointThresholds = new PointThresholds(); // DONE
 		SpecialMoves specialMoves = new SpecialMoves();
-		int levelNumber = 5;
+		int levelNumber = 1;
 		
 		tileFreq.add(.10);
 		tileFreq.add(.20);
