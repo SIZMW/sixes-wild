@@ -46,6 +46,7 @@ public final class XMLParser {
 
 	public static final String STORY_DIR = "./storylevels/";
 	public static final String USER_DIR = "./userlevels/";
+	public static final String PROFILE_DIR = "./userprofiles/";
 
 	private static final Logger logger = Logger.getGlobal();
 
@@ -86,7 +87,7 @@ public final class XMLParser {
 		try {
 
 			// Set up XML file for reading
-			File fXmlFile = new File(fileName);
+			File fXmlFile = new File(XMLParser.USER_DIR + fileName);
 			DocumentBuilderFactory dbFactory = DocumentBuilderFactory
 					.newInstance();
 			DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
@@ -132,8 +133,7 @@ public final class XMLParser {
 				fileNames.add(listFiles[i].getName().substring(0,
 						listFiles[i].getName().lastIndexOf("."))
 						+ ": "
-						+ XMLParser.fileToLevelName(directory
-								+ listFiles[i].getName()));
+						+ XMLParser.fileToLevelName(listFiles[i].getName()));
 			}
 		}
 
@@ -155,7 +155,7 @@ public final class XMLParser {
 		try {
 
 			// Set up XML file for reading
-			File fXmlFile = new File(fileName);
+			File fXmlFile = new File(XMLParser.USER_DIR + fileName);
 			DocumentBuilderFactory dbFactory = DocumentBuilderFactory
 					.newInstance();
 			DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
@@ -518,7 +518,7 @@ public final class XMLParser {
 	public static UserProfile fileToUserProfile(String fileName) {
 		try {
 			// Set up XML file for reading
-			File fXmlFile = new File(fileName);
+			File fXmlFile = new File(XMLParser.PROFILE_DIR + fileName);
 			DocumentBuilderFactory dbFactory = DocumentBuilderFactory
 					.newInstance();
 			DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
@@ -674,7 +674,8 @@ public final class XMLParser {
 			transformer.setOutputProperty(OutputKeys.INDENT, "yes");
 			DOMSource source = new DOMSource(doc);
 			StreamResult result = new StreamResult(new File(
-					userProfile.getUserName() + "Profile.xml"));
+					XMLParser.PROFILE_DIR + userProfile.getUserName()
+							+ "Profile.xml"));
 			transformer.transform(source, result);
 
 			logger.log(java.util.logging.Level.INFO,
