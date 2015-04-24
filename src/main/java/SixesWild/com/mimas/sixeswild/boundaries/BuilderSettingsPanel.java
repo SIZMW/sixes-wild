@@ -38,10 +38,6 @@ public class BuilderSettingsPanel extends JPanel {
 	JTextField movesTextField;
 	JTextField timerTextField;
 	JComboBox<String> levelTypeComboBox;
-	String puzzle;
-	String elimination;
-	String lightning;
-	String release;
 
 	JPanel frequencyPanel;
 	JLabel frequencyLabel;
@@ -167,7 +163,7 @@ public class BuilderSettingsPanel extends JPanel {
 
 		// User level name text field
 		userLevelNameTextField = new JTextField();
-		userLevelNameTextField.setText("UserLvlName");
+		userLevelNameTextField.setText("User Level Name");
 
 		// Layout for user level name text field
 		GridBagConstraints gbc_userLevelNameTextField = new GridBagConstraints();
@@ -197,14 +193,11 @@ public class BuilderSettingsPanel extends JPanel {
 
 		// Level type combo box
 		levelTypeComboBox = new JComboBox<String>();
-		puzzle = LevelType.PUZZLE.toString();
-		elimination = LevelType.ELIMINATION.toString();
-		lightning = LevelType.LIGHTNING.toString();
-		release = LevelType.RELEASE.toString();
-		levelTypeComboBox.addItem(puzzle);
-		levelTypeComboBox.addItem(elimination);
-		levelTypeComboBox.addItem(lightning);
-		levelTypeComboBox.addItem(release);
+		levelTypeComboBox.addItem(LevelType.PUZZLE.toString());
+		levelTypeComboBox.addItem(LevelType.ELIMINATION.toString());
+		levelTypeComboBox.addItem(LevelType.LIGHTNING.toString());
+		levelTypeComboBox.addItem(LevelType.RELEASE.toString());
+		levelTypeComboBox.setSelectedIndex(0);
 
 		// Layout for level type combo box
 		GridBagConstraints gbc_levelTypeComboBox = new GridBagConstraints();
@@ -231,6 +224,7 @@ public class BuilderSettingsPanel extends JPanel {
 
 		// Moves text field
 		movesTextField = new JTextField();
+		movesTextField.setText("50");
 
 		// Layout for moves text field
 		GridBagConstraints gbc_movesTextField = new GridBagConstraints();
@@ -257,6 +251,7 @@ public class BuilderSettingsPanel extends JPanel {
 
 		// Timer text field
 		timerTextField = new JTextField();
+		timerTextField.setText("50");
 		GridBagConstraints gbc_timerTextField = new GridBagConstraints();
 
 		// Layout for timer text field
@@ -319,6 +314,7 @@ public class BuilderSettingsPanel extends JPanel {
 		onesTextField = new JTextField();
 		onesTextField.setPreferredSize(new Dimension(20, 20));
 		onesTextField.setMinimumSize(new Dimension(20, 20));
+		onesTextField.setText("0");
 
 		// Layout for ones text field
 		GridBagConstraints gbc_onesTextField = new GridBagConstraints();
@@ -348,6 +344,7 @@ public class BuilderSettingsPanel extends JPanel {
 		twosTextField.setPreferredSize(new Dimension(20, 20));
 		twosTextField.setMinimumSize(new Dimension(20, 20));
 		twosTextField.setColumns(10);
+		twosTextField.setText("0");
 
 		// Layout for twos text field
 		GridBagConstraints gbc_twosTextField = new GridBagConstraints();
@@ -376,6 +373,7 @@ public class BuilderSettingsPanel extends JPanel {
 		threesTextField.setPreferredSize(new Dimension(20, 20));
 		threesTextField.setMinimumSize(new Dimension(20, 20));
 		threesTextField.setColumns(10);
+		threesTextField.setText("0");
 
 		// Layout for threes text field
 		GridBagConstraints gbc_threesTextField = new GridBagConstraints();
@@ -403,6 +401,7 @@ public class BuilderSettingsPanel extends JPanel {
 		foursTextField = new JTextField();
 		foursTextField.setPreferredSize(new Dimension(20, 20));
 		foursTextField.setMinimumSize(new Dimension(20, 20));
+		foursTextField.setText("0");
 
 		// Layout for fours text field
 		GridBagConstraints gbc_foursTextField = new GridBagConstraints();
@@ -432,6 +431,7 @@ public class BuilderSettingsPanel extends JPanel {
 		fivesTextField.setPreferredSize(new Dimension(20, 20));
 		fivesTextField.setMinimumSize(new Dimension(20, 20));
 		fivesTextField.setColumns(10);
+		fivesTextField.setText("0");
 
 		// Layout for fives text field
 		GridBagConstraints gbc_fivesTextField = new GridBagConstraints();
@@ -460,6 +460,7 @@ public class BuilderSettingsPanel extends JPanel {
 		sixesTextField.setPreferredSize(new Dimension(20, 20));
 		sixesTextField.setMinimumSize(new Dimension(20, 20));
 		sixesTextField.setColumns(10);
+		sixesTextField.setText("0");
 
 		// Layout for sixes text field
 		GridBagConstraints gbc_sixesTextField = new GridBagConstraints();
@@ -490,6 +491,7 @@ public class BuilderSettingsPanel extends JPanel {
 		xtwoMultiplierTextField.setPreferredSize(new Dimension(20, 20));
 		xtwoMultiplierTextField.setMinimumSize(new Dimension(20, 20));
 		xtwoMultiplierTextField.setColumns(10);
+		xtwoMultiplierTextField.setText("0");
 
 		// Layout for X two multiplier text field
 		GridBagConstraints gbc_xtwoMultiplierTextField = new GridBagConstraints();
@@ -521,6 +523,7 @@ public class BuilderSettingsPanel extends JPanel {
 		xthreeMultiplierTextField.setPreferredSize(new Dimension(20, 20));
 		xthreeMultiplierTextField.setMinimumSize(new Dimension(20, 20));
 		xthreeMultiplierTextField.setColumns(10);
+		xthreeMultiplierTextField.setText("0");
 
 		// Layout for X three multiplier text field
 		GridBagConstraints gbc_xthreeMultiplierTextField = new GridBagConstraints();
@@ -823,6 +826,7 @@ public class BuilderSettingsPanel extends JPanel {
 
 		// One star score text field
 		oneStarScoreTextField = new JTextField();
+		oneStarScoreTextField.setText("0");
 
 		// Layout for one star score text field
 		GridBagConstraints gbc_oneStarScoreTextField = new GridBagConstraints();
@@ -853,6 +857,7 @@ public class BuilderSettingsPanel extends JPanel {
 		// Two star score text field
 		twoStarScoreTextField = new JTextField();
 		twoStarScoreTextField.setColumns(10);
+		twoStarScoreTextField.setText("0");
 
 		// Layout for two star score text field
 		GridBagConstraints gbc_twoStarScoreTextField = new GridBagConstraints();
@@ -882,6 +887,7 @@ public class BuilderSettingsPanel extends JPanel {
 		// Three star score text field
 		threeStarScoreTextField = new JTextField();
 		threeStarScoreTextField.setColumns(10);
+		threeStarScoreTextField.setText("0");
 
 		// Layout for three star score text field
 		GridBagConstraints gbc_threeStarScoreTextField = new GridBagConstraints();
