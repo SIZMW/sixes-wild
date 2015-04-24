@@ -77,6 +77,8 @@ public class OptionsMenuButtonController implements ActionListener {
 				.getAestheticButton()
 				.addActionListener(
 						new ChangeAestheticButtonController(this.app));
+		this.app.getMainPanel().getOptionsMenuView().getSwitchUserButton()
+				.addActionListener(new SwitchUserButtonController(this.app));
 
 		logger.log(Level.FINE, "Options menu controllers initialized.");
 	}

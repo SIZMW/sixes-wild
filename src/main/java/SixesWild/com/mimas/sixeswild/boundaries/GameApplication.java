@@ -21,6 +21,7 @@ import SixesWild.com.mimas.sixeswild.controllers.StoryMenuButtonController;
 import SixesWild.com.mimas.sixeswild.controllers.UserLevelMenuButtonController;
 import SixesWild.com.mimas.sixeswild.entities.Aesthetic;
 import SixesWild.com.mimas.sixeswild.entities.MenuTypes;
+import SixesWild.com.mimas.sixeswild.entities.UserProfile;
 import SixesWild.com.mimas.sixeswild.sixeswild.XMLParser;
 
 /**
@@ -39,11 +40,11 @@ public class GameApplication {
 
 	ArrayList<Aesthetic> aestheticList;
 	Aesthetic currentAesthetic;
+	UserProfile currentUserProfile;
 
 	// TODO Add these attributes to GameApplication
 	// BadgesPanel badgePanel;
 	// ArrayList<String> listOfBadges;
-	// UserProfile currentProfile;
 
 	/**
 	 * Creates a GameApplication instance.
@@ -67,8 +68,10 @@ public class GameApplication {
 		this.setUpAesthetics();
 
 		// Initialize lists for GameMenuView
-		ArrayList<String> storyLevelList = XMLParser.getLevelFileNames(XMLParser.STORY_DIR);
-		ArrayList<String> userLevelList = XMLParser.getLevelFileNames(XMLParser.USER_DIR);
+		ArrayList<String> storyLevelList = XMLParser
+				.getLevelFileNames(XMLParser.STORY_DIR);
+		ArrayList<String> userLevelList = XMLParser
+				.getLevelFileNames(XMLParser.USER_DIR);
 
 		ArrayList<String> badgesList = new ArrayList<String>();
 		for (int i = 1; i <= 20; i++) {
@@ -197,6 +200,15 @@ public class GameApplication {
 	}
 
 	/**
+	 * Returns the current user profile of this application.
+	 * 
+	 * @return UserProfile for game application
+	 */
+	public UserProfile getCurrentUserProfile() {
+		return this.currentUserProfile;
+	}
+
+	/**
 	 * Sets the current aesthetic based on the given name.
 	 * 
 	 * @param name
@@ -214,6 +226,28 @@ public class GameApplication {
 		}
 
 		logger.log(Level.FINE, "GameApplication aesthetic failed to change.");
+		return false;
+	}
+
+	/**
+	 * Sets the current user profile.
+	 * 
+	 * @param name
+	 *            The name of the user to load a user profile for.
+	 * @return true if profile was found; false if a new one was created.
+	 */
+	public boolean setCurrentUserProfile(String name) {
+		for (String e : XMLParser.getUserProfileNames()) {
+			if (name.equals(e)) {
+				this.currentUserProfile = XMLParser.fileToUserProfile(name
+						+ XMLParser.PROFILE_CONST + XMLParser.XML_EXT);
+				logger.log(Level.INFO, "User profile found for: " + name);
+				return true;
+			}
+		}
+
+		logger.log(Level.INFO, "User profile created for: " + name);
+		this.currentUserProfile = new UserProfile(name);
 		return false;
 	}
 }

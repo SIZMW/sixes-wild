@@ -47,6 +47,8 @@ public final class XMLParser {
 	public static final String STORY_DIR = "./storylevels/";
 	public static final String USER_DIR = "./userlevels/";
 	public static final String PROFILE_DIR = "./userprofiles/";
+	public static final String PROFILE_CONST = "Profile";
+	public static final String XML_EXT = ".xml";
 
 	private static final Logger logger = Logger.getGlobal();
 
@@ -79,8 +81,8 @@ public final class XMLParser {
 	 * Gets the level name of the specified file.
 	 * 
 	 * @param fileName
-	 *            The XML file that contains all the information for a singular
-	 *            level.
+	 *            The string containing the directory and XML file name that
+	 *            contains all the information for a singular level.
 	 * @return String name for the level; null if not found.
 	 */
 	protected static String fileToLevelName(String fileName) {
@@ -109,7 +111,41 @@ public final class XMLParser {
 	}
 
 	/**
-	 * Gets the list of level files to load to the list selection from the given
+	 * Gets the user profile name of the specified file.
+	 * 
+	 * @param fileName
+	 *            The string containing the directory and XML file name that
+	 *            contains all the information for a singular user profile.
+	 * @return String name for the user profile; null if not found.
+	 */
+	protected static String fileToUserProfileName(String fileName) {
+		try {
+
+			// Set up XML file for reading
+			File uXmlFile = new File(fileName);
+			DocumentBuilderFactory dbFactory = DocumentBuilderFactory
+					.newInstance();
+			DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
+			Document doc = dBuilder.parse(uXmlFile);
+			doc.getDocumentElement().normalize();
+
+			// Get user profile name
+			String userProfileName = doc.getElementsByTagName("UserProfile")
+					.item(0).getAttributes().getNamedItem("user")
+					.getTextContent();
+
+			return userProfileName;
+
+		} catch (Exception e) {
+			logger.log(java.util.logging.Level.WARNING, "File: " + fileName
+					+ " not found.");
+		}
+
+		return null;
+	}
+
+	/**
+	 * Gets the list of level names to load to the list selection from the given
 	 * directory.
 	 * 
 	 * @param directory
@@ -145,11 +181,45 @@ public final class XMLParser {
 	}
 
 	/**
+	 * Gets the list of user profile names to load.
+	 * 
+	 * @param directory
+	 *            The directory to load user profile from.
+	 * @return ArrayList<String> user profile names
+	 */
+	public static ArrayList<String> getUserProfileNames() {
+		File folder = new File(XMLParser.PROFILE_DIR);
+		File[] listFiles = folder.listFiles();
+		ArrayList<String> fileNames = new ArrayList<String>();
+		String extension = "xml";
+
+		for (int i = 0; i < listFiles.length; i++) {
+			if (listFiles[i].isFile()
+					&& listFiles[i]
+							.getName()
+							.substring(
+									listFiles[i].getName().lastIndexOf(".") + 1,
+									listFiles[i].getName().length())
+							.equals(extension)) {
+				fileNames.add(XMLParser
+						.fileToUserProfileName(XMLParser.PROFILE_DIR
+								+ listFiles[i].getName()));
+			}
+		}
+
+		logger.log(java.util.logging.Level.INFO,
+				"User profile name list loaded from disk. Directory: "
+						+ XMLParser.PROFILE_DIR);
+
+		return fileNames;
+	}
+
+	/**
 	 * Takes in a file name and extracts the information from it to create a
 	 * level.
 	 * 
 	 * @param fileName
-	 *            A String of the file name.
+	 *            A String of the directory and file name.
 	 * @return Level object for the level; null if not found.
 	 */
 	public static Level fileToLevel(String fileName) {
@@ -296,7 +366,8 @@ public final class XMLParser {
 	}
 
 	/**
-	 * Writes a level to an output file.
+	 * Writes a level to an output file. File is stored in the "/userlevel/"
+	 * directory.
 	 * 
 	 * @param level
 	 *            The level object to save to file.
@@ -492,7 +563,7 @@ public final class XMLParser {
 			transformer.setOutputProperty(OutputKeys.INDENT, "yes");
 			DOMSource source = new DOMSource(doc);
 			StreamResult result = new StreamResult(new File(XMLParser.USER_DIR
-					+ level.getLevelNumber() + ".xml"));
+					+ level.getLevelNumber() + XMLParser.XML_EXT));
 			transformer.transform(source, result);
 
 			logger.log(java.util.logging.Level.INFO,
@@ -674,8 +745,9 @@ public final class XMLParser {
 			Transformer transformer = transformerFactory.newTransformer();
 			transformer.setOutputProperty(OutputKeys.INDENT, "yes");
 			DOMSource source = new DOMSource(doc);
-			StreamResult result = new StreamResult(new File(XMLParser.PROFILE_DIR + 
-					userProfile.getUserName() + "Profile.xml"));
+			StreamResult result = new StreamResult(new File(
+					XMLParser.PROFILE_DIR + userProfile.getUserName()
+							+ XMLParser.PROFILE_CONST + XMLParser.XML_EXT));
 			transformer.transform(source, result);
 
 			logger.log(java.util.logging.Level.INFO,
