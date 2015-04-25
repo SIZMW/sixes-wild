@@ -84,6 +84,10 @@ public class SelectionMove extends GameMove {
 	public boolean doMove(GameApplication app) {
 		if (!this.isValidMove(app)) {
 			app.getLevelPanel().getBoardViewPanel().clearGameSelection();
+			app.getLevelPanel()
+					.getLevel()
+					.setMoveCount(
+							app.getLevelPanel().getLevel().getMoveCount() - 1);
 			return false;
 		} else {
 			int score = app.getLevelPanel().getBoardViewPanel()
