@@ -18,12 +18,16 @@ public class LevelTopPanel extends JPanel {
 
 	private static final long serialVersionUID = 1L;
 
-	protected final String MOVE_TEXT = "Move ";
+	public static final String RESET = "Reset";
+	public static final String SWAP = "Swap";
+	public static final String REMOVE = "Remove";
+	public static final String XSTACY = "XStacy";
+
 	protected JTextField levelNameTextField;
-	protected JButton specialMoveButton1;
-	protected JButton specialMoveButton2;
-	protected JButton specialMoveButton3;
-	protected JButton specialMoveButton4;
+	protected JButton resetBoardButton;
+	protected JButton swapTileButton;
+	protected JButton removeTileButton;
+	protected JButton xStacyMoveButton;
 	protected JButton exitLevelButton;
 
 	/**
@@ -55,48 +59,48 @@ public class LevelTopPanel extends JPanel {
 		add(levelNameTextField, gbc_levelNameText);
 
 		// Special move button 1
-		specialMoveButton1 = new JButton(MOVE_TEXT + 1);
-		specialMoveButton1.setPreferredSize(new Dimension(100, 100));
+		resetBoardButton = new JButton(RESET);
+		resetBoardButton.setPreferredSize(new Dimension(100, 100));
 
 		// Layout for special move button 1
 		GridBagConstraints gbc_specialMoveButton1 = new GridBagConstraints();
 		gbc_specialMoveButton1.insets = new Insets(0, 0, 5, 5);
 		gbc_specialMoveButton1.gridx = 3;
 		gbc_specialMoveButton1.gridy = 1;
-		add(specialMoveButton1, gbc_specialMoveButton1);
+		add(resetBoardButton, gbc_specialMoveButton1);
 
 		// Special move button 2
-		specialMoveButton2 = new JButton(MOVE_TEXT + 2);
-		specialMoveButton2.setPreferredSize(new Dimension(100, 100));
+		swapTileButton = new JButton(SWAP);
+		swapTileButton.setPreferredSize(new Dimension(100, 100));
 
 		// Layout for special move button 2
 		GridBagConstraints gbc_specialMoveButton2 = new GridBagConstraints();
 		gbc_specialMoveButton2.insets = new Insets(0, 0, 5, 5);
 		gbc_specialMoveButton2.gridx = 5;
 		gbc_specialMoveButton2.gridy = 1;
-		add(specialMoveButton2, gbc_specialMoveButton2);
+		add(swapTileButton, gbc_specialMoveButton2);
 
 		// Special move button 3
-		specialMoveButton3 = new JButton(MOVE_TEXT + 3);
-		specialMoveButton3.setPreferredSize(new Dimension(100, 100));
+		removeTileButton = new JButton(REMOVE);
+		removeTileButton.setPreferredSize(new Dimension(100, 100));
 
 		// Layout for special move button 3
 		GridBagConstraints gbc_specialMoveButton3 = new GridBagConstraints();
 		gbc_specialMoveButton3.insets = new Insets(0, 0, 5, 5);
 		gbc_specialMoveButton3.gridx = 7;
 		gbc_specialMoveButton3.gridy = 1;
-		add(specialMoveButton3, gbc_specialMoveButton3);
+		add(removeTileButton, gbc_specialMoveButton3);
 
 		// Special move button 4
-		specialMoveButton4 = new JButton(MOVE_TEXT + 4);
-		specialMoveButton4.setPreferredSize(new Dimension(100, 100));
+		xStacyMoveButton = new JButton(XSTACY);
+		xStacyMoveButton.setPreferredSize(new Dimension(100, 100));
 
 		// Layout for special move button 4
 		GridBagConstraints gbc_specialMoveButton4 = new GridBagConstraints();
 		gbc_specialMoveButton4.insets = new Insets(0, 0, 5, 5);
 		gbc_specialMoveButton4.gridx = 9;
 		gbc_specialMoveButton4.gridy = 1;
-		add(specialMoveButton4, gbc_specialMoveButton4);
+		add(xStacyMoveButton, gbc_specialMoveButton4);
 
 		// Exit level button
 		exitLevelButton = new JButton("Exit Level");
@@ -132,39 +136,39 @@ public class LevelTopPanel extends JPanel {
 	}
 
 	/**
-	 * Returns the specialMoveButton1 object for this panel.
+	 * Returns the resetBoardButton object for this panel.
 	 * 
-	 * @return the specialMoveButton1 property
+	 * @return the resetBoardButton property
 	 */
-	public JButton getSpecialMoveButton1() {
-		return this.specialMoveButton1;
+	public JButton getResetBoardButton() {
+		return this.resetBoardButton;
 	}
 
 	/**
-	 * Returns the specialMoveButton2 object for this panel.
+	 * Returns the swapTileButton object for this panel.
 	 * 
-	 * @return the specialMoveButton2 property
+	 * @return the swapTileButton property
 	 */
-	public JButton getSpecialMoveButton2() {
-		return this.specialMoveButton2;
+	public JButton getSwapTileButton() {
+		return this.swapTileButton;
 	}
 
 	/**
-	 * Returns the specialMoveButton3 object for this panel.
+	 * Returns the removeTileButton object for this panel.
 	 * 
-	 * @return the specialMoveButton3 property
+	 * @return the removeTileButton property
 	 */
-	public JButton getSpecialMoveButton3() {
-		return this.specialMoveButton3;
+	public JButton getRemoveTileButton() {
+		return this.removeTileButton;
 	}
 
 	/**
-	 * Returns the specialMoveButton4 object for this panel.
+	 * Returns the xStacyMoveButton object for this panel.
 	 * 
-	 * @return the specialMoveButton4 property
+	 * @return the xStacyMoveButton property
 	 */
-	public JButton getSpecialMoveButton4() {
-		return this.specialMoveButton4;
+	public JButton getXStacyMoveButton() {
+		return this.xStacyMoveButton;
 	}
 
 	/**

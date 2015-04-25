@@ -47,8 +47,7 @@ public class LevelView extends JPanel {
 
 		// Attributes
 		this.currentLevel = null;
-		logger.log(Level.INFO,
-				"Current Level Set to NULL");
+		logger.log(Level.INFO, "Current level set to NULL");
 		this.levelViewAesthetic = aesthetic;
 
 		// Layout for view
@@ -72,13 +71,13 @@ public class LevelView extends JPanel {
 				10, 0, 10, 0, 10 };
 		levelTopPanel.getExitLevelButton().setPreferredSize(
 				new Dimension(100, 20));
-		levelTopPanel.getSpecialMoveButton4().setPreferredSize(
+		levelTopPanel.getXStacyMoveButton().setPreferredSize(
 				new Dimension(100, 20));
-		levelTopPanel.getSpecialMoveButton3().setPreferredSize(
+		levelTopPanel.getRemoveTileButton().setPreferredSize(
 				new Dimension(100, 20));
-		levelTopPanel.getSpecialMoveButton2().setPreferredSize(
+		levelTopPanel.getSwapTileButton().setPreferredSize(
 				new Dimension(100, 20));
-		levelTopPanel.getSpecialMoveButton1().setPreferredSize(
+		levelTopPanel.getResetBoardButton().setPreferredSize(
 				new Dimension(100, 20));
 		levelTopPanel.setBorder(BorderFactory.createLineBorder(Color.black));
 
@@ -131,8 +130,8 @@ public class LevelView extends JPanel {
 			gbc_boardView.gridy = 1;
 			add(boardViewPanel, gbc_boardView);
 		} catch (Exception e) {
-			logger.log(Level.SEVERE,
-					"Received null error on board creation.", e);
+			logger.log(Level.SEVERE, "Received null error on board creation.",
+					e);
 		}
 
 	}
@@ -151,7 +150,7 @@ public class LevelView extends JPanel {
 		this.levelViewAesthetic = aesthetic;
 		this.currentLevel = newLevel;
 		this.currentScore = 0;
-		
+
 		// Layout for view
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		gridBagLayout.columnWidths = new int[] { 0, 0, 0, 0, 0 };
@@ -174,13 +173,13 @@ public class LevelView extends JPanel {
 				10, 0, 10, 0, 10 };
 		levelTopPanel.getExitLevelButton().setPreferredSize(
 				new Dimension(100, 20));
-		levelTopPanel.getSpecialMoveButton4().setPreferredSize(
+		levelTopPanel.getXStacyMoveButton().setPreferredSize(
 				new Dimension(100, 20));
-		levelTopPanel.getSpecialMoveButton3().setPreferredSize(
+		levelTopPanel.getRemoveTileButton().setPreferredSize(
 				new Dimension(100, 20));
-		levelTopPanel.getSpecialMoveButton2().setPreferredSize(
+		levelTopPanel.getSwapTileButton().setPreferredSize(
 				new Dimension(100, 20));
-		levelTopPanel.getSpecialMoveButton1().setPreferredSize(
+		levelTopPanel.getResetBoardButton().setPreferredSize(
 				new Dimension(100, 20));
 		levelTopPanel.setBorder(BorderFactory.createLineBorder(Color.black));
 
@@ -216,6 +215,8 @@ public class LevelView extends JPanel {
 		gbc_boardView.gridx = 2;
 		gbc_boardView.gridy = 1;
 		add(boardViewPanel, gbc_boardView);
+
+		this.updateLevelStats();
 	}
 
 	/**
@@ -244,74 +245,96 @@ public class LevelView extends JPanel {
 	public BoardViewPanel getBoardViewPanel() {
 		return this.boardViewPanel;
 	}
-	
+
 	/**
 	 * Returns the Current Level.
 	 * 
 	 * @return the currentLevel property
 	 */
-	public GameLevel getLevel(){
+	public GameLevel getLevel() {
 		return this.currentLevel;
 	}
-	
+
 	/**
 	 * Sets the Current Level to be the new Level.
 	 * 
 	 * @param newLevel
 	 */
-	public void setLevel(GameLevel newLevel){
+	public void setLevel(GameLevel newLevel) {
 		this.currentLevel = newLevel;
 	}
-	
+
 	/**
 	 * This goes through each of the child View Elements and Updates them.
 	 * 
 	 */
-	public void updateLevelStats(){
-		//Update the Stats Panel
+	public void updateLevelStats() {
+		// Update the Stats Panel
 		levelStatsPanel.pointsLabel.setText(Integer.toString(currentScore));
-		if(currentLevel.getType() != LevelType.LIGHTNING){
-			levelStatsPanel.movesSlashTimeLabel.setText(Integer.toString(currentLevel.getMoveCount()));
-		}
-		else{
-			//TODO: this will need to actually address the timer correctly
+		if (currentLevel.getType() != LevelType.LIGHTNING) {
+			levelStatsPanel.movesSlashTimeLabel.setText(Integer
+					.toString(currentLevel.getMoveCount()));
+		} else {
+			// TODO: this will need to actually address the timer correctly
 			levelStatsPanel.movesSlashTimeLabel.setText(Integer.toString(0));
 		}
+
+		// TODO: Update Star Graphics Here
+
+		// Update the Top Panel
+		this.levelTopPanel.resetBoardButton
+				.setText(LevelTopPanel.RESET
+						+ " "
+						+ this.currentLevel.getSpecialMoves()
+								.getResetBoardCount());
 		
+		this.levelTopPanel.swapTileButton
+		.setText(LevelTopPanel.SWAP
+				+ " "
+				+ this.currentLevel.getSpecialMoves()
+						.getSwapTileCount());
 		
-		//TODO: Update Star Graphics Here
+		this.levelTopPanel.removeTileButton
+		.setText(LevelTopPanel.REMOVE
+				+ " "
+				+ this.currentLevel.getSpecialMoves()
+						.getRemoveTileCount());
 		
-		//Update the Top Panel
-		/*TODO: Currently nothing to Update Here
-		but there should be the number of moves indicated
-		on each special move button */
+		this.levelTopPanel.xStacyMoveButton
+		.setText(LevelTopPanel.XSTACY
+				+ " "
+				+ this.currentLevel.getSpecialMoves()
+						.getXStacySpecialMoveCount());
+		// TODO: Currently nothing to Update Here but there should be the number
+		// of moves indicated on each special move button.
 	}
-	
+
 	/**
-	 * This returns the current score.
+	 * Return the current score.
 	 * 
-	 * @return the score attribute
+	 * @return an integer
 	 */
-	public int getScore(){
+	public int getScore() {
 		return this.currentScore;
 	}
-	
+
 	/**
-	 * Sets the Score to the new Score Value.
+	 * Sets the score to the specified value.
 	 * 
 	 * @param newScore
+	 *            The new integer score value.
 	 */
-	public void setScore(int newScore){
+	public void setScore(int newScore) {
 		this.currentScore = newScore;
 	}
-	
-	
+
 	/**
-	 * This adds the delta value to the currentScore.
+	 * Updates the current score by the specified value.
 	 * 
 	 * @param delta
+	 *            The integer value to update the score.
 	 */
-	public void updateScore(int delta){
+	public void updateScore(int delta) {
 		this.currentScore += delta;
 	}
 }

@@ -23,9 +23,9 @@ public abstract class GameLevel {
 	protected int levelNumber;
 
 	/**
-	 * Creates a GameLevel instance with the specified tile frequencies, multiplier
-	 * frequencies, type, name, tile list, point thresholds, move count, special
-	 * moves and level number.
+	 * Creates a GameLevel instance with the specified tile frequencies,
+	 * multiplier frequencies, type, name, tile list, point thresholds, move
+	 * count, special moves and level number.
 	 * 
 	 * @param tileFreq
 	 *            The tile frequencies for the level.
@@ -67,9 +67,9 @@ public abstract class GameLevel {
 	}
 
 	/**
-	 * Creates a GameLevel instance with the specified tile frequencies, multiplier
-	 * frequencies, type, name, tile list, point thresholds, timer, special
-	 * moves and level number.
+	 * Creates a GameLevel instance with the specified tile frequencies,
+	 * multiplier frequencies, type, name, tile list, point thresholds, timer,
+	 * special moves and level number.
 	 * 
 	 * @param tileFreq
 	 *            The tile frequencies for the level.
@@ -200,6 +200,16 @@ public abstract class GameLevel {
 	 */
 	public void setMoveCount(int moveCount) {
 		this.moveCount = moveCount;
+	}
+
+	/**
+	 * Updates the move count by the specified amount.
+	 * 
+	 * @param delta
+	 *            The integer value to update the move count.
+	 */
+	public void updateMoveCount(int delta) {
+		this.moveCount += delta;
 	}
 
 	/**

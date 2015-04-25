@@ -37,11 +37,22 @@ public class ResetBoardMoveButtonController implements ActionListener {
 	 * java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
 	 */
 	public void actionPerformed(ActionEvent e) {
-		// TODO Decrease the number of reset moves left
-		this.app.getLevelPanel().getBoardViewPanel().doResetBoardMove();
-		this.app.getLevelPanel().updateUI();
+		int moves = this.app.getLevelPanel().getLevel().getSpecialMoves()
+				.getResetBoardCount();
 
-		logger.log(Level.INFO,
-				"Reset board special move requested and completed.");
+		if (moves > 0) {
+			this.app.getLevelPanel().getBoardViewPanel().doResetBoardMove();
+			this.app.getLevelPanel().getLevel().getSpecialMoves()
+					.updateResetBoardCount(-1);
+			logger.log(Level.INFO,
+					"Reset board special move requested and completed.");
+		} else {
+			logger.log(Level.INFO,
+					"Reset board special move cannot be completed. Moves left: "
+							+ moves);
+		}
+
+		this.app.getLevelPanel().updateLevelStats();
+		this.app.getLevelPanel().updateUI();
 	}
 }

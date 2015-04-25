@@ -120,4 +120,44 @@ public class SpecialMoves {
 	public int getXStacySpecialMoveCount() {
 		return this.xStacySpecialMoveCount;
 	}
+
+	/**
+	 * Updates the reset board move count by the specified amount.
+	 * 
+	 * @param delta
+	 *            The integer value to update the move count.
+	 */
+	public void updateResetBoardCount(int delta) {
+		this.resetBoardCount += delta;
+	}
+
+	/**
+	 * Updates the swap tile move count by the specified amount.
+	 * 
+	 * @param delta
+	 *            The integer value to update the move count.
+	 */
+	public void updateSwapTileCount(int delta) {
+		this.swapTileCount += delta;
+	}
+
+	/**
+	 * Updates the remove tile move count by the specified amount.
+	 * 
+	 * @param delta
+	 *            The integer value to update the move count.
+	 */
+	public void updateRemoveTileCount(int delta) {
+		this.removeTileCount += delta;
+	}
+
+	/**
+	 * Updates the xStacy special move count by the specified amount.
+	 * 
+	 * @param delta
+	 *            The integer value to update the move count.
+	 */
+	public void updateXStacySpecialMoveCount(int delta) {
+		this.xStacySpecialMoveCount += delta;
+	}
 }

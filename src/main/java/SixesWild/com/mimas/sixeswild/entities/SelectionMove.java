@@ -62,10 +62,7 @@ public class SelectionMove extends GameMove {
 	public boolean processCurrentMove(GameApplication app) {
 		if (!this.isStillValidMove(app)) {
 			app.getLevelPanel().getBoardViewPanel().clearGameSelection();
-			app.getLevelPanel()
-					.getLevel()
-					.setMoveCount(
-							app.getLevelPanel().getLevel().getMoveCount() - 1);
+			app.getLevelPanel().getLevel().updateMoveCount(-1);
 			return false;
 		}
 
@@ -83,18 +80,12 @@ public class SelectionMove extends GameMove {
 	public boolean doMove(GameApplication app) {
 		if (!this.isValidMove(app)) {
 			app.getLevelPanel().getBoardViewPanel().clearGameSelection();
-			app.getLevelPanel()
-					.getLevel()
-					.setMoveCount(
-							app.getLevelPanel().getLevel().getMoveCount() - 1);
+			app.getLevelPanel().getLevel().updateMoveCount(-1);
 			return false;
 		} else {
 			int score = app.getLevelPanel().getBoardViewPanel()
 					.doSelectionMove();
-			app.getLevelPanel()
-					.getLevel()
-					.setMoveCount(
-							app.getLevelPanel().getLevel().getMoveCount() - 1);
+			app.getLevelPanel().getLevel().updateMoveCount(-1);
 			app.getLevelPanel().getBoardViewPanel().clearGameSelection();
 
 			app.getLevelPanel().updateScore(score);

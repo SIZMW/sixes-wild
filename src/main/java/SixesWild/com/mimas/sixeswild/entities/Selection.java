@@ -87,7 +87,7 @@ public class Selection {
 	 * Returns whether the selection is valid or not, based on squares being
 	 * next to one another and sum of the tiles in the squares.
 	 * 
-	 * @return true if selection is valid; false otherwise.
+	 * @return true if selection is valid; false otherwise
 	 */
 	public boolean isSelectionValid() {
 
@@ -130,7 +130,7 @@ public class Selection {
 	 * squares being next to each other. This is used to determine if the move
 	 * should continue onward or be reset.
 	 * 
-	 * @return true if selection is valid; false otherwise.
+	 * @return true if selection is valid; false otherwise
 	 */
 	public boolean isSelectionStillValid() {
 
@@ -236,5 +236,51 @@ public class Selection {
 		}
 
 		return score * multiplier;
+	}
+
+	/**
+	 * Returns whether the selection is valid to complete a swap move.
+	 * 
+	 * @return true if selection is valid; false otherwise
+	 */
+	public boolean isSwapValid() {
+
+		// If selection does not have only two tiles
+		if (this.squareSet.size() != 2) {
+			return false;
+		}
+
+		for (Square e : squareSet) {
+
+			// Check for invalid types in selection
+			if (!e.getTile().getType().equals(TileType.NUMBER)) {
+				return false;
+			}
+		}
+
+		return true;
+	}
+
+	/**
+	 * Returns whether the selection is valid to complete a remove move.
+	 * 
+	 * @return true if selection is valid; false otherwise
+	 */
+	public boolean isRemoveValid() {
+
+		// If selection does not have one tile
+		if (this.squareSet.size() != 1) {
+			return false;
+		}
+
+		for (Square e : squareSet) {
+
+			// Check for invalid types in selection
+			if (!e.getTile().getType().equals(TileType.NUMBER)) {
+				return false;
+			}
+		}
+
+		return true;
 	}
 }
