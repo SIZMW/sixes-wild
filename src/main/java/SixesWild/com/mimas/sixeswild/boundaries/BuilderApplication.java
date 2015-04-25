@@ -15,6 +15,7 @@ import SixesWild.com.mimas.sixeswild.controllers.BuilderBoardViewMouseController
 import SixesWild.com.mimas.sixeswild.controllers.BuilderDeleteUserLevelButtonController;
 import SixesWild.com.mimas.sixeswild.controllers.BuilderSplashScreenController;
 import SixesWild.com.mimas.sixeswild.controllers.NewLevelButtonController;
+import SixesWild.com.mimas.sixeswild.controllers.OpenButtonController;
 import SixesWild.com.mimas.sixeswild.controllers.SaveButtonController;
 import SixesWild.com.mimas.sixeswild.controllers.SpecialMoveFourDecreaseButtonController;
 import SixesWild.com.mimas.sixeswild.controllers.SpecialMoveFourIncreaseButtonController;
@@ -95,6 +96,9 @@ public class BuilderApplication {
 						this));
 		this.builderView.builderTopPanel.deleteButton
 				.addActionListener(new BuilderDeleteUserLevelButtonController(
+						this));
+		this.builderView.builderTopPanel.openButton
+				.addActionListener(new OpenButtonController(
 						this));
 
 		// Special move decrease and increase buttons
