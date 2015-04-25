@@ -3,7 +3,7 @@ package SixesWild.com.mimas.sixeswild.sixeswild;
 import java.util.ArrayList;
 
 import junit.framework.TestCase;
-import SixesWild.com.mimas.sixeswild.entities.Level;
+import SixesWild.com.mimas.sixeswild.entities.GameLevel;
 import SixesWild.com.mimas.sixeswild.entities.LevelType;
 import SixesWild.com.mimas.sixeswild.entities.NullTile;
 import SixesWild.com.mimas.sixeswild.entities.NumberTile;
@@ -126,7 +126,7 @@ public class TestXMLParser extends TestCase{
 			
 			// change the level to a file and then turn it back into a level
 			XMLParser.levelToFile(level1);
-			Level level2 = XMLParser.fileToLevel(XMLParser.USER_DIR + "1.xml");
+			GameLevel level2 = XMLParser.fileToLevel(XMLParser.USER_DIR + "1.xml");
 			
 			// make sure the two levels have the same attributes
 			assertEquals(level1.getLevelNumber(), level2.getLevelNumber());

@@ -7,13 +7,14 @@ import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import javax.swing.JPanel;
 
 import SixesWild.com.mimas.sixeswild.boundaries.GameApplication;
 import SixesWild.com.mimas.sixeswild.boundaries.LevelView;
-import SixesWild.com.mimas.sixeswild.entities.Level;
+import SixesWild.com.mimas.sixeswild.entities.GameLevel;
 import SixesWild.com.mimas.sixeswild.entities.MenuTypes;
 import SixesWild.com.mimas.sixeswild.sixeswild.XMLParser;
 
@@ -72,7 +73,7 @@ public class PlayButtonController implements ActionListener {
 		// Create new view
 		// Find the Current Selection
 		int levelNumber;
-		Level newLevel;
+		GameLevel newLevel;
 
 		if (menuType.equals(MenuTypes.STORY)) {
 			levelNumber = app.getGameMenuView().getStoryMenuView()
@@ -87,8 +88,7 @@ public class PlayButtonController implements ActionListener {
 		}
 
 		if (newLevel == null) {
-			logger.log(java.util.logging.Level.WARNING,
-					"Level selected was not found.");
+			logger.log(Level.WARNING, "Level selected was not found.");
 		} else {
 			contentContainer.removeAll();
 			LevelView newLevelView = new LevelView(app.getCurrentAesthetic(),
@@ -103,7 +103,7 @@ public class PlayButtonController implements ActionListener {
 			contentContainer.repaint();
 		}
 
-		logger.log(java.util.logging.Level.FINE,
+		logger.log(Level.FINE,
 				"Level view requested, level loaded and displayed.");
 	}
 
@@ -120,7 +120,6 @@ public class PlayButtonController implements ActionListener {
 				.addMouseMotionListener(
 						new GameBoardViewMouseMotionController(app));
 
-		logger.log(java.util.logging.Level.FINE,
-				"Level view controllers initialized.");
+		logger.log(Level.FINE, "Level view controllers initialized.");
 	}
 }

@@ -10,7 +10,7 @@ import javax.swing.Timer;
  * 
  * @author Cameron Jones
  */
-public class LightningLevel extends Level {
+public class LightningLevel extends GameLevel {
 
 	/**
 	 * Creates a LightningLevel instance with the specified tile frequencies,

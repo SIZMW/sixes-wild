@@ -3,12 +3,13 @@ package SixesWild.com.mimas.sixeswild.controllers;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import SixesWild.com.mimas.sixeswild.boundaries.BuilderApplication;
 import SixesWild.com.mimas.sixeswild.boundaries.BuilderSettingsPanel;
 import SixesWild.com.mimas.sixeswild.entities.EliminationLevel;
-import SixesWild.com.mimas.sixeswild.entities.Level;
+import SixesWild.com.mimas.sixeswild.entities.GameLevel;
 import SixesWild.com.mimas.sixeswild.entities.LevelType;
 import SixesWild.com.mimas.sixeswild.entities.LightningLevel;
 import SixesWild.com.mimas.sixeswild.entities.PointThresholds;
@@ -50,7 +51,7 @@ public class SaveButtonController implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		BuilderSettingsPanel bsp = app.getBuilderView()
 				.getBuilderSettingsPanel();
-		Level newLevel;
+		GameLevel newLevel;
 
 		// Level name
 		String levelName = bsp.getUserLevelNameTextField().getText();
@@ -78,7 +79,7 @@ public class SaveButtonController implements ActionListener {
 					.getText())) > 0) ? Math.abs(Integer.parseInt(bsp
 					.getMovesTextField().getText())) : moveCount;
 		} catch (NumberFormatException nfe) {
-			logger.log(java.util.logging.Level.WARNING,
+			logger.log(Level.WARNING,
 					"Failed to parse move count. Reverting to stock value of: "
 							+ moveCount);
 		}
@@ -91,7 +92,7 @@ public class SaveButtonController implements ActionListener {
 					.getText())) > 10) ? Math.abs(Integer.parseInt(bsp
 					.getTimerTextField().getText())) : timerCount;
 		} catch (NumberFormatException nfe) {
-			logger.log(java.util.logging.Level.WARNING,
+			logger.log(Level.WARNING,
 					"Failed to parse timer count. Reverting to stock value of: "
 							+ timerCount);
 		}
@@ -109,7 +110,7 @@ public class SaveButtonController implements ActionListener {
 			tf1 = Math
 					.abs(Double.parseDouble(bsp.getOnesTextField().getText()));
 		} catch (NumberFormatException nfe) {
-			logger.log(java.util.logging.Level.WARNING,
+			logger.log(Level.WARNING,
 					"Failed to parse tile frequency 1. Reverting to stock value of: "
 							+ tf1);
 		}
@@ -118,7 +119,7 @@ public class SaveButtonController implements ActionListener {
 			tf2 = Math
 					.abs(Double.parseDouble(bsp.getTwosTextField().getText()));
 		} catch (NumberFormatException nfe) {
-			logger.log(java.util.logging.Level.WARNING,
+			logger.log(Level.WARNING,
 					"Failed to parse tile frequency 2. Reverting to stock value of: "
 							+ tf2);
 		}
@@ -127,7 +128,7 @@ public class SaveButtonController implements ActionListener {
 			tf3 = Math.abs(Double.parseDouble(bsp.getThreesTextField()
 					.getText()));
 		} catch (NumberFormatException nfe) {
-			logger.log(java.util.logging.Level.WARNING,
+			logger.log(Level.WARNING,
 					"Failed to parse tile frequency 3. Reverting to stock value of: "
 							+ tf3);
 		}
@@ -136,7 +137,7 @@ public class SaveButtonController implements ActionListener {
 			tf4 = Math.abs(Double
 					.parseDouble(bsp.getFoursTextField().getText()));
 		} catch (NumberFormatException nfe) {
-			logger.log(java.util.logging.Level.WARNING,
+			logger.log(Level.WARNING,
 					"Failed to parse tile frequency 4. Reverting to stock value of: "
 							+ tf4);
 		}
@@ -145,7 +146,7 @@ public class SaveButtonController implements ActionListener {
 			tf5 = Math.abs(Double
 					.parseDouble(bsp.getFivesTextField().getText()));
 		} catch (NumberFormatException nfe) {
-			logger.log(java.util.logging.Level.WARNING,
+			logger.log(Level.WARNING,
 					"Failed to parse tile frequency 5. Reverting to stock value of: "
 							+ tf5);
 		}
@@ -154,7 +155,7 @@ public class SaveButtonController implements ActionListener {
 			tf6 = Math.abs(Double
 					.parseDouble(bsp.getSixesTextField().getText()));
 		} catch (NumberFormatException nfe) {
-			logger.log(java.util.logging.Level.WARNING,
+			logger.log(Level.WARNING,
 					"Failed to parse tile frequency 6. Reverting to stock value of: "
 							+ tf6);
 		}
@@ -176,7 +177,7 @@ public class SaveButtonController implements ActionListener {
 			mf2 = Math.abs(Double.parseDouble(bsp.getTwoMultiplierTextField()
 					.getText()));
 		} catch (NumberFormatException nfe) {
-			logger.log(java.util.logging.Level.WARNING,
+			logger.log(Level.WARNING,
 					"Failed to parse multiplier frequency 2. Reverting to stock value of: "
 							+ mf2);
 		}
@@ -185,7 +186,7 @@ public class SaveButtonController implements ActionListener {
 			mf3 = Math.abs(Double.parseDouble(bsp.getThreeMultiplierTextField()
 					.getText()));
 		} catch (NumberFormatException nfe) {
-			logger.log(java.util.logging.Level.WARNING,
+			logger.log(Level.WARNING,
 					"Failed to parse multiplier frequency 3. Reverting to stock value of: "
 							+ mf3);
 		}
@@ -214,7 +215,7 @@ public class SaveButtonController implements ActionListener {
 			s1 = Math.abs(Integer.parseInt(bsp.getOneStarScoreTextField()
 					.getText()));
 		} catch (NumberFormatException nfe) {
-			logger.log(java.util.logging.Level.WARNING,
+			logger.log(Level.WARNING,
 					"Failed to parse point threshold 1. Reverting to stock value of: "
 							+ s1);
 		}
@@ -223,7 +224,7 @@ public class SaveButtonController implements ActionListener {
 			s2 = Math.abs(Integer.parseInt(bsp.getTwoStarScoreTextField()
 					.getText()));
 		} catch (NumberFormatException nfe) {
-			logger.log(java.util.logging.Level.WARNING,
+			logger.log(Level.WARNING,
 					"Failed to parse point threshold 2. Reverting to stock value of: "
 							+ s2);
 		}
@@ -232,7 +233,7 @@ public class SaveButtonController implements ActionListener {
 			s3 = Math.abs(Integer.parseInt(bsp.getThreeStarScoreTextField()
 					.getText()));
 		} catch (NumberFormatException nfe) {
-			logger.log(java.util.logging.Level.WARNING,
+			logger.log(Level.WARNING,
 					"Failed to parse point threshold 3. Reverting to stock value of: "
 							+ s3);
 		}
@@ -260,8 +261,7 @@ public class SaveButtonController implements ActionListener {
 						moveCount, specialMoves, levelNumber);
 				XMLParser.levelToFile(newLevel);
 			} catch (Exception e1) {
-				logger.log(java.util.logging.Level.WARNING,
-						"Level creation failed.");
+				logger.log(Level.WARNING, "Level creation failed.");
 				e1.printStackTrace();
 			}
 		} else if (levelType.equals(LevelType.ELIMINATION.toString())) {
@@ -271,8 +271,7 @@ public class SaveButtonController implements ActionListener {
 						pointThresholds, moveCount, specialMoves, levelNumber);
 				XMLParser.levelToFile(newLevel);
 			} catch (Exception e1) {
-				logger.log(java.util.logging.Level.WARNING,
-						"Level creation failed.");
+				logger.log(Level.WARNING, "Level creation failed.");
 				e1.printStackTrace();
 			}
 		} else if (levelType.equals(LevelType.RELEASE.toString())) {
@@ -282,8 +281,7 @@ public class SaveButtonController implements ActionListener {
 						moveCount, specialMoves, levelNumber);
 				XMLParser.levelToFile(newLevel);
 			} catch (Exception e1) {
-				logger.log(java.util.logging.Level.WARNING,
-						"Level creation failed.");
+				logger.log(Level.WARNING, "Level creation failed.");
 				e1.printStackTrace();
 			}
 		} else {
@@ -293,8 +291,7 @@ public class SaveButtonController implements ActionListener {
 						timerCount, specialMoves, levelNumber);
 				XMLParser.levelToFile(newLevel);
 			} catch (Exception e1) {
-				logger.log(java.util.logging.Level.WARNING,
-						"Level creation failed.");
+				logger.log(Level.WARNING, "Level creation failed.");
 				e1.printStackTrace();
 			}
 		}

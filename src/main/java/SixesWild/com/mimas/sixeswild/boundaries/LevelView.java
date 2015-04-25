@@ -7,6 +7,7 @@ import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import javax.swing.BorderFactory;
@@ -14,7 +15,7 @@ import javax.swing.JPanel;
 
 import SixesWild.com.mimas.sixeswild.entities.Aesthetic;
 import SixesWild.com.mimas.sixeswild.entities.Board;
-import SixesWild.com.mimas.sixeswild.entities.Level;
+import SixesWild.com.mimas.sixeswild.entities.GameLevel;
 import SixesWild.com.mimas.sixeswild.entities.NumberTile;
 import SixesWild.com.mimas.sixeswild.entities.Tile;
 
@@ -124,7 +125,7 @@ public class LevelView extends JPanel {
 			gbc_boardView.gridy = 1;
 			add(boardViewPanel, gbc_boardView);
 		} catch (Exception e) {
-			logger.log(java.util.logging.Level.SEVERE,
+			logger.log(Level.SEVERE,
 					"Received null error on board creation.", e);
 		}
 
@@ -138,7 +139,7 @@ public class LevelView extends JPanel {
 	 * @param newLevel
 	 *            The level to populate in this view.
 	 */
-	public LevelView(Aesthetic aesthetic, Level newLevel) {
+	public LevelView(Aesthetic aesthetic, GameLevel newLevel) {
 
 		// Attributes
 		this.levelViewAesthetic = aesthetic;

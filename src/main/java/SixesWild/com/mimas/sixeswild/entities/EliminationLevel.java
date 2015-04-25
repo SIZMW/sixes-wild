@@ -9,7 +9,7 @@ import java.util.ArrayList;
  * 
  * @author Cameron Jones
  */
-public class EliminationLevel extends Level {
+public class EliminationLevel extends GameLevel {
 
 	/**
 	 * Creates an EliminationLevel instance with the specified tile frequencies,

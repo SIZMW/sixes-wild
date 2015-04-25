@@ -7,14 +7,20 @@ import javax.swing.Timer;
 import junit.framework.TestCase;
 
 /**
+ * This test case handles coverage on the GameLevel methods using the GameLevel sub
+ * classes.
  * 
- * @author Joey Perez
- * 
+ * @author Cameron Jones
  */
-
-public class TestLevel extends TestCase {
+public class TestGameLevel extends TestCase {
 	EliminationLevel toTest;
 
+	/**
+	 * Tests GameLevel methods using EliminationLevel.
+	 * 
+	 * @throws Exception
+	 *             If board fails to create.
+	 */
 	public void testEliminationLevel() throws Exception {
 		ArrayList<Double> tileFreq = new ArrayList<Double>();
 		ArrayList<Double> multFreq = new ArrayList<Double>();
@@ -25,7 +31,7 @@ public class TestLevel extends TestCase {
 		int moveCount = 100;
 		SpecialMoves specialMoves = new SpecialMoves();
 		int levelNumber = 1;
-		
+
 		tileFreq.add(.1);
 		tileFreq.add(.1);
 		tileFreq.add(.2);
@@ -42,9 +48,9 @@ public class TestLevel extends TestCase {
 				tiles[i][j] = new NumberTile(2, 2);
 			}
 		}
-		
-		toTest = new EliminationLevel(tileFreq, multFreq, type, name,
-					tiles, pointThresholds, moveCount, specialMoves, levelNumber);
+
+		toTest = new EliminationLevel(tileFreq, multFreq, type, name, tiles,
+				pointThresholds, moveCount, specialMoves, levelNumber);
 		assertEquals(name, toTest.name);
 		Board newBoard = new Board();
 		toTest.setBoard(newBoard);
@@ -57,7 +63,7 @@ public class TestLevel extends TestCase {
 		assertEquals("I Hate Testing", toTest.getName());
 		toTest.setPointThresholds(pointThresholds);
 		SpecialMoves newSpecialMoves = new SpecialMoves();
-		toTest.setSpecialMoves(newSpecialMoves );
+		toTest.setSpecialMoves(newSpecialMoves);
 		Timer newTimer = new Timer(10, null);
 		toTest.setTimer(newTimer);
 		toTest.setType(LevelType.LIGHTNING);
@@ -65,7 +71,5 @@ public class TestLevel extends TestCase {
 		assertEquals(newTimer, toTest.getTimer());
 		assertEquals(newSpecialMoves, toTest.getSpecialMoves());
 		assertEquals(pointThresholds, toTest.getPointThresholds());
-
-		
 	}
 }

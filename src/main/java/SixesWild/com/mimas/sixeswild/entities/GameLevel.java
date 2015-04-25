@@ -11,7 +11,7 @@ import javax.swing.Timer;
  * 
  * @author Cameron Jones
  */
-public abstract class Level {
+public abstract class GameLevel {
 
 	protected LevelType type;
 	protected SpecialMoves specialMoves;
@@ -23,7 +23,7 @@ public abstract class Level {
 	protected int levelNumber;
 
 	/**
-	 * Creates a Level instance with the specified tile frequencies, multiplier
+	 * Creates a GameLevel instance with the specified tile frequencies, multiplier
 	 * frequencies, type, name, tile list, point thresholds, move count, special
 	 * moves and level number.
 	 * 
@@ -48,7 +48,7 @@ public abstract class Level {
 	 * @throws Exception
 	 *             If board construction throws an exception.
 	 */
-	public Level(ArrayList<Double> tileFreq, ArrayList<Double> multFreq,
+	public GameLevel(ArrayList<Double> tileFreq, ArrayList<Double> multFreq,
 			LevelType type, String name, Tile tiles[][],
 			PointThresholds pointThresholds, int moveCount,
 			SpecialMoves specialMoves, int levelNumber) throws Exception {
@@ -67,7 +67,7 @@ public abstract class Level {
 	}
 
 	/**
-	 * Creates a Level instance with the specified tile frequencies, multiplier
+	 * Creates a GameLevel instance with the specified tile frequencies, multiplier
 	 * frequencies, type, name, tile list, point thresholds, timer, special
 	 * moves and level number.
 	 * 
@@ -92,7 +92,7 @@ public abstract class Level {
 	 * @throws Exception
 	 *             If board construction throws an exception.
 	 */
-	public Level(ArrayList<Double> tileFreq, ArrayList<Double> multFreq,
+	public GameLevel(ArrayList<Double> tileFreq, ArrayList<Double> multFreq,
 			LevelType type, String name, Tile tiles[][],
 			PointThresholds pointThresholds, Timer timer,
 			SpecialMoves specialMoves, int levelNumber) throws Exception {

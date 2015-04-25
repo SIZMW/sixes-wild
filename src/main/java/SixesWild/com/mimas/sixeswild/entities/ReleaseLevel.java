@@ -9,7 +9,7 @@ import java.util.ArrayList;
  * 
  * @author Cameron Jones
  */
-public class ReleaseLevel extends Level {
+public class ReleaseLevel extends GameLevel {
 
 	/**
 	 * Creates a ReleaseLevel instance with the specified tile frequencies,

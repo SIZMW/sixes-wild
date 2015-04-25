@@ -3,6 +3,7 @@ package SixesWild.com.mimas.sixeswild.sixeswild;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.StringTokenizer;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import javax.xml.parsers.DocumentBuilder;
@@ -20,7 +21,7 @@ import org.w3c.dom.NodeList;
 
 import SixesWild.com.mimas.sixeswild.entities.Board;
 import SixesWild.com.mimas.sixeswild.entities.EliminationLevel;
-import SixesWild.com.mimas.sixeswild.entities.Level;
+import SixesWild.com.mimas.sixeswild.entities.GameLevel;
 import SixesWild.com.mimas.sixeswild.entities.LevelHighScore;
 import SixesWild.com.mimas.sixeswild.entities.LevelType;
 import SixesWild.com.mimas.sixeswild.entities.LightningLevel;
@@ -71,7 +72,7 @@ public final class XMLParser {
 		} else if (tile.getType().equals(TileType.TARGET)) {
 			return 'T';
 		} else {
-			logger.log(java.util.logging.Level.SEVERE,
+			logger.log(Level.SEVERE,
 					"Invalid tile type requested for character conversion.");
 			throw new Exception("Invalid Tile Type!");
 		}
@@ -103,8 +104,7 @@ public final class XMLParser {
 			return levelName;
 
 		} catch (Exception e) {
-			logger.log(java.util.logging.Level.WARNING, "File: " + fileName
-					+ " not found.");
+			logger.log(Level.WARNING, "File: " + fileName + " not found.");
 		}
 
 		return null;
@@ -137,8 +137,7 @@ public final class XMLParser {
 			return userProfileName;
 
 		} catch (Exception e) {
-			logger.log(java.util.logging.Level.WARNING, "File: " + fileName
-					+ " not found.");
+			logger.log(Level.WARNING, "File: " + fileName + " not found.");
 		}
 
 		return null;
@@ -174,8 +173,8 @@ public final class XMLParser {
 			}
 		}
 
-		logger.log(java.util.logging.Level.INFO,
-				"Level list loaded from disk. Directory: " + directory);
+		logger.log(Level.INFO, "Level list loaded from disk. Directory: "
+				+ directory);
 
 		return fileNames;
 	}
@@ -205,7 +204,7 @@ public final class XMLParser {
 			}
 		}
 
-		logger.log(java.util.logging.Level.INFO,
+		logger.log(Level.INFO,
 				"User profile name list loaded from disk. Directory: "
 						+ XMLParser.PROFILE_DIR);
 
@@ -220,7 +219,7 @@ public final class XMLParser {
 	 *            A String of the directory and file name.
 	 * @return Level object for the level if exists; null otherwise
 	 */
-	public static Level fileToLevel(String fileName) {
+	public static GameLevel fileToLevel(String fileName) {
 		try {
 
 			// Set up XML file for reading
@@ -231,7 +230,6 @@ public final class XMLParser {
 			Document doc = dBuilder.parse(fXmlFile);
 			doc.getDocumentElement().normalize();
 
-			// TODO Use the level number somewhere
 			// Get level number
 			int levelNumber = Integer.parseInt(doc
 					.getElementsByTagName("Level").item(0).getAttributes()
@@ -356,8 +354,7 @@ public final class XMLParser {
 			}
 
 		} catch (Exception e) {
-			logger.log(java.util.logging.Level.WARNING, "Level file: "
-					+ fileName + " not found.");
+			logger.log(Level.WARNING, "Level file: " + fileName + " not found.");
 		}
 
 		return null;
@@ -371,11 +368,10 @@ public final class XMLParser {
 	 *            The level object to save to file.
 	 * @return true if successful; false otherwise
 	 */
-	public static boolean levelToFile(Level level) {
+	public static boolean levelToFile(GameLevel level) {
 		try {
 			if (level == null) {
-				logger.log(java.util.logging.Level.SEVERE,
-						"Requested to write out null level.");
+				logger.log(Level.SEVERE, "Requested to write out null level.");
 				throw new Exception("Cannot pass null level");
 			}
 
@@ -564,14 +560,12 @@ public final class XMLParser {
 					+ level.getLevelNumber() + XMLParser.XML_EXT));
 			transformer.transform(source, result);
 
-			logger.log(java.util.logging.Level.INFO,
-					"Level file saved successfully.");
+			logger.log(Level.INFO, "Level file saved successfully.");
 
 			return true;
 
 		} catch (Exception e) {
-			logger.log(java.util.logging.Level.WARNING,
-					"Level file not saved successfully.");
+			logger.log(Level.WARNING, "Level file not saved successfully.");
 		}
 
 		return false;
@@ -648,8 +642,7 @@ public final class XMLParser {
 			return userProfile;
 
 		} catch (Exception e) {
-			logger.log(java.util.logging.Level.INFO,
-					"User profile file not found.");
+			logger.log(Level.INFO, "User profile file not found.");
 		}
 
 		return null;
@@ -666,8 +659,7 @@ public final class XMLParser {
 
 		try {
 			if (userProfile == null) {
-				logger.log(java.util.logging.Level.SEVERE,
-						"Requested to save null user profile.");
+				logger.log(Level.SEVERE, "Requested to save null user profile.");
 				throw new Exception("Cannot pass null user profile.");
 			}
 
@@ -747,12 +739,10 @@ public final class XMLParser {
 							+ XMLParser.PROFILE_CONST + XMLParser.XML_EXT));
 			transformer.transform(source, result);
 
-			logger.log(java.util.logging.Level.INFO,
-					"User profile file saved successfully.");
+			logger.log(Level.INFO, "User profile file saved successfully.");
 
 		} catch (Exception e) {
-			logger.log(java.util.logging.Level.INFO,
-					"User profile file not saved successfully.");
+			logger.log(Level.INFO, "User profile file not saved successfully.");
 		}
 
 		return false;

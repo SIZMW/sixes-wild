@@ -9,7 +9,7 @@ import java.util.ArrayList;
  * 
  * @author Cameron Jones
  */
-public class PuzzleLevel extends Level {
+public class PuzzleLevel extends GameLevel {
 
 	/**
 	 * Creates a PuzzleLevel instance with the specified tile frequencies,
