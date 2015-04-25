@@ -16,6 +16,7 @@ import javax.swing.JPanel;
 import SixesWild.com.mimas.sixeswild.entities.Aesthetic;
 import SixesWild.com.mimas.sixeswild.entities.Board;
 import SixesWild.com.mimas.sixeswild.entities.GameLevel;
+import SixesWild.com.mimas.sixeswild.entities.LevelType;
 import SixesWild.com.mimas.sixeswild.entities.NumberTile;
 import SixesWild.com.mimas.sixeswild.entities.Tile;
 
@@ -33,6 +34,8 @@ public class LevelView extends JPanel {
 	protected LevelStatsPanel levelStatsPanel;
 	protected BoardViewPanel boardViewPanel;
 	protected Aesthetic levelViewAesthetic;
+	protected GameLevel currentLevel;
+	protected int currentScore;
 
 	/**
 	 * Creates a LevelView instance with the specified aesthetic.
@@ -43,6 +46,9 @@ public class LevelView extends JPanel {
 	public LevelView(Aesthetic aesthetic) {
 
 		// Attributes
+		this.currentLevel = null;
+		logger.log(Level.INFO,
+				"Current Level Set to NULL");
 		this.levelViewAesthetic = aesthetic;
 
 		// Layout for view
@@ -143,7 +149,9 @@ public class LevelView extends JPanel {
 
 		// Attributes
 		this.levelViewAesthetic = aesthetic;
-
+		this.currentLevel = newLevel;
+		this.currentScore = 0;
+		
 		// Layout for view
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		gridBagLayout.columnWidths = new int[] { 0, 0, 0, 0, 0 };
@@ -235,5 +243,47 @@ public class LevelView extends JPanel {
 	 */
 	public BoardViewPanel getBoardViewPanel() {
 		return this.boardViewPanel;
+	}
+	
+	/**
+	 * Returns the Current Level.
+	 * 
+	 * @return the currentLevel property
+	 */
+	public GameLevel getLevel(){
+		return this.currentLevel;
+	}
+	
+	/**
+	 * Sets the Current Level to be the new Level.
+	 * 
+	 * @param newLevel
+	 */
+	public void setLevel(GameLevel newLevel){
+		this.currentLevel = newLevel;
+	}
+	
+	/**
+	 * This goes through each of the child View Elements and Updates them.
+	 * 
+	 */
+	public void updateLevelStats(){
+		//Update the Stats Panel
+		levelStatsPanel.pointsLabel.setText(Integer.toString(currentScore));
+		if(currentLevel.getType() != LevelType.LIGHTNING){
+			levelStatsPanel.movesSlashTimeLabel.setText(Integer.toString(currentLevel.getMoveCount()));
+		}
+		else{
+			//TODO: this will need to actually address the timer correctly
+			levelStatsPanel.movesSlashTimeLabel.setText(Integer.toString(0));
+		}
+		
+		
+		//TODO: Update Star Graphics Here
+		
+		//Update the Top Panel
+		/*TODO: Currently nothing to Update Here
+		but there should be the number of moves indicated
+		on each special move button */
 	}
 }
