@@ -44,8 +44,10 @@ public class GameMenuView extends JPanel {
 	 *            The list of badges.
 	 * @param aestheticList
 	 *            The list of aesthetics that were created.
-	 * @param highestLevelUnlocked
-	 *            The highest number level that is unlocked to play.
+	 * @param storyHighestUnlocked
+	 *            The highest number story level that is unlocked to play.
+	 * @param userHighestUnlocked
+	 *            The highest number user level that is unlocked to play.
 	 */
 	public GameMenuView(ArrayList<String> storyLevelList,
 			ArrayList<String> userLevelList, ArrayList<String> badgesList,

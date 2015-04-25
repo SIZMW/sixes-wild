@@ -170,7 +170,7 @@ public class BuilderTopPanel extends JPanel {
 	 * Removes all entries from the combo boxes for updating them with new level
 	 * lists.
 	 * 
-	 * @return true if successful.
+	 * @return true
 	 */
 	public boolean clearComboBoxes() {
 		openComboBox.removeAllItems();
@@ -182,7 +182,7 @@ public class BuilderTopPanel extends JPanel {
 	/**
 	 * Updates the drop down menus with the list of user levels.
 	 * 
-	 * @return true if successful.
+	 * @return true
 	 */
 	public boolean updateComboBoxes() {
 		userLevelList = XMLParser.getLevelFileNames(XMLParser.USER_DIR);

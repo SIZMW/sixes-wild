@@ -188,7 +188,7 @@ public class GameApplication {
 	 * 
 	 * @param newLevel
 	 *            The levelView object for this class.
-	 * @return true if successful.
+	 * @return true
 	 */
 	public boolean setLevelPanel(LevelView newLevel) {
 		this.levelView = newLevel;

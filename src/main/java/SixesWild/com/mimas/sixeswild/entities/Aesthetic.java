@@ -3,8 +3,7 @@ package SixesWild.com.mimas.sixeswild.entities;
 import java.awt.Color;
 
 /**
- * Aesthetic defines the color scheme used across the different views within the
- * game.
+ * Aesthetic defines a color scheme to be used throughout the game.
  * 
  * @author Marco Duran
  */
@@ -20,23 +19,23 @@ public class Aesthetic {
 	 * @param name
 	 *            The name of the aesthetic.
 	 * @param background
-	 *            The background color of the aesthetic.
+	 *            The color of the background.
 	 * @param tileOne
-	 *            The color of tile one in the aesthetic.
+	 *            The color of the one tile.
 	 * @param tileTwo
-	 *            The color of tile two in the aesthetic.
+	 *            The color of the two tile.
 	 * @param tileThree
-	 *            The color of tile three in the aesthetic.
+	 *            The color of the three tile.
 	 * @param tileFour
-	 *            The color of tile four in the aesthetic.
+	 *            The color of the four tile.
 	 * @param tileFive
-	 *            The color of tile five in the aesthetic.
+	 *            The color of the five tile.
 	 * @param tileSix
-	 *            The color of tile six in the aesthetic.
+	 *            The color of the six tile.
 	 * @param target
-	 *            The color of the target tile in the aesthetic.
+	 *            The color of the target tile.
 	 * @param nullTile
-	 *            The color of the null tile in the aesthetic.
+	 *            The color of the null tile.
 	 */
 	public Aesthetic(String name, Color background, Color tileOne,
 			Color tileTwo, Color tileThree, Color tileFour, Color tileFive,
@@ -57,97 +56,97 @@ public class Aesthetic {
 	/**
 	 * Returns the name of the aesthetic
 	 * 
-	 * @return String name
+	 * @return a String
 	 */
 	public String getName() {
 		return this.name;
 	}
 
 	/**
-	 * Returns tile color one of the aesthetic.
+	 * Returns the one tile color.
 	 * 
-	 * @return Color for tile one
+	 * @return a Color
 	 */
 	public Color getTileOneColor() {
 		return this.tileOne;
 	}
 
 	/**
-	 * Returns tile color two of the aesthetic.
+	 * Returns the two tile color.
 	 * 
-	 * @return Color for tile two
+	 * @return a Color
 	 */
 	public Color getTileTwoColor() {
 		return this.tileTwo;
 	}
 
 	/**
-	 * Returns tile color three of the aesthetic.
+	 * Returns the three tile color.
 	 * 
-	 * @return Color for tile three
+	 * @return a Color
 	 */
 	public Color getTileThreeColor() {
 		return this.tileThree;
 	}
 
 	/**
-	 * Returns tile color four of the aesthetic.
+	 * Returns the four tile color.
 	 * 
-	 * @return Color for tile four
+	 * @return a Color
 	 */
 	public Color getTileFourColor() {
 		return this.tileFour;
 	}
 
 	/**
-	 * Returns tile color five of the aesthetic.
+	 * Returns the five tile color.
 	 * 
-	 * @return Color for tile five
+	 * @return a Color
 	 */
 	public Color getTileFiveColor() {
 		return this.tileFive;
 	}
 
 	/**
-	 * Returns tile color six of the aesthetic.
+	 * Returns the six tile color.
 	 * 
-	 * @return Color for tile six
+	 * @return a Color
 	 */
 	public Color getTileSixColor() {
 		return this.tileSix;
 	}
 
 	/**
-	 * Returns marked tile color of the aesthetic.
+	 * Returns the marked tile color.
 	 * 
-	 * @return Color for marked tile
+	 * @return a Color
 	 */
 	public Color getMarkedColor() {
 		return this.marked;
 	}
 
 	/**
-	 * Returns target tile color of the aesthetic.
+	 * Returns the target tile color.
 	 * 
-	 * @return Color for target tile
+	 * @return a Color
 	 */
 	public Color getTargetColor() {
 		return this.target;
 	}
 
 	/**
-	 * Returns null tile color of the aesthetic.
+	 * Returns the null tile color.
 	 * 
-	 * @return Color for null tile
+	 * @return a Color
 	 */
 	public Color getNullTileColor() {
 		return this.nullTile;
 	}
 
 	/**
-	 * Returns background color of the aesthetic.
+	 * Returns the background color.
 	 * 
-	 * @return Color for background
+	 * @return a Color
 	 */
 	public Color getBackgroundColor() {
 		return this.background;

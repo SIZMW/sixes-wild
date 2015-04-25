@@ -32,8 +32,8 @@ public class BuilderSplashScreenController extends KeyAdapter {
 	 * @param app
 	 *            The BuilderApplication currently running.
 	 */
-	public BuilderSplashScreenController(BuilderApplication builderApplication) {
-		this.app = builderApplication;
+	public BuilderSplashScreenController(BuilderApplication app) {
+		this.app = app;
 	}
 
 	/*

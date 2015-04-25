@@ -45,7 +45,7 @@ public class Badge {
 	/**
 	 * Returns the description of the badge.
 	 * 
-	 * @return String for description
+	 * @return a String
 	 */
 	public String getDescription() {
 		return this.description;
@@ -54,7 +54,7 @@ public class Badge {
 	/**
 	 * Returns the name of the badge.
 	 * 
-	 * @return String for name
+	 * @return a String
 	 */
 	public String getName() {
 		return this.name;
@@ -63,15 +63,13 @@ public class Badge {
 	/**
 	 * Determines if this badge can be unlocked.
 	 * 
-	 * @return true if can be unlocked; false otherwise.
+	 * @return true if the badge can be unlocked; false otherwise.
 	 */
-	public boolean unlockNow() {
+	public boolean canBeUnlocked() {
 		boolean unlocked = false;
-		if (this.isUnlocked == true) {
+		if (this.isUnlocked) {
 			unlocked = true;
-			return unlocked;
-		} else {
-			return unlocked;
 		}
+		return unlocked;
 	}
 }

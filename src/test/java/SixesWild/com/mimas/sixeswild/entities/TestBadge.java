@@ -25,18 +25,18 @@ public class TestBadge extends TestCase {
 	public void tearDown(){}
 	
 	public void testBadgeMethods(){
-		assertFalse(badge.unlockNow());
+		assertFalse(badge.canBeUnlocked());
 		assertFalse(badge.isUnlocked);
 		
 		assertEquals(badge.getName(), badge.name);
 		assertEquals(badge.getDescription(), badge.description);
 		
 		badge.unlock();
-		assertTrue(badge.unlockNow());
+		assertTrue(badge.canBeUnlocked());
 		assertTrue(badge.isUnlocked);
 		
 		badge.lock();
-		assertFalse(badge.unlockNow());
+		assertFalse(badge.canBeUnlocked());
 		assertFalse(badge.isUnlocked);
 		
 	}

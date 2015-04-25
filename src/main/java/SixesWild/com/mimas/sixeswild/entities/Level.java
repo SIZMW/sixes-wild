@@ -13,19 +13,19 @@ import javax.swing.Timer;
  */
 public abstract class Level {
 
-	LevelType type;
-	SpecialMoves specialMoves;
-	PointThresholds pointThresholds;
-	String name;
-	Board board;
-	Timer timer;
-	int moveCount;
-	int levelNumber;
+	protected LevelType type;
+	protected SpecialMoves specialMoves;
+	protected PointThresholds pointThresholds;
+	protected String name;
+	protected Board board;
+	protected Timer timer;
+	protected int moveCount;
+	protected int levelNumber;
 
 	/**
-	 * 
 	 * Creates a Level instance with the specified tile frequencies, multiplier
-	 * frequencies, type, name, tile list, point thresholds and move count.
+	 * frequencies, type, name, tile list, point thresholds, move count, special
+	 * moves and level number.
 	 * 
 	 * @param tileFreq
 	 *            The tile frequencies for the level.
@@ -41,11 +41,17 @@ public abstract class Level {
 	 *            The point threshold values for the level.
 	 * @param moveCount
 	 *            The number of moves for the level.
-	 * @throws Exception 
+	 * @param specialMoves
+	 *            The special moves counts for the level.
+	 * @param levelNumber
+	 *            The number for this level.
+	 * @throws Exception
+	 *             If board construction throws an exception.
 	 */
 	public Level(ArrayList<Double> tileFreq, ArrayList<Double> multFreq,
 			LevelType type, String name, Tile tiles[][],
-			PointThresholds pointThresholds, int moveCount, SpecialMoves specialMoves, int levelNumber) throws Exception {
+			PointThresholds pointThresholds, int moveCount,
+			SpecialMoves specialMoves, int levelNumber) throws Exception {
 		this.type = type;
 		this.name = name;
 		this.pointThresholds = pointThresholds;
@@ -62,7 +68,8 @@ public abstract class Level {
 
 	/**
 	 * Creates a Level instance with the specified tile frequencies, multiplier
-	 * frequencies, type, name, tile list, point thresholds and timer.
+	 * frequencies, type, name, tile list, point thresholds, timer, special
+	 * moves and level number.
 	 * 
 	 * @param tileFreq
 	 *            The tile frequencies for the level.
@@ -78,11 +85,17 @@ public abstract class Level {
 	 *            The point threshold values for the level.
 	 * @param timer
 	 *            The timer for the level.
-	 * @throws Exception 
+	 * @param specialMoves
+	 *            The special moves counts for the level.
+	 * @param levelNumber
+	 *            The number for this level.
+	 * @throws Exception
+	 *             If board construction throws an exception.
 	 */
 	public Level(ArrayList<Double> tileFreq, ArrayList<Double> multFreq,
 			LevelType type, String name, Tile tiles[][],
-			PointThresholds pointThresholds, Timer timer, SpecialMoves specialMoves, int levelNumber) throws Exception {
+			PointThresholds pointThresholds, Timer timer,
+			SpecialMoves specialMoves, int levelNumber) throws Exception {
 		this.type = type;
 		this.name = name;
 		this.pointThresholds = pointThresholds;
@@ -90,46 +103,17 @@ public abstract class Level {
 		this.moveCount = 0;
 		this.specialMoves = specialMoves;
 		this.levelNumber = levelNumber;
-		
+
 		this.board = new Board(tiles, tileFreq, multFreq);
 	}
 
 	/**
-	 * Creates a Level instance.
-	 */
-//	public Level() {
-//		ArrayList<Double> tileFreq = new ArrayList<Double>();
-//		ArrayList<Double> multFreq = new ArrayList<Double>();
-//
-//		tileFreq.add(.10);
-//		tileFreq.add(.20);
-//		tileFreq.add(.30);
-//		tileFreq.add(.30);
-//		tileFreq.add(.05);
-//		tileFreq.add(.05);
-//		multFreq.add(.95);
-//		multFreq.add(.025);
-//		multFreq.add(.025);
-//
-//		this.type = LevelType.PUZZLE;
-//		this.name = "No Name";
-//		
-//		// TODO Please modify the board creation in the future
-//		this.board = new Board();
-//		
-//		this.pointThresholds = new PointThresholds();
-//		this.moveCount = 40;
-//		this.timer = null;
-//		this.levelNumber = 0;
-//	}
-
-	/**
 	 * Returns the type of level.
 	 * 
-	 * @return LevelType type
+	 * @return a LevelType
 	 */
 	public LevelType getType() {
-		return type;
+		return this.type;
 	}
 
 	/**
@@ -145,7 +129,7 @@ public abstract class Level {
 	/**
 	 * Return the name of the level.
 	 * 
-	 * @return name String name
+	 * @return a String
 	 */
 	public String getName() {
 		return name;
@@ -155,7 +139,7 @@ public abstract class Level {
 	 * Set the name the level.
 	 * 
 	 * @param name
-	 *            The name of the level.
+	 *            The new name of the level.
 	 */
 	public void setName(String name) {
 		this.name = name;
@@ -164,7 +148,7 @@ public abstract class Level {
 	/**
 	 * Returns the board in the level.
 	 * 
-	 * @return board Board level board
+	 * @return a Board
 	 */
 	public Board getBoard() {
 		return board;
@@ -174,7 +158,7 @@ public abstract class Level {
 	 * Sets the board in the level to the given board.
 	 * 
 	 * @param board
-	 *            The board to set for the level.
+	 *            The new board to set for the level.
 	 */
 	public void setBoard(Board board) {
 		this.board = board;
@@ -183,7 +167,7 @@ public abstract class Level {
 	/**
 	 * Returns the point threshold values for the level.
 	 * 
-	 * @return pointThresholds PointThreshold values
+	 * @return a PointThresholds
 	 */
 	public PointThresholds getPointThresholds() {
 		return pointThresholds;
@@ -193,7 +177,7 @@ public abstract class Level {
 	 * Sets the point threshold values for the level.
 	 * 
 	 * @param pointThresholds
-	 *            The point thresholds to set for the level.
+	 *            The new point thresholds to set for the level.
 	 */
 	public void setPointThresholds(PointThresholds pointThresholds) {
 		this.pointThresholds = pointThresholds;
@@ -202,7 +186,7 @@ public abstract class Level {
 	/**
 	 * Returns the number of moves for the level.
 	 * 
-	 * @return moveCount Integer number of moves
+	 * @return the integer number of moves
 	 */
 	public int getMoveCount() {
 		return moveCount;
@@ -212,7 +196,7 @@ public abstract class Level {
 	 * Sets the number of moves for the level.
 	 * 
 	 * @param moveCount
-	 *            The number of moves to set for the level.
+	 *            The new number of moves to set for the level.
 	 */
 	public void setMoveCount(int moveCount) {
 		this.moveCount = moveCount;
@@ -221,7 +205,7 @@ public abstract class Level {
 	/**
 	 * Returns the timer for the level.
 	 * 
-	 * @return timer Timer for level
+	 * @return a Timer
 	 */
 	public Timer getTimer() {
 		return timer;
@@ -231,40 +215,47 @@ public abstract class Level {
 	 * Sets the timer for the level.
 	 * 
 	 * @param timer
-	 *            The timer to set for the level.
+	 *            The new timer to set for the level.
 	 */
 	public void setTimer(Timer timer) {
 		this.timer = timer;
 	}
-	
+
 	/**
 	 * Sets the SpecialMoves
 	 * 
 	 * @param newSpecialMoves
+	 *            The new special moves for the level.
 	 */
-	public void setSpecialMoves(SpecialMoves newSpecialMoves){
+	public void setSpecialMoves(SpecialMoves newSpecialMoves) {
 		this.specialMoves = newSpecialMoves;
 	}
-	
+
 	/**
 	 * Returns the Levels Special Moves
 	 * 
-	 * @return this.specialMoves
+	 * @return a SpecialMoves
 	 */
-	public SpecialMoves getSpecialMoves(){
+	public SpecialMoves getSpecialMoves() {
 		return this.specialMoves;
 	}
-	
+
 	/**
 	 * Returns the LevelNumber
 	 * 
-	 * @return this.levelNumber;
+	 * @return the integer level number
 	 */
-	public int getLevelNumber(){
+	public int getLevelNumber() {
 		return this.levelNumber;
 	}
-	
-	public void setLevelNumber(int newNumber){
+
+	/**
+	 * Sets the level number to the specified level number.
+	 * 
+	 * @param newNumber
+	 *            The new level number for the level.
+	 */
+	public void setLevelNumber(int newNumber) {
 		this.levelNumber = newNumber;
 	}
 }

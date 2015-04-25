@@ -7,9 +7,9 @@ import java.util.Iterator;
 import java.util.Random;
 
 /**
- * Board is the playing area that stores Squares and Tiles. It represents the
+ * Board is the playing area that stores squares and tiles. It represents the
  * area where moves are made, validated, processed and executed. It handles
- * regeneration of new Tiles based on frequencies and probabilities.
+ * regeneration of new tiles based on frequencies and probabilities.
  * 
  * @author Aditya Nivarthi
  */
@@ -18,13 +18,13 @@ public class Board {
 	public final int SIZE_X = 9;
 	public final int SIZE_Y = 9;
 
-	Square squares[][];
-	ArrayList<Double> multiplierFrequencies;
-	ArrayList<Double> tileFrequencies;
+	protected Square squares[][];
+	protected ArrayList<Double> multiplierFrequencies;
+	protected ArrayList<Double> tileFrequencies;
 
 	/**
 	 * Creates a Board instance with an empty board, null tile frequencies and
-	 * null multiplier frequencies.
+	 * null multiplier frequencies, and randomly initializes the board.
 	 */
 	public Board() {
 		this.squares = new Square[SIZE_X][SIZE_Y];
@@ -35,23 +35,23 @@ public class Board {
 	}
 
 	/**
-	 * Creates a Board instance with a populated board, specified tile
-	 * frequencies and specified multiplier frequencies.
+	 * Creates a Board instance with populated squares, the specified tile
+	 * frequencies and the specified multiplier frequencies.
 	 * 
-	 * @param squareList
-	 *            List of squares to populate the board
-	 * @param tileFreq
+	 * @param tiles
+	 *            List of tiles to populate the board.
+	 * @param tileFrequencies
 	 *            Frequencies of tiles for generation of new tiles.
-	 * @param multFreq
+	 * @param multiplierFrequencies
 	 *            Frequencies of multipliers for generation of new tiles.
 	 * @throws Exception
-	 *             squareList has a null Square and therefore board cannot be
+	 *             squareList has a null square and therefore board cannot be
 	 *             populated.
 	 */
-	public Board(Tile tiles[][], ArrayList<Double> tileFreq,
-			ArrayList<Double> multFreq) throws Exception {
-		this.tileFrequencies = tileFreq;
-		this.multiplierFrequencies = multFreq;
+	public Board(Tile tiles[][], ArrayList<Double> tileFrequencies,
+			ArrayList<Double> multiplierFrequencies) throws Exception {
+		this.tileFrequencies = tileFrequencies;
+		this.multiplierFrequencies = multiplierFrequencies;
 		this.squares = new Square[SIZE_X][SIZE_Y];
 
 		if (tiles == null) {
@@ -77,12 +77,12 @@ public class Board {
 	}
 
 	/**
-	 * Returns a random number for NumberTile for random board generation.
+	 * Returns a random number for a number tile for random board generation.
 	 * Generates a random value from 0 up to 100 and determines the number based
 	 * on the value's location in the generated ranges. The ranges are
 	 * determined by the frequencies of the tiles.
 	 * 
-	 * @return Random value from 1 to 6.
+	 * @return an integer from 1 to 6.
 	 */
 	protected int getNumber() {
 		int value = new Random().nextInt(100);
@@ -114,7 +114,7 @@ public class Board {
 	 * on the value's location in the generated ranges. The ranges are
 	 * determined by the frequencies of the multipliers.
 	 * 
-	 * @return Multiplier value from 1 to 3.
+	 * @return an integer from 1 to 3.
 	 */
 	protected int getMultiplier() {
 		int value = new Random().nextInt(100);
@@ -132,9 +132,9 @@ public class Board {
 	}
 
 	/**
-	 * Generates a random number for a NumberTile for random board generation.
+	 * Generates a random number for a number tile for random board generation.
 	 * 
-	 * @return Random value from 1 to 6.
+	 * @return an integer from 1 to 6.
 	 */
 	public int getRandomNumber() {
 		return 1 + (int) (Math.random() * 6);
@@ -143,16 +143,16 @@ public class Board {
 	/**
 	 * Generates a random number for a multiplier for random board generation.
 	 * 
-	 * @return Random value from 1 to 3.
+	 * @return an integer from 1 to 3.
 	 */
 	public int getRandomMultiplier() {
 		return 1 + (int) (Math.random() * 3);
 	}
 
 	/**
-	 * Initializes the board for the game.
+	 * Initializes the board using frequencies for the game.
 	 * 
-	 * @return true if successfully initialized; false otherwise.
+	 * @return true
 	 */
 	protected boolean initialize() {
 		// TileFrequencies and MultiplierFrequencies have not been initialized
@@ -205,7 +205,7 @@ public class Board {
 	/**
 	 * Initializes the board for the game. TODO Will be removed.
 	 * 
-	 * @return true if successfully initialized; false otherwise.
+	 * @return true
 	 */
 	public boolean randomInitialize() {
 		for (int i = 0; i < SIZE_X; i++) {
@@ -229,7 +229,7 @@ public class Board {
 	 *            Y coordinate of the Square to set.
 	 * @param marked
 	 *            Marked attribute to set on the Square.
-	 * @return true if successfully set; false otherwise.
+	 * @return true if successful; false otherwise
 	 */
 	public boolean setSquare(Tile tile, int x, int y, boolean marked) {
 
@@ -249,7 +249,7 @@ public class Board {
 	 *            The x coordinate.
 	 * @param y
 	 *            The y coordinate.
-	 * @return squares[x][y] The requested square.
+	 * @return a Square
 	 */
 	public Square getSquare(int x, int y) {
 		return squares[x][y];
@@ -258,7 +258,7 @@ public class Board {
 	/**
 	 * Returns the tile frequencies for the board.
 	 * 
-	 * @return ArrayList<Double> of frequencies
+	 * @return the tileFrequencies property
 	 */
 	public ArrayList<Double> getTileFrequencies() {
 		return this.tileFrequencies;
@@ -267,7 +267,7 @@ public class Board {
 	/**
 	 * Returns the multiplier frequencies for the board.
 	 * 
-	 * @return ArrayList<Double> of frequencies
+	 * @return the multiplierFrequencies property
 	 */
 	public ArrayList<Double> getMultiplierFrequencies() {
 		return this.multiplierFrequencies;
@@ -277,7 +277,7 @@ public class Board {
 	 * Resets the board. Gets all the current squares on the board, shuffles the
 	 * list and replaces the squares on the board.
 	 * 
-	 * @return true if successfully reset; false otherwise.
+	 * @return true
 	 */
 	public boolean resetBoard() {
 		ArrayList<Square> squaresList = new ArrayList<Square>();
@@ -316,7 +316,7 @@ public class Board {
 	 *            X coordinate of Square to search above.
 	 * @param y
 	 *            Y coordinate of Square to search above.
-	 * @return Square with Tile if exists; null otherwise.
+	 * @return a Square if it exists; null otherwise.
 	 */
 	protected Square getNextNonEmptySquare(int x, int y) {
 		if (y <= 0) {
@@ -331,7 +331,7 @@ public class Board {
 	/**
 	 * Moves tiles downward vertically to fill in any empty Squares.
 	 * 
-	 * @return true if successful; false otherwise.
+	 * @return true
 	 */
 	public boolean shiftTilesDownward() {
 		for (int i = 0; i < this.SIZE_X; i++) {
@@ -359,7 +359,7 @@ public class Board {
 	/**
 	 * Fills empty squares once a move has been completed.
 	 * 
-	 * @return true if successfully filled Board; false otherwise.
+	 * @return true
 	 */
 	public boolean fillEmptySquares() {
 		for (int i = 0; i < this.SIZE_X; i++) {
@@ -379,8 +379,7 @@ public class Board {
 	 * 
 	 * @param selection
 	 *            The selection of tiles.
-	 * @return true if successfully removed selection from Board; false
-	 *         otherwise.
+	 * @return true
 	 */
 	public boolean removeSelection(Selection selection) {
 
@@ -388,11 +387,10 @@ public class Board {
 		if (selection == null) {
 			return false;
 		}
-		
+
 		Object[] squareArray = selection.getArray();
 
 		// Remove square
-		// TODO Need to revise this
 		for (int i = 0; i < squareArray.length; i++) {
 			squares[((Square) squareArray[i]).getX()][((Square) squareArray[i])
 					.getY()].removeTile();

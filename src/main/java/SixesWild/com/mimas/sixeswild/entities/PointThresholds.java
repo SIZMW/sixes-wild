@@ -11,7 +11,7 @@ import java.util.Collections;
  */
 public class PointThresholds {
 
-	ArrayList<Integer> thresholds = new ArrayList<Integer>();
+	protected ArrayList<Integer> thresholds = new ArrayList<Integer>();
 
 	/**
 	 * Creates a PointThresholds instance with 0 for all thresholds.
@@ -63,7 +63,7 @@ public class PointThresholds {
 	/**
 	 * Returns the one star threshold.
 	 * 
-	 * @return Integer one star threshold
+	 * @return an integer
 	 */
 	public int getOneStarThreshold() {
 		return this.thresholds.get(0);
@@ -72,7 +72,7 @@ public class PointThresholds {
 	/**
 	 * Returns the two star threshold.
 	 * 
-	 * @return Integer two star threshold
+	 * @return an integer
 	 */
 	public int getTwoStarThreshold() {
 		return this.thresholds.get(1);
@@ -81,7 +81,7 @@ public class PointThresholds {
 	/**
 	 * Returns the three star threshold.
 	 * 
-	 * @return Integer three star threshold
+	 * @return an integer
 	 */
 	public int getThreeStarThreshold() {
 		return this.thresholds.get(2);

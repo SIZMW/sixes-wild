@@ -40,6 +40,8 @@ public class LevelSelectionPanel extends JPanel {
 	 * 
 	 * @param levelNames
 	 *            The names of levels to populate the list.
+	 * @param highestLevelUnlocked
+	 *            The highest number user level that is unlocked to play.
 	 */
 	public LevelSelectionPanel(ArrayList<String> levelNames,
 			int highestLevelUnlocked) {

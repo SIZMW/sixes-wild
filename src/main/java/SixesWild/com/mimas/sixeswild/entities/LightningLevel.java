@@ -14,8 +14,8 @@ public class LightningLevel extends Level {
 
 	/**
 	 * Creates a LightningLevel instance with the specified tile frequencies,
-	 * multiplier frequencies, type, name, tile list, point threshold values and
-	 * timer amount.
+	 * multiplier frequencies, type, name, tile list, point threshold values,
+	 * timer, special moves and level number.
 	 * 
 	 * @param tileFreq
 	 *            The tile frequencies for the level.
@@ -31,12 +31,18 @@ public class LightningLevel extends Level {
 	 *            The point threshold values for the level.
 	 * @param timerCount
 	 *            The timer amount for the level.
-	 * @throws Exception 
+	 * @param specialMoves
+	 *            The special moves counts for the level.
+	 * @param levelNumber
+	 *            The number for this level.
+	 * @throws Exception
+	 *             If board construction throws an exception.
 	 */
 	public LightningLevel(ArrayList<Double> tileFreq,
 			ArrayList<Double> multFreq, LevelType type, String name,
-			Tile tiles[][], PointThresholds pointThresholds, int timerCount, SpecialMoves specialMoves, int levelNumber) throws Exception {
-		super(tileFreq, multFreq, type, name, tiles, pointThresholds, new Timer(timerCount,null), specialMoves, levelNumber);
-	
+			Tile tiles[][], PointThresholds pointThresholds, int timerCount,
+			SpecialMoves specialMoves, int levelNumber) throws Exception {
+		super(tileFreq, multFreq, type, name, tiles, pointThresholds,
+				new Timer(timerCount, null), specialMoves, levelNumber);
 	}
 }

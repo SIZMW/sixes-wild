@@ -8,12 +8,12 @@ package SixesWild.com.mimas.sixeswild.entities;
  */
 public abstract class Tile {
 
-	final int SIX = 6;
-	final int ZERO = 0;
+	public final int SIX = 6;
+	public final int ZERO = 0;
 
-	TileType type;
-	int number;
-	int multiplier;
+	protected TileType type;
+	protected int number;
+	protected int multiplier;
 
 	/**
 	 * Creates a Tile instance with NULL type, number 0 and multiplier 0.
@@ -27,7 +27,7 @@ public abstract class Tile {
 	/**
 	 * Returns the type from this tile.
 	 * 
-	 * @return TileType type
+	 * @return a TileType
 	 */
 	public TileType getType() {
 		return this.type;
@@ -36,7 +36,7 @@ public abstract class Tile {
 	/**
 	 * Returns the number of the tile.
 	 * 
-	 * @return Integer number
+	 * @return an integer
 	 */
 	public int getNumber() {
 		return this.number;
@@ -45,7 +45,7 @@ public abstract class Tile {
 	/**
 	 * Returns the multiplier of the tile.
 	 * 
-	 * @return Integer multiplier
+	 * @return an integer
 	 */
 	public int getMultiplier() {
 		return this.multiplier;

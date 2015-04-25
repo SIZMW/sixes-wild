@@ -87,7 +87,7 @@ public class StarGraphicsPanel extends JPanel {
 	 * 
 	 * @param panel
 	 *            The starGraphicPanel object for this panel.
-	 * @return true if successful.
+	 * @return true
 	 */
 	public boolean setStarGraphicPanel(JPanel panel) {
 		this.remove(this.starGraphicPanel);

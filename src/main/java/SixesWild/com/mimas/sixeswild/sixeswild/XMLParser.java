@@ -83,7 +83,7 @@ public final class XMLParser {
 	 * @param fileName
 	 *            The string containing the directory and XML file name that
 	 *            contains all the information for a singular level.
-	 * @return String name for the level; null if not found.
+	 * @return a String if level exists; null otherwise
 	 */
 	protected static String fileToLevelName(String fileName) {
 		try {
@@ -116,7 +116,7 @@ public final class XMLParser {
 	 * @param fileName
 	 *            The string containing the directory and XML file name that
 	 *            contains all the information for a singular user profile.
-	 * @return String name for the user profile; null if not found.
+	 * @return a String for user name if exists; null otherwise
 	 */
 	protected static String fileToUserProfileName(String fileName) {
 		try {
@@ -150,7 +150,7 @@ public final class XMLParser {
 	 * 
 	 * @param directory
 	 *            The directory to load levels from.
-	 * @return ArrayList<String> level names
+	 * @return A list of level names.
 	 */
 	public static ArrayList<String> getLevelFileNames(String directory) {
 		File folder = new File(directory);
@@ -183,9 +183,7 @@ public final class XMLParser {
 	/**
 	 * Gets the list of user profile names to load.
 	 * 
-	 * @param directory
-	 *            The directory to load user profile from.
-	 * @return ArrayList<String> user profile names
+	 * @return A list of user profile names.
 	 */
 	public static ArrayList<String> getUserProfileNames() {
 		File folder = new File(XMLParser.PROFILE_DIR);
@@ -220,7 +218,7 @@ public final class XMLParser {
 	 * 
 	 * @param fileName
 	 *            A String of the directory and file name.
-	 * @return Level object for the level; null if not found.
+	 * @return Level object for the level if exists; null otherwise
 	 */
 	public static Level fileToLevel(String fileName) {
 		try {
@@ -371,7 +369,7 @@ public final class XMLParser {
 	 * 
 	 * @param level
 	 *            The level object to save to file.
-	 * @return true if successful; false otherwise.
+	 * @return true if successful; false otherwise
 	 */
 	public static boolean levelToFile(Level level) {
 		try {
@@ -585,7 +583,7 @@ public final class XMLParser {
 	 * 
 	 * @param fileName
 	 *            A String of the file name.
-	 * @return UserProfile object for the user profile; null if not found.
+	 * @return UserProfile object for the user profile if exists; null otherwise
 	 */
 	public static UserProfile fileToUserProfile(String fileName) {
 		try {
@@ -662,8 +660,7 @@ public final class XMLParser {
 	 * 
 	 * @param userProfile
 	 *            The user profile to save to file.
-	 * @return true if successful; false otherwise.
-	 * @throws Exception
+	 * @return true if successful; false otherwise
 	 */
 	public static boolean userProfileToFile(UserProfile userProfile) {
 

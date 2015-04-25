@@ -124,7 +124,7 @@ public class LevelTopPanel extends JPanel {
 	 * 
 	 * @param levelName
 	 *            The level name to set.
-	 * @return true if successful.
+	 * @return true if successful
 	 */
 	public boolean setLevelNameTextField(String levelName) {
 		this.levelNameTextField.setText(levelName);

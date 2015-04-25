@@ -14,7 +14,7 @@ public class NumberTile extends Tile {
 	 * and multiplier.
 	 * 
 	 * @param number
-	 *            The value on the tile.
+	 *            The value of the tile.
 	 * @param multiplier
 	 *            The multiplier of the tile count.
 	 */

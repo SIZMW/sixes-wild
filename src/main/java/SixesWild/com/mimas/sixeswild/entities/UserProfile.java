@@ -10,17 +10,17 @@ import java.util.ArrayList;
  */
 public class UserProfile {
 
-	String userName;
-	int highestUnlockedLevel;
-	ArrayList<String> badgesEarned;
-	ArrayList<LevelHighScore> levelHighScores;
-	String aestheticName;
+	protected String userName;
+	protected int highestUnlockedLevel;
+	protected ArrayList<String> badgesEarned;
+	protected ArrayList<LevelHighScore> levelHighScores;
+	protected String aestheticName;
 
 	/**
 	 * Creates a UserProfile instance with the specified name.
 	 * 
 	 * @param userName
-	 *            A String that is the user's name.
+	 *            The name of the user.
 	 */
 	public UserProfile(String userName) {
 		this.userName = userName;
@@ -33,7 +33,7 @@ public class UserProfile {
 	/**
 	 * Returns the user name of the profile
 	 * 
-	 * @return A String that is the user's name.
+	 * @return a String
 	 */
 	public String getUserName() {
 		return userName;
@@ -42,7 +42,7 @@ public class UserProfile {
 	/**
 	 * Returns the highest level unlocked by the user.
 	 * 
-	 * @return An Integer of the highest level unlocked by the user.
+	 * @return an integer
 	 */
 	public int getHighestUnlockedLevel() {
 		return highestUnlockedLevel;
@@ -51,19 +51,18 @@ public class UserProfile {
 	/**
 	 * Returns a list of all the badges earned by the user.
 	 * 
-	 * @return An ArrayList<String> of the badges earned by the user.
+	 * @return the badgesEarned property
 	 */
 	public ArrayList<String> getBadgesEarned() {
 		return badgesEarned;
 	}
-	
+
 	/**
 	 * Returns whether or not the badge name given is earned by the user.
 	 * 
 	 * @param badgeName
 	 *            A String of the badge name that is being looked for.
-	 * @return A boolean that tells whether or not the badge has been earned by
-	 *         the user.
+	 * @return true if earned; false otherwise
 	 */
 	public boolean hasBadge(String badgeName) {
 		for (String badge : badgesEarned) {
@@ -77,8 +76,7 @@ public class UserProfile {
 	/**
 	 * Returns a list of all the level high scores/stars achieved by the user.
 	 * 
-	 * @return An ArrayList<LevelHighScore> of the high scores/stars achieved by
-	 *         the user.
+	 * @return the levelHighScores property
 	 */
 	public ArrayList<LevelHighScore> getLevelHighScore() {
 		return levelHighScores;
@@ -90,8 +88,7 @@ public class UserProfile {
 	 * @param level
 	 *            An Integer of the level that the high score will be taken
 	 *            from.
-	 * @return An Integer of the high score of the level wanted. Returns -1 if
-	 *         the level was not found in the list.
+	 * @return an integer of the score if exists; -1 otherwise
 	 */
 	public int getHighScoreOfLevel(int level) {
 		for (LevelHighScore lhs : levelHighScores) {
@@ -102,14 +99,13 @@ public class UserProfile {
 
 		return -1;
 	}
-	
+
 	/**
 	 * Returns the stars equivalent of a high score for the given level.
 	 * 
 	 * @param level
 	 *            An int of the level that the stars will be taken from.
-	 * @return An int of the stars equivalent of the high score of the level
-	 *         wanted. Returns -1 if the level was not found in the list.
+	 * @return an integer of the star count if exists; -1 otherwise
 	 */
 	public int getStarsOfLevel(int level) {
 		for (LevelHighScore lhs : levelHighScores) {
@@ -121,11 +117,10 @@ public class UserProfile {
 		return -1;
 	}
 
-
 	/**
-	 * Gets the aesthetic that the user uses.
+	 * Gets the name of the aesthetic that the user uses.
 	 * 
-	 * @return An aesthetic that is used by the user.
+	 * @return a String
 	 */
 	public String getAestheticName() {
 		return aestheticName;
@@ -136,8 +131,7 @@ public class UserProfile {
 	 * 
 	 * @param level
 	 *            An Integer that specifies the level wanted.
-	 * @return A LevelHighScore that is of the specified level. Returns null if
-	 *         the level could not be found in the list.
+	 * @return a LevelHighScore for the level if exists; null otherwise
 	 */
 	public LevelHighScore getLevelHighScore(int level) {
 		for (LevelHighScore lhs : levelHighScores) {
@@ -163,7 +157,7 @@ public class UserProfile {
 	 * Sets the highest level unlocked by the player.
 	 * 
 	 * @param highestLevel
-	 *            An Integer of the highest level unlocked by the player.
+	 *            An integer of the highest level unlocked by the player.
 	 */
 	public void setHighestLevel(int highestLevel) {
 		this.highestUnlockedLevel = highestLevel;
@@ -173,7 +167,7 @@ public class UserProfile {
 	 * Sets the badges earned by the user.
 	 * 
 	 * @param badgesEarned
-	 *            An ArrayList<String> of the badges earned by the user.
+	 *            The list of badge names that the user has earned.
 	 */
 	public void setBadgesEarned(ArrayList<String> badgesEarned) {
 		this.badgesEarned = badgesEarned;
@@ -183,11 +177,11 @@ public class UserProfile {
 	 * Adds a level high score to the user profile.
 	 * 
 	 * @param level
-	 *            An Integer of the level.
+	 *            An integer of the level.
 	 * @param highScore
-	 *            An Integer of the high score achieved by the user.
+	 *            An integer of the high score achieved by the user.
 	 * @param stars
-	 *            An Integer of the number of stars achieved by the user
+	 *            An integer of the number of stars achieved by the user
 	 *            equivalent to the high score.
 	 */
 	public void addLevelHighScore(int level, int highScore, int stars) {
@@ -198,7 +192,7 @@ public class UserProfile {
 	 * Removes the high score for the specified level.
 	 * 
 	 * @param level
-	 *            An Integer of the level.
+	 *            The level number of the level.
 	 */
 	public void removeLevelHighScore(int level) {
 		for (LevelHighScore lhs : levelHighScores) {
@@ -212,7 +206,7 @@ public class UserProfile {
 	 * Add a badge earned by the user.
 	 * 
 	 * @param badge
-	 *            A String of the badge earned by the user.
+	 *            The name of the badge earned by the user.
 	 */
 	public void addBadgeEarned(String badge) {
 		badgesEarned.add(badge);
@@ -222,8 +216,8 @@ public class UserProfile {
 	 * Removes a badge earned by the user.
 	 * 
 	 * @param badge
-	 *            A String of the badge that is going to be removed from the
-	 *            user's earned list.
+	 *            The name of the badge to be removed from the user's earned
+	 *            list.
 	 */
 	public void removeBadgeEarned(String badge) {
 		for (String str : badgesEarned) {
@@ -236,8 +230,8 @@ public class UserProfile {
 	/**
 	 * Sets the aesthetic of the user's profile.
 	 * 
-	 * @param aesthetic
-	 *            An aesthetic that will be set in the user's profile.
+	 * @param aestheticName
+	 *            The name of the aesthetic to set for the user profile.
 	 */
 	public void setAestheticName(String aestheticName) {
 		this.aestheticName = aestheticName;

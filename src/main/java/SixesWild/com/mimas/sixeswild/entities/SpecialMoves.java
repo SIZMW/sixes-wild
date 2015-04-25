@@ -8,10 +8,10 @@ package SixesWild.com.mimas.sixeswild.entities;
  */
 public class SpecialMoves {
 
-	int resetBoardCount;
-	int swapTileCount;
-	int removeTileCount;
-	int xStacySpecialMoveCount;
+	protected int resetBoardCount;
+	protected int swapTileCount;
+	protected int removeTileCount;
+	protected int xStacySpecialMoveCount;
 
 	/**
 	 * Creates a SpecialMoves instance with 0 as count for all the special move
@@ -34,8 +34,8 @@ public class SpecialMoves {
 	 *            The swap tile count.
 	 * @param removeTileCount
 	 *            The remove tile count.
-	 * @param otherSpecialMoveCount
-	 *            The other special move count.
+	 * @param xStacySpecialMoveCount
+	 *            The xStacy special move count.
 	 */
 	public SpecialMoves(int resetBoardCount, int swapTileCount,
 			int removeTileCount, int xStacySpecialMoveCount) {
@@ -49,7 +49,7 @@ public class SpecialMoves {
 	 * Sets the reset board count.
 	 * 
 	 * @param resetBoardCount
-	 *            The reset board count.
+	 *            The new reset board count.
 	 */
 	public void setResetBoardCount(int resetBoardCount) {
 		this.resetBoardCount = resetBoardCount;
@@ -59,7 +59,7 @@ public class SpecialMoves {
 	 * Sets the swap tile count.
 	 * 
 	 * @param swapTileCount
-	 *            The swap tile count.
+	 *            The new swap tile count.
 	 */
 	public void setSwapTileCount(int swapTileCount) {
 		this.swapTileCount = swapTileCount;
@@ -69,7 +69,7 @@ public class SpecialMoves {
 	 * Sets the remove tile count.
 	 * 
 	 * @param removeTileCount
-	 *            The remove tile count.
+	 *            The new remove tile count.
 	 */
 	public void setRemoveTileCount(int removeTileCount) {
 		this.removeTileCount = removeTileCount;
@@ -79,7 +79,7 @@ public class SpecialMoves {
 	 * Sets the xStacy special move count.
 	 * 
 	 * @param xStacySpecialMoveCount
-	 *            The xStacy special move count.
+	 *            The new xStacy special move count.
 	 */
 	public void setXStacySpecialMoveCount(int xStacySpecialMoveCount) {
 		this.xStacySpecialMoveCount = xStacySpecialMoveCount;
@@ -88,7 +88,7 @@ public class SpecialMoves {
 	/**
 	 * Returns the reset board count.
 	 * 
-	 * @return Integer reset board count
+	 * @return an integer
 	 */
 	public int getResetBoardCount() {
 		return this.resetBoardCount;
@@ -97,7 +97,7 @@ public class SpecialMoves {
 	/**
 	 * Returns the swap tile count.
 	 * 
-	 * @return Integer swap tile count
+	 * @return an integer
 	 */
 	public int getSwapTileCount() {
 		return this.swapTileCount;
@@ -106,7 +106,7 @@ public class SpecialMoves {
 	/**
 	 * Returns the remove tile count.
 	 * 
-	 * @return Integer remove tile count
+	 * @return an integer
 	 */
 	public int getRemoveTileCount() {
 		return this.removeTileCount;
@@ -115,7 +115,7 @@ public class SpecialMoves {
 	/**
 	 * Returns the xStacy special move count.
 	 * 
-	 * @return Integer xStacy special move count
+	 * @return an integer
 	 */
 	public int getXStacySpecialMoveCount() {
 		return this.xStacySpecialMoveCount;

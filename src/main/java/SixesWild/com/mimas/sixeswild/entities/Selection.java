@@ -25,7 +25,7 @@ public class Selection {
 	 * 
 	 * @param square
 	 *            The Square to add to the selection.
-	 * @return true if Square was added; false otherwise.
+	 * @return true if square was added; false otherwise.
 	 */
 	public boolean add(Square square) {
 		if (square == null) {
@@ -40,7 +40,7 @@ public class Selection {
 	 * 
 	 * @param square
 	 *            The Square to remove from the selection.
-	 * @return Result of Set remove method.
+	 * @return true if successful; false otherwise
 	 */
 	public boolean remove(Square square) {
 		return squareSet.remove(square);
@@ -49,13 +49,18 @@ public class Selection {
 	/**
 	 * Clears the entire selection.
 	 * 
-	 * @return true on success; false otherwise.
+	 * @return true if successful
 	 */
 	public boolean clear() {
 		squareSet.clear();
 		return true;
 	}
 
+	/**
+	 * Returns the selection as an array.
+	 * 
+	 * @return an Array
+	 */
 	public Object[] getArray() {
 		return squareSet.toArray();
 	}
@@ -69,7 +74,7 @@ public class Selection {
 	 *            First square to compare.
 	 * @param squareTwo
 	 *            Second square to compare.
-	 * @return true if Squares are next to each other; false otherwise.
+	 * @return true if squares are next to each other; false otherwise.
 	 */
 	protected boolean isSquareNextTo(Square squareOne, Square squareTwo) {
 		return (Math.abs(squareOne.getX() - squareTwo.getX()) == 1 && Math

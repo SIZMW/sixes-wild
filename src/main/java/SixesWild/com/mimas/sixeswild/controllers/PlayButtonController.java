@@ -36,6 +36,8 @@ public class PlayButtonController implements ActionListener {
 	 * 
 	 * @param app
 	 *            The GameApplication currently running.
+	 * @param menuType
+	 *            The menu type for the currently selected game menu.
 	 */
 	public PlayButtonController(GameApplication app, MenuTypes menuType) {
 		this.app = app;

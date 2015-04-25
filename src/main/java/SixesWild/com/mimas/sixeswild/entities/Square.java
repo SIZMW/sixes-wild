@@ -9,11 +9,11 @@ package SixesWild.com.mimas.sixeswild.entities;
  */
 public class Square {
 
-	Tile tile;
-	int xPosition;
-	int yPosition;
-	boolean marked;
-	boolean isSelected;
+	protected Tile tile;
+	protected int xPosition;
+	protected int yPosition;
+	protected boolean marked;
+	protected boolean isSelected;
 
 	/**
 	 * Creates a Square instance with the specified Tile, x and y coordinates,
@@ -26,7 +26,7 @@ public class Square {
 	 * @param y
 	 *            Y position on the board.
 	 * @param marked
-	 *            Marked attribute for "Elimination" game type.
+	 *            The marked attribute.
 	 */
 	public Square(Tile tile, int x, int y, boolean marked) {
 		this.tile = tile;
@@ -39,7 +39,7 @@ public class Square {
 	/**
 	 * Returns the tile in the square.
 	 * 
-	 * @return Tile tile
+	 * @return a Tile
 	 */
 	public Tile getTile() {
 		return this.tile;
@@ -50,9 +50,13 @@ public class Square {
 	 * 
 	 * @param tile
 	 *            The tile to add.
-	 * @return true if the Tile is added.
+	 * @return true if successful; false otherwise
 	 */
 	public boolean addTile(Tile tile) {
+		if (tile == null) {
+			return false;
+		}
+
 		this.tile = tile;
 		return true;
 	}
@@ -60,7 +64,7 @@ public class Square {
 	/**
 	 * Removes the tile from the square.
 	 * 
-	 * @return true if the Tile is removed.
+	 * @return true
 	 */
 	public boolean removeTile() {
 		this.tile = null;
@@ -70,7 +74,7 @@ public class Square {
 	/**
 	 * Returns the x position of this square.
 	 * 
-	 * @return Integer x coordinate
+	 * @return an integer
 	 */
 	public int getX() {
 		return this.xPosition;
@@ -79,7 +83,7 @@ public class Square {
 	/**
 	 * Returns the y position of this square.
 	 * 
-	 * @return Integer y coordinate
+	 * @return an integer
 	 */
 	public int getY() {
 		return this.yPosition;
@@ -88,7 +92,7 @@ public class Square {
 	/**
 	 * Returns the marked attribute of the square.
 	 * 
-	 * @return Boolean marked attribute
+	 * @return the marked attribute
 	 */
 	public boolean getMarked() {
 		return this.marked;
@@ -99,7 +103,7 @@ public class Square {
 	 * 
 	 * @param mark
 	 *            The value of being marked to set for the square.
-	 * @return true if marked attribute is updated.
+	 * @return true
 	 */
 	public boolean setMarked(boolean mark) {
 		this.marked = mark;
@@ -109,7 +113,7 @@ public class Square {
 	/**
 	 * Returns the selected attribute of the square.
 	 * 
-	 * @return Boolean selected attribute
+	 * @return the selected attribute
 	 */
 	public boolean getSelected() {
 		return this.isSelected;
@@ -120,7 +124,7 @@ public class Square {
 	 * 
 	 * @param selected
 	 *            The value of being selected to set for the square.
-	 * @return true if selected attribute is updated.
+	 * @return true
 	 */
 	public boolean setSelected(boolean selected) {
 		this.isSelected = selected;
