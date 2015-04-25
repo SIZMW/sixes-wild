@@ -268,7 +268,7 @@ public class TestBoard extends TestCase {
 		selection.add(this.numberBoard.getSquare(0, 1));
 		selection.add(this.numberBoard.getSquare(0, 2));
 
-		assertTrue(selection.isValidSelection());
+		assertTrue(selection.isSelectionValid());
 		this.numberBoard.removeSelection(selection);
 
 		assertEquals(this.numberBoard.getSquare(0, 0).getTile(), null);
@@ -302,7 +302,7 @@ public class TestBoard extends TestCase {
 		selection.add(this.numberBoard.getSquare(0, 7));
 		selection.add(this.numberBoard.getSquare(0, 6));
 
-		assertTrue(selection.isValidSelection());
+		assertTrue(selection.isSelectionValid());
 		this.numberBoard.removeSelection(selection);
 		this.numberBoard.shiftTilesDownward();
 		this.numberBoard.fillEmptySquares();

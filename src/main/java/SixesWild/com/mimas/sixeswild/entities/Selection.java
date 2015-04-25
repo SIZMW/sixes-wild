@@ -89,7 +89,7 @@ public class Selection {
 	 * 
 	 * @return true if selection is valid; false otherwise.
 	 */
-	public boolean isValidSelection() {
+	public boolean isSelectionValid() {
 
 		// If selection has only one tile
 		if (this.squareSet.size() <= 1) {
@@ -122,7 +122,7 @@ public class Selection {
 			nextTo = false;
 		}
 
-		return this.isValidSumSelection();
+		return this.isSelectionSumValid();
 	}
 
 	/**
@@ -132,7 +132,7 @@ public class Selection {
 	 * 
 	 * @return true if selection is valid; false otherwise.
 	 */
-	public boolean isValidPositionSelection() {
+	public boolean isSelectionStillValid() {
 
 		// If selection has only one tile, allow more to be selected
 		if (this.squareSet.size() <= 1) {
@@ -164,7 +164,7 @@ public class Selection {
 			// Reset boolean
 			nextTo = false;
 		}
-		return true;
+		return this.isSelectionSumStillValid();
 	}
 
 	/**
@@ -173,7 +173,7 @@ public class Selection {
 	 * 
 	 * @return true if sum equals 6; false otherwise.
 	 */
-	protected boolean isValidSumSelection() {
+	protected boolean isSelectionSumValid() {
 		// Check sum of selection of squares
 		int sum = 0;
 		for (Square e : squareSet) {
@@ -200,7 +200,7 @@ public class Selection {
 	 * 
 	 * @return true if sum is less than 6; false otherwise.
 	 */
-	public boolean isSelectionSumStillValid() {
+	protected boolean isSelectionSumStillValid() {
 		// Check sum of selection of squares
 		int sum = 0;
 		for (Square e : squareSet) {

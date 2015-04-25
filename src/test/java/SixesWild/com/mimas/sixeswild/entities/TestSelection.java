@@ -58,19 +58,19 @@ public class TestSelection extends TestCase {
 		selection.add(new Square(new NumberTile(1, 1), 1, 1, false));
 		selection.add(new Square(new NumberTile(2, 1), 2, 1, false));
 		selection.add(new Square(new NumberTile(2, 1), 3, 1, false));
-		assertFalse(selection.isValidSelection());
+		assertFalse(selection.isSelectionValid());
 
 		selection.add(new Square(new NumberTile(1, 1), 4, 1, false));
-		assertTrue(selection.isValidSelection());
+		assertTrue(selection.isSelectionValid());
 
 		selection.remove(new Square(new NumberTile(1, 1), 4, 1, false));
 		selection.add(new Square(new NumberTile(1, 1), 5, 1, false));
-		assertFalse(selection.isValidSelection());
+		assertFalse(selection.isSelectionValid());
 
 		selection.remove(new Square(new NumberTile(1, 1), 5, 1, false));
 		selection.add(new Square(new NullTile(), 4, 1, false));
 
-		assertFalse(selection.isValidSelection());
+		assertFalse(selection.isSelectionValid());
 	}
 
 	/**
@@ -78,7 +78,7 @@ public class TestSelection extends TestCase {
 	 */
 	public void testSingleSquareSelection() {
 		selection.add(new Square(new NumberTile(2, 1), 3, 1, false));
-		assertFalse(selection.isValidSelection());
+		assertFalse(selection.isSelectionValid());
 	}
 
 	/**
@@ -89,11 +89,11 @@ public class TestSelection extends TestCase {
 		selection.add(new Square(new NumberTile(2, 1), 1, 2, false));
 		selection.add(new Square(new NumberTile(2, 1), 1, 3, false));
 		selection.add(new Square(new NumberTile(1, 1), 5, 1, false));
-		assertFalse(selection.isValidSelection());
+		assertFalse(selection.isSelectionValid());
 
 		selection.remove(new Square(new NumberTile(1, 1), 5, 1, false));
 		selection.add(new Square(new NumberTile(2, 1), 2, 1, false));
-		assertFalse(selection.isValidSelection());
+		assertFalse(selection.isSelectionValid());
 	}
 
 	/**
@@ -101,14 +101,14 @@ public class TestSelection extends TestCase {
 	 */
 	public void testValidPositionSelection() {
 		selection.add(new Square(new NumberTile(1, 1), 1, 1, false));
-		assertTrue(selection.isValidPositionSelection());
+		assertTrue(selection.isSelectionStillValid());
 
 		selection.add(new Square(new NumberTile(2, 1), 2, 1, false));
 		selection.add(new Square(new NumberTile(2, 1), 3, 1, false));
-		assertTrue(selection.isValidPositionSelection());
+		assertTrue(selection.isSelectionStillValid());
 
 		selection.add(new Square(new NumberTile(1, 1), 5, 1, false));
-		assertFalse(selection.isValidPositionSelection());
+		assertFalse(selection.isSelectionStillValid());
 	}
 
 	/**

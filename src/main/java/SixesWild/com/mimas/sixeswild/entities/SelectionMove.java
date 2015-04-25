@@ -36,8 +36,7 @@ public class SelectionMove extends GameMove {
 	 */
 	@Override
 	public boolean isStillValidMove(GameApplication app) {
-		return selection.isSelectionSumStillValid()
-				&& selection.isValidPositionSelection();
+		return selection.isSelectionStillValid();
 	}
 
 	/*
@@ -49,7 +48,7 @@ public class SelectionMove extends GameMove {
 	 */
 	@Override
 	public boolean isValidMove(GameApplication app) {
-		return selection.isValidSelection();
+		return selection.isSelectionValid();
 	}
 
 	/*
