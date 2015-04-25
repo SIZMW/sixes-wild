@@ -237,29 +237,46 @@ public class UserProfile {
 		this.aestheticName = aestheticName;
 	}
 
-	// TODO Convert string appending to use StringBuilder for efficiency
 	/*
 	 * (non-Javadoc)
 	 * 
 	 * @see java.lang.Object#toString()
 	 */
 	public String toString() {
-		String str = "";
-		str += "User Name: " + userName + "\n";
-		str += "	Highest Level: " + highestUnlockedLevel + "\n";
-		str += "	Badges Earned:\n";
+		StringBuilder builder = new StringBuilder();
+		builder.append("User Name: ");
+		builder.append(userName);
+		builder.append("\n");
+		builder.append("	Highest Level: ");
+		builder.append(highestUnlockedLevel);
+		builder.append("\n");
+		builder.append("	Badges Earned:\n");
+
 		for (String badge : badgesEarned) {
-			str += "		" + badge + "\n";
+			builder.append("		");
+			builder.append(badge);
+			builder.append("\n");
 		}
-		str += "	Level High Scores:\n";
+
+		builder.append("	Level High Scores:\n");
+
 		for (LevelHighScore lhs : levelHighScores) {
-			str += "		Level: " + lhs.getLevel() + "\n";
-			str += "		  High Score: " + lhs.getHighScore() + "\n";
-			str += "		  Stars: " + lhs.getStars() + "\n";
+			builder.append("		Level: ");
+			builder.append(lhs.getLevel());
+			builder.append("\n");
+
+			builder.append("		  High Score: ");
+			builder.append(lhs.getHighScore());
+			builder.append("\n");
+
+			builder.append("		  Stars: ");
+			builder.append(lhs.getStars());
+			builder.append("\n");
 		}
 
-		str += "	Aesthetic: " + aestheticName;
+		builder.append("	Aesthetic: ");
+		builder.append(aestheticName);
 
-		return str;
+		return builder.toString();
 	}
 }

@@ -48,6 +48,7 @@ public class TestSquare extends TestCase {
 		square.addTile(new NumberTile(2, 1));
 		assertEquals(square.getTile().getNumber(), 2);
 		assertEquals(square.getTile().getMultiplier(), 1);
+		assertFalse(square.addTile(null));
 	}
 
 	/**
