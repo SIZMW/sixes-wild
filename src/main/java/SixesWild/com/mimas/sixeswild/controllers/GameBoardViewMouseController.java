@@ -2,10 +2,9 @@ package SixesWild.com.mimas.sixeswild.controllers;
 
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 import SixesWild.com.mimas.sixeswild.boundaries.GameApplication;
+import SixesWild.com.mimas.sixeswild.entities.SelectionMove;
 
 /**
  * This controller handles mouse presses and releases when selecting tiles on
@@ -14,8 +13,6 @@ import SixesWild.com.mimas.sixeswild.boundaries.GameApplication;
  * @author Aditya Nivarthi
  */
 public class GameBoardViewMouseController extends MouseAdapter {
-
-	private static final Logger logger = Logger.getGlobal();
 
 	protected GameApplication app;
 
@@ -38,16 +35,12 @@ public class GameBoardViewMouseController extends MouseAdapter {
 	public void mousePressed(MouseEvent me) {
 		app.getLevelPanel().getBoardViewPanel()
 				.updateGameSelection(me.getX(), me.getY());
-		if (!app.getLevelPanel().getBoardViewPanel().getCurrentSelection()
-				.isSelectionSumStillValid()
-				|| !app.getLevelPanel().getBoardViewPanel()
-						.getCurrentSelection().isValidPositionSelection()) {
-			this.app.getLevelPanel()
-					.getLevel()
-					.setMoveCount(
-							this.app.getLevelPanel().getLevel().getMoveCount() - 1);
-			app.getLevelPanel().getBoardViewPanel().clearGameSelection();
-		}
+
+		SelectionMove move = new SelectionMove(app.getLevelPanel()
+				.getBoardViewPanel().getCurrentSelection(), this.app
+				.getLevelPanel().getLevel());
+		move.processCurrentMove(this.app);
+
 		app.getLevelPanel().updateLevelStats();
 		app.getLevelPanel().getBoardViewPanel().updateUI();
 	}
@@ -58,25 +51,11 @@ public class GameBoardViewMouseController extends MouseAdapter {
 	 * @see java.awt.event.MouseAdapter#mouseReleased(java.awt.event.MouseEvent)
 	 */
 	public void mouseReleased(MouseEvent me) {
-		if (!app.getLevelPanel().getBoardViewPanel().getCurrentSelection()
-				.isValidSelection()) {
-			this.app.getLevelPanel()
-					.getLevel()
-					.setMoveCount(
-							this.app.getLevelPanel().getLevel().getMoveCount() - 1);
-			app.getLevelPanel().getBoardViewPanel().clearGameSelection();
-		} else {
-			int score = app.getLevelPanel().getBoardViewPanel()
-					.doSelectionMove();
-			this.app.getLevelPanel()
-					.getLevel()
-					.setMoveCount(
-							this.app.getLevelPanel().getLevel().getMoveCount() - 1);
-			app.getLevelPanel().getBoardViewPanel().clearGameSelection();
+		SelectionMove move = new SelectionMove(app.getLevelPanel()
+				.getBoardViewPanel().getCurrentSelection(), this.app
+				.getLevelPanel().getLevel());
+		move.doMove(this.app);
 
-			app.getLevelPanel().updateScore(score);
-			logger.log(Level.INFO, "Selection move score was: " + score);
-		}
 		app.getLevelPanel().updateLevelStats();
 		app.getLevelPanel().getBoardViewPanel().updateUI();
 	}

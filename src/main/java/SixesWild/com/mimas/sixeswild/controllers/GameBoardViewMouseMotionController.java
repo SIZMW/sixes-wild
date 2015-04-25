@@ -4,6 +4,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 import SixesWild.com.mimas.sixeswild.boundaries.GameApplication;
+import SixesWild.com.mimas.sixeswild.entities.SelectionMove;
 
 /**
  * This controller handles mouse dragging when selecting tiles on the Board in
@@ -34,16 +35,12 @@ public class GameBoardViewMouseMotionController extends MouseAdapter {
 	public void mouseDragged(MouseEvent me) {
 		app.getLevelPanel().getBoardViewPanel()
 				.updateGameSelection(me.getX(), me.getY());
-		if (!app.getLevelPanel().getBoardViewPanel().getCurrentSelection()
-				.isSelectionSumStillValid()
-				|| !app.getLevelPanel().getBoardViewPanel()
-						.getCurrentSelection().isValidPositionSelection()) {
-			this.app.getLevelPanel()
-					.getLevel()
-					.setMoveCount(
-							this.app.getLevelPanel().getLevel().getMoveCount() - 1);
-			app.getLevelPanel().getBoardViewPanel().clearGameSelection();
-		}
+
+		SelectionMove move = new SelectionMove(app.getLevelPanel()
+				.getBoardViewPanel().getCurrentSelection(), this.app
+				.getLevelPanel().getLevel());
+		move.processCurrentMove(this.app);
+
 		app.getLevelPanel().updateLevelStats();
 		app.getLevelPanel().getBoardViewPanel().updateUI();
 	}
