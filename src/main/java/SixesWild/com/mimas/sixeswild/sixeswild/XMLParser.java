@@ -431,27 +431,24 @@ public final class XMLParser {
 			int times = 1;
 			for (Double multiplierTileFrequency : level.getBoard()
 					.getMultiplierFrequencies()) {
-				if (times != 1) {
-					Element multiplierTileFrequencyElement = doc
-							.createElement("Multiplier");
+				Element multiplierTileFrequencyElement = doc
+						.createElement("Multiplier");
 
-					Attr multiplierTileFrequencyAttr = doc
-							.createAttribute("frequency");
-					multiplierTileFrequencyAttr.setValue(""
-							+ multiplierTileFrequency);
+				Attr multiplierTileFrequencyAttr = doc
+						.createAttribute("frequency");
+				multiplierTileFrequencyAttr.setValue(""
+						+ multiplierTileFrequency);
 
-					Attr multiplierTileNumberAttr = doc
-							.createAttribute("times");
-					multiplierTileNumberAttr.setValue("" + times);
+				Attr multiplierTileNumberAttr = doc.createAttribute("times");
+				multiplierTileNumberAttr.setValue("" + times);
 
-					multiplierTileFrequencyElement
-							.setAttributeNode(multiplierTileFrequencyAttr);
-					multiplierTileFrequencyElement
-							.setAttributeNode(multiplierTileNumberAttr);
+				multiplierTileFrequencyElement
+						.setAttributeNode(multiplierTileFrequencyAttr);
+				multiplierTileFrequencyElement
+						.setAttributeNode(multiplierTileNumberAttr);
 
-					tileFrequencyElement
-							.appendChild(multiplierTileFrequencyElement);
-				}
+				tileFrequencyElement
+						.appendChild(multiplierTileFrequencyElement);
 				times++;
 			}
 
