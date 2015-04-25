@@ -42,8 +42,13 @@ public class GameBoardViewMouseController extends MouseAdapter {
 				.isSelectionSumStillValid()
 				|| !app.getLevelPanel().getBoardViewPanel()
 						.getCurrentSelection().isValidPositionSelection()) {
+			this.app.getLevelPanel()
+					.getLevel()
+					.setMoveCount(
+							this.app.getLevelPanel().getLevel().getMoveCount() - 1);
 			app.getLevelPanel().getBoardViewPanel().clearGameSelection();
 		}
+		app.getLevelPanel().updateLevelStats();
 		app.getLevelPanel().getBoardViewPanel().updateUI();
 	}
 
@@ -55,14 +60,24 @@ public class GameBoardViewMouseController extends MouseAdapter {
 	public void mouseReleased(MouseEvent me) {
 		if (!app.getLevelPanel().getBoardViewPanel().getCurrentSelection()
 				.isValidSelection()) {
+			this.app.getLevelPanel()
+					.getLevel()
+					.setMoveCount(
+							this.app.getLevelPanel().getLevel().getMoveCount() - 1);
 			app.getLevelPanel().getBoardViewPanel().clearGameSelection();
 		} else {
 			int score = app.getLevelPanel().getBoardViewPanel()
 					.doSelectionMove();
+			this.app.getLevelPanel()
+					.getLevel()
+					.setMoveCount(
+							this.app.getLevelPanel().getLevel().getMoveCount() - 1);
 			app.getLevelPanel().getBoardViewPanel().clearGameSelection();
 
+			app.getLevelPanel().updateScore(score);
 			logger.log(Level.INFO, "Selection move score was: " + score);
 		}
+		app.getLevelPanel().updateLevelStats();
 		app.getLevelPanel().getBoardViewPanel().updateUI();
 	}
 }

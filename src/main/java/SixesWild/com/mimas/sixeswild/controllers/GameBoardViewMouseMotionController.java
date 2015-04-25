@@ -38,8 +38,13 @@ public class GameBoardViewMouseMotionController extends MouseAdapter {
 				.isSelectionSumStillValid()
 				|| !app.getLevelPanel().getBoardViewPanel()
 						.getCurrentSelection().isValidPositionSelection()) {
+			this.app.getLevelPanel()
+					.getLevel()
+					.setMoveCount(
+							this.app.getLevelPanel().getLevel().getMoveCount() - 1);
 			app.getLevelPanel().getBoardViewPanel().clearGameSelection();
 		}
+		app.getLevelPanel().updateLevelStats();
 		app.getLevelPanel().getBoardViewPanel().updateUI();
 	}
 }
