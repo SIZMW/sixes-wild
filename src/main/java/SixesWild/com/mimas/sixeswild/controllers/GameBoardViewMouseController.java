@@ -1,16 +1,13 @@
 package SixesWild.com.mimas.sixeswild.controllers;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import javax.swing.JButton;
 import javax.swing.JDialog;
-import javax.swing.JOptionPane;
-import javax.swing.SwingUtilities;
 
+import SixesWild.com.mimas.sixeswild.boundaries.EndLevelPopUpPane;
 import SixesWild.com.mimas.sixeswild.boundaries.GameApplication;
 import SixesWild.com.mimas.sixeswild.entities.SelectionMove;
 
@@ -23,7 +20,7 @@ import SixesWild.com.mimas.sixeswild.entities.SelectionMove;
 public class GameBoardViewMouseController extends MouseAdapter {
 
 	private static final Logger logger = Logger.getGlobal();
-	
+
 	protected GameApplication app;
 
 	/**
@@ -67,25 +64,14 @@ public class GameBoardViewMouseController extends MouseAdapter {
 		move.doMove(this.app);
 
 		app.getLevelPanel().updateLevelStats();
-		
-		if(this.app.getLevelPanel().getLevel().getMoveCount() <= 0){
-			final JOptionPane optionPane = new JOptionPane();
-		    optionPane.setMessage("Out of Moves");
-		    optionPane.setMessageType(JOptionPane.INFORMATION_MESSAGE);
-		    final JButton okButton = new JButton("OK");
-			okButton.addActionListener(new ExitButtonController(this.app));
-			ActionListener actionListener = new ActionListener() {
-			      public void actionPerformed(ActionEvent actionEvent) {
-			        // Return current text label, instead of argument to method
-			    	  SwingUtilities.getWindowAncestor(okButton).dispose();
-			      }
-			    };
-			    okButton.addActionListener(actionListener);
-		    optionPane.setOptions(new Object[] { okButton });
-		    JDialog dialog = optionPane.createDialog(this.app.getFrame(), "");
-		    dialog.setVisible(true);
-		}
-		else{
+
+		if (this.app.getLevelPanel().getLevel().getMoveCount() <= 0) {
+			JDialog dialog = new EndLevelPopUpPane(this.app).createDialog(
+					this.app.getFrame(), "");
+			dialog.setVisible(true);
+
+			logger.log(Level.INFO, "Level ended. Returning to menu.");
+		} else {
 			app.getLevelPanel().getBoardViewPanel().updateUI();
 		}
 	}
