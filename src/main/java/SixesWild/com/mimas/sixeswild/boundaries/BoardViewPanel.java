@@ -369,7 +369,7 @@ public class BoardViewPanel extends JPanel {
 	 * Executes the selection in the current selection. Removes the tiles and
 	 * fills the empty squares with newly generated tiles.
 	 * 
-	 * @return true when selection move is complete.
+	 * @return true
 	 */
 	public boolean doSelectionMove() {
 		this.gameBoard.removeSelection(this.currentSelection);
@@ -377,6 +377,18 @@ public class BoardViewPanel extends JPanel {
 		this.gameBoard.fillEmptySquares();
 
 		logger.log(Level.INFO, "Selection move processed.");
+		return true;
+	}
+
+	/**
+	 * Executes the reset board move.
+	 * 
+	 * @return true
+	 */
+	public boolean doResetBoardMove() {
+		this.gameBoard.resetBoard();
+
+		logger.log(Level.INFO, "Reset board move processed.");
 		return true;
 	}
 }

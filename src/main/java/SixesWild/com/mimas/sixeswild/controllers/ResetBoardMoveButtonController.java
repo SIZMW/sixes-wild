@@ -38,7 +38,7 @@ public class ResetBoardMoveButtonController implements ActionListener {
 	 */
 	public void actionPerformed(ActionEvent e) {
 		// TODO Decrease the number of reset moves left
-		this.app.getLevelPanel().getBoardViewPanel().getBoard().resetBoard();
+		this.app.getLevelPanel().getBoardViewPanel().doResetBoardMove();
 		this.app.getLevelPanel().updateUI();
 
 		logger.log(Level.INFO,
