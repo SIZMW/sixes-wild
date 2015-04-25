@@ -2,6 +2,8 @@ package SixesWild.com.mimas.sixeswild.controllers;
 
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import SixesWild.com.mimas.sixeswild.boundaries.GameApplication;
 
@@ -12,6 +14,8 @@ import SixesWild.com.mimas.sixeswild.boundaries.GameApplication;
  * @author Aditya Nivarthi
  */
 public class GameBoardViewMouseController extends MouseAdapter {
+
+	private static final Logger logger = Logger.getGlobal();
 
 	protected GameApplication app;
 
@@ -53,8 +57,11 @@ public class GameBoardViewMouseController extends MouseAdapter {
 				.isValidSelection()) {
 			app.getLevelPanel().getBoardViewPanel().clearGameSelection();
 		} else {
-			app.getLevelPanel().getBoardViewPanel().doSelectionMove();
+			int score = app.getLevelPanel().getBoardViewPanel()
+					.doSelectionMove();
 			app.getLevelPanel().getBoardViewPanel().clearGameSelection();
+
+			logger.log(Level.INFO, "Selection move score was: " + score);
 		}
 		app.getLevelPanel().getBoardViewPanel().updateUI();
 	}

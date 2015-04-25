@@ -219,4 +219,22 @@ public class Selection {
 			return true;
 		}
 	}
+
+	/**
+	 * Returns the score that is calculated from this selection. Score is the
+	 * number of tiles in the selection multiplied by the product of all the
+	 * multipliers of each tile.
+	 * 
+	 * @return an integer
+	 */
+	public int getScore() {
+		int score = 0;
+		int multiplier = 1;
+		for (Square e : squareSet) {
+			score += 1;
+			multiplier *= e.getTile().getMultiplier();
+		}
+
+		return score * multiplier;
+	}
 }

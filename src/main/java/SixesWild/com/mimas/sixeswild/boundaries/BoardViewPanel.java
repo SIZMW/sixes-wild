@@ -367,17 +367,19 @@ public class BoardViewPanel extends JPanel {
 
 	/**
 	 * Executes the selection in the current selection. Removes the tiles and
-	 * fills the empty squares with newly generated tiles.
+	 * fills the empty squares with newly generated tiles. Returns the current
+	 * selection's calculated score.
 	 * 
-	 * @return true
+	 * @return an integer
 	 */
-	public boolean doSelectionMove() {
+	public int doSelectionMove() {
+		int score = this.currentSelection.getScore();
 		this.gameBoard.removeSelection(this.currentSelection);
 		this.gameBoard.shiftTilesDownward();
 		this.gameBoard.fillEmptySquares();
 
 		logger.log(Level.INFO, "Selection move processed.");
-		return true;
+		return score;
 	}
 
 	/**

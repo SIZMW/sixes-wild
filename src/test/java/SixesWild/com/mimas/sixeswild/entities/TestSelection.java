@@ -102,12 +102,23 @@ public class TestSelection extends TestCase {
 	public void testValidPositionSelection() {
 		selection.add(new Square(new NumberTile(1, 1), 1, 1, false));
 		assertTrue(selection.isValidPositionSelection());
-		
+
 		selection.add(new Square(new NumberTile(2, 1), 2, 1, false));
 		selection.add(new Square(new NumberTile(2, 1), 3, 1, false));
 		assertTrue(selection.isValidPositionSelection());
 
 		selection.add(new Square(new NumberTile(1, 1), 5, 1, false));
 		assertFalse(selection.isValidPositionSelection());
+	}
+
+	/**
+	 * Tests the score of the selection.
+	 */
+	public void testSelectionScore() {
+		selection.add(new Square(new NumberTile(2, 1), 1, 1, false));
+		selection.add(new Square(new NumberTile(2, 3), 1, 2, false));
+		selection.add(new Square(new NumberTile(2, 1), 1, 3, false));
+
+		assertEquals(selection.getScore(), 9);
 	}
 }
