@@ -286,4 +286,32 @@ public class LevelView extends JPanel {
 		but there should be the number of moves indicated
 		on each special move button */
 	}
+	
+	/**
+	 * This returns the current score.
+	 * 
+	 * @return the score attribute
+	 */
+	public int getScore(){
+		return this.currentScore;
+	}
+	
+	/**
+	 * Sets the Score to the new Score Value.
+	 * 
+	 * @param newScore
+	 */
+	public void setScore(int newScore){
+		this.currentScore = newScore;
+	}
+	
+	
+	/**
+	 * This adds the delta value to the currentScore.
+	 * 
+	 * @param delta
+	 */
+	public void updateScore(int delta){
+		this.currentScore += delta;
+	}
 }
