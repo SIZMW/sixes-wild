@@ -243,7 +243,8 @@ public class TestBoard extends TestCase {
 			for (int j = 0; j < 9; j++) {
 				for (int k = 0; k < numberBoard.SIZE_X; k++) {
 					for (int l = 0; l < numberBoard.SIZE_Y; l++) {
-						if (oldSquare[i][j].equals(numberBoard.getSquare(k, l))) {
+						if (oldSquare[i][j].getTile().equals(
+								numberBoard.getSquare(k, l).getTile())) {
 							allExist = true;
 						}
 					}

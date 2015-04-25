@@ -274,33 +274,34 @@ public class Board {
 	}
 
 	/**
-	 * Resets the board. Gets all the current squares on the board, shuffles the
-	 * list and replaces the squares on the board.
+	 * Resets the board. Gets all the current number tiles on the board,
+	 * shuffles the list and replaces the tiles on the board.
 	 * 
 	 * @return true
 	 */
 	public boolean resetBoard() {
-		ArrayList<Square> squaresList = new ArrayList<Square>();
+		ArrayList<Tile> tileList = new ArrayList<Tile>();
 
 		// Save all the number tiles to list
 		for (int i = 0; i < SIZE_X; i++) {
 			for (int j = 0; j < SIZE_Y; j++) {
 				if (squares[i][j].getTile().getType().equals(TileType.NUMBER)) {
-					squaresList.add(squares[i][j]);
+					tileList.add(squares[i][j].getTile());
+					squares[i][j].removeTile();
 				}
 			}
 		}
 
 		// Shuffle the list of tiles
 		long seed = System.nanoTime();
-		Collections.shuffle(squaresList, new Random(seed));
-		Iterator<Square> squareIterator = squaresList.iterator();
+		Collections.shuffle(tileList, new Random(seed));
+		Iterator<Tile> tileIterator = tileList.iterator();
 
 		// Replace the number tiles with the shuffled list of number tiles
 		for (int i = 0; i < SIZE_X; i++) {
 			for (int j = 0; j < SIZE_Y; j++) {
-				if (squares[i][j].getTile().getType().equals(TileType.NUMBER)) {
-					squares[i][j] = squareIterator.next();
+				if (squares[i][j].getTile() == null) {
+					squares[i][j].addTile(tileIterator.next());
 				}
 			}
 		}
