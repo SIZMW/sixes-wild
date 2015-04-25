@@ -9,6 +9,7 @@
 <Tile frequency="0.01" number="4"/>
 <Tile frequency="0.01" number="5"/>
 <Tile frequency="0.01" number="6"/>
+<Multiplier frequency="0.6" times="1"/>
 <Multiplier frequency="0.2" times="2"/>
 <Multiplier frequency="0.2" times="3"/>
 </TileFrequency>

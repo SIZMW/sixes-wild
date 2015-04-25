@@ -9,13 +9,14 @@
 	<!-- Frequencies of tiles and multipliers -->
 	<TileFrequency>
 	
-		<Tile number="1" frequency="5.2"></Tile>
-		<Tile number="2" frequency="3.2"></Tile>
-		<Tile number="3" frequency="3.5"></Tile>
-		<Tile number="4" frequency="6.7"></Tile>
-		<Tile number="5" frequency="8.23"></Tile>
-		<Tile number="6" frequency="73.17"></Tile>
+		<Tile number="1" frequency=".052"></Tile>
+		<Tile number="2" frequency=".032"></Tile>
+		<Tile number="3" frequency=".035"></Tile>
+		<Tile number="4" frequency=".067"></Tile>
+		<Tile number="5" frequency=".0823"></Tile>
+		<Tile number="6" frequency=".7317"></Tile>
 		
+		<Multiplier times="1" frequency="33.4"></Multiplier>
 		<Multiplier times="2" frequency="35.3"></Multiplier>
 		<Multiplier times="3" frequency="31.3"></Multiplier>
 		

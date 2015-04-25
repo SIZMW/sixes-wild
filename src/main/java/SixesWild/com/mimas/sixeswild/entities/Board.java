@@ -150,53 +150,42 @@ public class Board {
 	}
 
 	/**
-	 * Initializes the board using frequencies for the game.
+	 * Initializes the board using frequencies for the game. If frequencies are
+	 * invalid, creates generic frequencies and uses them to populate the board.
 	 * 
 	 * @return true
 	 */
 	protected boolean initialize() {
 		// TileFrequencies and MultiplierFrequencies have not been initialized
-		// properly
-		if ((this.tileFrequencies == null && this.multiplierFrequencies == null)
-				|| (this.tileFrequencies.size() < 3 || this.multiplierFrequencies
-						.size() < 3)) {
+		if (this.tileFrequencies == null || this.tileFrequencies.size() < 6) {
 			this.tileFrequencies = new ArrayList<Double>(Arrays.asList(.1, .2,
 					.3, .3, .05, .05));
+		}
+
+		if (this.multiplierFrequencies == null
+				|| this.multiplierFrequencies.size() < 3) {
 			this.multiplierFrequencies = new ArrayList<Double>(Arrays.asList(
 					.5, .25, .35));
+		}
 
-			for (int i = 0; i < SIZE_X; i++) {
-				for (int j = 0; j < SIZE_Y; j++) {
-					if (squares[i][j].getTile().getType()
-							.equals(TileType.NUMBER)) {
-						squares[i][j] = new Square(new NumberTile(
-								this.getNumber(), this.getMultiplier()), i, j,
-								false);
-					}
+		// TileFrequencies and MultiplierFrequencies have been initialized
+		for (int i = 0; i < SIZE_X; i++) {
+			for (int j = 0; j < SIZE_Y; j++) {
+				if (squares[i][j].getTile().getType().equals(TileType.NUMBER)) {
+					squares[i][j] = new Square(new NumberTile(this.getNumber(),
+							this.getMultiplier()), i, j, false);
+				} else if (squares[i][j].getTile().getType()
+						.equals(TileType.NULL)) {
+					squares[i][j] = new Square(new NullTile(), i, j, false);
+				} else if (squares[i][j].getTile().getType()
+						.equals(TileType.TARGET)) {
+					squares[i][j] = new Square(new TargetTile(), i, j, false);
+				} else if (squares[i][j].getTile().getType()
+						.equals(TileType.SIX)) {
+					squares[i][j] = new Square(new SixTile(), i, j, false);
 				}
 			}
-		} else { // TileFrequencies and MultiplierFrequencies have been
-					// initialized
-			for (int i = 0; i < SIZE_X; i++) {
-				for (int j = 0; j < SIZE_Y; j++) {
-					if (squares[i][j].getTile().getType()
-							.equals(TileType.NUMBER)) {
-						squares[i][j] = new Square(new NumberTile(
-								this.getNumber(), this.getMultiplier()), i, j,
-								false);
-					} else if (squares[i][j].getTile().getType()
-							.equals(TileType.NULL)) {
-						squares[i][j] = new Square(new NullTile(), i, j, false);
-					} else if (squares[i][j].getTile().getType()
-							.equals(TileType.TARGET)) {
-						squares[i][j] = new Square(new TargetTile(), i, j,
-								false);
-					} else if (squares[i][j].getTile().getType()
-							.equals(TileType.SIX)) {
-						squares[i][j] = new Square(new SixTile(), i, j, false);
-					}
-				}
-			}
+
 		}
 
 		return true;
