@@ -12,7 +12,8 @@ import SixesWild.com.mimas.sixeswild.boundaries.BuilderApplication;
  * @author Aditya Nivarthi
  */
 public class SpecialMoveOneDecreaseButtonController implements ActionListener {
-	BuilderApplication app;
+
+	protected BuilderApplication app;
 
 	/**
 	 * Creates a SpecialMoveOneDecreaseButtonController with the specified

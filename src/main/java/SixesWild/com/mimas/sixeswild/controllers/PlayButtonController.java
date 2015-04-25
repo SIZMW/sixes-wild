@@ -26,8 +26,9 @@ import SixesWild.com.mimas.sixeswild.sixeswild.XMLParser;
 public class PlayButtonController implements ActionListener {
 
 	private static final Logger logger = Logger.getGlobal();
-	GameApplication app;
-	MenuTypes menuType;
+
+	protected GameApplication app;
+	protected MenuTypes menuType;
 
 	/**
 	 * Creates a PlayButtonController instance with the specified
@@ -72,13 +73,13 @@ public class PlayButtonController implements ActionListener {
 		Level newLevel;
 
 		if (menuType.equals(MenuTypes.STORY)) {
-			levelNumber = app.getGameMenuView().getStoryMenuView().getLevelList()
-					.getSelectedIndex() + 1;
+			levelNumber = app.getGameMenuView().getStoryMenuView()
+					.getLevelList().getSelectedIndex() + 1;
 			newLevel = XMLParser.fileToLevel(XMLParser.STORY_DIR
 					+ Integer.toString(levelNumber) + ".xml");
 		} else {
-			levelNumber = app.getGameMenuView().getUserMenuView().getLevelList()
-					.getSelectedIndex() + 1;
+			levelNumber = app.getGameMenuView().getUserMenuView()
+					.getLevelList().getSelectedIndex() + 1;
 			newLevel = XMLParser.fileToLevel(XMLParser.USER_DIR
 					+ Integer.toString(levelNumber) + ".xml");
 		}

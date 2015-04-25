@@ -19,7 +19,8 @@ import SixesWild.com.mimas.sixeswild.boundaries.GameApplication;
  * @author Joey Perez
  */
 public class GameSplashScreenController extends KeyAdapter {
-	GameApplication app;
+
+	protected GameApplication app;
 
 	/**
 	 * Creates a GameSplashScreenController with the specified GameApplication.

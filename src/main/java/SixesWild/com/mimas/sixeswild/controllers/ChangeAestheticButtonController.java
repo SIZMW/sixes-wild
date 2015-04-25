@@ -13,7 +13,7 @@ import SixesWild.com.mimas.sixeswild.boundaries.GameApplication;
  */
 public class ChangeAestheticButtonController implements ActionListener {
 
-	GameApplication app;
+	protected GameApplication app;
 
 	/**
 	 * Creates a ChangeAestheticButtonController instance with the specified

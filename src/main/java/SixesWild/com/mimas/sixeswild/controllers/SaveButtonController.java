@@ -27,7 +27,8 @@ import SixesWild.com.mimas.sixeswild.sixeswild.XMLParser;
 public class SaveButtonController implements ActionListener {
 
 	private static final Logger logger = Logger.getGlobal();
-	BuilderApplication app;
+
+	protected BuilderApplication app;
 
 	/**
 	 * Creates a SaveButtonController instance with the specified

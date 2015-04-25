@@ -2,7 +2,6 @@ package SixesWild.com.mimas.sixeswild.controllers;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
 
 import SixesWild.com.mimas.sixeswild.boundaries.GameApplication;
 
@@ -13,8 +12,8 @@ import SixesWild.com.mimas.sixeswild.boundaries.GameApplication;
  * @author Marco Duran
  */
 public class BadgesListPanelController implements ActionListener {
-	GameApplication app;
-	ArrayList<String> badgeList;
+
+	protected GameApplication app;
 
 	/**
 	 * Creates a BadgesListPanelController instance with the specified
@@ -25,7 +24,6 @@ public class BadgesListPanelController implements ActionListener {
 	 */
 	public BadgesListPanelController(GameApplication app) {
 		this.app = app;
-		badgeList = new ArrayList<String>();
 	}
 
 	/*
@@ -35,8 +33,6 @@ public class BadgesListPanelController implements ActionListener {
 	 * java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
 	 */
 	public void actionPerformed(ActionEvent e) {
-		for (int i = 0; i < 50; i++) {
-			// TODO insert images of badges with descriptions
-		}
+		// TODO insert images of badges with descriptions
 	}
 }

@@ -22,7 +22,8 @@ import SixesWild.com.mimas.sixeswild.boundaries.BuilderApplication;
  * @author Joey Perez
  */
 public class BuilderSplashScreenController extends KeyAdapter {
-	BuilderApplication app;
+
+	protected BuilderApplication app;
 
 	/**
 	 * Creates a GameSplashScreenController with the specified

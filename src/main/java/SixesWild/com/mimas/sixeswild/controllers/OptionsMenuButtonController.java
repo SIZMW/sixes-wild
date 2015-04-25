@@ -21,7 +21,8 @@ import SixesWild.com.mimas.sixeswild.boundaries.GameApplication;
 public class OptionsMenuButtonController implements ActionListener {
 
 	private static final Logger logger = Logger.getGlobal();
-	GameApplication app;
+
+	protected GameApplication app;
 
 	/**
 	 * Creates a OptionsMenuButtonController instance with the specified
@@ -61,8 +62,8 @@ public class OptionsMenuButtonController implements ActionListener {
 		this.setUpControllers();
 
 		// Add panel to view
-		currentPanel
-				.add(this.app.getGameMenuView().getOptionsMenuView(), gbc_list);
+		currentPanel.add(this.app.getGameMenuView().getOptionsMenuView(),
+				gbc_list);
 		currentPanel.updateUI();
 
 		logger.log(Level.FINE, "Options menu requested and displayed.");

@@ -14,7 +14,7 @@ import SixesWild.com.mimas.sixeswild.entities.TileType;
  */
 public class BuilderBoardViewMouseController extends MouseAdapter {
 
-	BuilderApplication app;
+	protected BuilderApplication app;
 
 	/**
 	 * Creates a BuilderBoardViewMouseController instance with the specified

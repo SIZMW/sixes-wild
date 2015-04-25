@@ -19,9 +19,10 @@ import SixesWild.com.mimas.sixeswild.boundaries.GameApplication;
  * @author Aditya Nivarthi
  */
 public class BadgesMenuButtonController implements ActionListener {
-	
+
 	private static final Logger logger = Logger.getGlobal();
-	GameApplication app;
+	
+	protected GameApplication app;
 
 	/**
 	 * Creates a BadgesMenuButtonController instance with the specified
@@ -61,7 +62,7 @@ public class BadgesMenuButtonController implements ActionListener {
 		// Add panel to view
 		currPanel.add(this.app.getGameMenuView().getBadgeMenuView(), gbc_list);
 		currPanel.updateUI();
-		
+
 		logger.log(Level.FINE, "Badges menu requested and displayed.");
 	}
 }

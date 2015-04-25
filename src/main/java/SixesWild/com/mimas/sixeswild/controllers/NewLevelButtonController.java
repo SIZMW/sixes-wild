@@ -29,11 +29,12 @@ import SixesWild.com.mimas.sixeswild.entities.Tile;
 public class NewLevelButtonController implements ActionListener {
 
 	private static final Logger logger = Logger.getGlobal();
-	BuilderApplication app;
-	Board nullBoard;
-	Tile nullTiles[][];
-	ArrayList<Double> tileFreq;
-	ArrayList<Double> multFreq;
+
+	protected BuilderApplication app;
+	protected Board nullBoard;
+	protected Tile nullTiles[][];
+	protected ArrayList<Double> tileFreq;
+	protected ArrayList<Double> multFreq;
 
 	/**
 	 * Creates a NewLevelButtonController instance with the specified
@@ -72,24 +73,23 @@ public class NewLevelButtonController implements ActionListener {
 		gbc_list.gridx = 0;
 		gbc_list.gridy = 0;
 
-		//Populates a null board
-				nullTiles = new Tile[9][9];
-				for(int i = 0; i < 9; i++){
-					for(int j = 0; j < 9; j++){
-						nullTiles[i][j] = new NullTile();
-					}
-				}
-				//Creates tile frequencies
-				tileFreq = new ArrayList<Double>(Arrays.asList(.1, .2, .3, .3,
-						.05, .05));
-				//creates multiplier frequencies
-				multFreq = new ArrayList<Double>(Arrays.asList(.5, .25,
-						.25));
-				try {
-					nullBoard = new Board(nullTiles, tileFreq, multFreq);
-				} catch (Exception exc){
-				}
-		
+		// Populates a null board
+		nullTiles = new Tile[9][9];
+		for (int i = 0; i < 9; i++) {
+			for (int j = 0; j < 9; j++) {
+				nullTiles[i][j] = new NullTile();
+			}
+		}
+		// Creates tile frequencies
+		tileFreq = new ArrayList<Double>(
+				Arrays.asList(.1, .2, .3, .3, .05, .05));
+		// creates multiplier frequencies
+		multFreq = new ArrayList<Double>(Arrays.asList(.5, .25, .25));
+		try {
+			nullBoard = new Board(nullTiles, tileFreq, multFreq);
+		} catch (Exception exc) {
+		}
+
 		// Add panel to view
 		this.app.getBuilderView().updateBoardViewPanel(
 				new BoardViewPanel(nullBoard, app.getAesthetic()));

@@ -15,7 +15,8 @@ import SixesWild.com.mimas.sixeswild.boundaries.GameApplication;
 public class SwitchUserButtonController implements ActionListener {
 
 	private static final Logger logger = Logger.getGlobal();
-	GameApplication app;
+
+	protected GameApplication app;
 
 	/**
 	 * Creates a SwitchUserButtonController instance with the specified

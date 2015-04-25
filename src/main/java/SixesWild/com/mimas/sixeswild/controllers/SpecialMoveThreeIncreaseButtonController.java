@@ -12,7 +12,8 @@ import SixesWild.com.mimas.sixeswild.boundaries.BuilderApplication;
  * @author Aditya Nivarthi
  */
 public class SpecialMoveThreeIncreaseButtonController implements ActionListener {
-	BuilderApplication app;
+
+	protected BuilderApplication app;
 
 	/**
 	 * Creates a SpecialMoveThreeIncreaseButtonController with the specified

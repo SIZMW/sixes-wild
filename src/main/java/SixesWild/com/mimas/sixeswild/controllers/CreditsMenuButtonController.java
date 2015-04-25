@@ -22,9 +22,10 @@ import SixesWild.com.mimas.sixeswild.boundaries.GameApplication;
  * @author Joey Perez
  */
 public class CreditsMenuButtonController implements ActionListener {
-	
+
 	private static final Logger logger = Logger.getGlobal();
-	GameApplication app;
+	
+	protected GameApplication app;
 
 	/**
 	 * Creates a CreditsMenuButtonController instance with the specified
@@ -62,10 +63,10 @@ public class CreditsMenuButtonController implements ActionListener {
 		gbc_list.gridy = 0;
 
 		// Add panel to view
-		currentPanel
-				.add(this.app.getGameMenuView().getCreditsMenuView(), gbc_list);
+		currentPanel.add(this.app.getGameMenuView().getCreditsMenuView(),
+				gbc_list);
 		currentPanel.updateUI();
-		
+
 		logger.log(Level.FINE, "Credits menu requested and displayed.");
 	}
 }

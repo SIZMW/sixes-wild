@@ -13,7 +13,7 @@ import SixesWild.com.mimas.sixeswild.boundaries.GameApplication;
  */
 public class GameBoardViewMouseController extends MouseAdapter {
 
-	GameApplication app;
+	protected GameApplication app;
 
 	/**
 	 * Creates a GameBoardViewMouseController instance with the specified

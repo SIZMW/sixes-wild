@@ -17,7 +17,8 @@ import SixesWild.com.mimas.sixeswild.sixeswild.XMLParser;
 public class BuilderDeleteUserLevelButtonController implements ActionListener {
 
 	private static final Logger logger = Logger.getGlobal();
-	BuilderApplication app;
+	
+	protected BuilderApplication app;
 
 	/**
 	 * Creates a BuilderDeleteUserLevelButtonController instance with the

@@ -21,9 +21,10 @@ import SixesWild.com.mimas.sixeswild.boundaries.GameApplication;
  * @author Cameron Jones
  */
 public class ExitButtonController implements ActionListener {
-	
+
 	private static final Logger logger = Logger.getGlobal();
-	GameApplication app;
+	
+	protected GameApplication app;
 
 	/**
 	 * Creates an ExitButtonController instance with the specified
@@ -67,7 +68,7 @@ public class ExitButtonController implements ActionListener {
 		contentContainer.add(currentPanel);
 		contentContainer.revalidate();
 		contentContainer.repaint();
-		
+
 		logger.log(Level.FINE, "Exited level.");
 	}
 }
