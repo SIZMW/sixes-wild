@@ -10,6 +10,7 @@ import javax.swing.JDialog;
 import SixesWild.com.mimas.sixeswild.boundaries.EndLevelPopUpPane;
 import SixesWild.com.mimas.sixeswild.boundaries.GameApplication;
 import SixesWild.com.mimas.sixeswild.entities.MoveType;
+import SixesWild.com.mimas.sixeswild.entities.RemoveTileMove;
 import SixesWild.com.mimas.sixeswild.entities.SelectionMove;
 import SixesWild.com.mimas.sixeswild.entities.SwapMove;
 
@@ -55,6 +56,12 @@ public class GameBoardViewMouseController extends MouseAdapter {
 					.getBoardViewPanel().getCurrentSelection(), this.app
 					.getLevelPanel().getLevel());
 			move.processCurrentMove(app);
+		} else if (this.app.getLevelPanel().getMoveType()
+				.equals(MoveType.REMOVE)) {
+			RemoveTileMove move = new RemoveTileMove(app.getLevelPanel()
+					.getBoardViewPanel().getCurrentSelection(), this.app
+					.getLevelPanel().getLevel());
+			move.processCurrentMove(app);
 		}
 
 		app.getLevelPanel().updateLevelStats();
@@ -75,6 +82,15 @@ public class GameBoardViewMouseController extends MouseAdapter {
 			move.doMove(this.app);
 		} else if (this.app.getLevelPanel().getMoveType().equals(MoveType.SWAP)) {
 			SwapMove move = new SwapMove(app.getLevelPanel()
+					.getBoardViewPanel().getCurrentSelection(), this.app
+					.getLevelPanel().getLevel());
+			if (move.isValidMove(app)) {
+				move.doMove(app);
+				this.app.getLevelPanel().setMoveType(MoveType.SELECTION);
+			}
+		} else if (this.app.getLevelPanel().getMoveType()
+				.equals(MoveType.REMOVE)) {
+			RemoveTileMove move = new RemoveTileMove(app.getLevelPanel()
 					.getBoardViewPanel().getCurrentSelection(), this.app
 					.getLevelPanel().getLevel());
 			if (move.isValidMove(app)) {

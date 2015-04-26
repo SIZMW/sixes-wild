@@ -405,4 +405,18 @@ public class BoardViewPanel extends JPanel {
 		logger.log(Level.INFO, "Swap tile move processed.");
 		return true;
 	}
+
+	/**
+	 * Executes the remove tile move.
+	 * 
+	 * @return true
+	 */
+	public boolean doRemoveTileMove() {
+		this.gameBoard.removeSelection(this.currentSelection);
+		this.gameBoard.shiftTilesDownward();
+		this.gameBoard.fillEmptySquares();
+
+		logger.log(Level.INFO, "Remove tile move processed.");
+		return true;
+	}
 }

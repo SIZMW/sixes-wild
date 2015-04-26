@@ -123,6 +123,8 @@ public class PlayButtonController implements ActionListener {
 				.addActionListener(new ResetBoardMoveButtonController(app));
 		app.getLevelPanel().getTopMenuPanel().getSwapTileButton()
 				.addActionListener(new SwapTileMoveButtonController(app));
+		app.getLevelPanel().getTopMenuPanel().getRemoveTileButton()
+				.addActionListener(new RemoveTileMoveButtonController(app));
 
 		logger.log(Level.FINE, "Level view controllers initialized.");
 	}
