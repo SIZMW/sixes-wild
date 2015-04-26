@@ -10,7 +10,7 @@ import java.util.Random;
  * Board is the playing area that stores squares and tiles. It represents the
  * area where moves are made, validated, processed and executed. It handles
  * regeneration of new tiles based on frequencies and probabilities.
- * 
+ *
  * @author Aditya Nivarthi
  */
 public class Board {
@@ -27,7 +27,7 @@ public class Board {
 	 * null multiplier frequencies, and randomly initializes the board.
 	 */
 	public Board() {
-		this.squares = new Square[SIZE_X][SIZE_Y];
+		this.squares = new Square[this.SIZE_X][this.SIZE_Y];
 		this.multiplierFrequencies = null;
 		this.tileFrequencies = null;
 
@@ -37,7 +37,7 @@ public class Board {
 	/**
 	 * Creates a Board instance with populated squares, the specified tile
 	 * frequencies and the specified multiplier frequencies.
-	 * 
+	 *
 	 * @param tiles
 	 *            List of tiles to populate the board.
 	 * @param tileFrequencies
@@ -52,7 +52,7 @@ public class Board {
 			ArrayList<Double> multiplierFrequencies) throws Exception {
 		this.tileFrequencies = tileFrequencies;
 		this.multiplierFrequencies = multiplierFrequencies;
-		this.squares = new Square[SIZE_X][SIZE_Y];
+		this.squares = new Square[this.SIZE_X][this.SIZE_Y];
 
 		if (tiles == null) {
 			throw new Exception("Null tile list for board construction.");
@@ -81,7 +81,7 @@ public class Board {
 	 * Generates a random value from 0 up to 100 and determines the number based
 	 * on the value's location in the generated ranges. The ranges are
 	 * determined by the frequencies of the tiles.
-	 * 
+	 *
 	 * @return an integer from 1 to 6.
 	 */
 	protected int getNumber() {
@@ -113,7 +113,7 @@ public class Board {
 	 * Generates a random value from 0 up to 100 and determines the number based
 	 * on the value's location in the generated ranges. The ranges are
 	 * determined by the frequencies of the multipliers.
-	 * 
+	 *
 	 * @return an integer from 1 to 3.
 	 */
 	protected int getMultiplier() {
@@ -133,7 +133,7 @@ public class Board {
 
 	/**
 	 * Generates a random number for a number tile for random board generation.
-	 * 
+	 *
 	 * @return an integer from 1 to 6.
 	 */
 	public int getRandomNumber() {
@@ -142,7 +142,7 @@ public class Board {
 
 	/**
 	 * Generates a random number for a multiplier for random board generation.
-	 * 
+	 *
 	 * @return an integer from 1 to 3.
 	 */
 	public int getRandomMultiplier() {
@@ -152,7 +152,7 @@ public class Board {
 	/**
 	 * Initializes the board using frequencies for the game. If frequencies are
 	 * invalid, creates generic frequencies and uses them to populate the board.
-	 * 
+	 *
 	 * @return true
 	 */
 	protected boolean initialize() {
@@ -169,20 +169,23 @@ public class Board {
 		}
 
 		// TileFrequencies and MultiplierFrequencies have been initialized
-		for (int i = 0; i < SIZE_X; i++) {
-			for (int j = 0; j < SIZE_Y; j++) {
-				if (squares[i][j].getTile().getType().equals(TileType.NUMBER)) {
-					squares[i][j] = new Square(new NumberTile(this.getNumber(),
-							this.getMultiplier()), i, j, false);
-				} else if (squares[i][j].getTile().getType()
+		for (int i = 0; i < this.SIZE_X; i++) {
+			for (int j = 0; j < this.SIZE_Y; j++) {
+				if (this.squares[i][j].getTile().getType()
+						.equals(TileType.NUMBER)) {
+					this.squares[i][j] = new Square(new NumberTile(
+							this.getNumber(), this.getMultiplier()), i, j,
+							false);
+				} else if (this.squares[i][j].getTile().getType()
 						.equals(TileType.NULL)) {
-					squares[i][j] = new Square(new NullTile(), i, j, false);
-				} else if (squares[i][j].getTile().getType()
+					this.squares[i][j] = new Square(new NullTile(), i, j, false);
+				} else if (this.squares[i][j].getTile().getType()
 						.equals(TileType.TARGET)) {
-					squares[i][j] = new Square(new TargetTile(), i, j, false);
-				} else if (squares[i][j].getTile().getType()
+					this.squares[i][j] = new Square(new TargetTile(), i, j,
+							false);
+				} else if (this.squares[i][j].getTile().getType()
 						.equals(TileType.SIX)) {
-					squares[i][j] = new Square(new SixTile(), i, j, false);
+					this.squares[i][j] = new Square(new SixTile(), i, j, false);
 				}
 			}
 
@@ -193,13 +196,13 @@ public class Board {
 
 	/**
 	 * Initializes the board for the game. TODO Will be removed.
-	 * 
+	 *
 	 * @return true
 	 */
 	public boolean randomInitialize() {
-		for (int i = 0; i < SIZE_X; i++) {
-			for (int j = 0; j < SIZE_Y; j++) {
-				squares[i][j] = new Square(new NumberTile(
+		for (int i = 0; i < this.SIZE_X; i++) {
+			for (int j = 0; j < this.SIZE_Y; j++) {
+				this.squares[i][j] = new Square(new NumberTile(
 						this.getRandomNumber(), 1), i, j, false);
 			}
 		}
@@ -209,7 +212,7 @@ public class Board {
 	/**
 	 * Sets the square in the x, y location with the given Tile and marked
 	 * attributes.
-	 * 
+	 *
 	 * @param tile
 	 *            The tile to set.
 	 * @param x
@@ -233,7 +236,7 @@ public class Board {
 
 	/**
 	 * Returns the square at the x and y location.
-	 * 
+	 *
 	 * @param x
 	 *            The x coordinate.
 	 * @param y
@@ -241,12 +244,12 @@ public class Board {
 	 * @return a Square
 	 */
 	public Square getSquare(int x, int y) {
-		return squares[x][y];
+		return this.squares[x][y];
 	}
 
 	/**
 	 * Returns the tile frequencies for the board.
-	 * 
+	 *
 	 * @return the tileFrequencies property
 	 */
 	public ArrayList<Double> getTileFrequencies() {
@@ -255,7 +258,7 @@ public class Board {
 
 	/**
 	 * Returns the multiplier frequencies for the board.
-	 * 
+	 *
 	 * @return the multiplierFrequencies property
 	 */
 	public ArrayList<Double> getMultiplierFrequencies() {
@@ -265,18 +268,19 @@ public class Board {
 	/**
 	 * Resets the board. Gets all the current number tiles on the board,
 	 * shuffles the list and replaces the tiles on the board.
-	 * 
+	 *
 	 * @return true
 	 */
 	public boolean resetBoard() {
 		ArrayList<Tile> tileList = new ArrayList<Tile>();
 
 		// Save all the number tiles to list
-		for (int i = 0; i < SIZE_X; i++) {
-			for (int j = 0; j < SIZE_Y; j++) {
-				if (squares[i][j].getTile().getType().equals(TileType.NUMBER)) {
-					tileList.add(squares[i][j].getTile());
-					squares[i][j].removeTile();
+		for (int i = 0; i < this.SIZE_X; i++) {
+			for (int j = 0; j < this.SIZE_Y; j++) {
+				if (this.squares[i][j].getTile().getType()
+						.equals(TileType.NUMBER)) {
+					tileList.add(this.squares[i][j].getTile());
+					this.squares[i][j].removeTile();
 				}
 			}
 		}
@@ -287,10 +291,10 @@ public class Board {
 		Iterator<Tile> tileIterator = tileList.iterator();
 
 		// Replace the number tiles with the shuffled list of number tiles
-		for (int i = 0; i < SIZE_X; i++) {
-			for (int j = 0; j < SIZE_Y; j++) {
-				if (squares[i][j].getTile() == null) {
-					squares[i][j].addTile(tileIterator.next());
+		for (int i = 0; i < this.SIZE_X; i++) {
+			for (int j = 0; j < this.SIZE_Y; j++) {
+				if (this.squares[i][j].getTile() == null) {
+					this.squares[i][j].addTile(tileIterator.next());
 				}
 			}
 		}
@@ -301,7 +305,7 @@ public class Board {
 	/**
 	 * Gets the next non empty Square above a given board position. Recursively
 	 * finds Square that has a tile. If no Square found, returns null.
-	 * 
+	 *
 	 * @param x
 	 *            X coordinate of Square to search above.
 	 * @param y
@@ -311,8 +315,8 @@ public class Board {
 	protected Square getNextNonEmptySquare(int x, int y) {
 		if (y <= 0) {
 			return null;
-		} else if (squares[x][y - 1].getTile() != null) {
-			return squares[x][y - 1];
+		} else if (this.squares[x][y - 1].getTile() != null) {
+			return this.squares[x][y - 1];
 		} else {
 			return this.getNextNonEmptySquare(x, y - 1);
 		}
@@ -320,13 +324,13 @@ public class Board {
 
 	/**
 	 * Moves tiles downward vertically to fill in any empty Squares.
-	 * 
+	 *
 	 * @return true
 	 */
 	public boolean shiftTilesDownward() {
 		for (int i = 0; i < this.SIZE_X; i++) {
 			for (int j = this.SIZE_Y - 1; j > 0; j--) {
-				if (squares[i][j].getTile() == null) {
+				if (this.squares[i][j].getTile() == null) {
 					Square square = this.getNextNonEmptySquare(i, j);
 
 					if (square == null) {
@@ -336,7 +340,7 @@ public class Board {
 									.equals(TileType.TARGET)) {
 
 					} else {
-						squares[i][j].addTile(square.getTile());
+						this.squares[i][j].addTile(square.getTile());
 						square.removeTile();
 					}
 				}
@@ -348,15 +352,15 @@ public class Board {
 
 	/**
 	 * Fills empty squares once a move has been completed.
-	 * 
+	 *
 	 * @return true
 	 */
 	public boolean fillEmptySquares() {
 		for (int i = 0; i < this.SIZE_X; i++) {
 			for (int j = 0; j < this.SIZE_Y; j++) {
-				if (squares[i][j].getTile() == null) {
-					squares[i][j].addTile(new NumberTile(this.getNumber(), this
-							.getMultiplier()));
+				if (this.squares[i][j].getTile() == null) {
+					this.squares[i][j].addTile(new NumberTile(this.getNumber(),
+							this.getMultiplier()));
 				}
 			}
 		}
@@ -366,7 +370,7 @@ public class Board {
 
 	/**
 	 * Removes the selection of Tiles from the board.
-	 * 
+	 *
 	 * @param selection
 	 *            The selection of tiles.
 	 * @return true
@@ -382,7 +386,7 @@ public class Board {
 
 		// Remove square
 		for (int i = 0; i < squareArray.length; i++) {
-			squares[((Square) squareArray[i]).getX()][((Square) squareArray[i])
+			this.squares[((Square) squareArray[i]).getX()][((Square) squareArray[i])
 					.getY()].removeTile();
 		}
 		return true;
@@ -390,7 +394,7 @@ public class Board {
 
 	/**
 	 * Swaps two tiles in the given selection
-	 * 
+	 *
 	 * @param selection
 	 *            The selection of tiles.
 	 * @return true
@@ -404,20 +408,58 @@ public class Board {
 
 		Object[] squareArray = selection.getArray();
 
-		Tile tile = squares[((Square) squareArray[0]).getX()][((Square) squareArray[0])
+		Tile tile = this.squares[((Square) squareArray[0]).getX()][((Square) squareArray[0])
 				.getY()].getTile();
-		squares[((Square) squareArray[0]).getX()][((Square) squareArray[0])
+		this.squares[((Square) squareArray[0]).getX()][((Square) squareArray[0])
 				.getY()].removeTile();
-		squares[((Square) squareArray[0]).getX()][((Square) squareArray[0])
+		this.squares[((Square) squareArray[0]).getX()][((Square) squareArray[0])
 				.getY()]
-				.addTile(squares[((Square) squareArray[1]).getX()][((Square) squareArray[1])
+				.addTile(this.squares[((Square) squareArray[1]).getX()][((Square) squareArray[1])
 						.getY()].getTile());
-		squares[((Square) squareArray[1]).getX()][((Square) squareArray[1])
+		this.squares[((Square) squareArray[1]).getX()][((Square) squareArray[1])
 				.getY()].removeTile();
-		squares[((Square) squareArray[1]).getX()][((Square) squareArray[1])
+		this.squares[((Square) squareArray[1]).getX()][((Square) squareArray[1])
 				.getY()].addTile(tile);
 
 		return true;
+	}
 
+	/**
+	 * Processes the six tile and target tile movement in the "Release" game
+	 * type.
+	 *
+	 * @return true if all targets have been filled; false otherwise
+	 */
+	public boolean processReleaseTiles() {
+		int targetCount = 0;
+		for (int i = 0; i < this.SIZE_X; i++) {
+			for (int j = 0; j < this.SIZE_Y; j++) {
+				if (this.squares[i][j].getTile().getType().equals(TileType.SIX)) {
+					if (this.getNextNonEmptySquare(i, j) != null
+							&& (j + 1) < this.SIZE_Y
+							&& this.squares[i][j + 1].getTile().getType()
+									.equals(TileType.TARGET)) {
+						this.squares[i][j + 1].removeTile();
+						this.squares[i][j + 1].addTile(this.squares[i][j]
+								.getTile());
+						this.squares[i][j].removeTile();
+					}
+				}
+			}
+		}
+
+		for (int i = 0; i < this.SIZE_X; i++) {
+			for (int j = 0; j < this.SIZE_Y; j++) {
+				if (this.squares[i][j].getTile() != null
+						&& this.squares[i][j].getTile().getType()
+								.equals(TileType.TARGET)) {
+					targetCount++;
+				}
+			}
+		}
+
+		this.shiftTilesDownward();
+		this.fillEmptySquares();
+		return targetCount <= 0;
 	}
 }

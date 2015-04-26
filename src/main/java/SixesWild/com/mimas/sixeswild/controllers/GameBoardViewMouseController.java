@@ -9,6 +9,7 @@ import javax.swing.JDialog;
 
 import SixesWild.com.mimas.sixeswild.boundaries.EndLevelPopUpPane;
 import SixesWild.com.mimas.sixeswild.boundaries.GameApplication;
+import SixesWild.com.mimas.sixeswild.entities.LevelType;
 import SixesWild.com.mimas.sixeswild.entities.MoveType;
 import SixesWild.com.mimas.sixeswild.entities.RemoveTileMove;
 import SixesWild.com.mimas.sixeswild.entities.SelectionMove;
@@ -17,7 +18,7 @@ import SixesWild.com.mimas.sixeswild.entities.SwapMove;
 /**
  * This controller handles mouse presses and releases when selecting tiles on
  * the Board during the game.
- * 
+ *
  * @author Aditya Nivarthi
  */
 public class GameBoardViewMouseController extends MouseAdapter {
@@ -29,7 +30,7 @@ public class GameBoardViewMouseController extends MouseAdapter {
 	/**
 	 * Creates a GameBoardViewMouseController instance with the specified
 	 * GameApplication.
-	 * 
+	 *
 	 * @param app
 	 *            The currently running GameApplication.
 	 */
@@ -39,67 +40,76 @@ public class GameBoardViewMouseController extends MouseAdapter {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see java.awt.event.MouseAdapter#mousePressed(java.awt.event.MouseEvent)
 	 */
+	@Override
 	public void mousePressed(MouseEvent me) {
-		app.getLevelPanel().getBoardViewPanel()
+		this.app.getLevelPanel().getBoardViewPanel()
 				.updateGameSelection(me.getX(), me.getY());
 
 		if (this.app.getLevelPanel().getMoveType().equals(MoveType.SELECTION)) {
-			SelectionMove move = new SelectionMove(app.getLevelPanel()
+			SelectionMove move = new SelectionMove(this.app.getLevelPanel()
 					.getBoardViewPanel().getCurrentSelection(), this.app
 					.getLevelPanel().getLevel());
 			move.processCurrentMove(this.app);
 			logger.log(Level.INFO, "Processing a move type of: "
 					+ MoveType.SELECTION);
 		} else if (this.app.getLevelPanel().getMoveType().equals(MoveType.SWAP)) {
-			SwapMove move = new SwapMove(app.getLevelPanel()
+			SwapMove move = new SwapMove(this.app.getLevelPanel()
 					.getBoardViewPanel().getCurrentSelection(), this.app
 					.getLevelPanel().getLevel());
-			move.processCurrentMove(app);
+			move.processCurrentMove(this.app);
 		} else if (this.app.getLevelPanel().getMoveType()
 				.equals(MoveType.REMOVE)) {
-			RemoveTileMove move = new RemoveTileMove(app.getLevelPanel()
+			RemoveTileMove move = new RemoveTileMove(this.app.getLevelPanel()
 					.getBoardViewPanel().getCurrentSelection(), this.app
 					.getLevelPanel().getLevel());
-			move.processCurrentMove(app);
+			move.processCurrentMove(this.app);
 		}
 
 		logger.log(Level.INFO, "Processed a move type of: "
 				+ this.app.getLevelPanel().getMoveType().toString());
 
-		app.getLevelPanel().updateLevelStats();
-		app.getLevelPanel().getBoardViewPanel().updateUI();
+		this.app.getLevelPanel().updateLevelStats();
+		this.app.getLevelPanel().getBoardViewPanel().updateUI();
 	}
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see java.awt.event.MouseAdapter#mouseReleased(java.awt.event.MouseEvent)
 	 */
+	@Override
 	public void mouseReleased(MouseEvent me) {
+		boolean releaseWon = false;
 
 		if (this.app.getLevelPanel().getMoveType().equals(MoveType.SELECTION)) {
-			SelectionMove move = new SelectionMove(app.getLevelPanel()
+			SelectionMove move = new SelectionMove(this.app.getLevelPanel()
 					.getBoardViewPanel().getCurrentSelection(), this.app
 					.getLevelPanel().getLevel());
-			move.doMove(this.app);
+			boolean moveResult = move.doMove(this.app);
+			if (moveResult
+					&& this.app.getLevelPanel().getLevel().getType()
+							.equals(LevelType.RELEASE)) {
+				releaseWon = this.app.getLevelPanel().getBoardViewPanel()
+						.processReleaseMove();
+			}
 		} else if (this.app.getLevelPanel().getMoveType().equals(MoveType.SWAP)) {
-			SwapMove move = new SwapMove(app.getLevelPanel()
+			SwapMove move = new SwapMove(this.app.getLevelPanel()
 					.getBoardViewPanel().getCurrentSelection(), this.app
 					.getLevelPanel().getLevel());
-			if (move.isValidMove(app)) {
-				move.doMove(app);
+			if (move.isValidMove(this.app)) {
+				move.doMove(this.app);
 				this.app.getLevelPanel().setMoveType(MoveType.SELECTION);
 			}
 		} else if (this.app.getLevelPanel().getMoveType()
 				.equals(MoveType.REMOVE)) {
-			RemoveTileMove move = new RemoveTileMove(app.getLevelPanel()
+			RemoveTileMove move = new RemoveTileMove(this.app.getLevelPanel()
 					.getBoardViewPanel().getCurrentSelection(), this.app
 					.getLevelPanel().getLevel());
-			if (move.isValidMove(app)) {
-				move.doMove(app);
+			if (move.isValidMove(this.app)) {
+				move.doMove(this.app);
 				this.app.getLevelPanel().setMoveType(MoveType.SELECTION);
 			}
 		}
@@ -107,16 +117,23 @@ public class GameBoardViewMouseController extends MouseAdapter {
 		logger.log(Level.INFO, "Completed a move type of: "
 				+ this.app.getLevelPanel().getMoveType().toString());
 
-		app.getLevelPanel().updateLevelStats();
+		this.app.getLevelPanel().updateLevelStats();
 
 		if (this.app.getLevelPanel().getLevel().getMoveCount() <= 0) {
-			JDialog dialog = new EndLevelPopUpPane(this.app).createDialog(
+			JDialog dialog = new EndLevelPopUpPane(this.app,
+					"You have run out of moves.").createDialog(
 					this.app.getFrame(), "");
 			dialog.setVisible(true);
 
 			logger.log(Level.INFO, "Level ended. Returning to menu.");
+		} else if (releaseWon) {
+			JDialog dialog = new EndLevelPopUpPane(this.app, "You won.")
+					.createDialog(this.app.getFrame(), "");
+			dialog.setVisible(true);
+
+			logger.log(Level.INFO, "Level ended. Returning to menu.");
 		} else {
-			app.getLevelPanel().getBoardViewPanel().updateUI();
+			this.app.getLevelPanel().getBoardViewPanel().updateUI();
 		}
 	}
 }

@@ -29,7 +29,7 @@ import SixesWild.com.mimas.sixeswild.entities.TileType;
  * This class represents the view used to display the game board in the level
  * view of the game and the builder. It handles calling the logic on the Board
  * entity based on the given input.
- * 
+ *
  * @author Aditya Nivarthi
  */
 public class BoardViewPanel extends JPanel {
@@ -55,7 +55,7 @@ public class BoardViewPanel extends JPanel {
 
 	/**
 	 * Creates a BoardViewPanel instance with the specified board and aesthetic.
-	 * 
+	 *
 	 * @param board
 	 *            The game board to display.
 	 * @param aesthetic
@@ -88,7 +88,7 @@ public class BoardViewPanel extends JPanel {
 				1.0, 1.0, 1.0, 1.0, 1.0, 1.0 };
 		gridBagLayout.rowWeights = new double[] { 1.0, 1.0, 1.0, 1.0, 1.0, 1.0,
 				1.0, 1.0, 1.0, 1.0, 1.0 };
-		setLayout(gridBagLayout);
+		this.setLayout(gridBagLayout);
 		this.gbc_boardViewPanel = new GridBagConstraints();
 		this.gbc_boardViewPanel.gridheight = 1;
 		this.gbc_boardViewPanel.fill = GridBagConstraints.BOTH;
@@ -102,7 +102,7 @@ public class BoardViewPanel extends JPanel {
 	/**
 	 * Gets the smaller of the board height or width for resizing square views
 	 * for this panel.
-	 * 
+	 *
 	 * @return an integer equal to the smaller dimension
 	 */
 	protected int getMinOfHeightAndWidth() {
@@ -112,7 +112,7 @@ public class BoardViewPanel extends JPanel {
 
 	/**
 	 * Returns the corresponding color based on the attributes of the square.
-	 * 
+	 *
 	 * @param square
 	 *            The square to retrieve a Color for.
 	 * @return the given square's corresponding tile color
@@ -157,81 +157,83 @@ public class BoardViewPanel extends JPanel {
 			for (int j = 0; j < this.gameBoard.SIZE_Y; j++) {
 
 				// Initialize the JLabel
-				boardView[i][j] = new JLabel();
-				boardView[i][j].setHorizontalAlignment(SwingConstants.CENTER);
-				boardView[i][j].setOpaque(true);
-				boardView[i][j].setFont(this.squareFont);
-				boardView[i][j].setBorder(this.squareBorder);
-				boardView[i][j].setBackground(this
+				this.boardView[i][j] = new JLabel();
+				this.boardView[i][j]
+						.setHorizontalAlignment(SwingConstants.CENTER);
+				this.boardView[i][j].setOpaque(true);
+				this.boardView[i][j].setFont(this.squareFont);
+				this.boardView[i][j].setBorder(this.squareBorder);
+				this.boardView[i][j].setBackground(this
 						.getSquareColor(this.gameBoard.getSquare(i, j)));
 
 				// Determine text
 				switch (this.gameBoard.getSquare(i, j).getTile().getType()) {
 				case NULL:
-					boardView[i][j].setText(htmlFormat1
+					this.boardView[i][j].setText(this.htmlFormat1
 							+ this.gameBoard.getSquare(i, j).getTile()
 									.getNumber()
-							+ htmlFormat2
+							+ this.htmlFormat2
 							+ "x"
 							+ this.gameBoard.getSquare(i, j).getTile()
-									.getMultiplier() + htmlFormat3);
-					boardView[i][j].setForeground(boardView[i][j]
+									.getMultiplier() + this.htmlFormat3);
+					this.boardView[i][j].setForeground(this.boardView[i][j]
 							.getBackground());
 					break;
 				case TARGET:
-					boardView[i][j].setText(htmlFormat1 + "&nbsp;" + "X"
-							+ htmlFormat2 + htmlFormat3);
+					this.boardView[i][j].setText(this.htmlFormat1 + "&nbsp;"
+							+ "X" + this.htmlFormat2 + this.htmlFormat3);
 					break;
 				case SIX:
-					boardView[i][j].setText(htmlFormat1
+					this.boardView[i][j].setText(this.htmlFormat1
 							+ this.gameBoard.getSquare(i, j).getTile()
-									.getNumber() + htmlFormat2 + "T"
-							+ htmlFormat3);
+									.getNumber() + this.htmlFormat2 + "T"
+							+ this.htmlFormat3);
 					break;
 				default:
-					boardView[i][j].setText(htmlFormat1
+					this.boardView[i][j].setText(this.htmlFormat1
 							+ this.gameBoard.getSquare(i, j).getTile()
 									.getNumber()
-							+ htmlFormat2
+							+ this.htmlFormat2
 							+ "x"
 							+ this.gameBoard.getSquare(i, j).getTile()
-									.getMultiplier() + htmlFormat3);
+									.getMultiplier() + this.htmlFormat3);
 					break;
 				}
 
 				// Determine the position and size
-				boardView[i][j]
+				this.boardView[i][j]
 						.setLocation(
-								(((this.getWidth() - (((int) this.getWidth() / 9) * 9)) + 10) / 2)
+								(((this.getWidth() - ((this.getWidth() / 9) * 9)) + 10) / 2)
 										+ (this.getWidth() / 9 * this.gameBoard
 												.getSquare(i, j).getX()),
-								(((this.getHeight() - (((int) this.getHeight() / 9) * 9)) + 10) / 2)
+								(((this.getHeight() - ((this.getHeight() / 9) * 9)) + 10) / 2)
 										+ (this.getHeight() / 9 * this.gameBoard
 												.getSquare(i, j).getY()));
-				boardView[i][j].setSize(new Dimension(this
+				this.boardView[i][j].setSize(new Dimension(this
 						.getMinOfHeightAndWidth() / 9 - 20, this
 						.getMinOfHeightAndWidth() / 9 - 20));
 
 				// Determine border based on selected attribute
-				if (gameBoard.getSquare(i, j).getSelected()) {
-					boardView[i][j].setBorder(squareSelectedBorder);
+				if (this.gameBoard.getSquare(i, j).getSelected()) {
+					this.boardView[i][j].setBorder(this.squareSelectedBorder);
 				} else {
-					boardView[i][j].setBorder(squareBorder);
+					this.boardView[i][j].setBorder(this.squareBorder);
 				}
 
 				// Update position and add to panel
-				gbc_boardViewPanel.gridx = i + 1;
-				gbc_boardViewPanel.gridy = j + 1;
-				this.add(boardView[i][j], gbc_boardViewPanel);
+				this.gbc_boardViewPanel.gridx = i + 1;
+				this.gbc_boardViewPanel.gridy = j + 1;
+				this.add(this.boardView[i][j], this.gbc_boardViewPanel);
 			}
 		}
 	}
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see javax.swing.JComponent#paintComponent(java.awt.Graphics)
 	 */
+	@Override
 	protected void paintComponent(Graphics g) {
 		super.paintComponent(g);
 		this.removeAll();
@@ -241,7 +243,7 @@ public class BoardViewPanel extends JPanel {
 
 	/**
 	 * Validates the mouse selection over the specified square.
-	 * 
+	 *
 	 * @param mx
 	 *            The horizontal position of the mouse.
 	 * @param my
@@ -258,21 +260,21 @@ public class BoardViewPanel extends JPanel {
 
 	/**
 	 * Updates the current square selection based on mouse coordinates.
-	 * 
+	 *
 	 * @param mx
 	 *            The horizontal position of the mouse.
 	 * @param my
 	 *            The vertical position of the mouse.
 	 */
 	public void updateGameSelection(int mx, int my) {
-		outerloop: for (int i = 0; i < gameBoard.SIZE_X; i++) {
-			for (int j = 0; j < gameBoard.SIZE_Y; j++) {
+		outerloop: for (int i = 0; i < this.gameBoard.SIZE_X; i++) {
+			for (int j = 0; j < this.gameBoard.SIZE_Y; j++) {
 
 				// If the square is validly selected, update the view and add
 				// the square to the selection.
-				if (this.validateMouseSelection(mx, my, boardView[i][j])) {
+				if (this.validateMouseSelection(mx, my, this.boardView[i][j])) {
 					this.gameBoard.getSquare(i, j).setSelected(true);
-					this.currentSelection.add(gameBoard.getSquare(i, j));
+					this.currentSelection.add(this.gameBoard.getSquare(i, j));
 
 					logger.log(Level.FINE,
 							"Updating selection. Square found at: {" + i + ", "
@@ -287,8 +289,8 @@ public class BoardViewPanel extends JPanel {
 	 * Clears the current selection.
 	 */
 	public void clearGameSelection() {
-		for (int i = 0; i < gameBoard.SIZE_X; i++) {
-			for (int j = 0; j < gameBoard.SIZE_Y; j++) {
+		for (int i = 0; i < this.gameBoard.SIZE_X; i++) {
+			for (int j = 0; j < this.gameBoard.SIZE_Y; j++) {
 
 				// Set all the squares to the normal state
 				this.gameBoard.getSquare(i, j).setSelected(false);
@@ -303,7 +305,7 @@ public class BoardViewPanel extends JPanel {
 	/**
 	 * Updates the mouse press locations with the designated tiles when
 	 * requested in the level builder.
-	 * 
+	 *
 	 * @param mx
 	 *            The horizontal position of the mouse.
 	 * @param my
@@ -312,11 +314,11 @@ public class BoardViewPanel extends JPanel {
 	 *            The type of tile to place.
 	 */
 	public void updateBuilderSelection(int mx, int my, TileType type) {
-		outerloop: for (int i = 0; i < gameBoard.SIZE_X; i++) {
-			for (int j = 0; j < gameBoard.SIZE_Y; j++) {
+		outerloop: for (int i = 0; i < this.gameBoard.SIZE_X; i++) {
+			for (int j = 0; j < this.gameBoard.SIZE_Y; j++) {
 				// If the SquareView is selected in a valid manner, update the
 				// selected tile to the new tile type.
-				if (this.validateMouseSelection(mx, my, boardView[i][j])) {
+				if (this.validateMouseSelection(mx, my, this.boardView[i][j])) {
 					switch (type) {
 					case NULL:
 						this.gameBoard.setSquare(new NullTile(), i, j, false);
@@ -349,7 +351,7 @@ public class BoardViewPanel extends JPanel {
 
 	/**
 	 * Returns the gameBoard object for this panel.
-	 * 
+	 *
 	 * @return the gameBoard property
 	 */
 	public Board getBoard() {
@@ -358,7 +360,7 @@ public class BoardViewPanel extends JPanel {
 
 	/**
 	 * Returns the currentSelection object for this panel.
-	 * 
+	 *
 	 * @return the currentSelection property
 	 */
 	public Selection getCurrentSelection() {
@@ -369,7 +371,7 @@ public class BoardViewPanel extends JPanel {
 	 * Executes the selection in the current selection. Removes the tiles and
 	 * fills the empty squares with newly generated tiles. Returns the current
 	 * selection's calculated score.
-	 * 
+	 *
 	 * @return an integer
 	 */
 	public int doSelectionMove() {
@@ -384,7 +386,7 @@ public class BoardViewPanel extends JPanel {
 
 	/**
 	 * Executes the reset board move.
-	 * 
+	 *
 	 * @return true
 	 */
 	public boolean doResetBoardMove() {
@@ -396,7 +398,7 @@ public class BoardViewPanel extends JPanel {
 
 	/**
 	 * Executes the swap tile move.
-	 * 
+	 *
 	 * @return true
 	 */
 	public boolean doSwapTileMove() {
@@ -408,7 +410,7 @@ public class BoardViewPanel extends JPanel {
 
 	/**
 	 * Executes the remove tile move.
-	 * 
+	 *
 	 * @return true
 	 */
 	public boolean doRemoveTileMove() {
@@ -418,5 +420,14 @@ public class BoardViewPanel extends JPanel {
 
 		logger.log(Level.INFO, "Board processed a remove tile move.");
 		return true;
+	}
+
+	/**
+	 * Processes the "Release" game type move for six and target tiles.
+	 * 
+	 * @return true if all targets have been filled; false otherwise
+	 */
+	public boolean processReleaseMove() {
+		return this.gameBoard.processReleaseTiles();
 	}
 }

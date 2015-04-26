@@ -10,9 +10,9 @@ import javax.swing.SwingUtilities;
 import SixesWild.com.mimas.sixeswild.controllers.ExitButtonController;
 
 /**
- * This view is used as a pop up message when the level has ended to notify that
- * the game is over.
- * 
+ * This class represents the view used as a pop up message when the level has
+ * ended to notify that the game is over.
+ *
  * @author Aditya Nivarthi
  */
 public class EndLevelPopUpPane extends JOptionPane {
@@ -21,12 +21,12 @@ public class EndLevelPopUpPane extends JOptionPane {
 
 	/**
 	 * Creates an EndLevelPopUpPane with the specified GameApplication.
-	 * 
+	 *
 	 * @param app
 	 *            The GameApplication currently running.
 	 */
-	public EndLevelPopUpPane(GameApplication app) {
-		this.setMessage("Game over. You have run out of moves.");
+	public EndLevelPopUpPane(GameApplication app, String message) {
+		this.setMessage("Game over. " + message);
 		this.setMessageType(JOptionPane.INFORMATION_MESSAGE);
 
 		final JButton exitButton = new JButton("Exit");

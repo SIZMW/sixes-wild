@@ -14,7 +14,7 @@ import SixesWild.com.mimas.sixeswild.entities.SelectionMove;
 /**
  * This controller handles mouse dragging when selecting tiles on the Board in
  * the game.
- * 
+ *
  * @author Aditya Nivarthi
  */
 public class GameBoardViewMouseMotionController extends MouseAdapter {
@@ -26,7 +26,7 @@ public class GameBoardViewMouseMotionController extends MouseAdapter {
 	/**
 	 * Creates a GameBoardViewMouseMotionController instance with the specified
 	 * GameApplication.
-	 * 
+	 *
 	 * @param app
 	 *            The currently running GameApplication.
 	 */
@@ -36,14 +36,15 @@ public class GameBoardViewMouseMotionController extends MouseAdapter {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see java.awt.event.MouseAdapter#mouseDragged(java.awt.event.MouseEvent)
 	 */
+	@Override
 	public void mouseDragged(MouseEvent me) {
-		app.getLevelPanel().getBoardViewPanel()
+		this.app.getLevelPanel().getBoardViewPanel()
 				.updateGameSelection(me.getX(), me.getY());
 
-		SelectionMove move = new SelectionMove(app.getLevelPanel()
+		SelectionMove move = new SelectionMove(this.app.getLevelPanel()
 				.getBoardViewPanel().getCurrentSelection(), this.app
 				.getLevelPanel().getLevel());
 		move.processCurrentMove(this.app);
@@ -51,16 +52,17 @@ public class GameBoardViewMouseMotionController extends MouseAdapter {
 		logger.log(Level.INFO, "Processed a move type of: "
 				+ this.app.getLevelPanel().getMoveType().toString());
 
-		app.getLevelPanel().updateLevelStats();
+		this.app.getLevelPanel().updateLevelStats();
 
 		if (this.app.getLevelPanel().getLevel().getMoveCount() <= 0) {
-			JDialog dialog = new EndLevelPopUpPane(this.app).createDialog(
+			JDialog dialog = new EndLevelPopUpPane(this.app,
+					"You have run out of moves.").createDialog(
 					this.app.getFrame(), "");
 			dialog.setVisible(true);
 
 			logger.log(Level.INFO, "Level ended. Returning to menu.");
 		} else {
-			app.getLevelPanel().getBoardViewPanel().updateUI();
+			this.app.getLevelPanel().getBoardViewPanel().updateUI();
 		}
 
 	}

@@ -1,72 +1,42 @@
-<?xml version="1.0" encoding="utf-8"?>
-
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <Level number="2">
-	
-	<!-- Global Attributes of a level -->
-	<Name>Supercalifragilisticexpialidocious</Name>
-	<Type>Puzzle</Type>
-	
-	<!-- Frequencies of tiles and multipliers -->
-	<TileFrequency>
-	
-		<Tile number="1" frequency="5.2"></Tile>
-		<Tile number="2" frequency="3.2"></Tile>
-		<Tile number="3" frequency="3.5"></Tile>
-		<Tile number="4" frequency="6.7"></Tile>
-		<Tile number="5" frequency="8.23"></Tile>
-		<Tile number="6" frequency="73.17"></Tile>
-		
-		<Multiplier times="2" frequency="35.3"></Multiplier>
-		<Multiplier times="3" frequency="31.3"></Multiplier>
-		
-	</TileFrequency>
-	
-	<!-- Number of special moves -->
-	<SpecialMoveConstraints>
-	
-		<ResetBoard>100</ResetBoard>
-		<SwapTile>104</SwapTile>
-		<RemoveTile>120</RemoveTile>
-		<OtherMove>140</OtherMove>
-		
-	</SpecialMoveConstraints>
-	
-	<!-- Star point thresholds -->
-	<PointThresholds>
-	
-		<Point>100</Point>
-		<Point>200</Point>
-		<Point>300</Point>
-	
-	</PointThresholds>
-	
-	<!-- Player constraints for level -->
-	<PlayingConstraints>
-	
-		<MoveCount>5</MoveCount>
-		<Timer>10</Timer>
-		
-	</PlayingConstraints>
-	
-	<!-- Board -->
-	<Board>
-	
-		<!-- Legend:         -->
-		<!-- U = null spot   -->
-		<!-- N = number spot -->
-		<!-- T = Target Tile -->
-		<!-- S = six tile    -->
-	
-		<Row>N N N N N N N N N</Row>
-		<Row>N N N N N N T N N</Row>
-		<Row>N N N T N N N N N</Row>
-		<Row>N N N N N N N N N</Row>
-		<Row>N U N N N N N S N</Row>
-		<Row>N N N N N N N N N</Row>
-		<Row>N N N N N N N N N</Row>
-		<Row>N N S N N N S N N</Row>
-		<Row>N U N N N N N U N</Row>
-	
-	</Board>
-	
+<Name>Supercalifragilisticexpialidocious</Name>
+<Type>RELEASE</Type>
+<TileFrequency>
+<Tile frequency="5.2" number="1"/>
+<Tile frequency="3.2" number="2"/>
+<Tile frequency="3.5" number="3"/>
+<Tile frequency="6.7" number="4"/>
+<Tile frequency="8.23" number="5"/>
+<Tile frequency="73.17" number="6"/>
+<Multiplier frequency="0.4" times="1"/>
+<Multiplier frequency="0.25" times="2"/>
+<Multiplier frequency="0.35" times="3"/>
+</TileFrequency>
+<SpecialMoveConstraints>
+<ResetBoard>100</ResetBoard>
+<SwapTile>104</SwapTile>
+<RemoveTile>120</RemoveTile>
+<OtherMove>140</OtherMove>
+</SpecialMoveConstraints>
+<PointThresholds>
+<Point>100</Point>
+<Point>200</Point>
+<Point>300</Point>
+</PointThresholds>
+<PlayingConstraints>
+<MoveCount>5</MoveCount>
+<Timer>0</Timer>
+</PlayingConstraints>
+<Board>
+<Row>N N N N N N N N N</Row>
+<Row>N N N N N N N N N</Row>
+<Row>N N N N N N N N N</Row>
+<Row>N N S N N N N N N</Row>
+<Row>N U N N N N N S N</Row>
+<Row>N N N N N N S N N</Row>
+<Row>N N N N N N N N N</Row>
+<Row>N N N N N N N T N</Row>
+<Row>N U T N N N T U N</Row>
+</Board>
 </Level>
