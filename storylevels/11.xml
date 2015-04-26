@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Level number="11">
+<Name>ThirdLightning</Name>
+<Type>LIGHTNING</Type>
+<TileFrequency>
+<Tile frequency="0.25" number="1"/>
+<Tile frequency="0.2" number="2"/>
+<Tile frequency="0.15" number="3"/>
+<Tile frequency="0.15" number="4"/>
+<Tile frequency="0.1" number="5"/>
+<Tile frequency="0.05" number="6"/>
+<Multiplier frequency="0.65" times="1"/>
+<Multiplier frequency="0.25" times="2"/>
+<Multiplier frequency="0.1" times="3"/>
+</TileFrequency>
+<SpecialMoveConstraints>
+<ResetBoard>3</ResetBoard>
+<SwapTile>3</SwapTile>
+<RemoveTile>3</RemoveTile>
+<OtherMove>3</OtherMove>
+</SpecialMoveConstraints>
+<PointThresholds>
+<Point>200</Point>
+<Point>300</Point>
+<Point>400</Point>
+</PointThresholds>
+<PlayingConstraints>
+<MoveCount>0</MoveCount>
+<Timer>125</Timer>
+</PlayingConstraints>
+<Board>
+<Row>N N U U U U U N N</Row>
+<Row>N N N S S S N N N</Row>
+<Row>N N N N N N N N N</Row>
+<Row>U N N N N N N N U</Row>
+<Row>U S N N N N N S U</Row>
+<Row>U N N N N N N N U</Row>
+<Row>N N N N N N N N N</Row>
+<Row>N N N S S S N N N</Row>
+<Row>N N U U U U U N N</Row>
+</Board>
+</Level>

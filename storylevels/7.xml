@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<Level number="3">
-<Name>FirstLightning</Name>
+<Level number="7">
+<Name>SecondLightning</Name>
 <Type>LIGHTNING</Type>
 <TileFrequency>
 <Tile frequency="0.35" number="1"/>
@@ -20,23 +20,23 @@
 <OtherMove>5</OtherMove>
 </SpecialMoveConstraints>
 <PointThresholds>
+<Point>400</Point>
 <Point>500</Point>
 <Point>600</Point>
-<Point>700</Point>
 </PointThresholds>
 <PlayingConstraints>
 <MoveCount>0</MoveCount>
-<Timer>150</Timer>
+<Timer>100</Timer>
 </PlayingConstraints>
 <Board>
 <Row>N N N N N N N N N</Row>
-<Row>U N N N N N N N U</Row>
-<Row>U U N N N N N U U</Row>
-<Row>U U N N N N N U U</Row>
-<Row>U U N N N N N U U</Row>
-<Row>U U N N N N N U U</Row>
-<Row>U U N N N N N U U</Row>
-<Row>U N N N N N N N U</Row>
+<Row>N N U N N N U N N</Row>
+<Row>N U S U N U S U N</Row>
+<Row>N N U N N N U N N</Row>
+<Row>N N N N S N N N N</Row>
 <Row>N N N N N N N N N</Row>
+<Row>N N U N N N U N N</Row>
+<Row>N U S U N U S U N</Row>
+<Row>N N U N N N U N N</Row>
 </Board>
 </Level>

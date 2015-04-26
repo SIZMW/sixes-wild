@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<Level number="3">
-<Name>FirstLightning</Name>
-<Type>LIGHTNING</Type>
+<Level number="8">
+<Name>SecondRelease</Name>
+<Type>RELEASE</Type>
 <TileFrequency>
-<Tile frequency="0.35" number="1"/>
+<Tile frequency="0.5" number="1"/>
 <Tile frequency="0.2" number="2"/>
 <Tile frequency="0.15" number="3"/>
-<Tile frequency="0.15" number="4"/>
+<Tile frequency="0.1" number="4"/>
 <Tile frequency="0.05" number="5"/>
 <Tile frequency="0.0" number="6"/>
-<Multiplier frequency="0.6" times="1"/>
+<Multiplier frequency="0.5" times="1"/>
 <Multiplier frequency="0.25" times="2"/>
-<Multiplier frequency="0.15" times="3"/>
+<Multiplier frequency="0.25" times="3"/>
 </TileFrequency>
 <SpecialMoveConstraints>
 <ResetBoard>5</ResetBoard>
@@ -20,23 +20,23 @@
 <OtherMove>5</OtherMove>
 </SpecialMoveConstraints>
 <PointThresholds>
-<Point>500</Point>
-<Point>600</Point>
-<Point>700</Point>
+<Point>300</Point>
+<Point>350</Point>
+<Point>425</Point>
 </PointThresholds>
 <PlayingConstraints>
-<MoveCount>0</MoveCount>
-<Timer>150</Timer>
+<MoveCount>30</MoveCount>
+<Timer>0</Timer>
 </PlayingConstraints>
 <Board>
+<Row>U N N S S S N N U</Row>
+<Row>N U U N N N U U N</Row>
+<Row>N N S N N N S N N</Row>
+<Row>N S N N N N N S N</Row>
+<Row>S N N N T N N N S</Row>
+<Row>N S N N N N N S N</Row>
 <Row>N N N N N N N N N</Row>
-<Row>U N N N N N N N U</Row>
-<Row>U U N N N N N U U</Row>
-<Row>U U N N N N N U U</Row>
-<Row>U U N N N N N U U</Row>
-<Row>U U N N N N N U U</Row>
-<Row>U U N N N N N U U</Row>
-<Row>U N N N N N N N U</Row>
-<Row>N N N N N N N N N</Row>
+<Row>N T T T N T T T N</Row>
+<Row>T N N N N N N N T</Row>
 </Board>
 </Level>

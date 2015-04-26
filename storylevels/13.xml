@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<Level number="2">
-<Name>FirstElimination</Name>
-<Type>ELIMINATION</Type>
+<Level number="13">
+<Name>FourthPuzzle</Name>
+<Type>PUZZLE</Type>
 <TileFrequency>
 <Tile frequency="0.18" number="1"/>
 <Tile frequency="0.22" number="2"/>
@@ -20,23 +20,23 @@
 <OtherMove>5</OtherMove>
 </SpecialMoveConstraints>
 <PointThresholds>
-<Point>100</Point>
-<Point>250</Point>
-<Point>325</Point>
+<Point>200</Point>
+<Point>400</Point>
+<Point>600</Point>
 </PointThresholds>
 <PlayingConstraints>
-<MoveCount>25</MoveCount>
+<MoveCount>20</MoveCount>
 <Timer>0</Timer>
 </PlayingConstraints>
 <Board>
-<Row>U U U U U U U U U</Row>
-<Row>U U U U U U U U U</Row>
-<Row>U U N N N N N U U</Row>
-<Row>U U N N N N N U U</Row>
-<Row>U U N N U N N U U</Row>
-<Row>U U N N N N N U U</Row>
-<Row>U U N N N N N U U</Row>
-<Row>U U U U U U U U U</Row>
-<Row>U U U U U U U U U</Row>
+<Row>N N S S S S S S N</Row>
+<Row>N N S N N N N N N</Row>
+<Row>N N S N N N N N N</Row>
+<Row>N N S N N N N N N</Row>
+<Row>N N S S S S S S N</Row>
+<Row>N N S N N N N S N</Row>
+<Row>N N S N N N N S N</Row>
+<Row>N N S S S S S S N</Row>
+<Row>N N N N N N N N N</Row>
 </Board>
 </Level>
