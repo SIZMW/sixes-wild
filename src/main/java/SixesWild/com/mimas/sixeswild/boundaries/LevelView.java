@@ -403,6 +403,12 @@ public class LevelView extends JPanel {
 	 *            The game status message to display.
 	 */
 	public void endLevel(String message) {
+		this.app.getCurrentUserProfile().addLevelHighScore(
+				this.currentLevel.getLevelNumber(),
+				this.currentScore,
+				this.currentLevel.getPointThresholds().getStarsForScore(
+						this.currentScore));
+
 		JDialog dialog = new EndLevelPopUpPane(this.app, message).createDialog(
 				this.app.getFrame(), "");
 		dialog.setVisible(true);

@@ -12,7 +12,7 @@ import SixesWild.com.mimas.sixeswild.entities.Aesthetic;
 
 /**
  * This class represents the main view for the menus in the game.
- * 
+ *
  * @author Cameron Jones
  */
 public class GameMenuView extends JPanel {
@@ -35,7 +35,7 @@ public class GameMenuView extends JPanel {
 	/**
 	 * Creates a GameMenuView instance with the specified story level list, user
 	 * level list, badges list and highest level unlocked.
-	 * 
+	 *
 	 * @param storyLevelList
 	 *            The list of story levels.
 	 * @param userLevelList
@@ -136,7 +136,7 @@ public class GameMenuView extends JPanel {
 
 	/**
 	 * Returns the subMenuPanel object for this panel.
-	 * 
+	 *
 	 * @return the subMenuPanel property
 	 */
 	public JPanel getSubMenuPanel() {
@@ -145,7 +145,7 @@ public class GameMenuView extends JPanel {
 
 	/**
 	 * Returns the storyLevelMenuButton object for this panel.
-	 * 
+	 *
 	 * @return the storyLevelMenuButton property
 	 */
 	public JButton getStoryLevelMenuButton() {
@@ -154,7 +154,7 @@ public class GameMenuView extends JPanel {
 
 	/**
 	 * Returns the userLevelMenuButton object for this panel.
-	 * 
+	 *
 	 * @return the userLevelMenuButton property
 	 */
 	public JButton getUserLevelMenuButton() {
@@ -163,7 +163,7 @@ public class GameMenuView extends JPanel {
 
 	/**
 	 * Returns the badgesMenuButton object for this panel.
-	 * 
+	 *
 	 * @return the badgesMenuButton property
 	 */
 	public JButton getBadgesMenuButton() {
@@ -172,7 +172,7 @@ public class GameMenuView extends JPanel {
 
 	/**
 	 * Returns the optionsMenuButton object for this panel.
-	 * 
+	 *
 	 * @return the optionsMenuButton property
 	 */
 	public JButton getOptionsMenuButton() {
@@ -181,7 +181,7 @@ public class GameMenuView extends JPanel {
 
 	/**
 	 * Returns the creditsMenuButton object for this panel.
-	 * 
+	 *
 	 * @return the creditsMenuButton property
 	 */
 	public JButton getCreditsMenuButton() {
@@ -190,7 +190,7 @@ public class GameMenuView extends JPanel {
 
 	/**
 	 * Returns the badgeMenuView object for this panel.
-	 * 
+	 *
 	 * @return the badgeMenuView property
 	 */
 	public BadgesPanel getBadgeMenuView() {
@@ -199,7 +199,7 @@ public class GameMenuView extends JPanel {
 
 	/**
 	 * Returns the optionsMenuView object for this panel.
-	 * 
+	 *
 	 * @return the optionsMenuView property
 	 */
 	public OptionsPanel getOptionsMenuView() {
@@ -208,7 +208,7 @@ public class GameMenuView extends JPanel {
 
 	/**
 	 * Returns the storyMenuView object for this panel.
-	 * 
+	 *
 	 * @return the storyMenuView property
 	 */
 	public LevelSelectionPanel getStoryMenuView() {
@@ -217,7 +217,7 @@ public class GameMenuView extends JPanel {
 
 	/**
 	 * Returns the userMenuView object for this panel.
-	 * 
+	 *
 	 * @return the userMenuView property
 	 */
 	public LevelSelectionPanel getUserMenuView() {
@@ -226,7 +226,7 @@ public class GameMenuView extends JPanel {
 
 	/**
 	 * Returns the creditsMenuView object for this panel.
-	 * 
+	 *
 	 * @return the creditsMenuView property
 	 */
 	public CreditsPanel getCreditsMenuView() {
@@ -235,7 +235,7 @@ public class GameMenuView extends JPanel {
 
 	/**
 	 * Returns the titleMenuView object for this panel.
-	 * 
+	 *
 	 * @return the titleMenuView property
 	 */
 	public TitlePanel getTitleMenuView() {

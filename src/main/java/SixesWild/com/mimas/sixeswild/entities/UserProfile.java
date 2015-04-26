@@ -5,7 +5,7 @@ import java.util.ArrayList;
 /**
  * User Profile is used to store all the information about the current player of
  * the game.
- * 
+ *
  * @author Yahel Nachum
  */
 public class UserProfile {
@@ -18,7 +18,7 @@ public class UserProfile {
 
 	/**
 	 * Creates a UserProfile instance with the specified name.
-	 * 
+	 *
 	 * @param userName
 	 *            The name of the user.
 	 */
@@ -32,7 +32,7 @@ public class UserProfile {
 
 	/**
 	 * Returns the user name of the profile
-	 * 
+	 *
 	 * @return a String
 	 */
 	public String getUserName() {
@@ -41,7 +41,7 @@ public class UserProfile {
 
 	/**
 	 * Returns the highest level unlocked by the user.
-	 * 
+	 *
 	 * @return an integer
 	 */
 	public int getHighestUnlockedLevel() {
@@ -50,7 +50,7 @@ public class UserProfile {
 
 	/**
 	 * Returns a list of all the badges earned by the user.
-	 * 
+	 *
 	 * @return the badgesEarned property
 	 */
 	public ArrayList<String> getBadgesEarned() {
@@ -59,7 +59,7 @@ public class UserProfile {
 
 	/**
 	 * Returns whether or not the badge name given is earned by the user.
-	 * 
+	 *
 	 * @param badgeName
 	 *            A String of the badge name that is being looked for.
 	 * @return true if earned; false otherwise
@@ -75,7 +75,7 @@ public class UserProfile {
 
 	/**
 	 * Returns a list of all the level high scores/stars achieved by the user.
-	 * 
+	 *
 	 * @return the levelHighScores property
 	 */
 	public ArrayList<LevelHighScore> getLevelHighScore() {
@@ -84,7 +84,7 @@ public class UserProfile {
 
 	/**
 	 * Returns the high score of the level given.
-	 * 
+	 *
 	 * @param level
 	 *            An Integer of the level that the high score will be taken
 	 *            from.
@@ -102,7 +102,7 @@ public class UserProfile {
 
 	/**
 	 * Returns the stars equivalent of a high score for the given level.
-	 * 
+	 *
 	 * @param level
 	 *            An int of the level that the stars will be taken from.
 	 * @return an integer of the star count if exists; -1 otherwise
@@ -119,7 +119,7 @@ public class UserProfile {
 
 	/**
 	 * Gets the name of the aesthetic that the user uses.
-	 * 
+	 *
 	 * @return a String
 	 */
 	public String getAestheticName() {
@@ -128,7 +128,7 @@ public class UserProfile {
 
 	/**
 	 * Gets the level high score object of the specified level.
-	 * 
+	 *
 	 * @param level
 	 *            An Integer that specifies the level wanted.
 	 * @return a LevelHighScore for the level if exists; null otherwise
@@ -145,7 +145,7 @@ public class UserProfile {
 
 	/**
 	 * Sets the user name to the String given.
-	 * 
+	 *
 	 * @param userName
 	 *            The String for the new user name.
 	 */
@@ -155,7 +155,7 @@ public class UserProfile {
 
 	/**
 	 * Sets the highest level unlocked by the player.
-	 * 
+	 *
 	 * @param highestLevel
 	 *            An integer of the highest level unlocked by the player.
 	 */
@@ -165,7 +165,7 @@ public class UserProfile {
 
 	/**
 	 * Sets the badges earned by the user.
-	 * 
+	 *
 	 * @param badgesEarned
 	 *            The list of badge names that the user has earned.
 	 */
@@ -174,8 +174,10 @@ public class UserProfile {
 	}
 
 	/**
-	 * Adds a level high score to the user profile.
-	 * 
+	 * Adds a level high score to the user profile if the level does not exist
+	 * in the list. Otherwise it updates the previous score if the new one is
+	 * higher.
+	 *
 	 * @param level
 	 *            An integer of the level.
 	 * @param highScore
@@ -185,12 +187,23 @@ public class UserProfile {
 	 *            equivalent to the high score.
 	 */
 	public void addLevelHighScore(int level, int highScore, int stars) {
+		for (LevelHighScore e : this.levelHighScores) {
+			if (e.getLevel() == level) {
+				if (e.getHighScore() < highScore) {
+					this.levelHighScores.remove(e);
+					this.levelHighScores.add(new LevelHighScore(level,
+							highScore, stars));
+					return;
+				}
+			}
+		}
+
 		this.levelHighScores.add(new LevelHighScore(level, highScore, stars));
 	}
 
 	/**
 	 * Removes the high score for the specified level.
-	 * 
+	 *
 	 * @param level
 	 *            The level number of the level.
 	 */
@@ -204,7 +217,7 @@ public class UserProfile {
 
 	/**
 	 * Add a badge earned by the user.
-	 * 
+	 *
 	 * @param badge
 	 *            The name of the badge earned by the user.
 	 */
@@ -214,7 +227,7 @@ public class UserProfile {
 
 	/**
 	 * Removes a badge earned by the user.
-	 * 
+	 *
 	 * @param badge
 	 *            The name of the badge to be removed from the user's earned
 	 *            list.
@@ -229,7 +242,7 @@ public class UserProfile {
 
 	/**
 	 * Sets the aesthetic of the user's profile.
-	 * 
+	 *
 	 * @param aestheticName
 	 *            The name of the aesthetic to set for the user profile.
 	 */
@@ -239,9 +252,10 @@ public class UserProfile {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see java.lang.Object#toString()
 	 */
+	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
 		builder.append("User Name: ");

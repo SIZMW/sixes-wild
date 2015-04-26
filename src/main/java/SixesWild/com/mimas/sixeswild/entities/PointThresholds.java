@@ -6,7 +6,7 @@ import java.util.Collections;
 /**
  * PointThresholds is an aggregation entity that holds all the point thresholds
  * for a Level. It has the one, two and three star point values for a Level.
- * 
+ *
  * @author Yahel Nachum
  */
 public class PointThresholds {
@@ -24,7 +24,7 @@ public class PointThresholds {
 
 	/**
 	 * Creates a PointThresholds instance with the specified threshold values.
-	 * 
+	 *
 	 * @param oneStarThreshold
 	 *            The one star threshold integer.
 	 * @param twoStarThreshold
@@ -43,7 +43,7 @@ public class PointThresholds {
 
 	/**
 	 * Sets the point thresholds to the specified values.
-	 * 
+	 *
 	 * @param oneStarThreshold
 	 *            The one star threshold.
 	 * @param twoStarThreshold
@@ -62,7 +62,7 @@ public class PointThresholds {
 
 	/**
 	 * Returns the one star threshold.
-	 * 
+	 *
 	 * @return an integer
 	 */
 	public int getOneStarThreshold() {
@@ -71,7 +71,7 @@ public class PointThresholds {
 
 	/**
 	 * Returns the two star threshold.
-	 * 
+	 *
 	 * @return an integer
 	 */
 	public int getTwoStarThreshold() {
@@ -80,10 +80,28 @@ public class PointThresholds {
 
 	/**
 	 * Returns the three star threshold.
-	 * 
+	 *
 	 * @return an integer
 	 */
 	public int getThreeStarThreshold() {
 		return this.thresholds.get(2);
+	}
+
+	/**
+	 * Returns the number of stars to award for the specified score.
+	 *
+	 * @param score
+	 *            The score to convert to stars.
+	 * @return an integer
+	 */
+	public int getStarsForScore(int score) {
+		if (score > this.thresholds.get(2)) {
+			return 3;
+		} else if (score > this.thresholds.get(1)) {
+			return 2;
+		} else if (score > this.thresholds.get(0)) {
+			return 1;
+		}
+		return 0;
 	}
 }

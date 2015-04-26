@@ -42,6 +42,10 @@ public class GameApplication {
 	protected Aesthetic currentAesthetic;
 	protected UserProfile currentUserProfile;
 
+	protected ArrayList<String> storyLevelList;
+	protected ArrayList<String> userLevelList;
+	protected ArrayList<String> badgesList;
+
 	// TODO Populate the list of badges
 
 	/**
@@ -63,18 +67,19 @@ public class GameApplication {
 			logger.log(Level.WARNING, "System look and feel failed to load.", e);
 		}
 
+		// Set up user profile
+		this.setCurrentUserProfile("Default");
+
 		// Set up aesthetics
 		aestheticList = new ArrayList<Aesthetic>();
 		this.setUpAesthetics();
 
 		// Initialize lists for GameMenuView
-		ArrayList<String> storyLevelList = XMLParser
-				.getLevelFileNames(XMLParser.STORY_DIR);
-		ArrayList<String> userLevelList = XMLParser
-				.getLevelFileNames(XMLParser.USER_DIR);
+		storyLevelList = XMLParser.getLevelFileNames(XMLParser.STORY_DIR);
+		userLevelList = XMLParser.getLevelFileNames(XMLParser.USER_DIR);
 
 		// Temporary generation of badge listing
-		ArrayList<String> badgesList = new ArrayList<String>();
+		badgesList = new ArrayList<String>();
 		for (int i = 1; i <= 20; i++) {
 			badgesList.add("Badge " + i);
 		}
