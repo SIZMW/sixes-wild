@@ -252,7 +252,7 @@ public class SaveButtonController implements ActionListener {
 		if (levelType.equals(LevelType.PUZZLE.toString())) {
 			try {
 				newLevel = new PuzzleLevel(tileFreq, multFreq,
-						LevelType.PUZZLE, levelName, tiles, pointThresholds,
+						 levelName, tiles, pointThresholds,
 						moveCount, specialMoves, levelNumber);
 				XMLParser.levelToFile(newLevel);
 			} catch (Exception e1) {
@@ -261,7 +261,7 @@ public class SaveButtonController implements ActionListener {
 		} else if (levelType.equals(LevelType.ELIMINATION.toString())) {
 			try {
 				newLevel = new EliminationLevel(tileFreq, multFreq,
-						LevelType.ELIMINATION, levelName, tiles,
+						 levelName, tiles,
 						pointThresholds, moveCount, specialMoves, levelNumber);
 				XMLParser.levelToFile(newLevel);
 			} catch (Exception e1) {
@@ -270,7 +270,7 @@ public class SaveButtonController implements ActionListener {
 		} else if (levelType.equals(LevelType.RELEASE.toString())) {
 			try {
 				newLevel = new ReleaseLevel(tileFreq, multFreq,
-						LevelType.RELEASE, levelName, tiles, pointThresholds,
+						 levelName, tiles, pointThresholds,
 						moveCount, specialMoves, levelNumber);
 				XMLParser.levelToFile(newLevel);
 			} catch (Exception e1) {
@@ -279,7 +279,7 @@ public class SaveButtonController implements ActionListener {
 		} else {
 			try {
 				newLevel = new LightningLevel(tileFreq, multFreq,
-						LevelType.LIGHTNING, levelName, tiles, pointThresholds,
+						 levelName, tiles, pointThresholds,
 						specialMoves, levelNumber, timerCount);
 				XMLParser.levelToFile(newLevel);
 			} catch (Exception e1) {

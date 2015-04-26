@@ -20,8 +20,6 @@ public class ReleaseLevel extends GameLevel {
 	 *            The tile frequencies for the level.
 	 * @param multFreq
 	 *            The multiplier frequencies for the level.
-	 * @param type
-	 *            The type of level.
 	 * @param name
 	 *            The name of the level.
 	 * @param tiles
@@ -38,11 +36,12 @@ public class ReleaseLevel extends GameLevel {
 	 *             If board construction throws an exception.
 	 */
 	public ReleaseLevel(ArrayList<Double> tileFreq, ArrayList<Double> multFreq,
-			LevelType type, String name, Tile tiles[][],
-			PointThresholds pointThresholds, int moveCount,
-			SpecialMoves specialMoves, int levelNumber) throws Exception {
-		super(tileFreq, multFreq, type, name, tiles, pointThresholds,
+			String name, Tile tiles[][], PointThresholds pointThresholds,
+			int moveCount, SpecialMoves specialMoves, int levelNumber) throws Exception {
+		super(tileFreq, multFreq,name, tiles, pointThresholds,
 				moveCount, specialMoves, levelNumber);
+		
+		this.type = LevelType.RELEASE;
 
 	}
 }

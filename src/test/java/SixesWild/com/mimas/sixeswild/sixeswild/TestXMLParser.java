@@ -132,7 +132,6 @@ public class TestXMLParser extends TestCase {
 		// Make a level
 		ArrayList<Double> tileFreq = new ArrayList<Double>();
 		ArrayList<Double> multFreq = new ArrayList<Double>();
-		LevelType levelType = LevelType.PUZZLE;
 		String levelName = "testPuzzle";
 		Tile tiles[][] = new Tile[9][9];
 		PointThresholds pointThresholds = new PointThresholds();
@@ -162,7 +161,7 @@ public class TestXMLParser extends TestCase {
 
 		PuzzleLevel level1;
 		try {
-			level1 = new PuzzleLevel(tileFreq, multFreq, levelType, levelName,
+			level1 = new PuzzleLevel(tileFreq, multFreq, levelName,
 					tiles, pointThresholds, 50, specialMoves, levelNumber);
 
 			// Change the level to a file and then turn it back into a level

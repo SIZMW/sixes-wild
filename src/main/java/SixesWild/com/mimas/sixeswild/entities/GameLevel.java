@@ -29,8 +29,6 @@ public abstract class GameLevel {
 	 *            The tile frequencies for the level.
 	 * @param multFreq
 	 *            The multiplier frequencies for the level.
-	 * @param type
-	 *            The type of level.
 	 * @param name
 	 *            The name of the level.
 	 * @param tiles
@@ -47,10 +45,9 @@ public abstract class GameLevel {
 	 *             If board construction throws an exception.
 	 */
 	public GameLevel(ArrayList<Double> tileFreq, ArrayList<Double> multFreq,
-			LevelType type, String name, Tile tiles[][],
-			PointThresholds pointThresholds, int moveCount,
-			SpecialMoves specialMoves, int levelNumber) throws Exception {
-		this.type = type;
+			String name, Tile tiles[][], PointThresholds pointThresholds,
+			int moveCount, SpecialMoves specialMoves, int levelNumber) throws Exception {
+		this.type = LevelType.PUZZLE;
 		this.name = name;
 		this.pointThresholds = pointThresholds;
 		this.moveCount = moveCount;
@@ -73,8 +70,6 @@ public abstract class GameLevel {
 	 *            The tile frequencies for the level.
 	 * @param multFreq
 	 *            The multiplier frequencies for the level.
-	 * @param type
-	 *            The type of level.
 	 * @param name
 	 *            The name of the level.
 	 * @param tiles
@@ -91,10 +86,9 @@ public abstract class GameLevel {
 	 *             If board construction throws an exception.
 	 */
 	public GameLevel(ArrayList<Double> tileFreq, ArrayList<Double> multFreq,
-			LevelType type, String name, Tile tiles[][],
-			PointThresholds pointThresholds, SpecialMoves specialMoves,
-			int levelNumber, int timer) throws Exception {
-		this.type = type;
+			String name, Tile tiles[][],PointThresholds pointThresholds,
+			SpecialMoves specialMoves,int levelNumber, int timer) throws Exception {
+		this.type = LevelType.PUZZLE;
 		this.name = name;
 		this.pointThresholds = pointThresholds;
 		this.timerCount = timer;
@@ -114,15 +108,6 @@ public abstract class GameLevel {
 		return this.type;
 	}
 
-	/**
-	 * Set the type of level.
-	 *
-	 * @param type
-	 *            The level type to set for the level.
-	 */
-	public void setType(LevelType type) {
-		this.type = type;
-	}
 
 	/**
 	 * Return the name of the level.

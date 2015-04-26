@@ -17,7 +17,6 @@ public class TestReleaseLevel extends TestCase {
 	public void testReleaseLevel() {
 		ArrayList<Double> tileFreq = new ArrayList<Double>();
 		ArrayList<Double> multFreq = new ArrayList<Double>();
-		LevelType levelType = LevelType.RELEASE;
 		String levelName = "testRelease";
 		Tile tiles[][] = new Tile[9][9];
 		PointThresholds pointThresholds = new PointThresholds();
@@ -43,7 +42,7 @@ public class TestReleaseLevel extends TestCase {
 
 		ReleaseLevel level;
 		try {
-			level = new ReleaseLevel(tileFreq, multFreq, levelType, levelName,
+			level = new ReleaseLevel(tileFreq, multFreq, levelName,
 					tiles, pointThresholds, 50, specialMoves, levelNumber);
 			assertEquals(levelName, level.name);
 			assertEquals(LevelType.RELEASE, level.type);
@@ -57,7 +56,7 @@ public class TestReleaseLevel extends TestCase {
 
 		tiles[0][0] = null;
 		try {
-			new ReleaseLevel(tileFreq, multFreq, levelType, levelName, tiles,
+			new ReleaseLevel(tileFreq, multFreq, levelName, tiles,
 					pointThresholds, 9, specialMoves, levelNumber);
 			fail("Missing Exception");
 		} catch (Exception e) {
@@ -65,7 +64,7 @@ public class TestReleaseLevel extends TestCase {
 		}
 
 		try {
-			new ReleaseLevel(tileFreq, multFreq, levelType, levelName, null,
+			new ReleaseLevel(tileFreq, multFreq, levelName, null,
 					pointThresholds, 9, specialMoves, levelNumber);
 			fail("Missing Exception");
 		} catch (Exception e) {

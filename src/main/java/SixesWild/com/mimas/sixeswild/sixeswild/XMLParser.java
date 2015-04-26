@@ -339,24 +339,24 @@ public final class XMLParser {
 			// Create level using all the information read
 			if (levelType.toUpperCase().equals(LevelType.PUZZLE.toString())) {
 				return new PuzzleLevel(tileFrequencies, multiplierFrequencies,
-						LevelType.PUZZLE, levelName, tiles, pointThresholds,
+						levelName, tiles, pointThresholds,
 						moveCount, specialMoves, levelNumber);
 			} else if (levelType.toUpperCase().equals(
 					LevelType.RELEASE.toString())) {
 				return new ReleaseLevel(tileFrequencies, multiplierFrequencies,
-						LevelType.RELEASE, levelName, tiles, pointThresholds,
+						levelName, tiles, pointThresholds,
 						moveCount, specialMoves, levelNumber);
 			} else if (levelType.toUpperCase().equals(
 					LevelType.LIGHTNING.toString())) {
 				return new LightningLevel(tileFrequencies,
-						multiplierFrequencies, LevelType.LIGHTNING, levelName,
+						multiplierFrequencies, levelName,
 						tiles, pointThresholds, specialMoves, levelNumber,
 						timer);
 			} else if (levelType.toUpperCase().equals(
 					LevelType.ELIMINATION.toString())) {
 				return new EliminationLevel(tileFrequencies,
-						multiplierFrequencies, LevelType.ELIMINATION,
-						levelName, tiles, pointThresholds, moveCount,
+						multiplierFrequencies, levelName,
+						tiles, pointThresholds, moveCount,
 						specialMoves, levelNumber);
 			} else {
 				logger.log(Level.SEVERE,

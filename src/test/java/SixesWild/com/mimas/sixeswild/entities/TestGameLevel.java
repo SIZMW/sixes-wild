@@ -23,7 +23,6 @@ public class TestGameLevel extends TestCase {
 	public void testEliminationLevel() throws Exception {
 		ArrayList<Double> tileFreq = new ArrayList<Double>();
 		ArrayList<Double> multFreq = new ArrayList<Double>();
-		LevelType type = LevelType.ELIMINATION;
 		String name = "the test level";
 		Tile tiles[][] = new Tile[9][9];
 		PointThresholds pointThresholds = new PointThresholds();
@@ -48,7 +47,7 @@ public class TestGameLevel extends TestCase {
 			}
 		}
 
-		this.toTest = new EliminationLevel(tileFreq, multFreq, type, name,
+		this.toTest = new EliminationLevel(tileFreq, multFreq, name,
 				tiles, pointThresholds, moveCount, specialMoves, levelNumber);
 		assertEquals(name, this.toTest.name);
 		Board newBoard = new Board();
@@ -65,9 +64,7 @@ public class TestGameLevel extends TestCase {
 		this.toTest.setSpecialMoves(newSpecialMoves);
 		int newTimer = 10;
 		this.toTest.setTimer(newTimer);
-		this.toTest.setType(LevelType.LIGHTNING);
 
-		assertEquals(LevelType.LIGHTNING, this.toTest.getType());
 		assertEquals(newTimer, this.toTest.getTimer());
 		assertEquals(newSpecialMoves, this.toTest.getSpecialMoves());
 		assertEquals(pointThresholds, this.toTest.getPointThresholds());

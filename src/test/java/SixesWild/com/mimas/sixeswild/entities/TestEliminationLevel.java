@@ -18,7 +18,6 @@ public class TestEliminationLevel extends TestCase {
 	public void testEliminationLevel() {
 		ArrayList<Double> tileFreq = new ArrayList<Double>();
 		ArrayList<Double> multFreq = new ArrayList<Double>();
-		LevelType type = LevelType.ELIMINATION;
 		String name = "the test level";
 		Tile tiles[][] = new Tile[9][9];
 		PointThresholds pointThresholds = new PointThresholds();
@@ -43,7 +42,7 @@ public class TestEliminationLevel extends TestCase {
 			}
 		}
 		try {
-			toTest = new EliminationLevel(tileFreq, multFreq, type, name,
+			toTest = new EliminationLevel(tileFreq, multFreq,name,
 					tiles, pointThresholds, moveCount, specialMoves,
 					levelNumber);
 			assertEquals(name, toTest.name);
@@ -54,7 +53,7 @@ public class TestEliminationLevel extends TestCase {
 
 		tiles[0][0] = null;
 		try {
-			new EliminationLevel(tileFreq, multFreq, type, name, tiles,
+			new EliminationLevel(tileFreq, multFreq, name, tiles,
 					pointThresholds, 9, specialMoves, levelNumber);
 			fail("Missing Exception");
 		} catch (Exception e) {
@@ -62,7 +61,7 @@ public class TestEliminationLevel extends TestCase {
 		}
 
 		try {
-			new EliminationLevel(tileFreq, multFreq, type, name, null,
+			new EliminationLevel(tileFreq, multFreq, name, null,
 					pointThresholds, 9, specialMoves, levelNumber);
 			fail("Missing Exception");
 		} catch (Exception e) {
