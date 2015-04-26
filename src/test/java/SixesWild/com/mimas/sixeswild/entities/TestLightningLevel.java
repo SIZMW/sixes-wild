@@ -5,9 +5,9 @@ import java.util.ArrayList;
 import junit.framework.TestCase;
 
 /**
- * 
+ *
  * @author Joey Perez
- * 
+ *
  */
 
 public class TestLightningLevel extends TestCase {
@@ -24,7 +24,7 @@ public class TestLightningLevel extends TestCase {
 		PointThresholds pointThresholds = new PointThresholds(); // DONE
 		SpecialMoves specialMoves = new SpecialMoves();
 		int levelNumber = 1;
-		
+
 		tileFreq.add(.10);
 		tileFreq.add(.20);
 		tileFreq.add(.30);
@@ -44,8 +44,9 @@ public class TestLightningLevel extends TestCase {
 
 		LightningLevel level;
 		try {
-			level = new LightningLevel(tileFreq, multFreq, levelType, levelName,
-					tiles, pointThresholds, 50, specialMoves, levelNumber);
+			level = new LightningLevel(tileFreq, multFreq, levelType,
+					levelName, tiles, pointThresholds, specialMoves,
+					levelNumber, 50);
 			assertEquals(levelName, level.getName());
 			assertEquals(LevelType.LIGHTNING, level.getType());
 			assertEquals(tileFreq, level.board.getTileFrequencies());

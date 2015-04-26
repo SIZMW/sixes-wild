@@ -42,7 +42,7 @@ import SixesWild.com.mimas.sixeswild.entities.UserProfile;
 /**
  * This class handles parsing the level and user profile files into usable
  * objects in the builder or game.
- * 
+ *
  * @author Yahel Nachum, Aditya Nivarthi
  */
 public final class XMLParser {
@@ -57,7 +57,7 @@ public final class XMLParser {
 
 	/**
 	 * Returns the character representation of the tile based on its type.
-	 * 
+	 *
 	 * @param tile
 	 *            The tile to represent as a character.
 	 * @return A character for representation
@@ -82,7 +82,7 @@ public final class XMLParser {
 
 	/**
 	 * Gets the level name of the specified file.
-	 * 
+	 *
 	 * @param fileName
 	 *            The string containing the directory and XML file name that
 	 *            contains all the information for a singular level.
@@ -114,7 +114,7 @@ public final class XMLParser {
 
 	/**
 	 * Gets the user profile name of the specified file.
-	 * 
+	 *
 	 * @param fileName
 	 *            The string containing the directory and XML file name that
 	 *            contains all the information for a singular user profile.
@@ -148,7 +148,7 @@ public final class XMLParser {
 	/**
 	 * Gets the list of level names to load to the list selection from the given
 	 * directory.
-	 * 
+	 *
 	 * @param directory
 	 *            The directory to load levels from.
 	 * @return A list of level names.
@@ -191,7 +191,7 @@ public final class XMLParser {
 
 	/**
 	 * Gets the list of user profile names to load.
-	 * 
+	 *
 	 * @return A list of user profile names.
 	 */
 	public static ArrayList<String> getUserProfileNames() {
@@ -224,7 +224,7 @@ public final class XMLParser {
 	/**
 	 * Takes in a file name and extracts the information from it to create a
 	 * level.
-	 * 
+	 *
 	 * @param fileName
 	 *            A String of the directory and file name.
 	 * @return Level object for the level if exists; null otherwise
@@ -350,8 +350,8 @@ public final class XMLParser {
 					LevelType.LIGHTNING.toString())) {
 				return new LightningLevel(tileFrequencies,
 						multiplierFrequencies, LevelType.LIGHTNING, levelName,
-						tiles, pointThresholds, timer, specialMoves,
-						levelNumber);
+						tiles, pointThresholds, specialMoves, levelNumber,
+						timer);
 			} else if (levelType.toUpperCase().equals(
 					LevelType.ELIMINATION.toString())) {
 				return new EliminationLevel(tileFrequencies,
@@ -374,7 +374,7 @@ public final class XMLParser {
 	/**
 	 * Writes a level to an output file. File is stored in the "/userlevel/"
 	 * directory.
-	 * 
+	 *
 	 * @param level
 	 *            The level object to save to file.
 	 * @return true if successful; false otherwise
@@ -528,12 +528,7 @@ public final class XMLParser {
 
 			// Timer element / value
 			Element timerElement = doc.createElement("Timer");
-			if (level.getTimer() == null) {
-				timerElement.appendChild(doc.createTextNode("0"));
-			} else {
-				timerElement.appendChild(doc.createTextNode(""
-						+ level.getTimer().getDelay()));
-			}
+			timerElement.appendChild(doc.createTextNode("" + level.getTimer()));
 			playingConstraintsElement.appendChild(timerElement);
 
 			// Board element
@@ -582,7 +577,7 @@ public final class XMLParser {
 	/**
 	 * Takes in a file name and extracts the information from it to create a
 	 * user profile.
-	 * 
+	 *
 	 * @param fileName
 	 *            A String of the file name.
 	 * @return UserProfile object for the user profile if exists; null otherwise
@@ -660,7 +655,7 @@ public final class XMLParser {
 
 	/**
 	 * Writes a user profile to an output file.
-	 * 
+	 *
 	 * @param userProfile
 	 *            The user profile to save to file.
 	 * @return true if successful; false otherwise

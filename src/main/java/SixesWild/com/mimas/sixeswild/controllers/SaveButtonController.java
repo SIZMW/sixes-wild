@@ -22,7 +22,7 @@ import SixesWild.com.mimas.sixeswild.sixeswild.XMLParser;
 /**
  * This controller handles saving the builder level to a file when the save
  * button is pressed.
- * 
+ *
  * @author Cameron Jones
  */
 public class SaveButtonController implements ActionListener {
@@ -34,7 +34,7 @@ public class SaveButtonController implements ActionListener {
 	/**
 	 * Creates a SaveButtonController instance with the specified
 	 * BuilderApplication.
-	 * 
+	 *
 	 * @param app
 	 *            The BuilderApplication currently running.
 	 */
@@ -44,12 +44,12 @@ public class SaveButtonController implements ActionListener {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see
 	 * java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
 	 */
 	public void actionPerformed(ActionEvent e) {
-		BuilderSettingsPanel bsp = app.getBuilderView()
+		BuilderSettingsPanel bsp = this.app.getBuilderView()
 				.getBuilderSettingsPanel();
 		GameLevel newLevel;
 
@@ -58,12 +58,12 @@ public class SaveButtonController implements ActionListener {
 
 		// Determine the level number
 		int levelNumber;
-		if (app.getBuilderView().getBuilderTopPanel().getUserLevelList()
+		if (this.app.getBuilderView().getBuilderTopPanel().getUserLevelList()
 				.contains(levelName)) {
-			levelNumber = app.getBuilderView().getBuilderTopPanel()
+			levelNumber = this.app.getBuilderView().getBuilderTopPanel()
 					.getUserLevelList().indexOf(levelName) + 1;
 		} else {
-			levelNumber = app.getBuilderView().getBuilderTopPanel()
+			levelNumber = this.app.getBuilderView().getBuilderTopPanel()
 					.getUserLevelList().size() + 1;
 		}
 
@@ -244,7 +244,7 @@ public class SaveButtonController implements ActionListener {
 
 		for (int i = 0; i < 9; i++) {
 			for (int j = 0; j < 9; j++) {
-				tiles[i][j] = app.getBuilderView().getBoardViewPanel()
+				tiles[i][j] = this.app.getBuilderView().getBoardViewPanel()
 						.getBoard().getSquare(i, j).getTile();
 			}
 		}
@@ -280,7 +280,7 @@ public class SaveButtonController implements ActionListener {
 			try {
 				newLevel = new LightningLevel(tileFreq, multFreq,
 						LevelType.LIGHTNING, levelName, tiles, pointThresholds,
-						timerCount, specialMoves, levelNumber);
+						specialMoves, levelNumber, timerCount);
 				XMLParser.levelToFile(newLevel);
 			} catch (Exception e1) {
 				logger.log(Level.WARNING, "Lightning level creation failed.");

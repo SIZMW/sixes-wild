@@ -2,14 +2,12 @@ package SixesWild.com.mimas.sixeswild.entities;
 
 import java.util.ArrayList;
 
-import javax.swing.Timer;
-
 import junit.framework.TestCase;
 
 /**
- * This test case handles coverage on the GameLevel methods using the GameLevel sub
- * classes.
- * 
+ * This test case handles coverage on the GameLevel methods using the GameLevel
+ * sub classes.
+ *
  * @author Cameron Jones
  */
 public class TestGameLevel extends TestCase {
@@ -17,7 +15,7 @@ public class TestGameLevel extends TestCase {
 
 	/**
 	 * Tests GameLevel methods using EliminationLevel.
-	 * 
+	 *
 	 * @throws Exception
 	 *             If board fails to create.
 	 */
@@ -49,27 +47,27 @@ public class TestGameLevel extends TestCase {
 			}
 		}
 
-		toTest = new EliminationLevel(tileFreq, multFreq, type, name, tiles,
-				pointThresholds, moveCount, specialMoves, levelNumber);
-		assertEquals(name, toTest.name);
+		this.toTest = new EliminationLevel(tileFreq, multFreq, type, name,
+				tiles, pointThresholds, moveCount, specialMoves, levelNumber);
+		assertEquals(name, this.toTest.name);
 		Board newBoard = new Board();
-		toTest.setBoard(newBoard);
-		assertEquals(newBoard, toTest.getBoard());
-		toTest.setLevelNumber(100);
-		assertEquals(100, toTest.getLevelNumber());
-		toTest.setMoveCount(1);
-		assertEquals(1, toTest.getMoveCount());
-		toTest.setName("I Hate Testing");
-		assertEquals("I Hate Testing", toTest.getName());
-		toTest.setPointThresholds(pointThresholds);
+		this.toTest.setBoard(newBoard);
+		assertEquals(newBoard, this.toTest.getBoard());
+		this.toTest.setLevelNumber(100);
+		assertEquals(100, this.toTest.getLevelNumber());
+		this.toTest.setMoveCount(1);
+		assertEquals(1, this.toTest.getMoveCount());
+		this.toTest.setName("I Hate Testing");
+		assertEquals("I Hate Testing", this.toTest.getName());
+		this.toTest.setPointThresholds(pointThresholds);
 		SpecialMoves newSpecialMoves = new SpecialMoves();
-		toTest.setSpecialMoves(newSpecialMoves);
-		Timer newTimer = new Timer(10, null);
-		toTest.setTimer(newTimer);
-		toTest.setType(LevelType.LIGHTNING);
-		assertEquals(LevelType.LIGHTNING, toTest.getType());
-		assertEquals(newTimer, toTest.getTimer());
-		assertEquals(newSpecialMoves, toTest.getSpecialMoves());
-		assertEquals(pointThresholds, toTest.getPointThresholds());
+		this.toTest.setSpecialMoves(newSpecialMoves);
+		int newTimer = 10;
+		this.toTest.setTimer(newTimer);
+		this.toTest.setType(LevelType.LIGHTNING);
+		assertEquals(LevelType.LIGHTNING, this.toTest.getType());
+		assertEquals(newTimer, this.toTest.getTimer());
+		assertEquals(newSpecialMoves, this.toTest.getSpecialMoves());
+		assertEquals(pointThresholds, this.toTest.getPointThresholds());
 	}
 }

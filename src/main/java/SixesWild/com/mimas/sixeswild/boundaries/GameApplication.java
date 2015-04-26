@@ -27,7 +27,7 @@ import SixesWild.com.mimas.sixeswild.sixeswild.XMLParser;
 /**
  * This class represents the Game application that will run and handle the
  * player playing the game.
- * 
+ *
  * @author Aditya Nivarthi
  */
 public class GameApplication {
@@ -80,7 +80,7 @@ public class GameApplication {
 
 		// TODO Get from user profile.
 		int storyHighestUnlocked = 5;
-		int userHighestUnlocked = 10;
+		int userHighestUnlocked = 50;
 
 		// Initialize panels and views.
 		gameMenuView = new GameMenuView(storyLevelList, userLevelList,
@@ -158,7 +158,7 @@ public class GameApplication {
 
 	/**
 	 * Returns the frame object for this class.
-	 * 
+	 *
 	 * @return the frame property
 	 */
 	public JFrame getFrame() {
@@ -167,7 +167,7 @@ public class GameApplication {
 
 	/**
 	 * Returns the gameMenuView object for this class.
-	 * 
+	 *
 	 * @return the gameMenuView property
 	 */
 	public GameMenuView getGameMenuView() {
@@ -176,7 +176,7 @@ public class GameApplication {
 
 	/**
 	 * Returns the levelView object for this class.
-	 * 
+	 *
 	 * @return the levelView property
 	 */
 	public LevelView getLevelPanel() {
@@ -185,7 +185,7 @@ public class GameApplication {
 
 	/**
 	 * Sets the levelView object to the specified LevelView.
-	 * 
+	 *
 	 * @param newLevel
 	 *            The levelView object for this class.
 	 * @return true
@@ -197,7 +197,7 @@ public class GameApplication {
 
 	/**
 	 * Returns the currentAesthetic object for this class.
-	 * 
+	 *
 	 * @return the currentAesthetic property
 	 */
 	public Aesthetic getCurrentAesthetic() {
@@ -206,7 +206,7 @@ public class GameApplication {
 
 	/**
 	 * Returns the currentUserProfile object for this class.
-	 * 
+	 *
 	 * @return the currentUserProfile property
 	 */
 	public UserProfile getCurrentUserProfile() {
@@ -215,7 +215,7 @@ public class GameApplication {
 
 	/**
 	 * Sets the current aesthetic based on the given name.
-	 * 
+	 *
 	 * @param name
 	 *            The name of the aesthetic to load.
 	 * @return true if aesthetic is found and set; false if a new profile was
@@ -237,7 +237,7 @@ public class GameApplication {
 
 	/**
 	 * Sets the current user profile.
-	 * 
+	 *
 	 * @param name
 	 *            The name of the user to load.
 	 * @return true if profile was found and set; false if a new profile was

@@ -2,13 +2,11 @@ package SixesWild.com.mimas.sixeswild.entities;
 
 import java.util.ArrayList;
 
-import javax.swing.Timer;
-
 /**
  * This class is used as a representation of the level entity. It defines the
  * playable level that describes all the constraints and properties of each
  * specific level in the game.
- * 
+ *
  * @author Cameron Jones
  */
 public abstract class GameLevel {
@@ -18,7 +16,7 @@ public abstract class GameLevel {
 	protected PointThresholds pointThresholds;
 	protected String name;
 	protected Board board;
-	protected Timer timer;
+	protected int timerCount;
 	protected int moveCount;
 	protected int levelNumber;
 
@@ -26,7 +24,7 @@ public abstract class GameLevel {
 	 * Creates a GameLevel instance with the specified tile frequencies,
 	 * multiplier frequencies, type, name, tile list, point thresholds, move
 	 * count, special moves and level number.
-	 * 
+	 *
 	 * @param tileFreq
 	 *            The tile frequencies for the level.
 	 * @param multFreq
@@ -56,7 +54,7 @@ public abstract class GameLevel {
 		this.name = name;
 		this.pointThresholds = pointThresholds;
 		this.moveCount = moveCount;
-		this.timer = null;
+		this.timerCount = 0;
 		this.specialMoves = specialMoves;
 		this.levelNumber = levelNumber;
 		try {
@@ -70,7 +68,7 @@ public abstract class GameLevel {
 	 * Creates a GameLevel instance with the specified tile frequencies,
 	 * multiplier frequencies, type, name, tile list, point thresholds, timer,
 	 * special moves and level number.
-	 * 
+	 *
 	 * @param tileFreq
 	 *            The tile frequencies for the level.
 	 * @param multFreq
@@ -94,12 +92,12 @@ public abstract class GameLevel {
 	 */
 	public GameLevel(ArrayList<Double> tileFreq, ArrayList<Double> multFreq,
 			LevelType type, String name, Tile tiles[][],
-			PointThresholds pointThresholds, Timer timer,
-			SpecialMoves specialMoves, int levelNumber) throws Exception {
+			PointThresholds pointThresholds, SpecialMoves specialMoves,
+			int levelNumber, int timer) throws Exception {
 		this.type = type;
 		this.name = name;
 		this.pointThresholds = pointThresholds;
-		this.timer = timer;
+		this.timerCount = timer;
 		this.moveCount = 0;
 		this.specialMoves = specialMoves;
 		this.levelNumber = levelNumber;
@@ -109,7 +107,7 @@ public abstract class GameLevel {
 
 	/**
 	 * Returns the type of level.
-	 * 
+	 *
 	 * @return a LevelType
 	 */
 	public LevelType getType() {
@@ -118,7 +116,7 @@ public abstract class GameLevel {
 
 	/**
 	 * Set the type of level.
-	 * 
+	 *
 	 * @param type
 	 *            The level type to set for the level.
 	 */
@@ -128,16 +126,16 @@ public abstract class GameLevel {
 
 	/**
 	 * Return the name of the level.
-	 * 
+	 *
 	 * @return a String
 	 */
 	public String getName() {
-		return name;
+		return this.name;
 	}
 
 	/**
 	 * Set the name the level.
-	 * 
+	 *
 	 * @param name
 	 *            The new name of the level.
 	 */
@@ -147,16 +145,16 @@ public abstract class GameLevel {
 
 	/**
 	 * Returns the board in the level.
-	 * 
+	 *
 	 * @return a Board
 	 */
 	public Board getBoard() {
-		return board;
+		return this.board;
 	}
 
 	/**
 	 * Sets the board in the level to the given board.
-	 * 
+	 *
 	 * @param board
 	 *            The new board to set for the level.
 	 */
@@ -166,16 +164,16 @@ public abstract class GameLevel {
 
 	/**
 	 * Returns the point threshold values for the level.
-	 * 
+	 *
 	 * @return a PointThresholds
 	 */
 	public PointThresholds getPointThresholds() {
-		return pointThresholds;
+		return this.pointThresholds;
 	}
 
 	/**
 	 * Sets the point threshold values for the level.
-	 * 
+	 *
 	 * @param pointThresholds
 	 *            The new point thresholds to set for the level.
 	 */
@@ -185,16 +183,16 @@ public abstract class GameLevel {
 
 	/**
 	 * Returns the number of moves for the level.
-	 * 
+	 *
 	 * @return the integer number of moves
 	 */
 	public int getMoveCount() {
-		return moveCount;
+		return this.moveCount;
 	}
 
 	/**
 	 * Sets the number of moves for the level.
-	 * 
+	 *
 	 * @param moveCount
 	 *            The new number of moves to set for the level.
 	 */
@@ -204,7 +202,7 @@ public abstract class GameLevel {
 
 	/**
 	 * Updates the move count by the specified amount.
-	 * 
+	 *
 	 * @param delta
 	 *            The integer value to update the move count.
 	 */
@@ -214,26 +212,36 @@ public abstract class GameLevel {
 
 	/**
 	 * Returns the timer for the level.
-	 * 
+	 *
 	 * @return a Timer
 	 */
-	public Timer getTimer() {
-		return timer;
+	public int getTimer() {
+		return this.timerCount;
 	}
 
 	/**
 	 * Sets the timer for the level.
-	 * 
+	 *
 	 * @param timer
 	 *            The new timer to set for the level.
 	 */
-	public void setTimer(Timer timer) {
-		this.timer = timer;
+	public void setTimer(int timer) {
+		this.timerCount = timer;
+	}
+
+	/**
+	 * Updates the timer count by the specified amount.
+	 *
+	 * @param delta
+	 *            The integer value to update the timer count.
+	 */
+	public synchronized void updateTimerCount(int delta) {
+		this.timerCount += delta;
 	}
 
 	/**
 	 * Sets the SpecialMoves
-	 * 
+	 *
 	 * @param newSpecialMoves
 	 *            The new special moves for the level.
 	 */
@@ -243,7 +251,7 @@ public abstract class GameLevel {
 
 	/**
 	 * Returns the Levels Special Moves
-	 * 
+	 *
 	 * @return a SpecialMoves
 	 */
 	public SpecialMoves getSpecialMoves() {
@@ -252,7 +260,7 @@ public abstract class GameLevel {
 
 	/**
 	 * Returns the LevelNumber
-	 * 
+	 *
 	 * @return the integer level number
 	 */
 	public int getLevelNumber() {
@@ -261,7 +269,7 @@ public abstract class GameLevel {
 
 	/**
 	 * Sets the level number to the specified level number.
-	 * 
+	 *
 	 * @param newNumber
 	 *            The new level number for the level.
 	 */
