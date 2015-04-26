@@ -1,6 +1,8 @@
 package SixesWild.com.mimas.sixeswild.boundaries;
 
 import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
@@ -11,14 +13,14 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JPanel;
 import javax.swing.JSeparator;
+import javax.swing.JTextArea;
 import javax.swing.JTextField;
-import javax.swing.JTextPane;
 
 import SixesWild.com.mimas.sixeswild.entities.Aesthetic;
 
 /**
  * This class represents the options sub menu in the game.
- * 
+ *
  * @author Yahel Nachum
  */
 public class OptionsPanel extends JPanel {
@@ -32,7 +34,7 @@ public class OptionsPanel extends JPanel {
 	protected JPanel upperOptionsPanel;
 	protected JPanel rulesPanel;
 	protected JTextField userNameTextField;
-	protected JTextPane rulesTextPane;
+	protected JTextArea rulesTextPane;
 	protected JSeparator rulesSeparator;
 
 	// TODO Modify this text
@@ -40,7 +42,7 @@ public class OptionsPanel extends JPanel {
 
 	/**
 	 * Creates an OptionsPanel instance with the specified aesthetic list.
-	 * 
+	 *
 	 * @param aestheticList
 	 *            The list of aesthetics to populate in the aesthetic drop down
 	 *            menu.
@@ -164,9 +166,14 @@ public class OptionsPanel extends JPanel {
 		rulesPanel.setLayout(gbl_panel_2);
 
 		// Rules text pane
-		rulesTextPane = new JTextPane();
+		rulesTextPane = new JTextArea();
+		rulesTextPane.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		rulesTextPane.setLineWrap(true);
+		rulesTextPane.setWrapStyleWord(true);
 		rulesTextPane.setText(rulesText);
 		rulesTextPane.setEditable(false);
+		rulesTextPane.setPreferredSize(new Dimension(400, 100));
+		rulesTextPane.setMaximumSize(new Dimension(400, 100));
 
 		// Layout for rules text pane
 		GridBagConstraints gbc_txtpnRules = new GridBagConstraints();
@@ -180,7 +187,7 @@ public class OptionsPanel extends JPanel {
 
 	/**
 	 * Returns the changeAestheticButton object for this panel.
-	 * 
+	 *
 	 * @return the changeAestheticButton property
 	 */
 	public JButton getAestheticButton() {
@@ -189,7 +196,7 @@ public class OptionsPanel extends JPanel {
 
 	/**
 	 * Returns the switchUserButton object for this panel.
-	 * 
+	 *
 	 * @return the switchUserButton property
 	 */
 	public JButton getSwitchUserButton() {
@@ -198,7 +205,7 @@ public class OptionsPanel extends JPanel {
 
 	/**
 	 * Returns the resetBadgesButton object for this panel.
-	 * 
+	 *
 	 * @return the resetBadgesButton property
 	 */
 	public JButton getResetBadgesButton() {
@@ -207,7 +214,7 @@ public class OptionsPanel extends JPanel {
 
 	/**
 	 * Returns the aestheticDropDownMenu object for this panel.
-	 * 
+	 *
 	 * @return the aestheticDropDownMenu property
 	 */
 	public JComboBox<String> getAestheticDropDownMenu() {
@@ -216,7 +223,7 @@ public class OptionsPanel extends JPanel {
 
 	/**
 	 * Returns the userNameTextField object for this panel.
-	 * 
+	 *
 	 * @return the userNameTextField property
 	 */
 	public JTextField getUserNameTextField() {

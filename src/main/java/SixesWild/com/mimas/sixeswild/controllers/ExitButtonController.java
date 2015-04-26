@@ -17,7 +17,7 @@ import SixesWild.com.mimas.sixeswild.boundaries.GameApplication;
 /**
  * This controller handles exiting a level and returning to the previous menu
  * screen in the game.
- * 
+ *
  * @author Cameron Jones
  */
 public class ExitButtonController implements ActionListener {
@@ -29,7 +29,7 @@ public class ExitButtonController implements ActionListener {
 	/**
 	 * Creates an ExitButtonController instance with the specified
 	 * GameApplication.
-	 * 
+	 *
 	 * @param app
 	 *            The GameApplication currently running.
 	 */
@@ -39,7 +39,7 @@ public class ExitButtonController implements ActionListener {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see
 	 * java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
 	 */
@@ -62,6 +62,8 @@ public class ExitButtonController implements ActionListener {
 		gbc_list.fill = GridBagConstraints.BOTH;
 		gbc_list.gridx = 0;
 		gbc_list.gridy = 0;
+
+		this.app.refreshGameMenuView();
 
 		// Add panel to view
 		currentPanel.add(this.app.getGameMenuView(), gbc_list);

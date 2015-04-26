@@ -46,6 +46,10 @@ public class GameApplication {
 	protected ArrayList<String> userLevelList;
 	protected ArrayList<String> badgesList;
 
+	// TODO Get from user profile.
+	int storyHighestUnlocked = 5;
+	int userHighestUnlocked = 50;
+
 	// TODO Populate the list of badges
 
 	/**
@@ -84,14 +88,11 @@ public class GameApplication {
 			badgesList.add("Badge " + i);
 		}
 
-		// TODO Get from user profile.
-		int storyHighestUnlocked = 5;
-		int userHighestUnlocked = 50;
-
 		// Initialize panels and views.
 		gameMenuView = new GameMenuView(storyLevelList, userLevelList,
-				badgesList, aestheticList, storyHighestUnlocked,
-				userHighestUnlocked);
+				badgesList, aestheticList,
+				currentUserProfile.getHighestUnlockedLevel(),
+				currentUserProfile.getHighestUnlockedLevel());
 		levelView = new LevelView(currentAesthetic);
 
 		// Initialize frame
@@ -178,6 +179,16 @@ public class GameApplication {
 	 */
 	public GameMenuView getGameMenuView() {
 		return this.gameMenuView;
+	}
+
+	public void refreshGameMenuView() {
+		this.setUpAesthetics();
+		// Initialize panels and views.
+		gameMenuView = new GameMenuView(storyLevelList, userLevelList,
+				badgesList, aestheticList,
+				currentUserProfile.getHighestUnlockedLevel(),
+				currentUserProfile.getHighestUnlockedLevel());
+		this.setUpControllers();
 	}
 
 	/**

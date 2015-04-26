@@ -244,7 +244,7 @@ public class LevelView extends JPanel {
 
 				/*
 				 * (non-Javadoc)
-				 * 
+				 *
 				 * @see
 				 * java.awt.event.ActionListener#actionPerformed(java.awt.event
 				 * .ActionEvent)
@@ -408,6 +408,8 @@ public class LevelView extends JPanel {
 				this.currentScore,
 				this.currentLevel.getPointThresholds().getStarsForScore(
 						this.currentScore));
+		this.app.getCurrentUserProfile().setHighestLevel(
+				this.currentLevel.getLevelNumber() + 1);
 
 		JDialog dialog = new EndLevelPopUpPane(this.app, message).createDialog(
 				this.app.getFrame(), "");
