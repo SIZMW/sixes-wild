@@ -483,27 +483,40 @@ public class Board {
 		this.fillEmptySquares();
 	}
 
+	/**
+	 * Determines if this board has successfully completed an "Elimination" game
+	 * type.
+	 *
+	 * @return true if all squares with number tiles are marked; false otherwise
+	 */
 	public boolean isEliminationComplete() {
-		int count = 0;
 		for (int i = 0; i < this.SIZE_X; i++) {
 			for (int j = 0; j < this.SIZE_Y; j++) {
-				if (!this.squares[i][j].getMarked()) {
-					count++;
+				if (!this.squares[i][j].getMarked()
+						&& this.squares[i][j].getTile().getType()
+								.equals(TileType.NUMBER)) {
+					return false;
 				}
 			}
 		}
-		return count <= 0;
+		return true;
 	}
 
+	/**
+	 * Determines if this board has successfully completed a "Release" game
+	 * type.
+	 *
+	 * @return true if all target tiles are removed; false otherwise
+	 */
 	public boolean isReleaseComplete() {
-		int count = 0;
 		for (int i = 0; i < this.SIZE_X; i++) {
 			for (int j = 0; j < this.SIZE_Y; j++) {
-				if (this.squares[i][j].getTile().equals(TileType.TARGET)) {
-					count++;
+				if (this.squares[i][j].getTile().getType()
+						.equals(TileType.TARGET)) {
+					return false;
 				}
 			}
 		}
-		return count <= 0;
+		return true;
 	}
 }

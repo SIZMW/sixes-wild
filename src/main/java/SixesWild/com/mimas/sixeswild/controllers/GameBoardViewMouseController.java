@@ -9,6 +9,7 @@ import javax.swing.JDialog;
 
 import SixesWild.com.mimas.sixeswild.boundaries.EndLevelPopUpPane;
 import SixesWild.com.mimas.sixeswild.boundaries.GameApplication;
+import SixesWild.com.mimas.sixeswild.entities.LevelType;
 import SixesWild.com.mimas.sixeswild.entities.MoveType;
 import SixesWild.com.mimas.sixeswild.entities.RemoveTileMove;
 import SixesWild.com.mimas.sixeswild.entities.SelectionMove;
@@ -39,7 +40,7 @@ public class GameBoardViewMouseController extends MouseAdapter {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see java.awt.event.MouseAdapter#mousePressed(java.awt.event.MouseEvent)
 	 */
 	@Override
@@ -76,7 +77,7 @@ public class GameBoardViewMouseController extends MouseAdapter {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see java.awt.event.MouseAdapter#mouseReleased(java.awt.event.MouseEvent)
 	 */
 	@Override
@@ -109,23 +110,45 @@ public class GameBoardViewMouseController extends MouseAdapter {
 				+ this.app.getLevelPanel().getMoveType().toString());
 
 		this.app.getLevelPanel().updateLevelStats();
+		this.hasCompletedLevel();
+		this.app.getLevelPanel().getBoardViewPanel().updateUI();
+	}
 
-		if (this.app.getLevelPanel().getLevel().getMoveCount() <= 0) {
-			JDialog dialog = new EndLevelPopUpPane(this.app,
-					"You have run out of moves.").createDialog(
-					this.app.getFrame(), "");
-			dialog.setVisible(true);
+	/**
+	 * Determines completion status for each level type.
+	 */
+	protected void hasCompletedLevel() {
+		if (this.app.getLevelPanel().getLevel().getType()
+				.equals(LevelType.ELIMINATION)) {
+			if (this.app.getLevelPanel().getBoardViewPanel().getBoard()
+					.isEliminationComplete()) {
+				this.endLevel("Completed elimination level.");
+			}
+		} else if (this.app.getLevelPanel().getLevel().getType()
+				.equals(LevelType.RELEASE)) {
+			if (this.app.getLevelPanel().getBoardViewPanel().getBoard()
+					.isReleaseComplete()) {
+				this.endLevel("Completed release level.");
+			}
+		} else if (this.app.getLevelPanel().getLevel().getType()
+				.equals(LevelType.LIGHTNING)) {
 
-			logger.log(Level.INFO, "Level ended. Returning to menu.");
-		} else {
-			this.app.getLevelPanel().getBoardViewPanel().updateUI();
+		} else if (this.app.getLevelPanel().getLevel().getMoveCount() <= 0) {
+			this.endLevel("You have run out of moves.");
 		}
+	}
 
-		if (this.app.getLevelPanel().getBoardViewPanel().getBoard()
-				.isEliminationComplete()
-				|| this.app.getLevelPanel().getBoardViewPanel().getBoard()
-						.isReleaseComplete()) {
-			logger.log(Level.INFO, "WINNING");
-		}
+	/**
+	 * Displays the end level pop up before returning to the menu.
+	 *
+	 * @param message
+	 *            The game status message to display.
+	 */
+	protected void endLevel(String message) {
+		JDialog dialog = new EndLevelPopUpPane(this.app, message).createDialog(
+				this.app.getFrame(), "");
+		dialog.setVisible(true);
+
+		logger.log(Level.INFO, "Level ended. Returning to menu.");
 	}
 }
