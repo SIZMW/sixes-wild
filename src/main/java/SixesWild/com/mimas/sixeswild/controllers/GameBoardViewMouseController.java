@@ -9,7 +9,9 @@ import javax.swing.JDialog;
 
 import SixesWild.com.mimas.sixeswild.boundaries.EndLevelPopUpPane;
 import SixesWild.com.mimas.sixeswild.boundaries.GameApplication;
+import SixesWild.com.mimas.sixeswild.entities.MoveType;
 import SixesWild.com.mimas.sixeswild.entities.SelectionMove;
+import SixesWild.com.mimas.sixeswild.entities.SwapMove;
 
 /**
  * This controller handles mouse presses and releases when selecting tiles on
@@ -43,10 +45,17 @@ public class GameBoardViewMouseController extends MouseAdapter {
 		app.getLevelPanel().getBoardViewPanel()
 				.updateGameSelection(me.getX(), me.getY());
 
-		SelectionMove move = new SelectionMove(app.getLevelPanel()
-				.getBoardViewPanel().getCurrentSelection(), this.app
-				.getLevelPanel().getLevel());
-		move.processCurrentMove(this.app);
+		if (this.app.getLevelPanel().getMoveType().equals(MoveType.SELECTION)) {
+			SelectionMove move = new SelectionMove(app.getLevelPanel()
+					.getBoardViewPanel().getCurrentSelection(), this.app
+					.getLevelPanel().getLevel());
+			move.processCurrentMove(this.app);
+		} else if (this.app.getLevelPanel().getMoveType().equals(MoveType.SWAP)) {
+			SwapMove move = new SwapMove(app.getLevelPanel()
+					.getBoardViewPanel().getCurrentSelection(), this.app
+					.getLevelPanel().getLevel());
+			move.processCurrentMove(app);
+		}
 
 		app.getLevelPanel().updateLevelStats();
 		app.getLevelPanel().getBoardViewPanel().updateUI();
@@ -58,10 +67,21 @@ public class GameBoardViewMouseController extends MouseAdapter {
 	 * @see java.awt.event.MouseAdapter#mouseReleased(java.awt.event.MouseEvent)
 	 */
 	public void mouseReleased(MouseEvent me) {
-		SelectionMove move = new SelectionMove(app.getLevelPanel()
-				.getBoardViewPanel().getCurrentSelection(), this.app
-				.getLevelPanel().getLevel());
-		move.doMove(this.app);
+
+		if (this.app.getLevelPanel().getMoveType().equals(MoveType.SELECTION)) {
+			SelectionMove move = new SelectionMove(app.getLevelPanel()
+					.getBoardViewPanel().getCurrentSelection(), this.app
+					.getLevelPanel().getLevel());
+			move.doMove(this.app);
+		} else if (this.app.getLevelPanel().getMoveType().equals(MoveType.SWAP)) {
+			SwapMove move = new SwapMove(app.getLevelPanel()
+					.getBoardViewPanel().getCurrentSelection(), this.app
+					.getLevelPanel().getLevel());
+			if (move.isValidMove(app)) {
+				move.doMove(app);
+				this.app.getLevelPanel().setMoveType(MoveType.SELECTION);
+			}
+		}
 
 		app.getLevelPanel().updateLevelStats();
 

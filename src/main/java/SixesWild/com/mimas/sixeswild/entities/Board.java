@@ -387,4 +387,36 @@ public class Board {
 		}
 		return true;
 	}
+
+	/**
+	 * Swaps two tiles in the given selection
+	 * 
+	 * @param selection
+	 *            The selection of tiles.
+	 * @return true
+	 */
+	public boolean processSwap(Selection selection) {
+		// Verify selection exists
+		if (selection == null) {
+			return false;
+		}
+
+		Object[] squareArray = selection.getArray();
+
+		Tile tile = squares[((Square) squareArray[0]).getX()][((Square) squareArray[0])
+				.getY()].getTile();
+		squares[((Square) squareArray[0]).getX()][((Square) squareArray[0])
+				.getY()].removeTile();
+		squares[((Square) squareArray[0]).getX()][((Square) squareArray[0])
+				.getY()]
+				.addTile(squares[((Square) squareArray[1]).getX()][((Square) squareArray[1])
+						.getY()].getTile());
+		squares[((Square) squareArray[1]).getX()][((Square) squareArray[1])
+				.getY()].removeTile();
+		squares[((Square) squareArray[1]).getX()][((Square) squareArray[1])
+				.getY()].addTile(tile);
+
+		return true;
+
+	}
 }

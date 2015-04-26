@@ -237,6 +237,29 @@ public class Selection {
 
 		return score * multiplier;
 	}
+	
+	/**
+	 * Returns whether the selection is still valid to continue a swap move.
+	 * 
+	 * @return true if selection is valid; false otherwise
+	 */
+	public boolean isSwapStillValid() {
+
+		// If selection does not have only two tiles
+		if (this.squareSet.size() > 2) {
+			return false;
+		}
+
+		for (Square e : squareSet) {
+
+			// Check for invalid types in selection
+			if (!e.getTile().getType().equals(TileType.NUMBER)) {
+				return false;
+			}
+		}
+
+		return true;
+	}
 
 	/**
 	 * Returns whether the selection is valid to complete a swap move.

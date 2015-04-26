@@ -393,4 +393,16 @@ public class BoardViewPanel extends JPanel {
 		logger.log(Level.INFO, "Reset board move processed.");
 		return true;
 	}
+
+	/**
+	 * Executes the swap tile move.
+	 * 
+	 * @return true
+	 */
+	public boolean doSwapTileMove() {
+		this.gameBoard.processSwap(this.currentSelection);
+
+		logger.log(Level.INFO, "Swap tile move processed.");
+		return true;
+	}
 }

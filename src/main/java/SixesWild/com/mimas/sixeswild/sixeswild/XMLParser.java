@@ -2,6 +2,8 @@ package SixesWild.com.mimas.sixeswild.sixeswild;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Comparator;
 import java.util.StringTokenizer;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -157,6 +159,17 @@ public final class XMLParser {
 		ArrayList<String> fileNames = new ArrayList<String>();
 		String extension = "xml";
 
+		// Sort by file name numerically
+		Arrays.sort(listFiles, new Comparator<File>() {
+			public int compare(File f1, File f2) {
+				int n1 = Integer.parseInt(f1.getName().substring(0,
+						f1.getName().indexOf(".")));
+				int n2 = Integer.parseInt(f2.getName().substring(0,
+						f2.getName().indexOf(".")));
+				return Integer.compare(n1, n2);
+			}
+		});
+
 		for (int i = 0; i < listFiles.length; i++) {
 			if (listFiles[i].isFile()
 					&& listFiles[i]
@@ -165,11 +178,8 @@ public final class XMLParser {
 									listFiles[i].getName().lastIndexOf(".") + 1,
 									listFiles[i].getName().length())
 							.equals(extension)) {
-				fileNames.add(listFiles[i].getName().substring(0,
-						listFiles[i].getName().lastIndexOf("."))
-						+ ": "
-						+ XMLParser.fileToLevelName(directory
-								+ listFiles[i].getName()));
+				fileNames.add(XMLParser.fileToLevelName(directory
+						+ listFiles[i].getName()));
 			}
 		}
 

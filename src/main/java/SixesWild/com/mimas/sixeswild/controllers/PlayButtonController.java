@@ -119,7 +119,10 @@ public class PlayButtonController implements ActionListener {
 				.getBoardViewPanel()
 				.addMouseMotionListener(
 						new GameBoardViewMouseMotionController(app));
-		app.getLevelPanel().getTopMenuPanel().getResetBoardButton().addActionListener(new ResetBoardMoveButtonController(app));
+		app.getLevelPanel().getTopMenuPanel().getResetBoardButton()
+				.addActionListener(new ResetBoardMoveButtonController(app));
+		app.getLevelPanel().getTopMenuPanel().getSwapTileButton()
+				.addActionListener(new SwapTileMoveButtonController(app));
 
 		logger.log(Level.FINE, "Level view controllers initialized.");
 	}

@@ -17,6 +17,7 @@ import SixesWild.com.mimas.sixeswild.entities.Aesthetic;
 import SixesWild.com.mimas.sixeswild.entities.Board;
 import SixesWild.com.mimas.sixeswild.entities.GameLevel;
 import SixesWild.com.mimas.sixeswild.entities.LevelType;
+import SixesWild.com.mimas.sixeswild.entities.MoveType;
 import SixesWild.com.mimas.sixeswild.entities.NumberTile;
 import SixesWild.com.mimas.sixeswild.entities.Tile;
 
@@ -34,8 +35,10 @@ public class LevelView extends JPanel {
 	protected LevelStatsPanel levelStatsPanel;
 	protected BoardViewPanel boardViewPanel;
 	protected Aesthetic levelViewAesthetic;
+
 	protected GameLevel currentLevel;
 	protected int currentScore;
+	protected MoveType currentMove;
 
 	/**
 	 * Creates a LevelView instance with the specified aesthetic.
@@ -150,6 +153,7 @@ public class LevelView extends JPanel {
 		this.levelViewAesthetic = aesthetic;
 		this.currentLevel = newLevel;
 		this.currentScore = 0;
+		this.currentMove = MoveType.SELECTION;
 
 		// Layout for view
 		GridBagLayout gridBagLayout = new GridBagLayout();
@@ -282,26 +286,16 @@ public class LevelView extends JPanel {
 		// TODO: Update Star Graphics Here
 
 		// Update the Top Panel
-		this.levelTopPanel.resetBoardButton
-				.setText(LevelTopPanel.RESET
-						+ " "
-						+ this.currentLevel.getSpecialMoves()
-								.getResetBoardCount());
-		
-		this.levelTopPanel.swapTileButton
-		.setText(LevelTopPanel.SWAP
-				+ " "
-				+ this.currentLevel.getSpecialMoves()
-						.getSwapTileCount());
-		
-		this.levelTopPanel.removeTileButton
-		.setText(LevelTopPanel.REMOVE
-				+ " "
-				+ this.currentLevel.getSpecialMoves()
-						.getRemoveTileCount());
-		
-		this.levelTopPanel.xStacyMoveButton
-		.setText(LevelTopPanel.XSTACY
+		this.levelTopPanel.resetBoardButton.setText(LevelTopPanel.RESET + " "
+				+ this.currentLevel.getSpecialMoves().getResetBoardCount());
+
+		this.levelTopPanel.swapTileButton.setText(LevelTopPanel.SWAP + " "
+				+ this.currentLevel.getSpecialMoves().getSwapTileCount());
+
+		this.levelTopPanel.removeTileButton.setText(LevelTopPanel.REMOVE + " "
+				+ this.currentLevel.getSpecialMoves().getRemoveTileCount());
+
+		this.levelTopPanel.xStacyMoveButton.setText(LevelTopPanel.XSTACY
 				+ " "
 				+ this.currentLevel.getSpecialMoves()
 						.getXStacySpecialMoveCount());
@@ -336,5 +330,24 @@ public class LevelView extends JPanel {
 	 */
 	public void updateScore(int delta) {
 		this.currentScore += delta;
+	}
+
+	/**
+	 * Sets the current move type to the specified move type.
+	 * 
+	 * @param type
+	 *            The new move type for the current move.
+	 */
+	public void setMoveType(MoveType type) {
+		this.currentMove = type;
+	}
+
+	/**
+	 * Returns the current move type.
+	 * 
+	 * @return a MoveType
+	 */
+	public MoveType getMoveType() {
+		return this.currentMove;
 	}
 }
