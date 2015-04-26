@@ -30,7 +30,7 @@ import SixesWild.com.mimas.sixeswild.entities.Aesthetic;
 /**
  * This class represents the Builder application that will run and handle the
  * player building the levels for the level builder.
- * 
+ *
  * @author Aditya Nivarthi
  */
 public class BuilderApplication {
@@ -58,6 +58,7 @@ public class BuilderApplication {
 			logger.log(Level.WARNING, "System look and feel failed to load.", e);
 		}
 
+		// Set up default aesthetic
 		aesthetic = new Aesthetic("ROYGBIV", Color.white, Color.RED, new Color(
 				0xFF7F00), Color.YELLOW, Color.GREEN, Color.CYAN,
 				Color.MAGENTA, new Color(0x7D26CD), Color.lightGray);
@@ -87,8 +88,11 @@ public class BuilderApplication {
 	 * Set up the controllers on the various components in the game.
 	 */
 	protected void setUpControllers() {
+
+		// Splash screen
 		this.getFrame().addKeyListener(new BuilderSplashScreenController(this));
 
+		// File management
 		this.builderView.builderTopPanel.newButton
 				.addActionListener(new NewLevelButtonController(this));
 		this.builderView.builderSettingsPanel.specialMoveOneMinusButton
@@ -98,8 +102,9 @@ public class BuilderApplication {
 				.addActionListener(new BuilderDeleteUserLevelButtonController(
 						this));
 		this.builderView.builderTopPanel.openButton
-				.addActionListener(new OpenButtonController(
-						this));
+				.addActionListener(new OpenButtonController(this));
+		this.builderView.builderTopPanel.saveButton
+				.addActionListener(new SaveButtonController(this));
 
 		// Special move decrease and increase buttons
 		this.builderView.builderSettingsPanel.specialMoveOnePlusButton
@@ -123,17 +128,17 @@ public class BuilderApplication {
 		this.builderView.builderSettingsPanel.specialMoveFourPlusButton
 				.addActionListener(new SpecialMoveFourIncreaseButtonController(
 						this));
+
+		// Mouse press
 		this.builderView.boardViewPanel
 				.addMouseListener(new BuilderBoardViewMouseController(this));
-		this.builderView.builderTopPanel.saveButton
-				.addActionListener(new SaveButtonController(this));
 
 		logger.log(Level.FINE, "BuilderApplication controllers initialized.");
 	}
 
 	/**
 	 * Returns the frame object for this class.
-	 * 
+	 *
 	 * @return the frame property
 	 */
 	public JFrame getFrame() {
@@ -142,7 +147,7 @@ public class BuilderApplication {
 
 	/**
 	 * Returns the builderView object for this class.
-	 * 
+	 *
 	 * @return the builderView property
 	 */
 	public BuilderView getBuilderView() {
@@ -151,7 +156,7 @@ public class BuilderApplication {
 
 	/**
 	 * Returns the aesthetic object for this class.
-	 * 
+	 *
 	 * @return the aesthetic property
 	 */
 	public Aesthetic getAesthetic() {

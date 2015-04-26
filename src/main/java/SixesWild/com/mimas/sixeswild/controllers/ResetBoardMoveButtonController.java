@@ -10,7 +10,7 @@ import SixesWild.com.mimas.sixeswild.boundaries.GameApplication;
 /**
  * This controller handles resetting the board when the reset board special move
  * button is pressed.
- * 
+ *
  * @author Aditya Nivarthi
  */
 public class ResetBoardMoveButtonController implements ActionListener {
@@ -22,7 +22,7 @@ public class ResetBoardMoveButtonController implements ActionListener {
 	/**
 	 * Creates a ResetBoardMoveButtonController instance with the specified
 	 * GameApplication.
-	 * 
+	 *
 	 * @param app
 	 *            The GameApplication currently running.
 	 */
@@ -37,9 +37,12 @@ public class ResetBoardMoveButtonController implements ActionListener {
 	 * java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
 	 */
 	public void actionPerformed(ActionEvent e) {
+
+		// Get the number of reset board moves remaining
 		int moves = this.app.getLevelPanel().getLevel().getSpecialMoves()
 				.getResetBoardCount();
 
+		// Change the current move type if there are moves of this type left
 		if (moves > 0) {
 			this.app.getLevelPanel().getBoardViewPanel().doResetBoardMove();
 			this.app.getLevelPanel().getLevel().getSpecialMoves()
@@ -52,6 +55,7 @@ public class ResetBoardMoveButtonController implements ActionListener {
 							+ moves);
 		}
 
+		// Update the level display
 		this.app.getLevelPanel().updateLevelStats();
 		this.app.getLevelPanel().updateUI();
 	}

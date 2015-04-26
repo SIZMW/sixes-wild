@@ -12,7 +12,7 @@ import javax.swing.JPanel;
 /**
  * This class represents the left menu that is displayed when playing the game.
  * It has the game information about the current level status for the player.
- * 
+ *
  * @author Marco Duran
  */
 public class LevelStatsPanel extends JPanel {
@@ -27,9 +27,9 @@ public class LevelStatsPanel extends JPanel {
 	protected JLabel pointsLabel;
 
 	protected final String MOVES_SLASH_TIME_TEXT = "Moves/Time";
-	protected JPanel moveSlashTimePanel;
-	protected JLabel movesSlashTimeTextLabel;
-	protected JLabel movesSlashTimeLabel;
+	protected JPanel movesAndTimerPanel;
+	protected JLabel movesAndTimerTextLabel;
+	protected JLabel movesAndTimerLabel;
 
 	/**
 	 * Creates a LevelStatsPanel instance.
@@ -98,8 +98,8 @@ public class LevelStatsPanel extends JPanel {
 		pointsPanel.add(pointsLabel, gbc_pointsLabel);
 
 		// Moves/time panel
-		moveSlashTimePanel = new JPanel();
-		moveSlashTimePanel.setBorder(BorderFactory
+		movesAndTimerPanel = new JPanel();
+		movesAndTimerPanel.setBorder(BorderFactory
 				.createLineBorder(Color.black));
 
 		// Layout for moves/time panel
@@ -108,7 +108,7 @@ public class LevelStatsPanel extends JPanel {
 		gbc_moveSlashTimePanel.fill = GridBagConstraints.BOTH;
 		gbc_moveSlashTimePanel.gridx = 1;
 		gbc_moveSlashTimePanel.gridy = 5;
-		add(moveSlashTimePanel, gbc_moveSlashTimePanel);
+		add(movesAndTimerPanel, gbc_moveSlashTimePanel);
 
 		GridBagLayout gbl_moveSlashTimePanel = new GridBagLayout();
 		gbl_moveSlashTimePanel.columnWidths = new int[] { 0, 0 };
@@ -117,32 +117,32 @@ public class LevelStatsPanel extends JPanel {
 				Double.MIN_VALUE };
 		gbl_moveSlashTimePanel.rowWeights = new double[] { 1.0, 1.0,
 				Double.MIN_VALUE };
-		moveSlashTimePanel.setLayout(gbl_moveSlashTimePanel);
+		movesAndTimerPanel.setLayout(gbl_moveSlashTimePanel);
 
 		// Moves/time text label
-		movesSlashTimeTextLabel = new JLabel(MOVES_SLASH_TIME_TEXT);
+		movesAndTimerTextLabel = new JLabel(MOVES_SLASH_TIME_TEXT);
 
 		// Layout for moves/times text label
 		GridBagConstraints gbc_movesSlashTimeTextLabel = new GridBagConstraints();
 		gbc_movesSlashTimeTextLabel.insets = new Insets(0, 0, 5, 0);
 		gbc_movesSlashTimeTextLabel.gridx = 0;
 		gbc_movesSlashTimeTextLabel.gridy = 0;
-		moveSlashTimePanel.add(movesSlashTimeTextLabel,
+		movesAndTimerPanel.add(movesAndTimerTextLabel,
 				gbc_movesSlashTimeTextLabel);
 
 		// Numerical moves/time label
-		movesSlashTimeLabel = new JLabel("XXX");
+		movesAndTimerLabel = new JLabel("XXX");
 
 		// Layout for numerical moves/time label
 		GridBagConstraints gbc_movesSlashTimeLabel = new GridBagConstraints();
 		gbc_movesSlashTimeLabel.gridx = 0;
 		gbc_movesSlashTimeLabel.gridy = 1;
-		moveSlashTimePanel.add(movesSlashTimeLabel, gbc_movesSlashTimeLabel);
+		movesAndTimerPanel.add(movesAndTimerLabel, gbc_movesSlashTimeLabel);
 	}
 
 	/**
 	 * Creates a LevelStatsPanel instance with the specified move count.
-	 * 
+	 *
 	 * @param moveCount
 	 *            The move count to set in this panel.
 	 */
@@ -210,8 +210,8 @@ public class LevelStatsPanel extends JPanel {
 		pointsPanel.add(pointsLabel, gbc_pointsLabel);
 
 		// Moves/time panel
-		moveSlashTimePanel = new JPanel();
-		moveSlashTimePanel.setBorder(BorderFactory
+		movesAndTimerPanel = new JPanel();
+		movesAndTimerPanel.setBorder(BorderFactory
 				.createLineBorder(Color.black));
 
 		// Layout for moves/time panel
@@ -220,7 +220,7 @@ public class LevelStatsPanel extends JPanel {
 		gbc_moveSlashTimePanel.fill = GridBagConstraints.BOTH;
 		gbc_moveSlashTimePanel.gridx = 1;
 		gbc_moveSlashTimePanel.gridy = 5;
-		add(moveSlashTimePanel, gbc_moveSlashTimePanel);
+		add(movesAndTimerPanel, gbc_moveSlashTimePanel);
 
 		GridBagLayout gbl_moveSlashTimePanel = new GridBagLayout();
 		gbl_moveSlashTimePanel.columnWidths = new int[] { 0, 0 };
@@ -229,32 +229,32 @@ public class LevelStatsPanel extends JPanel {
 				Double.MIN_VALUE };
 		gbl_moveSlashTimePanel.rowWeights = new double[] { 1.0, 1.0,
 				Double.MIN_VALUE };
-		moveSlashTimePanel.setLayout(gbl_moveSlashTimePanel);
+		movesAndTimerPanel.setLayout(gbl_moveSlashTimePanel);
 
 		// Moves/time text label
-		movesSlashTimeTextLabel = new JLabel(MOVES_SLASH_TIME_TEXT);
+		movesAndTimerTextLabel = new JLabel(MOVES_SLASH_TIME_TEXT);
 
 		// Layout for moves/times text label
 		GridBagConstraints gbc_movesSlashTimeTextLabel = new GridBagConstraints();
 		gbc_movesSlashTimeTextLabel.insets = new Insets(0, 0, 5, 0);
 		gbc_movesSlashTimeTextLabel.gridx = 0;
 		gbc_movesSlashTimeTextLabel.gridy = 0;
-		moveSlashTimePanel.add(movesSlashTimeTextLabel,
+		movesAndTimerPanel.add(movesAndTimerTextLabel,
 				gbc_movesSlashTimeTextLabel);
 
 		// Numerical moves/time label
-		movesSlashTimeLabel = new JLabel(Integer.toString(moveCount));
+		movesAndTimerLabel = new JLabel(Integer.toString(moveCount));
 
 		// Layout for numerical moves/time label
 		GridBagConstraints gbc_movesSlashTimeLabel = new GridBagConstraints();
 		gbc_movesSlashTimeLabel.gridx = 0;
 		gbc_movesSlashTimeLabel.gridy = 1;
-		moveSlashTimePanel.add(movesSlashTimeLabel, gbc_movesSlashTimeLabel);
+		movesAndTimerPanel.add(movesAndTimerLabel, gbc_movesSlashTimeLabel);
 	}
 
 	/**
 	 * Returns the starGraphicsPanel object for this panel.
-	 * 
+	 *
 	 * @return the starGraphicsPanel property
 	 */
 	public JPanel getStarGraphicsPanel() {
@@ -263,20 +263,19 @@ public class LevelStatsPanel extends JPanel {
 
 	/**
 	 * Returns the pointsLabel object for this panel.
-	 * 
+	 *
 	 * @return the pointsLabel property
 	 */
 	public JLabel getPointsLabel() {
 		return this.pointsLabel;
 	}
 
-	// TODO Display moves or timer
 	/**
-	 * Returns the movesSlashTimeLabel object for this panel.
-	 * 
-	 * @return the movesSlashTimeLabel property
+	 * Returns the movesAndTimerLabel object for this panel.
+	 *
+	 * @return the movesAndTimerLabel property
 	 */
-	public JLabel getMovesSlashTimeLabel() {
-		return this.movesSlashTimeLabel;
+	public JLabel getMovesAndTimerLabel() {
+		return this.movesAndTimerLabel;
 	}
 }

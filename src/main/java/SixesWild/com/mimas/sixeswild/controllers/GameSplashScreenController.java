@@ -15,7 +15,7 @@ import SixesWild.com.mimas.sixeswild.boundaries.GameApplication;
 /**
  * This controller displays the splash screen prior to displaying the game menu
  * when the application is started.
- * 
+ *
  * @author Joey Perez
  */
 public class GameSplashScreenController extends KeyAdapter {
@@ -24,7 +24,7 @@ public class GameSplashScreenController extends KeyAdapter {
 
 	/**
 	 * Creates a GameSplashScreenController with the specified GameApplication.
-	 * 
+	 *
 	 * @param app
 	 *            The GameApplication currently running.
 	 */
@@ -35,9 +35,9 @@ public class GameSplashScreenController extends KeyAdapter {
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @Override Acts when the "Enter" key is pressed and continues past the
-	 * splash screen.
+	 * @see java.awt.event.KeyAdapter#keyPressed(java.awt.event.KeyEvent)
 	 */
+	@Override
 	public void keyPressed(KeyEvent arg0) {
 		int key = arg0.getKeyCode();
 

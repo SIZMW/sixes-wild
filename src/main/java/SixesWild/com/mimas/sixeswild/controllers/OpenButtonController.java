@@ -16,7 +16,7 @@ import SixesWild.com.mimas.sixeswild.sixeswild.XMLParser;
 /**
  * This controller handles opening a level from a file when the open button is
  * pressed.
- * 
+ *
  * @author Cameron Jones
  */
 public class OpenButtonController implements ActionListener {
@@ -28,7 +28,7 @@ public class OpenButtonController implements ActionListener {
 	/**
 	 * Creates a OpenButtonController instance with the specified
 	 * BuilderApplication.
-	 * 
+	 *
 	 * @param app
 	 *            The BuilderApplication currently running.
 	 */
@@ -38,7 +38,7 @@ public class OpenButtonController implements ActionListener {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see
 	 * java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
 	 */
@@ -89,7 +89,8 @@ public class OpenButtonController implements ActionListener {
 		app.getBuilderView().getBuilderSettingsPanel().getMovesTextField()
 				.setText(Integer.toString(openedLevel.getMoveCount()));
 
-		// app.getBuilderView().getBuilderSettingsPanel().getTimerTextField().setText(Integer.toString(openedLevel.getTimer()));
+		app.getBuilderView().getBuilderSettingsPanel().getTimerTextField()
+				.setText(openedLevel.getTimer() + "");
 
 		app.getBuilderView()
 				.getBuilderSettingsPanel()
@@ -182,7 +183,9 @@ public class OpenButtonController implements ActionListener {
 						Integer.toString(openedLevel.getPointThresholds()
 								.getThreeStarThreshold()));
 
-		// Refresh Everything
+		logger.log(Level.INFO, "Builder loaded level information.");
+
+		// Refresh view
 		this.app.getBuilderView().repaint();
 	}
-}
+};

@@ -8,7 +8,7 @@ import SixesWild.com.mimas.sixeswild.boundaries.GameApplication;
 /**
  * This controller applies the selected aesthetic when it is requested in the
  * options menu.
- * 
+ *
  * @author Aditya Nivarthi
  */
 public class ChangeAestheticButtonController implements ActionListener {
@@ -18,7 +18,7 @@ public class ChangeAestheticButtonController implements ActionListener {
 	/**
 	 * Creates a ChangeAestheticButtonController instance with the specified
 	 * GameApplication.
-	 * 
+	 *
 	 * @param app
 	 *            The GameApplicatiom currently running.
 	 */
@@ -28,7 +28,7 @@ public class ChangeAestheticButtonController implements ActionListener {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see
 	 * java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
 	 */

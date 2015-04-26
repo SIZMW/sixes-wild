@@ -34,14 +34,17 @@ public class GameBoardViewMouseMotionController extends MouseAdapter {
 
 	/*
 	 * (non-Javadoc)
-	 *
+	 * 
 	 * @see java.awt.event.MouseAdapter#mouseDragged(java.awt.event.MouseEvent)
 	 */
 	@Override
 	public void mouseDragged(MouseEvent me) {
+
+		// Update the selection location
 		this.app.getLevelPanel().getBoardViewPanel()
 				.updateGameSelection(me.getX(), me.getY());
 
+		// Process the selection move
 		SelectionMove move = new SelectionMove(this.app.getLevelPanel()
 				.getBoardViewPanel().getCurrentSelection(), this.app
 				.getLevelPanel().getLevel());
@@ -50,8 +53,10 @@ public class GameBoardViewMouseMotionController extends MouseAdapter {
 		logger.log(Level.INFO, "Processed a move type of: "
 				+ this.app.getLevelPanel().getMoveType().toString());
 
+		// Update the level display
 		this.app.getLevelPanel().updateLevelStats();
 
+		// Determine if level is over
 		if (!this.app.getLevelPanel().getLevel().getType()
 				.equals(LevelType.LIGHTNING)
 				&& this.app.getLevelPanel().getLevel().getMoveCount() <= 0) {

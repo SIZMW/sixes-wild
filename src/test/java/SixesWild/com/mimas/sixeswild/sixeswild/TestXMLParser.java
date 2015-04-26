@@ -79,8 +79,8 @@ public class TestXMLParser extends TestCase {
 		userProfile1.addLevelHighScore(2, 3, 2);
 		userProfile1.addLevelHighScore(3, 4, 3);
 
-		// Convert user profile to xml file, then take the xml file to
-		// UserProfile2
+		// Convert user profile to xml file, then take the xml file to user
+		// profile
 		XMLParser.userProfileToFile(userProfile1);
 		UserProfile userProfile2 = XMLParser
 				.fileToUserProfile("IggyProfile.xml");
@@ -128,13 +128,14 @@ public class TestXMLParser extends TestCase {
 	 * Tests making a level into a file.
 	 */
 	public void testXMLParserLevelToFile() {
-		// make a level
-		ArrayList<Double> tileFreq = new ArrayList<Double>(); // DONE
-		ArrayList<Double> multFreq = new ArrayList<Double>(); // DONE
-		LevelType levelType = LevelType.PUZZLE; // DONE
-		String levelName = "testPuzzle"; // DONE
+
+		// Make a level
+		ArrayList<Double> tileFreq = new ArrayList<Double>();
+		ArrayList<Double> multFreq = new ArrayList<Double>();
+		LevelType levelType = LevelType.PUZZLE;
+		String levelName = "testPuzzle";
 		Tile tiles[][] = new Tile[9][9];
-		PointThresholds pointThresholds = new PointThresholds(); // DONE
+		PointThresholds pointThresholds = new PointThresholds();
 		SpecialMoves specialMoves = new SpecialMoves();
 		int levelNumber = 1;
 
@@ -158,17 +159,18 @@ public class TestXMLParser extends TestCase {
 				}
 			}
 		}
+
 		PuzzleLevel level1;
 		try {
 			level1 = new PuzzleLevel(tileFreq, multFreq, levelType, levelName,
 					tiles, pointThresholds, 50, specialMoves, levelNumber);
 
-			// change the level to a file and then turn it back into a level
+			// Change the level to a file and then turn it back into a level
 			XMLParser.levelToFile(level1);
 			GameLevel level2 = XMLParser.fileToLevel(XMLParser.USER_DIR
 					+ "1.xml");
 
-			// make sure the two levels have the same attributes
+			// Make sure the two levels have the same attributes
 			assertEquals(level1.getLevelNumber(), level2.getLevelNumber());
 			assertEquals(level1.getMoveCount(), level2.getMoveCount());
 			assertEquals(level1.getName(), level2.getName());

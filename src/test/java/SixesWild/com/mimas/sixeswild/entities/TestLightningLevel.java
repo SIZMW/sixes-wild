@@ -5,23 +5,22 @@ import java.util.ArrayList;
 import junit.framework.TestCase;
 
 /**
+ * This test case handles all coverage of the LightningLevel class.
  *
  * @author Joey Perez
- *
  */
-
 public class TestLightningLevel extends TestCase {
 
 	/**
-	 * Test all methods for Level.
+	 * Test all methods for LightningLevel.
 	 */
 	public void testLightningLevel() {
-		ArrayList<Double> tileFreq = new ArrayList<Double>(); // DONE
-		ArrayList<Double> multFreq = new ArrayList<Double>(); // DONE
-		LevelType levelType = LevelType.LIGHTNING; // DONE
-		String levelName = "testLightning"; // DONE
+		ArrayList<Double> tileFreq = new ArrayList<Double>();
+		ArrayList<Double> multFreq = new ArrayList<Double>();
+		LevelType levelType = LevelType.LIGHTNING;
+		String levelName = "testLightning";
 		Tile tiles[][] = new Tile[9][9];
-		PointThresholds pointThresholds = new PointThresholds(); // DONE
+		PointThresholds pointThresholds = new PointThresholds();
 		SpecialMoves specialMoves = new SpecialMoves();
 		int levelNumber = 1;
 
@@ -52,6 +51,10 @@ public class TestLightningLevel extends TestCase {
 			assertEquals(tileFreq, level.board.getTileFrequencies());
 			assertEquals(pointThresholds, level.getPointThresholds());
 			assertEquals(multFreq, level.board.getMultiplierFrequencies());
+
+			level.updateTimerCount(-1);
+
+			assertEquals(level.getTimer(), 49);
 		} catch (Exception e1) {
 			e1.printStackTrace();
 			fail();
@@ -73,5 +76,6 @@ public class TestLightningLevel extends TestCase {
 		} catch (Exception e) {
 			assertTrue(true);
 		}
+
 	}
 }

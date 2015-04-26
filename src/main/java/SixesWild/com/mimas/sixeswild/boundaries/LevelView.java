@@ -145,11 +145,11 @@ public class LevelView extends JPanel {
 			logger.log(Level.WARNING, "Received null error on board creation.",
 					e);
 		}
-
 	}
 
 	/**
-	 * Creates a LevelView instance with the specified aesthetic and level.
+	 * Creates a LevelView instance with the specified GameApplication,
+	 * aesthetic and level.
 	 *
 	 * @param app
 	 *            The GameApplication currently running.
@@ -238,8 +238,20 @@ public class LevelView extends JPanel {
 
 		// Set up Lightning level timer
 		if (this.currentLevel.getType().equals(LevelType.LIGHTNING)) {
+
+			// Create a new timer
 			this.levelTimer = new Timer(1000, new ActionListener() {
+
+				/*
+				 * (non-Javadoc)
+				 * 
+				 * @see
+				 * java.awt.event.ActionListener#actionPerformed(java.awt.event
+				 * .ActionEvent)
+				 */
 				public void actionPerformed(ActionEvent e) {
+
+					// Decrease timer amount
 					currentLevel.updateTimerCount(-1);
 					if (currentLevel.getTimer() >= 0) {
 						updateLevelStats();
@@ -284,7 +296,7 @@ public class LevelView extends JPanel {
 	}
 
 	/**
-	 * Returns the Current Level.
+	 * Returns the currentLevel object for this panel.
 	 *
 	 * @return the currentLevel property
 	 */
@@ -293,7 +305,7 @@ public class LevelView extends JPanel {
 	}
 
 	/**
-	 * Sets the Current Level to be the new Level.
+	 * Sets the currentLevel object with the specified level.
 	 *
 	 * @param newLevel
 	 *            The new level to set as the current level.
@@ -303,22 +315,22 @@ public class LevelView extends JPanel {
 	}
 
 	/**
-	 * This goes through each of the child View Elements and Updates them.
-	 *
+	 * Update all the level display views
 	 */
 	public void updateLevelStats() {
-		// Update the Stats Panel
+
+		// Update the stats Panel
 		this.levelStatsPanel.pointsLabel.setText(Integer
 				.toString(this.currentScore));
 		if (this.currentLevel.getType() != LevelType.LIGHTNING) {
-			this.levelStatsPanel.movesSlashTimeLabel.setText(Integer
-					.toString(this.currentLevel.getMoveCount()));
+			this.levelStatsPanel.movesAndTimerLabel.setText(this.currentLevel
+					.getMoveCount() + "");
 		} else {
-			this.levelStatsPanel.movesSlashTimeLabel.setText(this.currentLevel
+			this.levelStatsPanel.movesAndTimerLabel.setText(this.currentLevel
 					.getTimer() + "");
 		}
 
-		// TODO: Update Star Graphics Here
+		// TODO: Update star graphics Here
 
 		// Update the special moves
 		this.levelTopPanel.resetBoardButton.setText(LevelTopPanel.RESET + " "

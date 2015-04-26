@@ -118,6 +118,7 @@ public class BoardViewPanel extends JPanel {
 	 * @return the given square's corresponding tile color
 	 */
 	protected Color getSquareColor(Square square) {
+
 		// Marked attribute
 		if (square.getMarked()) {
 			return this.aesthetic.getMarkedColor();
@@ -237,6 +238,8 @@ public class BoardViewPanel extends JPanel {
 	protected void paintComponent(Graphics g) {
 		super.paintComponent(g);
 		this.removeAll();
+
+		// Redraw the board view
 		this.initializeBoardView();
 		this.updateUI();
 	}
@@ -316,9 +319,12 @@ public class BoardViewPanel extends JPanel {
 	public void updateBuilderSelection(int mx, int my, TileType type) {
 		outerloop: for (int i = 0; i < this.gameBoard.SIZE_X; i++) {
 			for (int j = 0; j < this.gameBoard.SIZE_Y; j++) {
-				// If the SquareView is selected in a valid manner, update the
-				// selected tile to the new tile type.
+
+				// If the SquareView is validly selected, update the selected
+				// tile to the new tile type.
 				if (this.validateMouseSelection(mx, my, this.boardView[i][j])) {
+
+					// Handle placing each type of tile
 					switch (type) {
 					case NULL:
 						this.gameBoard.setSquare(new NullTile(), i, j, false);

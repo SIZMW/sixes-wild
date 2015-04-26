@@ -4,7 +4,7 @@ import junit.framework.TestCase;
 
 /**
  * This test case handles all coverage for the Selection class.
- * 
+ *
  * @author Aditya Nivarthi
  */
 public class TestSelection extends TestCase {
@@ -13,9 +13,10 @@ public class TestSelection extends TestCase {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see junit.framework.TestCase#setUp()
 	 */
+	@Override
 	public void setUp() {
 		selection = new Selection();
 	}
@@ -120,5 +121,46 @@ public class TestSelection extends TestCase {
 		selection.add(new Square(new NumberTile(2, 1), 1, 3, false));
 
 		assertEquals(selection.getScore(), 9);
+	}
+
+	/**
+	 * Tests the swap validity of the selection.
+	 */
+	public void testSwapValid() {
+		selection.add(new Square(new NumberTile(2, 1), 1, 1, false));
+		selection.add(new Square(new NumberTile(2, 3), 1, 2, false));
+
+		assertTrue(selection.isSwapStillValid());
+		assertTrue(selection.isSwapValid());
+
+		selection.remove(new Square(new NumberTile(2, 3), 1, 2, false));
+		selection.add(new Square(new NullTile(), 2, 2, false));
+		assertFalse(selection.isSwapStillValid());
+		assertFalse(selection.isSwapValid());
+
+		selection.add(new Square(new NumberTile(2, 1), 1, 3, false));
+
+		assertFalse(selection.isSwapStillValid());
+		assertFalse(selection.isSwapValid());
+	}
+
+	/**
+	 * Tests the remove validity of the selection.
+	 */
+	public void testRemoveValid() {
+		selection.add(new Square(new NumberTile(2, 1), 1, 1, false));
+
+		assertTrue(selection.isRemoveStillValid());
+		assertTrue(selection.isRemoveValid());
+
+		selection.remove(new Square(new NumberTile(2, 1), 1, 1, false));
+		selection.add(new Square(new NullTile(), 2, 2, false));
+		assertFalse(selection.isRemoveStillValid());
+		assertFalse(selection.isRemoveValid());
+
+		selection.add(new Square(new NumberTile(2, 1), 1, 3, false));
+
+		assertFalse(selection.isRemoveStillValid());
+		assertFalse(selection.isRemoveValid());
 	}
 }

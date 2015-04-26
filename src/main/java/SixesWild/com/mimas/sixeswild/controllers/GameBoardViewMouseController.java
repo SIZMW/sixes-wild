@@ -42,9 +42,12 @@ public class GameBoardViewMouseController extends MouseAdapter {
 	 */
 	@Override
 	public void mousePressed(MouseEvent me) {
+
+		// Update the selection location
 		this.app.getLevelPanel().getBoardViewPanel()
 				.updateGameSelection(me.getX(), me.getY());
 
+		// Process move based on current move type
 		if (this.app.getLevelPanel().getMoveType().equals(MoveType.SELECTION)) {
 			SelectionMove move = new SelectionMove(this.app.getLevelPanel()
 					.getBoardViewPanel().getCurrentSelection(), this.app
@@ -68,6 +71,7 @@ public class GameBoardViewMouseController extends MouseAdapter {
 		logger.log(Level.INFO, "Processed a move type of: "
 				+ this.app.getLevelPanel().getMoveType().toString());
 
+		// Update the level display
 		this.app.getLevelPanel().updateLevelStats();
 		this.app.getLevelPanel().getBoardViewPanel().updateUI();
 	}
@@ -79,6 +83,8 @@ public class GameBoardViewMouseController extends MouseAdapter {
 	 */
 	@Override
 	public void mouseReleased(MouseEvent me) {
+
+		// Execute move based on current move type
 		if (this.app.getLevelPanel().getMoveType().equals(MoveType.SELECTION)) {
 			SelectionMove move = new SelectionMove(this.app.getLevelPanel()
 					.getBoardViewPanel().getCurrentSelection(), this.app
@@ -88,6 +94,8 @@ public class GameBoardViewMouseController extends MouseAdapter {
 			SwapMove move = new SwapMove(this.app.getLevelPanel()
 					.getBoardViewPanel().getCurrentSelection(), this.app
 					.getLevelPanel().getLevel());
+
+			// Once move is complete, reset to standard selection
 			if (move.isValidMove(this.app)) {
 				move.doMove(this.app);
 				this.app.getLevelPanel().setMoveType(MoveType.SELECTION);
@@ -97,6 +105,8 @@ public class GameBoardViewMouseController extends MouseAdapter {
 			RemoveTileMove move = new RemoveTileMove(this.app.getLevelPanel()
 					.getBoardViewPanel().getCurrentSelection(), this.app
 					.getLevelPanel().getLevel());
+
+			// Once move is complete, reset to standard selection
 			if (move.isValidMove(this.app)) {
 				move.doMove(this.app);
 				this.app.getLevelPanel().setMoveType(MoveType.SELECTION);
@@ -106,7 +116,10 @@ public class GameBoardViewMouseController extends MouseAdapter {
 		logger.log(Level.INFO, "Completed a move type of: "
 				+ this.app.getLevelPanel().getMoveType().toString());
 
+		// Update the level display
 		this.app.getLevelPanel().updateLevelStats();
+
+		// Determine if level is complete
 		this.hasCompletedLevel();
 		this.app.getLevelPanel().getBoardViewPanel().updateUI();
 	}

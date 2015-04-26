@@ -14,7 +14,7 @@ import SixesWild.com.mimas.sixeswild.sixeswild.XMLParser;
 /**
  * This class represents the top panel of the level builder. It contains the
  * level editing options.
- * 
+ *
  * @author Yahel Nachum
  */
 public class BuilderTopPanel extends JPanel {
@@ -114,7 +114,7 @@ public class BuilderTopPanel extends JPanel {
 
 	/**
 	 * Returns the newButton object for this panel.
-	 * 
+	 *
 	 * @return the newButton property
 	 */
 	public JButton getNewButton() {
@@ -123,7 +123,7 @@ public class BuilderTopPanel extends JPanel {
 
 	/**
 	 * Returns the saveButton object for this panel.
-	 * 
+	 *
 	 * @return the saveButton property
 	 */
 	public JButton getSaveButton() {
@@ -132,7 +132,7 @@ public class BuilderTopPanel extends JPanel {
 
 	/**
 	 * Returns the openButton object for this panel.
-	 * 
+	 *
 	 * @return the openButton property
 	 */
 	public JButton getOpenButton() {
@@ -141,7 +141,7 @@ public class BuilderTopPanel extends JPanel {
 
 	/**
 	 * Returns the openComboBox object for this panel.
-	 * 
+	 *
 	 * @return the openComboBox property
 	 */
 	public JComboBox<String> getOpenComboBox() {
@@ -150,7 +150,7 @@ public class BuilderTopPanel extends JPanel {
 
 	/**
 	 * Returns the deleteButton object for this panel.
-	 * 
+	 *
 	 * @return the deleteButton property
 	 */
 	public JButton getDeleteButton() {
@@ -159,7 +159,7 @@ public class BuilderTopPanel extends JPanel {
 
 	/**
 	 * Returns the deleteComboBox object for this panel.
-	 * 
+	 *
 	 * @return the deleteComboBox property
 	 */
 	public JComboBox<String> getDeleteComboBox() {
@@ -169,10 +169,12 @@ public class BuilderTopPanel extends JPanel {
 	/**
 	 * Removes all entries from the combo boxes for updating them with new level
 	 * lists.
-	 * 
+	 *
 	 * @return true
 	 */
 	public boolean clearComboBoxes() {
+
+		// Clear both lists for refresh
 		openComboBox.removeAllItems();
 		deleteComboBox.removeAllItems();
 
@@ -181,12 +183,13 @@ public class BuilderTopPanel extends JPanel {
 
 	/**
 	 * Updates the drop down menus with the list of user levels.
-	 * 
+	 *
 	 * @return true
 	 */
 	public boolean updateComboBoxes() {
 		userLevelList = XMLParser.getLevelFileNames(XMLParser.USER_DIR);
 
+		// Add the same file list to both drop down menus for consistency
 		for (String e : userLevelList) {
 			openComboBox.addItem(e);
 			deleteComboBox.addItem(e);
@@ -196,7 +199,7 @@ public class BuilderTopPanel extends JPanel {
 
 	/**
 	 * Returns the userLevelList object for this panel.
-	 * 
+	 *
 	 * @return the userLevelList property
 	 */
 	public ArrayList<String> getUserLevelList() {

@@ -47,7 +47,7 @@ public class PlayButtonController implements ActionListener {
 
 	/*
 	 * (non-Javadoc)
-	 *
+	 * 
 	 * @see
 	 * java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
 	 */
@@ -70,8 +70,7 @@ public class PlayButtonController implements ActionListener {
 		gbc_list.gridx = 0;
 		gbc_list.gridy = 0;
 
-		// Create new view
-		// Find the Current Selection
+		// Find the current selection
 		int levelNumber;
 		GameLevel newLevel;
 

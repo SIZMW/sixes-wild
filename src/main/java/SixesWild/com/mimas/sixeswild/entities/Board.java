@@ -54,10 +54,12 @@ public class Board {
 		this.multiplierFrequencies = multiplierFrequencies;
 		this.squares = new Square[this.SIZE_X][this.SIZE_Y];
 
+		// Tile list is null
 		if (tiles == null) {
 			throw new Exception("Null tile list for board construction.");
 		}
 
+		// Tile in the tile list is null
 		for (int i = 0; i < this.SIZE_X; i++) {
 			for (int j = 0; j < this.SIZE_Y; j++) {
 				if (tiles[i][j] == null) {
@@ -67,6 +69,7 @@ public class Board {
 			}
 		}
 
+		// Set up board tile types
 		for (int i = 0; i < this.SIZE_X; i++) {
 			for (int j = 0; j < this.SIZE_Y; j++) {
 				this.squares[i][j] = new Square(tiles[i][j], i, j, false);
@@ -154,19 +157,20 @@ public class Board {
 	 * invalid, creates generic frequencies and uses them to populate the board.
 	 */
 	protected void initialize() {
-		// TileFrequencies and MultiplierFrequencies have not been initialized
+		// Tile frequencies have not been initialized
 		if (this.tileFrequencies == null || this.tileFrequencies.size() < 6) {
 			this.tileFrequencies = new ArrayList<Double>(Arrays.asList(.1, .2,
 					.3, .3, .05, .05));
 		}
 
+		// Multiplier frequencies have not been initialized
 		if (this.multiplierFrequencies == null
 				|| this.multiplierFrequencies.size() < 3) {
 			this.multiplierFrequencies = new ArrayList<Double>(Arrays.asList(
 					.5, .25, .35));
 		}
 
-		// TileFrequencies and MultiplierFrequencies have been initialized
+		// Tile frequencies and multiplier frequencies have been initialized
 		for (int i = 0; i < this.SIZE_X; i++) {
 			for (int j = 0; j < this.SIZE_Y; j++) {
 				if (this.squares[i][j].getTile().getType()

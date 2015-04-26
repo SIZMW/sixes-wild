@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package SixesWild.com.mimas.sixeswild.controllers;
 
@@ -18,7 +18,7 @@ import SixesWild.com.mimas.sixeswild.boundaries.BuilderApplication;
 /**
  * This controller displays the splash screen prior to displaying the level
  * builder when the application is started.
- * 
+ *
  * @author Joey Perez
  */
 public class BuilderSplashScreenController extends KeyAdapter {
@@ -28,7 +28,7 @@ public class BuilderSplashScreenController extends KeyAdapter {
 	/**
 	 * Creates a GameSplashScreenController with the specified
 	 * BuilderApplication.
-	 * 
+	 *
 	 * @param app
 	 *            The BuilderApplication currently running.
 	 */
@@ -39,9 +39,9 @@ public class BuilderSplashScreenController extends KeyAdapter {
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @Override Acts when the "Enter" key is pressed and continues past the
-	 * splash screen.
+	 * @see java.awt.event.KeyAdapter#keyPressed(java.awt.event.KeyEvent)
 	 */
+	@Override
 	public void keyPressed(KeyEvent arg0) {
 		int key = arg0.getKeyCode();
 

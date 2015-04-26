@@ -11,6 +11,7 @@ import junit.framework.TestCase;
  * @author Cameron Jones
  */
 public class TestGameLevel extends TestCase {
+
 	EliminationLevel toTest;
 
 	/**
@@ -65,9 +66,13 @@ public class TestGameLevel extends TestCase {
 		int newTimer = 10;
 		this.toTest.setTimer(newTimer);
 		this.toTest.setType(LevelType.LIGHTNING);
+
 		assertEquals(LevelType.LIGHTNING, this.toTest.getType());
 		assertEquals(newTimer, this.toTest.getTimer());
 		assertEquals(newSpecialMoves, this.toTest.getSpecialMoves());
 		assertEquals(pointThresholds, this.toTest.getPointThresholds());
+
+		this.toTest.updateMoveCount(-1);
+		assertEquals(this.toTest.getMoveCount(), 0);
 	}
 }

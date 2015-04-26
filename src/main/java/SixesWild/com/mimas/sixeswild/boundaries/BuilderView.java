@@ -19,7 +19,7 @@ import SixesWild.com.mimas.sixeswild.entities.Tile;
 
 /**
  * This class represents the overall view for the level builder.
- * 
+ *
  * @author Cameron Jones
  */
 public class BuilderView extends JPanel {
@@ -39,7 +39,7 @@ public class BuilderView extends JPanel {
 
 	/**
 	 * Creates a BuilderView instance with the specified aesthetic.
-	 * 
+	 *
 	 * @param aesthetic
 	 *            The aesthetic to use in this view.
 	 */
@@ -119,7 +119,7 @@ public class BuilderView extends JPanel {
 
 	/**
 	 * Returns the builderTopPanel object for this panel.
-	 * 
+	 *
 	 * @return the builderTopPanel property
 	 */
 	public BuilderTopPanel getBuilderTopPanel() {
@@ -128,7 +128,7 @@ public class BuilderView extends JPanel {
 
 	/**
 	 * Returns the builderSettingsPanel object for this panel.
-	 * 
+	 *
 	 * @return the builderSettingsPanel property
 	 */
 	public BuilderSettingsPanel getBuilderSettingsPanel() {
@@ -137,7 +137,7 @@ public class BuilderView extends JPanel {
 
 	/**
 	 * Returns the boardViewPanel object for this panel.
-	 * 
+	 *
 	 * @return the boardViewPanel property
 	 */
 	public BoardViewPanel getBoardViewPanel() {
@@ -146,9 +146,9 @@ public class BuilderView extends JPanel {
 
 	/**
 	 * Updates the boardViewPanel with the specified panel.
-	 * 
+	 *
 	 * @param newBoardViewPanel
-	 *            The new board view to draw.
+	 *            The new boardViewPanel to display.
 	 */
 	public void updateBoardViewPanel(BoardViewPanel newBoardViewPanel) {
 		this.remove(this.boardViewPanel);

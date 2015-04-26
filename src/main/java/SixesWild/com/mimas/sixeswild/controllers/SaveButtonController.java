@@ -23,7 +23,7 @@ import SixesWild.com.mimas.sixeswild.sixeswild.XMLParser;
  * This controller handles saving the builder level to a file when the save
  * button is pressed.
  *
- * @author Cameron Jones
+ * @author Cameron Jones, Aditya Nivarthi
  */
 public class SaveButtonController implements ActionListener {
 
@@ -44,7 +44,7 @@ public class SaveButtonController implements ActionListener {
 
 	/*
 	 * (non-Javadoc)
-	 *
+	 * 
 	 * @see
 	 * java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
 	 */

@@ -5,14 +5,16 @@ import java.util.ArrayList;
 import junit.framework.TestCase;
 
 /**
- * 
+ * This test case handles all coverage of the EliminationLevel class.
+ *
  * @author Joey Perez
- * 
  */
-
 public class TestEliminationLevel extends TestCase {
 	EliminationLevel toTest;
 
+	/**
+	 * Test all EliminationLevel methods
+	 */
 	public void testEliminationLevel() {
 		ArrayList<Double> tileFreq = new ArrayList<Double>();
 		ArrayList<Double> multFreq = new ArrayList<Double>();
@@ -23,7 +25,7 @@ public class TestEliminationLevel extends TestCase {
 		int moveCount = 100;
 		SpecialMoves specialMoves = new SpecialMoves();
 		int levelNumber = 1;
-		
+
 		tileFreq.add(.1);
 		tileFreq.add(.1);
 		tileFreq.add(.2);
@@ -42,7 +44,8 @@ public class TestEliminationLevel extends TestCase {
 		}
 		try {
 			toTest = new EliminationLevel(tileFreq, multFreq, type, name,
-					tiles, pointThresholds, moveCount, specialMoves, levelNumber);
+					tiles, pointThresholds, moveCount, specialMoves,
+					levelNumber);
 			assertEquals(name, toTest.name);
 		} catch (Exception e1) {
 			e1.printStackTrace();

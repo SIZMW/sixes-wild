@@ -42,9 +42,7 @@ public class GameApplication {
 	protected Aesthetic currentAesthetic;
 	protected UserProfile currentUserProfile;
 
-	// TODO Add these attributes
-	// BadgesPanel badgePanel;
-	// ArrayList<String> listOfBadges;
+	// TODO Populate the list of badges
 
 	/**
 	 * Creates a GameApplication instance and initializes it.
@@ -57,6 +55,8 @@ public class GameApplication {
 	 * Initialize the contents of the frame.
 	 */
 	protected void initialize() {
+
+		// Set look and feel to system interface
 		try {
 			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
 		} catch (Exception e) {
@@ -73,6 +73,7 @@ public class GameApplication {
 		ArrayList<String> userLevelList = XMLParser
 				.getLevelFileNames(XMLParser.USER_DIR);
 
+		// Temporary generation of badge listing
 		ArrayList<String> badgesList = new ArrayList<String>();
 		for (int i = 1; i <= 20; i++) {
 			badgesList.add("Badge " + i);
@@ -253,6 +254,7 @@ public class GameApplication {
 			}
 		}
 
+		// If profile not found, create a new one
 		logger.log(Level.INFO, "User profile created for: " + name);
 		this.currentUserProfile = new UserProfile(name);
 		return false;

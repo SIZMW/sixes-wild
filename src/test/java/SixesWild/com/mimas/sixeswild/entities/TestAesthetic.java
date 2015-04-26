@@ -3,10 +3,11 @@ package SixesWild.com.mimas.sixeswild.entities;
 import java.awt.Color;
 
 import junit.framework.TestCase;
+
 /**
  * This test case handles the aesthetic options.
- * @author Marco
  *
+ * @author Marco Duran
  */
 public class TestAesthetic extends TestCase {
 	Aesthetic aesthetic;
@@ -21,7 +22,14 @@ public class TestAesthetic extends TestCase {
 	Color orange;
 	Color pink;
 	String name;
-	public void setUp(){
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see junit.framework.TestCase#setUp()
+	 */
+	@Override
+	public void setUp() {
 		name = "Test";
 		red = Color.RED;
 		black = Color.BLACK;
@@ -33,15 +41,25 @@ public class TestAesthetic extends TestCase {
 		cyan = Color.CYAN;
 		orange = Color.ORANGE;
 		pink = Color.PINK;
-		
-		aesthetic = new Aesthetic(name, gray, red, black, blue, green, magenta, yellow, cyan, orange);
-	
+
+		aesthetic = new Aesthetic(name, gray, red, black, blue, green, magenta,
+				yellow, cyan, orange);
+
 	}
-	
-	public void tearDown(){}
-	
-	/** Tests all of the Aesthetic methods */
-	public void testAestheticMethods(){
+
+	/*
+	 * (non-Javadoc)
+	 *
+	 * @see junit.framework.TestCase#tearDown()
+	 */
+	@Override
+	public void tearDown() {
+	}
+
+	/**
+	 * Tests all of the Aesthetic methods
+	 */
+	public void testAestheticMethods() {
 		assertEquals(aesthetic.getName(), name);
 		assertEquals(aesthetic.getBackgroundColor(), gray);
 		assertEquals(aesthetic.getTileOneColor(), red);

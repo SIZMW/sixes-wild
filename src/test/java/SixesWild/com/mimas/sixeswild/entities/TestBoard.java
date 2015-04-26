@@ -7,7 +7,7 @@ import junit.framework.TestCase;
 
 /**
  * This test case handles testing all methods for the Board class.
- * 
+ *
  * @author Aditya Nivarthi
  */
 public class TestBoard extends TestCase {
@@ -30,9 +30,10 @@ public class TestBoard extends TestCase {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see junit.framework.TestCase#setUp()
 	 */
+	@Override
 	public void setUp() {
 		board = new Board();
 
@@ -87,9 +88,10 @@ public class TestBoard extends TestCase {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see junit.framework.TestCase#tearDown()
 	 */
+	@Override
 	public void tearDown() {
 
 	}

@@ -5,25 +5,25 @@ import java.util.ArrayList;
 import junit.framework.TestCase;
 
 /**
- * This test case handles testing all the methods for Level.
- * 
+ * This test case handles testing all the methods for PuzzleLevel.
+ *
  * @author Joey Perez
  */
 public class TestPuzzleLevel extends TestCase {
 
 	/**
-	 * Test all methods for Level.
+	 * Test all methods for PuzzleLevel.
 	 */
 	public void testPuzzleLevel() {
-		ArrayList<Double> tileFreq = new ArrayList<Double>(); // DONE
-		ArrayList<Double> multFreq = new ArrayList<Double>(); // DONE
-		LevelType levelType = LevelType.PUZZLE; // DONE
-		String levelName = "testPuzzle"; // DONE
+		ArrayList<Double> tileFreq = new ArrayList<Double>();
+		ArrayList<Double> multFreq = new ArrayList<Double>();
+		LevelType levelType = LevelType.PUZZLE;
+		String levelName = "testPuzzle";
 		Tile tiles[][] = new Tile[9][9];
-		PointThresholds pointThresholds = new PointThresholds(); // DONE
+		PointThresholds pointThresholds = new PointThresholds();
 		SpecialMoves specialMoves = new SpecialMoves();
 		int levelNumber = 1;
-		
+
 		tileFreq.add(.10);
 		tileFreq.add(.20);
 		tileFreq.add(.30);

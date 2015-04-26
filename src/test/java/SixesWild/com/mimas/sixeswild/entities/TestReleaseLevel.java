@@ -5,8 +5,8 @@ import java.util.ArrayList;
 import junit.framework.TestCase;
 
 /**
- * This test case handles testing all the methods for Level.
- * 
+ * This test case handles testing all the methods for ReleaseLevel.
+ *
  * @author Cameron Jones
  */
 public class TestReleaseLevel extends TestCase {
@@ -15,15 +15,15 @@ public class TestReleaseLevel extends TestCase {
 	 * Test all methods for ReleaseLevel.
 	 */
 	public void testReleaseLevel() {
-		ArrayList<Double> tileFreq = new ArrayList<Double>(); // DONE
-		ArrayList<Double> multFreq = new ArrayList<Double>(); // DONE
-		LevelType levelType = LevelType.RELEASE; // DONE
-		String levelName = "testRelease"; // DONE
+		ArrayList<Double> tileFreq = new ArrayList<Double>();
+		ArrayList<Double> multFreq = new ArrayList<Double>();
+		LevelType levelType = LevelType.RELEASE;
+		String levelName = "testRelease";
 		Tile tiles[][] = new Tile[9][9];
-		PointThresholds pointThresholds = new PointThresholds(); // DONE
+		PointThresholds pointThresholds = new PointThresholds();
 		SpecialMoves specialMoves = new SpecialMoves();
 		int levelNumber = 1;
-		
+
 		tileFreq.add(.10);
 		tileFreq.add(.20);
 		tileFreq.add(.30);

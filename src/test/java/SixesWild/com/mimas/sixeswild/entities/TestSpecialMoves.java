@@ -4,7 +4,7 @@ import junit.framework.TestCase;
 
 /**
  * This test case handles testing all the methods on special moves.
- * 
+ *
  * @author Aditya Nivarthi
  */
 public class TestSpecialMoves extends TestCase {
@@ -41,5 +41,16 @@ public class TestSpecialMoves extends TestCase {
 		assertEquals(s1.getResetBoardCount(), 1);
 		assertEquals(s1.getSwapTileCount(), 2);
 		assertEquals(s1.getXStacySpecialMoveCount(), 4);
+
+		// Test the update move methods
+		s1.updateRemoveTileCount(-1);
+		s1.updateResetBoardCount(-1);
+		s1.updateSwapTileCount(-1);
+		s1.updateXStacySpecialMoveCount(-1);
+
+		assertEquals(s1.getRemoveTileCount(), 2);
+		assertEquals(s1.getResetBoardCount(), 0);
+		assertEquals(s1.getSwapTileCount(), 1);
+		assertEquals(s1.getXStacySpecialMoveCount(), 3);
 	}
 }

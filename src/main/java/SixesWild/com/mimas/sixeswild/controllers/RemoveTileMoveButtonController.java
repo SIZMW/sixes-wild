@@ -11,7 +11,7 @@ import SixesWild.com.mimas.sixeswild.entities.MoveType;
 /**
  * This controller handles removing a tile when the remove tile button is
  * pressed.
- * 
+ *
  * @author Aditya Nivarthi
  */
 public class RemoveTileMoveButtonController implements ActionListener {
@@ -23,7 +23,7 @@ public class RemoveTileMoveButtonController implements ActionListener {
 	/**
 	 * Creates a RemoveTileMoveButtonController instance with the specified
 	 * GameApplication.
-	 * 
+	 *
 	 * @param app
 	 *            The GameApplication currently running.
 	 */
@@ -33,14 +33,17 @@ public class RemoveTileMoveButtonController implements ActionListener {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see
 	 * java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
 	 */
 	public void actionPerformed(ActionEvent e) {
+
+		// Get the number of remove tile moves remaining
 		int moves = this.app.getLevelPanel().getLevel().getSpecialMoves()
 				.getRemoveTileCount();
 
+		// Change the current move type if there are moves of this type left
 		if (moves > 0) {
 			this.app.getLevelPanel().setMoveType(MoveType.REMOVE);
 		} else {
@@ -49,6 +52,7 @@ public class RemoveTileMoveButtonController implements ActionListener {
 							+ moves);
 		}
 
+		// Update the level display
 		this.app.getLevelPanel().updateLevelStats();
 		this.app.getLevelPanel().updateUI();
 	}
