@@ -5,9 +5,6 @@ import java.awt.event.MouseEvent;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import javax.swing.JDialog;
-
-import SixesWild.com.mimas.sixeswild.boundaries.EndLevelPopUpPane;
 import SixesWild.com.mimas.sixeswild.boundaries.GameApplication;
 import SixesWild.com.mimas.sixeswild.entities.LevelType;
 import SixesWild.com.mimas.sixeswild.entities.SelectionMove;
@@ -37,7 +34,7 @@ public class GameBoardViewMouseMotionController extends MouseAdapter {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see java.awt.event.MouseAdapter#mouseDragged(java.awt.event.MouseEvent)
 	 */
 	@Override
@@ -58,15 +55,10 @@ public class GameBoardViewMouseMotionController extends MouseAdapter {
 		if (!this.app.getLevelPanel().getLevel().getType()
 				.equals(LevelType.LIGHTNING)
 				&& this.app.getLevelPanel().getLevel().getMoveCount() <= 0) {
-			JDialog dialog = new EndLevelPopUpPane(this.app,
-					"You have run out of moves.").createDialog(
-					this.app.getFrame(), "");
-			dialog.setVisible(true);
-
-			logger.log(Level.INFO, "Level ended. Returning to menu.");
-		} else {
-			this.app.getLevelPanel().getBoardViewPanel().updateUI();
+			this.app.getLevelPanel().endLevel("You have run out of moves.");
 		}
+
+		this.app.getLevelPanel().getBoardViewPanel().updateUI();
 
 	}
 }

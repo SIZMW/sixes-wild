@@ -13,6 +13,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import javax.swing.BorderFactory;
+import javax.swing.JDialog;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
@@ -34,6 +35,7 @@ public class LevelView extends JPanel {
 	private static final Logger logger = Logger.getGlobal();
 	private static final long serialVersionUID = 1L;
 
+	protected GameApplication app;
 	protected LevelTopPanel levelTopPanel;
 	protected LevelStatsPanel levelStatsPanel;
 	protected BoardViewPanel boardViewPanel;
@@ -149,14 +151,18 @@ public class LevelView extends JPanel {
 	/**
 	 * Creates a LevelView instance with the specified aesthetic and level.
 	 *
+	 * @param app
+	 *            The GameApplication currently running.
 	 * @param aesthetic
 	 *            The aesthetic to use for this view.
 	 * @param newLevel
 	 *            The level to populate in this view.
 	 */
-	public LevelView(Aesthetic aesthetic, GameLevel newLevel) {
+	public LevelView(GameApplication app, Aesthetic aesthetic,
+			GameLevel newLevel) {
 
 		// Attributes
+		this.app = app;
 		this.levelViewAesthetic = aesthetic;
 		this.currentLevel = newLevel;
 		this.currentScore = 0;
@@ -235,8 +241,11 @@ public class LevelView extends JPanel {
 			this.levelTimer = new Timer(1000, new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					currentLevel.updateTimerCount(-1);
-					if (currentLevel.getTimer() > 0) {
+					if (currentLevel.getTimer() >= 0) {
 						updateLevelStats();
+					} else {
+						endLevel("Timer ended.");
+						levelTimer.stop();
 					}
 				}
 			});
@@ -305,14 +314,13 @@ public class LevelView extends JPanel {
 			this.levelStatsPanel.movesSlashTimeLabel.setText(Integer
 					.toString(this.currentLevel.getMoveCount()));
 		} else {
-			// TODO: this will need to actually address the timer correctly
 			this.levelStatsPanel.movesSlashTimeLabel.setText(this.currentLevel
 					.getTimer() + "");
 		}
 
 		// TODO: Update Star Graphics Here
 
-		// Update the Top Panel
+		// Update the special moves
 		this.levelTopPanel.resetBoardButton.setText(LevelTopPanel.RESET + " "
 				+ this.currentLevel.getSpecialMoves().getResetBoardCount());
 
@@ -326,8 +334,6 @@ public class LevelView extends JPanel {
 				+ " "
 				+ this.currentLevel.getSpecialMoves()
 						.getXStacySpecialMoveCount());
-		// TODO: Currently nothing to Update Here but there should be the number
-		// of moves indicated on each special move button.
 	}
 
 	/**
@@ -376,5 +382,19 @@ public class LevelView extends JPanel {
 	 */
 	public MoveType getMoveType() {
 		return this.currentMove;
+	}
+
+	/**
+	 * Displays the end level pop up before returning to the menu.
+	 *
+	 * @param message
+	 *            The game status message to display.
+	 */
+	public void endLevel(String message) {
+		JDialog dialog = new EndLevelPopUpPane(this.app, message).createDialog(
+				this.app.getFrame(), "");
+		dialog.setVisible(true);
+
+		logger.log(Level.INFO, "Level ended. Returning to menu.");
 	}
 }

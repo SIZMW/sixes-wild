@@ -21,7 +21,7 @@ import SixesWild.com.mimas.sixeswild.sixeswild.XMLParser;
 /**
  * This controller creates and displays the level when the play button is
  * pressed in a specified level preview panel.
- * 
+ *
  * @author Cameron Jones
  */
 public class PlayButtonController implements ActionListener {
@@ -34,7 +34,7 @@ public class PlayButtonController implements ActionListener {
 	/**
 	 * Creates a PlayButtonController instance with the specified
 	 * GameApplication.
-	 * 
+	 *
 	 * @param app
 	 *            The GameApplication currently running.
 	 * @param menuType
@@ -47,7 +47,7 @@ public class PlayButtonController implements ActionListener {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see
 	 * java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
 	 */
@@ -91,12 +91,11 @@ public class PlayButtonController implements ActionListener {
 			logger.log(Level.WARNING, "Level selected was not found.");
 		} else {
 			contentContainer.removeAll();
-			LevelView newLevelView = new LevelView(app.getCurrentAesthetic(),
-					newLevel);
+			LevelView newLevelView = new LevelView(this.app,
+					app.getCurrentAesthetic(), newLevel);
 			this.app.setLevelPanel(newLevelView);
 			this.setUpControllers();
 
-			// Add panel to view
 			currentPanel.add(this.app.getLevelPanel(), gbc_list);
 			contentContainer.add(currentPanel);
 			contentContainer.revalidate();
