@@ -9,7 +9,6 @@ import javax.swing.JDialog;
 
 import SixesWild.com.mimas.sixeswild.boundaries.EndLevelPopUpPane;
 import SixesWild.com.mimas.sixeswild.boundaries.GameApplication;
-import SixesWild.com.mimas.sixeswild.entities.LevelType;
 import SixesWild.com.mimas.sixeswild.entities.MoveType;
 import SixesWild.com.mimas.sixeswild.entities.RemoveTileMove;
 import SixesWild.com.mimas.sixeswild.entities.SelectionMove;
@@ -40,7 +39,7 @@ public class GameBoardViewMouseController extends MouseAdapter {
 
 	/*
 	 * (non-Javadoc)
-	 *
+	 * 
 	 * @see java.awt.event.MouseAdapter#mousePressed(java.awt.event.MouseEvent)
 	 */
 	@Override
@@ -77,24 +76,16 @@ public class GameBoardViewMouseController extends MouseAdapter {
 
 	/*
 	 * (non-Javadoc)
-	 *
+	 * 
 	 * @see java.awt.event.MouseAdapter#mouseReleased(java.awt.event.MouseEvent)
 	 */
 	@Override
 	public void mouseReleased(MouseEvent me) {
-		boolean releaseWon = false;
-
 		if (this.app.getLevelPanel().getMoveType().equals(MoveType.SELECTION)) {
 			SelectionMove move = new SelectionMove(this.app.getLevelPanel()
 					.getBoardViewPanel().getCurrentSelection(), this.app
 					.getLevelPanel().getLevel());
-			boolean moveResult = move.doMove(this.app);
-			if (moveResult
-					&& this.app.getLevelPanel().getLevel().getType()
-							.equals(LevelType.RELEASE)) {
-				releaseWon = this.app.getLevelPanel().getBoardViewPanel()
-						.processReleaseMove();
-			}
+			move.doMove(this.app);
 		} else if (this.app.getLevelPanel().getMoveType().equals(MoveType.SWAP)) {
 			SwapMove move = new SwapMove(this.app.getLevelPanel()
 					.getBoardViewPanel().getCurrentSelection(), this.app
@@ -126,14 +117,15 @@ public class GameBoardViewMouseController extends MouseAdapter {
 			dialog.setVisible(true);
 
 			logger.log(Level.INFO, "Level ended. Returning to menu.");
-		} else if (releaseWon) {
-			JDialog dialog = new EndLevelPopUpPane(this.app, "You won.")
-					.createDialog(this.app.getFrame(), "");
-			dialog.setVisible(true);
-
-			logger.log(Level.INFO, "Level ended. Returning to menu.");
 		} else {
 			this.app.getLevelPanel().getBoardViewPanel().updateUI();
+		}
+
+		if (this.app.getLevelPanel().getBoardViewPanel().getBoard()
+				.isEliminationComplete()
+				|| this.app.getLevelPanel().getBoardViewPanel().getBoard()
+						.isReleaseComplete()) {
+			logger.log(Level.INFO, "WINNING");
 		}
 	}
 }

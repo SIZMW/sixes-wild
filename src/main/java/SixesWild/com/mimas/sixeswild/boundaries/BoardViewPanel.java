@@ -376,11 +376,40 @@ public class BoardViewPanel extends JPanel {
 	 */
 	public int doSelectionMove() {
 		int score = this.currentSelection.getScore();
-		this.gameBoard.removeSelection(this.currentSelection);
-		this.gameBoard.shiftTilesDownward();
-		this.gameBoard.fillEmptySquares();
+		this.gameBoard.processSelection(this.currentSelection);
 
 		logger.log(Level.INFO, "Board processed a selection move.");
+		return score;
+	}
+
+	/**
+	 * Executes the selection in the current selection. Removes the tiles and
+	 * fills the empty squares with newly generated tiles. Marks the squares
+	 * that were regenerated. Returns the current selection's calculated score.
+	 *
+	 * @return an integer
+	 */
+	public int doEliminationSelectionMove() {
+		int score = this.currentSelection.getScore();
+		this.gameBoard.processEliminationSelection(this.currentSelection);
+
+		logger.log(Level.INFO, "Board processed an elimination selection move.");
+		return score;
+	}
+
+	/**
+	 * Executes the selection in the current selection. Removes the tiles and
+	 * fills the empty squares with newly generated tiles. Replaces the target
+	 * tiles with the six tiles when they land above them. Returns the current
+	 * selection's calculated score.
+	 *
+	 * @return an integer
+	 */
+	public int doReleaseSelectionMove() {
+		int score = this.currentSelection.getScore();
+		this.gameBoard.processReleaseSelection(this.currentSelection);
+
+		logger.log(Level.INFO, "Board processed a release selection move.");
 		return score;
 	}
 
@@ -402,7 +431,7 @@ public class BoardViewPanel extends JPanel {
 	 * @return true
 	 */
 	public boolean doSwapTileMove() {
-		this.gameBoard.processSwap(this.currentSelection);
+		this.gameBoard.processSwapMove(this.currentSelection);
 
 		logger.log(Level.INFO, "Board processed a swap tile move.");
 		return true;
@@ -414,20 +443,9 @@ public class BoardViewPanel extends JPanel {
 	 * @return true
 	 */
 	public boolean doRemoveTileMove() {
-		this.gameBoard.removeSelection(this.currentSelection);
-		this.gameBoard.shiftTilesDownward();
-		this.gameBoard.fillEmptySquares();
+		this.gameBoard.processSelection(this.currentSelection);
 
 		logger.log(Level.INFO, "Board processed a remove tile move.");
 		return true;
-	}
-
-	/**
-	 * Processes the "Release" game type move for six and target tiles.
-	 * 
-	 * @return true if all targets have been filled; false otherwise
-	 */
-	public boolean processReleaseMove() {
-		return this.gameBoard.processReleaseTiles();
 	}
 }

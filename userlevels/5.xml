@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <Level number="5">
 <Name>Cams Level Two</Name>
-<Type>PUZZLE</Type>
+<Type>ELIMINATION</Type>
 <TileFrequency>
 <Tile frequency="0.95" number="1"/>
 <Tile frequency="0.01" number="2"/>
 <Tile frequency="0.01" number="3"/>
 <Tile frequency="0.01" number="4"/>
-<Tile frequency="0.01" number="5"/>
-<Tile frequency="0.01" number="6"/>
+<Tile frequency="0.02" number="5"/>
+<Tile frequency="0.0" number="6"/>
 <Multiplier frequency="0.6" times="1"/>
 <Multiplier frequency="0.2" times="2"/>
 <Multiplier frequency="0.2" times="3"/>

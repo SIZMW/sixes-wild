@@ -152,10 +152,8 @@ public class Board {
 	/**
 	 * Initializes the board using frequencies for the game. If frequencies are
 	 * invalid, creates generic frequencies and uses them to populate the board.
-	 *
-	 * @return true
 	 */
-	protected boolean initialize() {
+	protected void initialize() {
 		// TileFrequencies and MultiplierFrequencies have not been initialized
 		if (this.tileFrequencies == null || this.tileFrequencies.size() < 6) {
 			this.tileFrequencies = new ArrayList<Double>(Arrays.asList(.1, .2,
@@ -190,23 +188,18 @@ public class Board {
 			}
 
 		}
-
-		return true;
 	}
 
 	/**
 	 * Initializes the board for the game. TODO Will be removed.
-	 *
-	 * @return true
 	 */
-	public boolean randomInitialize() {
+	public void randomInitialize() {
 		for (int i = 0; i < this.SIZE_X; i++) {
 			for (int j = 0; j < this.SIZE_Y; j++) {
 				this.squares[i][j] = new Square(new NumberTile(
 						this.getRandomNumber(), 1), i, j, false);
 			}
 		}
-		return true;
 	}
 
 	/**
@@ -268,10 +261,8 @@ public class Board {
 	/**
 	 * Resets the board. Gets all the current number tiles on the board,
 	 * shuffles the list and replaces the tiles on the board.
-	 *
-	 * @return true
 	 */
-	public boolean resetBoard() {
+	public void resetBoard() {
 		ArrayList<Tile> tileList = new ArrayList<Tile>();
 
 		// Save all the number tiles to list
@@ -298,8 +289,6 @@ public class Board {
 				}
 			}
 		}
-
-		return true;
 	}
 
 	/**
@@ -324,10 +313,8 @@ public class Board {
 
 	/**
 	 * Moves tiles downward vertically to fill in any empty Squares.
-	 *
-	 * @return true
 	 */
-	public boolean shiftTilesDownward() {
+	protected void shiftTilesDownward() {
 		for (int i = 0; i < this.SIZE_X; i++) {
 			for (int j = this.SIZE_Y - 1; j > 0; j--) {
 				if (this.squares[i][j].getTile() == null) {
@@ -346,16 +333,12 @@ public class Board {
 				}
 			}
 		}
-
-		return true;
 	}
 
 	/**
 	 * Fills empty squares once a move has been completed.
-	 *
-	 * @return true
 	 */
-	public boolean fillEmptySquares() {
+	protected void fillEmptySquares() {
 		for (int i = 0; i < this.SIZE_X; i++) {
 			for (int j = 0; j < this.SIZE_Y; j++) {
 				if (this.squares[i][j].getTile() == null) {
@@ -364,8 +347,6 @@ public class Board {
 				}
 			}
 		}
-
-		return true;
 	}
 
 	/**
@@ -373,9 +354,9 @@ public class Board {
 	 *
 	 * @param selection
 	 *            The selection of tiles.
-	 * @return true
+	 * @return true if successful; false otherwise
 	 */
-	public boolean removeSelection(Selection selection) {
+	protected boolean removeSelection(Selection selection) {
 
 		// Verify selection exists
 		if (selection == null) {
@@ -397,9 +378,9 @@ public class Board {
 	 *
 	 * @param selection
 	 *            The selection of tiles.
-	 * @return true
+	 * @return true if successful; false otherwise
 	 */
-	public boolean processSwap(Selection selection) {
+	public boolean processSwapMove(Selection selection) {
 
 		// Verify selection exists
 		if (selection == null) {
@@ -427,11 +408,8 @@ public class Board {
 	/**
 	 * Processes the six tile and target tile movement in the "Release" game
 	 * type.
-	 *
-	 * @return true if all targets have been filled; false otherwise
 	 */
-	public boolean processReleaseTiles() {
-		int targetCount = 0;
+	protected void processReleaseTiles() {
 		for (int i = 0; i < this.SIZE_X; i++) {
 			for (int j = 0; j < this.SIZE_Y; j++) {
 				if (this.squares[i][j].getTile().getType().equals(TileType.SIX)) {
@@ -447,19 +425,85 @@ public class Board {
 				}
 			}
 		}
+	}
 
+	/**
+	 * Processes the squares that have been used in a selection in the
+	 * "Elimination" game type.
+	 */
+	protected void processEliminationSquares() {
 		for (int i = 0; i < this.SIZE_X; i++) {
 			for (int j = 0; j < this.SIZE_Y; j++) {
-				if (this.squares[i][j].getTile() != null
-						&& this.squares[i][j].getTile().getType()
-								.equals(TileType.TARGET)) {
-					targetCount++;
+				if (this.squares[i][j].getTile() == null) {
+					this.squares[i][j].setMarked(true);
 				}
 			}
 		}
+	}
 
+	/**
+	 * Processes a standard selection move with the specified selection.
+	 *
+	 * @param selection
+	 *            The selection to remove and process.
+	 */
+	public void processSelection(Selection selection) {
+		this.removeSelection(selection);
 		this.shiftTilesDownward();
 		this.fillEmptySquares();
-		return targetCount <= 0;
+	}
+
+	/**
+	 * Processes a selection move with the specified selection. Updates the
+	 * squares affected by marking them for the "Elimination" game type.
+	 *
+	 * @param selection
+	 *            The selection to remove and process.
+	 */
+	public void processEliminationSelection(Selection selection) {
+		this.removeSelection(selection);
+		this.processEliminationSquares();
+		this.shiftTilesDownward();
+		this.fillEmptySquares();
+	}
+
+	/**
+	 * Processes a selection move with the specified selection. Updates the six
+	 * tiles and target tiles affected for the "Release" game type.
+	 *
+	 * @param selection
+	 *            The selection to remove and process.
+	 */
+	public void processReleaseSelection(Selection selection) {
+		this.removeSelection(selection);
+		this.shiftTilesDownward();
+		this.fillEmptySquares();
+		this.processReleaseTiles();
+		this.shiftTilesDownward();
+		this.fillEmptySquares();
+	}
+
+	public boolean isEliminationComplete() {
+		int count = 0;
+		for (int i = 0; i < this.SIZE_X; i++) {
+			for (int j = 0; j < this.SIZE_Y; j++) {
+				if (!this.squares[i][j].getMarked()) {
+					count++;
+				}
+			}
+		}
+		return count <= 0;
+	}
+
+	public boolean isReleaseComplete() {
+		int count = 0;
+		for (int i = 0; i < this.SIZE_X; i++) {
+			for (int j = 0; j < this.SIZE_Y; j++) {
+				if (this.squares[i][j].getTile().equals(TileType.TARGET)) {
+					count++;
+				}
+			}
+		}
+		return count <= 0;
 	}
 }

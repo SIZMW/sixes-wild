@@ -5,7 +5,7 @@ import SixesWild.com.mimas.sixeswild.boundaries.GameApplication;
 /**
  * The SelectionMove is one type of move that can be executed in a game. It
  * handles the selection of tiles move.
- * 
+ *
  * @author Aditya Nivarthi
  */
 public class SelectionMove extends GameMove {
@@ -16,7 +16,7 @@ public class SelectionMove extends GameMove {
 	/**
 	 * Creates a SelectionMove instance with the specified selection and
 	 * GameLevel.
-	 * 
+	 *
 	 * @param selection
 	 *            The selection to verify for validity.
 	 * @param level
@@ -36,7 +36,7 @@ public class SelectionMove extends GameMove {
 	 */
 	@Override
 	public boolean isStillValidMove(GameApplication app) {
-		return selection.isSelectionStillValid();
+		return this.selection.isSelectionStillValid();
 	}
 
 	/*
@@ -48,7 +48,7 @@ public class SelectionMove extends GameMove {
 	 */
 	@Override
 	public boolean isValidMove(GameApplication app) {
-		return selection.isSelectionValid();
+		return this.selection.isSelectionValid();
 	}
 
 	/*
@@ -83,12 +83,24 @@ public class SelectionMove extends GameMove {
 			app.getLevelPanel().getLevel().updateMoveCount(-1);
 			return false;
 		} else {
-			int score = app.getLevelPanel().getBoardViewPanel()
-					.doSelectionMove();
+			int score = 0;
+			if (app.getLevelPanel().getLevel().getType()
+					.equals(LevelType.ELIMINATION)) {
+				score = app.getLevelPanel().getBoardViewPanel()
+						.doEliminationSelectionMove();
+			} else if (app.getLevelPanel().getLevel().getType()
+					.equals(LevelType.RELEASE)) {
+				score = app.getLevelPanel().getBoardViewPanel()
+						.doReleaseSelectionMove();
+			} else {
+				score = app.getLevelPanel().getBoardViewPanel()
+						.doSelectionMove();
+			}
+
 			app.getLevelPanel().getLevel().updateMoveCount(-1);
 			app.getLevelPanel().getBoardViewPanel().clearGameSelection();
-
 			app.getLevelPanel().updateScore(score);
+
 			return true;
 		}
 	}
