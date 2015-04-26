@@ -46,7 +46,6 @@ public class BuilderDeleteUserLevelButtonController implements ActionListener {
 					.getBuilderTopPanel().getDeleteComboBox().getSelectedItem())
 					.substring(0, 1);
 			fileName += ".xml";
-			logger.log(Level.INFO, fileName);
 
 			// Open the file to delete
 			try {
@@ -55,7 +54,7 @@ public class BuilderDeleteUserLevelButtonController implements ActionListener {
 				if (level.delete()) {
 					logger.log(Level.INFO, "Deleted successfully.");
 				} else {
-					logger.log(Level.INFO, "Delete failed.");
+					logger.log(Level.WARNING, "Delete failed.");
 				}
 			} catch (Exception e) {
 				logger.log(Level.WARNING, "File not found.");

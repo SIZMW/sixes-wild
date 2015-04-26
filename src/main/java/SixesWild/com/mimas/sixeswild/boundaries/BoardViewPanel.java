@@ -378,7 +378,7 @@ public class BoardViewPanel extends JPanel {
 		this.gameBoard.shiftTilesDownward();
 		this.gameBoard.fillEmptySquares();
 
-		logger.log(Level.INFO, "Selection move processed.");
+		logger.log(Level.INFO, "Board processed a selection move.");
 		return score;
 	}
 
@@ -390,7 +390,7 @@ public class BoardViewPanel extends JPanel {
 	public boolean doResetBoardMove() {
 		this.gameBoard.resetBoard();
 
-		logger.log(Level.INFO, "Reset board move processed.");
+		logger.log(Level.INFO, "Board processed a reset board move.");
 		return true;
 	}
 
@@ -402,7 +402,7 @@ public class BoardViewPanel extends JPanel {
 	public boolean doSwapTileMove() {
 		this.gameBoard.processSwap(this.currentSelection);
 
-		logger.log(Level.INFO, "Swap tile move processed.");
+		logger.log(Level.INFO, "Board processed a swap tile move.");
 		return true;
 	}
 
@@ -416,7 +416,7 @@ public class BoardViewPanel extends JPanel {
 		this.gameBoard.shiftTilesDownward();
 		this.gameBoard.fillEmptySquares();
 
-		logger.log(Level.INFO, "Remove tile move processed.");
+		logger.log(Level.INFO, "Board processed a remove tile move.");
 		return true;
 	}
 }

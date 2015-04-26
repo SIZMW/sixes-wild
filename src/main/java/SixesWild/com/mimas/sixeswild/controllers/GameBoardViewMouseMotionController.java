@@ -48,6 +48,9 @@ public class GameBoardViewMouseMotionController extends MouseAdapter {
 				.getLevelPanel().getLevel());
 		move.processCurrentMove(this.app);
 
+		logger.log(Level.INFO, "Processed a move type of: "
+				+ this.app.getLevelPanel().getMoveType().toString());
+
 		app.getLevelPanel().updateLevelStats();
 
 		if (this.app.getLevelPanel().getLevel().getMoveCount() <= 0) {

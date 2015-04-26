@@ -133,7 +133,7 @@ public class LevelView extends JPanel {
 			gbc_boardView.gridy = 1;
 			add(boardViewPanel, gbc_boardView);
 		} catch (Exception e) {
-			logger.log(Level.SEVERE, "Received null error on board creation.",
+			logger.log(Level.WARNING, "Received null error on board creation.",
 					e);
 		}
 
@@ -263,6 +263,7 @@ public class LevelView extends JPanel {
 	 * Sets the Current Level to be the new Level.
 	 * 
 	 * @param newLevel
+	 *            The new level to set as the current level.
 	 */
 	public void setLevel(GameLevel newLevel) {
 		this.currentLevel = newLevel;

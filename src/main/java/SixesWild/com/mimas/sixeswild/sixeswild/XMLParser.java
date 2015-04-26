@@ -43,7 +43,7 @@ import SixesWild.com.mimas.sixeswild.entities.UserProfile;
  * This class handles parsing the level and user profile files into usable
  * objects in the builder or game.
  * 
- * @author Yahel Nachum
+ * @author Yahel Nachum, Aditya Nivarthi
  */
 public final class XMLParser {
 
@@ -76,7 +76,7 @@ public final class XMLParser {
 		} else {
 			logger.log(Level.SEVERE,
 					"Invalid tile type requested for character conversion.");
-			throw new Exception("Invalid Tile Type!");
+			throw new Exception("Invalid tile type!");
 		}
 	}
 
@@ -231,7 +231,6 @@ public final class XMLParser {
 	 */
 	public static GameLevel fileToLevel(String fileName) {
 		try {
-
 			// Set up XML file for reading
 			File fXmlFile = new File(fileName);
 			DocumentBuilderFactory dbFactory = DocumentBuilderFactory
@@ -360,7 +359,9 @@ public final class XMLParser {
 						levelName, tiles, pointThresholds, moveCount,
 						specialMoves, levelNumber);
 			} else {
-				throw new Exception("Invalid Level Type!");
+				logger.log(Level.SEVERE,
+						"Invalid level type on level file read.");
+				throw new Exception("Invalid level type!");
 			}
 
 		} catch (Exception e) {
@@ -646,6 +647,8 @@ public final class XMLParser {
 					.getTextContent();
 
 			userProfile.setAestheticName(aesthetic);
+
+			logger.log(Level.INFO, "User profile file found and returned.");
 			return userProfile;
 
 		} catch (Exception e) {

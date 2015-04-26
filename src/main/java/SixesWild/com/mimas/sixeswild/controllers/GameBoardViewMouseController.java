@@ -51,6 +51,8 @@ public class GameBoardViewMouseController extends MouseAdapter {
 					.getBoardViewPanel().getCurrentSelection(), this.app
 					.getLevelPanel().getLevel());
 			move.processCurrentMove(this.app);
+			logger.log(Level.INFO, "Processing a move type of: "
+					+ MoveType.SELECTION);
 		} else if (this.app.getLevelPanel().getMoveType().equals(MoveType.SWAP)) {
 			SwapMove move = new SwapMove(app.getLevelPanel()
 					.getBoardViewPanel().getCurrentSelection(), this.app
@@ -63,6 +65,9 @@ public class GameBoardViewMouseController extends MouseAdapter {
 					.getLevelPanel().getLevel());
 			move.processCurrentMove(app);
 		}
+
+		logger.log(Level.INFO, "Processed a move type of: "
+				+ this.app.getLevelPanel().getMoveType().toString());
 
 		app.getLevelPanel().updateLevelStats();
 		app.getLevelPanel().getBoardViewPanel().updateUI();
@@ -98,6 +103,9 @@ public class GameBoardViewMouseController extends MouseAdapter {
 				this.app.getLevelPanel().setMoveType(MoveType.SELECTION);
 			}
 		}
+
+		logger.log(Level.INFO, "Completed a move type of: "
+				+ this.app.getLevelPanel().getMoveType().toString());
 
 		app.getLevelPanel().updateLevelStats();
 

@@ -240,11 +240,6 @@ public class SaveButtonController implements ActionListener {
 
 		PointThresholds pointThresholds = new PointThresholds(s1, s2, s3);
 
-		// Print Out a Grid Version of the Level
-		// N - Number
-		// U - Null
-		// T - Target
-		// S - Six
 		Tile tiles[][] = new Tile[9][9];
 
 		for (int i = 0; i < 9; i++) {
@@ -261,8 +256,7 @@ public class SaveButtonController implements ActionListener {
 						moveCount, specialMoves, levelNumber);
 				XMLParser.levelToFile(newLevel);
 			} catch (Exception e1) {
-				logger.log(Level.WARNING, "Level creation failed.");
-				e1.printStackTrace();
+				logger.log(Level.WARNING, "Puzzle level creation failed.");
 			}
 		} else if (levelType.equals(LevelType.ELIMINATION.toString())) {
 			try {
@@ -271,8 +265,7 @@ public class SaveButtonController implements ActionListener {
 						pointThresholds, moveCount, specialMoves, levelNumber);
 				XMLParser.levelToFile(newLevel);
 			} catch (Exception e1) {
-				logger.log(Level.WARNING, "Level creation failed.");
-				e1.printStackTrace();
+				logger.log(Level.WARNING, "Elimination level creation failed.");
 			}
 		} else if (levelType.equals(LevelType.RELEASE.toString())) {
 			try {
@@ -281,8 +274,7 @@ public class SaveButtonController implements ActionListener {
 						moveCount, specialMoves, levelNumber);
 				XMLParser.levelToFile(newLevel);
 			} catch (Exception e1) {
-				logger.log(Level.WARNING, "Level creation failed.");
-				e1.printStackTrace();
+				logger.log(Level.WARNING, "Release level creation failed.");
 			}
 		} else {
 			try {
@@ -291,8 +283,7 @@ public class SaveButtonController implements ActionListener {
 						timerCount, specialMoves, levelNumber);
 				XMLParser.levelToFile(newLevel);
 			} catch (Exception e1) {
-				logger.log(Level.WARNING, "Level creation failed.");
-				e1.printStackTrace();
+				logger.log(Level.WARNING, "Lightning level creation failed.");
 			}
 		}
 

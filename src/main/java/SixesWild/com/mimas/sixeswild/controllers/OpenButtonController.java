@@ -70,7 +70,7 @@ public class OpenButtonController implements ActionListener {
 		try {
 			newBoard = new Board(newTiles, tileFreq, multFreq);
 		} catch (Exception exc) {
-			logger.log(Level.SEVERE,
+			logger.log(Level.WARNING,
 					"Board failed to be initialized on builder level loading.");
 		}
 

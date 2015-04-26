@@ -396,6 +396,7 @@ public class Board {
 	 * @return true
 	 */
 	public boolean processSwap(Selection selection) {
+
 		// Verify selection exists
 		if (selection == null) {
 			return false;
