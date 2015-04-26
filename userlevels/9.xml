@@ -9,8 +9,9 @@
 <Tile frequency="0.2" number="4"/>
 <Tile frequency="0.2" number="5"/>
 <Tile frequency="0.0" number="6"/>
-<Multiplier frequency="0.33" times="2"/>
-<Multiplier frequency="0.33" times="3"/>
+<Multiplier frequency="0.4" times="1"/>
+<Multiplier frequency="0.25" times="2"/>
+<Multiplier frequency="0.35" times="3"/>
 </TileFrequency>
 <SpecialMoveConstraints>
 <ResetBoard>5</ResetBoard>
@@ -29,13 +30,13 @@
 </PlayingConstraints>
 <Board>
 <Row>U U N N N N N U U</Row>
+<Row>U S N S N S N S U</Row>
 <Row>U N N N N N N N U</Row>
+<Row>N N N S N S N N N</Row>
+<Row>S N N N N N N N S</Row>
+<Row>N N N S N S N N N</Row>
 <Row>U N N N N N N N U</Row>
-<Row>N N N N N N N N N</Row>
-<Row>N N N N N N N N N</Row>
-<Row>N N N N N N N N N</Row>
-<Row>U N N N N N N N U</Row>
-<Row>U N N N N N N N U</Row>
+<Row>U S N S N S N S U</Row>
 <Row>U U N N N N N U U</Row>
 </Board>
 </Level>
