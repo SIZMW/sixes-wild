@@ -1,7 +1,5 @@
 package SixesWild.com.mimas.sixeswild.controllers;
 
-import java.awt.Component;
-
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
@@ -19,8 +17,8 @@ public class LevelListController implements ListSelectionListener{
 			// TODO get it working
 			System.out.println("hi from list selection listener");	
 			System.out.println(app.getGameMenuView().getStoryMenuView().getLevelList().getSelectedIndex());
-			int c = app.getGameMenuView().getStoryMenuView().getPreviewPanel().getComponentCount();
-			System.out.println(c);
+			//int c = app.getGameMenuView().getStoryMenuView().getPreviewPanel().getComponentCount();
+			//System.out.println(c);
 			//lblLevelPreview.setIcon(null);
 		}
 	}
