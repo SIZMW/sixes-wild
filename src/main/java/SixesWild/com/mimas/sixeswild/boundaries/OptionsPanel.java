@@ -11,12 +11,13 @@ import java.util.ArrayList;
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JSeparator;
-import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 import SixesWild.com.mimas.sixeswild.entities.Aesthetic;
+import javax.swing.SwingConstants;
 
 /**
  * This class represents the options sub menu in the game.
@@ -34,11 +35,8 @@ public class OptionsPanel extends JPanel {
 	protected JPanel upperOptionsPanel;
 	protected JPanel rulesPanel;
 	protected JTextField userNameTextField;
-	protected JTextArea rulesTextPane;
+	protected JLabel rulesLabel;
 	protected JSeparator rulesSeparator;
-
-	// TODO Modify this text
-	private String rulesText = "Rule 01: Don't talk about the fight club.";
 
 	/**
 	 * Creates an OptionsPanel instance with the specified aesthetic list.
@@ -166,23 +164,36 @@ public class OptionsPanel extends JPanel {
 		rulesPanel.setLayout(gbl_panel_2);
 
 		// Rules text pane
-		rulesTextPane = new JTextArea();
-		rulesTextPane.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		rulesTextPane.setLineWrap(true);
-		rulesTextPane.setWrapStyleWord(true);
-		rulesTextPane.setText(rulesText);
-		rulesTextPane.setEditable(false);
-		rulesTextPane.setPreferredSize(new Dimension(400, 100));
-		rulesTextPane.setMaximumSize(new Dimension(400, 100));
+		rulesLabel = new JLabel();
+		rulesLabel.setVerticalAlignment(SwingConstants.TOP);
+		rulesLabel.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		rulesLabel.setPreferredSize(new Dimension(400, 100));
+		rulesLabel.setMaximumSize(new Dimension(400, 100));
 
+		// Rules text
+		ArrayList<String> rulesLabelText = new ArrayList<String>();
+		rulesLabelText.add("<html>");
+		rulesLabelText.add("Rule 01: Select tiles to create a sum equal to six.<br>");
+		rulesLabelText.add("Rule 02: Six tiles cannot be directly manipulated.<br>");
+		rulesLabelText.add("Rule 03: The first star threshold must be completed before the number of moves or the timer has reached zero.<br>");
+		rulesLabelText.add("Rule 04: Marked tiles must become unmarked before the number of moves or the timer reaches zero.<br>");
+		rulesLabelText.add("Rule 05: Each target tile must be occupied by a six tile before  the number of moves or the timer reaches zero.<br>");
+		rulesLabelText.add("Rule 06: Each selection must contain tiles that are connected horizontally and/or vertically.<br>");
+		rulesLabelText.add("</html>");
+		String rules = "";
+		for(String str: rulesLabelText){
+			rules += str;
+		}
+		rulesLabel.setText(rules);
+		
 		// Layout for rules text pane
 		GridBagConstraints gbc_txtpnRules = new GridBagConstraints();
 		gbc_txtpnRules.insets = new Insets(0, 0, 5, 5);
 		gbc_txtpnRules.fill = GridBagConstraints.BOTH;
 		gbc_txtpnRules.gridx = 1;
 		gbc_txtpnRules.gridy = 1;
-		rulesTextPane.setBorder(BorderFactory.createLineBorder(Color.BLACK));
-		rulesPanel.add(rulesTextPane, gbc_txtpnRules);
+		rulesLabel.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+		rulesPanel.add(rulesLabel, gbc_txtpnRules);
 	}
 
 	/**
