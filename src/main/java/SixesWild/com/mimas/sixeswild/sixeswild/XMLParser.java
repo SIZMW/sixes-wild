@@ -556,6 +556,7 @@ public final class XMLParser {
 					.newInstance();
 			Transformer transformer = transformerFactory.newTransformer();
 			transformer.setOutputProperty(OutputKeys.INDENT, "yes");
+			transformer.setOutputProperty("{http://xml.apache.org/xslt}indent-amount", "2");
 			DOMSource source = new DOMSource(doc);
 			StreamResult result = new StreamResult(new File(XMLParser.USER_DIR
 					+ level.getLevelNumber() + XMLParser.XML_EXT));
@@ -747,6 +748,7 @@ public final class XMLParser {
 					.newInstance();
 			Transformer transformer = transformerFactory.newTransformer();
 			transformer.setOutputProperty(OutputKeys.INDENT, "yes");
+			transformer.setOutputProperty("{http://xml.apache.org/xslt}indent-amount", "2");
 			DOMSource source = new DOMSource(doc);
 			StreamResult result = new StreamResult(new File(
 					XMLParser.PROFILE_DIR + userProfile.getUserName()
