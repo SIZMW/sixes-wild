@@ -47,6 +47,9 @@ public class ExitButtonController implements ActionListener {
 		Container contentContainer = app.getFrame().getContentPane();
 		JPanel currentPanel = new JPanel();
 		contentContainer.removeAll();
+		if(this.app.getLevelPanel().getTimer() != null){
+			this.app.getLevelPanel().getTimer().stop();	
+		}
 
 		// Layout for panel
 		GridBagLayout gridBagLayout = new GridBagLayout();

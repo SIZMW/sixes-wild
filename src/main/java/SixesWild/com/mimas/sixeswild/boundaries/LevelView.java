@@ -439,4 +439,13 @@ public class LevelView extends JPanel {
 
 		logger.log(Level.INFO, "Level ended. Returning to menu.");
 	}
+	
+	/**
+	 * Returns a the current level timer.
+	 * 
+	 * @return a Timer
+	 */
+	public Timer getTimer(){
+		return this.levelTimer;
+	}
 }
