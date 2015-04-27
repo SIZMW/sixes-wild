@@ -241,4 +241,10 @@ public class GameMenuView extends JPanel {
 	public TitlePanel getTitleMenuView() {
 		return this.titleMenuView;
 	}
+
+	public void refreshView(int storyHighestUnlocked, int userHighestUnlocked) {
+		storyMenuView.refreshView(storyHighestUnlocked);
+		userMenuView.refreshView(userHighestUnlocked);
+		this.repaint();
+	}
 }

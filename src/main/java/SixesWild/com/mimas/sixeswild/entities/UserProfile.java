@@ -11,7 +11,8 @@ import java.util.ArrayList;
 public class UserProfile {
 
 	protected String userName;
-	protected int highestUnlockedLevel;
+	protected int highestStoryLevelUnlocked;
+	protected int highestUserLevelUnlocked;
 	protected ArrayList<String> badgesEarned;
 	protected ArrayList<LevelHighScore> levelHighScores;
 	protected String aestheticName;
@@ -24,7 +25,8 @@ public class UserProfile {
 	 */
 	public UserProfile(String userName) {
 		this.userName = userName;
-		this.highestUnlockedLevel = 1;
+		this.highestStoryLevelUnlocked = 1;
+		this.highestUserLevelUnlocked = 1;
 		this.badgesEarned = new ArrayList<String>();
 		this.levelHighScores = new ArrayList<LevelHighScore>();
 		this.aestheticName = "";
@@ -40,12 +42,21 @@ public class UserProfile {
 	}
 
 	/**
-	 * Returns the highest level unlocked by the user.
+	 * Returns the highest story level unlocked by the user.
 	 *
 	 * @return an integer
 	 */
-	public int getHighestUnlockedLevel() {
-		return highestUnlockedLevel;
+	public int getHighestStoryLevelUnlocked() {
+		return highestStoryLevelUnlocked;
+	}
+
+	/**
+	 * Returns the highest user level unlocked by the user.
+	 *
+	 * @return an integer
+	 */
+	public int getHighestUserLevelUnlocked() {
+		return highestUserLevelUnlocked;
 	}
 
 	/**
@@ -154,13 +165,23 @@ public class UserProfile {
 	}
 
 	/**
-	 * Sets the highest level unlocked by the player.
+	 * Sets the highest story level unlocked by the player.
 	 *
 	 * @param highestLevel
-	 *            An integer of the highest level unlocked by the player.
+	 *            An integer of the highest story level unlocked by the player.
 	 */
-	public void setHighestLevel(int highestLevel) {
-		this.highestUnlockedLevel = highestLevel;
+	public void setHighestStoryLevel(int highestLevel) {
+		this.highestStoryLevelUnlocked = highestLevel;
+	}
+
+	/**
+	 * Sets the highest user level unlocked by the player.
+	 *
+	 * @param highestLevel
+	 *            An integer of the highest user level unlocked by the player.
+	 */
+	public void setHighestUserLevel(int highestLevel) {
+		this.highestUserLevelUnlocked = highestLevel;
 	}
 
 	/**
@@ -193,6 +214,8 @@ public class UserProfile {
 					this.levelHighScores.remove(e);
 					this.levelHighScores.add(new LevelHighScore(level,
 							highScore, stars));
+					return;
+				} else {
 					return;
 				}
 			}
@@ -261,8 +284,11 @@ public class UserProfile {
 		builder.append("User Name: ");
 		builder.append(userName);
 		builder.append("\n");
-		builder.append("	Highest Level: ");
-		builder.append(highestUnlockedLevel);
+		builder.append("	Highest Story Level: ");
+		builder.append(highestStoryLevelUnlocked);
+		builder.append("\n");
+		builder.append("	Highest User Level: ");
+		builder.append(highestUserLevelUnlocked);
 		builder.append("\n");
 		builder.append("	Badges Earned:\n");
 

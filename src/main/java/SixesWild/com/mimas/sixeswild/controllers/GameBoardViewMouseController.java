@@ -37,7 +37,7 @@ public class GameBoardViewMouseController extends MouseAdapter {
 
 	/*
 	 * (non-Javadoc)
-	 *
+	 * 
 	 * @see java.awt.event.MouseAdapter#mousePressed(java.awt.event.MouseEvent)
 	 */
 	@Override
@@ -78,7 +78,7 @@ public class GameBoardViewMouseController extends MouseAdapter {
 
 	/*
 	 * (non-Javadoc)
-	 *
+	 * 
 	 * @see java.awt.event.MouseAdapter#mouseReleased(java.awt.event.MouseEvent)
 	 */
 	@Override
@@ -141,12 +141,6 @@ public class GameBoardViewMouseController extends MouseAdapter {
 					.isReleaseComplete()) {
 				this.app.getLevelPanel().endLevel("Completed release level.");
 			}
-		} else if (this.app.getLevelPanel().getLevel().getType()
-				.equals(LevelType.LIGHTNING)) {
-			if (this.app.getLevelPanel().getLevel().getTimer() <= 0) {
-				this.app.getLevelPanel().endLevel("Completed lightning level.");
-			}
-
 		} else if (!this.app.getLevelPanel().getLevel().getType()
 				.equals(LevelType.LIGHTNING)
 				&& this.app.getLevelPanel().getLevel().getMoveCount() <= 0) {

@@ -21,6 +21,7 @@ import SixesWild.com.mimas.sixeswild.entities.Aesthetic;
 import SixesWild.com.mimas.sixeswild.entities.Board;
 import SixesWild.com.mimas.sixeswild.entities.GameLevel;
 import SixesWild.com.mimas.sixeswild.entities.LevelType;
+import SixesWild.com.mimas.sixeswild.entities.MenuTypes;
 import SixesWild.com.mimas.sixeswild.entities.MoveType;
 import SixesWild.com.mimas.sixeswild.entities.NumberTile;
 import SixesWild.com.mimas.sixeswild.entities.Tile;
@@ -45,6 +46,7 @@ public class LevelView extends JPanel {
 	protected int currentScore;
 	protected MoveType currentMove;
 	protected Timer levelTimer = null;
+	protected MenuTypes currentMenuType;
 
 	/**
 	 * Creates a LevelView instance with the specified aesthetic.
@@ -159,7 +161,7 @@ public class LevelView extends JPanel {
 	 *            The level to populate in this view.
 	 */
 	public LevelView(GameApplication app, Aesthetic aesthetic,
-			GameLevel newLevel) {
+			GameLevel newLevel, MenuTypes type) {
 
 		// Attributes
 		this.app = app;
@@ -167,6 +169,7 @@ public class LevelView extends JPanel {
 		this.currentLevel = newLevel;
 		this.currentScore = 0;
 		this.currentMove = MoveType.SELECTION;
+		this.currentMenuType = type;
 
 		// Layout for view
 		GridBagLayout gridBagLayout = new GridBagLayout();
@@ -408,12 +411,23 @@ public class LevelView extends JPanel {
 				this.currentScore,
 				this.currentLevel.getPointThresholds().getStarsForScore(
 						this.currentScore));
-		this.app.getCurrentUserProfile().setHighestLevel(
-				this.currentLevel.getLevelNumber() + 1);
+
+		if (this.currentLevel.getPointThresholds().getStarsForScore(
+				this.currentScore) > 0) {
+			if (this.currentMenuType.equals(MenuTypes.STORY)) {
+				this.app.getCurrentUserProfile().setHighestStoryLevel(
+						this.currentLevel.getLevelNumber() + 1);
+			} else if (this.currentMenuType.equals(MenuTypes.USER)) {
+				this.app.getCurrentUserProfile().setHighestUserLevel(
+						this.currentLevel.getLevelNumber() + 1);
+			}
+		}
 
 		JDialog dialog = new EndLevelPopUpPane(this.app, message).createDialog(
 				this.app.getFrame(), "");
 		dialog.setVisible(true);
+
+		this.app.refreshView();
 
 		logger.log(Level.INFO, "Level ended. Returning to menu.");
 	}

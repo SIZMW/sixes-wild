@@ -4,7 +4,7 @@ import junit.framework.TestCase;
 
 /**
  * This test case handles testing all the methods on PointThresholds.
- * 
+ *
  * @author Aditya Nivarthi
  */
 public class TestPointThresholds extends TestCase {
@@ -44,5 +44,11 @@ public class TestPointThresholds extends TestCase {
 		assertEquals(p1.getOneStarThreshold(), 1);
 		assertEquals(p1.getTwoStarThreshold(), 3);
 		assertEquals(p1.getThreeStarThreshold(), 6);
+
+		// Test converting points to stars
+		assertEquals(p.getStarsForScore(52), 3);
+		assertEquals(p.getStarsForScore(42), 2);
+		assertEquals(p.getStarsForScore(32), 1);
+		assertEquals(p.getStarsForScore(22), 0);
 	}
 }

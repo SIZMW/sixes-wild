@@ -14,6 +14,7 @@ import javax.swing.border.EmptyBorder;
 
 import SixesWild.com.mimas.sixeswild.controllers.BadgesMenuButtonController;
 import SixesWild.com.mimas.sixeswild.controllers.CreditsMenuButtonController;
+import SixesWild.com.mimas.sixeswild.controllers.GameCloseWindowController;
 import SixesWild.com.mimas.sixeswild.controllers.GameSplashScreenController;
 import SixesWild.com.mimas.sixeswild.controllers.OptionsMenuButtonController;
 import SixesWild.com.mimas.sixeswild.controllers.PlayButtonController;
@@ -71,9 +72,6 @@ public class GameApplication {
 			logger.log(Level.WARNING, "System look and feel failed to load.", e);
 		}
 
-		// Set up user profile
-		this.setCurrentUserProfile("Default");
-
 		// Set up aesthetics
 		aestheticList = new ArrayList<Aesthetic>();
 		this.setUpAesthetics();
@@ -88,11 +86,14 @@ public class GameApplication {
 			badgesList.add("Badge " + i);
 		}
 
+		// Set up user profile
+		this.setCurrentUserProfile("Default");
+
 		// Initialize panels and views.
 		gameMenuView = new GameMenuView(storyLevelList, userLevelList,
 				badgesList, aestheticList,
-				currentUserProfile.getHighestUnlockedLevel(),
-				currentUserProfile.getHighestUnlockedLevel());
+				currentUserProfile.getHighestStoryLevelUnlocked(),
+				currentUserProfile.getHighestUserLevelUnlocked());
 		levelView = new LevelView(currentAesthetic);
 
 		// Initialize frame
@@ -117,6 +118,7 @@ public class GameApplication {
 	 * Set up the controllers on the various components in the game.
 	 */
 	protected void setUpControllers() {
+		this.frame.addWindowListener(new GameCloseWindowController(this));
 		this.gameMenuView.getStoryLevelMenuButton().addActionListener(
 				new StoryMenuButtonController(this));
 		this.gameMenuView.getOptionsMenuButton().addActionListener(
@@ -179,16 +181,6 @@ public class GameApplication {
 	 */
 	public GameMenuView getGameMenuView() {
 		return this.gameMenuView;
-	}
-
-	public void refreshGameMenuView() {
-		this.setUpAesthetics();
-		// Initialize panels and views.
-		gameMenuView = new GameMenuView(storyLevelList, userLevelList,
-				badgesList, aestheticList,
-				currentUserProfile.getHighestUnlockedLevel(),
-				currentUserProfile.getHighestUnlockedLevel());
-		this.setUpControllers();
 	}
 
 	/**
@@ -274,5 +266,11 @@ public class GameApplication {
 		logger.log(Level.INFO, "User profile created for: " + name);
 		this.currentUserProfile = new UserProfile(name);
 		return false;
+	}
+
+	public void refreshView() {
+		this.gameMenuView.refreshView(
+				currentUserProfile.getHighestStoryLevelUnlocked(),
+				currentUserProfile.getHighestUserLevelUnlocked());
 	}
 }

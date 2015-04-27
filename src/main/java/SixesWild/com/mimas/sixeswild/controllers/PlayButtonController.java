@@ -47,7 +47,7 @@ public class PlayButtonController implements ActionListener {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see
 	 * java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
 	 */
@@ -91,7 +91,7 @@ public class PlayButtonController implements ActionListener {
 		} else {
 			contentContainer.removeAll();
 			LevelView newLevelView = new LevelView(this.app,
-					app.getCurrentAesthetic(), newLevel);
+					app.getCurrentAesthetic(), newLevel, menuType);
 			this.app.setLevelPanel(newLevelView);
 			this.setUpControllers();
 

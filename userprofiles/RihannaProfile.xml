@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <UserProfile user="Rihanna">
-<HighestLevelUnlocked>10</HighestLevelUnlocked>
+<HighestStoryLevelUnlocked>10</HighestStoryLevelUnlocked>
+<HighestUserLevelUnlocked>5</HighestUserLevelUnlocked>
 <Badges>
 <Name>Rasputin</Name>
 <Name>Stalin</Name>

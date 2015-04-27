@@ -63,7 +63,7 @@ public class ExitButtonController implements ActionListener {
 		gbc_list.gridx = 0;
 		gbc_list.gridy = 0;
 
-		this.app.refreshGameMenuView();
+		this.app.refreshView();
 
 		// Add panel to view
 		currentPanel.add(this.app.getGameMenuView(), gbc_list);

@@ -339,25 +339,23 @@ public final class XMLParser {
 			// Create level using all the information read
 			if (levelType.toUpperCase().equals(LevelType.PUZZLE.toString())) {
 				return new PuzzleLevel(tileFrequencies, multiplierFrequencies,
-						levelName, tiles, pointThresholds,
-						moveCount, specialMoves, levelNumber);
+						levelName, tiles, pointThresholds, moveCount,
+						specialMoves, levelNumber);
 			} else if (levelType.toUpperCase().equals(
 					LevelType.RELEASE.toString())) {
 				return new ReleaseLevel(tileFrequencies, multiplierFrequencies,
-						levelName, tiles, pointThresholds,
-						moveCount, specialMoves, levelNumber);
+						levelName, tiles, pointThresholds, moveCount,
+						specialMoves, levelNumber);
 			} else if (levelType.toUpperCase().equals(
 					LevelType.LIGHTNING.toString())) {
 				return new LightningLevel(tileFrequencies,
-						multiplierFrequencies, levelName,
-						tiles, pointThresholds, specialMoves, levelNumber,
-						timer);
+						multiplierFrequencies, levelName, tiles,
+						pointThresholds, specialMoves, levelNumber, timer);
 			} else if (levelType.toUpperCase().equals(
 					LevelType.ELIMINATION.toString())) {
 				return new EliminationLevel(tileFrequencies,
-						multiplierFrequencies, levelName,
-						tiles, pointThresholds, moveCount,
-						specialMoves, levelNumber);
+						multiplierFrequencies, levelName, tiles,
+						pointThresholds, moveCount, specialMoves, levelNumber);
 			} else {
 				logger.log(Level.SEVERE,
 						"Invalid level type on level file read.");
@@ -598,11 +596,16 @@ public final class XMLParser {
 
 			UserProfile userProfile = new UserProfile(userName);
 
-			// Get highest level unlocked by user
-			int highestLevelUnlocked = Integer.parseInt(doc
-					.getElementsByTagName("HighestLevelUnlocked").item(0)
+			// Get highest levels unlocked by user
+			int highestStoryLevelUnlocked = Integer.parseInt(doc
+					.getElementsByTagName("HighestStoryLevelUnlocked").item(0)
 					.getTextContent());
-			userProfile.setHighestLevel(highestLevelUnlocked);
+			userProfile.setHighestStoryLevel(highestStoryLevelUnlocked);
+
+			int highestUserLevelUnlocked = Integer.parseInt(doc
+					.getElementsByTagName("HighestUserLevelUnlocked").item(0)
+					.getTextContent());
+			userProfile.setHighestUserLevel(highestUserLevelUnlocked);
 
 			// Get list of badges that the user has unlocked
 			ArrayList<String> badges = new ArrayList<String>();
@@ -683,12 +686,18 @@ public final class XMLParser {
 			userNameAttr.setValue(userProfile.getUserName());
 			userProfileElement.setAttributeNode(userNameAttr);
 
-			// Highest level unlocked tag/text
-			Element highestLevelUnlockedElement = doc
-					.createElement("HighestLevelUnlocked");
-			highestLevelUnlockedElement.appendChild(doc.createTextNode(""
-					+ userProfile.getHighestUnlockedLevel()));
-			userProfileElement.appendChild(highestLevelUnlockedElement);
+			// Highest levels unlocked tag/text
+			Element highestStoryLevelUnlockedElement = doc
+					.createElement("HighestStoryLevelUnlocked");
+			highestStoryLevelUnlockedElement.appendChild(doc.createTextNode(""
+					+ userProfile.getHighestStoryLevelUnlocked()));
+			userProfileElement.appendChild(highestStoryLevelUnlockedElement);
+
+			Element highestUserLevelUnlockedElement = doc
+					.createElement("HighestUserLevelUnlocked");
+			highestUserLevelUnlockedElement.appendChild(doc.createTextNode(""
+					+ userProfile.getHighestUserLevelUnlocked()));
+			userProfileElement.appendChild(highestUserLevelUnlockedElement);
 
 			// Badges tag
 			Element badgesElement = doc.createElement("Badges");

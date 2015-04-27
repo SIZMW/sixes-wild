@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <UserProfile user="Iggy">
-<HighestLevelUnlocked>20</HighestLevelUnlocked>
+<HighestStoryLevelUnlocked>20</HighestStoryLevelUnlocked>
+<HighestUserLevelUnlocked>20</HighestUserLevelUnlocked>
 <Badges>
 <Name>Fancy</Name>
 <Name>Black Widow</Name>

@@ -20,7 +20,7 @@ import javax.swing.border.LineBorder;
 /**
  * This class represents the inner view for selecting a level and displaying a
  * preview to the player.
- * 
+ *
  * @author Cameron Jones
  */
 public class LevelSelectionPanel extends JPanel {
@@ -37,7 +37,7 @@ public class LevelSelectionPanel extends JPanel {
 	/**
 	 * Creates a LevelSelectionPanel instance with the specified level names and
 	 * highest level unlocked.
-	 * 
+	 *
 	 * @param levelNames
 	 *            The names of levels to populate the list.
 	 * @param highestLevelUnlocked
@@ -129,7 +129,7 @@ public class LevelSelectionPanel extends JPanel {
 
 	/**
 	 * Returns the levelScrollPane object for this panel.
-	 * 
+	 *
 	 * @return the levelScrollPane property
 	 */
 	public JScrollPane getLevelScrollPane() {
@@ -138,7 +138,7 @@ public class LevelSelectionPanel extends JPanel {
 
 	/**
 	 * Returns the playLevelButton object for this panel.
-	 * 
+	 *
 	 * @return the playLevelButton property
 	 */
 	public JButton getPlayButton() {
@@ -147,7 +147,7 @@ public class LevelSelectionPanel extends JPanel {
 
 	/**
 	 * Returns the previewPanel object for this panel.
-	 * 
+	 *
 	 * @return the previewPanel property
 	 */
 	public JPanel getPreviewPanel() {
@@ -156,10 +156,18 @@ public class LevelSelectionPanel extends JPanel {
 
 	/**
 	 * Returns the levelList object for this panel.
-	 * 
+	 *
 	 * @return the levelList property
 	 */
 	public JList<String> getLevelList() {
 		return this.levelList;
+	}
+
+	public void refreshView(int highestUnlocked) {
+		levelList.setCellRenderer(new LevelListCellRenderer(highestUnlocked));
+		levelScrollPane.setViewportView(levelList);
+		this.invalidate();
+		this.revalidate();
+		this.repaint();
 	}
 }

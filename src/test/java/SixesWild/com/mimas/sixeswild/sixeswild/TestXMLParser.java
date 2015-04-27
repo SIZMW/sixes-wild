@@ -4,7 +4,6 @@ import java.util.ArrayList;
 
 import junit.framework.TestCase;
 import SixesWild.com.mimas.sixeswild.entities.GameLevel;
-import SixesWild.com.mimas.sixeswild.entities.LevelType;
 import SixesWild.com.mimas.sixeswild.entities.NullTile;
 import SixesWild.com.mimas.sixeswild.entities.NumberTile;
 import SixesWild.com.mimas.sixeswild.entities.PointThresholds;
@@ -54,7 +53,7 @@ public class TestXMLParser extends TestCase {
 				.fileToUserProfile("TestProfile.xml");
 
 		assertEquals(userProfile.getUserName(), "Rihanna");
-		assertEquals(userProfile.getHighestUnlockedLevel(), 10);
+		assertEquals(userProfile.getHighestStoryLevelUnlocked(), 10);
 		assertEquals(userProfile.getAestheticName(), "Rainbow Unicorns");
 		assertEquals(userProfile.getHighScoreOfLevel(1), 5);
 		assertEquals(userProfile.getHighScoreOfLevel(3), 25);
@@ -68,7 +67,8 @@ public class TestXMLParser extends TestCase {
 		// Make userProfile1
 		UserProfile userProfile1 = new UserProfile("Iggy");
 
-		userProfile1.setHighestLevel(20);
+		userProfile1.setHighestStoryLevel(20);
+		userProfile1.setHighestUserLevel(20);
 		userProfile1.setAestheticName("Tire Marks");
 
 		userProfile1.addBadgeEarned("Fancy");
@@ -89,8 +89,10 @@ public class TestXMLParser extends TestCase {
 		assertEquals(userProfile1.getUserName(), userProfile2.getUserName());
 		assertEquals(userProfile1.getAestheticName(),
 				userProfile2.getAestheticName());
-		assertEquals(userProfile1.getHighestUnlockedLevel(),
-				userProfile2.getHighestUnlockedLevel());
+		assertEquals(userProfile1.getHighestStoryLevelUnlocked(),
+				userProfile2.getHighestStoryLevelUnlocked());
+		assertEquals(userProfile1.getHighestUserLevelUnlocked(),
+				userProfile2.getHighestUserLevelUnlocked());
 
 		assertEquals(userProfile1.hasBadge("Fancy"),
 				userProfile2.hasBadge("Fancy"));
@@ -161,8 +163,8 @@ public class TestXMLParser extends TestCase {
 
 		PuzzleLevel level1;
 		try {
-			level1 = new PuzzleLevel(tileFreq, multFreq, levelName,
-					tiles, pointThresholds, 50, specialMoves, levelNumber);
+			level1 = new PuzzleLevel(tileFreq, multFreq, levelName, tiles,
+					pointThresholds, 50, specialMoves, levelNumber);
 
 			// Change the level to a file and then turn it back into a level
 			XMLParser.levelToFile(level1);

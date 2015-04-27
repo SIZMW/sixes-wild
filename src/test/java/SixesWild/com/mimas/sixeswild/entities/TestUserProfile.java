@@ -6,7 +6,7 @@ import junit.framework.TestCase;
 
 /**
  * This test case handles testing the UserProfile class.
- * 
+ *
  * @author Aditya Nivarthi
  */
 public class TestUserProfile extends TestCase {
@@ -16,9 +16,10 @@ public class TestUserProfile extends TestCase {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see junit.framework.TestCase#setUp()
 	 */
+	@Override
 	public void setUp() {
 		name = "Bob";
 		currentProfile = new UserProfile(name);
@@ -29,7 +30,7 @@ public class TestUserProfile extends TestCase {
 	 */
 	public void testDefaultUserProfile() {
 		assertEquals(name, currentProfile.getUserName());
-		assertEquals(1, currentProfile.getHighestUnlockedLevel());
+		assertEquals(1, currentProfile.getHighestStoryLevelUnlocked());
 		assertEquals(0, currentProfile.getBadgesEarned().size());
 		assertEquals(0, currentProfile.getLevelHighScore().size());
 		assertEquals("", currentProfile.getAestheticName());
@@ -75,9 +76,9 @@ public class TestUserProfile extends TestCase {
 	 */
 	public void testScores() {
 		// Set highest level
-		currentProfile.setHighestLevel(3);
+		currentProfile.setHighestStoryLevel(3);
 		currentProfile.addLevelHighScore(3, 3, 3);
-		assertEquals(3, currentProfile.getHighestUnlockedLevel());
+		assertEquals(3, currentProfile.getHighestStoryLevelUnlocked());
 		assertEquals(3, currentProfile.getHighScoreOfLevel(3));
 		assertEquals(3, currentProfile.getStarsOfLevel(3));
 
@@ -89,6 +90,8 @@ public class TestUserProfile extends TestCase {
 
 		LevelHighScore score2 = currentProfile.getLevelHighScore(2);
 		assertNull(score2);
+
+		assertEquals(currentProfile.getStarsOfLevel(10), -1);
 	}
 
 	/**
@@ -111,8 +114,9 @@ public class TestUserProfile extends TestCase {
 
 		currentProfile.setBadgesEarned(badges);
 		assertEquals(currentProfile.getBadgesEarned().get(0), "Hi");
-		
+
 		assertTrue(currentProfile.hasBadge("Hi"));
+		assertFalse(currentProfile.hasBadge("Winner"));
 	}
 
 	/**
@@ -123,5 +127,17 @@ public class TestUserProfile extends TestCase {
 		currentProfile.addLevelHighScore(3, 3, 3);
 		currentProfile.addBadgeEarned("Win");
 		System.out.println(currentProfile.toString());
+	}
+
+	/**
+	 * Tests adding a duplicate high score and updating the score.
+	 */
+	public void testAddDuplicateHighScore() {
+		currentProfile.addLevelHighScore(1, 2, 3);
+		currentProfile.addLevelHighScore(1, 1, 3);
+		currentProfile.addLevelHighScore(3, 3, 3);
+		currentProfile.addLevelHighScore(3, 4, 3);
+		assertEquals(currentProfile.getHighScoreOfLevel(1), 2);
+		assertEquals(currentProfile.getHighScoreOfLevel(3), 4);
 	}
 }

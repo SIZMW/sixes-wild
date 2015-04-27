@@ -3,7 +3,8 @@
 <UserProfile user="Rihanna">
 
 	<!-- Highest level unlocked by player -->
-	<HighestLevelUnlocked>10</HighestLevelUnlocked>
+	<HighestStoryLevelUnlocked>10</HighestStoryLevelUnlocked>
+<HighestUserLevelUnlocked>5</HighestUserLevelUnlocked>
 	
 	<!-- List of badges achieved by player -->
 	<Badges>
