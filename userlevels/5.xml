@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <Level number="5">
-  <Name>Cam's Elimination</Name>
-  <Type>ELIMINATION</Type>
+  <Name>Cam's Puzzle</Name>
+  <Type>PUZZLE</Type>
   <TileFrequency>
     <Tile frequency="0.95" number="1"/>
     <Tile frequency="0.01" number="2"/>
