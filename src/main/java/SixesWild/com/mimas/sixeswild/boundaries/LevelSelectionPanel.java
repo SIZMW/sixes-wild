@@ -163,6 +163,12 @@ public class LevelSelectionPanel extends JPanel {
 		return this.levelList;
 	}
 
+	/**
+	 * Refreshes the view with the specified highest level unlocked.
+	 * 
+	 * @param highestUnlocked
+	 *            The new highest level number unlocked.
+	 */
 	public void refreshView(int highestUnlocked) {
 		levelList.setCellRenderer(new LevelListCellRenderer(highestUnlocked));
 		levelScrollPane.setViewportView(levelList);

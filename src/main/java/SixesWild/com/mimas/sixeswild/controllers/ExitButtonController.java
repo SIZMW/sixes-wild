@@ -39,7 +39,7 @@ public class ExitButtonController implements ActionListener {
 
 	/*
 	 * (non-Javadoc)
-	 *
+	 * 
 	 * @see
 	 * java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
 	 */
@@ -63,6 +63,8 @@ public class ExitButtonController implements ActionListener {
 		gbc_list.gridx = 0;
 		gbc_list.gridy = 0;
 
+		// Refreshes the game menu view with the updated unlocked levels from
+		// the user profile.
 		this.app.refreshView();
 
 		// Add panel to view

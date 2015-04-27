@@ -44,7 +44,7 @@ public class SaveButtonController implements ActionListener {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see
 	 * java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
 	 */
@@ -249,38 +249,39 @@ public class SaveButtonController implements ActionListener {
 			}
 		}
 
+		// Create the level object of the specified level type
 		if (levelType.equals(LevelType.PUZZLE.toString())) {
 			try {
-				newLevel = new PuzzleLevel(tileFreq, multFreq,
-						 levelName, tiles, pointThresholds,
-						moveCount, specialMoves, levelNumber);
+				newLevel = new PuzzleLevel(tileFreq, multFreq, levelName,
+						tiles, pointThresholds, moveCount, specialMoves,
+						levelNumber);
 				XMLParser.levelToFile(newLevel);
 			} catch (Exception e1) {
 				logger.log(Level.WARNING, "Puzzle level creation failed.");
 			}
 		} else if (levelType.equals(LevelType.ELIMINATION.toString())) {
 			try {
-				newLevel = new EliminationLevel(tileFreq, multFreq,
-						 levelName, tiles,
-						pointThresholds, moveCount, specialMoves, levelNumber);
+				newLevel = new EliminationLevel(tileFreq, multFreq, levelName,
+						tiles, pointThresholds, moveCount, specialMoves,
+						levelNumber);
 				XMLParser.levelToFile(newLevel);
 			} catch (Exception e1) {
 				logger.log(Level.WARNING, "Elimination level creation failed.");
 			}
 		} else if (levelType.equals(LevelType.RELEASE.toString())) {
 			try {
-				newLevel = new ReleaseLevel(tileFreq, multFreq,
-						 levelName, tiles, pointThresholds,
-						moveCount, specialMoves, levelNumber);
+				newLevel = new ReleaseLevel(tileFreq, multFreq, levelName,
+						tiles, pointThresholds, moveCount, specialMoves,
+						levelNumber);
 				XMLParser.levelToFile(newLevel);
 			} catch (Exception e1) {
 				logger.log(Level.WARNING, "Release level creation failed.");
 			}
 		} else {
 			try {
-				newLevel = new LightningLevel(tileFreq, multFreq,
-						 levelName, tiles, pointThresholds,
-						specialMoves, levelNumber, timerCount);
+				newLevel = new LightningLevel(tileFreq, multFreq, levelName,
+						tiles, pointThresholds, specialMoves, levelNumber,
+						timerCount);
 				XMLParser.levelToFile(newLevel);
 			} catch (Exception e1) {
 				logger.log(Level.WARNING, "Lightning level creation failed.");

@@ -52,6 +52,8 @@ public class BuilderApplication {
 	 * Initialize the contents of the frame.
 	 */
 	protected void initialize() {
+
+		// Set look and feel to system interface
 		try {
 			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
 		} catch (Exception e) {

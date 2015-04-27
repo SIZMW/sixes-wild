@@ -159,6 +159,8 @@ public class LevelView extends JPanel {
 	 *            The aesthetic to use for this view.
 	 * @param newLevel
 	 *            The level to populate in this view.
+	 * @param type
+	 *            The menu type that the level is being selected from.
 	 */
 	public LevelView(GameApplication app, Aesthetic aesthetic,
 			GameLevel newLevel, MenuTypes type) {
@@ -247,7 +249,7 @@ public class LevelView extends JPanel {
 
 				/*
 				 * (non-Javadoc)
-				 *
+				 * 
 				 * @see
 				 * java.awt.event.ActionListener#actionPerformed(java.awt.event
 				 * .ActionEvent)
@@ -406,12 +408,16 @@ public class LevelView extends JPanel {
 	 *            The game status message to display.
 	 */
 	public void endLevel(String message) {
+
+		// Add the high score to the current user profile
 		this.app.getCurrentUserProfile().addLevelHighScore(
 				this.currentLevel.getLevelNumber(),
 				this.currentScore,
 				this.currentLevel.getPointThresholds().getStarsForScore(
 						this.currentScore));
 
+		// Check the star score for this level and determine if the next level
+		// is unlocked
 		if (this.currentLevel.getPointThresholds().getStarsForScore(
 				this.currentScore) > 0) {
 			if (this.currentMenuType.equals(MenuTypes.STORY)) {
@@ -423,10 +429,12 @@ public class LevelView extends JPanel {
 			}
 		}
 
+		// Display the pop up to end the level
 		JDialog dialog = new EndLevelPopUpPane(this.app, message).createDialog(
 				this.app.getFrame(), "");
 		dialog.setVisible(true);
 
+		// Refresh the game menu view to reflect the new user profile status
 		this.app.refreshView();
 
 		logger.log(Level.INFO, "Level ended. Returning to menu.");

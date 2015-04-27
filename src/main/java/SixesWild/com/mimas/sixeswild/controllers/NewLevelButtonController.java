@@ -23,7 +23,7 @@ import SixesWild.com.mimas.sixeswild.entities.Tile;
 /**
  * This controller creates a new level to edit in the level builder when the new
  * button is pressed.
- * 
+ *
  * @author Cameron Jones
  */
 public class NewLevelButtonController implements ActionListener {
@@ -39,7 +39,7 @@ public class NewLevelButtonController implements ActionListener {
 	/**
 	 * Creates a NewLevelButtonController instance with the specified
 	 * BuilderApplication.
-	 * 
+	 *
 	 * @param app
 	 *            The BuilderApplication currently running.
 	 */
@@ -80,6 +80,7 @@ public class NewLevelButtonController implements ActionListener {
 				nullTiles[i][j] = new NullTile();
 			}
 		}
+
 		// Creates tile frequencies
 		tileFreq = new ArrayList<Double>(
 				Arrays.asList(.1, .2, .3, .3, .05, .05));
@@ -88,6 +89,8 @@ public class NewLevelButtonController implements ActionListener {
 		try {
 			nullBoard = new Board(nullTiles, tileFreq, multFreq);
 		} catch (Exception exc) {
+			logger.log(Level.WARNING,
+					"Builder failed to load a new null board.");
 		}
 
 		// Add panel to view

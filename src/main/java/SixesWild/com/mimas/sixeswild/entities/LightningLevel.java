@@ -25,23 +25,22 @@ public class LightningLevel extends GameLevel {
 	 *            The list of tiles for the board in the level.
 	 * @param pointThresholds
 	 *            The point threshold values for the level.
-	 * @param timerCount
-	 *            The timer amount for the level.
 	 * @param specialMoves
 	 *            The special moves counts for the level.
 	 * @param levelNumber
 	 *            The number for this level.
+	 * @param timer
+	 *            The timer amount for the level.
 	 * @throws Exception
 	 *             If board construction throws an exception.
 	 */
 	public LightningLevel(ArrayList<Double> tileFreq,
-			ArrayList<Double> multFreq, String name,
-			Tile tiles[][], PointThresholds pointThresholds,
-			SpecialMoves specialMoves, int levelNumber, int timer)
-			throws Exception {
-		super(tileFreq, multFreq, name, tiles, pointThresholds,
-				specialMoves, levelNumber, timer);
-		
+			ArrayList<Double> multFreq, String name, Tile tiles[][],
+			PointThresholds pointThresholds, SpecialMoves specialMoves,
+			int levelNumber, int timer) throws Exception {
+		super(tileFreq, multFreq, name, tiles, pointThresholds, specialMoves,
+				levelNumber, timer);
+
 		this.type = LevelType.LIGHTNING;
 	}
 }

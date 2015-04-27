@@ -37,6 +37,8 @@ public class EndLevelPopUpPane extends JOptionPane {
 		// Add button with exit controller and close the pop up
 		final JButton exitButton = new JButton("Exit");
 		exitButton.addActionListener(new ExitButtonController(app));
+
+		// Add action listener to close the pop up
 		exitButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 

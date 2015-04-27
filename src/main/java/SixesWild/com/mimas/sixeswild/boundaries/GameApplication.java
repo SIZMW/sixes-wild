@@ -47,10 +47,6 @@ public class GameApplication {
 	protected ArrayList<String> userLevelList;
 	protected ArrayList<String> badgesList;
 
-	// TODO Get from user profile.
-	int storyHighestUnlocked = 5;
-	int userHighestUnlocked = 50;
-
 	// TODO Populate the list of badges
 
 	/**
@@ -258,6 +254,7 @@ public class GameApplication {
 				this.currentUserProfile = XMLParser.fileToUserProfile(name
 						+ XMLParser.PROFILE_CONST + XMLParser.XML_EXT);
 				logger.log(Level.INFO, "User profile found for: " + name);
+				this.refreshView();
 				return true;
 			}
 		}
@@ -268,9 +265,16 @@ public class GameApplication {
 		return false;
 	}
 
+	/**
+	 * Refreshes the game menu view with the updated unlocked levels from the
+	 * user profile.
+	 */
 	public void refreshView() {
 		this.gameMenuView.refreshView(
 				currentUserProfile.getHighestStoryLevelUnlocked(),
 				currentUserProfile.getHighestUserLevelUnlocked());
+
+		logger.log(Level.INFO,
+				"Game menu view is being refreshed with new unlocked level values.");
 	}
 }
