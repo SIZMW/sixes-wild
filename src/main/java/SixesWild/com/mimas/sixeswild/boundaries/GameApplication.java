@@ -273,10 +273,12 @@ public class GameApplication {
 	 * user profile.
 	 */
 	public void refreshView() {
-		this.gameMenuView.refreshView(
-				currentUserProfile.getHighestStoryLevelUnlocked(),
-				currentUserProfile.getHighestUserLevelUnlocked());
-
+		if (gameMenuView != null) {
+			this.gameMenuView.refreshView(
+					currentUserProfile.getHighestStoryLevelUnlocked(),
+					currentUserProfile.getHighestUserLevelUnlocked());
+		}
+		
 		logger.log(Level.INFO,
 				"Game menu view is being refreshed with new unlocked level values.");
 	}
