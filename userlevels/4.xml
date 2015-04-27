@@ -3,11 +3,11 @@
   <Name>Elimination Death Match</Name>
   <Type>ELIMINATION</Type>
   <TileFrequency>
-    <Tile frequency="0.052" number="1"/>
+    <Tile frequency="0.552" number="1"/>
     <Tile frequency="0.032" number="2"/>
     <Tile frequency="0.035" number="3"/>
     <Tile frequency="0.067" number="4"/>
-    <Tile frequency="0.7317" number="5"/>
+    <Tile frequency="0.2317" number="5"/>
     <Tile frequency="0.0823" number="6"/>
     <Multiplier frequency="-65.6" times="1"/>
     <Multiplier frequency="35.3" times="2"/>
@@ -25,7 +25,7 @@
     <Point>300</Point>
   </PointThresholds>
   <PlayingConstraints>
-    <MoveCount>5</MoveCount>
+    <MoveCount>15</MoveCount>
     <Timer>0</Timer>
   </PlayingConstraints>
   <Board>
@@ -35,7 +35,7 @@
     <Row>U N N N N N N N U</Row>
     <Row>U N N N N N N N U</Row>
     <Row>U N N N N N N N U</Row>
-    <Row>S S S S S S S S S</Row>
+    <Row>U U U U U U U U U</Row>
     <Row>U U U U U U U U U</Row>
     <Row>U U U U U U U U U</Row>
   </Board>
