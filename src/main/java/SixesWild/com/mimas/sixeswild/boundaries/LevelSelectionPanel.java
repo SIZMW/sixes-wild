@@ -9,13 +9,14 @@ import java.util.ArrayList;
 
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
-import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.ListSelectionModel;
-import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
+
+import SixesWild.com.mimas.sixeswild.entities.Aesthetic;
+import SixesWild.com.mimas.sixeswild.entities.Board;
 
 /**
  * This class represents the inner view for selecting a level and displaying a
@@ -33,6 +34,9 @@ public class LevelSelectionPanel extends JPanel {
 	protected JButton playLevelButton;
 	protected ArrayList<String> levelNames;
 	protected JList<String> levelList;
+	protected BoardViewPanel boardPreviewPanel;
+	
+	protected int levelPreviewPanel = 300;
 
 	/**
 	 * Creates a LevelSelectionPanel instance with the specified level names and
@@ -87,7 +91,6 @@ public class LevelSelectionPanel extends JPanel {
 
 		// Layout for preview panel
 		GridBagConstraints gbc_panel = new GridBagConstraints();
-		gbc_panel.fill = GridBagConstraints.BOTH;
 		gbc_panel.gridx = 1;
 		gbc_panel.gridy = 0;
 		add(previewPanel, gbc_panel);
@@ -102,10 +105,13 @@ public class LevelSelectionPanel extends JPanel {
 		previewPanel.setLayout(gbl_panel);
 
 		// Level preview label
-		JLabel lblLevelPreview = new JLabel("Level Preview",
-				SwingConstants.CENTER);
-		lblLevelPreview.setBorder(new LineBorder(new Color(0, 0, 0)));
-		lblLevelPreview.setBackground(Color.WHITE);
+		boardPreviewPanel = new BoardViewPanel(new Board(), new Aesthetic("", Color.blue, Color.red, Color.orange, Color.pink, Color.magenta, Color.green, Color.yellow, Color.white, Color.black));
+		boardPreviewPanel.setPreferredSize(new Dimension(levelPreviewPanel, levelPreviewPanel));
+		boardPreviewPanel.setMaximumSize(new Dimension(levelPreviewPanel, levelPreviewPanel));
+		boardPreviewPanel.setMinimumSize(new Dimension(levelPreviewPanel, levelPreviewPanel));
+		boardPreviewPanel.setBorder(new LineBorder(new Color(0, 0, 0)));
+		boardPreviewPanel.setBackground(Color.WHITE);
+		boardPreviewPanel.setSize(new Dimension(levelPreviewPanel, levelPreviewPanel));
 
 		// Layout for level preview label
 		GridBagConstraints gbc_lblLevelPreview = new GridBagConstraints();
@@ -114,7 +120,7 @@ public class LevelSelectionPanel extends JPanel {
 		gbc_lblLevelPreview.insets = new Insets(0, 0, 5, 5);
 		gbc_lblLevelPreview.gridx = 1;
 		gbc_lblLevelPreview.gridy = 1;
-		previewPanel.add(lblLevelPreview, gbc_lblLevelPreview);
+		previewPanel.add(boardPreviewPanel, gbc_lblLevelPreview);
 
 		// Play level button
 		playLevelButton = new JButton("Play Level");
@@ -161,6 +167,15 @@ public class LevelSelectionPanel extends JPanel {
 	 */
 	public JList<String> getLevelList() {
 		return this.levelList;
+	}
+
+	/**
+	 * Returns the level preview panel
+	 * 
+	 * @return a BoardViewPanel for the level preview
+	 */
+	public BoardViewPanel getLevelPreviewPanel() {
+		return this.boardPreviewPanel;
 	}
 
 	/**
