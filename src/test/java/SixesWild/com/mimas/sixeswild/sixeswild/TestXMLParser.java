@@ -134,9 +134,9 @@ public class TestXMLParser extends TestCase {
 		// Make a level
 		ArrayList<Double> tileFreq = new ArrayList<Double>();
 		ArrayList<Double> multFreq = new ArrayList<Double>();
-		String levelName = "testPuzzle";
+		String levelName = " Easy Puzzle";
 		Tile tiles[][] = new Tile[9][9];
-		PointThresholds pointThresholds = new PointThresholds();
+		PointThresholds pointThresholds = new PointThresholds(5, 10, 20);
 		SpecialMoves specialMoves = new SpecialMoves();
 		int levelNumber = 1;
 
