@@ -29,7 +29,7 @@ public class TestXMLParser extends TestCase {
 				.fileToLevel(XMLParser.USER_DIR + "2.xml");
 
 		assertEquals(level.getName(), "Supercalifragilisticexpialidocious");
-		assertEquals(level.getMoveCount(), 5);
+		assertEquals(level.getMoveCount(), 15);
 		assertEquals(level.getPointThresholds().getOneStarThreshold(), 100);
 		assertEquals(level.getPointThresholds().getTwoStarThreshold(), 200);
 		assertEquals(level.getPointThresholds().getThreeStarThreshold(), 300);

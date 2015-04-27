@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <Level number="1">
-  <Name>Easy Puzzle</Name>
+  <Name>testPuzzle</Name>
   <Type>PUZZLE</Type>
   <TileFrequency>
     <Tile frequency="0.1" number="1"/>
@@ -20,9 +20,9 @@
     <OtherMove>0</OtherMove>
   </SpecialMoveConstraints>
   <PointThresholds>
-    <Point>25</Point>
-    <Point>100</Point>
-    <Point>500</Point>
+    <Point>0</Point>
+    <Point>0</Point>
+    <Point>0</Point>
   </PointThresholds>
   <PlayingConstraints>
     <MoveCount>50</MoveCount>
