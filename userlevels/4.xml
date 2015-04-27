@@ -1,73 +1,42 @@
-<?xml version="1.0" encoding="utf-8"?>
-
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <Level number="4">
-	
-	<!-- Global Attributes of a level -->
-	<Name>Level 2</Name>
-	<Type>Elimination</Type>
-	
-	<!-- Frequencies of tiles and multipliers -->
-	<TileFrequency>
-	
-		<Tile number="1" frequency=".052"></Tile>
-		<Tile number="2" frequency=".032"></Tile>
-		<Tile number="3" frequency=".035"></Tile>
-		<Tile number="4" frequency=".067"></Tile>
-		<Tile number="5" frequency=".0823"></Tile>
-		<Tile number="6" frequency=".7317"></Tile>
-		
-		<Multiplier times="1" frequency="33.4"></Multiplier>
-		<Multiplier times="2" frequency="35.3"></Multiplier>
-		<Multiplier times="3" frequency="31.3"></Multiplier>
-		
-	</TileFrequency>
-	
-	<!-- Number of special moves -->
-	<SpecialMoveConstraints>
-	
-		<ResetBoard>100</ResetBoard>
-		<SwapTile>104</SwapTile>
-		<RemoveTile>120</RemoveTile>
-		<OtherMove>140</OtherMove>
-		
-	</SpecialMoveConstraints>
-	
-	<!-- Star point thresholds -->
-	<PointThresholds>
-	
-		<Point>100</Point>
-		<Point>200</Point>
-		<Point>300</Point>
-	
-	</PointThresholds>
-	
-	<!-- Player constraints for level -->
-	<PlayingConstraints>
-	
-		<MoveCount>5</MoveCount>
-		<Timer>0</Timer>
-		
-	</PlayingConstraints>
-	
-	<!-- Board -->
-	<Board>
-	
-		<!-- Legend:         -->
-		<!-- U = null spot   -->
-		<!-- N = number spot -->
-		<!-- T = Target Tile -->
-		<!-- S = six tile    -->
-	
-		<Row>U N N N N N N N U</Row>
-		<Row>U N N N N N N N U</Row>
-		<Row>U N N N N N N N U</Row>
-		<Row>U N N N N N N N U</Row>
-		<Row>U N N N N N N N U</Row>
-		<Row>U N N N N N N N U</Row>
-		<Row>S S S S S S S S S</Row>
-		<Row>U U U U U U U U U</Row>
-		<Row>U U U U U U U U U</Row>
-	
-	</Board>
-	
+  <Name>Elimination Death Match</Name>
+  <Type>ELIMINATION</Type>
+  <TileFrequency>
+    <Tile frequency="0.052" number="1"/>
+    <Tile frequency="0.032" number="2"/>
+    <Tile frequency="0.035" number="3"/>
+    <Tile frequency="0.067" number="4"/>
+    <Tile frequency="0.7317" number="5"/>
+    <Tile frequency="0.0823" number="6"/>
+    <Multiplier frequency="-65.6" times="1"/>
+    <Multiplier frequency="35.3" times="2"/>
+    <Multiplier frequency="31.3" times="3"/>
+  </TileFrequency>
+  <SpecialMoveConstraints>
+    <ResetBoard>100</ResetBoard>
+    <SwapTile>104</SwapTile>
+    <RemoveTile>120</RemoveTile>
+    <OtherMove>140</OtherMove>
+  </SpecialMoveConstraints>
+  <PointThresholds>
+    <Point>100</Point>
+    <Point>200</Point>
+    <Point>300</Point>
+  </PointThresholds>
+  <PlayingConstraints>
+    <MoveCount>5</MoveCount>
+    <Timer>0</Timer>
+  </PlayingConstraints>
+  <Board>
+    <Row>U N N N N N N N U</Row>
+    <Row>U N N N N N N N U</Row>
+    <Row>U N N N N N N N U</Row>
+    <Row>U N N N N N N N U</Row>
+    <Row>U N N N N N N N U</Row>
+    <Row>U N N N N N N N U</Row>
+    <Row>S S S S S S S S S</Row>
+    <Row>U U U U U U U U U</Row>
+    <Row>U U U U U U U U U</Row>
+  </Board>
 </Level>
