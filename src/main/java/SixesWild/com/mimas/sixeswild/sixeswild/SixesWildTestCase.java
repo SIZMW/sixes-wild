@@ -1,4 +1,4 @@
-package SixesWild.com.mimas.sixeswild.testcase;
+package SixesWild.com.mimas.sixeswild.sixeswild;
 
 import java.awt.event.MouseEvent;
 
