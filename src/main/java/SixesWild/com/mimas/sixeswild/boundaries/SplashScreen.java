@@ -49,40 +49,44 @@ public class SplashScreen extends JPanel {
 		
 		this.splashScreen = splashScreen;
 		
-		try {
-			this.image = ImageIO.read(this.splashScreen);
-		} catch (IOException e) {
-			//add(, gbc_lblSixesWild);
-			// Game title label
-			JLabel lblSixesWild = new JLabel("Sixes Wild");
-			lblSixesWild.setFont(new Font("Tahoma", Font.PLAIN, 48));
+		if(splashScreen != null){
+			try {
+				this.image = ImageIO.read(this.splashScreen);
+				this.repaint();
+			} catch (IOException e) {
+				/*//add(, gbc_lblSixesWild);
+				// Game title label
+				JLabel lblSixesWild = new JLabel("Sixes Wild");
+				lblSixesWild.setFont(new Font("Tahoma", Font.PLAIN, 48));
 
+				
+
+				// Instructions to proceed label
+				JLabel lblPressEnter = new JLabel("**** PRESS ENTER ****");
+
+				// Layout for instructions to proceed label
+				GridBagConstraints gbc_lblPressEnter = new GridBagConstraints();
+				gbc_lblPressEnter.insets = new Insets(0, 0, 0, 0);
+				gbc_lblPressEnter.gridx = 0;
+				gbc_lblPressEnter.gridy = 4;
+				add(lblPressEnter, gbc_lblPressEnter);
+
+				// Team names label
+				JLabel lblTeamMimas = new JLabel(
+						"Team Mimas: Marco Duran, Cameron Jones, Yahel Nachum, Aditya Nivarthi, Joey Perez");
+				lblTeamMimas.setFont(new Font("Tahoma", Font.PLAIN, 11));
+
+				// Layout for team names label
+				GridBagConstraints gbc_lblTeamMimas = new GridBagConstraints();
+				gbc_lblTeamMimas.fill = GridBagConstraints.VERTICAL;
+				gbc_lblTeamMimas.gridx = 0;
+				gbc_lblTeamMimas.gridy = 7;
+				add(lblTeamMimas, gbc_lblTeamMimas);'*/
+			}
 			
-
-			// Instructions to proceed label
-			JLabel lblPressEnter = new JLabel("**** PRESS ENTER ****");
-
-			// Layout for instructions to proceed label
-			GridBagConstraints gbc_lblPressEnter = new GridBagConstraints();
-			gbc_lblPressEnter.insets = new Insets(0, 0, 0, 0);
-			gbc_lblPressEnter.gridx = 0;
-			gbc_lblPressEnter.gridy = 4;
-			add(lblPressEnter, gbc_lblPressEnter);
-
-			// Team names label
-			JLabel lblTeamMimas = new JLabel(
-					"Team Mimas: Marco Duran, Cameron Jones, Yahel Nachum, Aditya Nivarthi, Joey Perez");
-			lblTeamMimas.setFont(new Font("Tahoma", Font.PLAIN, 11));
-
-			// Layout for team names label
-			GridBagConstraints gbc_lblTeamMimas = new GridBagConstraints();
-			gbc_lblTeamMimas.fill = GridBagConstraints.VERTICAL;
-			gbc_lblTeamMimas.gridx = 0;
-			gbc_lblTeamMimas.gridy = 7;
-			add(lblTeamMimas, gbc_lblTeamMimas);
+			
 		}
 		
-		this.repaint();
 	}
 	
 	@Override
