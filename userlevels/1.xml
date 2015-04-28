@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <Level number="1">
-  <Name> Easy Puzzle</Name>
+  <Name>Easy Puzzle</Name>
   <Type>PUZZLE</Type>
   <TileFrequency>
     <Tile frequency="0.1" number="1"/>

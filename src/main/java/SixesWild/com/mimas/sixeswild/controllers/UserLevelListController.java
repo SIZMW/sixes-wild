@@ -30,7 +30,7 @@ public class UserLevelListController implements ListSelectionListener {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see
 	 * javax.swing.event.ListSelectionListener#valueChanged(javax.swing.event
 	 * .ListSelectionEvent)
@@ -39,7 +39,7 @@ public class UserLevelListController implements ListSelectionListener {
 		if (!e.getValueIsAdjusting()) {
 			int index = this.app.getGameMenuView().getUserMenuView()
 					.getLevelList().getSelectedIndex();
-			GameLevel level = XMLParser.fileToLevel(XMLParser.STORY_DIR
+			GameLevel level = XMLParser.fileToLevel(XMLParser.USER_DIR
 					+ (index + 1) + XMLParser.XML_EXT);
 
 			// Set the board from the level
