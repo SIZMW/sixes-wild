@@ -5,7 +5,7 @@ import SixesWild.com.mimas.sixeswild.boundaries.GameApplication;
 /**
  * The SwapMove is one type of move that can be executed in the game. It allows
  * two tiles to switch places on the board.
- * 
+ *
  * @author Aditya Nivarthi
  */
 public class SwapMove extends GameMove {
@@ -15,7 +15,7 @@ public class SwapMove extends GameMove {
 
 	/**
 	 * Creates a SwapMove instance with the specified selection and level.
-	 * 
+	 *
 	 * @param selection
 	 *            The selection to verify for validity.
 	 * @param level
@@ -28,7 +28,7 @@ public class SwapMove extends GameMove {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see
 	 * SixesWild.com.mimas.sixeswild.entities.GameMove#isStillValidMove(SixesWild
 	 * .com.mimas.sixeswild.boundaries.GameApplication)
@@ -40,7 +40,7 @@ public class SwapMove extends GameMove {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see
 	 * SixesWild.com.mimas.sixeswild.entities.GameMove#isValidMove(SixesWild
 	 * .com.mimas.sixeswild.boundaries.GameApplication)
@@ -52,7 +52,7 @@ public class SwapMove extends GameMove {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see
 	 * SixesWild.com.mimas.sixeswild.entities.GameMove#processCurrentMove(SixesWild
 	 * .com.mimas.sixeswild.boundaries.GameApplication)
@@ -61,8 +61,6 @@ public class SwapMove extends GameMove {
 	public boolean processCurrentMove(GameApplication app) {
 		if (!this.isStillValidMove(app)) {
 			app.getLevelPanel().getBoardViewPanel().clearGameSelection();
-			app.getLevelPanel().getLevel().getSpecialMoves()
-					.updateSwapTileCount(-1);
 			return false;
 		}
 		return true;
@@ -70,7 +68,7 @@ public class SwapMove extends GameMove {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see
 	 * SixesWild.com.mimas.sixeswild.entities.GameMove#doMove(SixesWild.com.
 	 * mimas.sixeswild.boundaries.GameApplication)
