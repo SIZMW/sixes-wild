@@ -29,7 +29,7 @@ public class SelectionMove extends GameMove {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see
 	 * SixesWild.com.mimas.sixeswild.entities.GameMove#isStillValidMove(SixesWild
 	 * .com.mimas.sixeswild.boundaries.GameApplication)
@@ -41,7 +41,7 @@ public class SelectionMove extends GameMove {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see
 	 * SixesWild.com.mimas.sixeswild.entities.GameMove#isValidMove(SixesWild
 	 * .com.mimas.sixeswild.boundaries.GameApplication)
@@ -53,7 +53,7 @@ public class SelectionMove extends GameMove {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see
 	 * SixesWild.com.mimas.sixeswild.entities.GameMove#processCurrentMove(SixesWild
 	 * .com.mimas.sixeswild.boundaries.GameApplication)
@@ -71,7 +71,7 @@ public class SelectionMove extends GameMove {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see
 	 * SixesWild.com.mimas.sixeswild.entities.GameMove#doMove(SixesWild.com.
 	 * mimas.sixeswild.boundaries.GameApplication)
@@ -96,6 +96,8 @@ public class SelectionMove extends GameMove {
 				score = app.getLevelPanel().getBoardViewPanel()
 						.doSelectionMove();
 			}
+
+			score *= 10;
 
 			app.getLevelPanel().getLevel().updateMoveCount(-1);
 			app.getLevelPanel().getBoardViewPanel().clearGameSelection();
