@@ -8,6 +8,6 @@ public class TestGame extends TestCase {
 		GameApplication window = new GameApplication();
 		window.getFrame().setVisible(true);
 		
-		assertTrue(window.equals(window));
+		assertTrue(true);
 	}
 }
