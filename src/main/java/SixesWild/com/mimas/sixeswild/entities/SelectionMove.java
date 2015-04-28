@@ -29,7 +29,7 @@ public class SelectionMove extends GameMove {
 
 	/*
 	 * (non-Javadoc)
-	 *
+	 * 
 	 * @see
 	 * SixesWild.com.mimas.sixeswild.entities.GameMove#isStillValidMove(SixesWild
 	 * .com.mimas.sixeswild.boundaries.GameApplication)
@@ -41,7 +41,7 @@ public class SelectionMove extends GameMove {
 
 	/*
 	 * (non-Javadoc)
-	 *
+	 * 
 	 * @see
 	 * SixesWild.com.mimas.sixeswild.entities.GameMove#isValidMove(SixesWild
 	 * .com.mimas.sixeswild.boundaries.GameApplication)
@@ -53,7 +53,7 @@ public class SelectionMove extends GameMove {
 
 	/*
 	 * (non-Javadoc)
-	 *
+	 * 
 	 * @see
 	 * SixesWild.com.mimas.sixeswild.entities.GameMove#processCurrentMove(SixesWild
 	 * .com.mimas.sixeswild.boundaries.GameApplication)
@@ -71,7 +71,7 @@ public class SelectionMove extends GameMove {
 
 	/*
 	 * (non-Javadoc)
-	 *
+	 * 
 	 * @see
 	 * SixesWild.com.mimas.sixeswild.entities.GameMove#doMove(SixesWild.com.
 	 * mimas.sixeswild.boundaries.GameApplication)
@@ -80,7 +80,9 @@ public class SelectionMove extends GameMove {
 	public boolean doMove(GameApplication app) {
 		if (!this.isValidMove(app)) {
 			app.getLevelPanel().getBoardViewPanel().clearGameSelection();
-			app.getLevelPanel().getLevel().updateMoveCount(-1);
+			if (app.getLevelPanel().getLevel().getMoveCount() > 0) {
+				app.getLevelPanel().getLevel().updateMoveCount(-1);
+			}
 			return false;
 		} else {
 			int score = 0;
@@ -99,7 +101,9 @@ public class SelectionMove extends GameMove {
 
 			score *= 10;
 
-			app.getLevelPanel().getLevel().updateMoveCount(-1);
+			if (app.getLevelPanel().getLevel().getMoveCount() > 0) {
+				app.getLevelPanel().getLevel().updateMoveCount(-1);
+			}
 			app.getLevelPanel().getBoardViewPanel().clearGameSelection();
 			app.getLevelPanel().updateScore(score);
 

@@ -47,6 +47,7 @@ public class LevelView extends JPanel {
 	protected MoveType currentMove;
 	protected Timer levelTimer = null;
 	protected MenuTypes currentMenuType;
+	protected JDialog dialog;
 
 	/**
 	 * Creates a LevelView instance with the specified aesthetic.
@@ -60,6 +61,7 @@ public class LevelView extends JPanel {
 		this.currentLevel = null;
 		logger.log(Level.INFO, "Current level set to NULL");
 		this.levelViewAesthetic = aesthetic;
+		this.dialog = null;
 
 		// Layout for view
 		GridBagLayout gridBagLayout = new GridBagLayout();
@@ -433,8 +435,11 @@ public class LevelView extends JPanel {
 		}
 
 		// Display the pop up to end the level
-		JDialog dialog = new EndLevelPopUpPane(this.app, message);
-		dialog.setVisible(true);
+		if (dialog == null) {
+			dialog = new EndLevelPopUpPane(this.app, message);
+			dialog.setAlwaysOnTop(true);
+			dialog.setVisible(true);
+		}
 
 		// Refresh the game menu view to reflect the new user profile status
 		this.app.refreshView();
