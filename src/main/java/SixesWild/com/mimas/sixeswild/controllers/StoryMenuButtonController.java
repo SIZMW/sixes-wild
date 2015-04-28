@@ -37,7 +37,7 @@ public class StoryMenuButtonController implements ActionListener {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see
 	 * java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
 	 */
@@ -60,7 +60,8 @@ public class StoryMenuButtonController implements ActionListener {
 		gbc_list.gridy = 0;
 
 		// Reset the preview
-		this.app.getGameMenuView().getStoryMenuView().resetPreviewPanel();
+		this.app.getGameMenuView().getStoryMenuView()
+				.resetPreviewPanel(this.app.getCurrentAesthetic());
 
 		// Add panel to view
 		currentPanel.add(this.app.getGameMenuView().getStoryMenuView(),

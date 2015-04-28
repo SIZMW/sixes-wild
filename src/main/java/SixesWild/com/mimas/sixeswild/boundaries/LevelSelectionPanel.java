@@ -203,9 +203,13 @@ public class LevelSelectionPanel extends JPanel {
 
 	/**
 	 * Resets the board preview to a null preview.
+	 * 
+	 * @param aesthetic
+	 *            The new aesthetic to apply to the preview panel.
 	 */
-	public void resetPreviewPanel() {
+	public void resetPreviewPanel(Aesthetic aesthetic) {
 		this.boardPreviewPanel.setBoard(nullBoard);
+		this.boardPreviewPanel.setAesthetic(aesthetic);
 	}
 
 	/**
