@@ -165,6 +165,15 @@ public class GameApplication {
 				new Color(0xFF7F00), new Color(0xCC0000), new Color(0x990000),
 				new Color(0xCC3300), new Color(0xCC6600), new Color(0x800000),
 				Color.lightGray));
+		aestheticList.add(new Aesthetic("FunColors", Color.GREEN, new Color(0x2352FF),
+				new Color(0xDFE80C), new Color(0xFF0084), new Color(0x0BE8B3),
+				new Color(0xFFAE27), new Color(0xFF0027), new Color(0x800000),
+				Color.lightGray));
+		
+		aestheticList.add(new Aesthetic("Blooregard Q. Kazoo", Color.white, new Color(0xE417E5),
+				new Color(0x820EF0), new Color(0x0800D9), new Color(0x0066F0),
+				new Color(0x11808E), new Color(0xD9006D), new Color(0x00D9C9),
+				Color.GRAY));
 
 		currentAesthetic = aestheticList.get(0);
 
