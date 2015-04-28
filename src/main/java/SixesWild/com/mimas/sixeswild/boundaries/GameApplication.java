@@ -3,6 +3,7 @@ package SixesWild.com.mimas.sixeswild.boundaries;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -104,7 +105,9 @@ public class GameApplication {
 		frame.setContentPane(contentPane);
 		frame.setPreferredSize(new Dimension(1000, 700));
 		frame.setMinimumSize(new Dimension(1000, 700));
-		frame.getContentPane().add(new SplashScreen());
+		URL splashScreen = getClass().getClassLoader().getResource(
+				"SixesWildSplashScreenGameFINAL.png");
+		frame.getContentPane().add(new SplashScreen(splashScreen));
 
 		logger.log(Level.FINE, "GameApplication frame initialized.");
 

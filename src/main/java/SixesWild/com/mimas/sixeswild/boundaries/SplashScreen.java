@@ -1,11 +1,15 @@
 package SixesWild.com.mimas.sixeswild.boundaries;
 
-import java.awt.Font;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+import java.net.URL;
 
-import javax.swing.JLabel;
+import javax.imageio.ImageIO;
 import javax.swing.JPanel;
 
 /**
@@ -18,30 +22,47 @@ public class SplashScreen extends JPanel {
 
 	private static final long serialVersionUID = 1L;
 
+	protected BufferedImage image;
+	protected URL splashScreen;
+	
 	/**
 	 * Creates a SplashScreen instance.
+	 * @param splashScreen 
 	 */
-	public SplashScreen() {
+	public SplashScreen(URL splashScreen) {
 
 		// Layout for panel
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		gridBagLayout.columnWidths = new int[] { 0, 0 };
-		gridBagLayout.rowHeights = new int[] { 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+		gridBagLayout.rowHeights = new int[] { 0, 0 };
 		gridBagLayout.columnWeights = new double[] { 1.0, Double.MIN_VALUE };
-		gridBagLayout.rowWeights = new double[] { 1.0, 1.0, 0.0, 1.0, 1.0, 1.0,
-				1.0, 1.0, Double.MIN_VALUE };
+		gridBagLayout.rowWeights = new double[] { 1.0, Double.MIN_VALUE };
 		setLayout(gridBagLayout);
-
-		// Game title label
-		JLabel lblSixesWild = new JLabel("Sixes Wild");
-		lblSixesWild.setFont(new Font("Tahoma", Font.PLAIN, 48));
-
+		
 		// Layout for game title label
 		GridBagConstraints gbc_lblSixesWild = new GridBagConstraints();
 		gbc_lblSixesWild.insets = new Insets(0, 0, 0, 0);
 		gbc_lblSixesWild.gridx = 0;
-		gbc_lblSixesWild.gridy = 2;
-		add(lblSixesWild, gbc_lblSixesWild);
+		gbc_lblSixesWild.gridy = 0;
+		
+		this.splashScreen = splashScreen;
+		
+		try {
+			this.image = ImageIO.read(this.splashScreen);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		this.repaint();
+		//add(, gbc_lblSixesWild);
+		
+		/*
+		// Game title label
+		JLabel lblSixesWild = new JLabel("Sixes Wild");
+		lblSixesWild.setFont(new Font("Tahoma", Font.PLAIN, 48));
+
+		
 
 		// Instructions to proceed label
 		JLabel lblPressEnter = new JLabel("**** PRESS ENTER ****");
@@ -64,5 +85,13 @@ public class SplashScreen extends JPanel {
 		gbc_lblTeamMimas.gridx = 0;
 		gbc_lblTeamMimas.gridy = 7;
 		add(lblTeamMimas, gbc_lblTeamMimas);
+		*/
+	}
+	
+	@Override
+	protected void paintComponent(Graphics g) {
+		super.paintComponent(g);
+		Graphics2D g2 = (Graphics2D) g;
+		g2.drawImage(image, 0, 0, this.getWidth(), this.getHeight(), null);
 	}
 }
