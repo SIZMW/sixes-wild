@@ -19,7 +19,7 @@ public class LevelStatsPanel extends JPanel {
 
 	private static final long serialVersionUID = 1L;
 
-	protected JPanel starGraphicsPanel;
+	protected StarGraphicsPanel starGraphicsPanel;
 
 	protected final String POINTS_TEXT = "Points";
 	protected JPanel pointsPanel;
@@ -40,14 +40,14 @@ public class LevelStatsPanel extends JPanel {
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		gridBagLayout.columnWidths = new int[] { 0, 0, 0, 0 };
 		gridBagLayout.rowHeights = new int[] { 0, 0, 0, 0, 0, 0, 0, 0 };
-		gridBagLayout.columnWeights = new double[] { 1.0, 1.0, 1.0,
+		gridBagLayout.columnWeights = new double[] { 1.0, 3.0, 1.0,
 				Double.MIN_VALUE };
 		gridBagLayout.rowWeights = new double[] { 1.0, 20.0, 1.0, 5.0, 1.0,
 				5.0, 1.0, Double.MIN_VALUE };
 		setLayout(gridBagLayout);
 
 		// Graphic for points and stars achieved
-		starGraphicsPanel = new JPanel();
+		starGraphicsPanel = new StarGraphicsPanel();
 		starGraphicsPanel
 				.setBorder(BorderFactory.createLineBorder(Color.black));
 
@@ -152,14 +152,14 @@ public class LevelStatsPanel extends JPanel {
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		gridBagLayout.columnWidths = new int[] { 0, 0, 0, 0 };
 		gridBagLayout.rowHeights = new int[] { 0, 0, 0, 0, 0, 0, 0, 0 };
-		gridBagLayout.columnWeights = new double[] { 1.0, 1.0, 1.0,
+		gridBagLayout.columnWeights = new double[] { 1.0, 3.0, 1.0,
 				Double.MIN_VALUE };
 		gridBagLayout.rowWeights = new double[] { 1.0, 20.0, 1.0, 5.0, 1.0,
 				5.0, 1.0, Double.MIN_VALUE };
 		setLayout(gridBagLayout);
 
 		// Graphic for points and stars achieved
-		starGraphicsPanel = new JPanel();
+		starGraphicsPanel = new StarGraphicsPanel();
 		starGraphicsPanel
 				.setBorder(BorderFactory.createLineBorder(Color.black));
 
@@ -257,7 +257,7 @@ public class LevelStatsPanel extends JPanel {
 	 *
 	 * @return the starGraphicsPanel property
 	 */
-	public JPanel getStarGraphicsPanel() {
+	public StarGraphicsPanel getStarGraphicsPanel() {
 		return this.starGraphicsPanel;
 	}
 

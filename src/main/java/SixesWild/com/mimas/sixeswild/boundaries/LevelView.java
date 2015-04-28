@@ -178,7 +178,7 @@ public class LevelView extends JPanel {
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		gridBagLayout.columnWidths = new int[] { 0, 0, 0 };
 		gridBagLayout.rowHeights = new int[] { 0, 0, 0 };
-		gridBagLayout.columnWeights = new double[] { 1.0, 15.0,
+		gridBagLayout.columnWeights = new double[] { 3.0, 15.0,
 				Double.MIN_VALUE };
 		gridBagLayout.rowWeights = new double[] { 1.0, 10.0, Double.MIN_VALUE };
 		this.setLayout(gridBagLayout);
@@ -249,7 +249,7 @@ public class LevelView extends JPanel {
 
 				/*
 				 * (non-Javadoc)
-				 *
+				 * 
 				 * @see
 				 * java.awt.event.ActionListener#actionPerformed(java.awt.event
 				 * .ActionEvent)
@@ -336,6 +336,9 @@ public class LevelView extends JPanel {
 		}
 
 		// TODO: Update star graphics Here
+		this.levelStatsPanel.getStarGraphicsPanel().refreshStars(
+				this.currentLevel.getPointThresholds().getStarsForScore(
+						this.getScore()));
 
 		// Update the special moves
 		this.levelTopPanel.resetBoardButton.setText(LevelTopPanel.RESET + " "
