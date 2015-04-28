@@ -69,7 +69,7 @@ public class TestXMLParser extends TestCase {
 
 		userProfile1.setHighestStoryLevel(20);
 		userProfile1.setHighestUserLevel(20);
-		userProfile1.setAestheticName("Tire Marks");
+		userProfile1.setAestheticName("SupahRed");
 
 		userProfile1.addBadgeEarned("Fancy");
 		userProfile1.addBadgeEarned("Black Widow");
@@ -134,7 +134,7 @@ public class TestXMLParser extends TestCase {
 		// Make a level
 		ArrayList<Double> tileFreq = new ArrayList<Double>();
 		ArrayList<Double> multFreq = new ArrayList<Double>();
-		String levelName = " Easy Puzzle";
+		String levelName = "Easy Puzzle";
 		Tile tiles[][] = new Tile[9][9];
 		PointThresholds pointThresholds = new PointThresholds(5, 10, 20);
 		SpecialMoves specialMoves = new SpecialMoves();

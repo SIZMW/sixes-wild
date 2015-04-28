@@ -34,10 +34,24 @@ public class SixTile extends Tile {
 
 	/**
 	 * Returns the processed by target tile attribute.
-	 * 
+	 *
 	 * @return a boolean
 	 */
 	public boolean hasProcessed() {
 		return this.hasProcessed;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see SixesWild.com.mimas.sixeswild.entities.Tile#equals(java.lang.Object)
+	 */
+	@Override
+	public boolean equals(Object o) {
+		if (!super.equals(o)) {
+			return false;
+		}
+
+		return ((SixTile) o).hasProcessed() == this.hasProcessed;
 	}
 }
