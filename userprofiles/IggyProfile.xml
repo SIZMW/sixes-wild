@@ -11,6 +11,7 @@
     <Level level="1" score="2" stars="1"/>
     <Level level="2" score="3" stars="2"/>
     <Level level="3" score="4" stars="3"/>
+    <Level level="8" score="267" stars="0"/>
   </LevelScores>
-  <Aesthetic>Tire Marks</Aesthetic>
+  <Aesthetic>SupahRed</Aesthetic>
 </UserProfile>

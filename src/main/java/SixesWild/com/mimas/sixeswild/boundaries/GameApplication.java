@@ -158,7 +158,7 @@ public class GameApplication {
 				new Color(0x0099CC), new Color(0x99CCFF), Color.GREEN,
 				Color.CYAN, new Color(0x9966FF), new Color(0x33CCFF),
 				Color.lightGray));
-		aestheticList.add(new Aesthetic("SuperRed", Color.white, Color.RED,
+		aestheticList.add(new Aesthetic("SupahRed", Color.white, Color.RED,
 				new Color(0xFF7F00), new Color(0xCC0000), new Color(0x990000),
 				new Color(0xCC3300), new Color(0xCC6600), new Color(0x800000),
 				Color.lightGray));
@@ -243,7 +243,7 @@ public class GameApplication {
 			}
 		}
 
-		logger.log(Level.FINE, "GameApplication aesthetic failed to change.");
+		logger.log(Level.WARNING, "GameApplication aesthetic failed to change.");
 		return false;
 	}
 
@@ -262,6 +262,8 @@ public class GameApplication {
 						+ XMLParser.PROFILE_CONST + XMLParser.XML_EXT);
 				logger.log(Level.INFO, "User profile found for: " + name);
 				this.refreshView();
+				this.setCurrentAesthetic(this.currentUserProfile
+						.getAestheticName());
 				return true;
 			}
 		}

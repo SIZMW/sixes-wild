@@ -417,8 +417,7 @@ public class Board {
 		for (int i = 0; i < this.SIZE_X; i++) {
 			for (int j = 0; j < this.SIZE_Y; j++) {
 				if (this.squares[i][j].getTile().getType().equals(TileType.SIX)) {
-					if (this.getNextNonEmptySquare(i, j) != null
-							&& (j + 1) < this.SIZE_Y
+					if ((j + 1) < this.SIZE_Y
 							&& this.squares[i][j + 1].getTile().getType()
 									.equals(TileType.TARGET)) {
 						this.squares[i][j + 1].removeTile();
