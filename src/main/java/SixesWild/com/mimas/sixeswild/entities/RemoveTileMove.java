@@ -79,7 +79,8 @@ public class RemoveTileMove extends GameMove {
 			app.getLevelPanel().getBoardViewPanel().clearGameSelection();
 			return false;
 		} else {
-			app.getLevelPanel().getBoardViewPanel().doRemoveTileMove();
+			app.getLevelPanel().getBoardViewPanel()
+					.doRemoveTileMove(app.getLevelPanel().getLevel().getType());
 			app.getLevelPanel().getBoardViewPanel().clearGameSelection();
 			app.getLevelPanel().getLevel().getSpecialMoves()
 					.updateRemoveTileCount(-1);
