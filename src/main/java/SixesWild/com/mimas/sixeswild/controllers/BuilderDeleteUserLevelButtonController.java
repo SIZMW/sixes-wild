@@ -11,19 +11,19 @@ import SixesWild.com.mimas.sixeswild.sixeswild.XMLParser;
 
 /**
  * This controller deletes the selected level in the builder delete level menu.
- * 
+ *
  * @author Aditya Nivarthi
  */
 public class BuilderDeleteUserLevelButtonController implements ActionListener {
 
 	private static final Logger logger = Logger.getGlobal();
-	
+
 	protected BuilderApplication app;
 
 	/**
 	 * Creates a BuilderDeleteUserLevelButtonController instance with the
 	 * specified BuilderApplication.
-	 * 
+	 *
 	 * @param app
 	 *            The BuilderApplication currently running.
 	 */
@@ -33,7 +33,7 @@ public class BuilderDeleteUserLevelButtonController implements ActionListener {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see
 	 * java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
 	 */
@@ -42,10 +42,9 @@ public class BuilderDeleteUserLevelButtonController implements ActionListener {
 		// Check if there are even files left to delete
 		if (this.app.getBuilderView().getBuilderTopPanel().getDeleteComboBox()
 				.getItemCount() > 0) {
-			String fileName = ((String) this.app.getBuilderView()
-					.getBuilderTopPanel().getDeleteComboBox().getSelectedItem())
-					.substring(0, 1);
-			fileName += ".xml";
+			String fileName = this.app.getBuilderView().getBuilderTopPanel()
+					.getDeleteComboBox().getSelectedIndex()
+					+ 1 + ".xml";
 
 			// Open the file to delete
 			try {
