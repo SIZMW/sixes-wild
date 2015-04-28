@@ -330,6 +330,9 @@ public class Board {
 							|| square.getTile().getType()
 									.equals(TileType.TARGET)) {
 
+					} else if (square.getTile().getType().equals(TileType.SIX)
+							&& ((SixTile) square.getTile()).hasProcessed()) {
+
 					} else {
 						this.squares[i][j].addTile(square.getTile());
 						square.removeTile();
@@ -421,6 +424,8 @@ public class Board {
 							&& this.squares[i][j + 1].getTile().getType()
 									.equals(TileType.TARGET)) {
 						this.squares[i][j + 1].removeTile();
+						((SixTile) this.squares[i][j].getTile())
+								.setProcessed(true);
 						this.squares[i][j + 1].addTile(this.squares[i][j]
 								.getTile());
 						this.squares[i][j].removeTile();

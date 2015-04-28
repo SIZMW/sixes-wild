@@ -154,6 +154,10 @@ public class BoardViewPanel extends JPanel {
 		case 5:
 			return this.aesthetic.getTileFiveColor();
 		case 6:
+			if (square.getTile().getType().equals(TileType.SIX)
+					&& ((SixTile) square.getTile()).hasProcessed()) {
+				return this.aesthetic.getTargetColor();
+			}
 			return this.aesthetic.getTileSixColor();
 		default:
 			return this.aesthetic.getBackgroundColor();
