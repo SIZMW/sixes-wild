@@ -75,9 +75,9 @@ public class GameMenuView extends JPanel {
 		// Menu panels
 		titleMenuView = new TitlePanel();
 		storyMenuView = new LevelSelectionPanel(storyLevelList,
-				storyHighestUnlocked);
+				aestheticList.get(0), storyHighestUnlocked);
 		userMenuView = new LevelSelectionPanel(userLevelList,
-				userHighestUnlocked);
+				aestheticList.get(0), userHighestUnlocked);
 		badgeMenuView = new BadgesPanel(badgesList);
 		optionsMenuView = new OptionsPanel(aestheticList);
 		creditsMenuView = new CreditsPanel();

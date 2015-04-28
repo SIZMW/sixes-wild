@@ -1,4 +1,4 @@
-package SixesWild.com.mimas.sixeswild.boundaries;
+package SixesWild.com.mimas.sixeswild.sixeswild;
 
 import junit.framework.TestCase;
 import SixesWild.com.mimas.sixeswild.boundaries.BuilderApplication;

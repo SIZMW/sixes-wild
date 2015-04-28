@@ -6,6 +6,7 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
@@ -17,6 +18,8 @@ import javax.swing.border.LineBorder;
 
 import SixesWild.com.mimas.sixeswild.entities.Aesthetic;
 import SixesWild.com.mimas.sixeswild.entities.Board;
+import SixesWild.com.mimas.sixeswild.entities.NullTile;
+import SixesWild.com.mimas.sixeswild.entities.Tile;
 
 /**
  * This class represents the inner view for selecting a level and displaying a
@@ -35,8 +38,8 @@ public class LevelSelectionPanel extends JPanel {
 	protected ArrayList<String> levelNames;
 	protected JList<String> levelList;
 	protected BoardViewPanel boardPreviewPanel;
-	
-	protected int levelPreviewPanel = 300;
+	protected final int previewSize = 350;
+	protected Board nullBoard;
 
 	/**
 	 * Creates a LevelSelectionPanel instance with the specified level names and
@@ -48,7 +51,7 @@ public class LevelSelectionPanel extends JPanel {
 	 *            The highest number user level that is unlocked to play.
 	 */
 	public LevelSelectionPanel(ArrayList<String> levelNames,
-			int highestLevelUnlocked) {
+			Aesthetic aesthetic, int highestLevelUnlocked) {
 
 		// Attributes
 		this.levelNames = levelNames;
@@ -104,23 +107,43 @@ public class LevelSelectionPanel extends JPanel {
 				1.0, 1.0, 1.0, 1.0, Double.MIN_VALUE };
 		previewPanel.setLayout(gbl_panel);
 
-		// Level preview label
-		boardPreviewPanel = new BoardViewPanel(new Board(), new Aesthetic("", Color.blue, Color.red, Color.orange, Color.pink, Color.magenta, Color.green, Color.yellow, Color.white, Color.black));
-		boardPreviewPanel.setPreferredSize(new Dimension(levelPreviewPanel, levelPreviewPanel));
-		boardPreviewPanel.setMaximumSize(new Dimension(levelPreviewPanel, levelPreviewPanel));
-		boardPreviewPanel.setMinimumSize(new Dimension(levelPreviewPanel, levelPreviewPanel));
-		boardPreviewPanel.setBorder(new LineBorder(new Color(0, 0, 0)));
-		boardPreviewPanel.setBackground(Color.WHITE);
-		boardPreviewPanel.setSize(new Dimension(levelPreviewPanel, levelPreviewPanel));
+		// Populates a null board
+		Tile nullTiles[][] = new Tile[9][9];
+		for (int i = 0; i < 9; i++) {
+			for (int j = 0; j < 9; j++) {
+				nullTiles[i][j] = new NullTile();
+			}
+		}
 
-		// Layout for level preview label
-		GridBagConstraints gbc_lblLevelPreview = new GridBagConstraints();
-		gbc_lblLevelPreview.fill = GridBagConstraints.BOTH;
-		gbc_lblLevelPreview.gridheight = 3;
-		gbc_lblLevelPreview.insets = new Insets(0, 0, 5, 5);
-		gbc_lblLevelPreview.gridx = 1;
-		gbc_lblLevelPreview.gridy = 1;
-		previewPanel.add(boardPreviewPanel, gbc_lblLevelPreview);
+		try {
+			nullBoard = new Board(nullTiles, new ArrayList<Double>(
+					Arrays.asList(.1, .2, .3, .3, .05, .05)),
+					new ArrayList<Double>(Arrays.asList(.5, .25, .25)));
+
+			// Level preview label
+			boardPreviewPanel = new BoardViewPanel(nullBoard, aesthetic);
+			boardPreviewPanel.setSquareOffset(3);
+			boardPreviewPanel.setFontSizes(4, 2);
+			boardPreviewPanel.setPreferredSize(new Dimension(previewSize,
+					previewSize));
+			boardPreviewPanel.setMaximumSize(new Dimension(previewSize,
+					previewSize));
+			boardPreviewPanel.setMinimumSize(new Dimension(previewSize,
+					previewSize));
+			boardPreviewPanel.setBorder(new LineBorder(new Color(0, 0, 0)));
+			boardPreviewPanel.setBackground(Color.WHITE);
+			boardPreviewPanel.setSize(new Dimension(previewSize, previewSize));
+
+			// Layout for level preview label
+			GridBagConstraints gbc_lblLevelPreview = new GridBagConstraints();
+			gbc_lblLevelPreview.fill = GridBagConstraints.BOTH;
+			gbc_lblLevelPreview.gridheight = 3;
+			gbc_lblLevelPreview.insets = new Insets(0, 0, 5, 5);
+			gbc_lblLevelPreview.gridx = 1;
+			gbc_lblLevelPreview.gridy = 1;
+			previewPanel.add(boardPreviewPanel, gbc_lblLevelPreview);
+		} catch (Exception e) {
+		}
 
 		// Play level button
 		playLevelButton = new JButton("Play Level");
@@ -171,16 +194,23 @@ public class LevelSelectionPanel extends JPanel {
 
 	/**
 	 * Returns the level preview panel
-	 * 
-	 * @return a BoardViewPanel for the level preview
+	 *
+	 * @return the boardPreviewPanel for the level preview
 	 */
 	public BoardViewPanel getLevelPreviewPanel() {
 		return this.boardPreviewPanel;
 	}
 
 	/**
+	 * Resets the board preview to a null preview.
+	 */
+	public void resetPreviewPanel() {
+		this.boardPreviewPanel.setBoard(nullBoard);
+	}
+
+	/**
 	 * Refreshes the view with the specified highest level unlocked.
-	 * 
+	 *
 	 * @param highestUnlocked
 	 *            The new highest level number unlocked.
 	 */

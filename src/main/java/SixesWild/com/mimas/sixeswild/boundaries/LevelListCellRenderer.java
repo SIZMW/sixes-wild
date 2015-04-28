@@ -8,7 +8,7 @@ import javax.swing.JList;
 /**
  * This class represents the cell renderer for the story and user level list
  * views in the game menu view.
- * 
+ *
  * @author Aditya Nivarthi
  */
 public class LevelListCellRenderer extends DefaultListCellRenderer {
@@ -19,7 +19,7 @@ public class LevelListCellRenderer extends DefaultListCellRenderer {
 	/**
 	 * Creates a LevelListCellRenderer instance with the specified highest level
 	 * unlocked.
-	 * 
+	 *
 	 * @param highestLevelUnlocked
 	 *            The highest level unlocked.
 	 */
@@ -30,14 +30,15 @@ public class LevelListCellRenderer extends DefaultListCellRenderer {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see
 	 * javax.swing.DefaultListCellRenderer#getListCellRendererComponent(javax
 	 * .swing.JList, java.lang.Object, int, boolean, boolean)
 	 */
+	@Override
 	public Component getListCellRendererComponent(JList<?> list, Object value,
 			int index, boolean isSelected, boolean cellHasFocus) {
-		
+
 		// Unlock levels up to and including the highest unlocked level
 		if (this.highestLevel <= index) {
 			super.getListCellRendererComponent(list, value, index, false, false);

@@ -15,7 +15,7 @@ import SixesWild.com.mimas.sixeswild.boundaries.GameApplication;
 /**
  * This controller displays the user level menu when the user level menu button
  * is pressed.
- * 
+ *
  * @author Aditya Nivarthi
  */
 public class UserLevelMenuButtonController implements ActionListener {
@@ -27,7 +27,7 @@ public class UserLevelMenuButtonController implements ActionListener {
 	/**
 	 * Creates an UserLevelMenuButtonController instance with the specified
 	 * GameApplication.
-	 * 
+	 *
 	 * @param app
 	 *            The GameApplication currently running.
 	 */
@@ -58,6 +58,9 @@ public class UserLevelMenuButtonController implements ActionListener {
 		gbc_list.fill = GridBagConstraints.BOTH;
 		gbc_list.gridx = 0;
 		gbc_list.gridy = 0;
+
+		// Reset the preview
+		this.app.getGameMenuView().getUserMenuView().resetPreviewPanel();
 
 		// Add panel to view
 		currentPanel

@@ -46,12 +46,16 @@ public class BoardViewPanel extends JPanel {
 	protected GridBagConstraints gbc_boardViewPanel;
 
 	// Square attributes
-	protected final String htmlFormat1 = "<html><font size=6>";
-	protected final String htmlFormat2 = "    </font><font size=2>";
-	protected final String htmlFormat3 = "</font></html>";
+	protected final String htmlFormat1 = "<html><font size=";
+	protected final String htmlFormat2 = ">";
+	protected final String htmlFormat3 = "    </font><font size=";
+	protected final String htmlFormat4 = "</font></html>";
 	protected Border squareBorder;
 	protected Border squareSelectedBorder;
 	protected Font squareFont;
+	protected int squareSizeOffset;
+	protected int squareFontOneSize;
+	protected int squareFontTwoSize;
 
 	/**
 	 * Creates a BoardViewPanel instance with the specified board and aesthetic.
@@ -69,10 +73,16 @@ public class BoardViewPanel extends JPanel {
 		this.aesthetic = aesthetic;
 
 		this.currentSelection = new Selection();
+
+		// Square attributes
 		this.squareBorder = BorderFactory.createLineBorder(Color.BLACK, 2);
 		this.squareSelectedBorder = BorderFactory.createLineBorder(
 				Color.YELLOW, 2);
 		this.squareFont = new Font("Monospace", Font.BOLD, 18);
+		this.squareSizeOffset = 10;
+		this.squareFontOneSize = 6;
+		this.squareFontTwoSize = 2;
+
 		this.boardView = new JLabel[this.gameBoard.SIZE_X][this.gameBoard.SIZE_Y];
 		this.boardViewborder = BorderFactory.createLineBorder(Color.BLACK, 2);
 
@@ -96,7 +106,7 @@ public class BoardViewPanel extends JPanel {
 		logger.log(Level.FINE, "Board and layout initialized");
 
 		// Initialize board view
-		this.initializeBoardView();
+		this.drawBoardView();
 	}
 
 	/**
@@ -151,9 +161,10 @@ public class BoardViewPanel extends JPanel {
 	}
 
 	/**
-	 * Initializes the board view with all its squares and adds it to the panel.
+	 * Initializes the board view with all its squares and draws it to the
+	 * panel.
 	 */
-	protected void initializeBoardView() {
+	protected void drawBoardView() {
 		for (int i = 0; i < this.gameBoard.SIZE_X; i++) {
 			for (int j = 0; j < this.gameBoard.SIZE_Y; j++) {
 
@@ -171,48 +182,60 @@ public class BoardViewPanel extends JPanel {
 				switch (this.gameBoard.getSquare(i, j).getTile().getType()) {
 				case NULL:
 					this.boardView[i][j].setText(this.htmlFormat1
+							+ this.squareFontOneSize
+							+ htmlFormat2
 							+ this.gameBoard.getSquare(i, j).getTile()
 									.getNumber()
-							+ this.htmlFormat2
+							+ this.htmlFormat3
+							+ this.squareFontTwoSize
+							+ htmlFormat2
 							+ "x"
 							+ this.gameBoard.getSquare(i, j).getTile()
-									.getMultiplier() + this.htmlFormat3);
+									.getMultiplier() + this.htmlFormat4);
 					this.boardView[i][j].setForeground(this.boardView[i][j]
 							.getBackground());
 					break;
 				case TARGET:
-					this.boardView[i][j].setText(this.htmlFormat1 + "&nbsp;"
-							+ "X" + this.htmlFormat2 + this.htmlFormat3);
+					this.boardView[i][j].setText(this.htmlFormat1
+							+ this.squareFontOneSize + htmlFormat2 + "&nbsp;"
+							+ "X" + this.htmlFormat3 + this.squareFontTwoSize
+							+ htmlFormat2 + this.htmlFormat4);
 					break;
 				case SIX:
 					this.boardView[i][j].setText(this.htmlFormat1
+							+ this.squareFontOneSize
+							+ htmlFormat2
 							+ this.gameBoard.getSquare(i, j).getTile()
-									.getNumber() + this.htmlFormat2 + "T"
-							+ this.htmlFormat3);
+									.getNumber() + this.htmlFormat3
+							+ this.squareFontTwoSize + htmlFormat2 + "T"
+							+ this.htmlFormat4);
 					break;
 				default:
 					this.boardView[i][j].setText(this.htmlFormat1
+							+ this.squareFontOneSize
+							+ htmlFormat2
 							+ this.gameBoard.getSquare(i, j).getTile()
 									.getNumber()
-							+ this.htmlFormat2
+							+ this.htmlFormat3
+							+ this.squareFontTwoSize
+							+ htmlFormat2
 							+ "x"
 							+ this.gameBoard.getSquare(i, j).getTile()
-									.getMultiplier() + this.htmlFormat3);
+									.getMultiplier() + this.htmlFormat4);
 					break;
 				}
 
 				// Determine the position and size
-				this.boardView[i][j]
-						.setLocation(
-								(((this.getWidth() - ((this.getWidth() / 9) * 9)) + 10) / 2)
-										+ (this.getWidth() / 9 * this.gameBoard
-												.getSquare(i, j).getX()),
-								(((this.getHeight() - ((this.getHeight() / 9) * 9)) + 10) / 2)
-										+ (this.getHeight() / 9 * this.gameBoard
-												.getSquare(i, j).getY()));
+				this.boardView[i][j].setLocation(
+						this.getBoardWidthOffset()
+								+ (this.getSquareSideLength() * i)
+								+ (this.getSquareMargin() * i),
+						this.getBoardHeightOffset()
+								+ (this.getSquareSideLength() * j)
+								+ (this.getSquareMargin() * j));
+
 				this.boardView[i][j].setSize(new Dimension(this
-						.getMinOfHeightAndWidth() / 9 - 20, this
-						.getMinOfHeightAndWidth() / 9 - 20));
+						.getSquareSideLength(), this.getSquareSideLength()));
 
 				// Determine border based on selected attribute
 				if (this.gameBoard.getSquare(i, j).getSelected()) {
@@ -229,9 +252,94 @@ public class BoardViewPanel extends JPanel {
 		}
 	}
 
+	/**
+	 * Gets the square side length based on the size offset and the minimum of
+	 * the height and width of the panel.
+	 *
+	 * @return an integer
+	 */
+	protected int getSquareSideLength() {
+		return (this.getMinOfHeightAndWidth() / 9) - squareSizeOffset;
+	}
+
+	/**
+	 * Gets the margin between squares from the height and width and the side
+	 * length of the square.
+	 *
+	 * @return an integer
+	 */
+	protected int getSquareMargin() {
+		return (this.getMinOfHeightAndWidth() - (this.getSquareSideLength() * 9)) / 10;
+	}
+
+	/**
+	 * Gets the margin between the board of squares and the panel edges in the
+	 * horizontal direction.
+	 *
+	 * @return an integer
+	 */
+	protected int getBoardWidthOffset() {
+		return (this.getWidth() - ((this.getSquareSideLength() * 9) + (this
+				.getSquareMargin() * 8))) / 2;
+	}
+
+	/**
+	 * Gets the margin between the board of squares and the panel edges in the
+	 * vertical direction.
+	 *
+	 * @return an integer
+	 */
+	protected int getBoardHeightOffset() {
+		return (this.getHeight() - ((this.getSquareSideLength() * 9) + (this
+				.getSquareMargin() * 8))) / 2;
+	}
+
+	/**
+	 * Sets the square size offset to the specified offset.
+	 *
+	 * @param offset
+	 *            The new square size offset.
+	 */
+	public void setSquareOffset(int offset) {
+		this.squareSizeOffset = offset;
+	}
+
+	/**
+	 * Sets the board to the specified board.
+	 *
+	 * @param board
+	 *            The new board to display.
+	 */
+	public void setBoard(Board board) {
+		this.gameBoard = board;
+	}
+
+	/**
+	 * Sets the aesthetic to the specified aesthetic.
+	 *
+	 * @param aesthetic
+	 *            The new aesthetic to use for the board view.
+	 */
+	public void setAesthetic(Aesthetic aesthetic) {
+		this.aesthetic = aesthetic;
+	}
+
+	/**
+	 * Sets the font sizes for the square views to the specified values.
+	 *
+	 * @param large
+	 *            The primary character font size.
+	 * @param small
+	 *            The secondary character font size.
+	 */
+	public void setFontSizes(int large, int small) {
+		this.squareFontOneSize = large;
+		this.squareFontTwoSize = small;
+	}
+
 	/*
 	 * (non-Javadoc)
-	 *
+	 * 
 	 * @see javax.swing.JComponent#paintComponent(java.awt.Graphics)
 	 */
 	@Override
@@ -240,7 +348,7 @@ public class BoardViewPanel extends JPanel {
 		this.removeAll();
 
 		// Redraw the board view
-		this.initializeBoardView();
+		this.drawBoardView();
 		this.updateUI();
 	}
 

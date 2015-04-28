@@ -16,10 +16,11 @@ import SixesWild.com.mimas.sixeswild.controllers.BadgesMenuButtonController;
 import SixesWild.com.mimas.sixeswild.controllers.CreditsMenuButtonController;
 import SixesWild.com.mimas.sixeswild.controllers.GameCloseWindowController;
 import SixesWild.com.mimas.sixeswild.controllers.GameSplashScreenController;
-import SixesWild.com.mimas.sixeswild.controllers.LevelListController;
 import SixesWild.com.mimas.sixeswild.controllers.OptionsMenuButtonController;
 import SixesWild.com.mimas.sixeswild.controllers.PlayButtonController;
+import SixesWild.com.mimas.sixeswild.controllers.StoryLevelListController;
 import SixesWild.com.mimas.sixeswild.controllers.StoryMenuButtonController;
+import SixesWild.com.mimas.sixeswild.controllers.UserLevelListController;
 import SixesWild.com.mimas.sixeswild.controllers.UserLevelMenuButtonController;
 import SixesWild.com.mimas.sixeswild.entities.Aesthetic;
 import SixesWild.com.mimas.sixeswild.entities.MenuTypes;
@@ -137,8 +138,11 @@ public class GameApplication {
 				.addActionListener(
 						new PlayButtonController(this, MenuTypes.USER));
 		this.getFrame().addKeyListener(new GameSplashScreenController(this));
-		
-		this.gameMenuView.getStoryMenuView().levelList.addListSelectionListener(new LevelListController(this));
+
+		this.gameMenuView.getStoryMenuView().levelList
+				.addListSelectionListener(new StoryLevelListController(this));
+		this.gameMenuView.getUserMenuView().levelList
+				.addListSelectionListener(new UserLevelListController(this));
 
 		logger.log(Level.FINE, "GameApplication controllers initialized.");
 	}
@@ -278,7 +282,7 @@ public class GameApplication {
 					currentUserProfile.getHighestStoryLevelUnlocked(),
 					currentUserProfile.getHighestUserLevelUnlocked());
 		}
-		
+
 		logger.log(Level.INFO,
 				"Game menu view is being refreshed with new unlocked level values.");
 	}
