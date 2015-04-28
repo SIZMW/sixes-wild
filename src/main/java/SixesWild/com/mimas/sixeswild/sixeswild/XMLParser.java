@@ -27,6 +27,7 @@ import SixesWild.com.mimas.sixeswild.entities.GameLevel;
 import SixesWild.com.mimas.sixeswild.entities.LevelHighScore;
 import SixesWild.com.mimas.sixeswild.entities.LevelType;
 import SixesWild.com.mimas.sixeswild.entities.LightningLevel;
+import SixesWild.com.mimas.sixeswild.entities.MenuTypes;
 import SixesWild.com.mimas.sixeswild.entities.NullTile;
 import SixesWild.com.mimas.sixeswild.entities.NumberTile;
 import SixesWild.com.mimas.sixeswild.entities.PointThresholds;
@@ -556,7 +557,8 @@ public final class XMLParser {
 					.newInstance();
 			Transformer transformer = transformerFactory.newTransformer();
 			transformer.setOutputProperty(OutputKeys.INDENT, "yes");
-			transformer.setOutputProperty("{http://xml.apache.org/xslt}indent-amount", "2");
+			transformer.setOutputProperty(
+					"{http://xml.apache.org/xslt}indent-amount", "2");
 			DOMSource source = new DOMSource(doc);
 			StreamResult result = new StreamResult(new File(XMLParser.USER_DIR
 					+ level.getLevelNumber() + XMLParser.XML_EXT));
@@ -630,7 +632,9 @@ public final class XMLParser {
 						.parseInt(levelScoreNodeList.item(i).getAttributes()
 								.item(1).getTextContent()), Integer
 						.parseInt(levelScoreNodeList.item(i).getAttributes()
-								.item(2).getTextContent())));
+								.item(2).getTextContent()), MenuTypes
+						.valueOf(levelScoreNodeList.item(i).getAttributes()
+								.item(3).getTextContent())));
 
 				userProfile.addLevelHighScore(
 						Integer.parseInt(levelScoreNodeList.item(i)
@@ -638,7 +642,9 @@ public final class XMLParser {
 						Integer.parseInt(levelScoreNodeList.item(i)
 								.getAttributes().item(1).getTextContent()),
 						Integer.parseInt(levelScoreNodeList.item(i)
-								.getAttributes().item(2).getTextContent()));
+								.getAttributes().item(2).getTextContent()),
+						MenuTypes.valueOf(levelScoreNodeList.item(i)
+								.getAttributes().item(3).getTextContent()));
 			}
 
 			// Get the aesthetic the player uses
@@ -732,6 +738,10 @@ public final class XMLParser {
 				Attr starsAttr = doc.createAttribute("stars");
 				starsAttr.setValue("" + lhs.getStars());
 				levelElement.setAttributeNode(starsAttr);
+
+				Attr typeAttr = doc.createAttribute("type");
+				typeAttr.setValue("" + lhs.getLevelType());
+				levelElement.setAttributeNode(typeAttr);
 			}
 
 			// Aesthetic tag/text
@@ -748,7 +758,8 @@ public final class XMLParser {
 					.newInstance();
 			Transformer transformer = transformerFactory.newTransformer();
 			transformer.setOutputProperty(OutputKeys.INDENT, "yes");
-			transformer.setOutputProperty("{http://xml.apache.org/xslt}indent-amount", "2");
+			transformer.setOutputProperty(
+					"{http://xml.apache.org/xslt}indent-amount", "2");
 			DOMSource source = new DOMSource(doc);
 			StreamResult result = new StreamResult(new File(
 					XMLParser.PROFILE_DIR + userProfile.getUserName()

@@ -8,9 +8,9 @@
     <Name>Jiggy</Name>
   </Badges>
   <LevelScores>
-    <Level level="1" score="2" stars="1"/>
-    <Level level="2" score="3" stars="2"/>
-    <Level level="3" score="4" stars="3"/>
+    <Level level="1" score="2" stars="1" type="STORY"/>
+    <Level level="2" score="3" stars="2" type="STORY"/>
+    <Level level="3" score="4" stars="3" type="STORY"/>
   </LevelScores>
   <Aesthetic>SupahRed</Aesthetic>
 </UserProfile>

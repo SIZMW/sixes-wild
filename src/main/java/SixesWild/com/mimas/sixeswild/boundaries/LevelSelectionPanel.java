@@ -49,6 +49,8 @@ public class LevelSelectionPanel extends JPanel {
 	 *            The names of levels to populate the list.
 	 * @param highestLevelUnlocked
 	 *            The highest number user level that is unlocked to play.
+	 * @param aesthetic
+	 *            The current aesthetic to apply to the level preview.
 	 */
 	public LevelSelectionPanel(ArrayList<String> levelNames,
 			Aesthetic aesthetic, int highestLevelUnlocked) {
@@ -203,7 +205,7 @@ public class LevelSelectionPanel extends JPanel {
 
 	/**
 	 * Resets the board preview to a null preview.
-	 * 
+	 *
 	 * @param aesthetic
 	 *            The new aesthetic to apply to the preview panel.
 	 */

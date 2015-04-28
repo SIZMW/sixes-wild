@@ -15,10 +15,10 @@
 	
 	<!-- Highest scores on each level by player -->
 	<LevelScores>
-		<Level level="1" score="5" stars="2"></Level>
-		<Level level="2" score="50" stars="3"></Level>
-		<Level level="3" score="25" stars="1"></Level>
-		<Level level="4" score="35" stars="1"></Level>
+		<Level level="1" score="5" stars="2" type="STORY"></Level>
+		<Level level="2" score="50" stars="3" type="STORY"></Level>
+		<Level level="3" score="25" stars="1" type="STORY"></Level>
+		<Level level="4" score="35" stars="1" type="STORY"></Level>
 	</LevelScores>
 	
 	<!-- Aesthetic of GUI chosen by player -->

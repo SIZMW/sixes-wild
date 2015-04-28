@@ -50,8 +50,8 @@ public class TestUserProfile extends TestCase {
 	public void testHighScores() {
 		// Add high scores
 		assertEquals(currentProfile.getHighScoreOfLevel(1), -1);
-		currentProfile.addLevelHighScore(1, 1, 3);
-		currentProfile.addLevelHighScore(3, 3, 3);
+		currentProfile.addLevelHighScore(1, 1, 3, MenuTypes.STORY);
+		currentProfile.addLevelHighScore(3, 3, 3, MenuTypes.STORY);
 		assertEquals(currentProfile.getHighScoreOfLevel(1), 1);
 		assertEquals(currentProfile.getHighScoreOfLevel(2), -1);
 
@@ -77,7 +77,7 @@ public class TestUserProfile extends TestCase {
 	public void testScores() {
 		// Set highest level
 		currentProfile.setHighestStoryLevel(3);
-		currentProfile.addLevelHighScore(3, 3, 3);
+		currentProfile.addLevelHighScore(3, 3, 3, MenuTypes.STORY);
 		assertEquals(3, currentProfile.getHighestStoryLevelUnlocked());
 		assertEquals(3, currentProfile.getHighScoreOfLevel(3));
 		assertEquals(3, currentProfile.getStarsOfLevel(3));
@@ -87,6 +87,7 @@ public class TestUserProfile extends TestCase {
 		assertEquals(score.getHighScore(), 3);
 		assertEquals(score.getLevel(), 3);
 		assertEquals(score.getStars(), 3);
+		assertEquals(score.getLevelType(), MenuTypes.STORY);
 
 		LevelHighScore score2 = currentProfile.getLevelHighScore(2);
 		assertNull(score2);
@@ -123,8 +124,8 @@ public class TestUserProfile extends TestCase {
 	 * Tests the toString method.
 	 */
 	public void testToString() {
-		currentProfile.addLevelHighScore(1, 1, 3);
-		currentProfile.addLevelHighScore(3, 3, 3);
+		currentProfile.addLevelHighScore(1, 1, 3, MenuTypes.STORY);
+		currentProfile.addLevelHighScore(3, 3, 3, MenuTypes.STORY);
 		currentProfile.addBadgeEarned("Win");
 		System.out.println(currentProfile.toString());
 	}
@@ -133,10 +134,10 @@ public class TestUserProfile extends TestCase {
 	 * Tests adding a duplicate high score and updating the score.
 	 */
 	public void testAddDuplicateHighScore() {
-		currentProfile.addLevelHighScore(1, 2, 3);
-		currentProfile.addLevelHighScore(1, 1, 3);
-		currentProfile.addLevelHighScore(3, 3, 3);
-		currentProfile.addLevelHighScore(3, 4, 3);
+		currentProfile.addLevelHighScore(1, 2, 3, MenuTypes.STORY);
+		currentProfile.addLevelHighScore(1, 1, 3, MenuTypes.STORY);
+		currentProfile.addLevelHighScore(3, 3, 3, MenuTypes.STORY);
+		currentProfile.addLevelHighScore(3, 4, 3, MenuTypes.STORY);
 		assertEquals(currentProfile.getHighScoreOfLevel(1), 2);
 		assertEquals(currentProfile.getHighScoreOfLevel(3), 4);
 	}

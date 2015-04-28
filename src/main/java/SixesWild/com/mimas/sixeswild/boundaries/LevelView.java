@@ -249,7 +249,7 @@ public class LevelView extends JPanel {
 
 				/*
 				 * (non-Javadoc)
-				 * 
+				 *
 				 * @see
 				 * java.awt.event.ActionListener#actionPerformed(java.awt.event
 				 * .ActionEvent)
@@ -414,7 +414,7 @@ public class LevelView extends JPanel {
 				this.currentLevel.getLevelNumber(),
 				this.currentScore,
 				this.currentLevel.getPointThresholds().getStarsForScore(
-						this.currentScore));
+						this.currentScore), this.currentMenuType);
 
 		// Check the star score for this level and determine if the next level
 		// is unlocked
@@ -439,13 +439,13 @@ public class LevelView extends JPanel {
 
 		logger.log(Level.INFO, "Level ended. Returning to menu.");
 	}
-	
+
 	/**
 	 * Returns a the current level timer.
-	 * 
+	 *
 	 * @return a Timer
 	 */
-	public Timer getTimer(){
+	public Timer getTimer() {
 		return this.levelTimer;
 	}
 }

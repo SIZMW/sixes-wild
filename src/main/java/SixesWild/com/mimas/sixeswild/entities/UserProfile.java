@@ -206,14 +206,17 @@ public class UserProfile {
 	 * @param stars
 	 *            An integer of the number of stars achieved by the user
 	 *            equivalent to the high score.
+	 * @param type
+	 *            The type of level to distinguish the level number.
 	 */
-	public void addLevelHighScore(int level, int highScore, int stars) {
+	public void addLevelHighScore(int level, int highScore, int stars,
+			MenuTypes type) {
 		for (LevelHighScore e : this.levelHighScores) {
-			if (e.getLevel() == level) {
+			if (e.getLevel() == level && e.getLevelType().equals(type)) {
 				if (e.getHighScore() < highScore) {
 					this.levelHighScores.remove(e);
 					this.levelHighScores.add(new LevelHighScore(level,
-							highScore, stars));
+							highScore, stars, type));
 					return;
 				} else {
 					return;
@@ -221,7 +224,8 @@ public class UserProfile {
 			}
 		}
 
-		this.levelHighScores.add(new LevelHighScore(level, highScore, stars));
+		this.levelHighScores.add(new LevelHighScore(level, highScore, stars,
+				type));
 	}
 
 	/**
@@ -275,7 +279,7 @@ public class UserProfile {
 
 	/*
 	 * (non-Javadoc)
-	 *
+	 * 
 	 * @see java.lang.Object#toString()
 	 */
 	@Override

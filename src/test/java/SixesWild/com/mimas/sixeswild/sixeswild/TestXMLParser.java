@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import junit.framework.TestCase;
 import SixesWild.com.mimas.sixeswild.entities.GameLevel;
+import SixesWild.com.mimas.sixeswild.entities.MenuTypes;
 import SixesWild.com.mimas.sixeswild.entities.NullTile;
 import SixesWild.com.mimas.sixeswild.entities.NumberTile;
 import SixesWild.com.mimas.sixeswild.entities.PointThresholds;
@@ -75,9 +76,9 @@ public class TestXMLParser extends TestCase {
 		userProfile1.addBadgeEarned("Black Widow");
 		userProfile1.addBadgeEarned("Jiggy");
 
-		userProfile1.addLevelHighScore(1, 2, 1);
-		userProfile1.addLevelHighScore(2, 3, 2);
-		userProfile1.addLevelHighScore(3, 4, 3);
+		userProfile1.addLevelHighScore(1, 2, 1, MenuTypes.STORY);
+		userProfile1.addLevelHighScore(2, 3, 2, MenuTypes.STORY);
+		userProfile1.addLevelHighScore(3, 4, 3, MenuTypes.STORY);
 
 		// Convert user profile to xml file, then take the xml file to user
 		// profile
