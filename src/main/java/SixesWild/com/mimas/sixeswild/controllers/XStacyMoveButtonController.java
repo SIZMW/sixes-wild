@@ -6,27 +6,28 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import SixesWild.com.mimas.sixeswild.boundaries.GameApplication;
+import SixesWild.com.mimas.sixeswild.entities.LevelType;
 
 /**
- * This controller handles resetting the board when the reset board special move
- * button is pressed.
+ * This controller handles the xstacy move when the xstacy special move button
+ * is pressed.
  *
  * @author Aditya Nivarthi
  */
-public class ResetBoardMoveButtonController implements ActionListener {
+public class XStacyMoveButtonController implements ActionListener {
 
 	private static final Logger logger = Logger.getGlobal();
 
 	protected GameApplication app;
 
 	/**
-	 * Creates a ResetBoardMoveButtonController instance with the specified
+	 * Creates a XStacyMoveButtonController instance with the specified
 	 * GameApplication.
 	 *
 	 * @param app
 	 *            The GameApplication currently running.
 	 */
-	public ResetBoardMoveButtonController(GameApplication app) {
+	public XStacyMoveButtonController(GameApplication app) {
 		this.app = app;
 	}
 
@@ -38,20 +39,25 @@ public class ResetBoardMoveButtonController implements ActionListener {
 	 */
 	public void actionPerformed(ActionEvent e) {
 
-		// Get the number of reset board moves remaining
+		// Get the number of xstacy moves remaining
 		int moves = this.app.getLevelPanel().getLevel().getSpecialMoves()
-				.getResetBoardCount();
+				.getXStacySpecialMoveCount();
 
 		// Execute the move if there are moves of this type left
 		if (moves > 0) {
-			this.app.getLevelPanel().getBoardViewPanel().doResetBoardMove();
+			if (this.app.getLevelPanel().getLevel().getType()
+					.equals(LevelType.LIGHTNING)) {
+				this.app.getLevelPanel().getLevel().updateTimerCount(20);
+			} else {
+				this.app.getLevelPanel().getLevel().updateMoveCount(10);
+			}
 			this.app.getLevelPanel().getLevel().getSpecialMoves()
-					.updateResetBoardCount(-1);
+					.updateXStacySpecialMoveCount(-1);
 			logger.log(Level.INFO,
-					"Reset board special move requested and completed.");
+					"XStacy special move requested and completed.");
 		} else {
 			logger.log(Level.INFO,
-					"Reset board special move cannot be completed. Moves left: "
+					"XStacy special move cannot be completed. Moves left: "
 							+ moves);
 		}
 

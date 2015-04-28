@@ -47,7 +47,7 @@ public class PlayButtonController implements ActionListener {
 
 	/*
 	 * (non-Javadoc)
-	 *
+	 * 
 	 * @see
 	 * java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
 	 */
@@ -77,25 +77,27 @@ public class PlayButtonController implements ActionListener {
 		if (menuType.equals(MenuTypes.STORY)) {
 			levelNumber = app.getGameMenuView().getStoryMenuView()
 					.getLevelList().getSelectedIndex() + 1;
-			
+
 			// Check if level is unlocked
-			if (levelNumber > this.app.getCurrentUserProfile().getHighestStoryLevelUnlocked()) {
+			if (levelNumber > this.app.getCurrentUserProfile()
+					.getHighestStoryLevelUnlocked()) {
 				logger.log(Level.INFO, "Level not unlocked.");
 				return;
 			}
-			
+
 			newLevel = XMLParser.fileToLevel(XMLParser.STORY_DIR
 					+ Integer.toString(levelNumber) + XMLParser.XML_EXT);
 		} else {
 			levelNumber = app.getGameMenuView().getUserMenuView()
 					.getLevelList().getSelectedIndex() + 1;
-			
+
 			// Check if level is unlocked
-			if (levelNumber > this.app.getCurrentUserProfile().getHighestUserLevelUnlocked()) {
+			if (levelNumber > this.app.getCurrentUserProfile()
+					.getHighestUserLevelUnlocked()) {
 				logger.log(Level.INFO, "Level not unlocked.");
 				return;
 			}
-			
+
 			newLevel = XMLParser.fileToLevel(XMLParser.USER_DIR
 					+ Integer.toString(levelNumber) + XMLParser.XML_EXT);
 		}
@@ -137,6 +139,8 @@ public class PlayButtonController implements ActionListener {
 				.addActionListener(new SwapTileMoveButtonController(app));
 		app.getLevelPanel().getTopMenuPanel().getRemoveTileButton()
 				.addActionListener(new RemoveTileMoveButtonController(app));
+		app.getLevelPanel().getTopMenuPanel().getXStacyMoveButton()
+				.addActionListener(new XStacyMoveButtonController(app));
 
 		logger.log(Level.FINE, "Level view controllers initialized.");
 	}
