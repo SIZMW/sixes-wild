@@ -1,11 +1,11 @@
 package SixesWild.com.mimas.sixeswild.boundaries;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.Dimension;
+import java.awt.Font;
+import java.awt.GridBagLayout;
 
-import javax.swing.JButton;
-import javax.swing.JOptionPane;
-import javax.swing.SwingUtilities;
+import javax.swing.JDialog;
+import javax.swing.JLabel;
 
 import SixesWild.com.mimas.sixeswild.controllers.ExitButtonController;
 
@@ -15,7 +15,7 @@ import SixesWild.com.mimas.sixeswild.controllers.ExitButtonController;
  *
  * @author Aditya Nivarthi
  */
-public class EndLevelPopUpPane extends JOptionPane {
+public class EndLevelPopUpPane extends JDialog {
 
 	private static final long serialVersionUID = 1L;
 
@@ -29,25 +29,21 @@ public class EndLevelPopUpPane extends JOptionPane {
 	 *            The custom text to display.
 	 */
 	public EndLevelPopUpPane(GameApplication app, String message) {
-
-		// Display "Game Over" with a reason for ending the level
-		this.setMessage("Game over. " + message);
-		this.setMessageType(JOptionPane.INFORMATION_MESSAGE);
-
-		// Add button with exit controller and close the pop up
-		final JButton exitButton = new JButton("Exit");
-		exitButton.addActionListener(new ExitButtonController(app));
-
-		// Add action listener to close the pop up
-		exitButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-
-				// Get the parent window and dispose it
-				SwingUtilities.getWindowAncestor(exitButton).dispose();
-			}
-		});
-
-		// Add the button to the pop up
-		this.setOptions(new Object[] { exitButton });
+		this.setTitle("Game Over");
+		this.setSize(new Dimension(300, 100));
+		this.setLocation(app.getFrame().getX()
+				+ (app.getFrame().getWidth() / 2) - (this.getWidth() / 2),
+				app.getFrame().getY() + (app.getFrame().getHeight() / 2)
+						- (this.getHeight() / 2));
+		GridBagLayout gridBagLayout = new GridBagLayout();
+		gridBagLayout.columnWidths = new int[] { 0 };
+		gridBagLayout.rowHeights = new int[] { 0 };
+		gridBagLayout.columnWeights = new double[] { Double.MIN_VALUE };
+		gridBagLayout.rowWeights = new double[] { Double.MIN_VALUE };
+		getContentPane().setLayout(gridBagLayout);
+		JLabel textMessage = new JLabel(message);
+		textMessage.setFont(new Font("Monospace", Font.PLAIN, 18));
+		this.add(textMessage);
+		this.addWindowListener(new ExitButtonController(app));
 	}
 }

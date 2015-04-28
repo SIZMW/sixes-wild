@@ -7,6 +7,8 @@ import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -20,7 +22,8 @@ import SixesWild.com.mimas.sixeswild.boundaries.GameApplication;
  *
  * @author Cameron Jones
  */
-public class ExitButtonController implements ActionListener {
+public class ExitButtonController extends WindowAdapter implements
+		ActionListener {
 
 	private static final Logger logger = Logger.getGlobal();
 
@@ -39,16 +42,36 @@ public class ExitButtonController implements ActionListener {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see
 	 * java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
 	 */
 	public void actionPerformed(ActionEvent e) {
+		this.endLevel();
+		logger.log(Level.INFO, "Exited level by button press.");
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * java.awt.event.WindowAdapter#windowClosing(java.awt.event.WindowEvent)
+	 */
+	@Override
+	public void windowClosing(WindowEvent e) {
+		this.endLevel();
+		logger.log(Level.INFO, "Exited level by window close.");
+	}
+
+	/**
+	 * Quits the level and returns to the game menu.
+	 */
+	protected void endLevel() {
 		Container contentContainer = app.getFrame().getContentPane();
 		JPanel currentPanel = new JPanel();
 		contentContainer.removeAll();
-		if(this.app.getLevelPanel().getTimer() != null){
-			this.app.getLevelPanel().getTimer().stop();	
+		if (this.app.getLevelPanel().getTimer() != null) {
+			this.app.getLevelPanel().getTimer().stop();
 		}
 
 		// Layout for panel
@@ -75,7 +98,5 @@ public class ExitButtonController implements ActionListener {
 		contentContainer.add(currentPanel);
 		contentContainer.revalidate();
 		contentContainer.repaint();
-
-		logger.log(Level.INFO, "Exited level.");
 	}
 }

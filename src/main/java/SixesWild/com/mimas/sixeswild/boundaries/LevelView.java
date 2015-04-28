@@ -249,7 +249,7 @@ public class LevelView extends JPanel {
 
 				/*
 				 * (non-Javadoc)
-				 * 
+				 *
 				 * @see
 				 * java.awt.event.ActionListener#actionPerformed(java.awt.event
 				 * .ActionEvent)
@@ -433,8 +433,7 @@ public class LevelView extends JPanel {
 		}
 
 		// Display the pop up to end the level
-		JDialog dialog = new EndLevelPopUpPane(this.app, message).createDialog(
-				this.app.getFrame(), "");
+		JDialog dialog = new EndLevelPopUpPane(this.app, message);
 		dialog.setVisible(true);
 
 		// Refresh the game menu view to reflect the new user profile status
