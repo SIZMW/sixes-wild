@@ -29,7 +29,7 @@
 <Timer>0</Timer>
 </PlayingConstraints>
 <Board>
-<Row>N U N U N U N U N</Row>
+<Row>U U N U N U N U U</Row>
 <Row>U N N N N N N N U</Row>
 <Row>N N U U N U U N N</Row>
 <Row>U N N N N N N N U</Row>
@@ -37,6 +37,6 @@
 <Row>U N N N N N N N U</Row>
 <Row>N N U U N U U N N</Row>
 <Row>U N N N N N N N U</Row>
-<Row>N U N U N U N U N</Row>
+<Row>U U N U N U N U U</Row>
 </Board>
 </Level>
