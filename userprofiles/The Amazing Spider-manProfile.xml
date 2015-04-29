@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <UserProfile user="The Amazing Spider-man">
-  <HighestStoryLevelUnlocked>4</HighestStoryLevelUnlocked>
+  <HighestStoryLevelUnlocked>5</HighestStoryLevelUnlocked>
   <HighestUserLevelUnlocked>1</HighestUserLevelUnlocked>
   <Badges>
     <Name>5000 points</Name>
@@ -21,13 +21,23 @@
     <Name>5000 points</Name>
     <Name>10000 points</Name>
     <Name>1 stars</Name>
+    <Name>5000 points</Name>
+    <Name>10000 points</Name>
+    <Name>15000 points</Name>
+    <Name>20000 points</Name>
+    <Name>25000 points</Name>
+    <Name>30000 points</Name>
+    <Name>35000 points</Name>
+    <Name>1 stars</Name>
+    <Name>2 stars</Name>
+    <Name>3 stars</Name>
   </Badges>
   <LevelScores>
     <Level level="1" score="19230" stars="3" type="STORY"/>
     <Level level="2" score="10380" stars="1" type="STORY"/>
     <Level level="3" score="11880" stars="1" type="STORY"/>
-    <Level level="4" score="1020" stars="0" type="STORY"/>
+    <Level level="4" score="38160" stars="3" type="STORY"/>
+    <Level level="5" score="890" stars="0" type="STORY"/>
   </LevelScores>
   <Aesthetic/>
 </UserProfile>
-
