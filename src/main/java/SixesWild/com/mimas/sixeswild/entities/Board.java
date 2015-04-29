@@ -122,8 +122,8 @@ public class Board {
 	protected int getMultiplier() {
 		int value = new Random().nextInt(100);
 
-		int rangeOne = (int) (tileFrequencies.get(0) * 100);
-		int rangeTwo = rangeOne + (int) (tileFrequencies.get(1) * 100);
+		int rangeOne = (int) (multiplierFrequencies.get(0) * 100);
+		int rangeTwo = rangeOne + (int) (multiplierFrequencies.get(1) * 100);
 
 		if (value < rangeOne) {
 			return 1;
