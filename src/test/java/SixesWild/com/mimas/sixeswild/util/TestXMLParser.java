@@ -31,9 +31,9 @@ public class TestXMLParser extends TestCase {
 
 		assertEquals(level.getName(), "Supercalifragilisticexpialidocious");
 		assertEquals(level.getMoveCount(), 15);
-		assertEquals(level.getPointThresholds().getOneStarThreshold(), 100);
-		assertEquals(level.getPointThresholds().getTwoStarThreshold(), 200);
-		assertEquals(level.getPointThresholds().getThreeStarThreshold(), 300);
+		assertEquals(level.getPointThresholds().getOneStarThreshold(), 1000);
+		assertEquals(level.getPointThresholds().getTwoStarThreshold(), 5000);
+		assertEquals(level.getPointThresholds().getThreeStarThreshold(), 12000);
 		assertEquals(level.getBoard().getSquare(0, 0).getTile().getType(),
 				TileType.NUMBER);
 		assertEquals(level.getBoard().getSquare(6, 1).getTile().getType(),
@@ -137,7 +137,7 @@ public class TestXMLParser extends TestCase {
 		ArrayList<Double> multFreq = new ArrayList<Double>();
 		String levelName = "Easy Puzzle";
 		Tile tiles[][] = new Tile[9][9];
-		PointThresholds pointThresholds = new PointThresholds(5, 10, 20);
+		PointThresholds pointThresholds = new PointThresholds(500, 1000, 5000);
 		SpecialMoves specialMoves = new SpecialMoves();
 		int levelNumber = 1;
 
