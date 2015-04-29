@@ -44,7 +44,7 @@ public class SaveButtonController implements ActionListener {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see
 	 * java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
 	 */
@@ -99,12 +99,12 @@ public class SaveButtonController implements ActionListener {
 
 		// Tile frequencies
 		Double tf1, tf2, tf3, tf4, tf5, tf6;
-		tf1 = 0.2;
-		tf2 = 0.2;
-		tf3 = 0.2;
-		tf4 = 0.2;
-		tf5 = 0.1;
-		tf6 = 0.1;
+		tf1 = 0.0;
+		tf2 = 0.0;
+		tf3 = 0.0;
+		tf4 = 0.0;
+		tf5 = 0.0;
+		tf6 = 0.0;
 
 		try {
 			tf1 = Math
@@ -170,8 +170,8 @@ public class SaveButtonController implements ActionListener {
 
 		// Multiplier frequencies
 		Double mf1, mf2, mf3;
-		mf2 = 0.4;
-		mf3 = 0.4;
+		mf2 = 0.0;
+		mf3 = 0.0;
 
 		try {
 			mf2 = Math.abs(Double.parseDouble(bsp.getTwoMultiplierTextField()

@@ -33,6 +33,7 @@ import SixesWild.com.mimas.sixeswild.controllers.SpecialMoveThreeIncreaseButtonC
 import SixesWild.com.mimas.sixeswild.controllers.SpecialMoveTwoDecreaseButtonController;
 import SixesWild.com.mimas.sixeswild.controllers.SpecialMoveTwoIncreaseButtonController;
 import SixesWild.com.mimas.sixeswild.controllers.UndoController;
+import SixesWild.com.mimas.sixeswild.controllers.UpdateFrequencyController;
 import SixesWild.com.mimas.sixeswild.entities.Aesthetic;
 import SixesWild.com.mimas.sixeswild.entities.Square;
 
@@ -167,6 +168,25 @@ public class BuilderApplication {
 						| InputEvent.SHIFT_DOWN_MASK), "Ctrl + Shift + Z");
 		builderView.getActionMap().put("Ctrl + Shift + Z",
 				new RedoController(this));
+
+		// Update frequencies
+		builderView.getBuilderSettingsPanel().getTwoMultiplierTextField()
+				.addActionListener(new UpdateFrequencyController(this));
+		builderView.getBuilderSettingsPanel().getThreeMultiplierTextField()
+				.addActionListener(new UpdateFrequencyController(this));
+
+		builderView.getBuilderSettingsPanel().getOnesTextField()
+				.addActionListener(new UpdateFrequencyController(this));
+		builderView.getBuilderSettingsPanel().getTwosTextField()
+				.addActionListener(new UpdateFrequencyController(this));
+		builderView.getBuilderSettingsPanel().getThreesTextField()
+				.addActionListener(new UpdateFrequencyController(this));
+		builderView.getBuilderSettingsPanel().getFoursTextField()
+				.addActionListener(new UpdateFrequencyController(this));
+		builderView.getBuilderSettingsPanel().getFivesTextField()
+				.addActionListener(new UpdateFrequencyController(this));
+		builderView.getBuilderSettingsPanel().getSixesTextField()
+				.addActionListener(new UpdateFrequencyController(this));
 
 		logger.log(Level.FINE, "BuilderApplication controllers initialized.");
 	}

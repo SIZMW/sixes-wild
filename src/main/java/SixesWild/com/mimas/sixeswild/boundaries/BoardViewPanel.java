@@ -289,7 +289,7 @@ public class BoardViewPanel extends JPanel {
 
 	/*
 	 * (non-Javadoc)
-	 *
+	 * 
 	 * @see javax.swing.JComponent#paintComponent(java.awt.Graphics)
 	 */
 	@Override
@@ -463,9 +463,8 @@ public class BoardViewPanel extends JPanel {
 								oldSquare.getX(), oldSquare.getY(),
 								oldSquare.getMarked());
 						gameBoard.setSquare(
-								new NumberTile(gameBoard.getRandomNumber(),
-										gameBoard.getRandomMultiplier()), i, j,
-								false);
+								new NumberTile(gameBoard.getNumber(), gameBoard
+										.getMultiplier()), i, j, false);
 						break;
 					case TARGET:
 						oldSquare = gameBoard.getSquare(i, j);

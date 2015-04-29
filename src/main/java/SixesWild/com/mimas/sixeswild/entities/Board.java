@@ -87,7 +87,7 @@ public class Board {
 	 *
 	 * @return an integer from 1 to 6.
 	 */
-	protected int getNumber() {
+	public int getNumber() {
 		int value = new Random().nextInt(100);
 
 		int rangeOne = (int) (tileFrequencies.get(0) * 100);
@@ -119,7 +119,7 @@ public class Board {
 	 *
 	 * @return an integer from 1 to 3.
 	 */
-	protected int getMultiplier() {
+	public int getMultiplier() {
 		int value = new Random().nextInt(100);
 
 		int rangeOne = (int) (multiplierFrequencies.get(0) * 100);
