@@ -72,7 +72,7 @@ public class SaveButtonController implements ActionListener {
 				.toString();
 
 		// Move count
-		int moveCount = 50;
+		int moveCount = 5;
 
 		try {
 			moveCount = (Math.abs(Integer.parseInt(bsp.getMovesTextField()
@@ -85,7 +85,7 @@ public class SaveButtonController implements ActionListener {
 		}
 
 		// Timer
-		int timerCount = 50;
+		int timerCount = 5;
 
 		try {
 			timerCount = (Math.abs(Integer.parseInt(bsp.getTimerTextField()
