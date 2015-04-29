@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <UserProfile user="FrostyRose">
-  <HighestStoryLevelUnlocked>10</HighestStoryLevelUnlocked>
+  <HighestStoryLevelUnlocked>16</HighestStoryLevelUnlocked>
   <HighestUserLevelUnlocked>6</HighestUserLevelUnlocked>
   <Badges>
     <Name>5000 points</Name>
@@ -40,6 +40,22 @@
     <Name>3 stars</Name>
     <Name>5000 points</Name>
     <Name>1 stars</Name>
+    <Name>5000 points</Name>
+    <Name>1 stars</Name>
+    <Name>5000 points</Name>
+    <Name>1 stars</Name>
+    <Name>5000 points</Name>
+    <Name>1 stars</Name>
+    <Name>5000 points</Name>
+    <Name>1 stars</Name>
+    <Name>5000 points</Name>
+    <Name>1 stars</Name>
+    <Name>5000 points</Name>
+    <Name>1 stars</Name>
+    <Name>5000 points</Name>
+    <Name>10000 points</Name>
+    <Name>1 stars</Name>
+    <Name>Unlock all levels</Name>
   </Badges>
   <LevelScores>
     <Level level="1" score="641" stars="3" type="STORY"/>
@@ -56,6 +72,8 @@
     <Level level="4" score="3760" stars="3" type="USER"/>
     <Level level="5" score="1890" stars="3" type="USER"/>
     <Level level="9" score="9940" stars="1" type="STORY"/>
+    <Level level="10" score="5520" stars="1" type="STORY"/>
+    <Level level="15" score="10520" stars="1" type="STORY"/>
   </LevelScores>
   <Aesthetic/>
 </UserProfile>
