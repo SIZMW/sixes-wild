@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<UserProfile user="PrinceAli">
+  <HighestStoryLevelUnlocked>7</HighestStoryLevelUnlocked>
+  <HighestUserLevelUnlocked>6</HighestUserLevelUnlocked>
+  <Badges/>
+  <LevelScores>
+    <Level level="1" score="13950" stars="3" type="STORY"/>
+    <Level level="2" score="11250" stars="3" type="STORY"/>
+    <Level level="3" score="13080" stars="3" type="STORY"/>
+    <Level level="4" score="240" stars="2" type="STORY"/>
+    <Level level="5" score="270" stars="1" type="STORY"/>
+    <Level level="6" score="180" stars="1" type="STORY"/>
+    <Level level="1" score="9240" stars="3" type="USER"/>
+    <Level level="2" score="1760" stars="3" type="USER"/>
+    <Level level="3" score="1420" stars="3" type="USER"/>
+    <Level level="4" score="4140" stars="3" type="USER"/>
+    <Level level="5" score="60" stars="3" type="USER"/>
+  </LevelScores>
+  <Aesthetic/>
+</UserProfile>
