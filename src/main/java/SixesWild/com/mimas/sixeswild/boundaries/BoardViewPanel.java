@@ -289,7 +289,7 @@ public class BoardViewPanel extends JPanel {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see javax.swing.JComponent#paintComponent(java.awt.Graphics)
 	 */
 	@Override
@@ -426,7 +426,7 @@ public class BoardViewPanel extends JPanel {
 
 	/**
 	 * Updates the mouse press locations with the designated tiles when
-	 * requested in the level builder.
+	 * requested in the level builder. Returns the replaced Square.
 	 *
 	 * @param mx
 	 *            The horizontal position of the mouse.
@@ -434,8 +434,13 @@ public class BoardViewPanel extends JPanel {
 	 *            The vertical position of the mouse.
 	 * @param type
 	 *            The type of tile to place.
+	 * @return a Square
 	 */
-	public void updateBuilderSelection(int mx, int my, TileType type) {
+	public Square updateBuilderSelection(int mx, int my, TileType type) {
+
+		Square oldSquare = null;
+		Square oldReturn = null;
+
 		outerloop: for (int i = 0; i < gameBoard.SIZE_X; i++) {
 			for (int j = 0; j < gameBoard.SIZE_Y; j++) {
 
@@ -446,21 +451,41 @@ public class BoardViewPanel extends JPanel {
 					// Handle placing each type of tile
 					switch (type) {
 					case NULL:
+						oldSquare = gameBoard.getSquare(i, j);
+						oldReturn = new Square(oldSquare.getTile(),
+								oldSquare.getX(), oldSquare.getY(),
+								oldSquare.getMarked());
 						gameBoard.setSquare(new NullTile(), i, j, false);
 						break;
 					case NUMBER:
+						oldSquare = gameBoard.getSquare(i, j);
+						oldReturn = new Square(oldSquare.getTile(),
+								oldSquare.getX(), oldSquare.getY(),
+								oldSquare.getMarked());
 						gameBoard.setSquare(
 								new NumberTile(gameBoard.getRandomNumber(),
 										gameBoard.getRandomMultiplier()), i, j,
 								false);
 						break;
 					case TARGET:
+						oldSquare = gameBoard.getSquare(i, j);
+						oldReturn = new Square(oldSquare.getTile(),
+								oldSquare.getX(), oldSquare.getY(),
+								oldSquare.getMarked());
 						gameBoard.setSquare(new TargetTile(), i, j, false);
 						break;
 					case SIX:
+						oldSquare = gameBoard.getSquare(i, j);
+						oldReturn = new Square(oldSquare.getTile(),
+								oldSquare.getX(), oldSquare.getY(),
+								oldSquare.getMarked());
 						gameBoard.setSquare(new SixTile(), i, j, false);
 						break;
 					default:
+						oldSquare = gameBoard.getSquare(i, j);
+						oldReturn = new Square(oldSquare.getTile(),
+								oldSquare.getX(), oldSquare.getY(),
+								oldSquare.getMarked());
 						gameBoard.setSquare(new NullTile(), i, j, false);
 						break;
 					}
@@ -471,6 +496,8 @@ public class BoardViewPanel extends JPanel {
 				}
 			}
 		}
+
+		return oldReturn;
 	}
 
 	/**

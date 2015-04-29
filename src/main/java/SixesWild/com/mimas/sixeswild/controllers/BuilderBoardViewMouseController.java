@@ -4,6 +4,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 import SixesWild.com.mimas.sixeswild.boundaries.BuilderApplication;
+import SixesWild.com.mimas.sixeswild.entities.Square;
 import SixesWild.com.mimas.sixeswild.entities.TileType;
 
 /**
@@ -29,7 +30,7 @@ public class BuilderBoardViewMouseController extends MouseAdapter {
 
 	/*
 	 * (non-Javadoc)
-	 *
+	 * 
 	 * @see java.awt.event.MouseAdapter#mousePressed(java.awt.event.MouseEvent)
 	 */
 	@Override
@@ -37,8 +38,16 @@ public class BuilderBoardViewMouseController extends MouseAdapter {
 		TileType type = TileType.valueOf((String) app.getBuilderView()
 				.getBuilderSettingsPanel().getTileTypeComboBox()
 				.getSelectedItem());
-		app.getBuilderView().getBoardViewPanel()
+		Square old = app.getBuilderView().getBoardViewPanel()
 				.updateBuilderSelection(me.getX(), me.getY(), type);
+
+		// Update undo and redo lists
+		if (old == null) {
+		} else {
+			app.getUndoList().add(old);
+			app.getRedoList().clear();
+		}
+
 		app.getBuilderView().getBoardViewPanel().updateUI();
 	}
 }

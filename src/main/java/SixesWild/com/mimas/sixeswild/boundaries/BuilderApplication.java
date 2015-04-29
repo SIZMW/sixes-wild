@@ -159,14 +159,14 @@ public class BuilderApplication {
 		builderView.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW)
 				.put(KeyStroke.getKeyStroke(KeyEvent.VK_Z,
 						InputEvent.CTRL_DOWN_MASK), "Ctrl + Z");
-		builderView.getActionMap().put("Ctrl + Z", new UndoController());
+		builderView.getActionMap().put("Ctrl + Z", new UndoController(this));
 
 		// Redo Controller
 		builderView.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(
 				KeyStroke.getKeyStroke(KeyEvent.VK_Z, InputEvent.CTRL_DOWN_MASK
 						| InputEvent.SHIFT_DOWN_MASK), "Ctrl + Shift + Z");
-		builderView.getActionMap()
-				.put("Ctrl + Shift + Z", new RedoController());
+		builderView.getActionMap().put("Ctrl + Shift + Z",
+				new RedoController(this));
 
 		logger.log(Level.FINE, "BuilderApplication controllers initialized.");
 	}
@@ -200,7 +200,7 @@ public class BuilderApplication {
 
 	/**
 	 * Returns the list of undo actions.
-	 * 
+	 *
 	 * @return an ArrayList
 	 */
 	public ArrayList<Square> getUndoList() {
@@ -213,6 +213,6 @@ public class BuilderApplication {
 	 * @return an ArrayList
 	 */
 	public ArrayList<Square> getRedoList() {
-		return undoList;
+		return redoList;
 	}
 }
