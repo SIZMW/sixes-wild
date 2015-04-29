@@ -19,9 +19,9 @@
 <OtherMove>5</OtherMove>
 </SpecialMoveConstraints>
 <PointThresholds>
-<Point>150</Point>
-<Point>350</Point>
-<Point>500</Point>
+<Point>10000</Point>
+<Point>25000</Point>
+<Point>50000</Point>
 </PointThresholds>
 <PlayingConstraints>
 <MoveCount>15</MoveCount>
