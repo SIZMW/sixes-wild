@@ -4,7 +4,7 @@ import SixesWild.com.mimas.sixeswild.boundaries.GameApplication;
 
 /**
  * This class defines the abstract methods that every move sub class will need.
- * 
+ *
  * @author Aditya Nivarthi
  */
 public abstract class GameMove {
@@ -17,7 +17,7 @@ public abstract class GameMove {
 
 	/**
 	 * Returns whether the move is valid to continue as a move.
-	 * 
+	 *
 	 * @param app
 	 *            The GameApplication currently running.
 	 * @return true if valid; false otherwise.
@@ -26,7 +26,7 @@ public abstract class GameMove {
 
 	/**
 	 * Returns whether the move is valid to be executed.
-	 * 
+	 *
 	 * @param app
 	 *            The GameApplication currently running.
 	 * @return true if valid; false otherwise.
@@ -36,7 +36,7 @@ public abstract class GameMove {
 	/**
 	 * Returns whether the move is valid to continue as a move, and resets it if
 	 * not valid.
-	 * 
+	 *
 	 * @param app
 	 *            The GameApplication currently running.
 	 * @return true if valid; false otherwise.
@@ -46,7 +46,7 @@ public abstract class GameMove {
 	/**
 	 * Returns whether the move is valid to be executed, and executes if if
 	 * valid. If not, it resets the move.
-	 * 
+	 *
 	 * @param app
 	 *            The GameApplication currently running.
 	 * @return true if valid; false otherwise.

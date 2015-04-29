@@ -99,7 +99,7 @@ public class UserProfile {
 	 * @param level
 	 *            An Integer of the level that the high score will be taken
 	 *            from.
-	 * @return an integer of the score if exists; -1 otherwise
+	 * @return an integer of the score if exists; 0 otherwise
 	 */
 	public int getHighScoreOfLevel(int level) {
 		for (LevelHighScore lhs : levelHighScores) {
@@ -108,7 +108,7 @@ public class UserProfile {
 			}
 		}
 
-		return -1;
+		return 0;
 	}
 
 	/**
@@ -118,7 +118,7 @@ public class UserProfile {
 	 *            The level number that the stars will be taken from.
 	 * @param type
 	 *            The type of level to get the stars achieved.
-	 * @return an integer of the star count if exists; -1 otherwise
+	 * @return an integer of the star count if exists; 0 otherwise
 	 */
 	public int getStarsOfLevel(int level, MenuTypes type) {
 		for (LevelHighScore lhs : levelHighScores) {
@@ -127,7 +127,7 @@ public class UserProfile {
 			}
 		}
 
-		return -1;
+		return 0;
 	}
 
 	/**
@@ -235,10 +235,12 @@ public class UserProfile {
 	 *
 	 * @param level
 	 *            The level number of the level.
+	 * @param type
+	 *            The type of level to distinguish the level number.
 	 */
-	public void removeLevelHighScore(int level) {
+	public void removeLevelHighScore(int level, MenuTypes type) {
 		for (LevelHighScore lhs : levelHighScores) {
-			if (lhs.getLevel() == level) {
+			if (lhs.getLevel() == level && lhs.getLevelType().equals(type)) {
 				levelHighScores.remove(lhs);
 			}
 		}
@@ -277,52 +279,5 @@ public class UserProfile {
 	 */
 	public void setAestheticName(String aestheticName) {
 		this.aestheticName = aestheticName;
-	}
-
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see java.lang.Object#toString()
-	 */
-	@Override
-	public String toString() {
-		StringBuilder builder = new StringBuilder();
-		builder.append("User Name: ");
-		builder.append(userName);
-		builder.append("\n");
-		builder.append("	Highest Story Level: ");
-		builder.append(highestStoryLevelUnlocked);
-		builder.append("\n");
-		builder.append("	Highest User Level: ");
-		builder.append(highestUserLevelUnlocked);
-		builder.append("\n");
-		builder.append("	Badges Earned:\n");
-
-		for (String badge : badgesEarned) {
-			builder.append("		");
-			builder.append(badge);
-			builder.append("\n");
-		}
-
-		builder.append("	Level High Scores:\n");
-
-		for (LevelHighScore lhs : levelHighScores) {
-			builder.append("		Level: ");
-			builder.append(lhs.getLevel());
-			builder.append("\n");
-
-			builder.append("		  High Score: ");
-			builder.append(lhs.getHighScore());
-			builder.append("\n");
-
-			builder.append("		  Stars: ");
-			builder.append(lhs.getStars());
-			builder.append("\n");
-		}
-
-		builder.append("	Aesthetic: ");
-		builder.append(aestheticName);
-
-		return builder.toString();
 	}
 }

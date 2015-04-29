@@ -40,6 +40,5 @@ public class TestSixTile extends TestCase {
 
 		tile2.setProcessed(false);
 		assertTrue(tile.equals(tile2));
-
 	}
 }

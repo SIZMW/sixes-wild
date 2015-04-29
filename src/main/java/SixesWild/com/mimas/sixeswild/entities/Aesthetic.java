@@ -4,7 +4,7 @@ import java.awt.Color;
 
 /**
  * Aesthetic defines a color scheme to be used throughout the game.
- * 
+ *
  * @author Marco Duran
  */
 public class Aesthetic {
@@ -15,7 +15,7 @@ public class Aesthetic {
 
 	/**
 	 * Creates an Aesthetic instance with the specified name and Colors.
-	 * 
+	 *
 	 * @param name
 	 *            The name of the aesthetic.
 	 * @param background
@@ -55,7 +55,7 @@ public class Aesthetic {
 
 	/**
 	 * Returns the name of the aesthetic
-	 * 
+	 *
 	 * @return a String
 	 */
 	public String getName() {
@@ -64,7 +64,7 @@ public class Aesthetic {
 
 	/**
 	 * Returns the one tile color.
-	 * 
+	 *
 	 * @return a Color
 	 */
 	public Color getTileOneColor() {
@@ -73,7 +73,7 @@ public class Aesthetic {
 
 	/**
 	 * Returns the two tile color.
-	 * 
+	 *
 	 * @return a Color
 	 */
 	public Color getTileTwoColor() {
@@ -82,7 +82,7 @@ public class Aesthetic {
 
 	/**
 	 * Returns the three tile color.
-	 * 
+	 *
 	 * @return a Color
 	 */
 	public Color getTileThreeColor() {
@@ -91,7 +91,7 @@ public class Aesthetic {
 
 	/**
 	 * Returns the four tile color.
-	 * 
+	 *
 	 * @return a Color
 	 */
 	public Color getTileFourColor() {
@@ -100,7 +100,7 @@ public class Aesthetic {
 
 	/**
 	 * Returns the five tile color.
-	 * 
+	 *
 	 * @return a Color
 	 */
 	public Color getTileFiveColor() {
@@ -109,7 +109,7 @@ public class Aesthetic {
 
 	/**
 	 * Returns the six tile color.
-	 * 
+	 *
 	 * @return a Color
 	 */
 	public Color getTileSixColor() {
@@ -118,7 +118,7 @@ public class Aesthetic {
 
 	/**
 	 * Returns the marked tile color.
-	 * 
+	 *
 	 * @return a Color
 	 */
 	public Color getMarkedColor() {
@@ -127,7 +127,7 @@ public class Aesthetic {
 
 	/**
 	 * Returns the target tile color.
-	 * 
+	 *
 	 * @return a Color
 	 */
 	public Color getTargetColor() {
@@ -136,7 +136,7 @@ public class Aesthetic {
 
 	/**
 	 * Returns the null tile color.
-	 * 
+	 *
 	 * @return a Color
 	 */
 	public Color getNullTileColor() {
@@ -145,7 +145,7 @@ public class Aesthetic {
 
 	/**
 	 * Returns the background color.
-	 * 
+	 *
 	 * @return a Color
 	 */
 	public Color getBackgroundColor() {

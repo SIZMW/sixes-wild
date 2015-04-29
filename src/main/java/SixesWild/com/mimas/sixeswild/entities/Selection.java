@@ -6,7 +6,7 @@ import java.util.Set;
 /**
  * Selection is the entity that defines the current Square selection that the
  * player requests during the game.
- * 
+ *
  * @author Aditya Nivarthi
  */
 public class Selection {
@@ -22,7 +22,7 @@ public class Selection {
 
 	/**
 	 * Adds the given square to the selection.
-	 * 
+	 *
 	 * @param square
 	 *            The Square to add to the selection.
 	 * @return true if square was added; false otherwise.
@@ -37,7 +37,7 @@ public class Selection {
 
 	/**
 	 * Removes the given square from the selection.
-	 * 
+	 *
 	 * @param square
 	 *            The Square to remove from the selection.
 	 * @return true if successful; false otherwise
@@ -48,7 +48,7 @@ public class Selection {
 
 	/**
 	 * Clears the entire selection.
-	 * 
+	 *
 	 * @return true if successful
 	 */
 	public boolean clear() {
@@ -58,7 +58,7 @@ public class Selection {
 
 	/**
 	 * Returns the selection as an array.
-	 * 
+	 *
 	 * @return an Array
 	 */
 	public Object[] getArray() {
@@ -69,7 +69,7 @@ public class Selection {
 	 * Returns whether two squares are next to each other. Checks if squares are
 	 * vertically or horizontally adjacent, but not diagonally next to each
 	 * other.
-	 * 
+	 *
 	 * @param squareOne
 	 *            First square to compare.
 	 * @param squareTwo
@@ -86,7 +86,7 @@ public class Selection {
 	/**
 	 * Returns whether the selection is valid or not, based on squares being
 	 * next to one another and sum of the tiles in the squares.
-	 * 
+	 *
 	 * @return true if selection is valid; false otherwise
 	 */
 	public boolean isSelectionValid() {
@@ -129,7 +129,7 @@ public class Selection {
 	 * Returns whether the selection is currently valid or not, based on the
 	 * squares being next to each other. This is used to determine if the move
 	 * should continue onward or be reset.
-	 * 
+	 *
 	 * @return true if selection is valid; false otherwise
 	 */
 	public boolean isSelectionStillValid() {
@@ -170,7 +170,7 @@ public class Selection {
 	/**
 	 * Returns whether the sum of the tiles in the squares in the current
 	 * selection is equal to 6 or not.
-	 * 
+	 *
 	 * @return true if sum equals 6; false otherwise.
 	 */
 	protected boolean isSelectionSumValid() {
@@ -197,7 +197,7 @@ public class Selection {
 	 * Returns whether the current selection is valid in regards to the sum
 	 * still being smaller than 6. Determines if the current move should still
 	 * be allowed to continue.
-	 * 
+	 *
 	 * @return true if sum is less than 6; false otherwise.
 	 */
 	protected boolean isSelectionSumStillValid() {
@@ -224,7 +224,7 @@ public class Selection {
 	 * Returns the score that is calculated from this selection. Score is the
 	 * number of tiles in the selection multiplied by the product of all the
 	 * multipliers of each tile.
-	 * 
+	 *
 	 * @return an integer
 	 */
 	public int getScore() {
@@ -240,7 +240,7 @@ public class Selection {
 
 	/**
 	 * Returns whether the selection is still valid to continue a swap move.
-	 * 
+	 *
 	 * @return true if selection is valid; false otherwise
 	 */
 	public boolean isSwapStillValid() {
@@ -263,7 +263,7 @@ public class Selection {
 
 	/**
 	 * Returns whether the selection is valid to complete a swap move.
-	 * 
+	 *
 	 * @return true if selection is valid; false otherwise
 	 */
 	public boolean isSwapValid() {
@@ -286,7 +286,7 @@ public class Selection {
 
 	/**
 	 * Returns whether the selection is still valid to continue a remove move.
-	 * 
+	 *
 	 * @return true if selection is valid; false otherwise
 	 */
 	public boolean isRemoveStillValid() {
@@ -309,7 +309,7 @@ public class Selection {
 
 	/**
 	 * Returns whether the selection is valid to complete a remove move.
-	 * 
+	 *
 	 * @return true if selection is valid; false otherwise
 	 */
 	public boolean isRemoveValid() {

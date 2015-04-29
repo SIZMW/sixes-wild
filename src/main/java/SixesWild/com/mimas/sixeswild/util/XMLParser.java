@@ -1,4 +1,4 @@
-package SixesWild.com.mimas.sixeswild.sixeswild;
+package SixesWild.com.mimas.sixeswild.util;
 
 import java.io.File;
 import java.util.ArrayList;

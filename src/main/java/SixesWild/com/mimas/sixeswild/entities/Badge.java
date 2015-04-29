@@ -3,7 +3,7 @@ package SixesWild.com.mimas.sixeswild.entities;
 /**
  * Badge contains the information about each badge, such as its name,
  * description, unlock status and requirements for unlocking.
- * 
+ *
  * @author Marco Duran
  */
 public class Badge {
@@ -14,7 +14,7 @@ public class Badge {
 	/**
 	 * Creates a Badge instance with the specified name, description and
 	 * unlocked status.
-	 * 
+	 *
 	 * @param name
 	 *            The name of the badge.
 	 * @param description
@@ -44,7 +44,7 @@ public class Badge {
 
 	/**
 	 * Returns the description of the badge.
-	 * 
+	 *
 	 * @return a String
 	 */
 	public String getDescription() {
@@ -53,7 +53,7 @@ public class Badge {
 
 	/**
 	 * Returns the name of the badge.
-	 * 
+	 *
 	 * @return a String
 	 */
 	public String getName() {
@@ -62,7 +62,7 @@ public class Badge {
 
 	/**
 	 * Determines if this badge can be unlocked.
-	 * 
+	 *
 	 * @return true if the badge can be unlocked; false otherwise.
 	 */
 	public boolean canBeUnlocked() {

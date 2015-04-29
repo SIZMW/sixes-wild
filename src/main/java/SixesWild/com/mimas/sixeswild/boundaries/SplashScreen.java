@@ -1,6 +1,5 @@
 package SixesWild.com.mimas.sixeswild.boundaries;
 
-import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.GridBagConstraints;
@@ -11,13 +10,12 @@ import java.io.IOException;
 import java.net.URL;
 
 import javax.imageio.ImageIO;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 /**
  * This class represents the view used to show the splash screen before starting
  * the game or level builder.
- * 
+ *
  * @author Cameron Jones
  */
 public class SplashScreen extends JPanel {
@@ -26,10 +24,13 @@ public class SplashScreen extends JPanel {
 
 	protected BufferedImage image;
 	protected URL splashScreen;
-	
+
 	/**
-	 * Creates a SplashScreen instance.
-	 * @param splashScreen 
+	 * Creates a SplashScreen instance with the specified resource path for a
+	 * splash screen.
+	 *
+	 * @param splashScreen
+	 *            The resource path to the specified splash screen to display.
 	 */
 	public SplashScreen(URL splashScreen) {
 
@@ -40,55 +41,29 @@ public class SplashScreen extends JPanel {
 		gridBagLayout.columnWeights = new double[] { 1.0, Double.MIN_VALUE };
 		gridBagLayout.rowWeights = new double[] { 1.0, Double.MIN_VALUE };
 		setLayout(gridBagLayout);
-		
+
 		// Layout for game title label
 		GridBagConstraints gbc_lblSixesWild = new GridBagConstraints();
 		gbc_lblSixesWild.insets = new Insets(0, 0, 0, 0);
 		gbc_lblSixesWild.gridx = 0;
 		gbc_lblSixesWild.gridy = 0;
-		
+
 		this.splashScreen = splashScreen;
-		
-		if(splashScreen != null){
+
+		if (splashScreen != null) {
 			try {
 				this.image = ImageIO.read(this.splashScreen);
 				this.repaint();
 			} catch (IOException e) {
-				/*//add(, gbc_lblSixesWild);
-				// Game title label
-				JLabel lblSixesWild = new JLabel("Sixes Wild");
-				lblSixesWild.setFont(new Font("Tahoma", Font.PLAIN, 48));
-
-				
-
-				// Instructions to proceed label
-				JLabel lblPressEnter = new JLabel("**** PRESS ENTER ****");
-
-				// Layout for instructions to proceed label
-				GridBagConstraints gbc_lblPressEnter = new GridBagConstraints();
-				gbc_lblPressEnter.insets = new Insets(0, 0, 0, 0);
-				gbc_lblPressEnter.gridx = 0;
-				gbc_lblPressEnter.gridy = 4;
-				add(lblPressEnter, gbc_lblPressEnter);
-
-				// Team names label
-				JLabel lblTeamMimas = new JLabel(
-						"Team Mimas: Marco Duran, Cameron Jones, Yahel Nachum, Aditya Nivarthi, Joey Perez");
-				lblTeamMimas.setFont(new Font("Tahoma", Font.PLAIN, 11));
-
-				// Layout for team names label
-				GridBagConstraints gbc_lblTeamMimas = new GridBagConstraints();
-				gbc_lblTeamMimas.fill = GridBagConstraints.VERTICAL;
-				gbc_lblTeamMimas.gridx = 0;
-				gbc_lblTeamMimas.gridy = 7;
-				add(lblTeamMimas, gbc_lblTeamMimas);'*/
 			}
-			
-			
 		}
-		
 	}
-	
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see javax.swing.JComponent#paintComponent(java.awt.Graphics)
+	 */
 	@Override
 	protected void paintComponent(Graphics g) {
 		super.paintComponent(g);

@@ -17,7 +17,7 @@ import SixesWild.com.mimas.sixeswild.entities.PuzzleLevel;
 import SixesWild.com.mimas.sixeswild.entities.ReleaseLevel;
 import SixesWild.com.mimas.sixeswild.entities.SpecialMoves;
 import SixesWild.com.mimas.sixeswild.entities.Tile;
-import SixesWild.com.mimas.sixeswild.sixeswild.XMLParser;
+import SixesWild.com.mimas.sixeswild.util.XMLParser;
 
 /**
  * This controller handles saving the builder level to a file when the save

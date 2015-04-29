@@ -9,7 +9,7 @@ import SixesWild.com.mimas.sixeswild.boundaries.GameApplication;
 
 /**
  * This controller switches the active user profile in the game.
- * 
+ *
  * @author Aditya Nivarthi
  */
 public class SwitchUserButtonController implements ActionListener {
@@ -21,7 +21,7 @@ public class SwitchUserButtonController implements ActionListener {
 	/**
 	 * Creates a SwitchUserButtonController instance with the specified
 	 * GameApplication.
-	 * 
+	 *
 	 * @param app
 	 *            The GameApplication currently running.
 	 */
@@ -31,7 +31,7 @@ public class SwitchUserButtonController implements ActionListener {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see
 	 * java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
 	 */
@@ -42,5 +42,4 @@ public class SwitchUserButtonController implements ActionListener {
 		logger.log(Level.FINE, "User profile requested to be loaded for: "
 				+ name);
 	}
-
 }

@@ -7,7 +7,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import SixesWild.com.mimas.sixeswild.boundaries.BuilderApplication;
-import SixesWild.com.mimas.sixeswild.sixeswild.XMLParser;
+import SixesWild.com.mimas.sixeswild.util.XMLParser;
 
 /**
  * This controller deletes the selected level in the builder delete level menu.

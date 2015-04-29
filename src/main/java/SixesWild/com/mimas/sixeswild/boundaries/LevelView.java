@@ -59,8 +59,11 @@ public class LevelView extends JPanel {
 
 		// Attributes
 		this.currentLevel = null;
-		logger.log(Level.INFO, "Current level set to NULL");
+		logger.log(Level.INFO, "Current level set to NULL.");
+
 		this.levelViewAesthetic = aesthetic;
+
+		logger.log(Level.INFO, "Dialog set to NULL.");
 		this.dialog = null;
 
 		// Layout for view
@@ -163,7 +166,6 @@ public class LevelView extends JPanel {
 	 *            The level to populate in this view.
 	 * @param type
 	 *            The menu type that the level is being selected from.
-	 * @wbp.parser.constructor
 	 */
 	public LevelView(GameApplication app, Aesthetic aesthetic,
 			GameLevel newLevel, MenuTypes type) {
@@ -175,6 +177,9 @@ public class LevelView extends JPanel {
 		this.currentScore = 0;
 		this.currentMove = MoveType.SELECTION;
 		this.currentMenuType = type;
+
+		this.dialog = null;
+		logger.log(Level.INFO, "Dialog set to NULL.");
 
 		// Layout for view
 		GridBagLayout gridBagLayout = new GridBagLayout();
@@ -337,7 +342,7 @@ public class LevelView extends JPanel {
 					.getTimer() + "");
 		}
 
-		// TODO: Update star graphics Here
+		// Update star graphics Here
 		this.levelStatsPanel.getStarGraphicsPanel().refreshStars(
 				this.currentLevel.getPointThresholds().getStarsForScore(
 						this.getScore()));
@@ -407,6 +412,15 @@ public class LevelView extends JPanel {
 	}
 
 	/**
+	 * Returns a the current level timer.
+	 *
+	 * @return a Timer
+	 */
+	public Timer getTimer() {
+		return this.levelTimer;
+	}
+
+	/**
 	 * Displays the end level pop up before returning to the menu.
 	 *
 	 * @param message
@@ -436,7 +450,7 @@ public class LevelView extends JPanel {
 
 		// Display the pop up to end the level
 		if (dialog == null) {
-			dialog = new EndLevelPopUpPane(this.app, message);
+			dialog = new EndLevelPopUpDialog(this.app, message);
 			dialog.setAlwaysOnTop(true);
 			dialog.setVisible(true);
 		}
@@ -445,14 +459,5 @@ public class LevelView extends JPanel {
 		this.app.refreshView();
 
 		logger.log(Level.INFO, "Level ended. Returning to menu.");
-	}
-
-	/**
-	 * Returns a the current level timer.
-	 *
-	 * @return a Timer
-	 */
-	public Timer getTimer() {
-		return this.levelTimer;
 	}
 }

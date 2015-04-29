@@ -16,7 +16,7 @@ import SixesWild.com.mimas.sixeswild.boundaries.GameApplication;
 import SixesWild.com.mimas.sixeswild.boundaries.LevelView;
 import SixesWild.com.mimas.sixeswild.entities.GameLevel;
 import SixesWild.com.mimas.sixeswild.entities.MenuTypes;
-import SixesWild.com.mimas.sixeswild.sixeswild.XMLParser;
+import SixesWild.com.mimas.sixeswild.util.XMLParser;
 
 /**
  * This controller creates and displays the level when the play button is

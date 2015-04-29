@@ -6,7 +6,7 @@ import java.util.ArrayList;
  * This class is used as a representation of the elimination level type. The
  * goal in this level is to mark all the squares and create moves using each of
  * the squares at least once.
- * 
+ *
  * @author Cameron Jones
  */
 public class EliminationLevel extends GameLevel {
@@ -15,7 +15,7 @@ public class EliminationLevel extends GameLevel {
 	 * Creates an EliminationLevel instance with the specified tile frequencies,
 	 * multiplier frequencies, type, name, tile list, point thresholds, move
 	 * count, special moves and level number.
-	 * 
+	 *
 	 * @param tileFreq
 	 *            The tile frequencies for the level.
 	 * @param multFreq
@@ -39,10 +39,8 @@ public class EliminationLevel extends GameLevel {
 			ArrayList<Double> multFreq, String name, Tile tiles[][],
 			PointThresholds pointThresholds, int moveCount,
 			SpecialMoves specialMoves, int levelNumber) throws Exception {
-		super(tileFreq, multFreq, name, tiles, pointThresholds,
-				moveCount, specialMoves, levelNumber);
-		
+		super(tileFreq, multFreq, name, tiles, pointThresholds, moveCount,
+				specialMoves, levelNumber);
 		this.type = LevelType.ELIMINATION;
-
 	}
 }

@@ -11,7 +11,7 @@ import javax.swing.JTextField;
 
 /**
  * This class represents the top panel in the level for the game.
- * 
+ *
  * @author Yahel Nachum
  */
 public class LevelTopPanel extends JPanel {
@@ -58,49 +58,49 @@ public class LevelTopPanel extends JPanel {
 		gbc_levelNameText.gridy = 1;
 		add(levelNameTextField, gbc_levelNameText);
 
-		// Special move button 1
+		// Reset board special move button
 		resetBoardButton = new JButton(RESET);
 		resetBoardButton.setPreferredSize(new Dimension(100, 100));
 
-		// Layout for special move button 1
-		GridBagConstraints gbc_specialMoveButton1 = new GridBagConstraints();
-		gbc_specialMoveButton1.insets = new Insets(0, 0, 5, 5);
-		gbc_specialMoveButton1.gridx = 3;
-		gbc_specialMoveButton1.gridy = 1;
-		add(resetBoardButton, gbc_specialMoveButton1);
+		// Layout for reset board special move button
+		GridBagConstraints gbc_resetBoard = new GridBagConstraints();
+		gbc_resetBoard.insets = new Insets(0, 0, 5, 5);
+		gbc_resetBoard.gridx = 3;
+		gbc_resetBoard.gridy = 1;
+		add(resetBoardButton, gbc_resetBoard);
 
-		// Special move button 2
+		// Swap tile special move button
 		swapTileButton = new JButton(SWAP);
 		swapTileButton.setPreferredSize(new Dimension(100, 100));
 
-		// Layout for special move button 2
-		GridBagConstraints gbc_specialMoveButton2 = new GridBagConstraints();
-		gbc_specialMoveButton2.insets = new Insets(0, 0, 5, 5);
-		gbc_specialMoveButton2.gridx = 5;
-		gbc_specialMoveButton2.gridy = 1;
-		add(swapTileButton, gbc_specialMoveButton2);
+		// Layout for swap tile special move button
+		GridBagConstraints gbc_swapTile = new GridBagConstraints();
+		gbc_swapTile.insets = new Insets(0, 0, 5, 5);
+		gbc_swapTile.gridx = 5;
+		gbc_swapTile.gridy = 1;
+		add(swapTileButton, gbc_swapTile);
 
-		// Special move button 3
+		// Remove tile special move button
 		removeTileButton = new JButton(REMOVE);
 		removeTileButton.setPreferredSize(new Dimension(100, 100));
 
-		// Layout for special move button 3
-		GridBagConstraints gbc_specialMoveButton3 = new GridBagConstraints();
-		gbc_specialMoveButton3.insets = new Insets(0, 0, 5, 5);
-		gbc_specialMoveButton3.gridx = 7;
-		gbc_specialMoveButton3.gridy = 1;
-		add(removeTileButton, gbc_specialMoveButton3);
+		// Layout for remove tile special move button
+		GridBagConstraints gbc_removeTile = new GridBagConstraints();
+		gbc_removeTile.insets = new Insets(0, 0, 5, 5);
+		gbc_removeTile.gridx = 7;
+		gbc_removeTile.gridy = 1;
+		add(removeTileButton, gbc_removeTile);
 
-		// Special move button 4
+		// XStacy special move button
 		xStacyMoveButton = new JButton(XSTACY);
 		xStacyMoveButton.setPreferredSize(new Dimension(100, 100));
 
-		// Layout for special move button 4
-		GridBagConstraints gbc_specialMoveButton4 = new GridBagConstraints();
-		gbc_specialMoveButton4.insets = new Insets(0, 0, 5, 5);
-		gbc_specialMoveButton4.gridx = 9;
-		gbc_specialMoveButton4.gridy = 1;
-		add(xStacyMoveButton, gbc_specialMoveButton4);
+		// Layout for XStacy special move button
+		GridBagConstraints gbc_xStacy = new GridBagConstraints();
+		gbc_xStacy.insets = new Insets(0, 0, 5, 5);
+		gbc_xStacy.gridx = 9;
+		gbc_xStacy.gridy = 1;
+		add(xStacyMoveButton, gbc_xStacy);
 
 		// Exit level button
 		exitLevelButton = new JButton("Exit Level");
@@ -116,7 +116,7 @@ public class LevelTopPanel extends JPanel {
 
 	/**
 	 * Returns the levelNameTextField object for this panel.
-	 * 
+	 *
 	 * @return the levelNameTextField property
 	 */
 	public JTextField getLevelNameTextField() {
@@ -125,7 +125,7 @@ public class LevelTopPanel extends JPanel {
 
 	/**
 	 * Sets the name of the level.
-	 * 
+	 *
 	 * @param levelName
 	 *            The level name to set.
 	 * @return true if successful
@@ -137,7 +137,7 @@ public class LevelTopPanel extends JPanel {
 
 	/**
 	 * Returns the resetBoardButton object for this panel.
-	 * 
+	 *
 	 * @return the resetBoardButton property
 	 */
 	public JButton getResetBoardButton() {
@@ -146,7 +146,7 @@ public class LevelTopPanel extends JPanel {
 
 	/**
 	 * Returns the swapTileButton object for this panel.
-	 * 
+	 *
 	 * @return the swapTileButton property
 	 */
 	public JButton getSwapTileButton() {
@@ -155,7 +155,7 @@ public class LevelTopPanel extends JPanel {
 
 	/**
 	 * Returns the removeTileButton object for this panel.
-	 * 
+	 *
 	 * @return the removeTileButton property
 	 */
 	public JButton getRemoveTileButton() {
@@ -164,7 +164,7 @@ public class LevelTopPanel extends JPanel {
 
 	/**
 	 * Returns the xStacyMoveButton object for this panel.
-	 * 
+	 *
 	 * @return the xStacyMoveButton property
 	 */
 	public JButton getXStacyMoveButton() {
@@ -173,7 +173,7 @@ public class LevelTopPanel extends JPanel {
 
 	/**
 	 * Returns the exitLevelButton object for this panel.
-	 * 
+	 *
 	 * @return the exitLevelButton property
 	 */
 	public JButton getExitLevelButton() {

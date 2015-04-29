@@ -40,7 +40,6 @@ public class LightningLevel extends GameLevel {
 			int levelNumber, int timer) throws Exception {
 		super(tileFreq, multFreq, name, tiles, pointThresholds, specialMoves,
 				levelNumber, timer);
-
 		this.type = LevelType.LIGHTNING;
 	}
 }

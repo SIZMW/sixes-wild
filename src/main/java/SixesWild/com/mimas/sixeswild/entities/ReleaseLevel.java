@@ -6,7 +6,7 @@ import java.util.ArrayList;
  * This class is used as a representation of the release level type. The goal in
  * this level is to guide the SixTiles to the TargetTiles by moving tiles below
  * the SixTiles to make them fall downward.
- * 
+ *
  * @author Cameron Jones
  */
 public class ReleaseLevel extends GameLevel {
@@ -15,7 +15,7 @@ public class ReleaseLevel extends GameLevel {
 	 * Creates a ReleaseLevel instance with the specified tile frequencies,
 	 * multiplier frequencies, type, name, tile list, point thresholds, move
 	 * count, special moves and level number.
-	 * 
+	 *
 	 * @param tileFreq
 	 *            The tile frequencies for the level.
 	 * @param multFreq
@@ -37,11 +37,10 @@ public class ReleaseLevel extends GameLevel {
 	 */
 	public ReleaseLevel(ArrayList<Double> tileFreq, ArrayList<Double> multFreq,
 			String name, Tile tiles[][], PointThresholds pointThresholds,
-			int moveCount, SpecialMoves specialMoves, int levelNumber) throws Exception {
-		super(tileFreq, multFreq,name, tiles, pointThresholds,
-				moveCount, specialMoves, levelNumber);
-		
+			int moveCount, SpecialMoves specialMoves, int levelNumber)
+			throws Exception {
+		super(tileFreq, multFreq, name, tiles, pointThresholds, moveCount,
+				specialMoves, levelNumber);
 		this.type = LevelType.RELEASE;
-
 	}
 }

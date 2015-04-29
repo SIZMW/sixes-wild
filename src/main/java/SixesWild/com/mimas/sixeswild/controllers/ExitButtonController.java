@@ -20,7 +20,7 @@ import SixesWild.com.mimas.sixeswild.boundaries.GameApplication;
  * This controller handles exiting a level and returning to the previous menu
  * screen in the game.
  *
- * @author Cameron Jones
+ * @author Aditya Nivarthi
  */
 public class ExitButtonController extends WindowAdapter implements
 		ActionListener {
@@ -42,7 +42,7 @@ public class ExitButtonController extends WindowAdapter implements
 
 	/*
 	 * (non-Javadoc)
-	 *
+	 * 
 	 * @see
 	 * java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
 	 */
@@ -53,7 +53,7 @@ public class ExitButtonController extends WindowAdapter implements
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see
 	 * java.awt.event.WindowAdapter#windowClosing(java.awt.event.WindowEvent)
 	 */

@@ -6,7 +6,7 @@ import javax.swing.event.ListSelectionListener;
 import SixesWild.com.mimas.sixeswild.boundaries.GameApplication;
 import SixesWild.com.mimas.sixeswild.entities.GameLevel;
 import SixesWild.com.mimas.sixeswild.entities.MenuTypes;
-import SixesWild.com.mimas.sixeswild.sixeswild.XMLParser;
+import SixesWild.com.mimas.sixeswild.util.XMLParser;
 
 /**
  * This controller handles updating the user level preview when a selected user
@@ -31,7 +31,7 @@ public class UserLevelListController implements ListSelectionListener {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see
 	 * javax.swing.event.ListSelectionListener#valueChanged(javax.swing.event
 	 * .ListSelectionEvent)
@@ -60,5 +60,4 @@ public class UserLevelListController implements ListSelectionListener {
 									level.getLevelNumber(), MenuTypes.USER));
 		}
 	}
-
 }

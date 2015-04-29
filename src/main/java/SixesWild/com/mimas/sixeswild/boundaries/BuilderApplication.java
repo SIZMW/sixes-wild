@@ -3,11 +3,9 @@ package SixesWild.com.mimas.sixeswild.boundaries;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
-
+import java.net.URL;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
-import java.net.URL;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -81,6 +79,8 @@ public class BuilderApplication {
 		frame.setContentPane(contentPane);
 		frame.setPreferredSize(new Dimension(1000, 700));
 		frame.setMinimumSize(new Dimension(1000, 700));
+
+		// Create splash screen
 		URL splashScreen = getClass().getClassLoader().getResource(
 				"SixesWildDefaultBuilderSplash.png");
 		frame.getContentPane().add(new SplashScreen(splashScreen));

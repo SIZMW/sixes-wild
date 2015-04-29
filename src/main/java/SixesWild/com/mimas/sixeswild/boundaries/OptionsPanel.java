@@ -15,9 +15,9 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JSeparator;
 import javax.swing.JTextField;
+import javax.swing.SwingConstants;
 
 import SixesWild.com.mimas.sixeswild.entities.Aesthetic;
-import javax.swing.SwingConstants;
 
 /**
  * This class represents the options sub menu in the game.
@@ -171,21 +171,35 @@ public class OptionsPanel extends JPanel {
 		rulesLabel.setMaximumSize(new Dimension(400, 100));
 
 		// Rules text
-		ArrayList<String> rulesLabelText = new ArrayList<String>();
-		rulesLabelText.add("<html>");
-		rulesLabelText.add("Rule 01: Select tiles to create a sum equal to six.<br>");
-		rulesLabelText.add("Rule 02: Six tiles cannot be directly manipulated.<br>");
-		rulesLabelText.add("Rule 03: The first star threshold must be completed before the number of moves or the timer has reached zero.<br>");
-		rulesLabelText.add("Rule 04: Marked tiles must become unmarked before the number of moves or the timer reaches zero.<br>");
-		rulesLabelText.add("Rule 05: Each target tile must be occupied by a six tile before  the number of moves or the timer reaches zero.<br>");
-		rulesLabelText.add("Rule 06: Each selection must contain tiles that are connected horizontally and/or vertically.<br>");
-		rulesLabelText.add("</html>");
-		String rules = "";
-		for(String str: rulesLabelText){
-			rules += str;
-		}
-		rulesLabel.setText(rules);
-		
+		StringBuilder rulesLabelText = new StringBuilder();
+		rulesLabelText.append("<html>");
+		rulesLabelText.append("&nbsp;Basic Rules:<br>");
+		rulesLabelText
+				.append("&nbsp;1. Select tiles to create selections that have a total sum of six across the tiles.<br>");
+		rulesLabelText
+				.append("&nbsp;2. Tiles can be selected vertically and horizontally, but not diagonally.<br>");
+		rulesLabelText.append("<br>&nbsp;Game Types:<br>");
+		rulesLabelText
+				.append("&nbsp;1. The Puzzle game type is where you must get as many points in the number of moves given.<br>");
+		rulesLabelText
+				.append("&nbsp;2. The Lightning game type is where you must get as many points in the time given.<br>");
+		rulesLabelText
+				.append("&nbsp;3. The Release game type is where you must guide the Six tiles into the Target buckets.<br>");
+		rulesLabelText
+				.append("&nbsp;4. The Elimination game type is where you must mark every square in the level.<br>");
+		rulesLabelText.append("<br>&nbsp;Special Moves:<br>");
+		rulesLabelText
+				.append("&nbsp;1. The Reset board special move shuffles the tiles in the board if you get stuck.<br>");
+		rulesLabelText
+				.append("&nbsp;2. The Swap tile special move allows you to select two tiles which will switch places.<br>");
+		rulesLabelText
+				.append("&nbsp;3. The Remove tile special move allows you to select a tile to disappear.<br>");
+		rulesLabelText
+				.append("&nbsp;4. The XStacy special move grants ten more moves or twenty seconds on the clock.<br>");
+		rulesLabelText.append("</html>");
+
+		rulesLabel.setText(rulesLabelText.toString());
+
 		// Layout for rules text pane
 		GridBagConstraints gbc_txtpnRules = new GridBagConstraints();
 		gbc_txtpnRules.insets = new Insets(0, 0, 5, 5);

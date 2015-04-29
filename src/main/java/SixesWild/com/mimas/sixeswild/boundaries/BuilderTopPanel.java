@@ -9,7 +9,7 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JPanel;
 
-import SixesWild.com.mimas.sixeswild.sixeswild.XMLParser;
+import SixesWild.com.mimas.sixeswild.util.XMLParser;
 
 /**
  * This class represents the top panel of the level builder. It contains the
@@ -167,26 +167,29 @@ public class BuilderTopPanel extends JPanel {
 	}
 
 	/**
+	 * Returns the userLevelList object for this panel.
+	 *
+	 * @return the userLevelList property
+	 */
+	public ArrayList<String> getUserLevelList() {
+		return this.userLevelList;
+	}
+
+	/**
 	 * Removes all entries from the combo boxes for updating them with new level
 	 * lists.
-	 *
-	 * @return true
 	 */
-	public boolean clearComboBoxes() {
+	public void clearComboBoxes() {
 
 		// Clear both lists for refresh
 		openComboBox.removeAllItems();
 		deleteComboBox.removeAllItems();
-
-		return true;
 	}
 
 	/**
 	 * Updates the drop down menus with the list of user levels.
-	 *
-	 * @return true
 	 */
-	public boolean updateComboBoxes() {
+	public void updateComboBoxes() {
 		userLevelList = XMLParser.getLevelFileNames(XMLParser.USER_DIR);
 
 		// Add the same file list to both drop down menus for consistency
@@ -194,15 +197,5 @@ public class BuilderTopPanel extends JPanel {
 			openComboBox.addItem(e);
 			deleteComboBox.addItem(e);
 		}
-		return true;
-	}
-
-	/**
-	 * Returns the userLevelList object for this panel.
-	 *
-	 * @return the userLevelList property
-	 */
-	public ArrayList<String> getUserLevelList() {
-		return this.userLevelList;
 	}
 }

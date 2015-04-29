@@ -195,7 +195,7 @@ public class Board {
 	}
 
 	/**
-	 * Initializes the board for the game. TODO Will be removed.
+	 * Initializes the board for the game.
 	 */
 	public void randomInitialize() {
 		for (int i = 0; i < this.SIZE_X; i++) {

@@ -49,16 +49,16 @@ public class TestUserProfile extends TestCase {
 	 */
 	public void testHighScores() {
 		// Add high scores
-		assertEquals(currentProfile.getHighScoreOfLevel(1), -1);
+		assertEquals(currentProfile.getHighScoreOfLevel(1), 0);
 		currentProfile.addLevelHighScore(1, 1, 3, MenuTypes.STORY);
 		currentProfile.addLevelHighScore(3, 3, 3, MenuTypes.STORY);
 		assertEquals(currentProfile.getHighScoreOfLevel(1), 1);
-		assertEquals(currentProfile.getHighScoreOfLevel(2), -1);
+		assertEquals(currentProfile.getHighScoreOfLevel(2), 0);
 
 		// Remove high scores
-		currentProfile.removeLevelHighScore(1);
-		currentProfile.removeLevelHighScore(2);
-		assertEquals(currentProfile.getHighScoreOfLevel(1), -1);
+		currentProfile.removeLevelHighScore(1, MenuTypes.STORY);
+		currentProfile.removeLevelHighScore(2, MenuTypes.STORY);
+		assertEquals(currentProfile.getHighScoreOfLevel(1), 0);
 		assertEquals(currentProfile.getHighScoreOfLevel(3), 3);
 	}
 
@@ -92,7 +92,7 @@ public class TestUserProfile extends TestCase {
 		LevelHighScore score2 = currentProfile.getLevelHighScore(2);
 		assertNull(score2);
 
-		assertEquals(currentProfile.getStarsOfLevel(10, MenuTypes.STORY), -1);
+		assertEquals(currentProfile.getStarsOfLevel(10, MenuTypes.STORY), 0);
 	}
 
 	/**
@@ -118,16 +118,6 @@ public class TestUserProfile extends TestCase {
 
 		assertTrue(currentProfile.hasBadge("Hi"));
 		assertFalse(currentProfile.hasBadge("Winner"));
-	}
-
-	/**
-	 * Tests the toString method.
-	 */
-	public void testToString() {
-		currentProfile.addLevelHighScore(1, 1, 3, MenuTypes.STORY);
-		currentProfile.addLevelHighScore(3, 3, 3, MenuTypes.STORY);
-		currentProfile.addBadgeEarned("Win");
-		System.out.println(currentProfile.toString());
 	}
 
 	/**

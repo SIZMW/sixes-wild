@@ -299,6 +299,38 @@ public class BoardViewPanel extends JPanel {
 				.getSquareMargin() * 8))) / 2;
 	}
 
+	/*
+	 * (non-Javadoc)
+	 *
+	 * @see javax.swing.JComponent#paintComponent(java.awt.Graphics)
+	 */
+	@Override
+	protected void paintComponent(Graphics g) {
+		super.paintComponent(g);
+		this.removeAll();
+
+		// Redraw the board view
+		this.drawBoardView();
+		this.updateUI();
+	}
+
+	/**
+	 * Validates the mouse selection over the specified square.
+	 *
+	 * @param mx
+	 *            The horizontal position of the mouse.
+	 * @param my
+	 *            The vertical position of the mouse.
+	 * @param square
+	 *            The square image to verify for mouse selection.
+	 * @return true if the square is selected; false otherwise.
+	 */
+	protected boolean validateMouseSelection(int mx, int my, JLabel square) {
+		return mx - square.getX() > 0 && mx - square.getX() < square.getWidth()
+				&& my - square.getY() > 0
+				&& my - square.getY() < square.getHeight();
+	}
+
 	/**
 	 * Sets the square size offset to the specified offset.
 	 *
@@ -342,36 +374,22 @@ public class BoardViewPanel extends JPanel {
 		this.squareFontTwoSize = small;
 	}
 
-	/*
-	 * (non-Javadoc)
+	/**
+	 * Returns the gameBoard object for this panel.
 	 *
-	 * @see javax.swing.JComponent#paintComponent(java.awt.Graphics)
+	 * @return the gameBoard property
 	 */
-	@Override
-	protected void paintComponent(Graphics g) {
-		super.paintComponent(g);
-		this.removeAll();
-
-		// Redraw the board view
-		this.drawBoardView();
-		this.updateUI();
+	public Board getBoard() {
+		return this.gameBoard;
 	}
 
 	/**
-	 * Validates the mouse selection over the specified square.
+	 * Returns the currentSelection object for this panel.
 	 *
-	 * @param mx
-	 *            The horizontal position of the mouse.
-	 * @param my
-	 *            The vertical position of the mouse.
-	 * @param square
-	 *            The square image to verify for mouse selection.
-	 * @return true if the square is selected; false otherwise.
+	 * @return the currentSelection property
 	 */
-	protected boolean validateMouseSelection(int mx, int my, JLabel square) {
-		return mx - square.getX() > 0 && mx - square.getX() < square.getWidth()
-				&& my - square.getY() > 0
-				&& my - square.getY() < square.getHeight();
+	public Selection getCurrentSelection() {
+		return this.currentSelection;
 	}
 
 	/**
@@ -469,24 +487,6 @@ public class BoardViewPanel extends JPanel {
 	}
 
 	/**
-	 * Returns the gameBoard object for this panel.
-	 *
-	 * @return the gameBoard property
-	 */
-	public Board getBoard() {
-		return this.gameBoard;
-	}
-
-	/**
-	 * Returns the currentSelection object for this panel.
-	 *
-	 * @return the currentSelection property
-	 */
-	public Selection getCurrentSelection() {
-		return this.currentSelection;
-	}
-
-	/**
 	 * Executes the selection in the current selection. Removes the tiles and
 	 * fills the empty squares with newly generated tiles. Returns the current
 	 * selection's calculated score.
@@ -558,7 +558,7 @@ public class BoardViewPanel extends JPanel {
 
 	/**
 	 * Executes the remove tile move.
-	 * 
+	 *
 	 * @param type
 	 *            The type of level being played.
 	 * @return true

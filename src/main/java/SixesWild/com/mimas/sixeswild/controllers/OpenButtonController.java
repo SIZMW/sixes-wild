@@ -11,7 +11,7 @@ import SixesWild.com.mimas.sixeswild.boundaries.BuilderApplication;
 import SixesWild.com.mimas.sixeswild.entities.Board;
 import SixesWild.com.mimas.sixeswild.entities.GameLevel;
 import SixesWild.com.mimas.sixeswild.entities.Tile;
-import SixesWild.com.mimas.sixeswild.sixeswild.XMLParser;
+import SixesWild.com.mimas.sixeswild.util.XMLParser;
 
 /**
  * This controller handles opening a level from a file when the open button is
@@ -188,4 +188,4 @@ public class OpenButtonController implements ActionListener {
 		// Refresh view
 		this.app.getBuilderView().repaint();
 	}
-};
+}

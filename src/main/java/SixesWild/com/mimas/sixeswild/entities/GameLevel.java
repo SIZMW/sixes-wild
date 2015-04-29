@@ -46,7 +46,8 @@ public abstract class GameLevel {
 	 */
 	public GameLevel(ArrayList<Double> tileFreq, ArrayList<Double> multFreq,
 			String name, Tile tiles[][], PointThresholds pointThresholds,
-			int moveCount, SpecialMoves specialMoves, int levelNumber) throws Exception {
+			int moveCount, SpecialMoves specialMoves, int levelNumber)
+			throws Exception {
 		this.type = LevelType.PUZZLE;
 		this.name = name;
 		this.pointThresholds = pointThresholds;
@@ -86,8 +87,9 @@ public abstract class GameLevel {
 	 *             If board construction throws an exception.
 	 */
 	public GameLevel(ArrayList<Double> tileFreq, ArrayList<Double> multFreq,
-			String name, Tile tiles[][],PointThresholds pointThresholds,
-			SpecialMoves specialMoves,int levelNumber, int timer) throws Exception {
+			String name, Tile tiles[][], PointThresholds pointThresholds,
+			SpecialMoves specialMoves, int levelNumber, int timer)
+			throws Exception {
 		this.type = LevelType.PUZZLE;
 		this.name = name;
 		this.pointThresholds = pointThresholds;
@@ -107,7 +109,6 @@ public abstract class GameLevel {
 	public LevelType getType() {
 		return this.type;
 	}
-
 
 	/**
 	 * Return the name of the level.

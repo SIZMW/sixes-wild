@@ -15,12 +15,12 @@ import SixesWild.com.mimas.sixeswild.controllers.ExitButtonController;
  *
  * @author Aditya Nivarthi
  */
-public class EndLevelPopUpPane extends JDialog {
+public class EndLevelPopUpDialog extends JDialog {
 
 	private static final long serialVersionUID = 1L;
 
 	/**
-	 * Creates an EndLevelPopUpPane with the specified GameApplication and
+	 * Creates an EndLevelPopUpDialog with the specified GameApplication and
 	 * message.
 	 *
 	 * @param app
@@ -28,19 +28,25 @@ public class EndLevelPopUpPane extends JDialog {
 	 * @param message
 	 *            The custom text to display.
 	 */
-	public EndLevelPopUpPane(GameApplication app, String message) {
+	public EndLevelPopUpDialog(GameApplication app, String message) {
 		this.setTitle("Game Over");
 		this.setSize(new Dimension(300, 100));
+
+		// Set location to set of game application
 		this.setLocation(app.getFrame().getX()
 				+ (app.getFrame().getWidth() / 2) - (this.getWidth() / 2),
 				app.getFrame().getY() + (app.getFrame().getHeight() / 2)
 						- (this.getHeight() / 2));
+
+		// Layout for panel
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		gridBagLayout.columnWidths = new int[] { 0 };
 		gridBagLayout.rowHeights = new int[] { 0 };
 		gridBagLayout.columnWeights = new double[] { Double.MIN_VALUE };
 		gridBagLayout.rowWeights = new double[] { Double.MIN_VALUE };
 		getContentPane().setLayout(gridBagLayout);
+
+		// Add message
 		JLabel textMessage = new JLabel(message);
 		textMessage.setFont(new Font("Monospace", Font.PLAIN, 18));
 		this.add(textMessage);

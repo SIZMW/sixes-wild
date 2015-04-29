@@ -2,9 +2,11 @@ package SixesWild.com.mimas.sixeswild.controllers;
 
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import SixesWild.com.mimas.sixeswild.boundaries.GameApplication;
-import SixesWild.com.mimas.sixeswild.sixeswild.XMLParser;
+import SixesWild.com.mimas.sixeswild.util.XMLParser;
 
 /**
  * This controller handles all the saving that is required when the game
@@ -13,6 +15,8 @@ import SixesWild.com.mimas.sixeswild.sixeswild.XMLParser;
  * @author Aditya Nivarthi
  */
 public class GameCloseWindowController extends WindowAdapter {
+
+	private static final Logger logger = Logger.getGlobal();
 
 	protected GameApplication app;
 
@@ -29,7 +33,7 @@ public class GameCloseWindowController extends WindowAdapter {
 
 	/*
 	 * (non-Javadoc)
-	 *
+	 * 
 	 * @see
 	 * java.awt.event.WindowAdapter#windowClosing(java.awt.event.WindowEvent)
 	 */
@@ -38,5 +42,6 @@ public class GameCloseWindowController extends WindowAdapter {
 
 		// Save the current user profile
 		XMLParser.userProfileToFile(this.app.getCurrentUserProfile());
+		logger.log(Level.INFO, "Game is quitting now.");
 	}
 }

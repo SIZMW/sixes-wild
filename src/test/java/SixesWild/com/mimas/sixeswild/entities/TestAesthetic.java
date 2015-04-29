@@ -5,7 +5,7 @@ import java.awt.Color;
 import junit.framework.TestCase;
 
 /**
- * This test case handles the aesthetic options.
+ * This test case handles all coverage for the Aesthetic class.
  *
  * @author Marco Duran
  */
@@ -25,7 +25,7 @@ public class TestAesthetic extends TestCase {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see junit.framework.TestCase#setUp()
 	 */
 	@Override
@@ -44,16 +44,6 @@ public class TestAesthetic extends TestCase {
 
 		aesthetic = new Aesthetic(name, gray, red, black, blue, green, magenta,
 				yellow, cyan, orange);
-
-	}
-
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see junit.framework.TestCase#tearDown()
-	 */
-	@Override
-	public void tearDown() {
 	}
 
 	/**

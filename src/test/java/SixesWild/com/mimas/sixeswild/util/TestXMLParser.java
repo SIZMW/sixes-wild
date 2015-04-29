@@ -1,4 +1,4 @@
-package SixesWild.com.mimas.sixeswild.sixeswild;
+package SixesWild.com.mimas.sixeswild.util;
 
 import java.util.ArrayList;
 
@@ -14,6 +14,7 @@ import SixesWild.com.mimas.sixeswild.entities.SpecialMoves;
 import SixesWild.com.mimas.sixeswild.entities.Tile;
 import SixesWild.com.mimas.sixeswild.entities.TileType;
 import SixesWild.com.mimas.sixeswild.entities.UserProfile;
+import SixesWild.com.mimas.sixeswild.util.XMLParser;
 
 /**
  * This test case handles all coverage for the XMLParser class.
@@ -197,7 +198,6 @@ public class TestXMLParser extends TestCase {
 			assertEquals(level1.getBoard().getSquare(1, 7).getTile().getType(),
 					level2.getBoard().getSquare(1, 7).getTile().getType());
 		} catch (Exception e1) {
-
 		}
 	}
 }
