@@ -1,43 +1,41 @@
 package SixesWild.com.mimas.sixeswild.entities;
 
 /**
- * Checks to see if the score for the level has reached the criteria of the
- * badge.
+ * ScoreBadge represents a badge that is unlocked when a specified score has
+ * been achieved during gameplay.
  *
  * @author Marco Duran
  */
 public class ScoreBadge extends Badge {
-	int criteriaScore;
+
+	protected int requiredScore;
 
 	/**
-	 * Constructor for a score badge.
+	 * Creates a ScoreBadge instance with the specified name, description and
+	 * required score.
 	 *
 	 * @param name
-	 *            Name of badge
+	 *            The name of the badge.
 	 * @param description
-	 *            Description of badge
-	 * @param isUnlocked
-	 *            Verify if badge is unlocked
-	 * @param criteriaScore
-	 *            Score to be fulfilled
+	 *            The description of the badge.
+	 * @param score
+	 *            The score that must be achieved to unlock this badge.
 	 */
-	public ScoreBadge(String name, String description, boolean isUnlocked,
-			int criteriaScore) {
-		super(name, description, isUnlocked);
-		this.criteriaScore = criteriaScore;
+	public ScoreBadge(String name, String description, int score) {
+		super(name, description);
+		requiredScore = score;
+		type = BadgeType.SCORE;
 	}
 
 	/**
-	 * Unlocks the badge.
+	 * Determines if this badge can be unlocked with the specified score.
 	 *
 	 * @param score
-	 *            Score of the current game, is compared to criteria score.
+	 *            The score to verify against the badge requirements.
+	 * @return true if badge can be unlocked; false otherwise
 	 */
-	public void unlock(int score) {
-		if (score > criteriaScore) {
-			isUnlocked = true;
-		} else {
-			isUnlocked = false;
-		}
+	@Override
+	public boolean unlock(int score) {
+		return (score > requiredScore);
 	}
 }

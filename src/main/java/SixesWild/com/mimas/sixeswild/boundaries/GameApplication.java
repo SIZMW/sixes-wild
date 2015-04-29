@@ -13,6 +13,7 @@ import javax.swing.JPanel;
 import javax.swing.UIManager;
 import javax.swing.border.EmptyBorder;
 
+import SixesWild.com.mimas.sixeswild.controllers.BadgesListController;
 import SixesWild.com.mimas.sixeswild.controllers.BadgesMenuButtonController;
 import SixesWild.com.mimas.sixeswild.controllers.CreditsMenuButtonController;
 import SixesWild.com.mimas.sixeswild.controllers.GameCloseWindowController;
@@ -24,7 +25,11 @@ import SixesWild.com.mimas.sixeswild.controllers.StoryMenuButtonController;
 import SixesWild.com.mimas.sixeswild.controllers.UserLevelListController;
 import SixesWild.com.mimas.sixeswild.controllers.UserLevelMenuButtonController;
 import SixesWild.com.mimas.sixeswild.entities.Aesthetic;
+import SixesWild.com.mimas.sixeswild.entities.Badge;
 import SixesWild.com.mimas.sixeswild.entities.MenuTypes;
+import SixesWild.com.mimas.sixeswild.entities.ScoreBadge;
+import SixesWild.com.mimas.sixeswild.entities.StarBadge;
+import SixesWild.com.mimas.sixeswild.entities.UnlockBadge;
 import SixesWild.com.mimas.sixeswild.entities.UserProfile;
 import SixesWild.com.mimas.sixeswild.util.XMLParser;
 
@@ -48,9 +53,7 @@ public class GameApplication {
 
 	protected ArrayList<String> storyLevelList;
 	protected ArrayList<String> userLevelList;
-	protected ArrayList<String> badgesList;
-
-	// TODO Populate the list of badges
+	protected ArrayList<Badge> badgesList;
 
 	/**
 	 * Creates a GameApplication instance and initializes it.
@@ -79,11 +82,8 @@ public class GameApplication {
 		storyLevelList = XMLParser.getLevelFileNames(XMLParser.STORY_DIR);
 		userLevelList = XMLParser.getLevelFileNames(XMLParser.USER_DIR);
 
-		// Temporary generation of badge listing
-		badgesList = new ArrayList<String>();
-		for (int i = 1; i <= 20; i++) {
-			badgesList.add("Badge " + i);
-		}
+		badgesList = new ArrayList<Badge>();
+		setUpBadges();
 
 		// Set up user profile
 		setCurrentUserProfile("Default");
@@ -147,13 +147,17 @@ public class GameApplication {
 				.addActionListener(
 						new PlayButtonController(this, MenuTypes.USER));
 
+		// Badges view
+		gameMenuView.getBadgeMenuView().getBadgesList()
+				.addListSelectionListener(new BadgesListController(this));
+
 		// Splash screen
 		getFrame().addKeyListener(new GameSplashScreenController(this));
 
 		// Level list previews
-		gameMenuView.getStoryMenuView().levelList
+		gameMenuView.getStoryMenuView().getLevelList()
 				.addListSelectionListener(new StoryLevelListController(this));
-		gameMenuView.getUserMenuView().levelList
+		gameMenuView.getUserMenuView().getLevelList()
 				.addListSelectionListener(new UserLevelListController(this));
 
 		logger.log(Level.FINE, "GameApplication controllers initialized.");
@@ -187,6 +191,22 @@ public class GameApplication {
 		currentAesthetic = aestheticList.get(0);
 
 		logger.log(Level.FINE, "GameApplication aesthetic listing initialized.");
+	}
+
+	/**
+	 * Set up the badges that can be achieved.
+	 */
+	protected void setUpBadges() {
+		for (int i = 5000; i < 40000; i += 5000) {
+			badgesList.add(new ScoreBadge(i + " points", i + " points", i));
+		}
+
+		for (int i = 1; i <= 3; i++) {
+			badgesList.add(new StarBadge(i + " stars", i + " stars", i));
+		}
+
+		badgesList.add(new UnlockBadge("Unlock all levels",
+				"Unlock all levels", 16));
 	}
 
 	/**
@@ -244,6 +264,15 @@ public class GameApplication {
 	 */
 	public UserProfile getCurrentUserProfile() {
 		return currentUserProfile;
+	}
+
+	/**
+	 * Returns the badgesList object for this class.
+	 *
+	 * @return the badgesList property
+	 */
+	public ArrayList<Badge> getBadgesList() {
+		return badgesList;
 	}
 
 	/**

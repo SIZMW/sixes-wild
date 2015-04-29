@@ -6,10 +6,11 @@ package SixesWild.com.mimas.sixeswild.entities;
  *
  * @author Marco Duran
  */
-public class Badge {
+public abstract class Badge {
+
 	protected String name;
 	protected String description;
-	protected boolean isUnlocked;
+	protected BadgeType type;
 
 	/**
 	 * Creates a Badge instance with the specified name, description and
@@ -19,27 +20,11 @@ public class Badge {
 	 *            The name of the badge.
 	 * @param description
 	 *            The description of the badge.
-	 * @param isUnlocked
-	 *            The locked status of the badge.
 	 */
-	public Badge(String name, String description, boolean isUnlocked) {
+	public Badge(String name, String description) {
 		this.name = name;
 		this.description = description;
-		this.isUnlocked = isUnlocked;
-	}
-
-	/**
-	 * Unlocks the badge.
-	 */
-	public void unlock() {
-		isUnlocked = true;
-	}
-
-	/**
-	 * Locks the badge.
-	 */
-	public void lock() {
-		isUnlocked = false;
+		type = BadgeType.UNLOCK;
 	}
 
 	/**
@@ -61,15 +46,19 @@ public class Badge {
 	}
 
 	/**
+	 * Returns the type of the badge.
+	 *
+	 * @return a BadgeType
+	 */
+	public BadgeType getType() {
+		return type;
+	}
+
+	/**
 	 * Determines if this badge can be unlocked.
 	 *
-	 * @return true if the badge can be unlocked; false otherwise.
+	 * @param value
+	 *            The value required to determine if this badge is unlocked.
 	 */
-	public boolean canBeUnlocked() {
-		boolean unlocked = false;
-		if (isUnlocked) {
-			unlocked = true;
-		}
-		return unlocked;
-	}
+	public abstract boolean unlock(int value);
 }

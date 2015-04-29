@@ -18,6 +18,8 @@ import javax.swing.JPanel;
 import javax.swing.Timer;
 
 import SixesWild.com.mimas.sixeswild.entities.Aesthetic;
+import SixesWild.com.mimas.sixeswild.entities.Badge;
+import SixesWild.com.mimas.sixeswild.entities.BadgeType;
 import SixesWild.com.mimas.sixeswild.entities.Board;
 import SixesWild.com.mimas.sixeswild.entities.GameLevel;
 import SixesWild.com.mimas.sixeswild.entities.LevelType;
@@ -250,7 +252,7 @@ public class LevelView extends JPanel {
 
 				/*
 				 * (non-Javadoc)
-				 * 
+				 *
 				 * @see
 				 * java.awt.event.ActionListener#actionPerformed(java.awt.event
 				 * .ActionEvent)
@@ -434,6 +436,25 @@ public class LevelView extends JPanel {
 			} else if (currentMenuType.equals(MenuTypes.USER)) {
 				app.getCurrentUserProfile().setHighestUserLevel(
 						currentLevel.getLevelNumber() + 1);
+			}
+		}
+
+		// Check if badges are unlocked
+		for (Badge e : app.getBadgesList()) {
+			if (e.getType().equals(BadgeType.SCORE)) {
+				if (e.unlock(currentScore)) {
+					app.getCurrentUserProfile().addBadgeEarned(e.getName());
+				}
+			} else if (e.getType().equals(BadgeType.STAR)) {
+				if (e.unlock(currentLevel.getPointThresholds()
+						.getStarsForScore(currentScore))) {
+					app.getCurrentUserProfile().addBadgeEarned(e.getName());
+				}
+			} else if (e.getType().equals(BadgeType.UNLOCK)) {
+				if (e.unlock(app.getCurrentUserProfile()
+						.getHighestStoryLevelUnlocked())) {
+					app.getCurrentUserProfile().addBadgeEarned(e.getName());
+				}
 			}
 		}
 

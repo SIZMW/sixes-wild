@@ -15,6 +15,8 @@ import javax.swing.JScrollPane;
 import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
 
+import SixesWild.com.mimas.sixeswild.entities.Badge;
+
 /**
  * This class represents the view used to show badges that the player has
  * completed or has not completed in the game menu.
@@ -29,8 +31,9 @@ public class BadgesPanel extends JPanel {
 	protected DefaultListModel<String> badgeListModel;
 	protected JScrollPane badgeScrollPane;
 	protected JPanel previewPanel;
-	protected ArrayList<String> badgeNames;
+	protected ArrayList<Badge> badgeNames;
 	protected JLabel badgesPreviewLabel;
+	protected JList<String> badgesList;
 
 	/**
 	 * Creates a BadgesPanel instance with the specified list of badge names.
@@ -38,7 +41,7 @@ public class BadgesPanel extends JPanel {
 	 * @param badgeNames
 	 *            The list of badge names.
 	 */
-	public BadgesPanel(ArrayList<String> badgeNames) {
+	public BadgesPanel(ArrayList<Badge> badgeNames) {
 
 		// Attributes
 		this.badgeNames = badgeNames;
@@ -53,17 +56,17 @@ public class BadgesPanel extends JPanel {
 
 		// Add the list of badge names
 		badgeListModel = new DefaultListModel<String>();
-		for (String e : this.badgeNames) {
-			badgeListModel.addElement(e);
+		for (Badge e : this.badgeNames) {
+			badgeListModel.addElement(e.getName());
 		}
 
 		// Badge list scroll pane
 		badgeScrollPane = new JScrollPane();
-		JList<String> list = new JList<String>(badgeListModel);
-		list.setPreferredSize(new Dimension(100, 100));
-		list.setMinimumSize(new Dimension(100, 100));
-		list.setMaximumSize(new Dimension(100, 100));
-		badgeScrollPane.setViewportView(list);
+		badgesList = new JList<String>(badgeListModel);
+		badgesList.setPreferredSize(new Dimension(100, 100));
+		badgesList.setMinimumSize(new Dimension(100, 100));
+		badgesList.setMaximumSize(new Dimension(100, 100));
+		badgeScrollPane.setViewportView(badgesList);
 
 		// Layout for scroll pane
 		GridBagConstraints gbc_list = new GridBagConstraints();
@@ -119,11 +122,20 @@ public class BadgesPanel extends JPanel {
 	}
 
 	/**
+	 * Returns the badgesList object for this panel.
+	 * 
+	 * @return the badgesList property.
+	 */
+	public JList<String> getBadgesList() {
+		return badgesList;
+	}
+
+	/**
 	 * Returns the badgeNamesobject for this panel.
 	 *
 	 * @return the badgeNames property
 	 */
-	public ArrayList<String> getBadgeNameList() {
+	public ArrayList<Badge> getBadgeNameList() {
 		return badgeNames;
 	}
 
