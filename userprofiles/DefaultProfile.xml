@@ -6,9 +6,15 @@
     <Name>5000 points</Name>
     <Name>10000 points</Name>
     <Name>1 stars</Name>
+    <Name>5000 points</Name>
+    <Name>10000 points</Name>
+    <Name>15000 points</Name>
+    <Name>1 stars</Name>
+    <Name>2 stars</Name>
+    <Name>3 stars</Name>
   </Badges>
   <LevelScores>
-    <Level level="1" score="11300" stars="2" type="STORY"/>
+    <Level level="1" score="18890" stars="3" type="STORY"/>
   </LevelScores>
   <Aesthetic/>
 </UserProfile>

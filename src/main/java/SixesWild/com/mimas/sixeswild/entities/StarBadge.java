@@ -36,6 +36,6 @@ public class StarBadge extends Badge {
 	 */
 	@Override
 	public boolean unlock(int stars) {
-		return (stars > requiredStars);
+		return (stars >= requiredStars);
 	}
 }

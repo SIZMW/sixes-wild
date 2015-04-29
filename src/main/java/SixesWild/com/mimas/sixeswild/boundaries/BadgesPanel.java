@@ -113,6 +113,15 @@ public class BadgesPanel extends JPanel {
 	}
 
 	/**
+	 * Returns the badgesPreviewLabel object for this panel.
+	 *
+	 * @return the badgesPreviewLabel property
+	 */
+	public JLabel getbBadgesPreviewLabel() {
+		return badgesPreviewLabel;
+	}
+
+	/**
 	 * Returns the previewPanel object for this panel.
 	 *
 	 * @return the previewPanel property
@@ -123,7 +132,7 @@ public class BadgesPanel extends JPanel {
 
 	/**
 	 * Returns the badgesList object for this panel.
-	 * 
+	 *
 	 * @return the badgesList property.
 	 */
 	public JList<String> getBadgesList() {

@@ -1,8 +1,5 @@
 package SixesWild.com.mimas.sixeswild.controllers;
 
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
@@ -12,11 +9,9 @@ import SixesWild.com.mimas.sixeswild.boundaries.GameApplication;
  * This controller displays the preview for the selected badge in the badges
  * list menu.
  *
- * @author Marco Duran
+ * @author Aditya Nivarthi
  */
 public class BadgesListController implements ListSelectionListener {
-
-	private static final Logger logger = Logger.getGlobal();
 
 	protected GameApplication app;
 
@@ -33,7 +28,7 @@ public class BadgesListController implements ListSelectionListener {
 
 	/*
 	 * (non-Javadoc)
-	 *
+	 * 
 	 * @see
 	 * javax.swing.event.ListSelectionListener#valueChanged(javax.swing.event
 	 * .ListSelectionEvent)
@@ -44,10 +39,14 @@ public class BadgesListController implements ListSelectionListener {
 					.getBadgesList().getSelectedValue();
 			for (String b : app.getCurrentUserProfile().getBadgesEarned()) {
 				if (b.equals(badgeName)) {
-					logger.log(Level.INFO, "Badge unlocked.");
+					app.getGameMenuView().getBadgeMenuView()
+							.getbBadgesPreviewLabel().setText(badgeName);
+					return;
 				}
 			}
-			// TODO Update the preview
+
+			app.getGameMenuView().getBadgeMenuView().getbBadgesPreviewLabel()
+					.setText("???");
 		}
 	}
 }
