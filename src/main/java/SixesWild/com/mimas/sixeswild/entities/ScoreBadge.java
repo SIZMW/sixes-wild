@@ -36,6 +36,6 @@ public class ScoreBadge extends Badge {
 	 */
 	@Override
 	public boolean unlock(int score) {
-		return (score > requiredScore);
+		return (score >= requiredScore);
 	}
 }

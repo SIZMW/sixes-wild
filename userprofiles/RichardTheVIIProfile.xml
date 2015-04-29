@@ -1,8 +1,32 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <UserProfile user="RichardTheVII">
-  <HighestStoryLevelUnlocked>1</HighestStoryLevelUnlocked>
+  <HighestStoryLevelUnlocked>5</HighestStoryLevelUnlocked>
   <HighestUserLevelUnlocked>1</HighestUserLevelUnlocked>
-  <Badges/>
-  <LevelScores/>
+  <Badges>
+    <Name>5000 points</Name>
+    <Name>10000 points</Name>
+    <Name>1 stars</Name>
+    <Name>2 stars</Name>
+    <Name>5000 points</Name>
+    <Name>5000 points</Name>
+    <Name>5000 points</Name>
+    <Name>5000 points</Name>
+    <Name>5000 points</Name>
+    <Name>5000 points</Name>
+    <Name>5000 points</Name>
+    <Name>5000 points</Name>
+    <Name>5000 points</Name>
+    <Name>5000 points</Name>
+    <Name>5000 points</Name>
+    <Name>5000 points</Name>
+    <Name>5000 points</Name>
+    <Name>10000 points</Name>
+  </Badges>
+  <LevelScores>
+    <Level level="1" score="12410" stars="3" type="STORY"/>
+    <Level level="2" score="8290" stars="1" type="STORY"/>
+    <Level level="3" score="13950" stars="1" type="STORY"/>
+    <Level level="4" score="1860" stars="1" type="STORY"/>
+  </LevelScores>
   <Aesthetic/>
 </UserProfile>

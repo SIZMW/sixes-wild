@@ -7,8 +7,8 @@ import junit.framework.TestCase;
  *
  * @author Marco Duran
  */
-public class TestScoreBadge extends TestCase {
-	ScoreBadge badge;
+public class TestStarBadge extends TestCase {
+	StarBadge badge;
 	String name;
 	String description;
 
@@ -22,7 +22,7 @@ public class TestScoreBadge extends TestCase {
 		name = "Test1";
 		description = "This is a test";
 
-		badge = new ScoreBadge(name, description, 10);
+		badge = new StarBadge(name, description, 10);
 	}
 
 	/**
@@ -31,6 +31,6 @@ public class TestScoreBadge extends TestCase {
 	public void testBadgeMethods() {
 		assertEquals(badge.getName(), name);
 		assertEquals(badge.getDescription(), description);
-		assertTrue(badge.unlock(13));
+		assertTrue(badge.unlock(10));
 	}
 }
