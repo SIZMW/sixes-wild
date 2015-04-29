@@ -4,6 +4,7 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -27,6 +28,7 @@ import SixesWild.com.mimas.sixeswild.controllers.SpecialMoveThreeIncreaseButtonC
 import SixesWild.com.mimas.sixeswild.controllers.SpecialMoveTwoDecreaseButtonController;
 import SixesWild.com.mimas.sixeswild.controllers.SpecialMoveTwoIncreaseButtonController;
 import SixesWild.com.mimas.sixeswild.entities.Aesthetic;
+import SixesWild.com.mimas.sixeswild.entities.Square;
 
 /**
  * This class represents the Builder application that will run and handle the
@@ -41,6 +43,9 @@ public class BuilderApplication {
 	protected JFrame frame;
 	protected BuilderView builderView;
 	protected Aesthetic aesthetic;
+
+	protected ArrayList<Square> undoList;
+	protected ArrayList<Square> redoList;
 
 	/**
 	 * Creates a BuilderApplication instance and initializes it.
@@ -60,6 +65,10 @@ public class BuilderApplication {
 		} catch (Exception e) {
 			logger.log(Level.WARNING, "System look and feel failed to load.", e);
 		}
+
+		// Set up undo and redo lists
+		undoList = new ArrayList<Square>();
+		redoList = new ArrayList<Square>();
 
 		// Set up default aesthetic
 		aesthetic = new Aesthetic("ROYGBIV", Color.white, Color.RED, new Color(
@@ -168,5 +177,23 @@ public class BuilderApplication {
 	 */
 	public Aesthetic getAesthetic() {
 		return aesthetic;
+	}
+
+	/**
+	 * Returns the list of undo actions.
+	 * 
+	 * @return an ArrayList
+	 */
+	public ArrayList<Square> getUndoList() {
+		return undoList;
+	}
+
+	/**
+	 * Returns the list of redo actions.
+	 *
+	 * @return an ArrayList
+	 */
+	public ArrayList<Square> getRedoList() {
+		return undoList;
 	}
 }
