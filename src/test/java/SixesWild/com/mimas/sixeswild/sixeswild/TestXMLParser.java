@@ -109,12 +109,12 @@ public class TestXMLParser extends TestCase {
 		assertEquals(userProfile1.getHighScoreOfLevel(3),
 				userProfile2.getHighScoreOfLevel(3));
 
-		assertEquals(userProfile1.getStarsOfLevel(1),
-				userProfile2.getStarsOfLevel(1));
-		assertEquals(userProfile1.getStarsOfLevel(2),
-				userProfile2.getStarsOfLevel(2));
-		assertEquals(userProfile1.getStarsOfLevel(3),
-				userProfile2.getStarsOfLevel(3));
+		assertEquals(userProfile1.getStarsOfLevel(1, MenuTypes.STORY),
+				userProfile2.getStarsOfLevel(1, MenuTypes.STORY));
+		assertEquals(userProfile1.getStarsOfLevel(2, MenuTypes.STORY),
+				userProfile2.getStarsOfLevel(2, MenuTypes.STORY));
+		assertEquals(userProfile1.getStarsOfLevel(3, MenuTypes.STORY),
+				userProfile2.getStarsOfLevel(3, MenuTypes.STORY));
 
 	}
 

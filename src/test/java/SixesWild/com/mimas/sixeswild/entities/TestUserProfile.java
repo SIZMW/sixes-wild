@@ -16,7 +16,7 @@ public class TestUserProfile extends TestCase {
 
 	/*
 	 * (non-Javadoc)
-	 *
+	 * 
 	 * @see junit.framework.TestCase#setUp()
 	 */
 	@Override
@@ -80,7 +80,7 @@ public class TestUserProfile extends TestCase {
 		currentProfile.addLevelHighScore(3, 3, 3, MenuTypes.STORY);
 		assertEquals(3, currentProfile.getHighestStoryLevelUnlocked());
 		assertEquals(3, currentProfile.getHighScoreOfLevel(3));
-		assertEquals(3, currentProfile.getStarsOfLevel(3));
+		assertEquals(3, currentProfile.getStarsOfLevel(3, MenuTypes.STORY));
 
 		// Get LevelHighScore object
 		LevelHighScore score = currentProfile.getLevelHighScore(3);
@@ -92,7 +92,7 @@ public class TestUserProfile extends TestCase {
 		LevelHighScore score2 = currentProfile.getLevelHighScore(2);
 		assertNull(score2);
 
-		assertEquals(currentProfile.getStarsOfLevel(10), -1);
+		assertEquals(currentProfile.getStarsOfLevel(10, MenuTypes.STORY), -1);
 	}
 
 	/**

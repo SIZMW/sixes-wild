@@ -38,6 +38,7 @@ public class LevelSelectionPanel extends JPanel {
 	protected ArrayList<String> levelNames;
 	protected JList<String> levelList;
 	protected BoardViewPanel boardPreviewPanel;
+	protected StarGraphicsPanel starGraphicsPanel;
 	protected final int previewSize = 350;
 	protected Board nullBoard;
 
@@ -102,11 +103,11 @@ public class LevelSelectionPanel extends JPanel {
 
 		GridBagLayout gbl_panel = new GridBagLayout();
 		gbl_panel.columnWidths = new int[] { 0, 0, 0, 0 };
-		gbl_panel.rowHeights = new int[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+		gbl_panel.rowHeights = new int[] { 0, 0, 0, 0, 0, 0 };
 		gbl_panel.columnWeights = new double[] { 1.0, 1.0, 1.0,
 				Double.MIN_VALUE };
-		gbl_panel.rowWeights = new double[] { 1.0, 1.0, 1.0, 1.0, 1.0, 1.0,
-				1.0, 1.0, 1.0, 1.0, Double.MIN_VALUE };
+		gbl_panel.rowWeights = new double[] { 1.0, 1.0, 2.0, 0.0, 1.0,
+				Double.MIN_VALUE };
 		previewPanel.setLayout(gbl_panel);
 
 		// Populates a null board
@@ -121,31 +122,41 @@ public class LevelSelectionPanel extends JPanel {
 			nullBoard = new Board(nullTiles, new ArrayList<Double>(
 					Arrays.asList(.1, .2, .3, .3, .05, .05)),
 					new ArrayList<Double>(Arrays.asList(.5, .25, .25)));
-
-			// Level preview label
-			boardPreviewPanel = new BoardViewPanel(nullBoard, aesthetic);
-			boardPreviewPanel.setSquareOffset(3);
-			boardPreviewPanel.setFontSizes(4, 2);
-			boardPreviewPanel.setPreferredSize(new Dimension(previewSize,
-					previewSize));
-			boardPreviewPanel.setMaximumSize(new Dimension(previewSize,
-					previewSize));
-			boardPreviewPanel.setMinimumSize(new Dimension(previewSize,
-					previewSize));
-			boardPreviewPanel.setBorder(new LineBorder(new Color(0, 0, 0)));
-			boardPreviewPanel.setBackground(Color.WHITE);
-			boardPreviewPanel.setSize(new Dimension(previewSize, previewSize));
-
-			// Layout for level preview label
-			GridBagConstraints gbc_lblLevelPreview = new GridBagConstraints();
-			gbc_lblLevelPreview.fill = GridBagConstraints.BOTH;
-			gbc_lblLevelPreview.gridheight = 3;
-			gbc_lblLevelPreview.insets = new Insets(0, 0, 5, 5);
-			gbc_lblLevelPreview.gridx = 1;
-			gbc_lblLevelPreview.gridy = 1;
-			previewPanel.add(boardPreviewPanel, gbc_lblLevelPreview);
 		} catch (Exception e) {
 		}
+
+		// Level preview panel
+		boardPreviewPanel = new BoardViewPanel(nullBoard, aesthetic);
+		boardPreviewPanel.setSquareOffset(3);
+		boardPreviewPanel.setFontSizes(4, 2);
+		boardPreviewPanel.setPreferredSize(new Dimension(previewSize,
+				previewSize));
+		boardPreviewPanel
+				.setMaximumSize(new Dimension(previewSize, previewSize));
+		boardPreviewPanel
+				.setMinimumSize(new Dimension(previewSize, previewSize));
+		boardPreviewPanel.setBorder(new LineBorder(new Color(0, 0, 0)));
+		boardPreviewPanel.setBackground(Color.WHITE);
+		boardPreviewPanel.setSize(new Dimension(previewSize, previewSize));
+
+		// Layout for level preview label
+		GridBagConstraints gbc_boardPreview = new GridBagConstraints();
+		gbc_boardPreview.fill = GridBagConstraints.BOTH;
+		gbc_boardPreview.insets = new Insets(0, 0, 5, 5);
+		gbc_boardPreview.gridx = 1;
+		gbc_boardPreview.gridy = 0;
+		previewPanel.add(boardPreviewPanel, gbc_boardPreview);
+
+		// Star graphics panel
+		starGraphicsPanel = new StarGraphicsPanel();
+		starGraphicsPanel.setPreferredSize(new Dimension(previewSize, 100));
+		starGraphicsPanel.setOrientationToHorizontal(true);
+		GridBagConstraints gbc_starPanel = new GridBagConstraints();
+		gbc_starPanel.fill = GridBagConstraints.CENTER;
+		gbc_starPanel.insets = new Insets(0, 0, 5, 5);
+		gbc_starPanel.gridx = 1;
+		gbc_starPanel.gridy = 2;
+		previewPanel.add(starGraphicsPanel, gbc_starPanel);
 
 		// Play level button
 		playLevelButton = new JButton("Play Level");
@@ -154,7 +165,7 @@ public class LevelSelectionPanel extends JPanel {
 		GridBagConstraints gbc_btnPlay = new GridBagConstraints();
 		gbc_btnPlay.insets = new Insets(0, 0, 0, 5);
 		gbc_btnPlay.gridx = 1;
-		gbc_btnPlay.gridy = 9;
+		gbc_btnPlay.gridy = 4;
 		previewPanel.add(playLevelButton, gbc_btnPlay);
 	}
 
@@ -195,9 +206,9 @@ public class LevelSelectionPanel extends JPanel {
 	}
 
 	/**
-	 * Returns the level preview panel
+	 * Returns the level preview panel.
 	 *
-	 * @return the boardPreviewPanel for the level preview
+	 * @return the boardPreviewPanel for this panel.
 	 */
 	public BoardViewPanel getLevelPreviewPanel() {
 		return this.boardPreviewPanel;
@@ -212,6 +223,15 @@ public class LevelSelectionPanel extends JPanel {
 	public void resetPreviewPanel(Aesthetic aesthetic) {
 		this.boardPreviewPanel.setBoard(nullBoard);
 		this.boardPreviewPanel.setAesthetic(aesthetic);
+	}
+
+	/**
+	 * Returns the star graphics panel.
+	 *
+	 * @return the starGraphicsPanel for this panel.
+	 */
+	public StarGraphicsPanel getStarGraphicsPanel() {
+		return this.starGraphicsPanel;
 	}
 
 	/**

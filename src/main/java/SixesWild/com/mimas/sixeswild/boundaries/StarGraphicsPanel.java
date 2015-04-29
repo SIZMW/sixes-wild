@@ -21,6 +21,7 @@ public class StarGraphicsPanel extends JPanel {
 
 	protected BufferedImage image;
 	protected int currentStars;
+	protected boolean isHoriztonal;
 	protected URL noStars = getClass().getClassLoader().getResource(
 			"StarGraphicNOStars.png");
 	protected URL oneStars = getClass().getClassLoader().getResource(
@@ -38,6 +39,7 @@ public class StarGraphicsPanel extends JPanel {
 		// Attributes
 		this.currentStars = 0;
 		this.setNewStarImage();
+		this.isHoriztonal = false;
 
 		// Layout of panel
 		GridBagLayout gridBagLayout = new GridBagLayout();
@@ -59,7 +61,24 @@ public class StarGraphicsPanel extends JPanel {
 	protected void paintComponent(Graphics g) {
 		super.paintComponent(g);
 		Graphics2D g2 = (Graphics2D) g;
-		g2.drawImage(image, 0, 0, this.getWidth(), this.getHeight(), null);
+		if (!this.isHoriztonal) {
+			g2.drawImage(image, 0, 0, this.getWidth(), this.getHeight(), null);
+		} else {
+			g2.rotate(Math.PI / 2);
+			g2.drawImage(image, 0, -this.getWidth(), this.getHeight(),
+					this.getWidth(), null);
+		}
+	}
+
+	/**
+	 * Sets the orientation to horizontal by true; vertical by false.
+	 *
+	 * @param horizontal
+	 *            The attribute to set orientation to horizontal or vertical.
+	 */
+	public void setOrientationToHorizontal(boolean horizontal) {
+		this.isHoriztonal = horizontal;
+		this.repaint();
 	}
 
 	/**

@@ -5,6 +5,7 @@ import javax.swing.event.ListSelectionListener;
 
 import SixesWild.com.mimas.sixeswild.boundaries.GameApplication;
 import SixesWild.com.mimas.sixeswild.entities.GameLevel;
+import SixesWild.com.mimas.sixeswild.entities.MenuTypes;
 import SixesWild.com.mimas.sixeswild.sixeswild.XMLParser;
 
 /**
@@ -30,7 +31,7 @@ public class UserLevelListController implements ListSelectionListener {
 
 	/*
 	 * (non-Javadoc)
-	 *
+	 * 
 	 * @see
 	 * javax.swing.event.ListSelectionListener#valueChanged(javax.swing.event
 	 * .ListSelectionEvent)
@@ -49,6 +50,14 @@ public class UserLevelListController implements ListSelectionListener {
 			// Pass the current aesthetic
 			this.app.getGameMenuView().getUserMenuView().getLevelPreviewPanel()
 					.setAesthetic(this.app.getCurrentAesthetic());
+
+			// Update the star preview
+			this.app.getGameMenuView()
+					.getUserMenuView()
+					.getStarGraphicsPanel()
+					.refreshStars(
+							this.app.getCurrentUserProfile().getStarsOfLevel(
+									level.getLevelNumber(), MenuTypes.USER));
 		}
 	}
 

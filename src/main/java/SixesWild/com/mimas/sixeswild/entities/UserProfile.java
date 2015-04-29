@@ -115,12 +115,14 @@ public class UserProfile {
 	 * Returns the stars equivalent of a high score for the given level.
 	 *
 	 * @param level
-	 *            An int of the level that the stars will be taken from.
+	 *            The level number that the stars will be taken from.
+	 * @param type
+	 *            The type of level to get the stars achieved.
 	 * @return an integer of the star count if exists; -1 otherwise
 	 */
-	public int getStarsOfLevel(int level) {
+	public int getStarsOfLevel(int level, MenuTypes type) {
 		for (LevelHighScore lhs : levelHighScores) {
-			if (lhs.getLevel() == level) {
+			if (lhs.getLevel() == level && lhs.getLevelType().equals(type)) {
 				return lhs.getStars();
 			}
 		}
@@ -279,7 +281,7 @@ public class UserProfile {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see java.lang.Object#toString()
 	 */
 	@Override
