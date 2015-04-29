@@ -1,14 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <UserProfile user="FrostyRose">
-  <HighestStoryLevelUnlocked>1</HighestStoryLevelUnlocked>
+  <HighestStoryLevelUnlocked>9</HighestStoryLevelUnlocked>
   <HighestUserLevelUnlocked>6</HighestUserLevelUnlocked>
   <Badges/>
   <LevelScores>
     <Level level="1" score="641" stars="3" type="STORY"/>
-    <Level level="2" score="372" stars="3" type="STORY"/>
-    <Level level="3" score="210" stars="2" type="STORY"/>
     <Level level="4" score="533" stars="3" type="STORY"/>
-    <Level level="5" score="18" stars="2" type="STORY"/>
+    <Level level="2" score="2420" stars="3" type="STORY"/>
+    <Level level="3" score="26070" stars="3" type="STORY"/>
+    <Level level="5" score="990" stars="3" type="STORY"/>
+    <Level level="6" score="4460" stars="3" type="STORY"/>
+    <Level level="7" score="28580" stars="3" type="STORY"/>
+    <Level level="8" score="3730" stars="3" type="STORY"/>
   </LevelScores>
   <Aesthetic/>
 </UserProfile>
