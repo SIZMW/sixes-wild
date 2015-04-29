@@ -43,4 +43,14 @@ public class PuzzleLevel extends GameLevel {
 				specialMoves, levelNumber);
 		type = LevelType.PUZZLE;
 	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see SixesWild.com.mimas.sixeswild.entities.GameLevel#hasBeenCompleted()
+	 */
+	@Override
+	public boolean hasBeenCompleted() {
+		return this.moveCount <= 0;
+	}
 }

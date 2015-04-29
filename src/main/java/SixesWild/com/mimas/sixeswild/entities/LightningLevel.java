@@ -42,4 +42,14 @@ public class LightningLevel extends GameLevel {
 				levelNumber, timer);
 		type = LevelType.LIGHTNING;
 	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see SixesWild.com.mimas.sixeswild.entities.GameLevel#hasBeenCompleted()
+	 */
+	@Override
+	public boolean hasBeenCompleted() {
+		return this.timerCount <= 0;
+	}
 }

@@ -43,4 +43,14 @@ public class ReleaseLevel extends GameLevel {
 				specialMoves, levelNumber);
 		type = LevelType.RELEASE;
 	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see SixesWild.com.mimas.sixeswild.entities.GameLevel#hasBeenCompleted()
+	 */
+	@Override
+	public boolean hasBeenCompleted() {
+		return this.board.isReleaseComplete();
+	}
 }

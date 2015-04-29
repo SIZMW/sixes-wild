@@ -43,4 +43,14 @@ public class EliminationLevel extends GameLevel {
 				specialMoves, levelNumber);
 		type = LevelType.ELIMINATION;
 	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see SixesWild.com.mimas.sixeswild.entities.GameLevel#hasBeenCompleted()
+	 */
+	@Override
+	public boolean hasBeenCompleted() {
+		return this.board.isEliminationComplete();
+	}
 }

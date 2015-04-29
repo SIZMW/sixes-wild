@@ -262,4 +262,11 @@ public abstract class GameLevel {
 	public void setLevelNumber(int newNumber) {
 		levelNumber = newNumber;
 	}
+
+	/**
+	 * Determines if the level has been completed.
+	 *
+	 * @return true if complete; false otherwise
+	 */
+	public abstract boolean hasBeenCompleted();
 }

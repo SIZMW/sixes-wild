@@ -34,7 +34,7 @@ public class GameBoardViewMouseMotionController extends MouseAdapter {
 
 	/*
 	 * (non-Javadoc)
-	 *
+	 * 
 	 * @see java.awt.event.MouseAdapter#mouseDragged(java.awt.event.MouseEvent)
 	 */
 	@Override
@@ -59,8 +59,10 @@ public class GameBoardViewMouseMotionController extends MouseAdapter {
 		// Determine if level is over
 		if (!app.getLevelPanel().getLevel().getType()
 				.equals(LevelType.LIGHTNING)
+				&& !app.getLevelPanel().getLevel().getType()
+						.equals(LevelType.PUZZLE)
 				&& app.getLevelPanel().getLevel().getMoveCount() <= 0) {
-			app.getLevelPanel().endLevel("You have run out of moves.");
+			app.getLevelPanel().endLevel("You have run out of moves.", false);
 		}
 
 		app.getLevelPanel().getBoardViewPanel().updateUI();

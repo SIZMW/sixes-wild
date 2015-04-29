@@ -123,27 +123,15 @@ public class GameBoardViewMouseController extends MouseAdapter {
 	}
 
 	/**
-	 * Determines completion status for each level type.
+	 * Determines completion status for the level.
 	 */
 	protected void hasCompletedLevel() {
-		if (app.getLevelPanel().getLevel().getType()
-				.equals(LevelType.ELIMINATION)) {
-			if (app.getLevelPanel().getBoardViewPanel().getBoard()
-					.isEliminationComplete()) {
-				app.getLevelPanel().endLevel("Completed elimination level.");
-			}
-		} else if (app.getLevelPanel().getLevel().getType()
-				.equals(LevelType.RELEASE)) {
-			if (app.getLevelPanel().getBoardViewPanel().getBoard()
-					.isReleaseComplete()) {
-				app.getLevelPanel().endLevel("Completed release level.");
-			}
-		}
-
-		if (!app.getLevelPanel().getLevel().getType()
+		if (app.getLevelPanel().getLevel().hasBeenCompleted()) {
+			app.getLevelPanel().endLevel("Completed level.", true);
+		} else if (!app.getLevelPanel().getLevel().getType()
 				.equals(LevelType.LIGHTNING)
 				&& app.getLevelPanel().getLevel().getMoveCount() <= 0) {
-			app.getLevelPanel().endLevel("You have run out of moves.");
+			app.getLevelPanel().endLevel("You have run out of moves.", false);
 		}
 	}
 }

@@ -252,7 +252,7 @@ public class LevelView extends JPanel {
 
 				/*
 				 * (non-Javadoc)
-				 *
+				 * 
 				 * @see
 				 * java.awt.event.ActionListener#actionPerformed(java.awt.event
 				 * .ActionEvent)
@@ -264,7 +264,7 @@ public class LevelView extends JPanel {
 					if (currentLevel.getTimer() >= 0) {
 						updateLevelStats();
 					} else {
-						endLevel("Timer ended.");
+						endLevel("Timer ended.", true);
 						levelTimer.stop();
 					}
 				}
@@ -418,7 +418,7 @@ public class LevelView extends JPanel {
 	 * @param message
 	 *            The game status message to display.
 	 */
-	public void endLevel(String message) {
+	public void endLevel(String message, boolean hasCompleted) {
 
 		// Add the high score to the current user profile
 		app.getCurrentUserProfile().addLevelHighScore(
@@ -429,7 +429,8 @@ public class LevelView extends JPanel {
 
 		// Check the star score for this level and determine if the next level
 		// is unlocked
-		if (currentLevel.getPointThresholds().getStarsForScore(currentScore) > 0) {
+		if (currentLevel.getPointThresholds().getStarsForScore(currentScore) > 0
+				&& hasCompleted) {
 			if (currentMenuType.equals(MenuTypes.STORY)) {
 				app.getCurrentUserProfile().setHighestStoryLevel(
 						currentLevel.getLevelNumber() + 1);
