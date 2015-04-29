@@ -28,14 +28,13 @@ public class ChangeAestheticButtonController implements ActionListener {
 
 	/*
 	 * (non-Javadoc)
-	 *
+	 * 
 	 * @see
 	 * java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
 	 */
 	public void actionPerformed(ActionEvent e) {
-		String name = (String) this.app.getGameMenuView().getOptionsMenuView()
+		String name = (String) app.getGameMenuView().getOptionsMenuView()
 				.getAestheticDropDownMenu().getSelectedItem();
-		this.app.setCurrentAesthetic(name);
+		app.setCurrentAesthetic(name);
 	}
-
 }

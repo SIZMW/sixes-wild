@@ -28,7 +28,7 @@ public class SwapMove extends GameMove {
 
 	/*
 	 * (non-Javadoc)
-	 *
+	 * 
 	 * @see
 	 * SixesWild.com.mimas.sixeswild.entities.GameMove#isStillValidMove(SixesWild
 	 * .com.mimas.sixeswild.boundaries.GameApplication)
@@ -40,7 +40,7 @@ public class SwapMove extends GameMove {
 
 	/*
 	 * (non-Javadoc)
-	 *
+	 * 
 	 * @see
 	 * SixesWild.com.mimas.sixeswild.entities.GameMove#isValidMove(SixesWild
 	 * .com.mimas.sixeswild.boundaries.GameApplication)
@@ -52,14 +52,14 @@ public class SwapMove extends GameMove {
 
 	/*
 	 * (non-Javadoc)
-	 *
+	 * 
 	 * @see
 	 * SixesWild.com.mimas.sixeswild.entities.GameMove#processCurrentMove(SixesWild
 	 * .com.mimas.sixeswild.boundaries.GameApplication)
 	 */
 	@Override
 	public boolean processCurrentMove(GameApplication app) {
-		if (!this.isStillValidMove(app)) {
+		if (!isStillValidMove(app)) {
 			app.getLevelPanel().getBoardViewPanel().clearGameSelection();
 			return false;
 		}
@@ -68,14 +68,14 @@ public class SwapMove extends GameMove {
 
 	/*
 	 * (non-Javadoc)
-	 *
+	 * 
 	 * @see
 	 * SixesWild.com.mimas.sixeswild.entities.GameMove#doMove(SixesWild.com.
 	 * mimas.sixeswild.boundaries.GameApplication)
 	 */
 	@Override
 	public boolean doMove(GameApplication app) {
-		if (!this.isValidMove(app)) {
+		if (!isValidMove(app)) {
 			app.getLevelPanel().getBoardViewPanel().clearGameSelection();
 			return false;
 		} else {

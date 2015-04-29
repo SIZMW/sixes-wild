@@ -258,7 +258,7 @@ public class LevelStatsPanel extends JPanel {
 	 * @return the starGraphicsPanel property
 	 */
 	public StarGraphicsPanel getStarGraphicsPanel() {
-		return this.starGraphicsPanel;
+		return starGraphicsPanel;
 	}
 
 	/**
@@ -267,7 +267,7 @@ public class LevelStatsPanel extends JPanel {
 	 * @return the pointsLabel property
 	 */
 	public JLabel getPointsLabel() {
-		return this.pointsLabel;
+		return pointsLabel;
 	}
 
 	/**
@@ -276,6 +276,6 @@ public class LevelStatsPanel extends JPanel {
 	 * @return the movesAndTimerLabel property
 	 */
 	public JLabel getMovesAndTimerLabel() {
-		return this.movesAndTimerLabel;
+		return movesAndTimerLabel;
 	}
 }

@@ -9,7 +9,7 @@ import SixesWild.com.mimas.sixeswild.entities.TileType;
 /**
  * This controller handles mouse presses and releases when selecting tiles on
  * the Board in the level builder.
- * 
+ *
  * @author Aditya Nivarthi
  */
 public class BuilderBoardViewMouseController extends MouseAdapter {
@@ -19,7 +19,7 @@ public class BuilderBoardViewMouseController extends MouseAdapter {
 	/**
 	 * Creates a BuilderBoardViewMouseController instance with the specified
 	 * BuilderApplication.
-	 * 
+	 *
 	 * @param app
 	 *            The currently running BuilderApplication.
 	 */
@@ -29,9 +29,10 @@ public class BuilderBoardViewMouseController extends MouseAdapter {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see java.awt.event.MouseAdapter#mousePressed(java.awt.event.MouseEvent)
 	 */
+	@Override
 	public void mousePressed(MouseEvent me) {
 		TileType type = TileType.valueOf((String) app.getBuilderView()
 				.getBuilderSettingsPanel().getTileTypeComboBox()

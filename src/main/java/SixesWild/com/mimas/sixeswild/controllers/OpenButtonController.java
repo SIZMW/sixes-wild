@@ -38,7 +38,7 @@ public class OpenButtonController implements ActionListener {
 
 	/*
 	 * (non-Javadoc)
-	 *
+	 * 
 	 * @see
 	 * java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
 	 */
@@ -75,11 +75,10 @@ public class OpenButtonController implements ActionListener {
 		}
 
 		// Add panel to view
-		this.app.getBuilderView().updateBoardViewPanel(
+		app.getBuilderView().updateBoardViewPanel(
 				new BoardViewPanel(newBoard, app.getAesthetic()));
-		this.app.getBuilderView()
-				.getBoardViewPanel()
-				.addMouseListener(new BuilderBoardViewMouseController(this.app));
+		app.getBuilderView().getBoardViewPanel()
+				.addMouseListener(new BuilderBoardViewMouseController(app));
 
 		// Settings Panel
 		app.getBuilderView().getBuilderSettingsPanel()
@@ -186,6 +185,6 @@ public class OpenButtonController implements ActionListener {
 		logger.log(Level.INFO, "Builder loaded level information.");
 
 		// Refresh view
-		this.app.getBuilderView().repaint();
+		app.getBuilderView().repaint();
 	}
 }

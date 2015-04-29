@@ -14,7 +14,6 @@ import SixesWild.com.mimas.sixeswild.entities.SpecialMoves;
 import SixesWild.com.mimas.sixeswild.entities.Tile;
 import SixesWild.com.mimas.sixeswild.entities.TileType;
 import SixesWild.com.mimas.sixeswild.entities.UserProfile;
-import SixesWild.com.mimas.sixeswild.util.XMLParser;
 
 /**
  * This test case handles all coverage for the XMLParser class.

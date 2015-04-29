@@ -42,8 +42,8 @@ public class TestPuzzleLevel extends TestCase {
 
 		PuzzleLevel level;
 		try {
-			level = new PuzzleLevel(tileFreq, multFreq, levelName,
-					tiles, pointThresholds, 50, specialMoves, levelNumber);
+			level = new PuzzleLevel(tileFreq, multFreq, levelName, tiles,
+					pointThresholds, 50, specialMoves, levelNumber);
 			assertEquals(levelName, level.name);
 			assertEquals(LevelType.PUZZLE, level.type);
 			assertEquals(tileFreq, level.board.tileFrequencies);

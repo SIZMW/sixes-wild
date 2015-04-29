@@ -25,11 +25,11 @@ public class UserProfile {
 	 */
 	public UserProfile(String userName) {
 		this.userName = userName;
-		this.highestStoryLevelUnlocked = 1;
-		this.highestUserLevelUnlocked = 1;
-		this.badgesEarned = new ArrayList<String>();
-		this.levelHighScores = new ArrayList<LevelHighScore>();
-		this.aestheticName = "";
+		highestStoryLevelUnlocked = 1;
+		highestUserLevelUnlocked = 1;
+		badgesEarned = new ArrayList<String>();
+		levelHighScores = new ArrayList<LevelHighScore>();
+		aestheticName = "";
 	}
 
 	/**
@@ -173,7 +173,7 @@ public class UserProfile {
 	 *            An integer of the highest story level unlocked by the player.
 	 */
 	public void setHighestStoryLevel(int highestLevel) {
-		this.highestStoryLevelUnlocked = highestLevel;
+		highestStoryLevelUnlocked = highestLevel;
 	}
 
 	/**
@@ -183,7 +183,7 @@ public class UserProfile {
 	 *            An integer of the highest user level unlocked by the player.
 	 */
 	public void setHighestUserLevel(int highestLevel) {
-		this.highestUserLevelUnlocked = highestLevel;
+		highestUserLevelUnlocked = highestLevel;
 	}
 
 	/**
@@ -213,12 +213,12 @@ public class UserProfile {
 	 */
 	public void addLevelHighScore(int level, int highScore, int stars,
 			MenuTypes type) {
-		for (LevelHighScore e : this.levelHighScores) {
+		for (LevelHighScore e : levelHighScores) {
 			if (e.getLevel() == level && e.getLevelType().equals(type)) {
 				if (e.getHighScore() < highScore) {
-					this.levelHighScores.remove(e);
-					this.levelHighScores.add(new LevelHighScore(level,
-							highScore, stars, type));
+					levelHighScores.remove(e);
+					levelHighScores.add(new LevelHighScore(level, highScore,
+							stars, type));
 					return;
 				} else {
 					return;
@@ -226,8 +226,7 @@ public class UserProfile {
 			}
 		}
 
-		this.levelHighScores.add(new LevelHighScore(level, highScore, stars,
-				type));
+		levelHighScores.add(new LevelHighScore(level, highScore, stars, type));
 	}
 
 	/**

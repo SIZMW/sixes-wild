@@ -58,13 +58,13 @@ public class LevelView extends JPanel {
 	public LevelView(Aesthetic aesthetic) {
 
 		// Attributes
-		this.currentLevel = null;
+		currentLevel = null;
 		logger.log(Level.INFO, "Current level set to NULL.");
 
-		this.levelViewAesthetic = aesthetic;
+		levelViewAesthetic = aesthetic;
 
 		logger.log(Level.INFO, "Dialog set to NULL.");
-		this.dialog = null;
+		dialog = null;
 
 		// Layout for view
 		GridBagLayout gridBagLayout = new GridBagLayout();
@@ -73,30 +73,29 @@ public class LevelView extends JPanel {
 		gridBagLayout.columnWeights = new double[] { 1.0, 15.0,
 				Double.MIN_VALUE };
 		gridBagLayout.rowWeights = new double[] { 1.0, 10.0, Double.MIN_VALUE };
-		this.setLayout(gridBagLayout);
+		setLayout(gridBagLayout);
 
 		// Top menu panel
-		this.levelTopPanel = new LevelTopPanel();
+		levelTopPanel = new LevelTopPanel();
 
 		// Layout for top menu panel
-		GridBagLayout gridBagLayout_1 = (GridBagLayout) this.levelTopPanel
+		GridBagLayout gridBagLayout_1 = (GridBagLayout) levelTopPanel
 				.getLayout();
 		gridBagLayout_1.columnWeights = new double[] { 0.0, 10000.0, 0.0, 20.0,
 				0.0, 20.0, 0.0, 20.0, 0.0, 20.0, 0.0, 20.0, 0.0 };
 		gridBagLayout_1.columnWidths = new int[] { 10, 0, 10, 0, 10, 0, 10, 0,
 				10, 0, 10, 0, 10 };
-		this.levelTopPanel.getExitLevelButton().setPreferredSize(
+		levelTopPanel.getExitLevelButton().setPreferredSize(
 				new Dimension(100, 20));
-		this.levelTopPanel.getXStacyMoveButton().setPreferredSize(
+		levelTopPanel.getXStacyMoveButton().setPreferredSize(
 				new Dimension(100, 20));
-		this.levelTopPanel.getRemoveTileButton().setPreferredSize(
+		levelTopPanel.getRemoveTileButton().setPreferredSize(
 				new Dimension(100, 20));
-		this.levelTopPanel.getSwapTileButton().setPreferredSize(
+		levelTopPanel.getSwapTileButton().setPreferredSize(
 				new Dimension(100, 20));
-		this.levelTopPanel.getResetBoardButton().setPreferredSize(
+		levelTopPanel.getResetBoardButton().setPreferredSize(
 				new Dimension(100, 20));
-		this.levelTopPanel.setBorder(BorderFactory
-				.createLineBorder(Color.black));
+		levelTopPanel.setBorder(BorderFactory.createLineBorder(Color.black));
 
 		GridBagConstraints gbc_topMenuPanel = new GridBagConstraints();
 		gbc_topMenuPanel.gridwidth = 4;
@@ -104,12 +103,11 @@ public class LevelView extends JPanel {
 		gbc_topMenuPanel.fill = GridBagConstraints.BOTH;
 		gbc_topMenuPanel.gridx = 0;
 		gbc_topMenuPanel.gridy = 0;
-		this.add(this.levelTopPanel, gbc_topMenuPanel);
+		this.add(levelTopPanel, gbc_topMenuPanel);
 
 		// Level stats panel
-		this.levelStatsPanel = new LevelStatsPanel();
-		this.levelStatsPanel.setBorder(BorderFactory
-				.createLineBorder(Color.black));
+		levelStatsPanel = new LevelStatsPanel();
+		levelStatsPanel.setBorder(BorderFactory.createLineBorder(Color.black));
 
 		// Layout for level stats panel
 		GridBagConstraints gbc_leftMenuPanel = new GridBagConstraints();
@@ -117,7 +115,7 @@ public class LevelView extends JPanel {
 		gbc_leftMenuPanel.fill = GridBagConstraints.BOTH;
 		gbc_leftMenuPanel.gridx = 0;
 		gbc_leftMenuPanel.gridy = 1;
-		this.add(this.levelStatsPanel, gbc_leftMenuPanel);
+		this.add(levelStatsPanel, gbc_leftMenuPanel);
 
 		// Temporary generation for frequency based board.
 		ArrayList<Double> tileFrequencies = new ArrayList<Double>(
@@ -136,9 +134,8 @@ public class LevelView extends JPanel {
 			Board board = new Board(tiles, tileFrequencies,
 					multiplierFrequencies);
 			// Board view panel
-			this.boardViewPanel = new BoardViewPanel(board,
-					this.levelViewAesthetic);
-			this.boardViewPanel.setBorder(BorderFactory
+			boardViewPanel = new BoardViewPanel(board, levelViewAesthetic);
+			boardViewPanel.setBorder(BorderFactory
 					.createLineBorder(Color.black));
 
 			// Layout for board view panel
@@ -147,7 +144,7 @@ public class LevelView extends JPanel {
 			gbc_boardView.fill = GridBagConstraints.BOTH;
 			gbc_boardView.gridx = 2;
 			gbc_boardView.gridy = 1;
-			this.add(this.boardViewPanel, gbc_boardView);
+			this.add(boardViewPanel, gbc_boardView);
 		} catch (Exception e) {
 			logger.log(Level.WARNING, "Received null error on board creation.",
 					e);
@@ -172,13 +169,13 @@ public class LevelView extends JPanel {
 
 		// Attributes
 		this.app = app;
-		this.levelViewAesthetic = aesthetic;
-		this.currentLevel = newLevel;
-		this.currentScore = 0;
-		this.currentMove = MoveType.SELECTION;
-		this.currentMenuType = type;
+		levelViewAesthetic = aesthetic;
+		currentLevel = newLevel;
+		currentScore = 0;
+		currentMove = MoveType.SELECTION;
+		currentMenuType = type;
 
-		this.dialog = null;
+		dialog = null;
 		logger.log(Level.INFO, "Dialog set to NULL.");
 
 		// Layout for view
@@ -188,31 +185,30 @@ public class LevelView extends JPanel {
 		gridBagLayout.columnWeights = new double[] { 3.0, 15.0,
 				Double.MIN_VALUE };
 		gridBagLayout.rowWeights = new double[] { 1.0, 10.0, Double.MIN_VALUE };
-		this.setLayout(gridBagLayout);
+		setLayout(gridBagLayout);
 
 		// Top menu panel
-		this.levelTopPanel = new LevelTopPanel();
-		this.levelTopPanel.setLevelNameTextField(newLevel.getName());
+		levelTopPanel = new LevelTopPanel();
+		levelTopPanel.setLevelNameTextField(newLevel.getName());
 
 		// Layout for top menu panel
-		GridBagLayout gridBagLayout_1 = (GridBagLayout) this.levelTopPanel
+		GridBagLayout gridBagLayout_1 = (GridBagLayout) levelTopPanel
 				.getLayout();
 		gridBagLayout_1.columnWeights = new double[] { 0.0, 10000.0, 0.0, 20.0,
 				0.0, 20.0, 0.0, 20.0, 0.0, 20.0, 0.0, 20.0, 0.0 };
 		gridBagLayout_1.columnWidths = new int[] { 10, 0, 10, 0, 10, 0, 10, 0,
 				10, 0, 10, 0, 10 };
-		this.levelTopPanel.getExitLevelButton().setPreferredSize(
+		levelTopPanel.getExitLevelButton().setPreferredSize(
 				new Dimension(100, 20));
-		this.levelTopPanel.getXStacyMoveButton().setPreferredSize(
+		levelTopPanel.getXStacyMoveButton().setPreferredSize(
 				new Dimension(100, 20));
-		this.levelTopPanel.getRemoveTileButton().setPreferredSize(
+		levelTopPanel.getRemoveTileButton().setPreferredSize(
 				new Dimension(100, 20));
-		this.levelTopPanel.getSwapTileButton().setPreferredSize(
+		levelTopPanel.getSwapTileButton().setPreferredSize(
 				new Dimension(100, 20));
-		this.levelTopPanel.getResetBoardButton().setPreferredSize(
+		levelTopPanel.getResetBoardButton().setPreferredSize(
 				new Dimension(100, 20));
-		this.levelTopPanel.setBorder(BorderFactory
-				.createLineBorder(Color.black));
+		levelTopPanel.setBorder(BorderFactory.createLineBorder(Color.black));
 
 		GridBagConstraints gbc_topMenuPanel = new GridBagConstraints();
 		gbc_topMenuPanel.gridwidth = 2;
@@ -220,12 +216,11 @@ public class LevelView extends JPanel {
 		gbc_topMenuPanel.fill = GridBagConstraints.BOTH;
 		gbc_topMenuPanel.gridx = 0;
 		gbc_topMenuPanel.gridy = 0;
-		this.add(this.levelTopPanel, gbc_topMenuPanel);
+		this.add(levelTopPanel, gbc_topMenuPanel);
 
 		// Level stats panel
-		this.levelStatsPanel = new LevelStatsPanel(newLevel.getMoveCount());
-		this.levelStatsPanel.setBorder(BorderFactory
-				.createLineBorder(Color.black));
+		levelStatsPanel = new LevelStatsPanel(newLevel.getMoveCount());
+		levelStatsPanel.setBorder(BorderFactory.createLineBorder(Color.black));
 
 		// Layout for level stats panel
 		GridBagConstraints gbc_leftMenuPanel = new GridBagConstraints();
@@ -233,30 +228,29 @@ public class LevelView extends JPanel {
 		gbc_leftMenuPanel.fill = GridBagConstraints.BOTH;
 		gbc_leftMenuPanel.gridx = 0;
 		gbc_leftMenuPanel.gridy = 1;
-		this.add(this.levelStatsPanel, gbc_leftMenuPanel);
+		this.add(levelStatsPanel, gbc_leftMenuPanel);
 
 		Board board = newLevel.getBoard();
 		// Board view panel
-		this.boardViewPanel = new BoardViewPanel(board, this.levelViewAesthetic);
-		this.boardViewPanel.setBorder(BorderFactory
-				.createLineBorder(Color.black));
+		boardViewPanel = new BoardViewPanel(board, levelViewAesthetic);
+		boardViewPanel.setBorder(BorderFactory.createLineBorder(Color.black));
 
 		// Layout for board view panel
 		GridBagConstraints gbc_boardView = new GridBagConstraints();
 		gbc_boardView.fill = GridBagConstraints.BOTH;
 		gbc_boardView.gridx = 1;
 		gbc_boardView.gridy = 1;
-		this.add(this.boardViewPanel, gbc_boardView);
+		this.add(boardViewPanel, gbc_boardView);
 
 		// Set up Lightning level timer
-		if (this.currentLevel.getType().equals(LevelType.LIGHTNING)) {
+		if (currentLevel.getType().equals(LevelType.LIGHTNING)) {
 
 			// Create a new timer
-			this.levelTimer = new Timer(1000, new ActionListener() {
+			levelTimer = new Timer(1000, new ActionListener() {
 
 				/*
 				 * (non-Javadoc)
-				 *
+				 * 
 				 * @see
 				 * java.awt.event.ActionListener#actionPerformed(java.awt.event
 				 * .ActionEvent)
@@ -273,11 +267,11 @@ public class LevelView extends JPanel {
 					}
 				}
 			});
-			this.levelTimer.setRepeats(true);
-			this.levelTimer.start();
+			levelTimer.setRepeats(true);
+			levelTimer.start();
 		}
 
-		this.updateLevelStats();
+		updateLevelStats();
 	}
 
 	/**
@@ -286,7 +280,7 @@ public class LevelView extends JPanel {
 	 * @return the levelTopPanel property
 	 */
 	public LevelTopPanel getTopMenuPanel() {
-		return this.levelTopPanel;
+		return levelTopPanel;
 	}
 
 	/**
@@ -295,7 +289,7 @@ public class LevelView extends JPanel {
 	 * @return the levelStatsPanel property
 	 */
 	public LevelStatsPanel getLeftMenuPanel() {
-		return this.levelStatsPanel;
+		return levelStatsPanel;
 	}
 
 	/**
@@ -304,7 +298,7 @@ public class LevelView extends JPanel {
 	 * @return the boardViewPanel property
 	 */
 	public BoardViewPanel getBoardViewPanel() {
-		return this.boardViewPanel;
+		return boardViewPanel;
 	}
 
 	/**
@@ -313,7 +307,7 @@ public class LevelView extends JPanel {
 	 * @return the currentLevel property
 	 */
 	public GameLevel getLevel() {
-		return this.currentLevel;
+		return currentLevel;
 	}
 
 	/**
@@ -323,7 +317,7 @@ public class LevelView extends JPanel {
 	 *            The new level to set as the current level.
 	 */
 	public void setLevel(GameLevel newLevel) {
-		this.currentLevel = newLevel;
+		currentLevel = newLevel;
 	}
 
 	/**
@@ -332,35 +326,31 @@ public class LevelView extends JPanel {
 	public void updateLevelStats() {
 
 		// Update the stats Panel
-		this.levelStatsPanel.pointsLabel.setText(Integer
-				.toString(this.currentScore));
-		if (this.currentLevel.getType() != LevelType.LIGHTNING) {
-			this.levelStatsPanel.movesAndTimerLabel.setText(this.currentLevel
+		levelStatsPanel.pointsLabel.setText(Integer.toString(currentScore));
+		if (currentLevel.getType() != LevelType.LIGHTNING) {
+			levelStatsPanel.movesAndTimerLabel.setText(currentLevel
 					.getMoveCount() + "");
 		} else {
-			this.levelStatsPanel.movesAndTimerLabel.setText(this.currentLevel
-					.getTimer() + "");
+			levelStatsPanel.movesAndTimerLabel.setText(currentLevel.getTimer()
+					+ "");
 		}
 
 		// Update star graphics Here
-		this.levelStatsPanel.getStarGraphicsPanel().refreshStars(
-				this.currentLevel.getPointThresholds().getStarsForScore(
-						this.getScore()));
+		levelStatsPanel.getStarGraphicsPanel().refreshStars(
+				currentLevel.getPointThresholds().getStarsForScore(getScore()));
 
 		// Update the special moves
-		this.levelTopPanel.resetBoardButton.setText(LevelTopPanel.RESET + " "
-				+ this.currentLevel.getSpecialMoves().getResetBoardCount());
+		levelTopPanel.resetBoardButton.setText(LevelTopPanel.RESET + " "
+				+ currentLevel.getSpecialMoves().getResetBoardCount());
 
-		this.levelTopPanel.swapTileButton.setText(LevelTopPanel.SWAP + " "
-				+ this.currentLevel.getSpecialMoves().getSwapTileCount());
+		levelTopPanel.swapTileButton.setText(LevelTopPanel.SWAP + " "
+				+ currentLevel.getSpecialMoves().getSwapTileCount());
 
-		this.levelTopPanel.removeTileButton.setText(LevelTopPanel.REMOVE + " "
-				+ this.currentLevel.getSpecialMoves().getRemoveTileCount());
+		levelTopPanel.removeTileButton.setText(LevelTopPanel.REMOVE + " "
+				+ currentLevel.getSpecialMoves().getRemoveTileCount());
 
-		this.levelTopPanel.xStacyMoveButton.setText(LevelTopPanel.XSTACY
-				+ " "
-				+ this.currentLevel.getSpecialMoves()
-						.getXStacySpecialMoveCount());
+		levelTopPanel.xStacyMoveButton.setText(LevelTopPanel.XSTACY + " "
+				+ currentLevel.getSpecialMoves().getXStacySpecialMoveCount());
 	}
 
 	/**
@@ -369,7 +359,7 @@ public class LevelView extends JPanel {
 	 * @return an integer
 	 */
 	public int getScore() {
-		return this.currentScore;
+		return currentScore;
 	}
 
 	/**
@@ -379,7 +369,7 @@ public class LevelView extends JPanel {
 	 *            The new integer score value.
 	 */
 	public void setScore(int newScore) {
-		this.currentScore = newScore;
+		currentScore = newScore;
 	}
 
 	/**
@@ -389,7 +379,7 @@ public class LevelView extends JPanel {
 	 *            The integer value to update the score.
 	 */
 	public void updateScore(int delta) {
-		this.currentScore += delta;
+		currentScore += delta;
 	}
 
 	/**
@@ -399,7 +389,7 @@ public class LevelView extends JPanel {
 	 *            The new move type for the current move.
 	 */
 	public void setMoveType(MoveType type) {
-		this.currentMove = type;
+		currentMove = type;
 	}
 
 	/**
@@ -408,7 +398,7 @@ public class LevelView extends JPanel {
 	 * @return a MoveType
 	 */
 	public MoveType getMoveType() {
-		return this.currentMove;
+		return currentMove;
 	}
 
 	/**
@@ -417,7 +407,7 @@ public class LevelView extends JPanel {
 	 * @return a Timer
 	 */
 	public Timer getTimer() {
-		return this.levelTimer;
+		return levelTimer;
 	}
 
 	/**
@@ -429,34 +419,33 @@ public class LevelView extends JPanel {
 	public void endLevel(String message) {
 
 		// Add the high score to the current user profile
-		this.app.getCurrentUserProfile().addLevelHighScore(
-				this.currentLevel.getLevelNumber(),
-				this.currentScore,
-				this.currentLevel.getPointThresholds().getStarsForScore(
-						this.currentScore), this.currentMenuType);
+		app.getCurrentUserProfile().addLevelHighScore(
+				currentLevel.getLevelNumber(),
+				currentScore,
+				currentLevel.getPointThresholds()
+						.getStarsForScore(currentScore), currentMenuType);
 
 		// Check the star score for this level and determine if the next level
 		// is unlocked
-		if (this.currentLevel.getPointThresholds().getStarsForScore(
-				this.currentScore) > 0) {
-			if (this.currentMenuType.equals(MenuTypes.STORY)) {
-				this.app.getCurrentUserProfile().setHighestStoryLevel(
-						this.currentLevel.getLevelNumber() + 1);
-			} else if (this.currentMenuType.equals(MenuTypes.USER)) {
-				this.app.getCurrentUserProfile().setHighestUserLevel(
-						this.currentLevel.getLevelNumber() + 1);
+		if (currentLevel.getPointThresholds().getStarsForScore(currentScore) > 0) {
+			if (currentMenuType.equals(MenuTypes.STORY)) {
+				app.getCurrentUserProfile().setHighestStoryLevel(
+						currentLevel.getLevelNumber() + 1);
+			} else if (currentMenuType.equals(MenuTypes.USER)) {
+				app.getCurrentUserProfile().setHighestUserLevel(
+						currentLevel.getLevelNumber() + 1);
 			}
 		}
 
 		// Display the pop up to end the level
 		if (dialog == null) {
-			dialog = new EndLevelPopUpDialog(this.app, message);
+			dialog = new EndLevelPopUpDialog(app, message);
 			dialog.setAlwaysOnTop(true);
 			dialog.setVisible(true);
 		}
 
 		// Refresh the game menu view to reflect the new user profile status
-		this.app.refreshView();
+		app.refreshView();
 
 		logger.log(Level.INFO, "Level ended. Returning to menu.");
 	}

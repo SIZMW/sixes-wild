@@ -120,7 +120,7 @@ public class LevelTopPanel extends JPanel {
 	 * @return the levelNameTextField property
 	 */
 	public JTextField getLevelNameTextField() {
-		return this.levelNameTextField;
+		return levelNameTextField;
 	}
 
 	/**
@@ -131,7 +131,7 @@ public class LevelTopPanel extends JPanel {
 	 * @return true if successful
 	 */
 	public boolean setLevelNameTextField(String levelName) {
-		this.levelNameTextField.setText(levelName);
+		levelNameTextField.setText(levelName);
 		return true;
 	}
 
@@ -141,7 +141,7 @@ public class LevelTopPanel extends JPanel {
 	 * @return the resetBoardButton property
 	 */
 	public JButton getResetBoardButton() {
-		return this.resetBoardButton;
+		return resetBoardButton;
 	}
 
 	/**
@@ -150,7 +150,7 @@ public class LevelTopPanel extends JPanel {
 	 * @return the swapTileButton property
 	 */
 	public JButton getSwapTileButton() {
-		return this.swapTileButton;
+		return swapTileButton;
 	}
 
 	/**
@@ -159,7 +159,7 @@ public class LevelTopPanel extends JPanel {
 	 * @return the removeTileButton property
 	 */
 	public JButton getRemoveTileButton() {
-		return this.removeTileButton;
+		return removeTileButton;
 	}
 
 	/**
@@ -168,7 +168,7 @@ public class LevelTopPanel extends JPanel {
 	 * @return the xStacyMoveButton property
 	 */
 	public JButton getXStacyMoveButton() {
-		return this.xStacyMoveButton;
+		return xStacyMoveButton;
 	}
 
 	/**
@@ -177,6 +177,6 @@ public class LevelTopPanel extends JPanel {
 	 * @return the exitLevelButton property
 	 */
 	public JButton getExitLevelButton() {
-		return this.exitLevelButton;
+		return exitLevelButton;
 	}
 }

@@ -16,10 +16,10 @@ public class SixTile extends Tile {
 	 */
 	public SixTile() {
 		super();
-		this.type = TileType.SIX;
-		this.number = this.SIX;
-		this.multiplier = 0;
-		this.hasProcessed = false;
+		type = TileType.SIX;
+		number = SIX;
+		multiplier = 0;
+		hasProcessed = false;
 	}
 
 	/**
@@ -38,12 +38,12 @@ public class SixTile extends Tile {
 	 * @return a boolean
 	 */
 	public boolean hasProcessed() {
-		return this.hasProcessed;
+		return hasProcessed;
 	}
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see SixesWild.com.mimas.sixeswild.entities.Tile#equals(java.lang.Object)
 	 */
 	@Override
@@ -52,6 +52,6 @@ public class SixTile extends Tile {
 			return false;
 		}
 
-		return ((SixTile) o).hasProcessed() == this.hasProcessed;
+		return ((SixTile) o).hasProcessed() == hasProcessed;
 	}
 }

@@ -15,19 +15,19 @@ import SixesWild.com.mimas.sixeswild.boundaries.GameApplication;
 /**
  * This controller displays the badges menu when the badges menu button is
  * pressed.
- * 
+ *
  * @author Aditya Nivarthi
  */
 public class BadgesMenuButtonController implements ActionListener {
 
 	private static final Logger logger = Logger.getGlobal();
-	
+
 	protected GameApplication app;
 
 	/**
 	 * Creates a BadgesMenuButtonController instance with the specified
 	 * GameApplication.
-	 * 
+	 *
 	 * @param app
 	 *            The GameApplication currently running.
 	 */
@@ -37,7 +37,7 @@ public class BadgesMenuButtonController implements ActionListener {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see
 	 * java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
 	 */
@@ -60,7 +60,7 @@ public class BadgesMenuButtonController implements ActionListener {
 		gbc_list.gridy = 0;
 
 		// Add panel to view
-		currPanel.add(this.app.getGameMenuView().getBadgeMenuView(), gbc_list);
+		currPanel.add(app.getGameMenuView().getBadgeMenuView(), gbc_list);
 		currPanel.updateUI();
 
 		logger.log(Level.FINE, "Badges menu requested and displayed.");

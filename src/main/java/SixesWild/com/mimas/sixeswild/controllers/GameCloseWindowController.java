@@ -33,7 +33,7 @@ public class GameCloseWindowController extends WindowAdapter {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see
 	 * java.awt.event.WindowAdapter#windowClosing(java.awt.event.WindowEvent)
 	 */
@@ -41,7 +41,7 @@ public class GameCloseWindowController extends WindowAdapter {
 	public void windowClosing(WindowEvent w) {
 
 		// Save the current user profile
-		XMLParser.userProfileToFile(this.app.getCurrentUserProfile());
+		XMLParser.userProfileToFile(app.getCurrentUserProfile());
 		logger.log(Level.INFO, "Game is quitting now.");
 	}
 }

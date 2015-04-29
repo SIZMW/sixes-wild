@@ -37,116 +37,113 @@ public class GameBoardViewMouseController extends MouseAdapter {
 
 	/*
 	 * (non-Javadoc)
-	 *
+	 * 
 	 * @see java.awt.event.MouseAdapter#mousePressed(java.awt.event.MouseEvent)
 	 */
 	@Override
 	public void mousePressed(MouseEvent me) {
 
 		// Update the selection location
-		this.app.getLevelPanel().getBoardViewPanel()
+		app.getLevelPanel().getBoardViewPanel()
 				.updateGameSelection(me.getX(), me.getY());
 
 		// Process move based on current move type
-		if (this.app.getLevelPanel().getMoveType().equals(MoveType.SELECTION)) {
-			SelectionMove move = new SelectionMove(this.app.getLevelPanel()
-					.getBoardViewPanel().getCurrentSelection(), this.app
+		if (app.getLevelPanel().getMoveType().equals(MoveType.SELECTION)) {
+			SelectionMove move = new SelectionMove(app.getLevelPanel()
+					.getBoardViewPanel().getCurrentSelection(), app
 					.getLevelPanel().getLevel());
-			move.processCurrentMove(this.app);
+			move.processCurrentMove(app);
 			logger.log(Level.INFO, "Processing a move type of: "
 					+ MoveType.SELECTION);
-		} else if (this.app.getLevelPanel().getMoveType().equals(MoveType.SWAP)) {
-			SwapMove move = new SwapMove(this.app.getLevelPanel()
-					.getBoardViewPanel().getCurrentSelection(), this.app
+		} else if (app.getLevelPanel().getMoveType().equals(MoveType.SWAP)) {
+			SwapMove move = new SwapMove(app.getLevelPanel()
+					.getBoardViewPanel().getCurrentSelection(), app
 					.getLevelPanel().getLevel());
-			move.processCurrentMove(this.app);
-		} else if (this.app.getLevelPanel().getMoveType()
-				.equals(MoveType.REMOVE)) {
-			RemoveTileMove move = new RemoveTileMove(this.app.getLevelPanel()
-					.getBoardViewPanel().getCurrentSelection(), this.app
+			move.processCurrentMove(app);
+		} else if (app.getLevelPanel().getMoveType().equals(MoveType.REMOVE)) {
+			RemoveTileMove move = new RemoveTileMove(app.getLevelPanel()
+					.getBoardViewPanel().getCurrentSelection(), app
 					.getLevelPanel().getLevel());
-			move.processCurrentMove(this.app);
+			move.processCurrentMove(app);
 		}
 
 		logger.log(Level.INFO, "Processed a move type of: "
-				+ this.app.getLevelPanel().getMoveType().toString());
+				+ app.getLevelPanel().getMoveType().toString());
 
 		// Update the level display
-		this.app.getLevelPanel().updateLevelStats();
-		this.app.getLevelPanel().getBoardViewPanel().updateUI();
+		app.getLevelPanel().updateLevelStats();
+		app.getLevelPanel().getBoardViewPanel().updateUI();
 	}
 
 	/*
 	 * (non-Javadoc)
-	 *
+	 * 
 	 * @see java.awt.event.MouseAdapter#mouseReleased(java.awt.event.MouseEvent)
 	 */
 	@Override
 	public void mouseReleased(MouseEvent me) {
 
 		// Execute move based on current move type
-		if (this.app.getLevelPanel().getMoveType().equals(MoveType.SELECTION)) {
-			SelectionMove move = new SelectionMove(this.app.getLevelPanel()
-					.getBoardViewPanel().getCurrentSelection(), this.app
+		if (app.getLevelPanel().getMoveType().equals(MoveType.SELECTION)) {
+			SelectionMove move = new SelectionMove(app.getLevelPanel()
+					.getBoardViewPanel().getCurrentSelection(), app
 					.getLevelPanel().getLevel());
-			move.doMove(this.app);
-		} else if (this.app.getLevelPanel().getMoveType().equals(MoveType.SWAP)) {
-			SwapMove move = new SwapMove(this.app.getLevelPanel()
-					.getBoardViewPanel().getCurrentSelection(), this.app
+			move.doMove(app);
+		} else if (app.getLevelPanel().getMoveType().equals(MoveType.SWAP)) {
+			SwapMove move = new SwapMove(app.getLevelPanel()
+					.getBoardViewPanel().getCurrentSelection(), app
 					.getLevelPanel().getLevel());
 
 			// Once move is complete, reset to standard selection
-			if (move.isValidMove(this.app)) {
-				move.doMove(this.app);
-				this.app.getLevelPanel().setMoveType(MoveType.SELECTION);
+			if (move.isValidMove(app)) {
+				move.doMove(app);
+				app.getLevelPanel().setMoveType(MoveType.SELECTION);
 			}
-		} else if (this.app.getLevelPanel().getMoveType()
-				.equals(MoveType.REMOVE)) {
-			RemoveTileMove move = new RemoveTileMove(this.app.getLevelPanel()
-					.getBoardViewPanel().getCurrentSelection(), this.app
+		} else if (app.getLevelPanel().getMoveType().equals(MoveType.REMOVE)) {
+			RemoveTileMove move = new RemoveTileMove(app.getLevelPanel()
+					.getBoardViewPanel().getCurrentSelection(), app
 					.getLevelPanel().getLevel());
 
 			// Once move is complete, reset to standard selection
-			if (move.isValidMove(this.app)) {
-				move.doMove(this.app);
-				this.app.getLevelPanel().setMoveType(MoveType.SELECTION);
+			if (move.isValidMove(app)) {
+				move.doMove(app);
+				app.getLevelPanel().setMoveType(MoveType.SELECTION);
 			}
 		}
 
 		logger.log(Level.INFO, "Completed a move type of: "
-				+ this.app.getLevelPanel().getMoveType().toString());
+				+ app.getLevelPanel().getMoveType().toString());
 
 		// Update the level display
-		this.app.getLevelPanel().updateLevelStats();
+		app.getLevelPanel().updateLevelStats();
 
 		// Determine if level is complete
-		this.hasCompletedLevel();
-		this.app.getLevelPanel().getBoardViewPanel().updateUI();
+		hasCompletedLevel();
+		app.getLevelPanel().getBoardViewPanel().updateUI();
 	}
 
 	/**
 	 * Determines completion status for each level type.
 	 */
 	protected void hasCompletedLevel() {
-		if (this.app.getLevelPanel().getLevel().getType()
+		if (app.getLevelPanel().getLevel().getType()
 				.equals(LevelType.ELIMINATION)) {
-			if (this.app.getLevelPanel().getBoardViewPanel().getBoard()
+			if (app.getLevelPanel().getBoardViewPanel().getBoard()
 					.isEliminationComplete()) {
-				this.app.getLevelPanel().endLevel(
-						"Completed elimination level.");
+				app.getLevelPanel().endLevel("Completed elimination level.");
 			}
-		} else if (this.app.getLevelPanel().getLevel().getType()
+		} else if (app.getLevelPanel().getLevel().getType()
 				.equals(LevelType.RELEASE)) {
-			if (this.app.getLevelPanel().getBoardViewPanel().getBoard()
+			if (app.getLevelPanel().getBoardViewPanel().getBoard()
 					.isReleaseComplete()) {
-				this.app.getLevelPanel().endLevel("Completed release level.");
+				app.getLevelPanel().endLevel("Completed release level.");
 			}
 		}
 
-		if (!this.app.getLevelPanel().getLevel().getType()
+		if (!app.getLevelPanel().getLevel().getType()
 				.equals(LevelType.LIGHTNING)
-				&& this.app.getLevelPanel().getLevel().getMoveCount() <= 0) {
-			this.app.getLevelPanel().endLevel("You have run out of moves.");
+				&& app.getLevelPanel().getLevel().getMoveCount() <= 0) {
+			app.getLevelPanel().endLevel("You have run out of moves.");
 		}
 	}
 }

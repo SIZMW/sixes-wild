@@ -8,7 +8,7 @@ import SixesWild.com.mimas.sixeswild.boundaries.GameApplication;
 /**
  * This controller displays the preview for the selected badge in the badges
  * list menu.
- * 
+ *
  * @author Marco Duran
  */
 public class BadgesListPanelController implements ActionListener {
@@ -18,7 +18,7 @@ public class BadgesListPanelController implements ActionListener {
 	/**
 	 * Creates a BadgesListPanelController instance with the specified
 	 * GameApplication.
-	 * 
+	 *
 	 * @param app
 	 *            The GameApplication that is currently running
 	 */

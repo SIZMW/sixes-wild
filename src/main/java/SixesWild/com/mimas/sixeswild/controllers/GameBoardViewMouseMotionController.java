@@ -34,36 +34,36 @@ public class GameBoardViewMouseMotionController extends MouseAdapter {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see java.awt.event.MouseAdapter#mouseDragged(java.awt.event.MouseEvent)
 	 */
 	@Override
 	public void mouseDragged(MouseEvent me) {
 
 		// Update the selection location
-		this.app.getLevelPanel().getBoardViewPanel()
+		app.getLevelPanel().getBoardViewPanel()
 				.updateGameSelection(me.getX(), me.getY());
 
 		// Process the selection move
-		SelectionMove move = new SelectionMove(this.app.getLevelPanel()
-				.getBoardViewPanel().getCurrentSelection(), this.app
-				.getLevelPanel().getLevel());
-		move.processCurrentMove(this.app);
+		SelectionMove move = new SelectionMove(app.getLevelPanel()
+				.getBoardViewPanel().getCurrentSelection(), app.getLevelPanel()
+				.getLevel());
+		move.processCurrentMove(app);
 
 		logger.log(Level.INFO, "Processed a move type of: "
-				+ this.app.getLevelPanel().getMoveType().toString());
+				+ app.getLevelPanel().getMoveType().toString());
 
 		// Update the level display
-		this.app.getLevelPanel().updateLevelStats();
+		app.getLevelPanel().updateLevelStats();
 
 		// Determine if level is over
-		if (!this.app.getLevelPanel().getLevel().getType()
+		if (!app.getLevelPanel().getLevel().getType()
 				.equals(LevelType.LIGHTNING)
-				&& this.app.getLevelPanel().getLevel().getMoveCount() <= 0) {
-			this.app.getLevelPanel().endLevel("You have run out of moves.");
+				&& app.getLevelPanel().getLevel().getMoveCount() <= 0) {
+			app.getLevelPanel().endLevel("You have run out of moves.");
 		}
 
-		this.app.getLevelPanel().getBoardViewPanel().updateUI();
+		app.getLevelPanel().getBoardViewPanel().updateUI();
 
 	}
 }

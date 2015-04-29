@@ -3,7 +3,7 @@ package SixesWild.com.mimas.sixeswild.entities;
 /**
  * Tile is an abstract entity that represents the tiles that are placed on a
  * Board. It has a type, number value and multiplier.
- * 
+ *
  * @author Aditya Nivarthi
  */
 public abstract class Tile {
@@ -19,43 +19,44 @@ public abstract class Tile {
 	 * Creates a Tile instance with NULL type, number 0 and multiplier 0.
 	 */
 	public Tile() {
-		this.type = TileType.NULL;
-		this.number = 0;
-		this.multiplier = 0;
+		type = TileType.NULL;
+		number = 0;
+		multiplier = 0;
 	}
 
 	/**
 	 * Returns the type from this tile.
-	 * 
+	 *
 	 * @return a TileType
 	 */
 	public TileType getType() {
-		return this.type;
+		return type;
 	}
 
 	/**
 	 * Returns the number of the tile.
-	 * 
+	 *
 	 * @return an integer
 	 */
 	public int getNumber() {
-		return this.number;
+		return number;
 	}
 
 	/**
 	 * Returns the multiplier of the tile.
-	 * 
+	 *
 	 * @return an integer
 	 */
 	public int getMultiplier() {
-		return this.multiplier;
+		return multiplier;
 	}
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
+	@Override
 	public boolean equals(Object o) {
 		if (o == null) {
 			return false;
@@ -63,9 +64,8 @@ public abstract class Tile {
 
 		if (o instanceof Tile) {
 			Tile t = (Tile) o;
-			return this.type.equals(t.getType())
-					&& this.number == t.getNumber()
-					&& this.multiplier == t.getMultiplier();
+			return type.equals(t.getType()) && number == t.getNumber()
+					&& multiplier == t.getMultiplier();
 		}
 
 		return false;
@@ -73,13 +73,13 @@ public abstract class Tile {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see java.lang.Object#hashCode()
 	 */
+	@Override
 	public int hashCode() {
 		int result = 17;
 		int constVal = 37;
-		return result * constVal
-				* (this.type.hashCode() + this.number + this.multiplier);
+		return result * constVal * (type.hashCode() + number + multiplier);
 	}
 }

@@ -31,32 +31,32 @@ public class UserLevelListController implements ListSelectionListener {
 
 	/*
 	 * (non-Javadoc)
-	 *
+	 * 
 	 * @see
 	 * javax.swing.event.ListSelectionListener#valueChanged(javax.swing.event
 	 * .ListSelectionEvent)
 	 */
 	public void valueChanged(ListSelectionEvent e) {
 		if (!e.getValueIsAdjusting()) {
-			int index = this.app.getGameMenuView().getUserMenuView()
-					.getLevelList().getSelectedIndex();
+			int index = app.getGameMenuView().getUserMenuView().getLevelList()
+					.getSelectedIndex();
 			GameLevel level = XMLParser.fileToLevel(XMLParser.USER_DIR
 					+ (index + 1) + XMLParser.XML_EXT);
 
 			// Set the board from the level
-			this.app.getGameMenuView().getUserMenuView().getLevelPreviewPanel()
+			app.getGameMenuView().getUserMenuView().getLevelPreviewPanel()
 					.setBoard(level.getBoard());
 
 			// Pass the current aesthetic
-			this.app.getGameMenuView().getUserMenuView().getLevelPreviewPanel()
-					.setAesthetic(this.app.getCurrentAesthetic());
+			app.getGameMenuView().getUserMenuView().getLevelPreviewPanel()
+					.setAesthetic(app.getCurrentAesthetic());
 
 			// Update the star preview
-			this.app.getGameMenuView()
+			app.getGameMenuView()
 					.getUserMenuView()
 					.getStarGraphicsPanel()
 					.refreshStars(
-							this.app.getCurrentUserProfile().getStarsOfLevel(
+							app.getCurrentUserProfile().getStarsOfLevel(
 									level.getLevelNumber(), MenuTypes.USER));
 		}
 	}

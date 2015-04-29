@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package SixesWild.com.mimas.sixeswild.controllers;
 
@@ -18,19 +18,19 @@ import SixesWild.com.mimas.sixeswild.boundaries.GameApplication;
 /**
  * This controller displays the credits menu when the credits menu button is
  * pressed.
- * 
+ *
  * @author Joey Perez
  */
 public class CreditsMenuButtonController implements ActionListener {
 
 	private static final Logger logger = Logger.getGlobal();
-	
+
 	protected GameApplication app;
 
 	/**
 	 * Creates a CreditsMenuButtonController instance with the specified
 	 * GameApplication.
-	 * 
+	 *
 	 * @param app
 	 *            The GameApplication currently running.
 	 */
@@ -40,7 +40,7 @@ public class CreditsMenuButtonController implements ActionListener {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see
 	 * java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
 	 */
@@ -63,8 +63,7 @@ public class CreditsMenuButtonController implements ActionListener {
 		gbc_list.gridy = 0;
 
 		// Add panel to view
-		currentPanel.add(this.app.getGameMenuView().getCreditsMenuView(),
-				gbc_list);
+		currentPanel.add(app.getGameMenuView().getCreditsMenuView(), gbc_list);
 		currentPanel.updateUI();
 
 		logger.log(Level.FINE, "Credits menu requested and displayed.");

@@ -41,6 +41,6 @@ public class ReleaseLevel extends GameLevel {
 			throws Exception {
 		super(tileFreq, multFreq, name, tiles, pointThresholds, moveCount,
 				specialMoves, levelNumber);
-		this.type = LevelType.RELEASE;
+		type = LevelType.RELEASE;
 	}
 }

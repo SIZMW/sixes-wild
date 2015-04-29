@@ -32,14 +32,14 @@ public class Badge {
 	 * Unlocks the badge.
 	 */
 	public void unlock() {
-		this.isUnlocked = true;
+		isUnlocked = true;
 	}
 
 	/**
 	 * Locks the badge.
 	 */
 	public void lock() {
-		this.isUnlocked = false;
+		isUnlocked = false;
 	}
 
 	/**
@@ -48,7 +48,7 @@ public class Badge {
 	 * @return a String
 	 */
 	public String getDescription() {
-		return this.description;
+		return description;
 	}
 
 	/**
@@ -57,7 +57,7 @@ public class Badge {
 	 * @return a String
 	 */
 	public String getName() {
-		return this.name;
+		return name;
 	}
 
 	/**
@@ -67,7 +67,7 @@ public class Badge {
 	 */
 	public boolean canBeUnlocked() {
 		boolean unlocked = false;
-		if (this.isUnlocked) {
+		if (isUnlocked) {
 			unlocked = true;
 		}
 		return unlocked;

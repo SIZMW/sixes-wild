@@ -29,14 +29,15 @@ public class EndLevelPopUpDialog extends JDialog {
 	 *            The custom text to display.
 	 */
 	public EndLevelPopUpDialog(GameApplication app, String message) {
-		this.setTitle("Game Over");
+		setTitle("Game Over");
 		this.setSize(new Dimension(300, 100));
 
 		// Set location to set of game application
 		this.setLocation(app.getFrame().getX()
-				+ (app.getFrame().getWidth() / 2) - (this.getWidth() / 2),
-				app.getFrame().getY() + (app.getFrame().getHeight() / 2)
-						- (this.getHeight() / 2));
+				+ (app.getFrame().getWidth() / 2) - (getWidth() / 2), app
+				.getFrame().getY()
+				+ (app.getFrame().getHeight() / 2)
+				- (getHeight() / 2));
 
 		// Layout for panel
 		GridBagLayout gridBagLayout = new GridBagLayout();
@@ -50,6 +51,6 @@ public class EndLevelPopUpDialog extends JDialog {
 		JLabel textMessage = new JLabel(message);
 		textMessage.setFont(new Font("Monospace", Font.PLAIN, 18));
 		this.add(textMessage);
-		this.addWindowListener(new ExitButtonController(app));
+		addWindowListener(new ExitButtonController(app));
 	}
 }

@@ -48,15 +48,15 @@ public abstract class GameLevel {
 			String name, Tile tiles[][], PointThresholds pointThresholds,
 			int moveCount, SpecialMoves specialMoves, int levelNumber)
 			throws Exception {
-		this.type = LevelType.PUZZLE;
+		type = LevelType.PUZZLE;
 		this.name = name;
 		this.pointThresholds = pointThresholds;
 		this.moveCount = moveCount;
-		this.timerCount = 0;
+		timerCount = 0;
 		this.specialMoves = specialMoves;
 		this.levelNumber = levelNumber;
 		try {
-			this.board = new Board(tiles, tileFreq, multFreq);
+			board = new Board(tiles, tileFreq, multFreq);
 		} catch (Exception e) {
 			throw e;
 		}
@@ -90,15 +90,15 @@ public abstract class GameLevel {
 			String name, Tile tiles[][], PointThresholds pointThresholds,
 			SpecialMoves specialMoves, int levelNumber, int timer)
 			throws Exception {
-		this.type = LevelType.PUZZLE;
+		type = LevelType.PUZZLE;
 		this.name = name;
 		this.pointThresholds = pointThresholds;
-		this.timerCount = timer;
-		this.moveCount = 0;
+		timerCount = timer;
+		moveCount = 0;
 		this.specialMoves = specialMoves;
 		this.levelNumber = levelNumber;
 
-		this.board = new Board(tiles, tileFreq, multFreq);
+		board = new Board(tiles, tileFreq, multFreq);
 	}
 
 	/**
@@ -107,7 +107,7 @@ public abstract class GameLevel {
 	 * @return a LevelType
 	 */
 	public LevelType getType() {
-		return this.type;
+		return type;
 	}
 
 	/**
@@ -116,7 +116,7 @@ public abstract class GameLevel {
 	 * @return a String
 	 */
 	public String getName() {
-		return this.name;
+		return name;
 	}
 
 	/**
@@ -135,7 +135,7 @@ public abstract class GameLevel {
 	 * @return a Board
 	 */
 	public Board getBoard() {
-		return this.board;
+		return board;
 	}
 
 	/**
@@ -154,7 +154,7 @@ public abstract class GameLevel {
 	 * @return a PointThresholds
 	 */
 	public PointThresholds getPointThresholds() {
-		return this.pointThresholds;
+		return pointThresholds;
 	}
 
 	/**
@@ -173,7 +173,7 @@ public abstract class GameLevel {
 	 * @return the integer number of moves
 	 */
 	public int getMoveCount() {
-		return this.moveCount;
+		return moveCount;
 	}
 
 	/**
@@ -193,7 +193,7 @@ public abstract class GameLevel {
 	 *            The integer value to update the move count.
 	 */
 	public void updateMoveCount(int delta) {
-		this.moveCount += delta;
+		moveCount += delta;
 	}
 
 	/**
@@ -202,7 +202,7 @@ public abstract class GameLevel {
 	 * @return a Timer
 	 */
 	public int getTimer() {
-		return this.timerCount;
+		return timerCount;
 	}
 
 	/**
@@ -212,7 +212,7 @@ public abstract class GameLevel {
 	 *            The new timer to set for the level.
 	 */
 	public void setTimer(int timer) {
-		this.timerCount = timer;
+		timerCount = timer;
 	}
 
 	/**
@@ -222,7 +222,7 @@ public abstract class GameLevel {
 	 *            The integer value to update the timer count.
 	 */
 	public synchronized void updateTimerCount(int delta) {
-		this.timerCount += delta;
+		timerCount += delta;
 	}
 
 	/**
@@ -232,7 +232,7 @@ public abstract class GameLevel {
 	 *            The new special moves for the level.
 	 */
 	public void setSpecialMoves(SpecialMoves newSpecialMoves) {
-		this.specialMoves = newSpecialMoves;
+		specialMoves = newSpecialMoves;
 	}
 
 	/**
@@ -241,7 +241,7 @@ public abstract class GameLevel {
 	 * @return a SpecialMoves
 	 */
 	public SpecialMoves getSpecialMoves() {
-		return this.specialMoves;
+		return specialMoves;
 	}
 
 	/**
@@ -250,7 +250,7 @@ public abstract class GameLevel {
 	 * @return the integer level number
 	 */
 	public int getLevelNumber() {
-		return this.levelNumber;
+		return levelNumber;
 	}
 
 	/**
@@ -260,6 +260,6 @@ public abstract class GameLevel {
 	 *            The new level number for the level.
 	 */
 	public void setLevelNumber(int newNumber) {
-		this.levelNumber = newNumber;
+		levelNumber = newNumber;
 	}
 }

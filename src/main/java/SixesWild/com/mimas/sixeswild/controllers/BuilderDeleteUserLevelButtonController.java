@@ -40,9 +40,9 @@ public class BuilderDeleteUserLevelButtonController implements ActionListener {
 	public void actionPerformed(ActionEvent arg0) {
 
 		// Check if there are even files left to delete
-		if (this.app.getBuilderView().getBuilderTopPanel().getDeleteComboBox()
+		if (app.getBuilderView().getBuilderTopPanel().getDeleteComboBox()
 				.getItemCount() > 0) {
-			String fileName = this.app.getBuilderView().getBuilderTopPanel()
+			String fileName = app.getBuilderView().getBuilderTopPanel()
 					.getDeleteComboBox().getSelectedIndex()
 					+ 1 + ".xml";
 
@@ -61,8 +61,7 @@ public class BuilderDeleteUserLevelButtonController implements ActionListener {
 		}
 
 		// Update the level lists
-		this.app.getBuilderView().getBuilderTopPanel().clearComboBoxes();
-		this.app.getBuilderView().getBuilderTopPanel().updateComboBoxes();
+		app.getBuilderView().getBuilderTopPanel().clearComboBoxes();
+		app.getBuilderView().getBuilderTopPanel().updateComboBoxes();
 	}
-
 }

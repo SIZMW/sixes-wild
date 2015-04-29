@@ -92,11 +92,11 @@ public class Selection {
 	public boolean isSelectionValid() {
 
 		// If selection has only one tile
-		if (this.squareSet.size() <= 1) {
+		if (squareSet.size() <= 1) {
 			return false;
 		}
 
-		Object squareArray[] = this.squareSet.toArray();
+		Object squareArray[] = squareSet.toArray();
 
 		// Check if each square is next to at least one other square in the
 		// selection. This allows for the "T" move.
@@ -107,7 +107,7 @@ public class Selection {
 
 				// Don't check square against itself
 				if (i != j
-						&& this.isSquareNextTo((Square) squareArray[i],
+						&& isSquareNextTo((Square) squareArray[i],
 								(Square) squareArray[j])) {
 					nextTo = true;
 				}
@@ -122,7 +122,7 @@ public class Selection {
 			nextTo = false;
 		}
 
-		return this.isSelectionSumValid();
+		return isSelectionSumValid();
 	}
 
 	/**
@@ -135,11 +135,11 @@ public class Selection {
 	public boolean isSelectionStillValid() {
 
 		// If selection has only one tile, allow more to be selected
-		if (this.squareSet.size() <= 1) {
+		if (squareSet.size() <= 1) {
 			return true;
 		}
 
-		Object squareArray[] = this.squareSet.toArray();
+		Object squareArray[] = squareSet.toArray();
 
 		// Check if each square is next to at least one other square in the
 		// selection. This allows for the "T" move.
@@ -150,7 +150,7 @@ public class Selection {
 
 				// Don't check square against itself
 				if (i != j
-						&& this.isSquareNextTo((Square) squareArray[i],
+						&& isSquareNextTo((Square) squareArray[i],
 								(Square) squareArray[j])) {
 					nextTo = true;
 				}
@@ -164,7 +164,7 @@ public class Selection {
 			// Reset boolean
 			nextTo = false;
 		}
-		return this.isSelectionSumStillValid();
+		return isSelectionSumStillValid();
 	}
 
 	/**
@@ -246,7 +246,7 @@ public class Selection {
 	public boolean isSwapStillValid() {
 
 		// If selection does not have only two tiles
-		if (this.squareSet.size() > 2) {
+		if (squareSet.size() > 2) {
 			return false;
 		}
 
@@ -269,7 +269,7 @@ public class Selection {
 	public boolean isSwapValid() {
 
 		// If selection does not have only two tiles
-		if (this.squareSet.size() != 2) {
+		if (squareSet.size() != 2) {
 			return false;
 		}
 
@@ -292,7 +292,7 @@ public class Selection {
 	public boolean isRemoveStillValid() {
 
 		// If selection does not have one tile
-		if (this.squareSet.size() > 1) {
+		if (squareSet.size() > 1) {
 			return false;
 		}
 
@@ -315,7 +315,7 @@ public class Selection {
 	public boolean isRemoveValid() {
 
 		// If selection does not have one tile
-		if (this.squareSet.size() != 1) {
+		if (squareSet.size() != 1) {
 			return false;
 		}
 

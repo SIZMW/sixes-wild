@@ -44,12 +44,12 @@ public class SaveButtonController implements ActionListener {
 
 	/*
 	 * (non-Javadoc)
-	 *
+	 * 
 	 * @see
 	 * java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
 	 */
 	public void actionPerformed(ActionEvent e) {
-		BuilderSettingsPanel bsp = this.app.getBuilderView()
+		BuilderSettingsPanel bsp = app.getBuilderView()
 				.getBuilderSettingsPanel();
 		GameLevel newLevel;
 
@@ -58,12 +58,12 @@ public class SaveButtonController implements ActionListener {
 
 		// Determine the level number
 		int levelNumber;
-		if (this.app.getBuilderView().getBuilderTopPanel().getUserLevelList()
+		if (app.getBuilderView().getBuilderTopPanel().getUserLevelList()
 				.contains(levelName)) {
-			levelNumber = this.app.getBuilderView().getBuilderTopPanel()
+			levelNumber = app.getBuilderView().getBuilderTopPanel()
 					.getUserLevelList().indexOf(levelName) + 1;
 		} else {
-			levelNumber = this.app.getBuilderView().getBuilderTopPanel()
+			levelNumber = app.getBuilderView().getBuilderTopPanel()
 					.getUserLevelList().size() + 1;
 		}
 
@@ -244,7 +244,7 @@ public class SaveButtonController implements ActionListener {
 
 		for (int i = 0; i < 9; i++) {
 			for (int j = 0; j < 9; j++) {
-				tiles[i][j] = this.app.getBuilderView().getBoardViewPanel()
+				tiles[i][j] = app.getBuilderView().getBoardViewPanel()
 						.getBoard().getSquare(i, j).getTile();
 			}
 		}
@@ -289,7 +289,7 @@ public class SaveButtonController implements ActionListener {
 		}
 
 		// Update the level lists
-		this.app.getBuilderView().getBuilderTopPanel().clearComboBoxes();
-		this.app.getBuilderView().getBuilderTopPanel().updateComboBoxes();
+		app.getBuilderView().getBuilderTopPanel().clearComboBoxes();
+		app.getBuilderView().getBuilderTopPanel().updateComboBoxes();
 	}
 }

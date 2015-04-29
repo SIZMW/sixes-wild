@@ -4,7 +4,7 @@ import junit.framework.TestCase;
 
 /**
  * This test case handles testing the Square methods.
- * 
+ *
  * @author Aditya Nivarthi
  */
 public class TestSquare extends TestCase {
@@ -13,18 +13,20 @@ public class TestSquare extends TestCase {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see junit.framework.TestCase#setUp()
 	 */
+	@Override
 	public void setUp() {
 		square = new Square(new NumberTile(1, 1), 0, 0, false);
 	}
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see junit.framework.TestCase#tearDown()
 	 */
+	@Override
 	public void tearDown() {
 
 	}

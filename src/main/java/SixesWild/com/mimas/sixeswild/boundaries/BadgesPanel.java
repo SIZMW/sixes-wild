@@ -18,7 +18,7 @@ import javax.swing.border.LineBorder;
 /**
  * This class represents the view used to show badges that the player has
  * completed or has not completed in the game menu.
- * 
+ *
  * @author Yahel Nachum
  */
 public class BadgesPanel extends JPanel {
@@ -34,7 +34,7 @@ public class BadgesPanel extends JPanel {
 
 	/**
 	 * Creates a BadgesPanel instance with the specified list of badge names.
-	 * 
+	 *
 	 * @param badgeNames
 	 *            The list of badge names.
 	 */
@@ -52,13 +52,13 @@ public class BadgesPanel extends JPanel {
 		setLayout(gridBagLayout);
 
 		// Add the list of badge names
-		this.badgeListModel = new DefaultListModel<String>();
+		badgeListModel = new DefaultListModel<String>();
 		for (String e : this.badgeNames) {
-			this.badgeListModel.addElement(e);
+			badgeListModel.addElement(e);
 		}
 
 		// Badge list scroll pane
-		this.badgeScrollPane = new JScrollPane();
+		badgeScrollPane = new JScrollPane();
 		JList<String> list = new JList<String>(badgeListModel);
 		list.setPreferredSize(new Dimension(100, 100));
 		list.setMinimumSize(new Dimension(100, 100));
@@ -74,7 +74,7 @@ public class BadgesPanel extends JPanel {
 		add(badgeScrollPane, gbc_list);
 
 		// Preview panel
-		this.previewPanel = new JPanel();
+		previewPanel = new JPanel();
 		GridBagConstraints gbc_panel = new GridBagConstraints();
 		gbc_panel.fill = GridBagConstraints.BOTH;
 		gbc_panel.gridx = 1;
@@ -106,33 +106,33 @@ public class BadgesPanel extends JPanel {
 		gbc_lblBadgepreview.insets = new Insets(0, 0, 5, 5);
 		gbc_lblBadgepreview.gridx = 1;
 		gbc_lblBadgepreview.gridy = 1;
-		this.previewPanel.add(badgesPreviewLabel, gbc_lblBadgepreview);
+		previewPanel.add(badgesPreviewLabel, gbc_lblBadgepreview);
 	}
 
 	/**
 	 * Returns the previewPanel object for this panel.
-	 * 
+	 *
 	 * @return the previewPanel property
 	 */
 	public JPanel getPreviewPanel() {
-		return this.previewPanel;
+		return previewPanel;
 	}
 
 	/**
 	 * Returns the badgeNamesobject for this panel.
-	 * 
+	 *
 	 * @return the badgeNames property
 	 */
 	public ArrayList<String> getBadgeNameList() {
-		return this.badgeNames;
+		return badgeNames;
 	}
 
 	/**
 	 * Returns the badgeScrollPane object for this panel.
-	 * 
+	 *
 	 * @return the badgeScrollPane property
 	 */
 	public JScrollPane getBadgeScrollPane() {
-		return this.badgeScrollPane;
+		return badgeScrollPane;
 	}
 }

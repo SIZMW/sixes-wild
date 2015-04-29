@@ -13,7 +13,7 @@ import SixesWild.com.mimas.sixeswild.boundaries.BuilderApplication;
 /**
  * This class is used to create and run an instance of the BuilderApplication
  * for the level builder.
- * 
+ *
  * @author Aditya Nivarthi
  */
 public class BuilderMain {
@@ -24,7 +24,7 @@ public class BuilderMain {
 
 	/**
 	 * Main to launch the builder.
-	 * 
+	 *
 	 * @param args
 	 *            Runtime arguments.
 	 */

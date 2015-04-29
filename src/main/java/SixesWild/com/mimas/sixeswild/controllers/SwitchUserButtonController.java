@@ -31,14 +31,14 @@ public class SwitchUserButtonController implements ActionListener {
 
 	/*
 	 * (non-Javadoc)
-	 *
+	 * 
 	 * @see
 	 * java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
 	 */
 	public void actionPerformed(ActionEvent arg0) {
-		String name = this.app.getGameMenuView().getOptionsMenuView()
+		String name = app.getGameMenuView().getOptionsMenuView()
 				.getUserNameTextField().getText();
-		this.app.setCurrentUserProfile(name);
+		app.setCurrentUserProfile(name);
 		logger.log(Level.FINE, "User profile requested to be loaded for: "
 				+ name);
 	}

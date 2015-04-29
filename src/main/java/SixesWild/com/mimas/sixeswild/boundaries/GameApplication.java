@@ -56,7 +56,7 @@ public class GameApplication {
 	 * Creates a GameApplication instance and initializes it.
 	 */
 	public GameApplication() {
-		this.initialize();
+		initialize();
 	}
 
 	/**
@@ -73,7 +73,7 @@ public class GameApplication {
 
 		// Set up aesthetics
 		aestheticList = new ArrayList<Aesthetic>();
-		this.setUpAesthetics();
+		setUpAesthetics();
 
 		// Initialize lists for GameMenuView
 		storyLevelList = XMLParser.getLevelFileNames(XMLParser.STORY_DIR);
@@ -86,7 +86,7 @@ public class GameApplication {
 		}
 
 		// Set up user profile
-		this.setCurrentUserProfile("Default");
+		setCurrentUserProfile("Default");
 
 		// Initialize panels and views.
 		gameMenuView = new GameMenuView(storyLevelList, userLevelList,
@@ -112,7 +112,7 @@ public class GameApplication {
 		logger.log(Level.FINE, "GameApplication frame initialized.");
 
 		// Set up controllers
-		this.setUpControllers();
+		setUpControllers();
 	}
 
 	/**
@@ -121,39 +121,39 @@ public class GameApplication {
 	protected void setUpControllers() {
 
 		// Closing window
-		this.frame.addWindowListener(new GameCloseWindowController(this));
+		frame.addWindowListener(new GameCloseWindowController(this));
 
 		// Menu buttons
-		this.gameMenuView.getStoryLevelMenuButton().addActionListener(
+		gameMenuView.getStoryLevelMenuButton().addActionListener(
 				new StoryMenuButtonController(this));
-		this.gameMenuView.getOptionsMenuButton().addActionListener(
+		gameMenuView.getOptionsMenuButton().addActionListener(
 				new OptionsMenuButtonController(this));
-		this.gameMenuView.getUserLevelMenuButton().addActionListener(
+		gameMenuView.getUserLevelMenuButton().addActionListener(
 				new UserLevelMenuButtonController(this));
-		this.gameMenuView.getCreditsMenuButton().addActionListener(
+		gameMenuView.getCreditsMenuButton().addActionListener(
 				new CreditsMenuButtonController(this));
-		this.gameMenuView.getBadgesMenuButton().addActionListener(
+		gameMenuView.getBadgesMenuButton().addActionListener(
 				new BadgesMenuButtonController(this));
 
 		// Level play button
-		this.gameMenuView
+		gameMenuView
 				.getStoryMenuView()
 				.getPlayButton()
 				.addActionListener(
 						new PlayButtonController(this, MenuTypes.STORY));
-		this.gameMenuView
+		gameMenuView
 				.getUserMenuView()
 				.getPlayButton()
 				.addActionListener(
 						new PlayButtonController(this, MenuTypes.USER));
 
 		// Splash screen
-		this.getFrame().addKeyListener(new GameSplashScreenController(this));
+		getFrame().addKeyListener(new GameSplashScreenController(this));
 
 		// Level list previews
-		this.gameMenuView.getStoryMenuView().levelList
+		gameMenuView.getStoryMenuView().levelList
 				.addListSelectionListener(new StoryLevelListController(this));
-		this.gameMenuView.getUserMenuView().levelList
+		gameMenuView.getUserMenuView().levelList
 				.addListSelectionListener(new UserLevelListController(this));
 
 		logger.log(Level.FINE, "GameApplication controllers initialized.");
@@ -195,7 +195,7 @@ public class GameApplication {
 	 * @return the frame property
 	 */
 	public JFrame getFrame() {
-		return this.frame;
+		return frame;
 	}
 
 	/**
@@ -204,7 +204,7 @@ public class GameApplication {
 	 * @return the gameMenuView property
 	 */
 	public GameMenuView getGameMenuView() {
-		return this.gameMenuView;
+		return gameMenuView;
 	}
 
 	/**
@@ -213,7 +213,7 @@ public class GameApplication {
 	 * @return the levelView property
 	 */
 	public LevelView getLevelPanel() {
-		return this.levelView;
+		return levelView;
 	}
 
 	/**
@@ -224,7 +224,7 @@ public class GameApplication {
 	 * @return true
 	 */
 	public boolean setLevelPanel(LevelView newLevel) {
-		this.levelView = newLevel;
+		levelView = newLevel;
 		return true;
 	}
 
@@ -234,7 +234,7 @@ public class GameApplication {
 	 * @return the currentAesthetic property
 	 */
 	public Aesthetic getCurrentAesthetic() {
-		return this.currentAesthetic;
+		return currentAesthetic;
 	}
 
 	/**
@@ -243,7 +243,7 @@ public class GameApplication {
 	 * @return the currentUserProfile property
 	 */
 	public UserProfile getCurrentUserProfile() {
-		return this.currentUserProfile;
+		return currentUserProfile;
 	}
 
 	/**
@@ -279,19 +279,18 @@ public class GameApplication {
 	public boolean setCurrentUserProfile(String name) {
 		for (String e : XMLParser.getUserProfileNames()) {
 			if (name.equals(e)) {
-				this.currentUserProfile = XMLParser.fileToUserProfile(name
+				currentUserProfile = XMLParser.fileToUserProfile(name
 						+ XMLParser.PROFILE_CONST + XMLParser.XML_EXT);
 				logger.log(Level.INFO, "User profile found for: " + name);
-				this.refreshView();
-				this.setCurrentAesthetic(this.currentUserProfile
-						.getAestheticName());
+				refreshView();
+				setCurrentAesthetic(currentUserProfile.getAestheticName());
 				return true;
 			}
 		}
 
 		// If profile not found, create a new one
 		logger.log(Level.INFO, "User profile created for: " + name);
-		this.currentUserProfile = new UserProfile(name);
+		currentUserProfile = new UserProfile(name);
 		return false;
 	}
 
@@ -301,7 +300,7 @@ public class GameApplication {
 	 */
 	public void refreshView() {
 		if (gameMenuView != null) {
-			this.gameMenuView.refreshView(
+			gameMenuView.refreshView(
 					currentUserProfile.getHighestStoryLevelUnlocked(),
 					currentUserProfile.getHighestUserLevelUnlocked());
 		}

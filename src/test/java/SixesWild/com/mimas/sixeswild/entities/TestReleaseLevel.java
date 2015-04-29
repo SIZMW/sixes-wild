@@ -42,8 +42,8 @@ public class TestReleaseLevel extends TestCase {
 
 		ReleaseLevel level;
 		try {
-			level = new ReleaseLevel(tileFreq, multFreq, levelName,
-					tiles, pointThresholds, 50, specialMoves, levelNumber);
+			level = new ReleaseLevel(tileFreq, multFreq, levelName, tiles,
+					pointThresholds, 50, specialMoves, levelNumber);
 			assertEquals(levelName, level.name);
 			assertEquals(LevelType.RELEASE, level.type);
 			assertEquals(tileFreq, level.board.tileFrequencies);

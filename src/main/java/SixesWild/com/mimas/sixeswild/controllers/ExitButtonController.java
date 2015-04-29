@@ -42,24 +42,24 @@ public class ExitButtonController extends WindowAdapter implements
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see
 	 * java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
 	 */
 	public void actionPerformed(ActionEvent e) {
-		this.endLevel();
+		endLevel();
 		logger.log(Level.INFO, "Exited level by button press.");
 	}
 
 	/*
 	 * (non-Javadoc)
-	 *
+	 * 
 	 * @see
 	 * java.awt.event.WindowAdapter#windowClosing(java.awt.event.WindowEvent)
 	 */
 	@Override
 	public void windowClosing(WindowEvent e) {
-		this.endLevel();
+		endLevel();
 		logger.log(Level.INFO, "Exited level by window close.");
 	}
 
@@ -70,8 +70,8 @@ public class ExitButtonController extends WindowAdapter implements
 		Container contentContainer = app.getFrame().getContentPane();
 		JPanel currentPanel = new JPanel();
 		contentContainer.removeAll();
-		if (this.app.getLevelPanel().getTimer() != null) {
-			this.app.getLevelPanel().getTimer().stop();
+		if (app.getLevelPanel().getTimer() != null) {
+			app.getLevelPanel().getTimer().stop();
 		}
 
 		// Layout for panel
@@ -91,10 +91,10 @@ public class ExitButtonController extends WindowAdapter implements
 
 		// Refreshes the game menu view with the updated unlocked levels from
 		// the user profile.
-		this.app.refreshView();
+		app.refreshView();
 
 		// Add panel to view
-		currentPanel.add(this.app.getGameMenuView(), gbc_list);
+		currentPanel.add(app.getGameMenuView(), gbc_list);
 		contentContainer.add(currentPanel);
 		contentContainer.revalidate();
 		contentContainer.repaint();

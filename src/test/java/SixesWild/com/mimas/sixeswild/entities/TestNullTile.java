@@ -4,7 +4,7 @@ import junit.framework.TestCase;
 
 /**
  * This test case handles testing the NullTile methods.
- * 
+ *
  * @author Aditya Nivarthi
  */
 public class TestNullTile extends TestCase {

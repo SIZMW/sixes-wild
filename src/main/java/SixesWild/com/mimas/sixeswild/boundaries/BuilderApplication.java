@@ -46,7 +46,7 @@ public class BuilderApplication {
 	 * Creates a BuilderApplication instance and initializes it.
 	 */
 	public BuilderApplication() {
-		this.initialize();
+		initialize();
 	}
 
 	/**
@@ -67,7 +67,7 @@ public class BuilderApplication {
 				Color.MAGENTA, new Color(0x7D26CD), Color.lightGray);
 
 		// Initialize panels and views
-		builderView = new BuilderView(this.aesthetic);
+		builderView = new BuilderView(aesthetic);
 
 		// Initialize frame
 		frame = new JFrame();
@@ -88,7 +88,7 @@ public class BuilderApplication {
 		logger.log(Level.FINE, "BuilderApplication frame initialized.");
 
 		// Set up controllers
-		this.setUpControllers();
+		setUpControllers();
 	}
 
 	/**
@@ -97,47 +97,47 @@ public class BuilderApplication {
 	protected void setUpControllers() {
 
 		// Splash screen
-		this.getFrame().addKeyListener(new BuilderSplashScreenController(this));
+		getFrame().addKeyListener(new BuilderSplashScreenController(this));
 
 		// File management
-		this.builderView.builderTopPanel.newButton
+		builderView.builderTopPanel.newButton
 				.addActionListener(new NewLevelButtonController(this));
-		this.builderView.builderSettingsPanel.specialMoveOneMinusButton
+		builderView.builderSettingsPanel.specialMoveOneMinusButton
 				.addActionListener(new SpecialMoveOneDecreaseButtonController(
 						this));
-		this.builderView.builderTopPanel.deleteButton
+		builderView.builderTopPanel.deleteButton
 				.addActionListener(new BuilderDeleteUserLevelButtonController(
 						this));
-		this.builderView.builderTopPanel.openButton
+		builderView.builderTopPanel.openButton
 				.addActionListener(new OpenButtonController(this));
-		this.builderView.builderTopPanel.saveButton
+		builderView.builderTopPanel.saveButton
 				.addActionListener(new SaveButtonController(this));
 
 		// Special move decrease and increase buttons
-		this.builderView.builderSettingsPanel.specialMoveOnePlusButton
+		builderView.builderSettingsPanel.specialMoveOnePlusButton
 				.addActionListener(new SpecialMoveOneIncreaseButtonController(
 						this));
-		this.builderView.builderSettingsPanel.specialMoveTwoMinusButton
+		builderView.builderSettingsPanel.specialMoveTwoMinusButton
 				.addActionListener(new SpecialMoveTwoDecreaseButtonController(
 						this));
-		this.builderView.builderSettingsPanel.specialMoveTwoPlusButton
+		builderView.builderSettingsPanel.specialMoveTwoPlusButton
 				.addActionListener(new SpecialMoveTwoIncreaseButtonController(
 						this));
-		this.builderView.builderSettingsPanel.specialMoveThreeMinusButton
+		builderView.builderSettingsPanel.specialMoveThreeMinusButton
 				.addActionListener(new SpecialMoveThreeDecreaseButtonController(
 						this));
-		this.builderView.builderSettingsPanel.specialMoveThreePlusButton
+		builderView.builderSettingsPanel.specialMoveThreePlusButton
 				.addActionListener(new SpecialMoveThreeIncreaseButtonController(
 						this));
-		this.builderView.builderSettingsPanel.specialMoveFourMinusButton
+		builderView.builderSettingsPanel.specialMoveFourMinusButton
 				.addActionListener(new SpecialMoveFourDecreaseButtonController(
 						this));
-		this.builderView.builderSettingsPanel.specialMoveFourPlusButton
+		builderView.builderSettingsPanel.specialMoveFourPlusButton
 				.addActionListener(new SpecialMoveFourIncreaseButtonController(
 						this));
 
 		// Mouse press
-		this.builderView.boardViewPanel
+		builderView.boardViewPanel
 				.addMouseListener(new BuilderBoardViewMouseController(this));
 
 		logger.log(Level.FINE, "BuilderApplication controllers initialized.");
@@ -149,7 +149,7 @@ public class BuilderApplication {
 	 * @return the frame property
 	 */
 	public JFrame getFrame() {
-		return this.frame;
+		return frame;
 	}
 
 	/**
@@ -158,7 +158,7 @@ public class BuilderApplication {
 	 * @return the builderView property
 	 */
 	public BuilderView getBuilderView() {
-		return this.builderView;
+		return builderView;
 	}
 
 	/**
@@ -167,6 +167,6 @@ public class BuilderApplication {
 	 * @return the aesthetic property
 	 */
 	public Aesthetic getAesthetic() {
-		return this.aesthetic;
+		return aesthetic;
 	}
 }

@@ -20,7 +20,7 @@ import SixesWild.com.mimas.sixeswild.entities.TileType;
 
 /**
  * This class represents the level settings panel in the level builder.
- * 
+ *
  * @author Yahel Nachum
  */
 public class BuilderSettingsPanel extends JPanel {
@@ -959,223 +959,223 @@ public class BuilderSettingsPanel extends JPanel {
 
 	/**
 	 * Returns the userLevelNameTextField object for this panel.
-	 * 
+	 *
 	 * @return the userLevelNameTextField property.
 	 */
 	public JTextField getUserLevelNameTextField() {
-		return this.userLevelNameTextField;
+		return userLevelNameTextField;
 	}
 
 	/**
 	 * Returns the movesTextField object for this panel.
-	 * 
+	 *
 	 * @return the movesTextField property.
 	 */
 	public JTextField getMovesTextField() {
-		return this.movesTextField;
+		return movesTextField;
 	}
 
 	/**
 	 * Returns the timerTextField object for this panel.
-	 * 
+	 *
 	 * @return the timerTextField property.
 	 */
 	public JTextField getTimerTextField() {
-		return this.timerTextField;
+		return timerTextField;
 	}
 
 	/**
 	 * Returns the levelTypeComboBox object for this panel.
-	 * 
+	 *
 	 * @return the levelTypeComboBox property.
 	 */
 	public JComboBox<String> getLevelTypeComboBox() {
-		return this.levelTypeComboBox;
+		return levelTypeComboBox;
 	}
 
 	/**
 	 * Returns the onesTextField object for this panel.
-	 * 
+	 *
 	 * @return the onesTextField property.
 	 */
 	public JTextField getOnesTextField() {
-		return this.onesTextField;
+		return onesTextField;
 	}
 
 	/**
 	 * Returns the twosTextField object for this panel.
-	 * 
+	 *
 	 * @return the twosTextField property.
 	 */
 	public JTextField getTwosTextField() {
-		return this.twosTextField;
+		return twosTextField;
 	}
 
 	/**
 	 * Returns the threesTextField object for this panel.
-	 * 
+	 *
 	 * @return the threesTextField property.
 	 */
 	public JTextField getThreesTextField() {
-		return this.threesTextField;
+		return threesTextField;
 	}
 
 	/**
 	 * Returns the foursTextField object for this panel.
-	 * 
+	 *
 	 * @return the foursTextField property.
 	 */
 	public JTextField getFoursTextField() {
-		return this.foursTextField;
+		return foursTextField;
 	}
 
 	/**
 	 * Returns the fivesTextField object for this panel.
-	 * 
+	 *
 	 * @return the fivesTextField property.
 	 */
 	public JTextField getFivesTextField() {
-		return this.fivesTextField;
+		return fivesTextField;
 	}
 
 	/**
 	 * Returns the sixesTextField object for this panel.
-	 * 
+	 *
 	 * @return the sixesTextField property.
 	 */
 	public JTextField getSixesTextField() {
-		return this.sixesTextField;
+		return sixesTextField;
 	}
 
 	/**
 	 * Returns the twoMultiplierTextField object for this panel.
-	 * 
+	 *
 	 * @return the twoMultiplierTextField property.
 	 */
 	public JTextField getTwoMultiplierTextField() {
-		return this.twoMultiplierTextField;
+		return twoMultiplierTextField;
 	}
 
 	/**
 	 * Returns the threeMultiplierTextField object for this panel.
-	 * 
+	 *
 	 * @return the threeMultiplierTextField property.
 	 */
 	public JTextField getThreeMultiplierTextField() {
-		return this.threeMultiplierTextField;
+		return threeMultiplierTextField;
 	}
 
 	/**
 	 * Returns the specialMoveOneMinusButton object for this panel.
-	 * 
+	 *
 	 * @return the specialMoveOneMinusButton property.
 	 */
 	public JButton getSpecialMoveOneMinusButton() {
-		return this.specialMoveOneMinusButton;
+		return specialMoveOneMinusButton;
 	}
 
 	/**
 	 * Returns the specialMoveOnePlusButton object for this panel.
-	 * 
+	 *
 	 * @return the specialMoveOnePlusButton property.
 	 */
 	public JButton getSpecialMoveOnePlusButton() {
-		return this.specialMoveOnePlusButton;
+		return specialMoveOnePlusButton;
 	}
 
 	/**
 	 * Returns the specialMoveTwoMinusButton object for this panel.
-	 * 
+	 *
 	 * @return the specialMoveTwoMinusButton property.
 	 */
 	public JButton getSpecialMoveTwoMinusButton() {
-		return this.specialMoveTwoMinusButton;
+		return specialMoveTwoMinusButton;
 	}
 
 	/**
 	 * Returns the specialMoveTwoPlusButton object for this panel.
-	 * 
+	 *
 	 * @return the specialMoveTwoPlusButton property.
 	 */
 	public JButton getSpecialMoveTwoPlusButton() {
-		return this.specialMoveTwoPlusButton;
+		return specialMoveTwoPlusButton;
 	}
 
 	/**
 	 * Returns the specialMoveThreeMinusButton object for this panel.
-	 * 
+	 *
 	 * @return the specialMoveThreeMinusButton property.
 	 */
 	public JButton getSpecialMoveThreeMinusButton() {
-		return this.specialMoveThreeMinusButton;
+		return specialMoveThreeMinusButton;
 	}
 
 	/**
 	 * Returns the specialMoveThreePlusButton object for this panel.
-	 * 
+	 *
 	 * @return the specialMoveThreePlusButton property.
 	 */
 	public JButton getSpecialMoveThreePlusButton() {
-		return this.specialMoveThreePlusButton;
+		return specialMoveThreePlusButton;
 	}
 
 	/**
 	 * Returns the specialMoveFourMinusButton object for this panel.
-	 * 
+	 *
 	 * @return the specialMoveFourMinusButton property.
 	 */
 	public JButton getSpecialMoveFourMinusButton() {
-		return this.specialMoveFourMinusButton;
+		return specialMoveFourMinusButton;
 	}
 
 	/**
 	 * Returns the specialMoveFourPlusButton object for this panel.
-	 * 
+	 *
 	 * @return the specialMoveFourPlusButton property.
 	 */
 	public JButton getSpecialMoveFourPlusButton() {
-		return this.specialMoveFourPlusButton;
+		return specialMoveFourPlusButton;
 	}
 
 	/**
 	 * Returns the oneStarScoreTextField object for this panel.
-	 * 
+	 *
 	 * @return the oneStarScoreTextField property.
 	 */
 	public JTextField getOneStarScoreTextField() {
-		return this.oneStarScoreTextField;
+		return oneStarScoreTextField;
 	}
 
 	/**
 	 * Returns the twoStarScoreTextField object for this panel.
-	 * 
+	 *
 	 * @return the twoStarScoreTextField property.
 	 */
 	public JTextField getTwoStarScoreTextField() {
-		return this.twoStarScoreTextField;
+		return twoStarScoreTextField;
 	}
 
 	/**
 	 * Returns the threeStarScoreTextField object for this panel.
-	 * 
+	 *
 	 * @return the threeStarScoreTextField property.
 	 */
 	public JTextField getThreeStarScoreTextField() {
-		return this.threeStarScoreTextField;
+		return threeStarScoreTextField;
 	}
 
 	/**
 	 * Returns the tileTypeComboBox object for this panel.
-	 * 
+	 *
 	 * @return the tileTypeComboBox property
 	 */
 	public JComboBox<String> getTileTypeComboBox() {
-		return this.tileTypeComboBox;
+		return tileTypeComboBox;
 	}
 
 	/**
 	 * Returns the specialMoveOneLabel object for this panel.
-	 * 
+	 *
 	 * @return the specialMoveOneLabel property
 	 */
 	public JLabel getSpecialMoveOneLabel() {
@@ -1184,7 +1184,7 @@ public class BuilderSettingsPanel extends JPanel {
 
 	/**
 	 * Returns the specialMoveTwoLabel object for this panel.
-	 * 
+	 *
 	 * @return the specialMoveTwoLabel property
 	 */
 	public JLabel getSpecialMoveTwoLabel() {
@@ -1193,7 +1193,7 @@ public class BuilderSettingsPanel extends JPanel {
 
 	/**
 	 * Returns the specialMoveThreeLabel object for this panel.
-	 * 
+	 *
 	 * @return the specialMoveThreeLabel property
 	 */
 	public JLabel getSpecialMoveThreeLabel() {
@@ -1202,7 +1202,7 @@ public class BuilderSettingsPanel extends JPanel {
 
 	/**
 	 * Returns the specialMoveFourLabel object for this panel.
-	 * 
+	 *
 	 * @return the specialMoveFourLabel property
 	 */
 	public JLabel getSpecialMoveFourLabel() {

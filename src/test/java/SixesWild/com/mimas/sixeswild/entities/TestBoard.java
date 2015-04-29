@@ -30,7 +30,7 @@ public class TestBoard extends TestCase {
 
 	/*
 	 * (non-Javadoc)
-	 *
+	 * 
 	 * @see junit.framework.TestCase#setUp()
 	 */
 	@Override
@@ -88,7 +88,7 @@ public class TestBoard extends TestCase {
 
 	/*
 	 * (non-Javadoc)
-	 *
+	 * 
 	 * @see junit.framework.TestCase#tearDown()
 	 */
 	@Override
@@ -206,21 +206,21 @@ public class TestBoard extends TestCase {
 	 * have null tiles.
 	 */
 	public void testRemoveSelection() {
-		assertFalse(this.numberBoard.removeSelection(null));
+		assertFalse(numberBoard.removeSelection(null));
 
-		this.numberBoard.setSquare(new NumberTile(2, 1), 0, 0, false);
-		this.numberBoard.setSquare(new NumberTile(2, 1), 0, 1, false);
-		this.numberBoard.setSquare(new NumberTile(2, 1), 0, 2, false);
+		numberBoard.setSquare(new NumberTile(2, 1), 0, 0, false);
+		numberBoard.setSquare(new NumberTile(2, 1), 0, 1, false);
+		numberBoard.setSquare(new NumberTile(2, 1), 0, 2, false);
 
-		selection.add(this.numberBoard.getSquare(0, 0));
-		selection.add(this.numberBoard.getSquare(0, 1));
-		selection.add(this.numberBoard.getSquare(0, 2));
+		selection.add(numberBoard.getSquare(0, 0));
+		selection.add(numberBoard.getSquare(0, 1));
+		selection.add(numberBoard.getSquare(0, 2));
 
-		this.numberBoard.removeSelection(selection);
+		numberBoard.removeSelection(selection);
 
-		assertEquals(this.numberBoard.getSquare(0, 0).getTile(), null);
-		assertEquals(this.numberBoard.getSquare(0, 1).getTile(), null);
-		assertEquals(this.numberBoard.getSquare(0, 2).getTile(), null);
+		assertEquals(numberBoard.getSquare(0, 0).getTile(), null);
+		assertEquals(numberBoard.getSquare(0, 1).getTile(), null);
+		assertEquals(numberBoard.getSquare(0, 2).getTile(), null);
 	}
 
 	/**
@@ -262,102 +262,96 @@ public class TestBoard extends TestCase {
 	 * Tests filling the empty squares after a selection has been removed.
 	 */
 	public void testFillEmptySquares() {
-		this.numberBoard.setSquare(new NumberTile(2, 1), 0, 0, false);
-		this.numberBoard.setSquare(new NumberTile(2, 1), 0, 1, false);
-		this.numberBoard.setSquare(new NumberTile(2, 1), 0, 2, false);
+		numberBoard.setSquare(new NumberTile(2, 1), 0, 0, false);
+		numberBoard.setSquare(new NumberTile(2, 1), 0, 1, false);
+		numberBoard.setSquare(new NumberTile(2, 1), 0, 2, false);
 
-		selection.add(this.numberBoard.getSquare(0, 0));
-		selection.add(this.numberBoard.getSquare(0, 1));
-		selection.add(this.numberBoard.getSquare(0, 2));
+		selection.add(numberBoard.getSquare(0, 0));
+		selection.add(numberBoard.getSquare(0, 1));
+		selection.add(numberBoard.getSquare(0, 2));
 
 		assertTrue(selection.isSelectionValid());
-		this.numberBoard.removeSelection(selection);
+		numberBoard.removeSelection(selection);
 
-		assertEquals(this.numberBoard.getSquare(0, 0).getTile(), null);
-		assertEquals(this.numberBoard.getSquare(0, 1).getTile(), null);
-		assertEquals(this.numberBoard.getSquare(0, 2).getTile(), null);
+		assertEquals(numberBoard.getSquare(0, 0).getTile(), null);
+		assertEquals(numberBoard.getSquare(0, 1).getTile(), null);
+		assertEquals(numberBoard.getSquare(0, 2).getTile(), null);
 
 		numberBoard.fillEmptySquares();
 
-		assertNotNull(this.numberBoard.getSquare(0, 0).getTile());
-		assertNotNull(this.numberBoard.getSquare(0, 1).getTile());
-		assertNotNull(this.numberBoard.getSquare(0, 2).getTile());
+		assertNotNull(numberBoard.getSquare(0, 0).getTile());
+		assertNotNull(numberBoard.getSquare(0, 1).getTile());
+		assertNotNull(numberBoard.getSquare(0, 2).getTile());
 	}
 
 	/**
 	 * Test the new positions after a complete selection move is made
 	 */
 	public void testStandardSelectionMove() {
-		int square5 = this.numberBoard.getSquare(0, 5).getTile().getNumber();
-		int square4 = this.numberBoard.getSquare(0, 4).getTile().getNumber();
-		int square3 = this.numberBoard.getSquare(0, 3).getTile().getNumber();
-		int square2 = this.numberBoard.getSquare(0, 2).getTile().getNumber();
-		int square1 = this.numberBoard.getSquare(0, 1).getTile().getNumber();
-		int square0 = this.numberBoard.getSquare(0, 0).getTile().getNumber();
+		int square5 = numberBoard.getSquare(0, 5).getTile().getNumber();
+		int square4 = numberBoard.getSquare(0, 4).getTile().getNumber();
+		int square3 = numberBoard.getSquare(0, 3).getTile().getNumber();
+		int square2 = numberBoard.getSquare(0, 2).getTile().getNumber();
+		int square1 = numberBoard.getSquare(0, 1).getTile().getNumber();
+		int square0 = numberBoard.getSquare(0, 0).getTile().getNumber();
 
-		this.numberBoard.setSquare(new NumberTile(2, 1), 0, 8, false);
-		this.numberBoard.setSquare(new NumberTile(2, 1), 0, 7, false);
-		this.numberBoard.setSquare(new NumberTile(2, 1), 0, 6, false);
+		numberBoard.setSquare(new NumberTile(2, 1), 0, 8, false);
+		numberBoard.setSquare(new NumberTile(2, 1), 0, 7, false);
+		numberBoard.setSquare(new NumberTile(2, 1), 0, 6, false);
 
-		selection.add(this.numberBoard.getSquare(0, 8));
-		selection.add(this.numberBoard.getSquare(0, 7));
-		selection.add(this.numberBoard.getSquare(0, 6));
+		selection.add(numberBoard.getSquare(0, 8));
+		selection.add(numberBoard.getSquare(0, 7));
+		selection.add(numberBoard.getSquare(0, 6));
 
 		assertTrue(selection.isSelectionValid());
-		this.numberBoard.processSelection(selection);
+		numberBoard.processSelection(selection);
 
-		assertEquals(this.numberBoard.getSquare(0, 8).getTile().getNumber(),
-				square5);
-		assertEquals(this.numberBoard.getSquare(0, 7).getTile().getNumber(),
-				square4);
-		assertEquals(this.numberBoard.getSquare(0, 6).getTile().getNumber(),
-				square3);
-		assertEquals(this.numberBoard.getSquare(0, 5).getTile().getNumber(),
-				square2);
-		assertEquals(this.numberBoard.getSquare(0, 4).getTile().getNumber(),
-				square1);
-		assertEquals(this.numberBoard.getSquare(0, 3).getTile().getNumber(),
-				square0);
+		assertEquals(numberBoard.getSquare(0, 8).getTile().getNumber(), square5);
+		assertEquals(numberBoard.getSquare(0, 7).getTile().getNumber(), square4);
+		assertEquals(numberBoard.getSquare(0, 6).getTile().getNumber(), square3);
+		assertEquals(numberBoard.getSquare(0, 5).getTile().getNumber(), square2);
+		assertEquals(numberBoard.getSquare(0, 4).getTile().getNumber(), square1);
+		assertEquals(numberBoard.getSquare(0, 3).getTile().getNumber(), square0);
 	}
 
 	/**
 	 * Tests the processing of a swap selection.
 	 */
 	public void testProcessSwap() {
-		assertFalse(this.numberBoard.processSwapMove(null));
+		assertFalse(numberBoard.processSwapMove(null));
 
-		this.numberBoard.setSquare(new NumberTile(2, 1), 0, 0, false);
-		this.numberBoard.setSquare(new NumberTile(3, 1), 0, 1, false);
+		numberBoard.setSquare(new NumberTile(2, 1), 0, 0, false);
+		numberBoard.setSquare(new NumberTile(3, 1), 0, 1, false);
 
-		selection.add(this.numberBoard.getSquare(0, 0));
-		selection.add(this.numberBoard.getSquare(0, 1));
+		selection.add(numberBoard.getSquare(0, 0));
+		selection.add(numberBoard.getSquare(0, 1));
 
 		assertTrue(selection.isSwapValid());
 
-		this.numberBoard.processSwapMove(selection);
+		numberBoard.processSwapMove(selection);
 
-		assertEquals(this.numberBoard.getSquare(0, 1).getTile().getNumber(), 2);
-		assertEquals(this.numberBoard.getSquare(0, 0).getTile().getNumber(), 3);
+		assertEquals(numberBoard.getSquare(0, 1).getTile().getNumber(), 2);
+		assertEquals(numberBoard.getSquare(0, 0).getTile().getNumber(), 3);
 	}
 
 	/**
 	 * Tests the processing of an elimination selection.
 	 */
 	public void testProcessElimination() {
-		assertFalse(this.numberBoard.processSwapMove(null));
+		assertFalse(numberBoard.processSwapMove(null));
 
-		this.numberBoard.setSquare(new NumberTile(3, 1), 0, 0, false);
-		this.numberBoard.setSquare(new NumberTile(3, 1), 0, 1, false);
+		numberBoard.setSquare(new NumberTile(3, 1), 0, 0, false);
+		numberBoard.setSquare(new NumberTile(3, 1), 0, 1, false);
 
-		selection.add(this.numberBoard.getSquare(0, 0));
-		selection.add(this.numberBoard.getSquare(0, 1));
+		selection.add(numberBoard.getSquare(0, 0));
+		selection.add(numberBoard.getSquare(0, 1));
 
 		assertTrue(selection.isSelectionValid());
 
-		this.numberBoard.processEliminationSelection(selection);
+		numberBoard.processEliminationSelection(selection);
 
-		assertTrue(this.numberBoard.getSquare(0, 1).getMarked());
-		assertTrue(this.numberBoard.getSquare(0, 0).getMarked());
+		assertTrue(numberBoard.getSquare(0, 1).getMarked());
+		assertTrue(numberBoard.getSquare(0, 0).getMarked());
 	}
 
 	/**
@@ -366,40 +360,40 @@ public class TestBoard extends TestCase {
 	public void testEliminationComplete() {
 		for (int i = 0; i < numberBoard.SIZE_X; i++) {
 			for (int j = 0; j < numberBoard.SIZE_Y - 1; j++) {
-				this.numberBoard.getSquare(i, j).setMarked(true);
+				numberBoard.getSquare(i, j).setMarked(true);
 			}
 		}
 
-		assertFalse(this.numberBoard.isEliminationComplete());
+		assertFalse(numberBoard.isEliminationComplete());
 
 		for (int i = 0; i < numberBoard.SIZE_X; i++) {
 			for (int j = 0; j < numberBoard.SIZE_Y; j++) {
-				this.numberBoard.getSquare(i, j).setMarked(true);
+				numberBoard.getSquare(i, j).setMarked(true);
 			}
 		}
 
-		assertTrue(this.numberBoard.isEliminationComplete());
+		assertTrue(numberBoard.isEliminationComplete());
 	}
 
 	/**
 	 * Tests the release completion verification methods.
 	 */
 	public void testReleaseComplete() {
-		this.numberBoard.setSquare(new NumberTile(3, 1), 0, 0, false);
-		this.numberBoard.setSquare(new NumberTile(3, 1), 0, 1, false);
+		numberBoard.setSquare(new NumberTile(3, 1), 0, 0, false);
+		numberBoard.setSquare(new NumberTile(3, 1), 0, 1, false);
 
 		for (int i = 0; i < numberBoard.SIZE_X; i++) {
-			this.numberBoard.getSquare(i, 7).addTile(new SixTile());
-			this.numberBoard.getSquare(i, 8).addTile(new TargetTile());
+			numberBoard.getSquare(i, 7).addTile(new SixTile());
+			numberBoard.getSquare(i, 8).addTile(new TargetTile());
 		}
 
-		assertFalse(this.numberBoard.isReleaseComplete());
+		assertFalse(numberBoard.isReleaseComplete());
 
-		selection.add(this.numberBoard.getSquare(0, 0));
-		selection.add(this.numberBoard.getSquare(0, 1));
+		selection.add(numberBoard.getSquare(0, 0));
+		selection.add(numberBoard.getSquare(0, 1));
 
-		this.numberBoard.processReleaseSelection(selection);
+		numberBoard.processReleaseSelection(selection);
 
-		assertTrue(this.numberBoard.isReleaseComplete());
+		assertTrue(numberBoard.isReleaseComplete());
 	}
 }

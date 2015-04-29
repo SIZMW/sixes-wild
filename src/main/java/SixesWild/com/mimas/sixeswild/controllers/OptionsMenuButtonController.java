@@ -15,7 +15,7 @@ import SixesWild.com.mimas.sixeswild.boundaries.GameApplication;
 /**
  * This controller displays the options menu when the options menu button is
  * pressed.
- * 
+ *
  * @author Aditya Nivarthi
  */
 public class OptionsMenuButtonController implements ActionListener {
@@ -27,7 +27,7 @@ public class OptionsMenuButtonController implements ActionListener {
 	/**
 	 * Creates a OptionsMenuButtonController instance with the specified
 	 * GameApplication.
-	 * 
+	 *
 	 * @param app
 	 *            The GameApplication currently running.
 	 */
@@ -37,7 +37,7 @@ public class OptionsMenuButtonController implements ActionListener {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see
 	 * java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
 	 */
@@ -59,11 +59,10 @@ public class OptionsMenuButtonController implements ActionListener {
 		gbc_list.gridx = 0;
 		gbc_list.gridy = 0;
 
-		this.setUpControllers();
+		setUpControllers();
 
 		// Add panel to view
-		currentPanel.add(this.app.getGameMenuView().getOptionsMenuView(),
-				gbc_list);
+		currentPanel.add(app.getGameMenuView().getOptionsMenuView(), gbc_list);
 		currentPanel.updateUI();
 
 		logger.log(Level.FINE, "Options menu requested and displayed.");
@@ -73,13 +72,10 @@ public class OptionsMenuButtonController implements ActionListener {
 	 * Set up controllers for the options menu view.
 	 */
 	protected void setUpControllers() {
-		this.app.getGameMenuView()
-				.getOptionsMenuView()
-				.getAestheticButton()
-				.addActionListener(
-						new ChangeAestheticButtonController(this.app));
-		this.app.getGameMenuView().getOptionsMenuView().getSwitchUserButton()
-				.addActionListener(new SwitchUserButtonController(this.app));
+		app.getGameMenuView().getOptionsMenuView().getAestheticButton()
+				.addActionListener(new ChangeAestheticButtonController(app));
+		app.getGameMenuView().getOptionsMenuView().getSwitchUserButton()
+				.addActionListener(new SwitchUserButtonController(app));
 
 		logger.log(Level.FINE, "Options menu controllers initialized.");
 	}

@@ -4,7 +4,7 @@ import junit.framework.TestCase;
 
 /**
  * This test case handles testing the NumberTile methods.
- * 
+ *
  * @author Aditya Nivarthi
  */
 public class TestNumberTile extends TestCase {
@@ -18,7 +18,7 @@ public class TestNumberTile extends TestCase {
 		assertEquals(tile.getNumber(), 1);
 		assertEquals(tile.getMultiplier(), 1);
 	}
-	
+
 	public void testTileEquals() {
 		NumberTile tile = new NumberTile(1, 1);
 		NumberTile tile2 = new NumberTile(1, 1);

@@ -8,5 +8,4 @@ public class UnlockBadge extends Badge {
 		this.description = "Unlocked all story levels.";
 		this.isUnlocked = false;
 	}
-
 }

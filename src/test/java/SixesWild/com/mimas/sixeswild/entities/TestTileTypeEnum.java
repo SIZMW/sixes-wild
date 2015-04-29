@@ -4,7 +4,7 @@ import junit.framework.TestCase;
 
 /**
  * This test case handles testing the TileType enumerated type.
- * 
+ *
  * @author Aditya Nivarthi
  */
 public class TestTileTypeEnum extends TestCase {

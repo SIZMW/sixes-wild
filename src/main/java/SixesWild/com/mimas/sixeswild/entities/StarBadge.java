@@ -6,5 +6,4 @@ public class StarBadge extends Badge {
 		super(name, description, isUnlocked);
 		// TODO Auto-generated constructor stub
 	}
-
 }

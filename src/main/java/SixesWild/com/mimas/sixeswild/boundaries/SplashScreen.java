@@ -52,7 +52,7 @@ public class SplashScreen extends JPanel {
 
 		if (splashScreen != null) {
 			try {
-				this.image = ImageIO.read(this.splashScreen);
+				image = ImageIO.read(this.splashScreen);
 				this.repaint();
 			} catch (IOException e) {
 			}
@@ -61,13 +61,13 @@ public class SplashScreen extends JPanel {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see javax.swing.JComponent#paintComponent(java.awt.Graphics)
 	 */
 	@Override
 	protected void paintComponent(Graphics g) {
 		super.paintComponent(g);
 		Graphics2D g2 = (Graphics2D) g;
-		g2.drawImage(image, 0, 0, this.getWidth(), this.getHeight(), null);
+		g2.drawImage(image, 0, 0, getWidth(), getHeight(), null);
 	}
 }

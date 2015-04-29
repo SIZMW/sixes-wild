@@ -12,7 +12,7 @@ import javax.swing.SwingConstants;
 /**
  * This class represents the view used to display the credits in the main menu
  * area.
- * 
+ *
  * @author Joey Perez
  */
 public class CreditsPanel extends JPanel {

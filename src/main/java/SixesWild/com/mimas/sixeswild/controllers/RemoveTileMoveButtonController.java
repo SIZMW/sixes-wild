@@ -33,19 +33,19 @@ public class RemoveTileMoveButtonController implements ActionListener {
 
 	/*
 	 * (non-Javadoc)
-	 *
+	 * 
 	 * @see
 	 * java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
 	 */
 	public void actionPerformed(ActionEvent e) {
 
 		// Get the number of remove tile moves remaining
-		int moves = this.app.getLevelPanel().getLevel().getSpecialMoves()
+		int moves = app.getLevelPanel().getLevel().getSpecialMoves()
 				.getRemoveTileCount();
 
 		// Change the current move type if there are moves of this type left
 		if (moves > 0) {
-			this.app.getLevelPanel().setMoveType(MoveType.REMOVE);
+			app.getLevelPanel().setMoveType(MoveType.REMOVE);
 		} else {
 			logger.log(Level.INFO,
 					"Remove tile special move cannot be completed. Moves left: "
@@ -53,7 +53,7 @@ public class RemoveTileMoveButtonController implements ActionListener {
 		}
 
 		// Update the level display
-		this.app.getLevelPanel().updateLevelStats();
-		this.app.getLevelPanel().updateUI();
+		app.getLevelPanel().updateLevelStats();
+		app.getLevelPanel().updateUI();
 	}
 }

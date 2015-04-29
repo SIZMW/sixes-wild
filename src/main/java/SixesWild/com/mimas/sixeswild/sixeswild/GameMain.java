@@ -13,7 +13,7 @@ import SixesWild.com.mimas.sixeswild.boundaries.GameApplication;
 /**
  * This class is used to create and run an instance of the GameApplication for
  * the main game.
- * 
+ *
  * @author Aditya Nivarthi
  */
 public class GameMain {
@@ -24,7 +24,7 @@ public class GameMain {
 
 	/**
 	 * Main to launch the game.
-	 * 
+	 *
 	 * @param args
 	 *            Runtime arguments.
 	 */

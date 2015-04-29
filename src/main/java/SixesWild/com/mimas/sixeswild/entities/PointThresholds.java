@@ -17,9 +17,9 @@ public class PointThresholds {
 	 * Creates a PointThresholds instance with 0 for all thresholds.
 	 */
 	public PointThresholds() {
-		this.thresholds.add(0);
-		this.thresholds.add(0);
-		this.thresholds.add(0);
+		thresholds.add(0);
+		thresholds.add(0);
+		thresholds.add(0);
 	}
 
 	/**
@@ -34,9 +34,9 @@ public class PointThresholds {
 	 */
 	public PointThresholds(int oneStarThreshold, int twoStarThreshold,
 			int threeStarThreshold) {
-		this.thresholds.add(oneStarThreshold);
-		this.thresholds.add(twoStarThreshold);
-		this.thresholds.add(threeStarThreshold);
+		thresholds.add(oneStarThreshold);
+		thresholds.add(twoStarThreshold);
+		thresholds.add(threeStarThreshold);
 
 		Collections.sort(thresholds);
 	}
@@ -53,9 +53,9 @@ public class PointThresholds {
 	 */
 	public void setStarThresholds(int oneStarThreshold, int twoStarThreshold,
 			int threeStarThreshold) {
-		this.thresholds.set(0, oneStarThreshold);
-		this.thresholds.set(1, twoStarThreshold);
-		this.thresholds.set(2, threeStarThreshold);
+		thresholds.set(0, oneStarThreshold);
+		thresholds.set(1, twoStarThreshold);
+		thresholds.set(2, threeStarThreshold);
 
 		Collections.sort(thresholds);
 	}
@@ -66,7 +66,7 @@ public class PointThresholds {
 	 * @return an integer
 	 */
 	public int getOneStarThreshold() {
-		return this.thresholds.get(0);
+		return thresholds.get(0);
 	}
 
 	/**
@@ -75,7 +75,7 @@ public class PointThresholds {
 	 * @return an integer
 	 */
 	public int getTwoStarThreshold() {
-		return this.thresholds.get(1);
+		return thresholds.get(1);
 	}
 
 	/**
@@ -84,7 +84,7 @@ public class PointThresholds {
 	 * @return an integer
 	 */
 	public int getThreeStarThreshold() {
-		return this.thresholds.get(2);
+		return thresholds.get(2);
 	}
 
 	/**
@@ -95,11 +95,11 @@ public class PointThresholds {
 	 * @return an integer
 	 */
 	public int getStarsForScore(int score) {
-		if (score > this.thresholds.get(2)) {
+		if (score > thresholds.get(2)) {
 			return 3;
-		} else if (score > this.thresholds.get(1)) {
+		} else if (score > thresholds.get(1)) {
 			return 2;
-		} else if (score > this.thresholds.get(0)) {
+		} else if (score > thresholds.get(0)) {
 			return 1;
 		}
 		return 0;

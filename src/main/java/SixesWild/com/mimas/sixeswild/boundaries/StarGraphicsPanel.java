@@ -37,9 +37,9 @@ public class StarGraphicsPanel extends JPanel {
 	public StarGraphicsPanel() {
 
 		// Attributes
-		this.currentStars = 0;
-		this.setNewStarImage();
-		this.isHoriztonal = false;
+		currentStars = 0;
+		setNewStarImage();
+		isHoriztonal = false;
 
 		// Layout of panel
 		GridBagLayout gridBagLayout = new GridBagLayout();
@@ -54,19 +54,18 @@ public class StarGraphicsPanel extends JPanel {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see javax.swing.JComponent#paintComponent(java.awt.Graphics)
 	 */
 	@Override
 	protected void paintComponent(Graphics g) {
 		super.paintComponent(g);
 		Graphics2D g2 = (Graphics2D) g;
-		if (!this.isHoriztonal) {
-			g2.drawImage(image, 0, 0, this.getWidth(), this.getHeight(), null);
+		if (!isHoriztonal) {
+			g2.drawImage(image, 0, 0, getWidth(), getHeight(), null);
 		} else {
 			g2.rotate(Math.PI / 2);
-			g2.drawImage(image, 0, -this.getWidth(), this.getHeight(),
-					this.getWidth(), null);
+			g2.drawImage(image, 0, -getWidth(), getHeight(), getWidth(), null);
 		}
 	}
 
@@ -77,7 +76,7 @@ public class StarGraphicsPanel extends JPanel {
 	 *            The attribute to set orientation to horizontal or vertical.
 	 */
 	public void setOrientationToHorizontal(boolean horizontal) {
-		this.isHoriztonal = horizontal;
+		isHoriztonal = horizontal;
 		this.repaint();
 	}
 
@@ -88,9 +87,9 @@ public class StarGraphicsPanel extends JPanel {
 	 *            The number of stars to display.
 	 */
 	public void refreshStars(int stars) {
-		if (stars != this.currentStars) {
-			this.currentStars = stars;
-			this.setNewStarImage();
+		if (stars != currentStars) {
+			currentStars = stars;
+			setNewStarImage();
 		}
 	}
 
@@ -100,21 +99,21 @@ public class StarGraphicsPanel extends JPanel {
 	 */
 	protected void setNewStarImage() {
 		try {
-			switch (this.currentStars) {
+			switch (currentStars) {
 			case 0:
-				this.image = ImageIO.read(noStars);
+				image = ImageIO.read(noStars);
 				break;
 			case 1:
-				this.image = ImageIO.read(oneStars);
+				image = ImageIO.read(oneStars);
 				break;
 			case 2:
-				this.image = ImageIO.read(twoStars);
+				image = ImageIO.read(twoStars);
 				break;
 			case 3:
-				this.image = ImageIO.read(threeStars);
+				image = ImageIO.read(threeStars);
 				break;
 			default:
-				this.image = ImageIO.read(noStars);
+				image = ImageIO.read(noStars);
 				break;
 			}
 		} catch (Exception e) {

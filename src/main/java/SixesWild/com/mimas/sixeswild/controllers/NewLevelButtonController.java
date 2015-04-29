@@ -49,7 +49,7 @@ public class NewLevelButtonController implements ActionListener {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see
 	 * java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
 	 */
@@ -94,15 +94,14 @@ public class NewLevelButtonController implements ActionListener {
 		}
 
 		// Add panel to view
-		this.app.getBuilderView().updateBoardViewPanel(
+		app.getBuilderView().updateBoardViewPanel(
 				new BoardViewPanel(nullBoard, app.getAesthetic()));
-		this.app.getBuilderView()
-				.getBoardViewPanel()
-				.addMouseListener(new BuilderBoardViewMouseController(this.app));
-		this.app.getBuilderView().revalidate();
-		this.app.getBuilderView().repaint();
+		app.getBuilderView().getBoardViewPanel()
+				.addMouseListener(new BuilderBoardViewMouseController(app));
+		app.getBuilderView().revalidate();
+		app.getBuilderView().repaint();
 
-		currentPanel.add(this.app.getBuilderView(), gbc_list);
+		currentPanel.add(app.getBuilderView(), gbc_list);
 		contentContainer.add(currentPanel);
 
 		contentContainer.revalidate();

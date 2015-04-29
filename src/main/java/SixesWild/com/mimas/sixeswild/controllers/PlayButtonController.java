@@ -47,7 +47,7 @@ public class PlayButtonController implements ActionListener {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see
 	 * java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
 	 */
@@ -79,7 +79,7 @@ public class PlayButtonController implements ActionListener {
 					.getLevelList().getSelectedIndex() + 1;
 
 			// Check if level is unlocked
-			if (levelNumber > this.app.getCurrentUserProfile()
+			if (levelNumber > app.getCurrentUserProfile()
 					.getHighestStoryLevelUnlocked()) {
 				logger.log(Level.INFO, "Level not unlocked.");
 				return;
@@ -92,7 +92,7 @@ public class PlayButtonController implements ActionListener {
 					.getLevelList().getSelectedIndex() + 1;
 
 			// Check if level is unlocked
-			if (levelNumber > this.app.getCurrentUserProfile()
+			if (levelNumber > app.getCurrentUserProfile()
 					.getHighestUserLevelUnlocked()) {
 				logger.log(Level.INFO, "Level not unlocked.");
 				return;
@@ -106,12 +106,12 @@ public class PlayButtonController implements ActionListener {
 			logger.log(Level.WARNING, "Level selected was not found.");
 		} else {
 			contentContainer.removeAll();
-			LevelView newLevelView = new LevelView(this.app,
+			LevelView newLevelView = new LevelView(app,
 					app.getCurrentAesthetic(), newLevel, menuType);
-			this.app.setLevelPanel(newLevelView);
-			this.setUpControllers();
+			app.setLevelPanel(newLevelView);
+			setUpControllers();
 
-			currentPanel.add(this.app.getLevelPanel(), gbc_list);
+			currentPanel.add(app.getLevelPanel(), gbc_list);
 			contentContainer.add(currentPanel);
 			contentContainer.revalidate();
 			contentContainer.repaint();

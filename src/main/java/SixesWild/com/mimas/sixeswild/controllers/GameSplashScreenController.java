@@ -34,7 +34,7 @@ public class GameSplashScreenController extends KeyAdapter {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see java.awt.event.KeyAdapter#keyPressed(java.awt.event.KeyEvent)
 	 */
 	@Override
@@ -65,11 +65,11 @@ public class GameSplashScreenController extends KeyAdapter {
 			gbc_list.gridy = 0;
 
 			// Add panel to view
-			subMenuPanel.add(this.app.getGameMenuView().getTitleMenuView(),
-					gbc_list);
+			subMenuPanel
+					.add(app.getGameMenuView().getTitleMenuView(), gbc_list);
 			subMenuPanel.updateUI();
 
-			currentPanel.add(this.app.getGameMenuView(), gbc_list);
+			currentPanel.add(app.getGameMenuView(), gbc_list);
 			contentContainer.add(currentPanel);
 			contentContainer.revalidate();
 			contentContainer.repaint();

@@ -66,6 +66,6 @@ public class LevelHighScore {
 	 * @return a MenuTypes
 	 */
 	public MenuTypes getLevelType() {
-		return this.type;
+		return type;
 	}
 }

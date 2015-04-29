@@ -8,7 +8,7 @@ import SixesWild.com.mimas.sixeswild.boundaries.BuilderApplication;
 /**
  * This controller decrements the count of special move four for a level in the
  * level builder.
- * 
+ *
  * @author Aditya Nivarthi
  */
 public class SpecialMoveFourDecreaseButtonController implements ActionListener {
@@ -18,7 +18,7 @@ public class SpecialMoveFourDecreaseButtonController implements ActionListener {
 	/**
 	 * Creates a SpecialMoveFourDecreaseButtonController with the specified
 	 * BuilderApplication.
-	 * 
+	 *
 	 * @param app
 	 *            The GameApplication currently running.
 	 */
@@ -28,12 +28,12 @@ public class SpecialMoveFourDecreaseButtonController implements ActionListener {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see
 	 * java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
 	 */
 	public void actionPerformed(ActionEvent e) {
-		int value = Integer.parseInt(this.app.getBuilderView()
+		int value = Integer.parseInt(app.getBuilderView()
 				.getBuilderSettingsPanel().getSpecialMoveFourLabel().getText());
 
 		// Modify value
@@ -43,8 +43,8 @@ public class SpecialMoveFourDecreaseButtonController implements ActionListener {
 			value--;
 		}
 
-		this.app.getBuilderView().getBuilderSettingsPanel()
+		app.getBuilderView().getBuilderSettingsPanel()
 				.getSpecialMoveFourLabel().setText(Integer.toString(value));
-		this.app.getBuilderView().getBuilderSettingsPanel().updateUI();
+		app.getBuilderView().getBuilderSettingsPanel().updateUI();
 	}
 }

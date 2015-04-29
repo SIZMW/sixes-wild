@@ -109,7 +109,7 @@ public class BuilderTopPanel extends JPanel {
 		gbc_deleteComboBox.gridy = 0;
 		add(deleteComboBox, gbc_deleteComboBox);
 
-		this.updateComboBoxes();
+		updateComboBoxes();
 	}
 
 	/**
@@ -118,7 +118,7 @@ public class BuilderTopPanel extends JPanel {
 	 * @return the newButton property
 	 */
 	public JButton getNewButton() {
-		return this.newButton;
+		return newButton;
 	}
 
 	/**
@@ -127,7 +127,7 @@ public class BuilderTopPanel extends JPanel {
 	 * @return the saveButton property
 	 */
 	public JButton getSaveButton() {
-		return this.saveButton;
+		return saveButton;
 	}
 
 	/**
@@ -136,7 +136,7 @@ public class BuilderTopPanel extends JPanel {
 	 * @return the openButton property
 	 */
 	public JButton getOpenButton() {
-		return this.openButton;
+		return openButton;
 	}
 
 	/**
@@ -145,7 +145,7 @@ public class BuilderTopPanel extends JPanel {
 	 * @return the openComboBox property
 	 */
 	public JComboBox<String> getOpenComboBox() {
-		return this.openComboBox;
+		return openComboBox;
 	}
 
 	/**
@@ -154,7 +154,7 @@ public class BuilderTopPanel extends JPanel {
 	 * @return the deleteButton property
 	 */
 	public JButton getDeleteButton() {
-		return this.deleteButton;
+		return deleteButton;
 	}
 
 	/**
@@ -163,7 +163,7 @@ public class BuilderTopPanel extends JPanel {
 	 * @return the deleteComboBox property
 	 */
 	public JComboBox<String> getDeleteComboBox() {
-		return this.deleteComboBox;
+		return deleteComboBox;
 	}
 
 	/**
@@ -172,7 +172,7 @@ public class BuilderTopPanel extends JPanel {
 	 * @return the userLevelList property
 	 */
 	public ArrayList<String> getUserLevelList() {
-		return this.userLevelList;
+		return userLevelList;
 	}
 
 	/**

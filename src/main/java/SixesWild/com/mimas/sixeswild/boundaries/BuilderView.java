@@ -46,7 +46,7 @@ public class BuilderView extends JPanel {
 	public BuilderView(Aesthetic aesthetic) {
 
 		// Attributes
-		this.builderViewAesthetic = aesthetic;
+		builderViewAesthetic = aesthetic;
 
 		// Layout for view
 		GridBagLayout gridBagLayout = new GridBagLayout();
@@ -104,8 +104,7 @@ public class BuilderView extends JPanel {
 
 		// Board view panel
 		boardViewPanelBorder = BorderFactory.createLineBorder(Color.black);
-		boardViewPanel = new BoardViewPanel(nullBoard,
-				this.builderViewAesthetic);
+		boardViewPanel = new BoardViewPanel(nullBoard, builderViewAesthetic);
 		boardViewPanel.setBorder(boardViewPanelBorder);
 
 		// Layout for board view panel
@@ -123,7 +122,7 @@ public class BuilderView extends JPanel {
 	 * @return the builderTopPanel property
 	 */
 	public BuilderTopPanel getBuilderTopPanel() {
-		return this.builderTopPanel;
+		return builderTopPanel;
 	}
 
 	/**
@@ -132,7 +131,7 @@ public class BuilderView extends JPanel {
 	 * @return the builderSettingsPanel property
 	 */
 	public BuilderSettingsPanel getBuilderSettingsPanel() {
-		return this.builderSettingsPanel;
+		return builderSettingsPanel;
 	}
 
 	/**
@@ -141,7 +140,7 @@ public class BuilderView extends JPanel {
 	 * @return the boardViewPanel property
 	 */
 	public BoardViewPanel getBoardViewPanel() {
-		return this.boardViewPanel;
+		return boardViewPanel;
 	}
 
 	/**
@@ -151,10 +150,10 @@ public class BuilderView extends JPanel {
 	 *            The new boardViewPanel to display.
 	 */
 	public void updateBoardViewPanel(BoardViewPanel newBoardViewPanel) {
-		this.remove(this.boardViewPanel);
-		this.boardViewPanel = newBoardViewPanel;
+		this.remove(boardViewPanel);
+		boardViewPanel = newBoardViewPanel;
 		boardViewPanel.setBorder(boardViewPanelBorder);
 		this.add(boardViewPanel, gbc_boardView);
-		this.updateUI();
+		updateUI();
 	}
 }

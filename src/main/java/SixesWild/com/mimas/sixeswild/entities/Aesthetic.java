@@ -50,7 +50,7 @@ public class Aesthetic {
 		this.tileSix = tileSix;
 		this.target = target;
 		this.nullTile = nullTile;
-		this.marked = Color.GRAY;
+		marked = Color.GRAY;
 	}
 
 	/**
@@ -59,7 +59,7 @@ public class Aesthetic {
 	 * @return a String
 	 */
 	public String getName() {
-		return this.name;
+		return name;
 	}
 
 	/**
@@ -68,7 +68,7 @@ public class Aesthetic {
 	 * @return a Color
 	 */
 	public Color getTileOneColor() {
-		return this.tileOne;
+		return tileOne;
 	}
 
 	/**
@@ -77,7 +77,7 @@ public class Aesthetic {
 	 * @return a Color
 	 */
 	public Color getTileTwoColor() {
-		return this.tileTwo;
+		return tileTwo;
 	}
 
 	/**
@@ -86,7 +86,7 @@ public class Aesthetic {
 	 * @return a Color
 	 */
 	public Color getTileThreeColor() {
-		return this.tileThree;
+		return tileThree;
 	}
 
 	/**
@@ -95,7 +95,7 @@ public class Aesthetic {
 	 * @return a Color
 	 */
 	public Color getTileFourColor() {
-		return this.tileFour;
+		return tileFour;
 	}
 
 	/**
@@ -104,7 +104,7 @@ public class Aesthetic {
 	 * @return a Color
 	 */
 	public Color getTileFiveColor() {
-		return this.tileFive;
+		return tileFive;
 	}
 
 	/**
@@ -113,7 +113,7 @@ public class Aesthetic {
 	 * @return a Color
 	 */
 	public Color getTileSixColor() {
-		return this.tileSix;
+		return tileSix;
 	}
 
 	/**
@@ -122,7 +122,7 @@ public class Aesthetic {
 	 * @return a Color
 	 */
 	public Color getMarkedColor() {
-		return this.marked;
+		return marked;
 	}
 
 	/**
@@ -131,7 +131,7 @@ public class Aesthetic {
 	 * @return a Color
 	 */
 	public Color getTargetColor() {
-		return this.target;
+		return target;
 	}
 
 	/**
@@ -140,7 +140,7 @@ public class Aesthetic {
 	 * @return a Color
 	 */
 	public Color getNullTileColor() {
-		return this.nullTile;
+		return nullTile;
 	}
 
 	/**
@@ -149,6 +149,6 @@ public class Aesthetic {
 	 * @return a Color
 	 */
 	public Color getBackgroundColor() {
-		return this.background;
+		return background;
 	}
 }

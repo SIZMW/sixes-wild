@@ -25,12 +25,12 @@ public class LevelListCellRenderer extends DefaultListCellRenderer {
 	 */
 	public LevelListCellRenderer(int highestLevelUnlocked) {
 		super();
-		this.highestLevel = highestLevelUnlocked;
+		highestLevel = highestLevelUnlocked;
 	}
 
 	/*
 	 * (non-Javadoc)
-	 *
+	 * 
 	 * @see
 	 * javax.swing.DefaultListCellRenderer#getListCellRendererComponent(javax
 	 * .swing.JList, java.lang.Object, int, boolean, boolean)
@@ -40,7 +40,7 @@ public class LevelListCellRenderer extends DefaultListCellRenderer {
 			int index, boolean isSelected, boolean cellHasFocus) {
 
 		// Unlock levels up to and including the highest unlocked level
-		if (this.highestLevel <= index) {
+		if (highestLevel <= index) {
 			super.getListCellRendererComponent(list, value, index, false, false);
 		} else {
 			super.getListCellRendererComponent(list, value, index, isSelected,

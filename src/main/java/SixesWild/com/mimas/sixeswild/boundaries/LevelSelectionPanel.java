@@ -175,7 +175,7 @@ public class LevelSelectionPanel extends JPanel {
 	 * @return the levelScrollPane property
 	 */
 	public JScrollPane getLevelScrollPane() {
-		return this.levelScrollPane;
+		return levelScrollPane;
 	}
 
 	/**
@@ -184,7 +184,7 @@ public class LevelSelectionPanel extends JPanel {
 	 * @return the playLevelButton property
 	 */
 	public JButton getPlayButton() {
-		return this.playLevelButton;
+		return playLevelButton;
 	}
 
 	/**
@@ -193,7 +193,7 @@ public class LevelSelectionPanel extends JPanel {
 	 * @return the previewPanel property
 	 */
 	public JPanel getPreviewPanel() {
-		return this.previewPanel;
+		return previewPanel;
 	}
 
 	/**
@@ -202,7 +202,7 @@ public class LevelSelectionPanel extends JPanel {
 	 * @return the levelList property
 	 */
 	public JList<String> getLevelList() {
-		return this.levelList;
+		return levelList;
 	}
 
 	/**
@@ -211,7 +211,7 @@ public class LevelSelectionPanel extends JPanel {
 	 * @return the boardPreviewPanel for this panel.
 	 */
 	public BoardViewPanel getLevelPreviewPanel() {
-		return this.boardPreviewPanel;
+		return boardPreviewPanel;
 	}
 
 	/**
@@ -221,8 +221,8 @@ public class LevelSelectionPanel extends JPanel {
 	 *            The new aesthetic to apply to the preview panel.
 	 */
 	public void resetPreviewPanel(Aesthetic aesthetic) {
-		this.boardPreviewPanel.setBoard(nullBoard);
-		this.boardPreviewPanel.setAesthetic(aesthetic);
+		boardPreviewPanel.setBoard(nullBoard);
+		boardPreviewPanel.setAesthetic(aesthetic);
 	}
 
 	/**
@@ -231,7 +231,7 @@ public class LevelSelectionPanel extends JPanel {
 	 * @return the starGraphicsPanel for this panel.
 	 */
 	public StarGraphicsPanel getStarGraphicsPanel() {
-		return this.starGraphicsPanel;
+		return starGraphicsPanel;
 	}
 
 	/**
@@ -243,8 +243,8 @@ public class LevelSelectionPanel extends JPanel {
 	public void refreshView(int highestUnlocked) {
 		levelList.setCellRenderer(new LevelListCellRenderer(highestUnlocked));
 		levelScrollPane.setViewportView(levelList);
-		this.invalidate();
-		this.revalidate();
+		invalidate();
+		revalidate();
 		this.repaint();
 	}
 }

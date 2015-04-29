@@ -27,11 +27,11 @@ public class Board {
 	 * null multiplier frequencies, and randomly initializes the board.
 	 */
 	public Board() {
-		this.squares = new Square[this.SIZE_X][this.SIZE_Y];
-		this.multiplierFrequencies = null;
-		this.tileFrequencies = null;
+		squares = new Square[SIZE_X][SIZE_Y];
+		multiplierFrequencies = null;
+		tileFrequencies = null;
 
-		this.randomInitialize();
+		randomInitialize();
 	}
 
 	/**
@@ -52,7 +52,7 @@ public class Board {
 			ArrayList<Double> multiplierFrequencies) throws Exception {
 		this.tileFrequencies = tileFrequencies;
 		this.multiplierFrequencies = multiplierFrequencies;
-		this.squares = new Square[this.SIZE_X][this.SIZE_Y];
+		squares = new Square[SIZE_X][SIZE_Y];
 
 		// Tile list is null
 		if (tiles == null) {
@@ -60,8 +60,8 @@ public class Board {
 		}
 
 		// Tile in the tile list is null
-		for (int i = 0; i < this.SIZE_X; i++) {
-			for (int j = 0; j < this.SIZE_Y; j++) {
+		for (int i = 0; i < SIZE_X; i++) {
+			for (int j = 0; j < SIZE_Y; j++) {
 				if (tiles[i][j] == null) {
 					throw new Exception(
 							"Null tile in list for board construction.");
@@ -70,13 +70,13 @@ public class Board {
 		}
 
 		// Set up board tile types
-		for (int i = 0; i < this.SIZE_X; i++) {
-			for (int j = 0; j < this.SIZE_Y; j++) {
-				this.squares[i][j] = new Square(tiles[i][j], i, j, false);
+		for (int i = 0; i < SIZE_X; i++) {
+			for (int j = 0; j < SIZE_Y; j++) {
+				squares[i][j] = new Square(tiles[i][j], i, j, false);
 			}
 		}
 
-		this.initialize();
+		initialize();
 	}
 
 	/**
@@ -90,11 +90,11 @@ public class Board {
 	protected int getNumber() {
 		int value = new Random().nextInt(100);
 
-		int rangeOne = (int) (this.tileFrequencies.get(0) * 100);
-		int rangeTwo = rangeOne + (int) (this.tileFrequencies.get(1) * 100);
-		int rangeThree = rangeTwo + (int) (this.tileFrequencies.get(2) * 100);
-		int rangeFour = rangeThree + (int) (this.tileFrequencies.get(3) * 100);
-		int rangeFive = rangeFour + (int) (this.tileFrequencies.get(4) * 100);
+		int rangeOne = (int) (tileFrequencies.get(0) * 100);
+		int rangeTwo = rangeOne + (int) (tileFrequencies.get(1) * 100);
+		int rangeThree = rangeTwo + (int) (tileFrequencies.get(2) * 100);
+		int rangeFour = rangeThree + (int) (tileFrequencies.get(3) * 100);
+		int rangeFive = rangeFour + (int) (tileFrequencies.get(4) * 100);
 
 		if (value < rangeOne) {
 			return 1;
@@ -122,8 +122,8 @@ public class Board {
 	protected int getMultiplier() {
 		int value = new Random().nextInt(100);
 
-		int rangeOne = (int) (this.tileFrequencies.get(0) * 100);
-		int rangeTwo = rangeOne + (int) (this.tileFrequencies.get(1) * 100);
+		int rangeOne = (int) (tileFrequencies.get(0) * 100);
+		int rangeTwo = rangeOne + (int) (tileFrequencies.get(1) * 100);
 
 		if (value < rangeOne) {
 			return 1;
@@ -158,36 +158,32 @@ public class Board {
 	 */
 	protected void initialize() {
 		// Tile frequencies have not been initialized
-		if (this.tileFrequencies == null || this.tileFrequencies.size() < 6) {
-			this.tileFrequencies = new ArrayList<Double>(Arrays.asList(.1, .2,
-					.3, .3, .05, .05));
+		if (tileFrequencies == null || tileFrequencies.size() < 6) {
+			tileFrequencies = new ArrayList<Double>(Arrays.asList(.1, .2, .3,
+					.3, .05, .05));
 		}
 
 		// Multiplier frequencies have not been initialized
-		if (this.multiplierFrequencies == null
-				|| this.multiplierFrequencies.size() < 3) {
-			this.multiplierFrequencies = new ArrayList<Double>(Arrays.asList(
-					.5, .25, .35));
+		if (multiplierFrequencies == null || multiplierFrequencies.size() < 3) {
+			multiplierFrequencies = new ArrayList<Double>(Arrays.asList(.5,
+					.25, .35));
 		}
 
 		// Tile frequencies and multiplier frequencies have been initialized
-		for (int i = 0; i < this.SIZE_X; i++) {
-			for (int j = 0; j < this.SIZE_Y; j++) {
-				if (this.squares[i][j].getTile().getType()
-						.equals(TileType.NUMBER)) {
-					this.squares[i][j] = new Square(new NumberTile(
-							this.getNumber(), this.getMultiplier()), i, j,
-							false);
-				} else if (this.squares[i][j].getTile().getType()
+		for (int i = 0; i < SIZE_X; i++) {
+			for (int j = 0; j < SIZE_Y; j++) {
+				if (squares[i][j].getTile().getType().equals(TileType.NUMBER)) {
+					squares[i][j] = new Square(new NumberTile(getNumber(),
+							getMultiplier()), i, j, false);
+				} else if (squares[i][j].getTile().getType()
 						.equals(TileType.NULL)) {
-					this.squares[i][j] = new Square(new NullTile(), i, j, false);
-				} else if (this.squares[i][j].getTile().getType()
+					squares[i][j] = new Square(new NullTile(), i, j, false);
+				} else if (squares[i][j].getTile().getType()
 						.equals(TileType.TARGET)) {
-					this.squares[i][j] = new Square(new TargetTile(), i, j,
-							false);
-				} else if (this.squares[i][j].getTile().getType()
+					squares[i][j] = new Square(new TargetTile(), i, j, false);
+				} else if (squares[i][j].getTile().getType()
 						.equals(TileType.SIX)) {
-					this.squares[i][j] = new Square(new SixTile(), i, j, false);
+					squares[i][j] = new Square(new SixTile(), i, j, false);
 				}
 			}
 
@@ -198,10 +194,10 @@ public class Board {
 	 * Initializes the board for the game.
 	 */
 	public void randomInitialize() {
-		for (int i = 0; i < this.SIZE_X; i++) {
-			for (int j = 0; j < this.SIZE_Y; j++) {
-				this.squares[i][j] = new Square(new NumberTile(
-						this.getRandomNumber(), 1), i, j, false);
+		for (int i = 0; i < SIZE_X; i++) {
+			for (int j = 0; j < SIZE_Y; j++) {
+				squares[i][j] = new Square(
+						new NumberTile(getRandomNumber(), 1), i, j, false);
 			}
 		}
 	}
@@ -227,7 +223,7 @@ public class Board {
 			return false;
 		}
 
-		this.squares[x][y] = new Square(tile, x, y, marked);
+		squares[x][y] = new Square(tile, x, y, marked);
 		return true;
 	}
 
@@ -241,7 +237,7 @@ public class Board {
 	 * @return a Square
 	 */
 	public Square getSquare(int x, int y) {
-		return this.squares[x][y];
+		return squares[x][y];
 	}
 
 	/**
@@ -250,7 +246,7 @@ public class Board {
 	 * @return the tileFrequencies property
 	 */
 	public ArrayList<Double> getTileFrequencies() {
-		return this.tileFrequencies;
+		return tileFrequencies;
 	}
 
 	/**
@@ -259,7 +255,7 @@ public class Board {
 	 * @return the multiplierFrequencies property
 	 */
 	public ArrayList<Double> getMultiplierFrequencies() {
-		return this.multiplierFrequencies;
+		return multiplierFrequencies;
 	}
 
 	/**
@@ -270,12 +266,11 @@ public class Board {
 		ArrayList<Tile> tileList = new ArrayList<Tile>();
 
 		// Save all the number tiles to list
-		for (int i = 0; i < this.SIZE_X; i++) {
-			for (int j = 0; j < this.SIZE_Y; j++) {
-				if (this.squares[i][j].getTile().getType()
-						.equals(TileType.NUMBER)) {
-					tileList.add(this.squares[i][j].getTile());
-					this.squares[i][j].removeTile();
+		for (int i = 0; i < SIZE_X; i++) {
+			for (int j = 0; j < SIZE_Y; j++) {
+				if (squares[i][j].getTile().getType().equals(TileType.NUMBER)) {
+					tileList.add(squares[i][j].getTile());
+					squares[i][j].removeTile();
 				}
 			}
 		}
@@ -286,10 +281,10 @@ public class Board {
 		Iterator<Tile> tileIterator = tileList.iterator();
 
 		// Replace the number tiles with the shuffled list of number tiles
-		for (int i = 0; i < this.SIZE_X; i++) {
-			for (int j = 0; j < this.SIZE_Y; j++) {
-				if (this.squares[i][j].getTile() == null) {
-					this.squares[i][j].addTile(tileIterator.next());
+		for (int i = 0; i < SIZE_X; i++) {
+			for (int j = 0; j < SIZE_Y; j++) {
+				if (squares[i][j].getTile() == null) {
+					squares[i][j].addTile(tileIterator.next());
 				}
 			}
 		}
@@ -308,10 +303,10 @@ public class Board {
 	protected Square getNextNonEmptySquare(int x, int y) {
 		if (y <= 0) {
 			return null;
-		} else if (this.squares[x][y - 1].getTile() != null) {
-			return this.squares[x][y - 1];
+		} else if (squares[x][y - 1].getTile() != null) {
+			return squares[x][y - 1];
 		} else {
-			return this.getNextNonEmptySquare(x, y - 1);
+			return getNextNonEmptySquare(x, y - 1);
 		}
 	}
 
@@ -319,10 +314,10 @@ public class Board {
 	 * Moves tiles downward vertically to fill in any empty Squares.
 	 */
 	protected void shiftTilesDownward() {
-		for (int i = 0; i < this.SIZE_X; i++) {
-			for (int j = this.SIZE_Y - 1; j > 0; j--) {
-				if (this.squares[i][j].getTile() == null) {
-					Square square = this.getNextNonEmptySquare(i, j);
+		for (int i = 0; i < SIZE_X; i++) {
+			for (int j = SIZE_Y - 1; j > 0; j--) {
+				if (squares[i][j].getTile() == null) {
+					Square square = getNextNonEmptySquare(i, j);
 
 					if (square == null) {
 
@@ -334,7 +329,7 @@ public class Board {
 							&& ((SixTile) square.getTile()).hasProcessed()) {
 
 					} else {
-						this.squares[i][j].addTile(square.getTile());
+						squares[i][j].addTile(square.getTile());
 						square.removeTile();
 					}
 				}
@@ -346,11 +341,11 @@ public class Board {
 	 * Fills empty squares once a move has been completed.
 	 */
 	protected void fillEmptySquares() {
-		for (int i = 0; i < this.SIZE_X; i++) {
-			for (int j = 0; j < this.SIZE_Y; j++) {
-				if (this.squares[i][j].getTile() == null) {
-					this.squares[i][j].addTile(new NumberTile(this.getNumber(),
-							this.getMultiplier()));
+		for (int i = 0; i < SIZE_X; i++) {
+			for (int j = 0; j < SIZE_Y; j++) {
+				if (squares[i][j].getTile() == null) {
+					squares[i][j].addTile(new NumberTile(getNumber(),
+							getMultiplier()));
 				}
 			}
 		}
@@ -374,7 +369,7 @@ public class Board {
 
 		// Remove square
 		for (int i = 0; i < squareArray.length; i++) {
-			this.squares[((Square) squareArray[i]).getX()][((Square) squareArray[i])
+			squares[((Square) squareArray[i]).getX()][((Square) squareArray[i])
 					.getY()].removeTile();
 		}
 		return true;
@@ -396,17 +391,17 @@ public class Board {
 
 		Object[] squareArray = selection.getArray();
 
-		Tile tile = this.squares[((Square) squareArray[0]).getX()][((Square) squareArray[0])
+		Tile tile = squares[((Square) squareArray[0]).getX()][((Square) squareArray[0])
 				.getY()].getTile();
-		this.squares[((Square) squareArray[0]).getX()][((Square) squareArray[0])
+		squares[((Square) squareArray[0]).getX()][((Square) squareArray[0])
 				.getY()].removeTile();
-		this.squares[((Square) squareArray[0]).getX()][((Square) squareArray[0])
+		squares[((Square) squareArray[0]).getX()][((Square) squareArray[0])
 				.getY()]
-				.addTile(this.squares[((Square) squareArray[1]).getX()][((Square) squareArray[1])
+				.addTile(squares[((Square) squareArray[1]).getX()][((Square) squareArray[1])
 						.getY()].getTile());
-		this.squares[((Square) squareArray[1]).getX()][((Square) squareArray[1])
+		squares[((Square) squareArray[1]).getX()][((Square) squareArray[1])
 				.getY()].removeTile();
-		this.squares[((Square) squareArray[1]).getX()][((Square) squareArray[1])
+		squares[((Square) squareArray[1]).getX()][((Square) squareArray[1])
 				.getY()].addTile(tile);
 
 		return true;
@@ -417,18 +412,16 @@ public class Board {
 	 * type.
 	 */
 	protected void processReleaseTiles() {
-		for (int i = 0; i < this.SIZE_X; i++) {
-			for (int j = 0; j < this.SIZE_Y; j++) {
-				if (this.squares[i][j].getTile().getType().equals(TileType.SIX)) {
-					if ((j + 1) < this.SIZE_Y
-							&& this.squares[i][j + 1].getTile().getType()
+		for (int i = 0; i < SIZE_X; i++) {
+			for (int j = 0; j < SIZE_Y; j++) {
+				if (squares[i][j].getTile().getType().equals(TileType.SIX)) {
+					if ((j + 1) < SIZE_Y
+							&& squares[i][j + 1].getTile().getType()
 									.equals(TileType.TARGET)) {
-						this.squares[i][j + 1].removeTile();
-						((SixTile) this.squares[i][j].getTile())
-								.setProcessed(true);
-						this.squares[i][j + 1].addTile(this.squares[i][j]
-								.getTile());
-						this.squares[i][j].removeTile();
+						squares[i][j + 1].removeTile();
+						((SixTile) squares[i][j].getTile()).setProcessed(true);
+						squares[i][j + 1].addTile(squares[i][j].getTile());
+						squares[i][j].removeTile();
 					}
 				}
 			}
@@ -440,10 +433,10 @@ public class Board {
 	 * "Elimination" game type.
 	 */
 	protected void processEliminationSquares() {
-		for (int i = 0; i < this.SIZE_X; i++) {
-			for (int j = 0; j < this.SIZE_Y; j++) {
-				if (this.squares[i][j].getTile() == null) {
-					this.squares[i][j].setMarked(true);
+		for (int i = 0; i < SIZE_X; i++) {
+			for (int j = 0; j < SIZE_Y; j++) {
+				if (squares[i][j].getTile() == null) {
+					squares[i][j].setMarked(true);
 				}
 			}
 		}
@@ -456,9 +449,9 @@ public class Board {
 	 *            The selection to remove and process.
 	 */
 	public void processSelection(Selection selection) {
-		this.removeSelection(selection);
-		this.shiftTilesDownward();
-		this.fillEmptySquares();
+		removeSelection(selection);
+		shiftTilesDownward();
+		fillEmptySquares();
 	}
 
 	/**
@@ -469,10 +462,10 @@ public class Board {
 	 *            The selection to remove and process.
 	 */
 	public void processEliminationSelection(Selection selection) {
-		this.removeSelection(selection);
-		this.processEliminationSquares();
-		this.shiftTilesDownward();
-		this.fillEmptySquares();
+		removeSelection(selection);
+		processEliminationSquares();
+		shiftTilesDownward();
+		fillEmptySquares();
 	}
 
 	/**
@@ -483,12 +476,12 @@ public class Board {
 	 *            The selection to remove and process.
 	 */
 	public void processReleaseSelection(Selection selection) {
-		this.removeSelection(selection);
-		this.shiftTilesDownward();
-		this.fillEmptySquares();
-		this.processReleaseTiles();
-		this.shiftTilesDownward();
-		this.fillEmptySquares();
+		removeSelection(selection);
+		shiftTilesDownward();
+		fillEmptySquares();
+		processReleaseTiles();
+		shiftTilesDownward();
+		fillEmptySquares();
 	}
 
 	/**
@@ -498,10 +491,10 @@ public class Board {
 	 * @return true if all squares with number tiles are marked; false otherwise
 	 */
 	public boolean isEliminationComplete() {
-		for (int i = 0; i < this.SIZE_X; i++) {
-			for (int j = 0; j < this.SIZE_Y; j++) {
-				if (!this.squares[i][j].getMarked()
-						&& this.squares[i][j].getTile().getType()
+		for (int i = 0; i < SIZE_X; i++) {
+			for (int j = 0; j < SIZE_Y; j++) {
+				if (!squares[i][j].getMarked()
+						&& squares[i][j].getTile().getType()
 								.equals(TileType.NUMBER)) {
 					return false;
 				}
@@ -517,10 +510,9 @@ public class Board {
 	 * @return true if all target tiles are removed; false otherwise
 	 */
 	public boolean isReleaseComplete() {
-		for (int i = 0; i < this.SIZE_X; i++) {
-			for (int j = 0; j < this.SIZE_Y; j++) {
-				if (this.squares[i][j].getTile().getType()
-						.equals(TileType.TARGET)) {
+		for (int i = 0; i < SIZE_X; i++) {
+			for (int j = 0; j < SIZE_Y; j++) {
+				if (squares[i][j].getTile().getType().equals(TileType.TARGET)) {
 					return false;
 				}
 			}

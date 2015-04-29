@@ -12,7 +12,7 @@ import javax.swing.JSeparator;
 
 /**
  * This class represents the title view in the game.
- * 
+ *
  * @author Cameron Jones
  */
 public class TitlePanel extends JPanel {

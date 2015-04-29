@@ -140,7 +140,7 @@ public class GameMenuView extends JPanel {
 	 * @return the subMenuPanel property
 	 */
 	public JPanel getSubMenuPanel() {
-		return this.subMenuPanel;
+		return subMenuPanel;
 	}
 
 	/**
@@ -149,7 +149,7 @@ public class GameMenuView extends JPanel {
 	 * @return the storyLevelMenuButton property
 	 */
 	public JButton getStoryLevelMenuButton() {
-		return this.storyLevelMenuButton;
+		return storyLevelMenuButton;
 	}
 
 	/**
@@ -158,7 +158,7 @@ public class GameMenuView extends JPanel {
 	 * @return the userLevelMenuButton property
 	 */
 	public JButton getUserLevelMenuButton() {
-		return this.userLevelMenuButton;
+		return userLevelMenuButton;
 	}
 
 	/**
@@ -167,7 +167,7 @@ public class GameMenuView extends JPanel {
 	 * @return the badgesMenuButton property
 	 */
 	public JButton getBadgesMenuButton() {
-		return this.badgesMenuButton;
+		return badgesMenuButton;
 	}
 
 	/**
@@ -176,7 +176,7 @@ public class GameMenuView extends JPanel {
 	 * @return the optionsMenuButton property
 	 */
 	public JButton getOptionsMenuButton() {
-		return this.optionsMenuButton;
+		return optionsMenuButton;
 	}
 
 	/**
@@ -185,7 +185,7 @@ public class GameMenuView extends JPanel {
 	 * @return the creditsMenuButton property
 	 */
 	public JButton getCreditsMenuButton() {
-		return this.creditsMenuButton;
+		return creditsMenuButton;
 	}
 
 	/**
@@ -194,7 +194,7 @@ public class GameMenuView extends JPanel {
 	 * @return the badgeMenuView property
 	 */
 	public BadgesPanel getBadgeMenuView() {
-		return this.badgeMenuView;
+		return badgeMenuView;
 	}
 
 	/**
@@ -203,7 +203,7 @@ public class GameMenuView extends JPanel {
 	 * @return the optionsMenuView property
 	 */
 	public OptionsPanel getOptionsMenuView() {
-		return this.optionsMenuView;
+		return optionsMenuView;
 	}
 
 	/**
@@ -212,7 +212,7 @@ public class GameMenuView extends JPanel {
 	 * @return the storyMenuView property
 	 */
 	public LevelSelectionPanel getStoryMenuView() {
-		return this.storyMenuView;
+		return storyMenuView;
 	}
 
 	/**
@@ -221,7 +221,7 @@ public class GameMenuView extends JPanel {
 	 * @return the userMenuView property
 	 */
 	public LevelSelectionPanel getUserMenuView() {
-		return this.userMenuView;
+		return userMenuView;
 	}
 
 	/**
@@ -230,7 +230,7 @@ public class GameMenuView extends JPanel {
 	 * @return the creditsMenuView property
 	 */
 	public CreditsPanel getCreditsMenuView() {
-		return this.creditsMenuView;
+		return creditsMenuView;
 	}
 
 	/**
@@ -239,7 +239,7 @@ public class GameMenuView extends JPanel {
 	 * @return the titleMenuView property
 	 */
 	public TitlePanel getTitleMenuView() {
-		return this.titleMenuView;
+		return titleMenuView;
 	}
 
 	/**

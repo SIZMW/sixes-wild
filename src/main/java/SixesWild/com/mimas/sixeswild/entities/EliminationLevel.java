@@ -41,6 +41,6 @@ public class EliminationLevel extends GameLevel {
 			SpecialMoves specialMoves, int levelNumber) throws Exception {
 		super(tileFreq, multFreq, name, tiles, pointThresholds, moveCount,
 				specialMoves, levelNumber);
-		this.type = LevelType.ELIMINATION;
+		type = LevelType.ELIMINATION;
 	}
 }

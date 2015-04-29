@@ -15,7 +15,7 @@ public class TestBadge extends TestCase {
 
 	/*
 	 * (non-Javadoc)
-	 *
+	 * 
 	 * @see junit.framework.TestCase#setUp()
 	 */
 	@Override
@@ -29,7 +29,7 @@ public class TestBadge extends TestCase {
 
 	/*
 	 * (non-Javadoc)
-	 *
+	 * 
 	 * @see junit.framework.TestCase#tearDown()
 	 */
 	@Override

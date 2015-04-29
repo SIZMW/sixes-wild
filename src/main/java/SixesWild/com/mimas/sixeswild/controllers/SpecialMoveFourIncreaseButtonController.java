@@ -8,7 +8,7 @@ import SixesWild.com.mimas.sixeswild.boundaries.BuilderApplication;
 /**
  * This controller increments the count of special move four for a level in the
  * level builder.
- * 
+ *
  * @author Aditya Nivarthi
  */
 public class SpecialMoveFourIncreaseButtonController implements ActionListener {
@@ -18,7 +18,7 @@ public class SpecialMoveFourIncreaseButtonController implements ActionListener {
 	/**
 	 * Creates a SpecialMoveFourIncreaseButtonController with the specified
 	 * BuilderApplication.
-	 * 
+	 *
 	 * @param app
 	 *            The GameApplication currently running.
 	 */
@@ -28,19 +28,19 @@ public class SpecialMoveFourIncreaseButtonController implements ActionListener {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see
 	 * java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
 	 */
 	public void actionPerformed(ActionEvent e) {
-		int value = Integer.parseInt(this.app.getBuilderView()
+		int value = Integer.parseInt(app.getBuilderView()
 				.getBuilderSettingsPanel().getSpecialMoveFourLabel().getText());
 
 		// Modify value
 		value++;
 
-		this.app.getBuilderView().getBuilderSettingsPanel()
+		app.getBuilderView().getBuilderSettingsPanel()
 				.getSpecialMoveFourLabel().setText(Integer.toString(value));
-		this.app.getBuilderView().getBuilderSettingsPanel().updateUI();
+		app.getBuilderView().getBuilderSettingsPanel().updateUI();
 	}
 }

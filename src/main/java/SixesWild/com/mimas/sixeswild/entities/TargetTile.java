@@ -4,7 +4,7 @@ package SixesWild.com.mimas.sixeswild.entities;
  * TargetTile is one type of Tile that exists on a Board. It represents the
  * position in the board where SixTiles must fall during the "Release" game
  * type. It has all the attributes of a Tile.
- * 
+ *
  * @author Aditya Nivarthi
  */
 public class TargetTile extends Tile {
@@ -14,8 +14,8 @@ public class TargetTile extends Tile {
 	 * 0.
 	 */
 	public TargetTile() {
-		this.type = TileType.TARGET;
-		this.number = this.ZERO;
-		this.multiplier = 0;
+		type = TileType.TARGET;
+		number = ZERO;
+		multiplier = 0;
 	}
 }

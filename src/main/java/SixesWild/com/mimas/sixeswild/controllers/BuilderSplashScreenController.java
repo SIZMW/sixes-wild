@@ -38,7 +38,7 @@ public class BuilderSplashScreenController extends KeyAdapter {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see java.awt.event.KeyAdapter#keyPressed(java.awt.event.KeyEvent)
 	 */
 	@Override
@@ -67,7 +67,7 @@ public class BuilderSplashScreenController extends KeyAdapter {
 			gbc_list.gridy = 0;
 
 			// Add panel to view
-			currentPanel.add(this.app.getBuilderView(), gbc_list);
+			currentPanel.add(app.getBuilderView(), gbc_list);
 			contentContainer.add(currentPanel);
 			contentContainer.revalidate();
 			contentContainer.repaint();

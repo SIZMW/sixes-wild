@@ -216,7 +216,7 @@ public class OptionsPanel extends JPanel {
 	 * @return the changeAestheticButton property
 	 */
 	public JButton getAestheticButton() {
-		return this.changeAestheticButton;
+		return changeAestheticButton;
 	}
 
 	/**
@@ -225,7 +225,7 @@ public class OptionsPanel extends JPanel {
 	 * @return the switchUserButton property
 	 */
 	public JButton getSwitchUserButton() {
-		return this.switchUserButton;
+		return switchUserButton;
 	}
 
 	/**
@@ -234,7 +234,7 @@ public class OptionsPanel extends JPanel {
 	 * @return the resetBadgesButton property
 	 */
 	public JButton getResetBadgesButton() {
-		return this.resetBadgesButton;
+		return resetBadgesButton;
 	}
 
 	/**
@@ -243,7 +243,7 @@ public class OptionsPanel extends JPanel {
 	 * @return the aestheticDropDownMenu property
 	 */
 	public JComboBox<String> getAestheticDropDownMenu() {
-		return this.aestheticDropDownMenu;
+		return aestheticDropDownMenu;
 	}
 
 	/**
@@ -252,6 +252,6 @@ public class OptionsPanel extends JPanel {
 	 * @return the userNameTextField property
 	 */
 	public JTextField getUserNameTextField() {
-		return this.userNameTextField;
+		return userNameTextField;
 	}
 }
