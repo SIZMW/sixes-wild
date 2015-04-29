@@ -20,6 +20,7 @@ import SixesWild.com.mimas.sixeswild.controllers.GameCloseWindowController;
 import SixesWild.com.mimas.sixeswild.controllers.GameSplashScreenController;
 import SixesWild.com.mimas.sixeswild.controllers.OptionsMenuButtonController;
 import SixesWild.com.mimas.sixeswild.controllers.PlayButtonController;
+import SixesWild.com.mimas.sixeswild.controllers.ResetBadgesController;
 import SixesWild.com.mimas.sixeswild.controllers.StoryLevelListController;
 import SixesWild.com.mimas.sixeswild.controllers.StoryMenuButtonController;
 import SixesWild.com.mimas.sixeswild.controllers.UserLevelListController;
@@ -147,9 +148,11 @@ public class GameApplication {
 				.addActionListener(
 						new PlayButtonController(this, MenuTypes.USER));
 
-		// Badges view
+		// Badges
 		gameMenuView.getBadgeMenuView().getBadgesList()
 				.addListSelectionListener(new BadgesListController(this));
+		gameMenuView.getOptionsMenuView().getResetBadgesButton()
+				.addActionListener(new ResetBadgesController(this));
 
 		// Splash screen
 		getFrame().addKeyListener(new GameSplashScreenController(this));
