@@ -3,13 +3,17 @@ package SixesWild.com.mimas.sixeswild.boundaries;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.event.InputEvent;
+import java.awt.event.KeyEvent;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.KeyStroke;
 import javax.swing.UIManager;
 import javax.swing.border.EmptyBorder;
 
@@ -18,6 +22,7 @@ import SixesWild.com.mimas.sixeswild.controllers.BuilderDeleteUserLevelButtonCon
 import SixesWild.com.mimas.sixeswild.controllers.BuilderSplashScreenController;
 import SixesWild.com.mimas.sixeswild.controllers.NewLevelButtonController;
 import SixesWild.com.mimas.sixeswild.controllers.OpenButtonController;
+import SixesWild.com.mimas.sixeswild.controllers.RedoController;
 import SixesWild.com.mimas.sixeswild.controllers.SaveButtonController;
 import SixesWild.com.mimas.sixeswild.controllers.SpecialMoveFourDecreaseButtonController;
 import SixesWild.com.mimas.sixeswild.controllers.SpecialMoveFourIncreaseButtonController;
@@ -27,6 +32,7 @@ import SixesWild.com.mimas.sixeswild.controllers.SpecialMoveThreeDecreaseButtonC
 import SixesWild.com.mimas.sixeswild.controllers.SpecialMoveThreeIncreaseButtonController;
 import SixesWild.com.mimas.sixeswild.controllers.SpecialMoveTwoDecreaseButtonController;
 import SixesWild.com.mimas.sixeswild.controllers.SpecialMoveTwoIncreaseButtonController;
+import SixesWild.com.mimas.sixeswild.controllers.UndoController;
 import SixesWild.com.mimas.sixeswild.entities.Aesthetic;
 import SixesWild.com.mimas.sixeswild.entities.Square;
 
@@ -148,6 +154,19 @@ public class BuilderApplication {
 		// Mouse press
 		builderView.boardViewPanel
 				.addMouseListener(new BuilderBoardViewMouseController(this));
+
+		// Undo Controller
+		builderView.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW)
+				.put(KeyStroke.getKeyStroke(KeyEvent.VK_Z,
+						InputEvent.CTRL_DOWN_MASK), "Ctrl + Z");
+		builderView.getActionMap().put("Ctrl + Z", new UndoController());
+
+		// Redo Controller
+		builderView.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(
+				KeyStroke.getKeyStroke(KeyEvent.VK_Z, InputEvent.CTRL_DOWN_MASK
+						| InputEvent.SHIFT_DOWN_MASK), "Ctrl + Shift + Z");
+		builderView.getActionMap()
+				.put("Ctrl + Shift + Z", new RedoController());
 
 		logger.log(Level.FINE, "BuilderApplication controllers initialized.");
 	}
