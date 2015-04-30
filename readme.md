@@ -70,6 +70,7 @@ Execution:
 Testing:
 * All testing is done using the JUnit framework.
 * For testing GUI interaction and controller coverage, the Robot class is used simulate events. These events are simulated on the default window size. 
+
 Extra Features:
 * XStacy Move:
   * A special move that adds extra moves/time depending on the level type.
