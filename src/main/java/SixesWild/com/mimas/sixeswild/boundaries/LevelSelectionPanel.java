@@ -136,7 +136,6 @@ public class LevelSelectionPanel extends JPanel {
 		boardPreviewPanel
 				.setMinimumSize(new Dimension(previewSize, previewSize));
 		boardPreviewPanel.setBorder(new LineBorder(new Color(0, 0, 0)));
-		boardPreviewPanel.setBackground(Color.WHITE);
 		boardPreviewPanel.setSize(new Dimension(previewSize, previewSize));
 
 		// Layout for level preview label

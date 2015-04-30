@@ -289,7 +289,7 @@ public class BoardViewPanel extends JPanel {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see javax.swing.JComponent#paintComponent(java.awt.Graphics)
 	 */
 	@Override
@@ -347,6 +347,7 @@ public class BoardViewPanel extends JPanel {
 	 */
 	public void setAesthetic(Aesthetic aesthetic) {
 		this.aesthetic = aesthetic;
+		setBackground(this.aesthetic.getBackgroundColor());
 	}
 
 	/**
