@@ -101,6 +101,48 @@ public class NewLevelButtonController implements ActionListener {
 		app.getBuilderView().revalidate();
 		app.getBuilderView().repaint();
 
+		// Reset input fields
+		app.getBuilderView().getBuilderSettingsPanel()
+				.getUserLevelNameTextField().setText("User Level Name");
+		app.getBuilderView().getBuilderSettingsPanel().getLevelTypeComboBox()
+				.setSelectedIndex(0);
+		app.getBuilderView().getBuilderSettingsPanel().getMovesTextField()
+				.setText("5");
+
+		app.getBuilderView().getBuilderSettingsPanel().getTimerTextField()
+				.setText("5");
+
+		app.getBuilderView().getBuilderSettingsPanel().getOnesTextField()
+				.setText("0");
+		app.getBuilderView().getBuilderSettingsPanel().getTwosTextField()
+				.setText("0");
+		app.getBuilderView().getBuilderSettingsPanel().getThreesTextField()
+				.setText("0");
+		app.getBuilderView().getBuilderSettingsPanel().getFoursTextField()
+				.setText("0");
+		app.getBuilderView().getBuilderSettingsPanel().getFivesTextField()
+				.setText("0");
+		app.getBuilderView().getBuilderSettingsPanel().getSixesTextField()
+				.setText("0");
+		app.getBuilderView().getBuilderSettingsPanel()
+				.getTwoMultiplierTextField().setText("0");
+		app.getBuilderView().getBuilderSettingsPanel()
+				.getThreeMultiplierTextField().setText("0");
+		app.getBuilderView().getBuilderSettingsPanel().getSpecialMoveOneLabel()
+				.setText("0");
+		app.getBuilderView().getBuilderSettingsPanel().getSpecialMoveTwoLabel()
+				.setText("0");
+		app.getBuilderView().getBuilderSettingsPanel()
+				.getSpecialMoveThreeLabel().setText("0");
+		app.getBuilderView().getBuilderSettingsPanel()
+				.getSpecialMoveFourLabel().setText("0");
+		app.getBuilderView().getBuilderSettingsPanel()
+				.getOneStarScoreTextField().setText("0");
+		app.getBuilderView().getBuilderSettingsPanel()
+				.getTwoStarScoreTextField().setText("0");
+		app.getBuilderView().getBuilderSettingsPanel()
+				.getThreeStarScoreTextField().setText("0");
+
 		currentPanel.add(app.getBuilderView(), gbc_list);
 		contentContainer.add(currentPanel);
 

@@ -219,7 +219,7 @@ public class BuilderSettingsPanel extends JPanel {
 
 		// Moves text field
 		movesTextField = new JTextField();
-		movesTextField.setText("50");
+		movesTextField.setText("5");
 
 		// Layout for moves text field
 		GridBagConstraints gbc_movesTextField = new GridBagConstraints();
@@ -246,7 +246,7 @@ public class BuilderSettingsPanel extends JPanel {
 
 		// Timer text field
 		timerTextField = new JTextField();
-		timerTextField.setText("50");
+		timerTextField.setText("5");
 		GridBagConstraints gbc_timerTextField = new GridBagConstraints();
 
 		// Layout for timer text field
