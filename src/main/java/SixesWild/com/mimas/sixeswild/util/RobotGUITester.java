@@ -6,7 +6,7 @@ import java.awt.Robot;
 import java.awt.event.InputEvent;
 import java.awt.event.KeyEvent;
 
-import SixesWild.com.mimas.sixeswild.boundaries.GameApplication;
+import SixesWild.com.mimas.sixeswild.boundaries.BuilderApplication;
 
 /**
  * This class is used to handle testing interaction for test cases on the
@@ -44,6 +44,7 @@ public class RobotGUITester {
 			414);
 	public static final Point SpecialMoveFourDecreasePoint = new Point(155, 476);
 	public static final Point SpecialMoveFourIncreasePoint = new Point(207, 476);
+	public static final Point NewLevelButtonPoint = new Point(270, 60);
 
 	// Tile selection
 	public static final Point TilesOnBoard[][] = new Point[9][9];
@@ -249,99 +250,6 @@ public class RobotGUITester {
 			Thread.sleep(rob.getAutoDelay());
 		} catch (Exception e) {
 
-		}
-	}
-
-	/**
-	 * @param args
-	 */
-	public static void main(String[] args) {
-		try {
-			GameApplication window = new GameApplication();
-			window.getFrame().setVisible(true);
-
-			RobotGUITester r = new RobotGUITester();
-
-			r.wait(1.0);
-			r.pressKey(KeyEvent.VK_ENTER);
-
-			// Browse main game menus
-			r.robotMouseMove(RobotGUITester.StoryLevelButtonPoint);
-			r.leftClickPressAndRelease();
-			r.robotDragMouse(RobotGUITester.UserLevelButtonPoint, 0.5, 60);
-			r.leftClickPressAndRelease();
-			r.robotDragMouse(RobotGUITester.BadgesButtonPoint, 0.5, 60);
-			r.leftClickPressAndRelease();
-			r.robotDragMouse(RobotGUITester.OptionsLevelButtonPoint, 0.5, 60);
-			r.leftClickPressAndRelease();
-			r.robotDragMouse(RobotGUITester.CreditsLevelButtonPoint, 0.5, 60);
-			r.leftClickPressAndRelease();
-
-			// Go to story levels and preview levels
-			r.robotDragMouse(RobotGUITester.StoryLevelButtonPoint, 0.5, 60);
-			r.leftClickPressAndRelease();
-			r.robotDragMouse(RobotGUITester.TopOfSelectionPanelPoint, 0.5, 60);
-			r.leftClickPressAndRelease();
-			r.robotDragMouse(0, RobotGUITester.DeltaYOfSelectionPanelItems,
-					0.25, 60);
-			r.leftClickPressAndRelease();
-			r.robotDragMouse(0, RobotGUITester.DeltaYOfSelectionPanelItems,
-					0.25, 60);
-			r.leftClickPressAndRelease();
-			r.robotDragMouse(0, RobotGUITester.DeltaYOfSelectionPanelItems,
-					0.25, 60);
-			r.leftClickPressAndRelease();
-			r.robotDragMouse(0, RobotGUITester.DeltaYOfSelectionPanelItems,
-					0.25, 60);
-			r.leftClickPressAndRelease();
-			r.robotDragMouse(0, RobotGUITester.DeltaYOfSelectionPanelItems,
-					0.25, 60);
-			r.leftClickPressAndRelease();
-			r.robotDragMouse(0, RobotGUITester.DeltaYOfSelectionPanelItems,
-					0.25, 60);
-			r.leftClickPressAndRelease();
-			r.robotDragMouse(0, RobotGUITester.DeltaYOfSelectionPanelItems,
-					0.25, 60);
-			r.leftClickPressAndRelease();
-			r.robotDragMouse(0, RobotGUITester.DeltaYOfSelectionPanelItems,
-					0.25, 60);
-			r.leftClickPressAndRelease();
-			r.robotDragMouse(0, RobotGUITester.DeltaYOfSelectionPanelItems,
-					0.25, 60);
-			r.leftClickPressAndRelease();
-			r.robotDragMouse(0, RobotGUITester.DeltaYOfSelectionPanelItems,
-					0.25, 60);
-			r.leftClickPressAndRelease();
-			r.robotDragMouse(0, RobotGUITester.DeltaYOfSelectionPanelItems,
-					0.25, 60);
-			r.leftClickPressAndRelease();
-			r.robotDragMouse(0, RobotGUITester.DeltaYOfSelectionPanelItems,
-					0.25, 60);
-			r.leftClickPressAndRelease();
-			r.robotDragMouse(0, RobotGUITester.DeltaYOfSelectionPanelItems,
-					0.25, 60);
-			r.leftClickPressAndRelease();
-			r.robotDragMouse(RobotGUITester.TopOfSelectionPanelPoint, 0.25, 60);
-			r.leftClickPressAndRelease();
-			r.robotDragMouse(RobotGUITester.PlayLevelButtonPoint, 0.25, 60);
-			r.leftClickPressAndRelease();
-			r.robotDragMouse(RobotGUITester.TilesOnBoard[0][0], 0.25, 60);
-			r.leftClickPressAndRelease();
-			r.robotDragMouse(RobotGUITester.TilesOnBoard[8][0], 0.25, 60);
-			r.leftClickPressAndRelease();
-
-			while (true) {
-				r.wait(1.0);
-				System.out
-						.println(MouseInfo.getPointerInfo().getLocation()
-								.getX()
-								+ " "
-								+ MouseInfo.getPointerInfo().getLocation()
-										.getY());
-			}
-
-		} catch (Exception e) {
-			e.printStackTrace();
 		}
 	}
 }
