@@ -4,9 +4,6 @@ import java.awt.MouseInfo;
 import java.awt.Point;
 import java.awt.Robot;
 import java.awt.event.InputEvent;
-import java.awt.event.KeyEvent;
-
-import SixesWild.com.mimas.sixeswild.boundaries.BuilderApplication;
 
 /**
  * This class is used to handle testing interaction for test cases on the
@@ -45,6 +42,10 @@ public class RobotGUITester {
 	public static final Point SpecialMoveFourDecreasePoint = new Point(155, 476);
 	public static final Point SpecialMoveFourIncreasePoint = new Point(207, 476);
 	public static final Point NewLevelButtonPoint = new Point(270, 60);
+	public static final Point SaveLevelButtonPoint = new Point(367, 60);
+	public static final Point OpenLevelButtonPoint = new Point(467, 60);
+	public static final Point DeleteLevelButtonPoint = new Point(766, 56);
+	public static final Point TileFrequencyOneField = new Point(67, 254);
 
 	// Tile selection
 	public static final Point TilesOnBoard[][] = new Point[9][9];
@@ -252,4 +253,28 @@ public class RobotGUITester {
 
 		}
 	}
+
+	/**
+	 * Simulates a key release.
+	 *
+	 * @param keyEventConstant
+	 *            The key constant for the key press to simulate.
+	 */
+	public void releaseKey(int keyEventConstant) {
+		rob.keyRelease(keyEventConstant);
+		try {
+			Thread.sleep(rob.getAutoDelay());
+		} catch (Exception e) {
+
+		}
+	}
+
+	// public static void main(String args[]) {
+	// BuilderApplication app = new BuilderApplication();
+	// app.getFrame().setVisible(true);
+	// while (true) {
+	// System.out.println(MouseInfo.getPointerInfo().getLocation().getX()
+	// + " " + MouseInfo.getPointerInfo().getLocation().getY());
+	// }
+	// }
 }

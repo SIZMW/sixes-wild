@@ -6,7 +6,7 @@ import junit.framework.TestCase;
 import SixesWild.com.mimas.sixeswild.util.RobotGUITester;
 
 /**
- * This test case handles all coverage in viewing the story level menu.
+ * This test case handles all coverage in viewing the game menu.
  *
  * @author Aditya Nivarthi
  */
@@ -43,6 +43,8 @@ public class TestGameMenuView extends TestCase {
 	public void testSelectStoryLevelToPreview() {
 		robot.wait(1.0);
 		robot.pressKey(KeyEvent.VK_ENTER);
+		robot.releaseKey(KeyEvent.VK_ENTER);
+
 		robot.robotMouseMove(RobotGUITester.StoryLevelButtonPoint);
 		robot.leftClickPressAndRelease();
 		robot.robotDragMouse(RobotGUITester.TopOfSelectionPanelPoint, 0.5, 60);
@@ -61,6 +63,8 @@ public class TestGameMenuView extends TestCase {
 	public void testSelectUserLevelToPreview() {
 		robot.wait(1.0);
 		robot.pressKey(KeyEvent.VK_ENTER);
+		robot.releaseKey(KeyEvent.VK_ENTER);
+
 		robot.robotMouseMove(RobotGUITester.UserLevelButtonPoint);
 		robot.leftClickPressAndRelease();
 		robot.robotDragMouse(RobotGUITester.TopOfSelectionPanelPoint, 0.5, 60);
@@ -79,6 +83,7 @@ public class TestGameMenuView extends TestCase {
 	public void testSelectBadgesToPreview() {
 		robot.wait(1.0);
 		robot.pressKey(KeyEvent.VK_ENTER);
+		robot.releaseKey(KeyEvent.VK_ENTER);
 		robot.robotMouseMove(RobotGUITester.BadgesButtonPoint);
 		robot.leftClickPressAndRelease();
 		robot.robotDragMouse(RobotGUITester.TopOfSelectionPanelPoint, 0.5, 60);
@@ -92,11 +97,25 @@ public class TestGameMenuView extends TestCase {
 	}
 
 	/**
+	 * Tests opening the options menu.
+	 */
+	public void testOptionsMenu() {
+		robot.wait(1.0);
+		robot.pressKey(KeyEvent.VK_ENTER);
+		robot.releaseKey(KeyEvent.VK_ENTER);
+
+		robot.robotMouseMove(RobotGUITester.OptionsLevelButtonPoint);
+		robot.leftClickPressAndRelease();
+	}
+
+	/**
 	 * Tests opening the credits menu.
 	 */
 	public void testCreditsMenu() {
 		robot.wait(1.0);
 		robot.pressKey(KeyEvent.VK_ENTER);
+		robot.releaseKey(KeyEvent.VK_ENTER);
+
 		robot.robotMouseMove(RobotGUITester.CreditsLevelButtonPoint);
 		robot.leftClickPressAndRelease();
 	}
@@ -107,6 +126,8 @@ public class TestGameMenuView extends TestCase {
 	public void testPlayAndQuitLevel() {
 		robot.wait(1.0);
 		robot.pressKey(KeyEvent.VK_ENTER);
+		robot.releaseKey(KeyEvent.VK_ENTER);
+
 		robot.robotMouseMove(RobotGUITester.StoryLevelButtonPoint);
 		robot.leftClickPressAndRelease();
 		robot.robotDragMouse(RobotGUITester.TopOfSelectionPanelPoint, 0.5, 60);
@@ -123,6 +144,8 @@ public class TestGameMenuView extends TestCase {
 	public void testLockedLevelPlay() {
 		robot.wait(1.0);
 		robot.pressKey(KeyEvent.VK_ENTER);
+		robot.releaseKey(KeyEvent.VK_ENTER);
+
 		robot.robotMouseMove(RobotGUITester.StoryLevelButtonPoint);
 		robot.leftClickPressAndRelease();
 		robot.robotDragMouse(RobotGUITester.TopOfSelectionPanelPoint, 0.5, 60);

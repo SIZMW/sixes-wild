@@ -5,6 +5,12 @@ import java.awt.event.KeyEvent;
 import junit.framework.TestCase;
 import SixesWild.com.mimas.sixeswild.util.RobotGUITester;
 
+/**
+ * This test case handles coverage of the boundaries and controllers of the
+ * level builder view.
+ *
+ * @author Aditya Nivarthi
+ */
 public class TestBuilderView extends TestCase {
 
 	BuilderApplication window;
@@ -12,7 +18,7 @@ public class TestBuilderView extends TestCase {
 
 	/*
 	 * (non-Javadoc)
-	 *
+	 * 
 	 * @see junit.framework.TestCase#setUp()
 	 */
 	@Override
@@ -20,11 +26,15 @@ public class TestBuilderView extends TestCase {
 		window = new BuilderApplication();
 		window.getFrame().setVisible(true);
 		robot = new RobotGUITester();
+
+		robot.wait(1.0);
+		robot.pressKey(KeyEvent.VK_ENTER);
+		robot.releaseKey(KeyEvent.VK_ENTER);
 	}
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see junit.framework.TestCase#tearDown()
 	 */
 	@Override
@@ -32,10 +42,10 @@ public class TestBuilderView extends TestCase {
 		window.getFrame().dispose();
 	}
 
+	/**
+	 * Tests the special move increase and decrease buttons.
+	 */
 	public void testSpecialMoveButtons() {
-		robot.wait(1.0);
-		robot.pressKey(KeyEvent.VK_ENTER);
-
 		robot.robotMouseMove(RobotGUITester.SpecialMoveOneIncreasePoint);
 		robot.leftClickPressAndRelease();
 		robot.robotMouseMove(RobotGUITester.SpecialMoveOneDecreasePoint);
@@ -64,17 +74,87 @@ public class TestBuilderView extends TestCase {
 		robot.robotMouseMove(RobotGUITester.SpecialMoveFourDecreasePoint);
 		robot.leftClickPressAndRelease();
 	}
-	
-	public void testNewLevelButton(){
-		robot.wait(1.0);
-		robot.pressKey(KeyEvent.VK_ENTER);
-		
-		for(int i = 0; i < 9; i++){
+
+	/**
+	 * Tests adding tiles and creating a new level.
+	 */
+	public void testNewLevelButton() {
+		for (int i = 0; i < 9; i++) {
 			robot.robotMouseMove(RobotGUITester.TilesOnBoard[i][i]);
 			robot.leftClickPressAndRelease();
 		}
-		
+
 		robot.robotMouseMove(RobotGUITester.NewLevelButtonPoint);
 		robot.leftClickPressAndRelease();
+	}
+
+	/**
+	 * Tests the undo and redo controllers.
+	 */
+	public void testUndoRedo() {
+
+		// Place tiles
+		for (int i = 0; i < 3; i++) {
+			robot.robotMouseMove(RobotGUITester.TilesOnBoard[i][i]);
+			robot.leftClickPressAndRelease();
+		}
+
+		// Undo placing tiles
+		for (int i = 0; i < 3; i++) {
+			robot.pressKey(KeyEvent.VK_CONTROL);
+			robot.pressKey(KeyEvent.VK_Z);
+			robot.releaseKey(KeyEvent.VK_CONTROL);
+			robot.releaseKey(KeyEvent.VK_Z);
+		}
+
+		// Redo placing tiles
+		for (int i = 0; i < 3; i++) {
+			robot.pressKey(KeyEvent.VK_CONTROL);
+			robot.pressKey(KeyEvent.VK_SHIFT);
+			robot.pressKey(KeyEvent.VK_Z);
+			robot.releaseKey(KeyEvent.VK_CONTROL);
+			robot.releaseKey(KeyEvent.VK_SHIFT);
+			robot.releaseKey(KeyEvent.VK_Z);
+		}
+	}
+
+	/**
+	 * Tests saving a level.
+	 */
+	public void testSaveLevel() {
+		robot.robotMouseMove(RobotGUITester.SaveLevelButtonPoint);
+		robot.leftClickPressAndRelease();
+	}
+
+	/**
+	 * Tests opening a level.
+	 */
+	public void testOpenLevel() {
+		robot.robotMouseMove(RobotGUITester.OpenLevelButtonPoint);
+		robot.leftClickPressAndRelease();
+	}
+
+	/**
+	 * Tests deleting a level.
+	 */
+	public void testDeleteLevel() {
+		robot.robotMouseMove(RobotGUITester.DeleteLevelButtonPoint);
+		robot.leftClickPressAndRelease();
+	}
+
+	/**
+	 * Tests updating the frequencies after tiles are placed.
+	 */
+	public void testUpdateFrequency() {
+		for (int i = 0; i < 3; i++) {
+			robot.robotMouseMove(RobotGUITester.TilesOnBoard[i][i]);
+			robot.leftClickPressAndRelease();
+		}
+
+		robot.robotMouseMove(RobotGUITester.TileFrequencyOneField);
+		robot.leftClickPressAndRelease();
+		robot.leftClickPressAndRelease();
+		robot.pressKey(KeyEvent.VK_ENTER);
+		robot.releaseKey(KeyEvent.VK_ENTER);
 	}
 }
