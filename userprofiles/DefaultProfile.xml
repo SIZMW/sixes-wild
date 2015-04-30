@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <UserProfile user="Default">
   <HighestStoryLevelUnlocked>2</HighestStoryLevelUnlocked>
-  <HighestUserLevelUnlocked>1</HighestUserLevelUnlocked>
+  <HighestUserLevelUnlocked>7</HighestUserLevelUnlocked>
   <Badges>
     <Name>5000 points</Name>
     <Name>10000 points</Name>
@@ -15,6 +15,7 @@
   </Badges>
   <LevelScores>
     <Level level="1" score="18890" stars="3" type="STORY"/>
+    <Level level="6" score="0" stars="0" type="USER"/>
   </LevelScores>
   <Aesthetic/>
 </UserProfile>

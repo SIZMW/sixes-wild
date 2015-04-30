@@ -30,6 +30,9 @@ public class RobotGUITester {
 	public static final int DeltaYOfSelectionPanelItems = 17;
 	public static final Point PlayLevelButtonPoint = new Point(710, 590);
 
+	// Game playing
+	public static final Point PopUpCloseButtonPoint = new Point(627, 311);
+
 	// Builder buttons
 	public static final Point SpecialMoveOneDecreasePoint = new Point(56, 414);
 	public static final Point SpecialMoveOneIncreasePoint = new Point(97, 414);
@@ -45,6 +48,7 @@ public class RobotGUITester {
 	public static final Point SaveLevelButtonPoint = new Point(367, 60);
 	public static final Point OpenLevelButtonPoint = new Point(467, 60);
 	public static final Point DeleteLevelButtonPoint = new Point(766, 56);
+	public static final Point DeleteLevelDropDownPoint = new Point(842, 64);
 	public static final Point TileFrequencyOneField = new Point(67, 254);
 
 	// Tile selection

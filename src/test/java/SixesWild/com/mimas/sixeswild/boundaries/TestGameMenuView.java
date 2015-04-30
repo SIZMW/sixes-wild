@@ -17,7 +17,7 @@ public class TestGameMenuView extends TestCase {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see junit.framework.TestCase#setUp()
 	 */
 	@Override
@@ -29,7 +29,7 @@ public class TestGameMenuView extends TestCase {
 
 	/*
 	 * (non-Javadoc)
-	 *
+	 * 
 	 * @see junit.framework.TestCase#tearDown()
 	 */
 	@Override
@@ -161,6 +161,47 @@ public class TestGameMenuView extends TestCase {
 				0.25, 60);
 		robot.leftClickPressAndRelease();
 		robot.robotDragMouse(RobotGUITester.PlayLevelButtonPoint, 0.25, 60);
+		robot.leftClickPressAndRelease();
+	}
+
+	/*
+	 * Tests doing a selection on a game board.
+	 */
+	public void testSelectionMove() {
+		robot.wait(1.0);
+		robot.pressKey(KeyEvent.VK_ENTER);
+		robot.releaseKey(KeyEvent.VK_ENTER);
+
+		robot.robotMouseMove(RobotGUITester.UserLevelButtonPoint);
+		robot.leftClickPressAndRelease();
+		robot.robotDragMouse(RobotGUITester.TopOfSelectionPanelPoint, 0.5, 60);
+		robot.robotDragMouse(0, RobotGUITester.DeltaYOfSelectionPanelItems,
+				0.25, 60);
+		robot.robotDragMouse(0, RobotGUITester.DeltaYOfSelectionPanelItems,
+				0.25, 60);
+		robot.robotDragMouse(0, RobotGUITester.DeltaYOfSelectionPanelItems,
+				0.25, 60);
+		robot.robotDragMouse(0, RobotGUITester.DeltaYOfSelectionPanelItems,
+				0.25, 60);
+		robot.robotDragMouse(0, RobotGUITester.DeltaYOfSelectionPanelItems,
+				0.25, 60);
+		robot.robotDragMouse(0, RobotGUITester.DeltaYOfSelectionPanelItems,
+				0.25, 60);
+		robot.leftClickPressAndRelease();
+
+		robot.robotMouseMove(RobotGUITester.PlayLevelButtonPoint);
+		robot.leftClickPressAndRelease();
+
+		robot.robotMouseMove(RobotGUITester.TilesOnBoard[0][0]);
+		robot.leftClickPress();
+		for (int i = 0; i < 6; i++) {
+			robot.robotDragMouse(RobotGUITester.TilesOnBoard[i][0], 0.5, 60);
+		}
+		robot.leftClickRelease();
+
+		robot.wait(3.0);
+
+		robot.robotMouseMove(RobotGUITester.PopUpCloseButtonPoint);
 		robot.leftClickPressAndRelease();
 	}
 }

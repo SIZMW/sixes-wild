@@ -18,7 +18,7 @@ public class TestBuilderView extends TestCase {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see junit.framework.TestCase#setUp()
 	 */
 	@Override
@@ -34,7 +34,7 @@ public class TestBuilderView extends TestCase {
 
 	/*
 	 * (non-Javadoc)
-	 *
+	 * 
 	 * @see junit.framework.TestCase#tearDown()
 	 */
 	@Override
@@ -138,6 +138,26 @@ public class TestBuilderView extends TestCase {
 	 * Tests deleting a level.
 	 */
 	public void testDeleteLevel() {
+		robot.robotMouseMove(RobotGUITester.DeleteLevelDropDownPoint);
+		robot.leftClickPressAndRelease();
+		robot.robotDragMouse(0, RobotGUITester.DeltaYOfSelectionPanelItems,
+				0.25, 60);
+		robot.robotDragMouse(0, RobotGUITester.DeltaYOfSelectionPanelItems,
+				0.25, 60);
+		robot.robotDragMouse(0, RobotGUITester.DeltaYOfSelectionPanelItems,
+				0.25, 60);
+		robot.robotDragMouse(0, RobotGUITester.DeltaYOfSelectionPanelItems,
+				0.25, 60);
+		robot.robotDragMouse(0, RobotGUITester.DeltaYOfSelectionPanelItems,
+				0.25, 60);
+		robot.robotDragMouse(0, RobotGUITester.DeltaYOfSelectionPanelItems,
+				0.25, 60);
+		robot.robotDragMouse(0, RobotGUITester.DeltaYOfSelectionPanelItems,
+				0.25, 60);
+		robot.robotDragMouse(0, RobotGUITester.DeltaYOfSelectionPanelItems,
+				0.25, 60);
+		robot.leftClickPressAndRelease();
+
 		robot.robotMouseMove(RobotGUITester.DeleteLevelButtonPoint);
 		robot.leftClickPressAndRelease();
 	}
