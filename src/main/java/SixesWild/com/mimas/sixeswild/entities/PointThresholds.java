@@ -95,11 +95,11 @@ public class PointThresholds {
 	 * @return an integer
 	 */
 	public int getStarsForScore(int score) {
-		if (score > thresholds.get(2)) {
+		if (score >= thresholds.get(2)) {
 			return 3;
-		} else if (score > thresholds.get(1)) {
+		} else if (score >= thresholds.get(1)) {
 			return 2;
-		} else if (score > thresholds.get(0)) {
+		} else if (score >= thresholds.get(0)) {
 			return 1;
 		}
 		return 0;

@@ -10,6 +10,7 @@ import javax.swing.JPanel;
 
 import SixesWild.com.mimas.sixeswild.entities.Aesthetic;
 import SixesWild.com.mimas.sixeswild.entities.Badge;
+import SixesWild.com.mimas.sixeswild.entities.MenuTypes;
 
 /**
  * This class represents the main view for the menus in the game.
@@ -252,9 +253,10 @@ public class GameMenuView extends JPanel {
 	 * @param userHighestUnlocked
 	 *            The highest user level number unlocked.
 	 */
-	public void refreshView(int storyHighestUnlocked, int userHighestUnlocked) {
-		storyMenuView.refreshView(storyHighestUnlocked);
-		userMenuView.refreshView(userHighestUnlocked);
+	public void refreshView(GameApplication app, int storyHighestUnlocked,
+			int userHighestUnlocked) {
+		storyMenuView.refreshView(app, MenuTypes.STORY, storyHighestUnlocked);
+		userMenuView.refreshView(app, MenuTypes.USER, userHighestUnlocked);
 		this.repaint();
 	}
 }

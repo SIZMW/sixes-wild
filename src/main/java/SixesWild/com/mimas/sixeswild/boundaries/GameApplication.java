@@ -333,7 +333,7 @@ public class GameApplication {
 	 */
 	public void refreshView() {
 		if (gameMenuView != null) {
-			gameMenuView.refreshView(
+			gameMenuView.refreshView(this,
 					currentUserProfile.getHighestStoryLevelUnlocked(),
 					currentUserProfile.getHighestUserLevelUnlocked());
 		}

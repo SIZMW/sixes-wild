@@ -18,6 +18,7 @@ import javax.swing.border.LineBorder;
 
 import SixesWild.com.mimas.sixeswild.entities.Aesthetic;
 import SixesWild.com.mimas.sixeswild.entities.Board;
+import SixesWild.com.mimas.sixeswild.entities.MenuTypes;
 import SixesWild.com.mimas.sixeswild.entities.NullTile;
 import SixesWild.com.mimas.sixeswild.entities.Tile;
 
@@ -239,9 +240,12 @@ public class LevelSelectionPanel extends JPanel {
 	 * @param highestUnlocked
 	 *            The new highest level number unlocked.
 	 */
-	public void refreshView(int highestUnlocked) {
+	public void refreshView(GameApplication app, MenuTypes type,
+			int highestUnlocked) {
 		levelList.setCellRenderer(new LevelListCellRenderer(highestUnlocked));
 		levelScrollPane.setViewportView(levelList);
+		starGraphicsPanel.refreshStars(app.getCurrentUserProfile()
+				.getStarsOfLevel(levelList.getSelectedIndex() + 1, type));
 		invalidate();
 		revalidate();
 		this.repaint();
