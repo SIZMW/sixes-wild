@@ -64,4 +64,17 @@ public class TestBuilderView extends TestCase {
 		robot.robotMouseMove(RobotGUITester.SpecialMoveFourDecreasePoint);
 		robot.leftClickPressAndRelease();
 	}
+	
+	public void testNewLevelButton(){
+		robot.wait(1.0);
+		robot.pressKey(KeyEvent.VK_ENTER);
+		
+		for(int i = 0; i < 9; i++){
+			robot.robotMouseMove(RobotGUITester.TilesOnBoard[i][i]);
+			robot.leftClickPressAndRelease();
+		}
+		
+		robot.robotMouseMove(RobotGUITester.NewLevelButtonPoint);
+		robot.leftClickPressAndRelease();
+	}
 }
