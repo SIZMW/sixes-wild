@@ -290,6 +290,7 @@ public class GameApplication {
 		for (Aesthetic e : aestheticList) {
 			if (e.getName().equals(name)) {
 				currentAesthetic = e;
+				currentUserProfile.setAestheticName(e.getName());
 				logger.log(Level.FINE, "GameApplication aesthetic changed to: "
 						+ e.getName());
 				return true;
