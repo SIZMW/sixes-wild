@@ -51,6 +51,7 @@ public class TestLightningLevel extends TestCase {
 			assertEquals(multFreq, level.board.getMultiplierFrequencies());
 
 			level.updateTimerCount(-1);
+			assertFalse(level.hasBeenCompleted());
 
 			assertEquals(level.getTimer(), 49);
 		} catch (Exception e1) {
@@ -74,6 +75,5 @@ public class TestLightningLevel extends TestCase {
 		} catch (Exception e) {
 			assertTrue(true);
 		}
-
 	}
 }

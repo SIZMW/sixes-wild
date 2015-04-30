@@ -126,5 +126,7 @@ public class TestEliminationLevel extends TestCase {
 
 		toTest.updateMoveCount(-1);
 		assertEquals(toTest.getMoveCount(), 0);
+
+		assertFalse(toTest.hasBeenCompleted());
 	}
 }

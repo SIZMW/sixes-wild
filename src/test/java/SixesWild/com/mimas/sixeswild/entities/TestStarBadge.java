@@ -31,6 +31,8 @@ public class TestStarBadge extends TestCase {
 	public void testBadgeMethods() {
 		assertEquals(badge.getName(), name);
 		assertEquals(badge.getDescription(), description);
+		assertEquals(badge.getType(), BadgeType.STAR);
 		assertTrue(badge.unlock(10));
+		assertFalse(badge.unlock(9));
 	}
 }

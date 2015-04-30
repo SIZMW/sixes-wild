@@ -49,6 +49,8 @@ public class TestPuzzleLevel extends TestCase {
 			assertEquals(tileFreq, level.board.tileFrequencies);
 			assertEquals(pointThresholds, level.pointThresholds);
 			assertEquals(multFreq, level.board.multiplierFrequencies);
+
+			assertFalse(level.hasBeenCompleted());
 		} catch (Exception e1) {
 			e1.printStackTrace();
 			fail();

@@ -22,14 +22,28 @@ public class RobotGUITester {
 	// Main menu buttons
 	public static final Point StoryLevelButtonPoint = new Point(20, 45);
 	public static final Point UserLevelButtonPoint = new Point(20, 175);
-	public static final Point BadgesLevelButtonPoint = new Point(20, 305);
+	public static final Point BadgesButtonPoint = new Point(20, 305);
 	public static final Point OptionsLevelButtonPoint = new Point(20, 435);
 	public static final Point CreditsLevelButtonPoint = new Point(20, 565);
+	public static final Point CloseWindowButtonPoint = new Point(970, 10);
+	public static final Point ExitLevelButtonPoint = new Point(914, 60);
 
 	// Level selection
 	public static final Point TopOfSelectionPanelPoint = new Point(175, 45);
 	public static final int DeltaYOfSelectionPanelItems = 17;
 	public static final Point PlayLevelButtonPoint = new Point(710, 590);
+
+	// Builder buttons
+	public static final Point SpecialMoveOneDecreasePoint = new Point(56, 414);
+	public static final Point SpecialMoveOneIncreasePoint = new Point(97, 414);
+	public static final Point SpecialMoveTwoDecreasePoint = new Point(56, 476);
+	public static final Point SpecialMoveTwoIncreasePoint = new Point(97, 476);
+	public static final Point SpecialMoveThreeDecreasePoint = new Point(155,
+			414);
+	public static final Point SpecialMoveThreeIncreasePoint = new Point(207,
+			414);
+	public static final Point SpecialMoveFourDecreasePoint = new Point(155, 476);
+	public static final Point SpecialMoveFourIncreasePoint = new Point(207, 476);
 
 	// Tile selection
 	public static final Point TilesOnBoard[][] = new Point[9][9];
@@ -226,11 +240,11 @@ public class RobotGUITester {
 	/**
 	 * Simulates a key press.
 	 *
-	 * @param key
-	 *            The key to simulate.
+	 * @param keyEventConstant
+	 *            The key constant for the key press to simulate.
 	 */
-	public void hitKey(String key) {
-		rob.keyPress(KeyEvent.VK_ENTER);
+	public void pressKey(int keyEventConstant) {
+		rob.keyPress(keyEventConstant);
 		try {
 			Thread.sleep(rob.getAutoDelay());
 		} catch (Exception e) {
@@ -249,15 +263,14 @@ public class RobotGUITester {
 			RobotGUITester r = new RobotGUITester();
 
 			r.wait(1.0);
-
-			r.hitKey("");
+			r.pressKey(KeyEvent.VK_ENTER);
 
 			// Browse main game menus
 			r.robotMouseMove(RobotGUITester.StoryLevelButtonPoint);
 			r.leftClickPressAndRelease();
 			r.robotDragMouse(RobotGUITester.UserLevelButtonPoint, 0.5, 60);
 			r.leftClickPressAndRelease();
-			r.robotDragMouse(RobotGUITester.BadgesLevelButtonPoint, 0.5, 60);
+			r.robotDragMouse(RobotGUITester.BadgesButtonPoint, 0.5, 60);
 			r.leftClickPressAndRelease();
 			r.robotDragMouse(RobotGUITester.OptionsLevelButtonPoint, 0.5, 60);
 			r.leftClickPressAndRelease();

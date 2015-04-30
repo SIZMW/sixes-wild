@@ -14,7 +14,7 @@ public class TestScoreBadge extends TestCase {
 
 	/*
 	 * (non-Javadoc)
-	 *
+	 * 
 	 * @see junit.framework.TestCase#setUp()
 	 */
 	@Override
@@ -31,6 +31,8 @@ public class TestScoreBadge extends TestCase {
 	public void testBadgeMethods() {
 		assertEquals(badge.getName(), name);
 		assertEquals(badge.getDescription(), description);
+		assertEquals(badge.getType(), BadgeType.SCORE);
 		assertTrue(badge.unlock(13));
+		assertFalse(badge.unlock(9));
 	}
 }
