@@ -289,7 +289,7 @@ public class BoardViewPanel extends JPanel {
 
 	/*
 	 * (non-Javadoc)
-	 *
+	 * 
 	 * @see javax.swing.JComponent#paintComponent(java.awt.Graphics)
 	 */
 	@Override
@@ -548,26 +548,20 @@ public class BoardViewPanel extends JPanel {
 
 	/**
 	 * Executes the reset board move.
-	 *
-	 * @return true
 	 */
-	public boolean doResetBoardMove() {
+	public void doResetBoardMove() {
 		gameBoard.resetBoard();
 
 		logger.log(Level.INFO, "Board processed a reset board move.");
-		return true;
 	}
 
 	/**
 	 * Executes the swap tile move.
-	 *
-	 * @return true
 	 */
-	public boolean doSwapTileMove() {
+	public void doSwapTileMove() {
 		gameBoard.processSwapMove(currentSelection);
 
 		logger.log(Level.INFO, "Board processed a swap tile move.");
-		return true;
 	}
 
 	/**
@@ -575,9 +569,8 @@ public class BoardViewPanel extends JPanel {
 	 *
 	 * @param type
 	 *            The type of level being played.
-	 * @return true
 	 */
-	public boolean doRemoveTileMove(LevelType type) {
+	public void doRemoveTileMove(LevelType type) {
 		if (type.equals(LevelType.RELEASE)) {
 			gameBoard.processReleaseSelection(currentSelection);
 		} else {
@@ -585,6 +578,5 @@ public class BoardViewPanel extends JPanel {
 		}
 
 		logger.log(Level.INFO, "Board processed a remove tile move.");
-		return true;
 	}
 }

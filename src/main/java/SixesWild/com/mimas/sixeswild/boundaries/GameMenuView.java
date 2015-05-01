@@ -248,6 +248,8 @@ public class GameMenuView extends JPanel {
 	 * Refreshes the view with the specified highest unlocked level numbers from
 	 * the current user profile for the story and user levels.
 	 *
+	 * @param app
+	 *            The GameApplication currently running.
 	 * @param storyHighestUnlocked
 	 *            The highest story level number unlocked.
 	 * @param userHighestUnlocked

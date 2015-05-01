@@ -252,7 +252,7 @@ public class LevelView extends JPanel {
 
 				/*
 				 * (non-Javadoc)
-				 * 
+				 *
 				 * @see
 				 * java.awt.event.ActionListener#actionPerformed(java.awt.event
 				 * .ActionEvent)
@@ -417,6 +417,8 @@ public class LevelView extends JPanel {
 	 *
 	 * @param message
 	 *            The game status message to display.
+	 * @param hasCompleted
+	 *            The state of how the level was completed.
 	 */
 	public void endLevel(String message, boolean hasCompleted) {
 

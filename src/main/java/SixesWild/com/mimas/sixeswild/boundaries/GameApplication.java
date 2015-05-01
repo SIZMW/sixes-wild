@@ -149,7 +149,7 @@ public class GameApplication {
 						new PlayButtonController(this, MenuTypes.USER));
 
 		// Badges
-		gameMenuView.getBadgeMenuView().getBadgesList()
+		gameMenuView.getBadgeMenuView().getBadgeSelectionList()
 				.addListSelectionListener(new BadgesListController(this));
 		gameMenuView.getOptionsMenuView().getResetBadgesButton()
 				.addActionListener(new ResetBadgesController(this));

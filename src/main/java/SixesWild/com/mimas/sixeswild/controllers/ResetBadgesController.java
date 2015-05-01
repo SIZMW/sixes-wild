@@ -23,6 +23,7 @@ public class ResetBadgesController implements ActionListener {
 	 * GameApplication.
 	 *
 	 * @param app
+	 *            The GameApplication currently running.
 	 */
 	public ResetBadgesController(GameApplication app) {
 		this.app = app;
@@ -30,7 +31,7 @@ public class ResetBadgesController implements ActionListener {
 
 	/*
 	 * (non-Javadoc)
-	 *
+	 * 
 	 * @see
 	 * java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
 	 */

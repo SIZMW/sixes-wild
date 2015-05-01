@@ -12,6 +12,8 @@ public class UnlockBadge extends Badge {
 	 *            The name of the badge.
 	 * @param description
 	 *            The description of the badge.
+	 * @param level
+	 *            The level number to be met to unlock this badge.
 	 */
 	public UnlockBadge(String name, String description, int level) {
 		super(name, description);
@@ -23,9 +25,8 @@ public class UnlockBadge extends Badge {
 	 * Determines if this badge can be unlocked with the specified highest level
 	 * unlocked.
 	 *
-	 * @param highestLevel
-	 *            The highest level unlocked to verify against the badge
-	 *            requirements.
+	 * @param level
+	 *            The level unlocked to verify against the badge requirements.
 	 * @return true if badge can be unlocked; false otherwise
 	 */
 	@Override

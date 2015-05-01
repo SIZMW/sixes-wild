@@ -31,20 +31,20 @@ public class BadgesPanel extends JPanel {
 	protected DefaultListModel<String> badgeListModel;
 	protected JScrollPane badgeScrollPane;
 	protected JPanel previewPanel;
-	protected ArrayList<Badge> badgeNames;
+	protected ArrayList<Badge> badgeList;
 	protected JLabel badgesPreviewLabel;
 	protected JList<String> badgesList;
 
 	/**
 	 * Creates a BadgesPanel instance with the specified list of badge names.
 	 *
-	 * @param badgeNames
+	 * @param badgeList
 	 *            The list of badge names.
 	 */
-	public BadgesPanel(ArrayList<Badge> badgeNames) {
+	public BadgesPanel(ArrayList<Badge> badgeList) {
 
 		// Attributes
-		this.badgeNames = badgeNames;
+		this.badgeList = badgeList;
 
 		// Layout of panel
 		GridBagLayout gridBagLayout = new GridBagLayout();
@@ -56,7 +56,7 @@ public class BadgesPanel extends JPanel {
 
 		// Add the list of badge names
 		badgeListModel = new DefaultListModel<String>();
-		for (Badge e : this.badgeNames) {
+		for (Badge e : this.badgeList) {
 			badgeListModel.addElement(e.getName());
 		}
 
@@ -135,17 +135,17 @@ public class BadgesPanel extends JPanel {
 	 *
 	 * @return the badgesList property.
 	 */
-	public JList<String> getBadgesList() {
+	public JList<String> getBadgeSelectionList() {
 		return badgesList;
 	}
 
 	/**
-	 * Returns the badgeNamesobject for this panel.
+	 * Returns the badgeList object for this panel.
 	 *
-	 * @return the badgeNames property
+	 * @return the badgeList property
 	 */
-	public ArrayList<Badge> getBadgeNameList() {
-		return badgeNames;
+	public ArrayList<Badge> getBadgeList() {
+		return badgeList;
 	}
 
 	/**

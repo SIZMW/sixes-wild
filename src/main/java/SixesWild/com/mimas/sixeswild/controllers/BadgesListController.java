@@ -36,7 +36,7 @@ public class BadgesListController implements ListSelectionListener {
 	public void valueChanged(ListSelectionEvent e) {
 		if (!e.getValueIsAdjusting()) {
 			String badgeName = app.getGameMenuView().getBadgeMenuView()
-					.getBadgesList().getSelectedValue();
+					.getBadgeSelectionList().getSelectedValue();
 			for (String b : app.getCurrentUserProfile().getBadgesEarned()) {
 				if (b.equals(badgeName)) {
 					app.getGameMenuView().getBadgeMenuView()

@@ -237,6 +237,10 @@ public class LevelSelectionPanel extends JPanel {
 	/**
 	 * Refreshes the view with the specified highest level unlocked.
 	 *
+	 * @param app
+	 *            The GameApplication currently running.
+	 * @param type
+	 *            The MenuType for this view of levels.
 	 * @param highestUnlocked
 	 *            The new highest level number unlocked.
 	 */

@@ -59,6 +59,7 @@ public abstract class Badge {
 	 *
 	 * @param value
 	 *            The value required to determine if this badge is unlocked.
+	 * @return true if the badge can be unlocked; false otherwise
 	 */
 	public abstract boolean unlock(int value);
 }
