@@ -5,8 +5,6 @@ import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.logging.Level;
@@ -17,6 +15,7 @@ import javax.swing.JDialog;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
+import SixesWild.com.mimas.sixeswild.controllers.TimerController;
 import SixesWild.com.mimas.sixeswild.entities.Aesthetic;
 import SixesWild.com.mimas.sixeswild.entities.Badge;
 import SixesWild.com.mimas.sixeswild.entities.BadgeType;
@@ -248,27 +247,7 @@ public class LevelView extends JPanel {
 		if (currentLevel.getType().equals(LevelType.LIGHTNING)) {
 
 			// Create a new timer
-			levelTimer = new Timer(1000, new ActionListener() {
-
-				/*
-				 * (non-Javadoc)
-				 *
-				 * @see
-				 * java.awt.event.ActionListener#actionPerformed(java.awt.event
-				 * .ActionEvent)
-				 */
-				public void actionPerformed(ActionEvent e) {
-
-					// Decrease timer amount
-					currentLevel.updateTimerCount(-1);
-					if (currentLevel.getTimer() >= 0) {
-						updateLevelStats();
-					} else {
-						endLevel("Timer ended.", true);
-						levelTimer.stop();
-					}
-				}
-			});
+			levelTimer = new Timer(1000, new TimerController(app));
 			levelTimer.setRepeats(true);
 			levelTimer.start();
 		}
@@ -330,10 +309,12 @@ public class LevelView extends JPanel {
 		// Update the stats Panel
 		levelStatsPanel.pointsLabel.setText(Integer.toString(currentScore));
 		if (currentLevel.getType() != LevelType.LIGHTNING) {
-			levelStatsPanel.movesAndTimerLabel.setText(currentLevel
-					.getMoveCount() + "");
+			int moves = currentLevel.getMoveCount();
+			levelStatsPanel.movesAndTimerLabel.setText(((moves >= 0) ? moves
+					: 0) + "");
 		} else {
-			levelStatsPanel.movesAndTimerLabel.setText(currentLevel.getTimer()
+			int time = currentLevel.getTimer();
+			levelStatsPanel.movesAndTimerLabel.setText(((time >= 0) ? time : 0)
 					+ "");
 		}
 
@@ -421,6 +402,17 @@ public class LevelView extends JPanel {
 	 *            The state of how the level was completed.
 	 */
 	public void endLevel(String message, boolean hasCompleted) {
+
+		// Remove board listeners to prevent more moves from being done
+		try {
+			boardViewPanel.removeMouseListener(boardViewPanel
+					.getMouseListeners()[0]);
+			boardViewPanel.removeMouseMotionListener(boardViewPanel
+					.getMouseMotionListeners()[0]);
+		} catch (Exception e) {
+			logger.log(Level.INFO,
+					"No listeners to remove from board view panel.");
+		}
 
 		// Add the high score to the current user profile
 		app.getCurrentUserProfile().addLevelHighScore(
