@@ -50,5 +50,9 @@ public class TestPointThresholds extends TestCase {
 		assertEquals(p.getStarsForScore(42), 2);
 		assertEquals(p.getStarsForScore(32), 1);
 		assertEquals(p.getStarsForScore(22), 0);
+		
+		assertEquals(p.getNextThresholdForScore(5), 30);
+		assertEquals(p.getNextThresholdForScore(35), 40);
+		assertEquals(p.getNextThresholdForScore(40), 50);
 	}
 }
