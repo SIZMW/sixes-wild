@@ -18,7 +18,7 @@ public class TestBuilderView extends TestCase {
 
 	/*
 	 * (non-Javadoc)
-	 *
+	 * 
 	 * @see junit.framework.TestCase#setUp()
 	 */
 	@Override
@@ -53,12 +53,18 @@ public class TestBuilderView extends TestCase {
 		robot.robotMouseMove(RobotGUITester.SpecialMoveOneDecreasePoint);
 		robot.leftClickPressAndRelease();
 
+		assertEquals(window.getBuilderView().getBuilderSettingsPanel()
+				.getSpecialMoveOneLabel().getText(), "0");
+
 		robot.robotMouseMove(RobotGUITester.SpecialMoveTwoIncreasePoint);
 		robot.leftClickPressAndRelease();
 		robot.robotMouseMove(RobotGUITester.SpecialMoveTwoDecreasePoint);
 		robot.leftClickPressAndRelease();
 		robot.robotMouseMove(RobotGUITester.SpecialMoveTwoDecreasePoint);
 		robot.leftClickPressAndRelease();
+
+		assertEquals(window.getBuilderView().getBuilderSettingsPanel()
+				.getSpecialMoveTwoLabel().getText(), "0");
 
 		robot.robotMouseMove(RobotGUITester.SpecialMoveThreeIncreasePoint);
 		robot.leftClickPressAndRelease();
@@ -67,12 +73,18 @@ public class TestBuilderView extends TestCase {
 		robot.robotMouseMove(RobotGUITester.SpecialMoveThreeDecreasePoint);
 		robot.leftClickPressAndRelease();
 
+		assertEquals(window.getBuilderView().getBuilderSettingsPanel()
+				.getSpecialMoveThreeLabel().getText(), "0");
+
 		robot.robotMouseMove(RobotGUITester.SpecialMoveFourIncreasePoint);
 		robot.leftClickPressAndRelease();
 		robot.robotMouseMove(RobotGUITester.SpecialMoveFourDecreasePoint);
 		robot.leftClickPressAndRelease();
 		robot.robotMouseMove(RobotGUITester.SpecialMoveFourDecreasePoint);
 		robot.leftClickPressAndRelease();
+
+		assertEquals(window.getBuilderView().getBuilderSettingsPanel()
+				.getSpecialMoveFourLabel().getText(), "0");
 	}
 
 	/**
@@ -97,6 +109,7 @@ public class TestBuilderView extends TestCase {
 		for (int i = 0; i < 3; i++) {
 			robot.robotMouseMove(RobotGUITester.TilesOnBoard[i][i]);
 			robot.leftClickPressAndRelease();
+			assertEquals(window.getUndoList().size(), (i + 1));
 		}
 
 		// Undo placing tiles
@@ -105,6 +118,8 @@ public class TestBuilderView extends TestCase {
 			robot.pressKey(KeyEvent.VK_Z);
 			robot.releaseKey(KeyEvent.VK_CONTROL);
 			robot.releaseKey(KeyEvent.VK_Z);
+
+			assertEquals(window.getRedoList().size(), (i + 1));
 		}
 
 		// Redo placing tiles
@@ -115,6 +130,7 @@ public class TestBuilderView extends TestCase {
 			robot.releaseKey(KeyEvent.VK_CONTROL);
 			robot.releaseKey(KeyEvent.VK_SHIFT);
 			robot.releaseKey(KeyEvent.VK_Z);
+			assertEquals(window.getUndoList().size(), (i + 1));
 		}
 	}
 
@@ -176,5 +192,12 @@ public class TestBuilderView extends TestCase {
 		robot.leftClickPressAndRelease();
 		robot.pressKey(KeyEvent.VK_ENTER);
 		robot.releaseKey(KeyEvent.VK_ENTER);
+
+		assertEquals(Integer.parseInt(window.getBuilderView()
+				.getBuilderSettingsPanel().getOnesTextField().getText()),
+				(int) (Double.parseDouble(window.getBuilderView()
+						.getBoardViewPanel().getBoard().getTileFrequencies()
+						.get(0)
+						+ "")));
 	}
 }

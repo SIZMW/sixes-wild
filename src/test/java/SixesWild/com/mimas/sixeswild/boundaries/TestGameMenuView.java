@@ -17,7 +17,7 @@ public class TestGameMenuView extends TestCase {
 
 	/*
 	 * (non-Javadoc)
-	 *
+	 * 
 	 * @see junit.framework.TestCase#setUp()
 	 */
 	@Override
@@ -200,6 +200,7 @@ public class TestGameMenuView extends TestCase {
 		robot.leftClickRelease();
 
 		robot.wait(3.0);
+		assertTrue(window.getLevelPanel().getScore() > 0);
 
 		robot.robotMouseMove(RobotGUITester.PopUpCloseButtonPoint);
 		robot.leftClickPressAndRelease();
