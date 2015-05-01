@@ -312,11 +312,18 @@ public class LevelView extends JPanel {
 			int moves = currentLevel.getMoveCount();
 			levelStatsPanel.movesAndTimerLabel.setText(((moves >= 0) ? moves
 					: 0) + "");
+			levelStatsPanel.movesAndTimerTextLabel.setText("Moves");
 		} else {
 			int time = currentLevel.getTimer();
 			levelStatsPanel.movesAndTimerLabel.setText(((time >= 0) ? time : 0)
 					+ "");
+			levelStatsPanel.movesAndTimerTextLabel.setText("Timer");
 		}
+
+		// Update next threshold points
+		levelStatsPanel.nextThresholdLabel.setText(Integer
+				.toString(currentLevel.getPointThresholds()
+						.getNextThresholdForScore(currentScore)));
 
 		// Update star graphics Here
 		levelStatsPanel.getStarGraphicsPanel().refreshStars(

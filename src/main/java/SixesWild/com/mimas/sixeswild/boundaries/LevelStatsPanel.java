@@ -31,6 +31,11 @@ public class LevelStatsPanel extends JPanel {
 	protected JLabel movesAndTimerTextLabel;
 	protected JLabel movesAndTimerLabel;
 
+	protected final String NEXT_THRESHOLD_TEXT = "Next Star Level At";
+	protected JPanel nextThresholdPanel;
+	protected JLabel nextThresholdTextLabel;
+	protected JLabel nextThresholdLabel;
+
 	/**
 	 * Creates a LevelStatsPanel instance.
 	 */
@@ -42,7 +47,7 @@ public class LevelStatsPanel extends JPanel {
 		gridBagLayout.rowHeights = new int[] { 0, 0, 0, 0, 0, 0, 0, 0 };
 		gridBagLayout.columnWeights = new double[] { 1.0, 3.0, 1.0,
 				Double.MIN_VALUE };
-		gridBagLayout.rowWeights = new double[] { 1.0, 20.0, 1.0, 5.0, 1.0,
+		gridBagLayout.rowWeights = new double[] { 1.0, 20.0, 1.0, 5.0, 5.0,
 				5.0, 1.0, Double.MIN_VALUE };
 		setLayout(gridBagLayout);
 
@@ -77,6 +82,48 @@ public class LevelStatsPanel extends JPanel {
 		gbl_pointsPanel.columnWeights = new double[] { 1.0, Double.MIN_VALUE };
 		gbl_pointsPanel.rowWeights = new double[] { 1.0, 1.0, Double.MIN_VALUE };
 		pointsPanel.setLayout(gbl_pointsPanel);
+
+		// Next threshold panel
+		nextThresholdPanel = new JPanel();
+		nextThresholdPanel.setBorder(BorderFactory
+				.createLineBorder(Color.black));
+
+		// Layout for next threshold panel
+		GridBagConstraints gbc_nextThresholdPanel = new GridBagConstraints();
+		gbc_nextThresholdPanel.insets = new Insets(0, 0, 5, 5);
+		gbc_nextThresholdPanel.fill = GridBagConstraints.BOTH;
+		gbc_nextThresholdPanel.gridx = 1;
+		gbc_nextThresholdPanel.gridy = 4;
+		add(nextThresholdPanel, gbc_nextThresholdPanel);
+
+		GridBagLayout gbl_nextThresholdPanel = new GridBagLayout();
+		gbl_nextThresholdPanel.columnWidths = new int[] { 0, 0 };
+		gbl_nextThresholdPanel.rowHeights = new int[] { 0, 0, 0 };
+		gbl_nextThresholdPanel.columnWeights = new double[] { 1.0,
+				Double.MIN_VALUE };
+		gbl_nextThresholdPanel.rowWeights = new double[] { 1.0, 1.0,
+				Double.MIN_VALUE };
+		nextThresholdPanel.setLayout(gbl_nextThresholdPanel);
+
+		// Next threshold text label
+		nextThresholdTextLabel = new JLabel(NEXT_THRESHOLD_TEXT);
+
+		// Layout for next threshold text label
+		GridBagConstraints gbc_nextThresholdTextLabel = new GridBagConstraints();
+		gbc_nextThresholdTextLabel.insets = new Insets(0, 0, 5, 0);
+		gbc_nextThresholdTextLabel.gridx = 0;
+		gbc_nextThresholdTextLabel.gridy = 0;
+		nextThresholdPanel.add(nextThresholdTextLabel,
+				gbc_nextThresholdTextLabel);
+
+		// Numerical next threshold label
+		nextThresholdLabel = new JLabel(Integer.toString(0));
+
+		// Layout for numerical next threshold label
+		GridBagConstraints gbc_nextThresholdLabel = new GridBagConstraints();
+		gbc_nextThresholdLabel.gridx = 0;
+		gbc_nextThresholdLabel.gridy = 1;
+		nextThresholdPanel.add(nextThresholdLabel, gbc_nextThresholdLabel);
 
 		// Points text label
 		pointsTextLabel = new JLabel(POINTS_TEXT);
@@ -154,7 +201,7 @@ public class LevelStatsPanel extends JPanel {
 		gridBagLayout.rowHeights = new int[] { 0, 0, 0, 0, 0, 0, 0, 0 };
 		gridBagLayout.columnWeights = new double[] { 1.0, 3.0, 1.0,
 				Double.MIN_VALUE };
-		gridBagLayout.rowWeights = new double[] { 1.0, 20.0, 1.0, 5.0, 1.0,
+		gridBagLayout.rowWeights = new double[] { 1.0, 20.0, 1.0, 5.0, 5.0,
 				5.0, 1.0, Double.MIN_VALUE };
 		setLayout(gridBagLayout);
 
@@ -189,6 +236,48 @@ public class LevelStatsPanel extends JPanel {
 		gbl_pointsPanel.columnWeights = new double[] { 1.0, Double.MIN_VALUE };
 		gbl_pointsPanel.rowWeights = new double[] { 1.0, 1.0, Double.MIN_VALUE };
 		pointsPanel.setLayout(gbl_pointsPanel);
+
+		// Next threshold panel
+		nextThresholdPanel = new JPanel();
+		nextThresholdPanel.setBorder(BorderFactory
+				.createLineBorder(Color.black));
+
+		// Layout for next threshold panel
+		GridBagConstraints gbc_nextThresholdPanel = new GridBagConstraints();
+		gbc_nextThresholdPanel.insets = new Insets(0, 0, 5, 5);
+		gbc_nextThresholdPanel.fill = GridBagConstraints.BOTH;
+		gbc_nextThresholdPanel.gridx = 1;
+		gbc_nextThresholdPanel.gridy = 4;
+		add(nextThresholdPanel, gbc_nextThresholdPanel);
+
+		GridBagLayout gbl_nextThresholdPanel = new GridBagLayout();
+		gbl_nextThresholdPanel.columnWidths = new int[] { 0, 0 };
+		gbl_nextThresholdPanel.rowHeights = new int[] { 0, 0, 0 };
+		gbl_nextThresholdPanel.columnWeights = new double[] { 1.0,
+				Double.MIN_VALUE };
+		gbl_nextThresholdPanel.rowWeights = new double[] { 1.0, 1.0,
+				Double.MIN_VALUE };
+		nextThresholdPanel.setLayout(gbl_nextThresholdPanel);
+
+		// Next threshold text label
+		nextThresholdTextLabel = new JLabel(NEXT_THRESHOLD_TEXT);
+
+		// Layout for next threshold text label
+		GridBagConstraints gbc_nextThresholdTextLabel = new GridBagConstraints();
+		gbc_nextThresholdTextLabel.insets = new Insets(0, 0, 5, 0);
+		gbc_nextThresholdTextLabel.gridx = 0;
+		gbc_nextThresholdTextLabel.gridy = 0;
+		nextThresholdPanel.add(nextThresholdTextLabel,
+				gbc_nextThresholdTextLabel);
+
+		// Numerical next threshold label
+		nextThresholdLabel = new JLabel(Integer.toString(0));
+
+		// Layout for numerical next threshold label
+		GridBagConstraints gbc_nextThresholdLabel = new GridBagConstraints();
+		gbc_nextThresholdLabel.gridx = 0;
+		gbc_nextThresholdLabel.gridy = 1;
+		nextThresholdPanel.add(nextThresholdLabel, gbc_nextThresholdLabel);
 
 		// Points text label
 		pointsTextLabel = new JLabel(POINTS_TEXT);
@@ -243,7 +332,7 @@ public class LevelStatsPanel extends JPanel {
 				gbc_movesSlashTimeTextLabel);
 
 		// Numerical moves/time label
-		movesAndTimerLabel = new JLabel(Integer.toString(moveCount));
+		movesAndTimerLabel = new JLabel(moveCount + "");
 
 		// Layout for numerical moves/time label
 		GridBagConstraints gbc_movesSlashTimeLabel = new GridBagConstraints();
@@ -277,5 +366,14 @@ public class LevelStatsPanel extends JPanel {
 	 */
 	public JLabel getMovesAndTimerLabel() {
 		return movesAndTimerLabel;
+	}
+
+	/**
+	 * Returns the nextThresholdLabel object for this panel.
+	 *
+	 * @return the nextThresholdLabel property
+	 */
+	public JLabel getNextThresholdLabel() {
+		return nextThresholdLabel;
 	}
 }

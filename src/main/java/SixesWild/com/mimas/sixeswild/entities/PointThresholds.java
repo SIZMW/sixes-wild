@@ -104,4 +104,23 @@ public class PointThresholds {
 		}
 		return 0;
 	}
+
+	/**
+	 * Returns the next points threshold above the specified score. If score is
+	 * higher than all thresholds, returns the highest threshold.
+	 *
+	 * @param score
+	 *            The score to get the next threshold for.
+	 * @return an integer
+	 */
+	public int getNextThresholdForScore(int score) {
+		if (score >= thresholds.get(2)) {
+			return thresholds.get(2);
+		} else if (score >= thresholds.get(1)) {
+			return thresholds.get(2);
+		} else if (score >= thresholds.get(0)) {
+			return thresholds.get(1);
+		}
+		return thresholds.get(0);
+	}
 }
