@@ -6,6 +6,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import SixesWild.com.mimas.sixeswild.boundaries.GameApplication;
+import SixesWild.com.mimas.sixeswild.util.XMLParser;
 
 /**
  * This controller switches the active user profile in the game.
@@ -31,11 +32,14 @@ public class SwitchUserButtonController implements ActionListener {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see
 	 * java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
 	 */
 	public void actionPerformed(ActionEvent arg0) {
+		XMLParser.userProfileToFile(app.getCurrentUserProfile());
+		logger.log(Level.FINE, "Current profile being saved.");
+
 		String name = app.getGameMenuView().getOptionsMenuView()
 				.getUserNameTextField().getText();
 		app.setCurrentUserProfile(name);

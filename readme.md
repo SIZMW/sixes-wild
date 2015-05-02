@@ -56,12 +56,14 @@ The Level Builder:
   * To update the frequencies, pressing 'ENTER' in any frequency field will update the board accordingly.
   * The top menu has options to create a new level, save the current level, open an existing user level to edit, or delete a user level. The level listings are populated as files are deleted or added by the builder.
   * Placing the tiles has an undo/redo feature. Tile placement can be undone using 'CTRL + Z', and redoing placements can be done with 'CTRL + SHIFT + Z'.
+  * Deleting a level from the builder will only delete from the user levels area. Deleting a level in the Builder will renumber all the succeeding levels.
 
 User Profile:
-* To load your user profile or create one simply enter the name associated to the profile in the options panel.
-* If no user profile is loaded or created a default one will be made.
-* Aesthetics can be tied to a user profile so that when it is loaded it automatically changes the aesthetic to the user's chosen one.
-* User profiles are saved when the game application is exited.
+* To load your existing user profile or create a new one simply enter the name associated to the profile name in the options panel and press 'Switch User'.
+* If no user profile is loaded or created a default one will be made. If the game is exited and no custom profile is made, the default is saved to disk and reloaded at the next start of the game. Progress will be saved on the default profile if no custom profile is ever created. 
+* Aesthetics will be saved to the currently loaded user profile so that when it is loaded it automatically changes the aesthetic to the user's chosen one.
+* User profiles are saved when the game application is exited through the top right 'X' button.
+* When a profile is loaded, the previously loaded profile is saved to disk. This includes the 'Default' profile.
 
 Execution:
 * To run the level builder, run the main class called "BuilderMain.java". This will open a window that allows user interaction for the builder.
@@ -88,3 +90,9 @@ Extra Features:
   * A user can copy a user level to use for a new one or delete a user level if they do not want it anymore.
 * Logging Output:
   * File output for debugging purposes.
+
+Notes For Testing And Execution:
+* Currently user levels 7 and 8 (7.xml, 8.xml) are used for test cases. These should not be modified in any way.
+* Currently user profiles Iggy, Rihanna and Test are used for test cases. These should not be modified in any way.
+* When starting the game, the Default profile is automatically loaded if it exists on disk. If not, it is created and saved when the game exits. You may delete the 'DefaultProfile' to test unlocking levels sequentially, but it will be recreated if another user profile is not explicitly made or loaded.
+ 
