@@ -34,6 +34,7 @@ public class BadgesPanel extends JPanel {
 	protected ArrayList<Badge> badgeList;
 	protected JLabel badgesPreviewLabel;
 	protected JList<String> badgesList;
+	private BadgePreviewPanel badgePreviewPanel;
 
 	/**
 	 * Creates a BadgesPanel instance with the specified list of badge names.
@@ -46,7 +47,7 @@ public class BadgesPanel extends JPanel {
 		// Attributes
 		this.badgeList = badgeList;
 
-		// Layout of panel
+		// Layout of badgePreviewPanel
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		gridBagLayout.columnWidths = new int[] { 0, 0, 0 };
 		gridBagLayout.rowHeights = new int[] { 0, 0 };
@@ -76,7 +77,7 @@ public class BadgesPanel extends JPanel {
 		gbc_list.gridy = 0;
 		add(badgeScrollPane, gbc_list);
 
-		// Preview panel
+		// Preview badgePreviewPanel
 		previewPanel = new JPanel();
 		GridBagConstraints gbc_panel = new GridBagConstraints();
 		gbc_panel.fill = GridBagConstraints.BOTH;
@@ -84,31 +85,42 @@ public class BadgesPanel extends JPanel {
 		gbc_panel.gridy = 0;
 		add(previewPanel, gbc_panel);
 
-		// Layout for preview panel
+		// Layout for preview badgePreviewPanel
 		GridBagLayout gbl_panel = new GridBagLayout();
 		gbl_panel.columnWidths = new int[] { 0, 0, 0, 0 };
-		gbl_panel.rowHeights = new int[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+		gbl_panel.rowHeights = new int[] { 0, 0, 0, 0, 0, 0, 0, 0, 0 };
 		gbl_panel.columnWeights = new double[] { 1.0, 1.0, 1.0,
 				Double.MIN_VALUE };
 		gbl_panel.rowWeights = new double[] { 1.0, 1.0, 1.0, 1.0, 1.0, 1.0,
-				1.0, 1.0, 1.0, 1.0, Double.MIN_VALUE };
+				1.0, 1.0, Double.MIN_VALUE };
 		previewPanel.setLayout(gbl_panel);
 
+		badgePreviewPanel = new BadgePreviewPanel();
+		GridBagConstraints gbc_badgePreviewPanel = new GridBagConstraints();
+		gbc_badgePreviewPanel.insets = new Insets(0, 0, 5, 5);
+		gbc_badgePreviewPanel.fill = GridBagConstraints.BOTH;
+		gbc_badgePreviewPanel.gridx = 1;
+		gbc_badgePreviewPanel.gridy = 1;
+		badgePreviewPanel.setMaximumSize(new Dimension(350, 300));
+		badgePreviewPanel.setPreferredSize(new Dimension(350, 300));
+		badgePreviewPanel.setMinimumSize(new Dimension(350, 300));
+		badgePreviewPanel.setBorder(new LineBorder(new Color(0, 0, 0)));
+		previewPanel.add(badgePreviewPanel, gbc_badgePreviewPanel);
+
 		// Badges preview label
-		badgesPreviewLabel = new JLabel("BadgePreview", SwingConstants.CENTER);
+		badgesPreviewLabel = new JLabel("", SwingConstants.CENTER);
 		badgesPreviewLabel.setBackground(Color.WHITE);
-		badgesPreviewLabel.setPreferredSize(new Dimension(66, 14));
-		badgesPreviewLabel.setMinimumSize(new Dimension(66, 14));
-		badgesPreviewLabel.setMaximumSize(new Dimension(66, 14));
+		badgesPreviewLabel.setPreferredSize(new Dimension(32, 14));
+		badgesPreviewLabel.setMinimumSize(new Dimension(32, 14));
+		badgesPreviewLabel.setMaximumSize(new Dimension(32, 14));
 		badgesPreviewLabel.setBorder(new LineBorder(new Color(0, 0, 0)));
 
 		// Layout for preview label
 		GridBagConstraints gbc_lblBadgepreview = new GridBagConstraints();
-		gbc_lblBadgepreview.gridheight = 3;
 		gbc_lblBadgepreview.fill = GridBagConstraints.BOTH;
 		gbc_lblBadgepreview.insets = new Insets(0, 0, 5, 5);
 		gbc_lblBadgepreview.gridx = 1;
-		gbc_lblBadgepreview.gridy = 1;
+		gbc_lblBadgepreview.gridy = 5;
 		previewPanel.add(badgesPreviewLabel, gbc_lblBadgepreview);
 	}
 
@@ -155,5 +167,14 @@ public class BadgesPanel extends JPanel {
 	 */
 	public JScrollPane getBadgeScrollPane() {
 		return badgeScrollPane;
+	}
+
+	/**
+	 * Returns the badgePreviewPanel object for this panel.
+	 *
+	 * @return the badgePreviewPanel property
+	 */
+	public BadgePreviewPanel getBadgePreviewPanel() {
+		return badgePreviewPanel;
 	}
 }
