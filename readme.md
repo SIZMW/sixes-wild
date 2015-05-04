@@ -62,7 +62,8 @@ User Profile:
 * To load your existing user profile or create a new one simply enter the name associated to the profile name in the options panel and press 'Switch User'.
 * If no user profile is loaded or created a default one will be made. If the game is exited and no custom profile is made, the default is saved to disk and reloaded at the next start of the game. Progress will be saved on the default profile if no custom profile is ever created. 
 * Aesthetics will be saved to the currently loaded user profile so that when it is loaded it automatically changes the aesthetic to the user's chosen one.
-* User profiles are saved when the game application is exited through the top right 'X' button.
+* Badges are saved and read from the user profiles. The badges menu will display the images for unlocked badges, and a blank preview for locked badges until they become unlocked. Resetting the badges will remove all unlocked badges in the profile, but the profile on disk will not update until the profile is saved to disk.
+* User profiles are saved to disk when the game application is exited through the top right 'X' button.
 * When a profile is loaded, the previously loaded profile is saved to disk. This includes the 'Default' profile.
 
 Execution:
@@ -81,7 +82,7 @@ Extra Features:
 * User Profiles:
   * Multiples users can have independent profiles to track their personal progress in the game.
 * Badges:
-  * Achievements that the player has earned due to their performance/progress in the game.
+  * Achievements that the player has earned due to their performance/progress in the game. This was an optional feature for 5 person teams.
 * Aesthetics:
   * The color layout of the puzzles.
 * Resizable Window:
