@@ -60,10 +60,10 @@ public class BuilderSettingsPanel extends JPanel {
 
 	protected JPanel specialMovesPanel;
 	protected JLabel specialMovesLabel;
-	protected JPanel specialMoveOnePanel;
-	protected JPanel specialMoveTwoPanel;
-	protected JPanel specialMoveThreePanel;
-	protected JPanel specialMoveFourPanel;
+	protected JLabel specialMoveOnePanel;
+	protected JLabel specialMoveTwoPanel;
+	protected JLabel specialMoveThreePanel;
+	protected JLabel specialMoveFourPanel;
 	protected JLabel specialMoveOneLabel;
 	protected JLabel specialMoveTwoLabel;
 	protected JLabel specialMoveThreeLabel;
@@ -563,7 +563,8 @@ public class BuilderSettingsPanel extends JPanel {
 		specialMovesPanel.add(specialMovesLabel, gbc_specialMovesLabel);
 
 		// Special move one panel
-		specialMoveOnePanel = new JPanel();
+		specialMoveOnePanel = new JLabel("Reset");
+		specialMoveOnePanel.setHorizontalAlignment(SwingConstants.CENTER);
 		specialMoveOnePanel.setBorder(BorderFactory
 				.createLineBorder(Color.black));
 
@@ -592,7 +593,8 @@ public class BuilderSettingsPanel extends JPanel {
 		specialMovesPanel.add(specialMoveOneLabel, gbc_specialMoveOneLabel);
 
 		// Special move three panel
-		specialMoveThreePanel = new JPanel();
+		specialMoveThreePanel = new JLabel("Remove");
+		specialMoveThreePanel.setHorizontalAlignment(SwingConstants.CENTER);
 		specialMoveThreePanel.setBorder(BorderFactory
 				.createLineBorder(Color.black));
 
@@ -665,7 +667,8 @@ public class BuilderSettingsPanel extends JPanel {
 				gbc_specialMoveThreePlusButton);
 
 		// Special move two panel
-		specialMoveTwoPanel = new JPanel();
+		specialMoveTwoPanel = new JLabel("Swap");
+		specialMoveTwoPanel.setHorizontalAlignment(SwingConstants.CENTER);
 		specialMoveTwoPanel.setBorder(BorderFactory
 				.createLineBorder(Color.black));
 
@@ -694,7 +697,8 @@ public class BuilderSettingsPanel extends JPanel {
 		specialMovesPanel.add(specialMoveTwoLabel, gbc_specialMoveTwoLabel);
 
 		// Special move four panel
-		specialMoveFourPanel = new JPanel();
+		specialMoveFourPanel = new JLabel("XStacy");
+		specialMoveFourPanel.setHorizontalAlignment(SwingConstants.CENTER);
 		specialMoveFourPanel.setBorder(BorderFactory
 				.createLineBorder(Color.black));
 
