@@ -34,7 +34,7 @@ public class GameSplashScreenController extends KeyAdapter {
 
 	/*
 	 * (non-Javadoc)
-	 *
+	 * 
 	 * @see java.awt.event.KeyAdapter#keyPressed(java.awt.event.KeyEvent)
 	 */
 	@Override
@@ -57,6 +57,7 @@ public class GameSplashScreenController extends KeyAdapter {
 			gridBagLayout.rowWeights = new double[] { 1.0, Double.MIN_VALUE };
 			currentPanel.setPreferredSize(new Dimension(800, 600));
 			currentPanel.setLayout(gridBagLayout);
+			subMenuPanel.setLayout(gridBagLayout);
 
 			GridBagConstraints gbc_list = new GridBagConstraints();
 			gbc_list.insets = new Insets(0, 0, 0, 0);
