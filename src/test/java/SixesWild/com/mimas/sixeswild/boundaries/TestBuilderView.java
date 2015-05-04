@@ -92,7 +92,7 @@ public class TestBuilderView extends TestCase {
 	 */
 	public void testNewLevelButton() {
 		for (int i = 0; i < 9; i++) {
-			robot.robotMouseMove(RobotGUITester.TilesOnBoard[i][i]);
+			robot.robotMouseMove(RobotGUITester.TilesOnBuilderBoard[i][i]);
 			robot.leftClickPressAndRelease();
 		}
 
@@ -107,7 +107,7 @@ public class TestBuilderView extends TestCase {
 
 		// Place tiles
 		for (int i = 0; i < 3; i++) {
-			robot.robotMouseMove(RobotGUITester.TilesOnBoard[i][i]);
+			robot.robotMouseMove(RobotGUITester.TilesOnBuilderBoard[i][i]);
 			robot.leftClickPressAndRelease();
 			assertEquals(window.getUndoList().size(), (i + 1));
 		}
@@ -183,7 +183,7 @@ public class TestBuilderView extends TestCase {
 	 */
 	public void testUpdateFrequency() {
 		for (int i = 0; i < 3; i++) {
-			robot.robotMouseMove(RobotGUITester.TilesOnBoard[i][i]);
+			robot.robotMouseMove(RobotGUITester.TilesOnBuilderBoard[i][i]);
 			robot.leftClickPressAndRelease();
 		}
 
