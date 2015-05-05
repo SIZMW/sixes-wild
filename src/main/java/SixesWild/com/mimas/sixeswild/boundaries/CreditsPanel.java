@@ -5,9 +5,12 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
 
+import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
+
+import SixesWild.com.mimas.sixeswild.controllers.SecretEasterEggController;
 
 /**
  * This class represents the view used to display the credits in the main menu
@@ -48,6 +51,7 @@ public class CreditsPanel extends JPanel {
 
 		// Joey Label
 		JLabel lblNewLabel_1 = new JLabel("Joey Perez\r\n");
+		lblNewLabel_1.addMouseListener(new SecretEasterEggController("Joey"));
 		lblNewLabel_1.setFont(new Font("Monospace", Font.BOLD, 16));
 
 		// Layout for Joey label
