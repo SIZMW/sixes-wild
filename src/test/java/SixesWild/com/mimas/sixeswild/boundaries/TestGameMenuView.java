@@ -188,6 +188,8 @@ public class TestGameMenuView extends TestCase {
 		robot.robotDragMouse(0, RobotGUITester.DeltaYOfSelectionPanelItems,
 				0.25, 60);
 		robot.leftClickPressAndRelease();
+		
+		robot.wait(1.0);
 
 		robot.robotMouseMove(RobotGUITester.PlayLevelButtonPoint);
 		robot.leftClickPressAndRelease();

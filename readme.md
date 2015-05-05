@@ -95,5 +95,6 @@ Extra Features:
 Notes For Testing And Execution:
 * Currently user levels 7 and 8 (7.xml, 8.xml) are used for test cases. These should not be modified in any way.
 * Currently user profiles Iggy, Rihanna and Test are used for test cases. These should not be modified in any way.
+* The default profile is used for test cases to unlock all levels. It should not be deleted or removed.
 * When starting the game, the Default profile is automatically loaded if it exists on disk. If not, it is created and saved when the game exits. You may delete the 'DefaultProfile' to test unlocking levels sequentially, but it will be recreated if another user profile is not explicitly made or loaded.
  

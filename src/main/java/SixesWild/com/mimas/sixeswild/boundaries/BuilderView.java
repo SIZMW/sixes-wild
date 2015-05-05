@@ -50,7 +50,7 @@ public class BuilderView extends JPanel {
 
 		// Layout for view
 		GridBagLayout gridBagLayout = new GridBagLayout();
-		gridBagLayout.columnWidths = new int[] { 200, 0, 0, 0, 0 };
+		gridBagLayout.columnWidths = new int[] { 350, 0, 0, 0, 0 };
 		gridBagLayout.rowHeights = new int[] { 0, 0, 0 };
 		gridBagLayout.columnWeights = new double[] { 5.0, 1.0, 15.0, 1.0,
 				Double.MIN_VALUE };

@@ -34,25 +34,26 @@ public class RobotGUITester {
 	public static final Point PopUpCloseButtonPoint = new Point(627, 311);
 
 	// Builder buttons
-	public static final Point SpecialMoveOneDecreasePoint = new Point(56, 414);
-	public static final Point SpecialMoveOneIncreasePoint = new Point(97, 414);
-	public static final Point SpecialMoveTwoDecreasePoint = new Point(56, 476);
-	public static final Point SpecialMoveTwoIncreasePoint = new Point(97, 476);
-	public static final Point SpecialMoveThreeDecreasePoint = new Point(155,
+	public static final Point SpecialMoveOneDecreasePoint = new Point(102, 414);
+	public static final Point SpecialMoveOneIncreasePoint = new Point(142, 414);
+	public static final Point SpecialMoveTwoDecreasePoint = new Point(102, 476);
+	public static final Point SpecialMoveTwoIncreasePoint = new Point(142, 476);
+	public static final Point SpecialMoveThreeDecreasePoint = new Point(266,
 			414);
-	public static final Point SpecialMoveThreeIncreasePoint = new Point(207,
+	public static final Point SpecialMoveThreeIncreasePoint = new Point(312,
 			414);
-	public static final Point SpecialMoveFourDecreasePoint = new Point(155, 476);
-	public static final Point SpecialMoveFourIncreasePoint = new Point(207, 476);
-	public static final Point NewLevelButtonPoint = new Point(270, 60);
-	public static final Point SaveLevelButtonPoint = new Point(367, 60);
-	public static final Point OpenLevelButtonPoint = new Point(467, 60);
-	public static final Point DeleteLevelButtonPoint = new Point(766, 56);
-	public static final Point DeleteLevelDropDownPoint = new Point(842, 64);
-	public static final Point TileFrequencyOneField = new Point(67, 254);
+	public static final Point SpecialMoveFourDecreasePoint = new Point(266, 476);
+	public static final Point SpecialMoveFourIncreasePoint = new Point(312, 476);
+	public static final Point NewLevelButtonPoint = new Point(388, 60);
+	public static final Point SaveLevelButtonPoint = new Point(472, 60);
+	public static final Point OpenLevelButtonPoint = new Point(550, 60);
+	public static final Point DeleteLevelButtonPoint = new Point(786, 56);
+	public static final Point DeleteLevelDropDownPoint = new Point(900, 64);
+	public static final Point TileFrequencyOneField = new Point(96, 254);
 
 	// Tile selection
 	public static final Point TilesOnBoard[][] = new Point[9][9];
+	public static final Point TilesOnBuilderBoard[][] = new Point[9][9];
 
 	protected Robot rob;
 	protected int autoDelay = 100;
@@ -85,6 +86,8 @@ public class RobotGUITester {
 		for (int i = 0; i < 9; i++) {
 			for (int j = 0; j < 9; j++) {
 				TilesOnBoard[i][j] = new Point((x + (deltaX * i)),
+						(y + (deltaY * j)));
+				TilesOnBuilderBoard[i][j] = new Point((81 + x + (deltaX * i)),
 						(y + (deltaY * j)));
 			}
 		}
