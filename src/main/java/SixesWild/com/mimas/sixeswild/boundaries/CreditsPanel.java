@@ -39,7 +39,7 @@ public class CreditsPanel extends JPanel {
 
 		// Credits label
 		JLabel lblNewLabel = new JLabel("CREDITS");
-		lblNewLabel.setFont(new Font("Monospace", Font.BOLD, 18));
+		lblNewLabel.setFont(new Font("Monospace", Font.BOLD, 24));
 		lblNewLabel.setVerticalAlignment(SwingConstants.TOP);
 
 		// Layout for credits label
@@ -52,7 +52,7 @@ public class CreditsPanel extends JPanel {
 		// Joey Label
 		JLabel lblNewLabel_1 = new JLabel("Joey Perez\r\n");
 		lblNewLabel_1.addMouseListener(new SecretEasterEggController("Joey"));
-		lblNewLabel_1.setFont(new Font("Monospace", Font.BOLD, 16));
+		lblNewLabel_1.setFont(new Font("Monospace", Font.BOLD, 20));
 
 		// Layout for Joey label
 		GridBagConstraints gbc_lblNewLabel_1 = new GridBagConstraints();
@@ -63,7 +63,8 @@ public class CreditsPanel extends JPanel {
 
 		// Marco label
 		JLabel lblNewLabel_2 = new JLabel("Marco Duran");
-		lblNewLabel_2.setFont(new Font("Monospace", Font.BOLD, 16));
+		lblNewLabel_2.addMouseListener(new SecretEasterEggController("Marco"));
+		lblNewLabel_2.setFont(new Font("Monospace", Font.BOLD, 20));
 
 		// Layout for Marco label
 		GridBagConstraints gbc_lblNewLabel_2 = new GridBagConstraints();
@@ -74,7 +75,8 @@ public class CreditsPanel extends JPanel {
 
 		// Cameron label
 		JLabel lblNewLabel_3 = new JLabel("Cameron Jones");
-		lblNewLabel_3.setFont(new Font("Monospace", Font.BOLD, 16));
+		lblNewLabel_3.addMouseListener(new SecretEasterEggController("Cam"));
+		lblNewLabel_3.setFont(new Font("Monospace", Font.BOLD, 20));
 
 		// Layout for Cameron label
 		GridBagConstraints gbc_lblNewLabel_3 = new GridBagConstraints();
@@ -85,7 +87,7 @@ public class CreditsPanel extends JPanel {
 
 		// Aditya label
 		JLabel lblNewLabel_4 = new JLabel("Aditya Nivarthi");
-		lblNewLabel_4.setFont(new Font("Monospace", Font.BOLD, 16));
+		lblNewLabel_4.setFont(new Font("Monospace", Font.BOLD, 20));
 
 		// Layout for Aditya label
 		GridBagConstraints gbc_lblNewLabel_4 = new GridBagConstraints();
@@ -96,7 +98,7 @@ public class CreditsPanel extends JPanel {
 
 		// Yahel label
 		JLabel lblNewLabel_5 = new JLabel("Yahel Nachum");
-		lblNewLabel_5.setFont(new Font("Monospace", Font.BOLD, 16));
+		lblNewLabel_5.setFont(new Font("Monospace", Font.BOLD, 20));
 
 		// Layout for Yahel label
 		GridBagConstraints gbc_lblNewLabel_5 = new GridBagConstraints();

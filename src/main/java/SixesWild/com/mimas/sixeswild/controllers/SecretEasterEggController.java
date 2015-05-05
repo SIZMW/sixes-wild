@@ -11,9 +11,11 @@ import java.util.logging.Logger;
 
 public class SecretEasterEggController implements MouseListener {
 	private static final Logger logger = Logger.getGlobal();
-	private  static String person;
+	private String person;
 	
 	protected Path perez = Paths.get("res\\Bisley.jar");
+	protected Path duran = Paths.get("res\\AmericanToad.jar");
+	protected Path jones = Paths.get("res\\eaglewing.jar");
 	
 	public SecretEasterEggController(String personName){
 		this.person = personName;
@@ -22,11 +24,12 @@ public class SecretEasterEggController implements MouseListener {
 	
 	public void mouseClicked(MouseEvent me) {
 		
-		logger.log(Level.FINE, "Mouse clicked on " + person);
+		
 		Path filePath = Paths.get("");
+		Path creator = getCreator();
 		String s = filePath.toAbsolutePath().toString();
-		logger.log(Level.FINE, "Attempting to open file at location: "  + perez.toAbsolutePath().toString());
-		ProcessBuilder pb = new ProcessBuilder("java", "-jar", perez.toAbsolutePath().toString());
+		logger.log(Level.FINE, "Attempting to open file at location: "  + creator.toAbsolutePath().toString());
+		ProcessBuilder pb = new ProcessBuilder("java", "-jar", creator.toAbsolutePath().toString());
 		logger.log(Level.FINE, "Working in directory: "  + s + "\\res\\");
 		pb.directory(new File(s + "/res/"));
 		try {
@@ -35,6 +38,29 @@ public class SecretEasterEggController implements MouseListener {
 			// TODO Auto-generated catch block
 			x.printStackTrace();
 		}
+	}
+	
+	private Path getCreator()
+	{
+		if(person == "Marco")
+		{
+			logger.log(Level.FINE, "Mouse clicked on " + person);
+			return duran;
+			
+		}
+		if(person == "Joey")
+			{
+			logger.log(Level.FINE, "Mouse clicked on " + person);
+			return perez;
+			}
+		
+		if(person == "Cam")
+		{
+			logger.log(Level.FINE, "Mouse clicked on " + person);
+			return jones;
+		}
+		else
+			return null;
 	}
 
 	public void mouseEntered(MouseEvent arg0) {
