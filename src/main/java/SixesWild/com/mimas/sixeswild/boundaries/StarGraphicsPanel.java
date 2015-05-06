@@ -23,13 +23,13 @@ public class StarGraphicsPanel extends JPanel {
 	protected int currentStars;
 	protected boolean isHoriztonal;
 	protected URL noStars = getClass().getClassLoader().getResource(
-			"StarGraphicNOStars.png");
+			"images/0StarGraphic.png");
 	protected URL oneStars = getClass().getClassLoader().getResource(
-			"StarGraphicOneStars.png");
+			"images/1StarGraphic.png");
 	protected URL twoStars = getClass().getClassLoader().getResource(
-			"StarGraphicTwoStars.png");
+			"images/2StarGraphic.png");
 	protected URL threeStars = getClass().getClassLoader().getResource(
-			"StarGraphicThreeStars.png");
+			"images/3StarGraphic.png");
 
 	/**
 	 * Creates a StarGraphicsPanel with the specified score value.
