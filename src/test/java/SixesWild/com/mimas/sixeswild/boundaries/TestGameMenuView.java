@@ -188,7 +188,7 @@ public class TestGameMenuView extends TestCase {
 		robot.robotDragMouse(0, RobotGUITester.DeltaYOfSelectionPanelItems,
 				0.25, 60);
 		robot.leftClickPressAndRelease();
-		
+
 		robot.wait(1.0);
 
 		robot.robotMouseMove(RobotGUITester.PlayLevelButtonPoint);
@@ -205,6 +205,27 @@ public class TestGameMenuView extends TestCase {
 		assertTrue(window.getLevelPanel().getScore() > 0);
 
 		robot.robotMouseMove(RobotGUITester.PopUpCloseButtonPoint);
+		robot.leftClickPressAndRelease();
+	}
+
+	/**
+	 * Tests the secret easter egg.
+	 */
+	public void testSecret() {
+		robot.wait(1.0);
+		robot.pressKey(KeyEvent.VK_ENTER);
+		robot.releaseKey(KeyEvent.VK_ENTER);
+
+		robot.robotMouseMove(RobotGUITester.CreditsLevelButtonPoint);
+		robot.leftClickPressAndRelease();
+
+		robot.wait(1.0);
+
+		robot.robotMouseMove(RobotGUITester.SecretEggOnePoint);
+		robot.leftClickPressAndRelease();
+		robot.wait(1.0);
+
+		robot.robotMouseMove(RobotGUITester.SecretEggOneClosePoint);
 		robot.leftClickPressAndRelease();
 	}
 }

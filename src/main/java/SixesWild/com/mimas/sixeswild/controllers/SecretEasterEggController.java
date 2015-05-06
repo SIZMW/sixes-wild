@@ -32,7 +32,7 @@ public class SecretEasterEggController extends MouseAdapter {
 
 	/*
 	 * (non-Javadoc)
-	 *
+	 * 
 	 * @see java.awt.event.MouseAdapter#mouseClicked(java.awt.event.MouseEvent)
 	 */
 	@Override
@@ -49,7 +49,6 @@ public class SecretEasterEggController extends MouseAdapter {
 		ProcessBuilder pb = new ProcessBuilder("java", "-jar", file);
 		File runJar = new File(getClass().getClassLoader()
 				.getResource("secret/" + version + ".jar").getFile());
-		System.out.println(runJar.getAbsolutePath() + " " + runJar.exists());
 		pb.directory(runJar.getParentFile());
 
 		try {

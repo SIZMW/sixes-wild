@@ -25,6 +25,10 @@ public class RobotGUITester {
 	public static final Point CloseWindowButtonPoint = new Point(970, 10);
 	public static final Point ExitLevelButtonPoint = new Point(914, 60);
 
+	// Secret
+	public static final Point SecretEggOnePoint = new Point(583, 154);
+	public static final Point SecretEggOneClosePoint = new Point(1250, 10);
+
 	// Level selection
 	public static final Point TopOfSelectionPanelPoint = new Point(175, 45);
 	public static final int DeltaYOfSelectionPanelItems = 17;
