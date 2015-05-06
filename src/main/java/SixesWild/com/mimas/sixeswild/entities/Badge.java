@@ -62,4 +62,14 @@ public abstract class Badge {
 	 * @return true if the badge can be unlocked; false otherwise
 	 */
 	public abstract boolean unlock(int value);
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return name;
+	}
 }

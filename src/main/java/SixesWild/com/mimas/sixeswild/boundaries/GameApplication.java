@@ -201,16 +201,16 @@ public class GameApplication {
 	 */
 	protected void setUpBadges() {
 		for (int i = 5000; i < 30000; i += 5000) {
-			badgesList.add(new ScoreBadge(i + " points", "Get " + i
+			badgesList.add(new ScoreBadge(i + " Points", "Get " + i
 					+ " points in any level", i));
 		}
 
 		for (int i = 1; i <= 3; i++) {
-			badgesList.add(new StarBadge(i + " stars", "Get " + i
+			badgesList.add(new StarBadge(i + " Stars", "Get " + i
 					+ " stars in any level", i));
 		}
 
-		badgesList.add(new UnlockBadge("Unlock all levels",
+		badgesList.add(new UnlockBadge("Unlock All Levels",
 				"Unlock all levels", 16));
 	}
 

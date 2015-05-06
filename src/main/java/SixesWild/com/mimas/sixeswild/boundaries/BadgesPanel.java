@@ -28,12 +28,11 @@ public class BadgesPanel extends JPanel {
 	private static final long serialVersionUID = 1L;
 
 	// Panel attributes
-	protected DefaultListModel<String> badgeListModel;
+	protected DefaultListModel<Badge> badgeListModel;
 	protected JScrollPane badgeScrollPane;
 	protected JPanel previewPanel;
-	protected ArrayList<Badge> badgeList;
 	protected JLabel badgesPreviewLabel;
-	protected JList<String> badgesList;
+	protected JList<Badge> badgesSelectionList;
 	private BadgePreviewPanel badgePreviewPanel;
 
 	/**
@@ -44,9 +43,6 @@ public class BadgesPanel extends JPanel {
 	 */
 	public BadgesPanel(ArrayList<Badge> badgeList) {
 
-		// Attributes
-		this.badgeList = badgeList;
-
 		// Layout of badgePreviewPanel
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		gridBagLayout.columnWidths = new int[] { 0, 0, 0 };
@@ -56,18 +52,18 @@ public class BadgesPanel extends JPanel {
 		setLayout(gridBagLayout);
 
 		// Add the list of badge names
-		badgeListModel = new DefaultListModel<String>();
-		for (Badge e : this.badgeList) {
-			badgeListModel.addElement(e.getName());
+		badgeListModel = new DefaultListModel<Badge>();
+		for (Badge e : badgeList) {
+			badgeListModel.addElement(e);
 		}
 
 		// Badge list scroll pane
 		badgeScrollPane = new JScrollPane();
-		badgesList = new JList<String>(badgeListModel);
-		badgesList.setPreferredSize(new Dimension(100, 100));
-		badgesList.setMinimumSize(new Dimension(100, 100));
-		badgesList.setMaximumSize(new Dimension(100, 100));
-		badgeScrollPane.setViewportView(badgesList);
+		badgesSelectionList = new JList<Badge>(badgeListModel);
+		badgesSelectionList.setPreferredSize(new Dimension(100, 100));
+		badgesSelectionList.setMinimumSize(new Dimension(100, 100));
+		badgesSelectionList.setMaximumSize(new Dimension(100, 100));
+		badgeScrollPane.setViewportView(badgesSelectionList);
 
 		// Layout for scroll pane
 		GridBagConstraints gbc_list = new GridBagConstraints();
@@ -143,21 +139,12 @@ public class BadgesPanel extends JPanel {
 	}
 
 	/**
-	 * Returns the badgesList object for this panel.
+	 * Returns the badgesSelectionList object for this panel.
 	 *
-	 * @return the badgesList property.
+	 * @return the badgesSelectionList property.
 	 */
-	public JList<String> getBadgeSelectionList() {
-		return badgesList;
-	}
-
-	/**
-	 * Returns the badgeList object for this panel.
-	 *
-	 * @return the badgeList property
-	 */
-	public ArrayList<Badge> getBadgeList() {
-		return badgeList;
+	public JList<Badge> getBadgeSelectionList() {
+		return badgesSelectionList;
 	}
 
 	/**
