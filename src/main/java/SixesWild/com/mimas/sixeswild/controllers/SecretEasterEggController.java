@@ -4,65 +4,58 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.io.File;
 import java.io.IOException;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+/**
+ * This controller handles opening the secret easter eggs for the solitaire
+ * games.
+ *
+ * @author Joey Perez
+ */
 public class SecretEasterEggController extends MouseAdapter {
+
 	private static final Logger logger = Logger.getGlobal();
-	private String person;
 
-	protected Path perez = Paths.get("res\\Bisley.jar");
-	protected Path duran = Paths.get("res\\AmericanToad.jar");
-	protected Path jones = Paths.get("res\\eaglewing.jar");
+	protected String version;
 
-	public SecretEasterEggController(String personName) {
-		person = personName;
+	/**
+	 * Creates a SecretEasterEggController with the specified version.
+	 *
+	 * @param version
+	 *            The name of the solitaire version to run.
+	 */
+	public SecretEasterEggController(String version) {
+		this.version = version;
 
 	}
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see java.awt.event.MouseAdapter#mouseClicked(java.awt.event.MouseEvent)
 	 */
 	@Override
 	public void mouseClicked(MouseEvent me) {
 
-		Path filePath = Paths.get("");
-		Path creator = getCreator();
-		String s = filePath.toAbsolutePath().toString();
-		logger.log(Level.FINE, "Attempting to open file at location: "
-				+ creator.toAbsolutePath().toString());
-		ProcessBuilder pb = new ProcessBuilder("java", "-jar", creator
-				.toAbsolutePath().toString());
-		logger.log(Level.FINE, "Working in directory: " + s + "\\res\\");
-		pb.directory(new File(s + "/res/"));
+		// Get file name of jar
+		String file = getClass().getClassLoader().getResource("secret/")
+				.toString().substring(6)
+				+ version + ".jar";
+
+		logger.log(Level.FINE, "Attempting to open file at location: " + file);
+
+		// Create process
+		ProcessBuilder pb = new ProcessBuilder("java", "-jar", file);
+		File runJar = new File(getClass().getClassLoader()
+				.getResource("secret/" + version + ".jar").getFile());
+		System.out.println(runJar.getAbsolutePath() + " " + runJar.exists());
+		pb.directory(runJar.getParentFile());
+
 		try {
 			pb.start();
 		} catch (IOException x) {
-			// TODO Auto-generated catch block
-			x.printStackTrace();
-		}
-	}
-
-	private Path getCreator() {
-		if (person == "Marco") {
-			logger.log(Level.FINE, "Mouse clicked on " + person);
-			return duran;
-
-		}
-		if (person == "Joey") {
-			logger.log(Level.FINE, "Mouse clicked on " + person);
-			return perez;
-		}
-
-		if (person == "Cam") {
-			logger.log(Level.FINE, "Mouse clicked on " + person);
-			return jones;
-		} else {
-			return null;
+			logger.log(Level.SEVERE, "Failed to run egg version: " + version);
 		}
 	}
 }

@@ -21,6 +21,12 @@ public class CreditsPanel extends JPanel {
 
 	private static final long serialVersionUID = 1L;
 
+	protected JLabel lblNewLabel_1;
+	protected JLabel lblNewLabel_2;
+	protected JLabel lblNewLabel_3;
+	protected JLabel lblNewLabel_4;
+	protected JLabel lblNewLabel_5;
+
 	/**
 	 * Creates a CreditsPanel instance.
 	 */
@@ -49,8 +55,7 @@ public class CreditsPanel extends JPanel {
 		add(lblNewLabel, gbc_lblNewLabel);
 
 		// Joey Label
-		JLabel lblNewLabel_1 = new JLabel("Joey Perez\r\n");
-		lblNewLabel_1.addMouseListener(new SecretEasterEggController("Joey"));
+		lblNewLabel_1 = new JLabel("Joey Perez\r\n");
 		lblNewLabel_1.setFont(new Font("Monospace", Font.BOLD, 20));
 
 		// Layout for Joey label
@@ -61,8 +66,7 @@ public class CreditsPanel extends JPanel {
 		add(lblNewLabel_1, gbc_lblNewLabel_1);
 
 		// Marco label
-		JLabel lblNewLabel_2 = new JLabel("Marco Duran");
-		lblNewLabel_2.addMouseListener(new SecretEasterEggController("Marco"));
+		lblNewLabel_2 = new JLabel("Marco Duran");
 		lblNewLabel_2.setFont(new Font("Monospace", Font.BOLD, 20));
 
 		// Layout for Marco label
@@ -73,8 +77,7 @@ public class CreditsPanel extends JPanel {
 		add(lblNewLabel_2, gbc_lblNewLabel_2);
 
 		// Cameron label
-		JLabel lblNewLabel_3 = new JLabel("Cameron Jones");
-		lblNewLabel_3.addMouseListener(new SecretEasterEggController("Cam"));
+		lblNewLabel_3 = new JLabel("Cameron Jones");
 		lblNewLabel_3.setFont(new Font("Monospace", Font.BOLD, 20));
 
 		// Layout for Cameron label
@@ -85,7 +88,7 @@ public class CreditsPanel extends JPanel {
 		add(lblNewLabel_3, gbc_lblNewLabel_3);
 
 		// Aditya label
-		JLabel lblNewLabel_4 = new JLabel("Aditya Nivarthi");
+		lblNewLabel_4 = new JLabel("Aditya Nivarthi");
 		lblNewLabel_4.setFont(new Font("Monospace", Font.BOLD, 20));
 
 		// Layout for Aditya label
@@ -96,7 +99,7 @@ public class CreditsPanel extends JPanel {
 		add(lblNewLabel_4, gbc_lblNewLabel_4);
 
 		// Yahel label
-		JLabel lblNewLabel_5 = new JLabel("Yahel Nachum");
+		lblNewLabel_5 = new JLabel("Yahel Nachum");
 		lblNewLabel_5.setFont(new Font("Monospace", Font.BOLD, 20));
 
 		// Layout for Yahel label
@@ -105,5 +108,18 @@ public class CreditsPanel extends JPanel {
 		gbc_lblNewLabel_5.gridx = 0;
 		gbc_lblNewLabel_5.gridy = 5;
 		add(lblNewLabel_5, gbc_lblNewLabel_5);
+
+		setUpControllers();
+	}
+
+	/**
+	 * Set up the controllers on the various components in the credits view.
+	 */
+	protected void setUpControllers() {
+		lblNewLabel_1.addMouseListener(new SecretEasterEggController("Bisley"));
+		lblNewLabel_2.addMouseListener(new SecretEasterEggController(
+				"AmericanToad"));
+		lblNewLabel_3.addMouseListener(new SecretEasterEggController(
+				"EagleWing"));
 	}
 }
