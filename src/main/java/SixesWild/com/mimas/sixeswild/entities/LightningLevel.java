@@ -45,11 +45,31 @@ public class LightningLevel extends GameLevel {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see SixesWild.com.mimas.sixeswild.entities.GameLevel#hasBeenCompleted()
 	 */
 	@Override
 	public boolean hasBeenCompleted() {
-		return this.timerCount <= 0;
+		return timerCount <= 0;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 *
+	 * @see SixesWild.com.mimas.sixeswild.entities.GameLevel#hasTimer()
+	 */
+	@Override
+	public boolean hasTimerRestriction() {
+		return true;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 *
+	 * @see SixesWild.com.mimas.sixeswild.entities.GameLevel#hasMoveCount()
+	 */
+	@Override
+	public boolean hasMovesRestriction() {
+		return false;
 	}
 }

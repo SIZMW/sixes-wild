@@ -264,6 +264,20 @@ public abstract class GameLevel {
 	}
 
 	/**
+	 * Returns whether the level has a timer as a level restriction.
+	 *
+	 * @return true if restriction is a timer; false otherwise
+	 */
+	public abstract boolean hasTimerRestriction();
+
+	/**
+	 * Returns whether the level has moves as a level restriction.
+	 *
+	 * @return true if restriction is a move count; false otherwise
+	 */
+	public abstract boolean hasMovesRestriction();
+
+	/**
 	 * Determines if the level has been completed.
 	 *
 	 * @return true if complete; false otherwise

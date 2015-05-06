@@ -46,11 +46,31 @@ public class PuzzleLevel extends GameLevel {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see SixesWild.com.mimas.sixeswild.entities.GameLevel#hasBeenCompleted()
 	 */
 	@Override
 	public boolean hasBeenCompleted() {
-		return this.moveCount <= 0;
+		return moveCount <= 0;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 *
+	 * @see SixesWild.com.mimas.sixeswild.entities.GameLevel#hasTimer()
+	 */
+	@Override
+	public boolean hasTimerRestriction() {
+		return false;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 *
+	 * @see SixesWild.com.mimas.sixeswild.entities.GameLevel#hasMoveCount()
+	 */
+	@Override
+	public boolean hasMovesRestriction() {
+		return true;
 	}
 }
