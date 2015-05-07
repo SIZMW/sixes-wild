@@ -35,9 +35,10 @@ public class TimerController implements ActionListener {
 
 		// Decrease timer amount
 		app.getLevelPanel().getLevel().updateTimerCount(-1);
-		if (app.getLevelPanel().getLevel().getTimer() >= 0) {
+		if (app.getLevelPanel().getLevel().getTimer() > 0) {
 			app.getLevelPanel().updateLevelStats();
 		} else {
+			app.getLevelPanel().updateLevelStats();
 			app.getLevelPanel().endLevel("Timer ended.", true);
 			app.getLevelPanel().getTimer().stop();
 		}

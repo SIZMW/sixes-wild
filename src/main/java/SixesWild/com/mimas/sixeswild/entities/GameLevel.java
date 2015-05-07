@@ -183,16 +183,17 @@ public abstract class GameLevel {
 	 *            The new number of moves to set for the level.
 	 */
 	public void setMoveCount(int moveCount) {
-		this.moveCount = moveCount;
+		this.moveCount = (moveCount >= 0) ? moveCount : 0;
 	}
 
 	/**
-	 * Updates the move count by the specified amount.
+	 * Updates the move count by the specified amount, with a minimum count of
+	 * 0.
 	 *
 	 * @param delta
 	 *            The integer value to update the move count.
 	 */
-	public void updateMoveCount(int delta) {
+	public synchronized void updateMoveCount(int delta) {
 		moveCount += delta;
 	}
 
@@ -212,17 +213,18 @@ public abstract class GameLevel {
 	 *            The new timer to set for the level.
 	 */
 	public void setTimer(int timer) {
-		timerCount = timer;
+		timerCount = (timer >= 0) ? timer : 0;
 	}
 
 	/**
-	 * Updates the timer count by the specified amount.
+	 * Updates the timer count by the specified amount, with a minimum count of
+	 * 0.
 	 *
 	 * @param delta
 	 *            The integer value to update the timer count.
 	 */
 	public synchronized void updateTimerCount(int delta) {
-		timerCount += delta;
+		timerCount += (delta + timerCount >= 0) ? delta : (-1 * timerCount);
 	}
 
 	/**

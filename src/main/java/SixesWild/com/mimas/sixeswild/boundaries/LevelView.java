@@ -309,13 +309,11 @@ public class LevelView extends JPanel {
 		// Update the stats Panel
 		levelStatsPanel.pointsLabel.setText(Integer.toString(currentScore));
 		if (currentLevel.getType() != LevelType.LIGHTNING) {
-			int moves = currentLevel.getMoveCount();
-			levelStatsPanel.movesAndTimerLabel.setText(((moves >= 0) ? moves
-					: 0) + "");
+			levelStatsPanel.movesAndTimerLabel.setText(currentLevel
+					.getMoveCount() + "");
 			levelStatsPanel.movesAndTimerTextLabel.setText("Moves");
 		} else {
-			int time = currentLevel.getTimer();
-			levelStatsPanel.movesAndTimerLabel.setText(((time >= 0) ? time : 0)
+			levelStatsPanel.movesAndTimerLabel.setText(currentLevel.getTimer()
 					+ "");
 			levelStatsPanel.movesAndTimerTextLabel.setText("Timer");
 		}
@@ -434,10 +432,20 @@ public class LevelView extends JPanel {
 				&& hasCompleted) {
 			if (currentMenuType.equals(MenuTypes.STORY)) {
 				app.getCurrentUserProfile().setHighestStoryLevel(
-						currentLevel.getLevelNumber() + 1);
+						(currentLevel.getLevelNumber() + 1 > app
+								.getCurrentUserProfile()
+								.getHighestStoryLevelUnlocked()) ? currentLevel
+								.getLevelNumber() + 1 : app
+								.getCurrentUserProfile()
+								.getHighestStoryLevelUnlocked());
 			} else if (currentMenuType.equals(MenuTypes.USER)) {
 				app.getCurrentUserProfile().setHighestUserLevel(
-						currentLevel.getLevelNumber() + 1);
+						(currentLevel.getLevelNumber() + 1 > app
+								.getCurrentUserProfile()
+								.getHighestUserLevelUnlocked()) ? currentLevel
+								.getLevelNumber() + 1 : app
+								.getCurrentUserProfile()
+								.getHighestUserLevelUnlocked());
 			}
 		}
 
