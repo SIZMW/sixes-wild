@@ -432,20 +432,10 @@ public class LevelView extends JPanel {
 				&& hasCompleted) {
 			if (currentMenuType.equals(MenuTypes.STORY)) {
 				app.getCurrentUserProfile().setHighestStoryLevel(
-						(currentLevel.getLevelNumber() + 1 > app
-								.getCurrentUserProfile()
-								.getHighestStoryLevelUnlocked()) ? currentLevel
-								.getLevelNumber() + 1 : app
-								.getCurrentUserProfile()
-								.getHighestStoryLevelUnlocked());
+						(currentLevel.getLevelNumber() + 1));
 			} else if (currentMenuType.equals(MenuTypes.USER)) {
 				app.getCurrentUserProfile().setHighestUserLevel(
-						(currentLevel.getLevelNumber() + 1 > app
-								.getCurrentUserProfile()
-								.getHighestUserLevelUnlocked()) ? currentLevel
-								.getLevelNumber() + 1 : app
-								.getCurrentUserProfile()
-								.getHighestUserLevelUnlocked());
+						(currentLevel.getLevelNumber() + 1));
 			}
 		}
 

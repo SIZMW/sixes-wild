@@ -167,23 +167,29 @@ public class UserProfile {
 	}
 
 	/**
-	 * Sets the highest story level unlocked by the player.
+	 * Sets the highest story level unlocked by the player. If the highest level
+	 * is lower than the current highest, the higher of the two level numbers is
+	 * set.
 	 *
 	 * @param highestLevel
 	 *            An integer of the highest story level unlocked by the player.
 	 */
 	public void setHighestStoryLevel(int highestLevel) {
-		highestStoryLevelUnlocked = highestLevel;
+		highestStoryLevelUnlocked = (highestLevel > highestStoryLevelUnlocked) ? highestLevel
+				: highestStoryLevelUnlocked;
 	}
 
 	/**
-	 * Sets the highest user level unlocked by the player.
+	 * Sets the highest user level unlocked by the player. If the highest level
+	 * is lower than the current highest, the higher of the two level numbers is
+	 * set.
 	 *
 	 * @param highestLevel
 	 *            An integer of the highest user level unlocked by the player.
 	 */
 	public void setHighestUserLevel(int highestLevel) {
-		highestUserLevelUnlocked = highestLevel;
+		highestUserLevelUnlocked = (highestLevel > highestUserLevelUnlocked) ? highestLevel
+				: highestUserLevelUnlocked;
 	}
 
 	/**
