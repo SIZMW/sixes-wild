@@ -16,7 +16,6 @@ import SixesWild.com.mimas.sixeswild.boundaries.GameApplication;
 import SixesWild.com.mimas.sixeswild.boundaries.LevelView;
 import SixesWild.com.mimas.sixeswild.entities.GameLevel;
 import SixesWild.com.mimas.sixeswild.entities.MenuTypes;
-import SixesWild.com.mimas.sixeswild.util.XMLParser;
 
 /**
  * This controller creates and displays the level when the play button is
@@ -85,8 +84,8 @@ public class PlayButtonController implements ActionListener {
 				return;
 			}
 
-			newLevel = XMLParser.fileToLevel(XMLParser.STORY_DIR
-					+ Integer.toString(levelNumber) + XMLParser.XML_EXT);
+			newLevel = app.getGameMenuView().getStoryMenuView().getLevelList()
+					.getSelectedValue();
 		} else {
 			levelNumber = app.getGameMenuView().getUserMenuView()
 					.getLevelList().getSelectedIndex() + 1;
@@ -98,8 +97,8 @@ public class PlayButtonController implements ActionListener {
 				return;
 			}
 
-			newLevel = XMLParser.fileToLevel(XMLParser.USER_DIR
-					+ Integer.toString(levelNumber) + XMLParser.XML_EXT);
+			newLevel = app.getGameMenuView().getUserMenuView().getLevelList()
+					.getSelectedValue();
 		}
 
 		if (newLevel == null) {

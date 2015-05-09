@@ -10,6 +10,7 @@ import javax.swing.JPanel;
 
 import SixesWild.com.mimas.sixeswild.entities.Aesthetic;
 import SixesWild.com.mimas.sixeswild.entities.Badge;
+import SixesWild.com.mimas.sixeswild.entities.GameLevel;
 import SixesWild.com.mimas.sixeswild.entities.MenuTypes;
 
 /**
@@ -51,8 +52,8 @@ public class GameMenuView extends JPanel {
 	 * @param userHighestUnlocked
 	 *            The highest number user level that is unlocked to play.
 	 */
-	public GameMenuView(ArrayList<String> storyLevelList,
-			ArrayList<String> userLevelList, ArrayList<Badge> badgesList,
+	public GameMenuView(ArrayList<GameLevel> storyLevelList,
+			ArrayList<GameLevel> userLevelList, ArrayList<Badge> badgesList,
 			ArrayList<Aesthetic> aestheticList, int storyHighestUnlocked,
 			int userHighestUnlocked) {
 

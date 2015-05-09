@@ -18,6 +18,7 @@ import javax.swing.border.LineBorder;
 
 import SixesWild.com.mimas.sixeswild.entities.Aesthetic;
 import SixesWild.com.mimas.sixeswild.entities.Board;
+import SixesWild.com.mimas.sixeswild.entities.GameLevel;
 import SixesWild.com.mimas.sixeswild.entities.MenuTypes;
 import SixesWild.com.mimas.sixeswild.entities.NullTile;
 import SixesWild.com.mimas.sixeswild.entities.Tile;
@@ -32,12 +33,12 @@ public class LevelSelectionPanel extends JPanel {
 
 	private static final long serialVersionUID = 1L;
 
-	protected DefaultListModel<String> levelListModel;
+	protected DefaultListModel<GameLevel> levelListModel;
 	protected JScrollPane levelScrollPane;
 	protected JPanel previewPanel;
 	protected JButton playLevelButton;
-	protected ArrayList<String> levelNames;
-	protected JList<String> levelList;
+	protected ArrayList<GameLevel> gameLevels;
+	protected JList<GameLevel> levelList;
 	protected BoardViewPanel boardPreviewPanel;
 	protected StarGraphicsPanel starGraphicsPanel;
 	protected final int previewSize = 350;
@@ -47,18 +48,18 @@ public class LevelSelectionPanel extends JPanel {
 	 * Creates a LevelSelectionPanel instance with the specified level names and
 	 * highest level unlocked.
 	 *
-	 * @param levelNames
+	 * @param gameLevels
 	 *            The names of levels to populate the list.
 	 * @param highestLevelUnlocked
 	 *            The highest number user level that is unlocked to play.
 	 * @param aesthetic
 	 *            The current aesthetic to apply to the level preview.
 	 */
-	public LevelSelectionPanel(ArrayList<String> levelNames,
+	public LevelSelectionPanel(ArrayList<GameLevel> gameLevels,
 			Aesthetic aesthetic, int highestLevelUnlocked) {
 
 		// Attributes
-		this.levelNames = levelNames;
+		this.gameLevels = gameLevels;
 
 		// Layout for panel
 		GridBagLayout gridBagLayout = new GridBagLayout();
@@ -69,14 +70,14 @@ public class LevelSelectionPanel extends JPanel {
 		setLayout(gridBagLayout);
 
 		// Add the list of level names
-		levelListModel = new DefaultListModel<String>();
-		for (int i = 0; i < levelNames.size(); i++) {
-			levelListModel.addElement(levelNames.get(i));
+		levelListModel = new DefaultListModel<GameLevel>();
+		for (int i = 0; i < gameLevels.size(); i++) {
+			levelListModel.addElement(gameLevels.get(i));
 		}
 
 		// Level list scroll pane
 		levelScrollPane = new JScrollPane();
-		levelList = new JList<String>(levelListModel);
+		levelList = new JList<GameLevel>(levelListModel);
 		levelList.setMaximumSize(new Dimension(100, 100));
 		levelList.setPreferredSize(new Dimension(100, 100));
 		levelList.setMinimumSize(new Dimension(100, 100));
@@ -201,7 +202,7 @@ public class LevelSelectionPanel extends JPanel {
 	 *
 	 * @return the levelList property
 	 */
-	public JList<String> getLevelList() {
+	public JList<GameLevel> getLevelList() {
 		return levelList;
 	}
 

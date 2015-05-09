@@ -3,7 +3,6 @@ package SixesWild.com.mimas.sixeswild.util;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Comparator;
 import java.util.StringTokenizer;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -21,6 +20,7 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 
+import SixesWild.com.mimas.sixeswild.boundaries.LevelNumericalComparator;
 import SixesWild.com.mimas.sixeswild.entities.Board;
 import SixesWild.com.mimas.sixeswild.entities.EliminationLevel;
 import SixesWild.com.mimas.sixeswild.entities.GameLevel;
@@ -152,33 +152,23 @@ public final class XMLParser {
 	 *
 	 * @param directory
 	 *            The directory to load levels from.
-	 * @return A list of level names.
+	 * @return a list of level names
 	 */
 	public static ArrayList<String> getLevelFileNames(String directory) {
 		File folder = new File(directory);
 		File[] listFiles = folder.listFiles();
 		ArrayList<String> fileNames = new ArrayList<String>();
-		String extension = "xml";
 
 		// Sort by file name numerically
-		Arrays.sort(listFiles, new Comparator<File>() {
-			public int compare(File f1, File f2) {
-				int n1 = Integer.parseInt(f1.getName().substring(0,
-						f1.getName().indexOf(".")));
-				int n2 = Integer.parseInt(f2.getName().substring(0,
-						f2.getName().indexOf(".")));
-				return Integer.compare(n1, n2);
-			}
-		});
+		Arrays.sort(listFiles, new LevelNumericalComparator());
 
 		for (int i = 0; i < listFiles.length; i++) {
 			if (listFiles[i].isFile()
 					&& listFiles[i]
 							.getName()
-							.substring(
-									listFiles[i].getName().lastIndexOf(".") + 1,
+							.substring(listFiles[i].getName().lastIndexOf("."),
 									listFiles[i].getName().length())
-							.equals(extension)) {
+							.equals(XML_EXT)) {
 				fileNames.add(XMLParser.fileToLevelName(directory
 						+ listFiles[i].getName()));
 			}
@@ -188,6 +178,39 @@ public final class XMLParser {
 				+ directory);
 
 		return fileNames;
+	}
+
+	/**
+	 * Gets the list of levels loaded from the given directory.
+	 *
+	 * @param directory
+	 *            The directory to load levels from.
+	 * @return a list of GameLevels
+	 */
+	public static ArrayList<GameLevel> getLevelsFromFiles(String directory) {
+		File folder = new File(directory);
+		File[] listFiles = folder.listFiles();
+		ArrayList<GameLevel> levels = new ArrayList<GameLevel>();
+
+		// Sort by file name numerically
+		Arrays.sort(listFiles, new LevelNumericalComparator());
+
+		for (int i = 0; i < listFiles.length; i++) {
+			if (listFiles[i].isFile()
+					&& listFiles[i]
+							.getName()
+							.substring(listFiles[i].getName().lastIndexOf("."),
+									listFiles[i].getName().length())
+							.equals(XML_EXT)) {
+				levels.add(XMLParser.fileToLevel(directory
+						+ listFiles[i].getName()));
+			}
+		}
+
+		logger.log(Level.INFO, "Levels loaded from disk. Directory: "
+				+ directory);
+
+		return levels;
 	}
 
 	/**

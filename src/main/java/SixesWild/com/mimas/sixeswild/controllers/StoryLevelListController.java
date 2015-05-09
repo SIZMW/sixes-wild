@@ -6,7 +6,6 @@ import javax.swing.event.ListSelectionListener;
 import SixesWild.com.mimas.sixeswild.boundaries.GameApplication;
 import SixesWild.com.mimas.sixeswild.entities.GameLevel;
 import SixesWild.com.mimas.sixeswild.entities.MenuTypes;
-import SixesWild.com.mimas.sixeswild.util.XMLParser;
 
 /**
  * This controller handles updating the story level preview when a selected
@@ -38,10 +37,8 @@ public class StoryLevelListController implements ListSelectionListener {
 	 */
 	public void valueChanged(ListSelectionEvent e) {
 		if (!e.getValueIsAdjusting()) {
-			int index = app.getGameMenuView().getStoryMenuView().getLevelList()
-					.getSelectedIndex();
-			GameLevel level = XMLParser.fileToLevel(XMLParser.STORY_DIR
-					+ (index + 1) + XMLParser.XML_EXT);
+			GameLevel level = app.getGameMenuView().getStoryMenuView()
+					.getLevelList().getSelectedValue();
 
 			// Set the board from the level
 			app.getGameMenuView().getStoryMenuView().getLevelPreviewPanel()

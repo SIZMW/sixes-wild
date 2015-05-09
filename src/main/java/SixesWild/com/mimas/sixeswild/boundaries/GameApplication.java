@@ -27,6 +27,7 @@ import SixesWild.com.mimas.sixeswild.controllers.UserLevelListController;
 import SixesWild.com.mimas.sixeswild.controllers.UserLevelMenuButtonController;
 import SixesWild.com.mimas.sixeswild.entities.Aesthetic;
 import SixesWild.com.mimas.sixeswild.entities.Badge;
+import SixesWild.com.mimas.sixeswild.entities.GameLevel;
 import SixesWild.com.mimas.sixeswild.entities.MenuTypes;
 import SixesWild.com.mimas.sixeswild.entities.ScoreBadge;
 import SixesWild.com.mimas.sixeswild.entities.StarBadge;
@@ -52,8 +53,8 @@ public class GameApplication {
 	protected Aesthetic currentAesthetic;
 	protected UserProfile currentUserProfile;
 
-	protected ArrayList<String> storyLevelList;
-	protected ArrayList<String> userLevelList;
+	protected ArrayList<GameLevel> storyLevelList;
+	protected ArrayList<GameLevel> userLevelList;
 	protected ArrayList<Badge> badgesList;
 
 	/**
@@ -80,8 +81,8 @@ public class GameApplication {
 		setUpAesthetics();
 
 		// Initialize lists for GameMenuView
-		storyLevelList = XMLParser.getLevelFileNames(XMLParser.STORY_DIR);
-		userLevelList = XMLParser.getLevelFileNames(XMLParser.USER_DIR);
+		storyLevelList = XMLParser.getLevelsFromFiles(XMLParser.STORY_DIR);
+		userLevelList = XMLParser.getLevelsFromFiles(XMLParser.USER_DIR);
 
 		badgesList = new ArrayList<Badge>();
 		setUpBadges();
@@ -278,6 +279,24 @@ public class GameApplication {
 	 */
 	public ArrayList<Badge> getBadgesList() {
 		return badgesList;
+	}
+
+	/**
+	 * Returns the storyLevelList object for this class.
+	 *
+	 * @return the storyLevelList property
+	 */
+	public ArrayList<GameLevel> getStoryLevels() {
+		return storyLevelList;
+	}
+
+	/**
+	 * Returns the userLevelList object for this class.
+	 *
+	 * @return the userLevelList property
+	 */
+	public ArrayList<GameLevel> getUserLevels() {
+		return userLevelList;
 	}
 
 	/**
