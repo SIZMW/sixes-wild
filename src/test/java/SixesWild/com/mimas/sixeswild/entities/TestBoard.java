@@ -30,7 +30,7 @@ public class TestBoard extends TestCase {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see junit.framework.TestCase#setUp()
 	 */
 	@Override
@@ -88,7 +88,7 @@ public class TestBoard extends TestCase {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see junit.framework.TestCase#tearDown()
 	 */
 	@Override
@@ -352,48 +352,5 @@ public class TestBoard extends TestCase {
 
 		assertTrue(numberBoard.getSquare(0, 1).getMarked());
 		assertTrue(numberBoard.getSquare(0, 0).getMarked());
-	}
-
-	/**
-	 * Tests the elimination completion verification methods.
-	 */
-	public void testEliminationComplete() {
-		for (int i = 0; i < numberBoard.SIZE_X; i++) {
-			for (int j = 0; j < numberBoard.SIZE_Y - 1; j++) {
-				numberBoard.getSquare(i, j).setMarked(true);
-			}
-		}
-
-		assertFalse(numberBoard.isEliminationComplete());
-
-		for (int i = 0; i < numberBoard.SIZE_X; i++) {
-			for (int j = 0; j < numberBoard.SIZE_Y; j++) {
-				numberBoard.getSquare(i, j).setMarked(true);
-			}
-		}
-
-		assertTrue(numberBoard.isEliminationComplete());
-	}
-
-	/**
-	 * Tests the release completion verification methods.
-	 */
-	public void testReleaseComplete() {
-		numberBoard.setSquare(new NumberTile(3, 1), 0, 0, false);
-		numberBoard.setSquare(new NumberTile(3, 1), 0, 1, false);
-
-		for (int i = 0; i < numberBoard.SIZE_X; i++) {
-			numberBoard.getSquare(i, 7).addTile(new SixTile());
-			numberBoard.getSquare(i, 8).addTile(new TargetTile());
-		}
-
-		assertFalse(numberBoard.isReleaseComplete());
-
-		selection.add(numberBoard.getSquare(0, 0));
-		selection.add(numberBoard.getSquare(0, 1));
-
-		numberBoard.processReleaseSelection(selection);
-
-		assertTrue(numberBoard.isReleaseComplete());
 	}
 }

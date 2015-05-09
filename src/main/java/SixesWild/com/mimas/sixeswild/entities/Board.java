@@ -494,40 +494,4 @@ public class Board {
 		shiftTilesDownward();
 		fillEmptySquares();
 	}
-
-	/**
-	 * Determines if this board has successfully completed an "Elimination" game
-	 * type.
-	 *
-	 * @return true if all squares with number tiles are marked; false otherwise
-	 */
-	public boolean isEliminationComplete() {
-		for (int i = 0; i < SIZE_X; i++) {
-			for (int j = 0; j < SIZE_Y; j++) {
-				if (!squares[i][j].getMarked()
-						&& squares[i][j].getTile().getType()
-								.equals(TileType.NUMBER)) {
-					return false;
-				}
-			}
-		}
-		return true;
-	}
-
-	/**
-	 * Determines if this board has successfully completed a "Release" game
-	 * type.
-	 *
-	 * @return true if all target tiles are removed; false otherwise
-	 */
-	public boolean isReleaseComplete() {
-		for (int i = 0; i < SIZE_X; i++) {
-			for (int j = 0; j < SIZE_Y; j++) {
-				if (squares[i][j].getTile().getType().equals(TileType.TARGET)) {
-					return false;
-				}
-			}
-		}
-		return true;
-	}
 }

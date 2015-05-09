@@ -110,22 +110,22 @@ public class TestEliminationLevel extends TestCase {
 		assertEquals(newBoard, toTest.getBoard());
 		toTest.setLevelNumber(100);
 		assertEquals(100, toTest.getLevelNumber());
-		toTest.setMoveCount(1);
-		assertEquals(1, toTest.getMoveCount());
+		toTest.setRestrictionCount(1);
+		assertEquals(1, toTest.getRestrictionCount());
 		toTest.setName("I Hate Testing");
 		assertEquals("I Hate Testing", toTest.getName());
 		toTest.setPointThresholds(pointThresholds);
 		SpecialMoves newSpecialMoves = new SpecialMoves();
 		toTest.setSpecialMoves(newSpecialMoves);
 		int newTimer = 10;
-		toTest.setTimer(newTimer);
+		toTest.setRestrictionCount(newTimer);
 
-		assertEquals(newTimer, toTest.getTimer());
+		assertEquals(newTimer, toTest.getRestrictionCount());
 		assertEquals(newSpecialMoves, toTest.getSpecialMoves());
 		assertEquals(pointThresholds, toTest.getPointThresholds());
 
-		toTest.updateMoveCount(-1);
-		assertEquals(toTest.getMoveCount(), 0);
+		toTest.updateRestrictionCount(-1);
+		assertEquals(toTest.getRestrictionCount(), 9);
 
 		assertFalse(toTest.hasBeenCompleted());
 	}

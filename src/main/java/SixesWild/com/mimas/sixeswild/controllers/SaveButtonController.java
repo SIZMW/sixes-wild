@@ -44,7 +44,7 @@ public class SaveButtonController implements ActionListener {
 
 	/*
 	 * (non-Javadoc)
-	 *
+	 * 
 	 * @see
 	 * java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
 	 */
@@ -280,8 +280,8 @@ public class SaveButtonController implements ActionListener {
 		} else {
 			try {
 				newLevel = new LightningLevel(tileFreq, multFreq, levelName,
-						tiles, pointThresholds, specialMoves, levelNumber,
-						timerCount);
+						tiles, pointThresholds, timerCount, specialMoves,
+						levelNumber);
 				XMLParser.levelToFile(newLevel);
 			} catch (Exception e1) {
 				logger.log(Level.WARNING, "Lightning level creation failed.");

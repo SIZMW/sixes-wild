@@ -62,7 +62,7 @@ public class SelectionMove extends GameMove {
 	public boolean processCurrentMove(GameApplication app) {
 		if (!isStillValidMove(app)) {
 			app.getLevelPanel().getBoardViewPanel().clearGameSelection();
-			app.getLevelPanel().getLevel().updateMoveCount(-1);
+			app.getLevelPanel().getLevel().updateRestrictionCount(-1);
 			return false;
 		}
 
@@ -80,8 +80,8 @@ public class SelectionMove extends GameMove {
 	public boolean doMove(GameApplication app) {
 		if (!isValidMove(app)) {
 			app.getLevelPanel().getBoardViewPanel().clearGameSelection();
-			if (app.getLevelPanel().getLevel().getMoveCount() > 0) {
-				app.getLevelPanel().getLevel().updateMoveCount(-1);
+			if (app.getLevelPanel().getLevel().getRestrictionCount() > 0) {
+				app.getLevelPanel().getLevel().updateRestrictionCount(-1);
 			}
 			return false;
 		} else {
@@ -103,8 +103,8 @@ public class SelectionMove extends GameMove {
 
 			score *= 10;
 
-			if (app.getLevelPanel().getLevel().getMoveCount() > 0) {
-				app.getLevelPanel().getLevel().updateMoveCount(-1);
+			if (app.getLevelPanel().getLevel().getRestrictionCount() > 0) {
+				app.getLevelPanel().getLevel().updateRestrictionCount(-1);
 			}
 			app.getLevelPanel().getBoardViewPanel().clearGameSelection();
 			app.getLevelPanel().updateScore(score);

@@ -36,26 +36,26 @@ public class LightningLevel extends GameLevel {
 	 */
 	public LightningLevel(ArrayList<Double> tileFreq,
 			ArrayList<Double> multFreq, String name, Tile tiles[][],
-			PointThresholds pointThresholds, SpecialMoves specialMoves,
-			int levelNumber, int timer) throws Exception {
-		super(tileFreq, multFreq, name, tiles, pointThresholds, specialMoves,
-				levelNumber, timer);
+			PointThresholds pointThresholds, int restrictionCount,
+			SpecialMoves specialMoves, int levelNumber) throws Exception {
+		super(tileFreq, multFreq, name, tiles, pointThresholds,
+				restrictionCount, specialMoves, levelNumber);
 		type = LevelType.LIGHTNING;
 	}
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see SixesWild.com.mimas.sixeswild.entities.GameLevel#hasBeenCompleted()
 	 */
 	@Override
 	public boolean hasBeenCompleted() {
-		return timerCount <= 0;
+		return restrictionCount <= 0;
 	}
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see SixesWild.com.mimas.sixeswild.entities.GameLevel#hasTimer()
 	 */
 	@Override
@@ -65,7 +65,7 @@ public class LightningLevel extends GameLevel {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see SixesWild.com.mimas.sixeswild.entities.GameLevel#hasMoveCount()
 	 */
 	@Override
@@ -75,7 +75,7 @@ public class LightningLevel extends GameLevel {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see SixesWild.com.mimas.sixeswild.entities.GameLevel#makeCopy()
 	 */
 	@Override
@@ -83,8 +83,8 @@ public class LightningLevel extends GameLevel {
 		try {
 			return new LightningLevel(getBoard().getTileFrequencies(),
 					getBoard().getMultiplierFrequencies(), name, getBoard()
-							.getTileTypes(), pointThresholds, specialMoves,
-					levelNumber, timerCount);
+							.getTileTypes(), pointThresholds, restrictionCount,
+					specialMoves, levelNumber);
 		} catch (Exception e) {
 			return null;
 		}

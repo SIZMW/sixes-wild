@@ -37,26 +37,34 @@ public class ReleaseLevel extends GameLevel {
 	 */
 	public ReleaseLevel(ArrayList<Double> tileFreq, ArrayList<Double> multFreq,
 			String name, Tile tiles[][], PointThresholds pointThresholds,
-			int moveCount, SpecialMoves specialMoves, int levelNumber)
+			int restrictionCount, SpecialMoves specialMoves, int levelNumber)
 			throws Exception {
-		super(tileFreq, multFreq, name, tiles, pointThresholds, moveCount,
-				specialMoves, levelNumber);
+		super(tileFreq, multFreq, name, tiles, pointThresholds,
+				restrictionCount, specialMoves, levelNumber);
 		type = LevelType.RELEASE;
 	}
 
 	/*
 	 * (non-Javadoc)
-	 *
+	 * 
 	 * @see SixesWild.com.mimas.sixeswild.entities.GameLevel#hasBeenCompleted()
 	 */
 	@Override
 	public boolean hasBeenCompleted() {
-		return board.isReleaseComplete();
+		for (int i = 0; i < board.SIZE_X; i++) {
+			for (int j = 0; j < board.SIZE_Y; j++) {
+				if (board.getSquare(i, j).getTile().getType()
+						.equals(TileType.TARGET)) {
+					return false;
+				}
+			}
+		}
+		return true;
 	}
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see SixesWild.com.mimas.sixeswild.entities.GameLevel#hasTimer()
 	 */
 	@Override
@@ -66,7 +74,7 @@ public class ReleaseLevel extends GameLevel {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see SixesWild.com.mimas.sixeswild.entities.GameLevel#hasMoveCount()
 	 */
 	@Override
@@ -76,7 +84,7 @@ public class ReleaseLevel extends GameLevel {
 
 	/*
 	 * (non-Javadoc)
-	 *
+	 * 
 	 * @see SixesWild.com.mimas.sixeswild.entities.GameLevel#makeCopy()
 	 */
 	@Override
@@ -84,8 +92,8 @@ public class ReleaseLevel extends GameLevel {
 		try {
 			return new ReleaseLevel(getBoard().getTileFrequencies(), getBoard()
 					.getMultiplierFrequencies(), name, getBoard()
-					.getTileTypes(), pointThresholds, moveCount, specialMoves,
-					levelNumber);
+					.getTileTypes(), pointThresholds, restrictionCount,
+					specialMoves, levelNumber);
 		} catch (Exception e) {
 			return null;
 		}

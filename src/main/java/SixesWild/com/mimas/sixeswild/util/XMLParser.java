@@ -374,7 +374,7 @@ public final class XMLParser {
 					LevelType.LIGHTNING.toString())) {
 				return new LightningLevel(tileFrequencies,
 						multiplierFrequencies, levelName, tiles,
-						pointThresholds, specialMoves, levelNumber, timer);
+						pointThresholds, timer, specialMoves, levelNumber);
 			} else if (levelType.toUpperCase().equals(
 					LevelType.ELIMINATION.toString())) {
 				return new EliminationLevel(tileFrequencies,
@@ -545,12 +545,13 @@ public final class XMLParser {
 			// Move count element / value
 			Element moveCountElement = doc.createElement("MoveCount");
 			moveCountElement.appendChild(doc.createTextNode(""
-					+ level.getMoveCount()));
+					+ level.getRestrictionCount()));
 			playingConstraintsElement.appendChild(moveCountElement);
 
 			// Timer element / value
 			Element timerElement = doc.createElement("Timer");
-			timerElement.appendChild(doc.createTextNode("" + level.getTimer()));
+			timerElement.appendChild(doc.createTextNode(""
+					+ level.getRestrictionCount()));
 			playingConstraintsElement.appendChild(timerElement);
 
 			// Board element

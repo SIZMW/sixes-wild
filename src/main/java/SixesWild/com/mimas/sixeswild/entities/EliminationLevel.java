@@ -37,10 +37,10 @@ public class EliminationLevel extends GameLevel {
 	 */
 	public EliminationLevel(ArrayList<Double> tileFreq,
 			ArrayList<Double> multFreq, String name, Tile tiles[][],
-			PointThresholds pointThresholds, int moveCount,
+			PointThresholds pointThresholds, int restrictionCount,
 			SpecialMoves specialMoves, int levelNumber) throws Exception {
-		super(tileFreq, multFreq, name, tiles, pointThresholds, moveCount,
-				specialMoves, levelNumber);
+		super(tileFreq, multFreq, name, tiles, pointThresholds,
+				restrictionCount, specialMoves, levelNumber);
 		type = LevelType.ELIMINATION;
 	}
 
@@ -51,7 +51,16 @@ public class EliminationLevel extends GameLevel {
 	 */
 	@Override
 	public boolean hasBeenCompleted() {
-		return board.isEliminationComplete();
+		for (int i = 0; i < board.SIZE_X; i++) {
+			for (int j = 0; j < board.SIZE_Y; j++) {
+				if (!board.getSquare(i, j).getMarked()
+						&& board.getSquare(i, j).getTile().getType()
+								.equals(TileType.NUMBER)) {
+					return false;
+				}
+			}
+		}
+		return true;
 	}
 
 	/*
@@ -84,7 +93,7 @@ public class EliminationLevel extends GameLevel {
 		try {
 			return new EliminationLevel(getBoard().getTileFrequencies(),
 					getBoard().getMultiplierFrequencies(), name, getBoard()
-							.getTileTypes(), pointThresholds, moveCount,
+							.getTileTypes(), pointThresholds, restrictionCount,
 					specialMoves, levelNumber);
 		} catch (Exception e) {
 			return null;

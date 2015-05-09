@@ -220,7 +220,7 @@ public class LevelView extends JPanel {
 		this.add(levelTopPanel, gbc_topMenuPanel);
 
 		// Level stats panel
-		levelStatsPanel = new LevelStatsPanel(newLevel.getMoveCount());
+		levelStatsPanel = new LevelStatsPanel(newLevel.getRestrictionCount());
 		levelStatsPanel.setBorder(BorderFactory.createLineBorder(Color.black));
 
 		// Layout for level stats panel
@@ -310,11 +310,11 @@ public class LevelView extends JPanel {
 		levelStatsPanel.pointsLabel.setText(Integer.toString(currentScore));
 		if (currentLevel.getType() != LevelType.LIGHTNING) {
 			levelStatsPanel.movesAndTimerLabel.setText(currentLevel
-					.getMoveCount() + "");
+					.getRestrictionCount() + "");
 			levelStatsPanel.movesAndTimerTextLabel.setText("Moves");
 		} else {
-			levelStatsPanel.movesAndTimerLabel.setText(currentLevel.getTimer()
-					+ "");
+			levelStatsPanel.movesAndTimerLabel.setText(currentLevel
+					.getRestrictionCount() + "");
 			levelStatsPanel.movesAndTimerTextLabel.setText("Timer");
 		}
 

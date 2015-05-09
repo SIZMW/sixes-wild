@@ -16,8 +16,7 @@ public abstract class GameLevel {
 	protected PointThresholds pointThresholds;
 	protected String name;
 	protected Board board;
-	protected int timerCount;
-	protected int moveCount;
+	protected int restrictionCount;
 	protected int levelNumber;
 
 	/**
@@ -46,13 +45,12 @@ public abstract class GameLevel {
 	 */
 	public GameLevel(ArrayList<Double> tileFreq, ArrayList<Double> multFreq,
 			String name, Tile tiles[][], PointThresholds pointThresholds,
-			int moveCount, SpecialMoves specialMoves, int levelNumber)
+			int restrictionCount, SpecialMoves specialMoves, int levelNumber)
 			throws Exception {
 		type = LevelType.PUZZLE;
 		this.name = name;
 		this.pointThresholds = pointThresholds;
-		this.moveCount = moveCount;
-		timerCount = 0;
+		this.restrictionCount = restrictionCount;
 		this.specialMoves = specialMoves;
 		this.levelNumber = levelNumber;
 		try {
@@ -60,44 +58,6 @@ public abstract class GameLevel {
 		} catch (Exception e) {
 			throw e;
 		}
-	}
-
-	/**
-	 * Creates a GameLevel instance with the specified tile frequencies,
-	 * multiplier frequencies, type, name, tile list, point thresholds, timer,
-	 * special moves and level number.
-	 *
-	 * @param tileFreq
-	 *            The tile frequencies for the level.
-	 * @param multFreq
-	 *            The multiplier frequencies for the level.
-	 * @param name
-	 *            The name of the level.
-	 * @param tiles
-	 *            The list of tiles for the board in the level.
-	 * @param pointThresholds
-	 *            The point threshold values for the level.
-	 * @param timer
-	 *            The timer for the level.
-	 * @param specialMoves
-	 *            The special moves counts for the level.
-	 * @param levelNumber
-	 *            The number for this level.
-	 * @throws Exception
-	 *             If board construction throws an exception.
-	 */
-	public GameLevel(ArrayList<Double> tileFreq, ArrayList<Double> multFreq,
-			String name, Tile tiles[][], PointThresholds pointThresholds,
-			SpecialMoves specialMoves, int levelNumber, int timer)
-			throws Exception {
-		type = LevelType.PUZZLE;
-		this.name = name;
-		this.pointThresholds = pointThresholds;
-		timerCount = timer;
-		moveCount = 0;
-		this.specialMoves = specialMoves;
-		this.levelNumber = levelNumber;
-		board = new Board(tiles, tileFreq, multFreq);
 	}
 
 	/**
@@ -167,63 +127,34 @@ public abstract class GameLevel {
 	}
 
 	/**
-	 * Returns the number of moves for the level.
+	 * Returns the number of the restriction for the level.
 	 *
-	 * @return the integer number of moves
+	 * @return the integer number of the restriction
 	 */
-	public int getMoveCount() {
-		return moveCount;
+	public int getRestrictionCount() {
+		return restrictionCount;
 	}
 
 	/**
-	 * Sets the number of moves for the level.
+	 * Sets the number of the restriction for the level.
 	 *
 	 * @param moveCount
 	 *            The new number of moves to set for the level.
 	 */
-	public void setMoveCount(int moveCount) {
-		this.moveCount = moveCount;
+	public void setRestrictionCount(int restrictionCount) {
+		this.restrictionCount = restrictionCount;
 	}
 
 	/**
-	 * Updates the move count by the specified amount, with a minimum count of
-	 * 0.
+	 * Updates the restriction count by the specified amount, with a minimum
+	 * count of 0.
 	 *
 	 * @param delta
 	 *            The integer value to update the move count.
 	 */
-	public synchronized void updateMoveCount(int delta) {
-		moveCount += (delta + moveCount >= 0) ? delta : (-1 * moveCount);
-	}
-
-	/**
-	 * Returns the timer for the level.
-	 *
-	 * @return a Timer
-	 */
-	public int getTimer() {
-		return timerCount;
-	}
-
-	/**
-	 * Sets the timer for the level.
-	 *
-	 * @param timer
-	 *            The new timer to set for the level.
-	 */
-	public void setTimer(int timer) {
-		timerCount = (timer >= 0) ? timer : 0;
-	}
-
-	/**
-	 * Updates the timer count by the specified amount, with a minimum count of
-	 * 0.
-	 *
-	 * @param delta
-	 *            The integer value to update the timer count.
-	 */
-	public synchronized void updateTimerCount(int delta) {
-		timerCount += (delta + timerCount >= 0) ? delta : (-1 * timerCount);
+	public synchronized void updateRestrictionCount(int delta) {
+		restrictionCount += (delta + restrictionCount >= 0) ? delta
+				: (-1 * restrictionCount);
 	}
 
 	/**
@@ -264,6 +195,16 @@ public abstract class GameLevel {
 		levelNumber = newNumber;
 	}
 
+	/*
+	 * (non-Javadoc)
+	 *
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return name;
+	}
+
 	/**
 	 * Returns whether the level has a timer as a level restriction.
 	 *
@@ -287,18 +228,8 @@ public abstract class GameLevel {
 
 	/**
 	 * Creates a copy of this level and returns the new GameLevel object.
-	 * 
+	 *
 	 * @return a GameLevel
 	 */
 	public abstract GameLevel makeCopy();
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see java.lang.Object#toString()
-	 */
-	@Override
-	public String toString() {
-		return name;
-	}
 }

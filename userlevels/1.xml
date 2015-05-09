@@ -26,7 +26,7 @@
   </PointThresholds>
   <PlayingConstraints>
     <MoveCount>50</MoveCount>
-    <Timer>0</Timer>
+    <Timer>50</Timer>
   </PlayingConstraints>
   <Board>
     <Row>U U U U U U U U U</Row>

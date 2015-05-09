@@ -43,17 +43,17 @@ public class TestLightningLevel extends TestCase {
 		LightningLevel level;
 		try {
 			level = new LightningLevel(tileFreq, multFreq, levelName, tiles,
-					pointThresholds, specialMoves, levelNumber, 50);
+					pointThresholds, 50, specialMoves, levelNumber);
 			assertEquals(levelName, level.getName());
 			assertEquals(LevelType.LIGHTNING, level.getType());
 			assertEquals(tileFreq, level.board.getTileFrequencies());
 			assertEquals(pointThresholds, level.getPointThresholds());
 			assertEquals(multFreq, level.board.getMultiplierFrequencies());
 
-			level.updateTimerCount(-1);
+			level.updateRestrictionCount(-1);
 			assertFalse(level.hasBeenCompleted());
 
-			assertEquals(level.getTimer(), 49);
+			assertEquals(level.getRestrictionCount(), 49);
 		} catch (Exception e1) {
 			e1.printStackTrace();
 			fail();

@@ -38,7 +38,7 @@ public class OpenButtonController implements ActionListener {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see
 	 * java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
 	 */
@@ -86,10 +86,10 @@ public class OpenButtonController implements ActionListener {
 		app.getBuilderView().getBuilderSettingsPanel().getLevelTypeComboBox()
 				.setSelectedItem(openedLevel.getType().toString());
 		app.getBuilderView().getBuilderSettingsPanel().getMovesTextField()
-				.setText(Integer.toString(openedLevel.getMoveCount()));
+				.setText(Integer.toString(openedLevel.getRestrictionCount()));
 
 		app.getBuilderView().getBuilderSettingsPanel().getTimerTextField()
-				.setText(openedLevel.getTimer() + "");
+				.setText(openedLevel.getRestrictionCount() + "");
 
 		app.getBuilderView()
 				.getBuilderSettingsPanel()

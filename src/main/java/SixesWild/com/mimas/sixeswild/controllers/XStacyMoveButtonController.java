@@ -33,7 +33,7 @@ public class XStacyMoveButtonController implements ActionListener {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see
 	 * java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
 	 */
@@ -47,9 +47,9 @@ public class XStacyMoveButtonController implements ActionListener {
 		if (moves > 0) {
 			if (app.getLevelPanel().getLevel().getType()
 					.equals(LevelType.LIGHTNING)) {
-				app.getLevelPanel().getLevel().updateTimerCount(20);
+				app.getLevelPanel().getLevel().updateRestrictionCount(20);
 			} else {
-				app.getLevelPanel().getLevel().updateMoveCount(10);
+				app.getLevelPanel().getLevel().updateRestrictionCount(10);
 			}
 			app.getLevelPanel().getLevel().getSpecialMoves()
 					.updateXStacySpecialMoveCount(-1);

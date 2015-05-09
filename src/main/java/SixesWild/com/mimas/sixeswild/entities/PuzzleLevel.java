@@ -37,10 +37,10 @@ public class PuzzleLevel extends GameLevel {
 	 */
 	public PuzzleLevel(ArrayList<Double> tileFreq, ArrayList<Double> multFreq,
 			String name, Tile tiles[][], PointThresholds pointThresholds,
-			int moveCount, SpecialMoves specialMoves, int levelNumber)
+			int restrictionCount, SpecialMoves specialMoves, int levelNumber)
 			throws Exception {
-		super(tileFreq, multFreq, name, tiles, pointThresholds, moveCount,
-				specialMoves, levelNumber);
+		super(tileFreq, multFreq, name, tiles, pointThresholds,
+				restrictionCount, specialMoves, levelNumber);
 		type = LevelType.PUZZLE;
 	}
 
@@ -51,7 +51,7 @@ public class PuzzleLevel extends GameLevel {
 	 */
 	@Override
 	public boolean hasBeenCompleted() {
-		return moveCount <= 0;
+		return restrictionCount <= 0;
 	}
 
 	/*
@@ -84,8 +84,8 @@ public class PuzzleLevel extends GameLevel {
 		try {
 			return new PuzzleLevel(getBoard().getTileFrequencies(), getBoard()
 					.getMultiplierFrequencies(), name, getBoard()
-					.getTileTypes(), pointThresholds, moveCount, specialMoves,
-					levelNumber);
+					.getTileTypes(), pointThresholds, restrictionCount,
+					specialMoves, levelNumber);
 		} catch (Exception e) {
 			return null;
 		}
