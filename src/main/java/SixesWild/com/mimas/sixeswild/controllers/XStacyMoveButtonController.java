@@ -6,7 +6,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import SixesWild.com.mimas.sixeswild.boundaries.GameApplication;
-import SixesWild.com.mimas.sixeswild.entities.LevelType;
 
 /**
  * This controller handles the xstacy move when the xstacy special move button
@@ -33,7 +32,7 @@ public class XStacyMoveButtonController implements ActionListener {
 
 	/*
 	 * (non-Javadoc)
-	 *
+	 * 
 	 * @see
 	 * java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
 	 */
@@ -45,8 +44,7 @@ public class XStacyMoveButtonController implements ActionListener {
 
 		// Execute the move if there are moves of this type left
 		if (moves > 0) {
-			if (app.getLevelPanel().getLevel().getType()
-					.equals(LevelType.LIGHTNING)) {
+			if (app.getLevelPanel().getLevel().hasTimerRestriction()) {
 				app.getLevelPanel().getLevel().updateRestrictionCount(20);
 			} else {
 				app.getLevelPanel().getLevel().updateRestrictionCount(10);

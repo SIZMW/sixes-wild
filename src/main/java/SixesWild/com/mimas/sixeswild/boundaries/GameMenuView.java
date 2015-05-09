@@ -251,15 +251,12 @@ public class GameMenuView extends JPanel {
 	 *
 	 * @param app
 	 *            The GameApplication currently running.
-	 * @param storyHighestUnlocked
-	 *            The highest story level number unlocked.
-	 * @param userHighestUnlocked
-	 *            The highest user level number unlocked.
 	 */
-	public void refreshView(GameApplication app, int storyHighestUnlocked,
-			int userHighestUnlocked) {
-		storyMenuView.refreshView(app, MenuTypes.STORY, storyHighestUnlocked);
-		userMenuView.refreshView(app, MenuTypes.USER, userHighestUnlocked);
-		this.repaint();
+	public void refreshView(GameApplication app) {
+		storyMenuView.refreshView(app, MenuTypes.STORY, app
+				.getCurrentUserProfile().getHighestStoryLevelUnlocked());
+		userMenuView.refreshView(app, MenuTypes.USER, app
+				.getCurrentUserProfile().getHighestUserLevelUnlocked());
+		repaint();
 	}
 }

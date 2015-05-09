@@ -13,7 +13,7 @@ import javax.swing.JPanel;
  * This class represents the left menu that is displayed when playing the game.
  * It has the game information about the current level status for the player.
  *
- * @author Marco Duran
+ * @author Aditya Nivarthi
  */
 public class LevelStatsPanel extends JPanel {
 
@@ -190,10 +190,10 @@ public class LevelStatsPanel extends JPanel {
 	/**
 	 * Creates a LevelStatsPanel instance with the specified move count.
 	 *
-	 * @param moveCount
+	 * @param restrictionCount
 	 *            The move count to set in this panel.
 	 */
-	public LevelStatsPanel(int moveCount) {
+	public LevelStatsPanel(int restrictionCount) {
 
 		// Layout for panel
 		GridBagLayout gridBagLayout = new GridBagLayout();
@@ -332,7 +332,7 @@ public class LevelStatsPanel extends JPanel {
 				gbc_movesSlashTimeTextLabel);
 
 		// Numerical moves/time label
-		movesAndTimerLabel = new JLabel(moveCount + "");
+		movesAndTimerLabel = new JLabel(restrictionCount + "");
 
 		// Layout for numerical moves/time label
 		GridBagConstraints gbc_movesSlashTimeLabel = new GridBagConstraints();

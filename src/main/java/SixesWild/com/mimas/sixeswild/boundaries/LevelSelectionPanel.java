@@ -251,8 +251,6 @@ public class LevelSelectionPanel extends JPanel {
 		levelScrollPane.setViewportView(levelList);
 		starGraphicsPanel.refreshStars(app.getCurrentUserProfile()
 				.getStarsOfLevel(levelList.getSelectedIndex() + 1, type));
-		invalidate();
-		revalidate();
-		this.repaint();
+		repaint();
 	}
 }

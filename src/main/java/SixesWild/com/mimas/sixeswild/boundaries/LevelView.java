@@ -21,7 +21,6 @@ import SixesWild.com.mimas.sixeswild.entities.Badge;
 import SixesWild.com.mimas.sixeswild.entities.BadgeType;
 import SixesWild.com.mimas.sixeswild.entities.Board;
 import SixesWild.com.mimas.sixeswild.entities.GameLevel;
-import SixesWild.com.mimas.sixeswild.entities.LevelType;
 import SixesWild.com.mimas.sixeswild.entities.MenuTypes;
 import SixesWild.com.mimas.sixeswild.entities.MoveType;
 import SixesWild.com.mimas.sixeswild.entities.NumberTile;
@@ -244,7 +243,7 @@ public class LevelView extends JPanel {
 		this.add(boardViewPanel, gbc_boardView);
 
 		// Set up Lightning level timer
-		if (currentLevel.getType().equals(LevelType.LIGHTNING)) {
+		if (currentLevel.hasTimerRestriction()) {
 
 			// Create a new timer
 			levelTimer = new Timer(1000, new LevelTimerController(app));
@@ -308,7 +307,7 @@ public class LevelView extends JPanel {
 
 		// Update the stats Panel
 		levelStatsPanel.pointsLabel.setText(Integer.toString(currentScore));
-		if (currentLevel.getType() != LevelType.LIGHTNING) {
+		if (currentLevel.hasMovesRestriction()) {
 			levelStatsPanel.movesAndTimerLabel.setText(currentLevel
 					.getRestrictionCount() + "");
 			levelStatsPanel.movesAndTimerTextLabel.setText("Moves");
@@ -348,16 +347,6 @@ public class LevelView extends JPanel {
 	 */
 	public int getScore() {
 		return currentScore;
-	}
-
-	/**
-	 * Sets the score to the specified value.
-	 *
-	 * @param newScore
-	 *            The new integer score value.
-	 */
-	public void setScore(int newScore) {
-		currentScore = newScore;
 	}
 
 	/**

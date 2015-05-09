@@ -6,7 +6,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import SixesWild.com.mimas.sixeswild.boundaries.GameApplication;
-import SixesWild.com.mimas.sixeswild.entities.LevelType;
 import SixesWild.com.mimas.sixeswild.entities.SelectionMove;
 
 /**
@@ -57,10 +56,7 @@ public class GameBoardViewMouseMotionController extends MouseAdapter {
 		app.getLevelPanel().updateLevelStats();
 
 		// Determine if level is over
-		if (!app.getLevelPanel().getLevel().getType()
-				.equals(LevelType.LIGHTNING)
-				&& !app.getLevelPanel().getLevel().getType()
-						.equals(LevelType.PUZZLE)
+		if (!app.getLevelPanel().getLevel().hasTimerRestriction()
 				&& app.getLevelPanel().getLevel().getRestrictionCount() <= 0) {
 			app.getLevelPanel().endLevel("You have run out of moves.", false);
 		}

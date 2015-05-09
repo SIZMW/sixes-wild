@@ -92,11 +92,15 @@ public class BuilderView extends JPanel {
 				nullTiles[i][j] = new NullTile();
 			}
 		}
+
 		// Creates tile frequencies
 		tileFreq = new ArrayList<Double>(
 				Arrays.asList(.1, .2, .3, .3, .05, .05));
-		// creates multiplier frequencies
+
+		// Creates multiplier frequencies
 		multFreq = new ArrayList<Double>(Arrays.asList(.5, .25, .25));
+
+		// Create the board
 		try {
 			nullBoard = new Board(nullTiles, tileFreq, multFreq);
 		} catch (Exception e) {
@@ -154,6 +158,6 @@ public class BuilderView extends JPanel {
 		boardViewPanel = newBoardViewPanel;
 		boardViewPanel.setBorder(boardViewPanelBorder);
 		this.add(boardViewPanel, gbc_boardView);
-		updateUI();
+		repaint();
 	}
 }

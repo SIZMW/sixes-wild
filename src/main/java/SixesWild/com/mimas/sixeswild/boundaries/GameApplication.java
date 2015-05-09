@@ -307,7 +307,7 @@ public class GameApplication {
 	 * @return true if aesthetic is found and set; false if a new profile was
 	 *         created.
 	 */
-	public boolean setCurrentAesthetic(String name) {
+	public boolean setCurrentAestheticByName(String name) {
 		for (Aesthetic e : aestheticList) {
 			if (e.getName().equals(name)) {
 				currentAesthetic = e;
@@ -320,6 +320,19 @@ public class GameApplication {
 
 		logger.log(Level.WARNING, "GameApplication aesthetic failed to change.");
 		return false;
+	}
+
+	/**
+	 * Sets the current aesthetic to the specified aesthetic.
+	 *
+	 * @param aesthetic
+	 *            The aesthetic to load.
+	 */
+	public void setCurrentAesthetic(Aesthetic aesthetic) {
+		currentAesthetic = aesthetic;
+		currentUserProfile.setAestheticName(aesthetic.getName());
+		logger.log(Level.FINE, "GameApplication aesthetic changed to: "
+				+ aesthetic.getName());
 	}
 
 	/**
@@ -337,7 +350,7 @@ public class GameApplication {
 						+ XMLParser.PROFILE_CONST + XMLParser.XML_EXT);
 				logger.log(Level.INFO, "User profile found for: " + name);
 				refreshView();
-				setCurrentAesthetic(currentUserProfile.getAestheticName());
+				setCurrentAestheticByName(currentUserProfile.getAestheticName());
 				return true;
 			}
 		}
@@ -354,9 +367,7 @@ public class GameApplication {
 	 */
 	public void refreshView() {
 		if (gameMenuView != null) {
-			gameMenuView.refreshView(this,
-					currentUserProfile.getHighestStoryLevelUnlocked(),
-					currentUserProfile.getHighestUserLevelUnlocked());
+			gameMenuView.refreshView(this);
 		}
 
 		logger.log(Level.INFO,

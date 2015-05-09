@@ -13,7 +13,7 @@ import javax.swing.JPanel;
  * This class represents the score panel used to display score and star
  * thresholds for the player in the game.
  *
- * @author Marco Duran
+ * @author Aditya Nivarthi
  */
 public class StarGraphicsPanel extends JPanel {
 
@@ -54,7 +54,7 @@ public class StarGraphicsPanel extends JPanel {
 
 	/*
 	 * (non-Javadoc)
-	 *
+	 * 
 	 * @see javax.swing.JComponent#paintComponent(java.awt.Graphics)
 	 */
 	@Override

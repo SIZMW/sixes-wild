@@ -4,7 +4,7 @@ package SixesWild.com.mimas.sixeswild.entities;
  * Badge contains the information about each badge, such as its name,
  * description, unlock status and requirements for unlocking.
  *
- * @author Marco Duran
+ * @author Aditya Nivarthi
  */
 public abstract class Badge {
 

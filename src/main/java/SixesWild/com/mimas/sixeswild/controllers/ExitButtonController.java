@@ -70,7 +70,8 @@ public class ExitButtonController extends WindowAdapter implements
 		Container contentContainer = app.getFrame().getContentPane();
 		JPanel currentPanel = new JPanel();
 		contentContainer.removeAll();
-		if (app.getLevelPanel().getTimer() != null) {
+
+		if (app.getLevelPanel().getLevel().hasTimerRestriction()) {
 			app.getLevelPanel().getTimer().stop();
 		}
 

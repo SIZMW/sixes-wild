@@ -21,7 +21,7 @@ import SixesWild.com.mimas.sixeswild.entities.Badge;
  * This class represents the view used to show badges that the player has
  * completed or has not completed in the game menu.
  *
- * @author Yahel Nachum
+ * @author Aditya Nivarthi
  */
 public class BadgesPanel extends JPanel {
 
@@ -33,7 +33,7 @@ public class BadgesPanel extends JPanel {
 	protected JPanel previewPanel;
 	protected JLabel badgesPreviewLabel;
 	protected JList<Badge> badgesSelectionList;
-	private BadgePreviewPanel badgePreviewPanel;
+	protected BadgePreviewPanel badgePreviewPanel;
 
 	/**
 	 * Creates a BadgesPanel instance with the specified list of badge names.

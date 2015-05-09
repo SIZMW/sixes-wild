@@ -6,7 +6,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import SixesWild.com.mimas.sixeswild.boundaries.GameApplication;
-import SixesWild.com.mimas.sixeswild.entities.LevelType;
 import SixesWild.com.mimas.sixeswild.entities.MoveType;
 import SixesWild.com.mimas.sixeswild.entities.RemoveTileMove;
 import SixesWild.com.mimas.sixeswild.entities.SelectionMove;
@@ -37,7 +36,7 @@ public class GameBoardViewMouseController extends MouseAdapter {
 
 	/*
 	 * (non-Javadoc)
-	 *
+	 * 
 	 * @see java.awt.event.MouseAdapter#mousePressed(java.awt.event.MouseEvent)
 	 */
 	@Override
@@ -77,7 +76,7 @@ public class GameBoardViewMouseController extends MouseAdapter {
 
 	/*
 	 * (non-Javadoc)
-	 *
+	 * 
 	 * @see java.awt.event.MouseAdapter#mouseReleased(java.awt.event.MouseEvent)
 	 */
 	@Override
@@ -128,8 +127,7 @@ public class GameBoardViewMouseController extends MouseAdapter {
 	protected void hasCompletedLevel() {
 		if (app.getLevelPanel().getLevel().hasBeenCompleted()) {
 			app.getLevelPanel().endLevel("Completed level.", true);
-		} else if (!app.getLevelPanel().getLevel().getType()
-				.equals(LevelType.LIGHTNING)
+		} else if (!app.getLevelPanel().getLevel().hasTimerRestriction()
 				&& app.getLevelPanel().getLevel().getRestrictionCount() <= 0) {
 			app.getLevelPanel().endLevel("You have run out of moves.", false);
 		}

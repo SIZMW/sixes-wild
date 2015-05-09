@@ -31,7 +31,7 @@ public class OptionsPanel extends JPanel {
 	protected JButton changeAestheticButton;
 	protected JButton switchUserButton;
 	protected JButton resetBadgesButton;
-	protected JComboBox<String> aestheticDropDownMenu;
+	protected JComboBox<Aesthetic> aestheticDropDownMenu;
 	protected JPanel upperOptionsPanel;
 	protected JPanel rulesPanel;
 	protected JTextField userNameTextField;
@@ -109,11 +109,11 @@ public class OptionsPanel extends JPanel {
 		upperOptionsPanel.add(changeAestheticButton, gbc_changeStyleButton);
 
 		// Aesthetic drop down menu
-		aestheticDropDownMenu = new JComboBox<String>();
+		aestheticDropDownMenu = new JComboBox<Aesthetic>();
 
 		// Add aesthetic names
 		for (Aesthetic e : aestheticList) {
-			aestheticDropDownMenu.addItem(e.getName());
+			aestheticDropDownMenu.addItem(e);
 		}
 
 		// Layout for aesthetic drop down menu
@@ -242,7 +242,7 @@ public class OptionsPanel extends JPanel {
 	 *
 	 * @return the aestheticDropDownMenu property
 	 */
-	public JComboBox<String> getAestheticDropDownMenu() {
+	public JComboBox<Aesthetic> getAestheticDropDownMenu() {
 		return aestheticDropDownMenu;
 	}
 

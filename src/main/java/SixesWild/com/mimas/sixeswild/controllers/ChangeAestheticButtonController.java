@@ -4,6 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import SixesWild.com.mimas.sixeswild.boundaries.GameApplication;
+import SixesWild.com.mimas.sixeswild.entities.Aesthetic;
 
 /**
  * This controller applies the selected aesthetic when it is requested in the
@@ -28,13 +29,14 @@ public class ChangeAestheticButtonController implements ActionListener {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see
 	 * java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
 	 */
 	public void actionPerformed(ActionEvent e) {
-		String name = (String) app.getGameMenuView().getOptionsMenuView()
-				.getAestheticDropDownMenu().getSelectedItem();
-		app.setCurrentAesthetic(name);
+		Aesthetic aesthetic = (Aesthetic) app.getGameMenuView()
+				.getOptionsMenuView().getAestheticDropDownMenu()
+				.getSelectedItem();
+		app.setCurrentAesthetic(aesthetic);
 	}
 }
