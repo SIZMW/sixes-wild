@@ -43,7 +43,7 @@ public class BadgePreviewPanel extends JPanel {
 
 	/*
 	 * (non-Javadoc)
-	 *
+	 * 
 	 * @see javax.swing.JComponent#paintComponent(java.awt.Graphics)
 	 */
 	@Override
@@ -64,7 +64,7 @@ public class BadgePreviewPanel extends JPanel {
 		try {
 			String fileName = badge.getName().replace(" ", "") + BADGE_CNST;
 			image = ImageIO.read(getClass().getClassLoader().getResource(
-					"images/" + fileName + ".png"));
+					"images/badges/" + fileName + ".png"));
 		} catch (Exception e) {
 			image = null;
 		}
