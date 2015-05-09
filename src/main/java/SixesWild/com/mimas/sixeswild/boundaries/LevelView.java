@@ -15,7 +15,7 @@ import javax.swing.JDialog;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
-import SixesWild.com.mimas.sixeswild.controllers.TimerController;
+import SixesWild.com.mimas.sixeswild.controllers.LevelTimerController;
 import SixesWild.com.mimas.sixeswild.entities.Aesthetic;
 import SixesWild.com.mimas.sixeswild.entities.Badge;
 import SixesWild.com.mimas.sixeswild.entities.BadgeType;
@@ -247,7 +247,7 @@ public class LevelView extends JPanel {
 		if (currentLevel.getType().equals(LevelType.LIGHTNING)) {
 
 			// Create a new timer
-			levelTimer = new Timer(1000, new TimerController(app));
+			levelTimer = new Timer(1000, new LevelTimerController(app));
 			levelTimer.setRepeats(true);
 			levelTimer.start();
 		}

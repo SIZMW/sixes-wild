@@ -11,17 +11,17 @@ import SixesWild.com.mimas.sixeswild.boundaries.GameApplication;
  *
  * @author Aditya Nivarthi
  */
-public class TimerController implements ActionListener {
+public class LevelTimerController implements ActionListener {
 
 	protected GameApplication app;
 
 	/**
-	 * Creates a TimerController instance with the specified GameApplication.
+	 * Creates a LevelTimerController instance with the specified GameApplication.
 	 *
 	 * @param app
 	 *            The GameApplication currently running.
 	 */
-	public TimerController(GameApplication app) {
+	public LevelTimerController(GameApplication app) {
 		this.app = app;
 	}
 

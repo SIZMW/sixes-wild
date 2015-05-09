@@ -183,7 +183,7 @@ public abstract class GameLevel {
 	 *            The new number of moves to set for the level.
 	 */
 	public void setMoveCount(int moveCount) {
-		this.moveCount = (moveCount >= 0) ? moveCount : 0;
+		this.moveCount = moveCount;
 	}
 
 	/**
@@ -194,7 +194,7 @@ public abstract class GameLevel {
 	 *            The integer value to update the move count.
 	 */
 	public synchronized void updateMoveCount(int delta) {
-		moveCount += delta;
+		moveCount += (delta + moveCount >= 0) ? delta : (-1 * moveCount);
 	}
 
 	/**
@@ -285,4 +285,14 @@ public abstract class GameLevel {
 	 * @return true if complete; false otherwise
 	 */
 	public abstract boolean hasBeenCompleted();
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return name;
+	}
 }
