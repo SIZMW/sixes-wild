@@ -97,7 +97,6 @@ public abstract class GameLevel {
 		moveCount = 0;
 		this.specialMoves = specialMoves;
 		this.levelNumber = levelNumber;
-
 		board = new Board(tiles, tileFreq, multFreq);
 	}
 
@@ -285,6 +284,13 @@ public abstract class GameLevel {
 	 * @return true if complete; false otherwise
 	 */
 	public abstract boolean hasBeenCompleted();
+
+	/**
+	 * Creates a copy of this level and returns the new GameLevel object.
+	 * 
+	 * @return a GameLevel
+	 */
+	public abstract GameLevel makeCopy();
 
 	/*
 	 * (non-Javadoc)

@@ -18,6 +18,7 @@ public class Board {
 	public final int SIZE_X = 9;
 	public final int SIZE_Y = 9;
 
+	protected Tile tiles[][];
 	protected Square squares[][];
 	protected ArrayList<Double> multiplierFrequencies;
 	protected ArrayList<Double> tileFrequencies;
@@ -52,6 +53,7 @@ public class Board {
 			ArrayList<Double> multiplierFrequencies) throws Exception {
 		this.tileFrequencies = tileFrequencies;
 		this.multiplierFrequencies = multiplierFrequencies;
+		this.tiles = tiles;
 		squares = new Square[SIZE_X][SIZE_Y];
 
 		// Tile list is null
@@ -150,6 +152,15 @@ public class Board {
 	 */
 	public int getRandomMultiplier() {
 		return 1 + (int) (Math.random() * 3);
+	}
+
+	/**
+	 * Returns the tile types for this board.
+	 *
+	 * @return a Tile[][]
+	 */
+	public Tile[][] getTileTypes() {
+		return tiles;
 	}
 
 	/**

@@ -45,7 +45,7 @@ public class LightningLevel extends GameLevel {
 
 	/*
 	 * (non-Javadoc)
-	 *
+	 * 
 	 * @see SixesWild.com.mimas.sixeswild.entities.GameLevel#hasBeenCompleted()
 	 */
 	@Override
@@ -55,7 +55,7 @@ public class LightningLevel extends GameLevel {
 
 	/*
 	 * (non-Javadoc)
-	 *
+	 * 
 	 * @see SixesWild.com.mimas.sixeswild.entities.GameLevel#hasTimer()
 	 */
 	@Override
@@ -65,11 +65,28 @@ public class LightningLevel extends GameLevel {
 
 	/*
 	 * (non-Javadoc)
-	 *
+	 * 
 	 * @see SixesWild.com.mimas.sixeswild.entities.GameLevel#hasMoveCount()
 	 */
 	@Override
 	public boolean hasMovesRestriction() {
 		return false;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see SixesWild.com.mimas.sixeswild.entities.GameLevel#makeCopy()
+	 */
+	@Override
+	public GameLevel makeCopy() {
+		try {
+			return new LightningLevel(getBoard().getTileFrequencies(),
+					getBoard().getMultiplierFrequencies(), name, getBoard()
+							.getTileTypes(), pointThresholds, specialMoves,
+					levelNumber, timerCount);
+		} catch (Exception e) {
+			return null;
+		}
 	}
 }

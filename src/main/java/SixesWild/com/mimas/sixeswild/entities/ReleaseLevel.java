@@ -73,4 +73,21 @@ public class ReleaseLevel extends GameLevel {
 	public boolean hasMovesRestriction() {
 		return true;
 	}
+
+	/*
+	 * (non-Javadoc)
+	 *
+	 * @see SixesWild.com.mimas.sixeswild.entities.GameLevel#makeCopy()
+	 */
+	@Override
+	public GameLevel makeCopy() {
+		try {
+			return new ReleaseLevel(getBoard().getTileFrequencies(), getBoard()
+					.getMultiplierFrequencies(), name, getBoard()
+					.getTileTypes(), pointThresholds, moveCount, specialMoves,
+					levelNumber);
+		} catch (Exception e) {
+			return null;
+		}
+	}
 }

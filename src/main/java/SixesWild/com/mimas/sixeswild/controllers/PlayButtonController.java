@@ -85,7 +85,7 @@ public class PlayButtonController implements ActionListener {
 			}
 
 			newLevel = app.getGameMenuView().getStoryMenuView().getLevelList()
-					.getSelectedValue();
+					.getSelectedValue().makeCopy();
 		} else {
 			levelNumber = app.getGameMenuView().getUserMenuView()
 					.getLevelList().getSelectedIndex() + 1;
@@ -98,7 +98,7 @@ public class PlayButtonController implements ActionListener {
 			}
 
 			newLevel = app.getGameMenuView().getUserMenuView().getLevelList()
-					.getSelectedValue();
+					.getSelectedValue().makeCopy();
 		}
 
 		if (newLevel == null) {
