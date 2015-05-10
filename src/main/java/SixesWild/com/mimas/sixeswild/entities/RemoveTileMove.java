@@ -33,7 +33,7 @@ public class RemoveTileMove extends GameMove {
 
 	/*
 	 * (non-Javadoc)
-	 *
+	 * 
 	 * @see
 	 * SixesWild.com.mimas.sixeswild.entities.GameMove#isStillValidMove(SixesWild
 	 * .com.mimas.sixeswild.boundaries.GameApplication)
@@ -59,7 +59,7 @@ public class RemoveTileMove extends GameMove {
 
 	/*
 	 * (non-Javadoc)
-	 *
+	 * 
 	 * @see
 	 * SixesWild.com.mimas.sixeswild.entities.GameMove#isValidMove(SixesWild
 	 * .com.mimas.sixeswild.boundaries.GameApplication)
@@ -85,7 +85,7 @@ public class RemoveTileMove extends GameMove {
 
 	/*
 	 * (non-Javadoc)
-	 *
+	 * 
 	 * @see
 	 * SixesWild.com.mimas.sixeswild.entities.GameMove#processCurrentMove(SixesWild
 	 * .com.mimas.sixeswild.boundaries.GameApplication)
@@ -104,7 +104,7 @@ public class RemoveTileMove extends GameMove {
 
 	/*
 	 * (non-Javadoc)
-	 *
+	 * 
 	 * @see
 	 * SixesWild.com.mimas.sixeswild.entities.GameMove#doMove(SixesWild.com.
 	 * mimas.sixeswild.boundaries.GameApplication)
@@ -117,6 +117,7 @@ public class RemoveTileMove extends GameMove {
 			return false;
 		} else {
 
+			// Save the previous state of the square
 			boolean marked = app
 					.getLevelPanel()
 					.getBoardViewPanel()
@@ -127,6 +128,8 @@ public class RemoveTileMove extends GameMove {
 					.getMarked();
 
 			app.getLevelPanel().getLevel().processSelection(selection);
+
+			// Set the square marked state to the previous state
 			app.getLevelPanel()
 					.getBoardViewPanel()
 					.getBoard()

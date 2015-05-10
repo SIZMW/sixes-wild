@@ -15,6 +15,9 @@ public class TestGameMenuView extends TestCase {
 	GameApplication window;
 	RobotGUITester robot;
 
+	int fps;
+	double seconds;
+
 	/*
 	 * (non-Javadoc)
 	 * 
@@ -25,6 +28,8 @@ public class TestGameMenuView extends TestCase {
 		window = new GameApplication();
 		window.getFrame().setVisible(true);
 		robot = new RobotGUITester();
+		fps = 240;
+		seconds = 0.25;
 	}
 
 	/*
@@ -47,13 +52,14 @@ public class TestGameMenuView extends TestCase {
 
 		robot.robotMouseMove(RobotGUITester.StoryLevelButtonPoint);
 		robot.leftClickPressAndRelease();
-		robot.robotDragMouse(RobotGUITester.TopOfSelectionPanelPoint, 0.5, 60);
+		robot.robotDragMouse(RobotGUITester.TopOfSelectionPanelPoint, seconds,
+				fps);
 		robot.leftClickPressAndRelease();
 		robot.robotDragMouse(0, RobotGUITester.DeltaYOfSelectionPanelItems,
-				0.25, 60);
+				seconds, fps);
 		robot.leftClickPressAndRelease();
 		robot.robotDragMouse(0, RobotGUITester.DeltaYOfSelectionPanelItems,
-				0.25, 60);
+				seconds, fps);
 		robot.leftClickPressAndRelease();
 	}
 
@@ -67,13 +73,14 @@ public class TestGameMenuView extends TestCase {
 
 		robot.robotMouseMove(RobotGUITester.UserLevelButtonPoint);
 		robot.leftClickPressAndRelease();
-		robot.robotDragMouse(RobotGUITester.TopOfSelectionPanelPoint, 0.5, 60);
+		robot.robotDragMouse(RobotGUITester.TopOfSelectionPanelPoint, seconds,
+				fps);
 		robot.leftClickPressAndRelease();
 		robot.robotDragMouse(0, RobotGUITester.DeltaYOfSelectionPanelItems,
-				0.25, 60);
+				seconds, fps);
 		robot.leftClickPressAndRelease();
 		robot.robotDragMouse(0, RobotGUITester.DeltaYOfSelectionPanelItems,
-				0.25, 60);
+				seconds, fps);
 		robot.leftClickPressAndRelease();
 	}
 
@@ -86,13 +93,14 @@ public class TestGameMenuView extends TestCase {
 		robot.releaseKey(KeyEvent.VK_ENTER);
 		robot.robotMouseMove(RobotGUITester.BadgesButtonPoint);
 		robot.leftClickPressAndRelease();
-		robot.robotDragMouse(RobotGUITester.TopOfSelectionPanelPoint, 0.5, 60);
+		robot.robotDragMouse(RobotGUITester.TopOfSelectionPanelPoint, seconds,
+				fps);
 		robot.leftClickPressAndRelease();
 		robot.robotDragMouse(0, RobotGUITester.DeltaYOfSelectionPanelItems,
-				0.25, 60);
+				seconds, fps);
 		robot.leftClickPressAndRelease();
 		robot.robotDragMouse(0, RobotGUITester.DeltaYOfSelectionPanelItems,
-				0.25, 60);
+				seconds, fps);
 		robot.leftClickPressAndRelease();
 	}
 
@@ -121,94 +129,6 @@ public class TestGameMenuView extends TestCase {
 	}
 
 	/**
-	 * Test opening a level to play and exiting to the main menu.
-	 */
-	public void testPlayAndQuitLevel() {
-		robot.wait(1.0);
-		robot.pressKey(KeyEvent.VK_ENTER);
-		robot.releaseKey(KeyEvent.VK_ENTER);
-
-		robot.robotMouseMove(RobotGUITester.StoryLevelButtonPoint);
-		robot.leftClickPressAndRelease();
-		robot.robotDragMouse(RobotGUITester.TopOfSelectionPanelPoint, 0.5, 60);
-		robot.leftClickPressAndRelease();
-		robot.robotDragMouse(RobotGUITester.PlayLevelButtonPoint, 0.25, 60);
-		robot.leftClickPressAndRelease();
-		robot.robotMouseMove(RobotGUITester.ExitLevelButtonPoint);
-		robot.leftClickPressAndRelease();
-	}
-
-	/**
-	 * Test opening a locked level.
-	 */
-	public void testLockedLevelPlay() {
-		robot.wait(1.0);
-		robot.pressKey(KeyEvent.VK_ENTER);
-		robot.releaseKey(KeyEvent.VK_ENTER);
-
-		robot.robotMouseMove(RobotGUITester.StoryLevelButtonPoint);
-		robot.leftClickPressAndRelease();
-		robot.robotDragMouse(RobotGUITester.TopOfSelectionPanelPoint, 0.5, 60);
-		robot.robotDragMouse(0, RobotGUITester.DeltaYOfSelectionPanelItems,
-				0.25, 60);
-		robot.robotDragMouse(0, RobotGUITester.DeltaYOfSelectionPanelItems,
-				0.25, 60);
-		robot.robotDragMouse(0, RobotGUITester.DeltaYOfSelectionPanelItems,
-				0.25, 60);
-		robot.robotDragMouse(0, RobotGUITester.DeltaYOfSelectionPanelItems,
-				0.25, 60);
-		robot.robotDragMouse(0, RobotGUITester.DeltaYOfSelectionPanelItems,
-				0.25, 60);
-		robot.leftClickPressAndRelease();
-		robot.robotDragMouse(RobotGUITester.PlayLevelButtonPoint, 0.25, 60);
-		robot.leftClickPressAndRelease();
-	}
-
-	/*
-	 * Tests doing a selection on a game board.
-	 */
-	public void testSelectionMove() {
-		robot.wait(1.0);
-		robot.pressKey(KeyEvent.VK_ENTER);
-		robot.releaseKey(KeyEvent.VK_ENTER);
-
-		robot.robotMouseMove(RobotGUITester.UserLevelButtonPoint);
-		robot.leftClickPressAndRelease();
-		robot.robotDragMouse(RobotGUITester.TopOfSelectionPanelPoint, 0.5, 60);
-		robot.robotDragMouse(0, RobotGUITester.DeltaYOfSelectionPanelItems,
-				0.25, 60);
-		robot.robotDragMouse(0, RobotGUITester.DeltaYOfSelectionPanelItems,
-				0.25, 60);
-		robot.robotDragMouse(0, RobotGUITester.DeltaYOfSelectionPanelItems,
-				0.25, 60);
-		robot.robotDragMouse(0, RobotGUITester.DeltaYOfSelectionPanelItems,
-				0.25, 60);
-		robot.robotDragMouse(0, RobotGUITester.DeltaYOfSelectionPanelItems,
-				0.25, 60);
-		robot.robotDragMouse(0, RobotGUITester.DeltaYOfSelectionPanelItems,
-				0.25, 60);
-		robot.leftClickPressAndRelease();
-
-		robot.wait(1.0);
-
-		robot.robotMouseMove(RobotGUITester.PlayLevelButtonPoint);
-		robot.leftClickPressAndRelease();
-
-		robot.robotMouseMove(RobotGUITester.TilesOnBoard[0][0]);
-		robot.leftClickPress();
-		for (int i = 0; i < 6; i++) {
-			robot.robotDragMouse(RobotGUITester.TilesOnBoard[i][0], 0.5, 60);
-		}
-		robot.leftClickRelease();
-
-		robot.wait(3.0);
-		assertTrue(window.getLevelPanel().getScore() > 0);
-
-		robot.robotMouseMove(RobotGUITester.PopUpCloseButtonPoint);
-		robot.leftClickPressAndRelease();
-	}
-
-	/**
 	 * Tests the secret easter egg.
 	 */
 	public void testSecret() {
@@ -221,11 +141,12 @@ public class TestGameMenuView extends TestCase {
 
 		robot.wait(1.0);
 
-		robot.robotMouseMove(RobotGUITester.SecretEggOnePoint);
+		robot.robotDragMouse(RobotGUITester.SecretEggOnePoint, seconds, fps);
 		robot.leftClickPressAndRelease();
 		robot.wait(1.0);
 
-		robot.robotMouseMove(RobotGUITester.SecretEggOneClosePoint);
+		robot.robotDragMouse(RobotGUITester.SecretEggOneClosePoint, seconds,
+				fps);
 		robot.leftClickPressAndRelease();
 	}
 }

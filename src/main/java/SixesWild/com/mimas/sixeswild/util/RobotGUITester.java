@@ -5,6 +5,8 @@ import java.awt.Point;
 import java.awt.Robot;
 import java.awt.event.InputEvent;
 
+import SixesWild.com.mimas.sixeswild.boundaries.GameApplication;
+
 /**
  * This class is used to handle testing interaction for test cases on the
  * boundaries and controllers.
@@ -36,6 +38,10 @@ public class RobotGUITester {
 
 	// Game playing
 	public static final Point PopUpCloseButtonPoint = new Point(627, 311);
+	public static final Point ResetBoardMoveButtonPoint = new Point(457, 60);
+	public static final Point SwapTileMoveButtonPoint = new Point(572, 60);
+	public static final Point RemoveTileMoveButtonPoint = new Point(685, 60);
+	public static final Point XStacyMoveButtonPoint = new Point(802, 60);
 
 	// Builder buttons
 	public static final Point SpecialMoveOneDecreasePoint = new Point(102, 414);
@@ -209,6 +215,18 @@ public class RobotGUITester {
 		robotDragMouse(currentPoint, toP, seconds, fps);
 	}
 
+	/**
+	 * Drags the mouse in the specified vertical and horizontal amounts.
+	 * 
+	 * @param deltaX
+	 *            The horizontal distance to move.
+	 * @param deltaY
+	 *            The vertical distance to move.
+	 * @param seconds
+	 *            The length of time to drag the mouse.
+	 * @param fps
+	 *            The frames per second of the dragging action.
+	 */
 	public void robotDragMouse(int deltaX, int deltaY, double seconds, int fps) {
 		robotDragMouse(currentPoint, deltaX, deltaY, seconds, fps);
 	}
@@ -280,12 +298,13 @@ public class RobotGUITester {
 		}
 	}
 
-	// public static void main(String args[]) {
-	// BuilderApplication app = new BuilderApplication();
-	// app.getFrame().setVisible(true);
-	// while (true) {
-	// System.out.println(MouseInfo.getPointerInfo().getLocation().getX()
-	// + " " + MouseInfo.getPointerInfo().getLocation().getY());
-	// }
-	// }
+	public static void main(String args[]) {
+		// BuilderApplication app = new BuilderApplication();
+		GameApplication app = new GameApplication();
+		app.getFrame().setVisible(true);
+		while (true) {
+			System.out.println(MouseInfo.getPointerInfo().getLocation().getX()
+					+ " " + MouseInfo.getPointerInfo().getLocation().getY());
+		}
+	}
 }
