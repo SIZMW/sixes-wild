@@ -17,7 +17,6 @@ import javax.swing.border.Border;
 
 import SixesWild.com.mimas.sixeswild.entities.Aesthetic;
 import SixesWild.com.mimas.sixeswild.entities.Board;
-import SixesWild.com.mimas.sixeswild.entities.LevelType;
 import SixesWild.com.mimas.sixeswild.entities.NullTile;
 import SixesWild.com.mimas.sixeswild.entities.NumberTile;
 import SixesWild.com.mimas.sixeswild.entities.Selection;
@@ -289,7 +288,7 @@ public class BoardViewPanel extends JPanel {
 
 	/*
 	 * (non-Javadoc)
-	 *
+	 * 
 	 * @see javax.swing.JComponent#paintComponent(java.awt.Graphics)
 	 */
 	@Override
@@ -553,21 +552,5 @@ public class BoardViewPanel extends JPanel {
 		gameBoard.resetBoard();
 
 		logger.log(Level.INFO, "Board processed a reset board move.");
-	}
-
-	/**
-	 * Executes the remove tile move.
-	 *
-	 * @param type
-	 *            The type of level being played.
-	 */
-	public void doRemoveTileMove(LevelType type) {
-		if (type.equals(LevelType.RELEASE)) {
-			gameBoard.processReleaseSelection(currentSelection);
-		} else {
-			gameBoard.processSelection(currentSelection);
-		}
-
-		logger.log(Level.INFO, "Board processed a remove tile move.");
 	}
 }

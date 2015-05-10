@@ -1,5 +1,8 @@
 package SixesWild.com.mimas.sixeswild.entities;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 import SixesWild.com.mimas.sixeswild.boundaries.GameApplication;
 
 /**
@@ -9,6 +12,8 @@ import SixesWild.com.mimas.sixeswild.boundaries.GameApplication;
  * @author Aditya Nivarthi
  */
 public class RemoveTileMove extends GameMove {
+
+	private static final Logger logger = Logger.getGlobal();
 
 	protected Selection selection;
 	protected GameLevel level;
@@ -28,31 +33,59 @@ public class RemoveTileMove extends GameMove {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see
 	 * SixesWild.com.mimas.sixeswild.entities.GameMove#isStillValidMove(SixesWild
 	 * .com.mimas.sixeswild.boundaries.GameApplication)
 	 */
 	@Override
 	public boolean isStillValidMove(GameApplication app) {
-		return selection.isRemoveStillValid();
+
+		// If selection does not have one tile
+		if (selection.size() > 1) {
+			return false;
+		}
+
+		for (Square e : selection.getSelectionAsArrayList()) {
+
+			// Check for invalid types in selection
+			if (!e.getTile().getType().equals(TileType.NUMBER)) {
+				return false;
+			}
+		}
+
+		return true;
 	}
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see
 	 * SixesWild.com.mimas.sixeswild.entities.GameMove#isValidMove(SixesWild
 	 * .com.mimas.sixeswild.boundaries.GameApplication)
 	 */
 	@Override
 	public boolean isValidMove(GameApplication app) {
-		return selection.isRemoveValid();
+
+		// If selection does not have one tile
+		if (selection.size() != 1) {
+			return false;
+		}
+
+		for (Square e : selection.getSelectionAsArrayList()) {
+
+			// Check for invalid types in selection
+			if (!e.getTile().getType().equals(TileType.NUMBER)) {
+				return false;
+			}
+		}
+
+		return true;
 	}
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see
 	 * SixesWild.com.mimas.sixeswild.entities.GameMove#processCurrentMove(SixesWild
 	 * .com.mimas.sixeswild.boundaries.GameApplication)
@@ -61,14 +94,17 @@ public class RemoveTileMove extends GameMove {
 	public boolean processCurrentMove(GameApplication app) {
 		if (!isStillValidMove(app)) {
 			app.getLevelPanel().getBoardViewPanel().clearGameSelection();
+			logger.log(Level.INFO, "Processed a failed remove tile move.");
 			return false;
 		}
+
+		logger.log(Level.INFO, "Processed a successful remove tile move.");
 		return true;
 	}
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see
 	 * SixesWild.com.mimas.sixeswild.entities.GameMove#doMove(SixesWild.com.
 	 * mimas.sixeswild.boundaries.GameApplication)
@@ -77,15 +113,25 @@ public class RemoveTileMove extends GameMove {
 	public boolean doMove(GameApplication app) {
 		if (!isValidMove(app)) {
 			app.getLevelPanel().getBoardViewPanel().clearGameSelection();
+			logger.log(Level.INFO, "Executed a failed remove tile move.");
 			return false;
 		} else {
-			app.getLevelPanel().getBoardViewPanel()
-					.doRemoveTileMove(app.getLevelPanel().getLevel().getType());
+
+			if (app.getLevelPanel().getLevel().getType()
+					.equals(LevelType.RELEASE)) {
+				app.getLevelPanel().getBoardViewPanel().getBoard()
+						.processReleaseSelection(selection);
+			} else {
+				app.getLevelPanel().getBoardViewPanel().getBoard()
+						.processSelection(selection);
+			}
+
 			app.getLevelPanel().getBoardViewPanel().clearGameSelection();
 			app.getLevelPanel().getLevel().getSpecialMoves()
 					.updateRemoveTileCount(-1);
+
+			logger.log(Level.INFO, "Executed a successful remove tile move.");
 			return true;
 		}
 	}
-
 }

@@ -13,7 +13,7 @@ public class TestSelection extends TestCase {
 
 	/*
 	 * (non-Javadoc)
-	 *
+	 * 
 	 * @see junit.framework.TestCase#setUp()
 	 */
 	@Override
@@ -132,25 +132,5 @@ public class TestSelection extends TestCase {
 		selection.add(new Square(new NumberTile(2, 1), 1, 3, false));
 
 		assertEquals(selection.size(), 3);
-	}
-
-	/**
-	 * Tests the remove validity of the selection.
-	 */
-	public void testRemoveValid() {
-		selection.add(new Square(new NumberTile(2, 1), 1, 1, false));
-
-		assertTrue(selection.isRemoveStillValid());
-		assertTrue(selection.isRemoveValid());
-
-		selection.remove(new Square(new NumberTile(2, 1), 1, 1, false));
-		selection.add(new Square(new NullTile(), 2, 2, false));
-		assertFalse(selection.isRemoveStillValid());
-		assertFalse(selection.isRemoveValid());
-
-		selection.add(new Square(new NumberTile(2, 1), 1, 3, false));
-
-		assertFalse(selection.isRemoveStillValid());
-		assertFalse(selection.isRemoveValid());
 	}
 }
