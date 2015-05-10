@@ -34,8 +34,8 @@ public abstract class GameLevel {
 	 *            The list of tiles for the board in the level.
 	 * @param pointThresholds
 	 *            The point threshold values for the level.
-	 * @param moveCount
-	 *            The number of moves for the level.
+	 * @param restrictionCount
+	 *            The number of the restriction for the level.
 	 * @param specialMoves
 	 *            The special moves counts for the level.
 	 * @param levelNumber
@@ -138,8 +138,8 @@ public abstract class GameLevel {
 	/**
 	 * Sets the number of the restriction for the level.
 	 *
-	 * @param moveCount
-	 *            The new number of moves to set for the level.
+	 * @param restrictionCount
+	 *            The new number of the restriction to set for the level.
 	 */
 	public void setRestrictionCount(int restrictionCount) {
 		this.restrictionCount = restrictionCount;

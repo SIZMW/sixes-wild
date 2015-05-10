@@ -26,8 +26,8 @@ public class PuzzleLevel extends GameLevel {
 	 *            The list of tiles for the board in the level.
 	 * @param pointThresholds
 	 *            The point threshold values for the level.
-	 * @param moveCount
-	 *            The number of moves for the level.
+	 * @param restrictionCount
+	 *            The number of the restriction for the level.
 	 * @param specialMoves
 	 *            The special moves counts for the level.
 	 * @param levelNumber
@@ -46,7 +46,7 @@ public class PuzzleLevel extends GameLevel {
 
 	/*
 	 * (non-Javadoc)
-	 *
+	 * 
 	 * @see SixesWild.com.mimas.sixeswild.entities.GameLevel#hasBeenCompleted()
 	 */
 	@Override
@@ -56,7 +56,7 @@ public class PuzzleLevel extends GameLevel {
 
 	/*
 	 * (non-Javadoc)
-	 *
+	 * 
 	 * @see SixesWild.com.mimas.sixeswild.entities.GameLevel#hasTimer()
 	 */
 	@Override
@@ -66,7 +66,7 @@ public class PuzzleLevel extends GameLevel {
 
 	/*
 	 * (non-Javadoc)
-	 *
+	 * 
 	 * @see SixesWild.com.mimas.sixeswild.entities.GameLevel#hasMoveCount()
 	 */
 	@Override
@@ -76,7 +76,7 @@ public class PuzzleLevel extends GameLevel {
 
 	/*
 	 * (non-Javadoc)
-	 *
+	 * 
 	 * @see SixesWild.com.mimas.sixeswild.entities.GameLevel#makeCopy()
 	 */
 	@Override
