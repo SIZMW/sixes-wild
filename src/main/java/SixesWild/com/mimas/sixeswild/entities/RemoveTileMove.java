@@ -117,14 +117,23 @@ public class RemoveTileMove extends GameMove {
 			return false;
 		} else {
 
-			if (app.getLevelPanel().getLevel().getType()
-					.equals(LevelType.RELEASE)) {
-				app.getLevelPanel().getBoardViewPanel().getBoard()
-						.processReleaseSelection(selection);
-			} else {
-				app.getLevelPanel().getBoardViewPanel().getBoard()
-						.processSelection(selection);
-			}
+			boolean marked = app
+					.getLevelPanel()
+					.getBoardViewPanel()
+					.getBoard()
+					.getSquare(
+							selection.getSelectionAsArrayList().get(0).getX(),
+							selection.getSelectionAsArrayList().get(0).getY())
+					.getMarked();
+
+			app.getLevelPanel().getLevel().processSelection(selection);
+			app.getLevelPanel()
+					.getBoardViewPanel()
+					.getBoard()
+					.getSquare(
+							selection.getSelectionAsArrayList().get(0).getX(),
+							selection.getSelectionAsArrayList().get(0).getY())
+					.setMarked(marked);
 
 			app.getLevelPanel().getBoardViewPanel().clearGameSelection();
 			app.getLevelPanel().getLevel().getSpecialMoves()

@@ -197,7 +197,7 @@ public abstract class GameLevel {
 
 	/*
 	 * (non-Javadoc)
-	 *
+	 * 
 	 * @see java.lang.Object#toString()
 	 */
 	@Override
@@ -225,6 +225,14 @@ public abstract class GameLevel {
 	 * @return true if complete; false otherwise
 	 */
 	public abstract boolean hasBeenCompleted();
+
+	/**
+	 * Processes a selection move with the specified selection.
+	 *
+	 * @param selection
+	 *            The selection to remove and process.
+	 */
+	public abstract void processSelection(Selection selection);
 
 	/**
 	 * Creates a copy of this level and returns the new GameLevel object.

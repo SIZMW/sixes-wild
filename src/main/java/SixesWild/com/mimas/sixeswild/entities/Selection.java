@@ -254,6 +254,6 @@ public class Selection {
 			multiplier *= e.getTile().getMultiplier();
 		}
 
-		return score * multiplier;
+		return score * multiplier * 10;
 	}
 }

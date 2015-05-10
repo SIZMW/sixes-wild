@@ -85,6 +85,30 @@ public class EliminationLevel extends GameLevel {
 
 	/*
 	 * (non-Javadoc)
+	 *
+	 * @see
+	 * SixesWild.com.mimas.sixeswild.entities.GameLevel#processSelection(SixesWild
+	 * .com.mimas.sixeswild.entities.Selection)
+	 */
+	@Override
+	public void processSelection(Selection selection) {
+		board.removeSelection(selection);
+
+		// Mark all the squares that were used in the selection
+		for (int i = 0; i < board.SIZE_X; i++) {
+			for (int j = 0; j < board.SIZE_Y; j++) {
+				if (board.getSquare(i, j).getTile() == null) {
+					board.getSquare(i, j).setMarked(true);
+				}
+			}
+		}
+
+		board.shiftTilesDownward();
+		board.fillEmptySquares();
+	}
+
+	/*
+	 * (non-Javadoc)
 	 * 
 	 * @see SixesWild.com.mimas.sixeswild.entities.GameLevel#makeCopy()
 	 */

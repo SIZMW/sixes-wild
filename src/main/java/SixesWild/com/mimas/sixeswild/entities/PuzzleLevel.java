@@ -46,7 +46,7 @@ public class PuzzleLevel extends GameLevel {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see SixesWild.com.mimas.sixeswild.entities.GameLevel#hasBeenCompleted()
 	 */
 	@Override
@@ -56,7 +56,7 @@ public class PuzzleLevel extends GameLevel {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see SixesWild.com.mimas.sixeswild.entities.GameLevel#hasTimer()
 	 */
 	@Override
@@ -66,7 +66,7 @@ public class PuzzleLevel extends GameLevel {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see SixesWild.com.mimas.sixeswild.entities.GameLevel#hasMoveCount()
 	 */
 	@Override
@@ -76,7 +76,21 @@ public class PuzzleLevel extends GameLevel {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
+	 * @see
+	 * SixesWild.com.mimas.sixeswild.entities.GameLevel#processSelection(SixesWild
+	 * .com.mimas.sixeswild.entities.Selection)
+	 */
+	@Override
+	public void processSelection(Selection selection) {
+		board.removeSelection(selection);
+		board.shiftTilesDownward();
+		board.fillEmptySquares();
+	}
+
+	/*
+	 * (non-Javadoc)
+	 *
 	 * @see SixesWild.com.mimas.sixeswild.entities.GameLevel#makeCopy()
 	 */
 	@Override

@@ -304,7 +304,9 @@ public class TestBoard extends TestCase {
 		selection.add(numberBoard.getSquare(0, 6));
 
 		assertTrue(selection.isSelectionValid());
-		numberBoard.processSelection(selection);
+		numberBoard.removeSelection(selection);
+		numberBoard.shiftTilesDownward();
+		numberBoard.fillEmptySquares();
 
 		assertEquals(numberBoard.getSquare(0, 8).getTile().getNumber(), square5);
 		assertEquals(numberBoard.getSquare(0, 7).getTile().getNumber(), square4);
@@ -312,23 +314,5 @@ public class TestBoard extends TestCase {
 		assertEquals(numberBoard.getSquare(0, 5).getTile().getNumber(), square2);
 		assertEquals(numberBoard.getSquare(0, 4).getTile().getNumber(), square1);
 		assertEquals(numberBoard.getSquare(0, 3).getTile().getNumber(), square0);
-	}
-
-	/**
-	 * Tests the processing of an elimination selection.
-	 */
-	public void testProcessElimination() {
-		numberBoard.setSquare(new NumberTile(3, 1), 0, 0, false);
-		numberBoard.setSquare(new NumberTile(3, 1), 0, 1, false);
-
-		selection.add(numberBoard.getSquare(0, 0));
-		selection.add(numberBoard.getSquare(0, 1));
-
-		assertTrue(selection.isSelectionValid());
-
-		numberBoard.processEliminationSelection(selection);
-
-		assertTrue(numberBoard.getSquare(0, 1).getMarked());
-		assertTrue(numberBoard.getSquare(0, 0).getMarked());
 	}
 }

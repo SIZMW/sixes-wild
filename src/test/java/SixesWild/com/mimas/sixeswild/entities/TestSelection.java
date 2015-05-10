@@ -13,7 +13,7 @@ public class TestSelection extends TestCase {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see junit.framework.TestCase#setUp()
 	 */
 	@Override
@@ -120,7 +120,7 @@ public class TestSelection extends TestCase {
 		selection.add(new Square(new NumberTile(2, 3), 1, 2, false));
 		selection.add(new Square(new NumberTile(2, 1), 1, 3, false));
 
-		assertEquals(selection.getScore(), 9);
+		assertEquals(selection.getScore(), 90);
 	}
 
 	/**

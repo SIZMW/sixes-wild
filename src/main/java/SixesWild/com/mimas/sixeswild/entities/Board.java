@@ -324,7 +324,7 @@ public class Board {
 	/**
 	 * Moves tiles downward vertically to fill in any empty Squares.
 	 */
-	protected void shiftTilesDownward() {
+	public void shiftTilesDownward() {
 		for (int i = 0; i < SIZE_X; i++) {
 			for (int j = SIZE_Y - 1; j > 0; j--) {
 				if (squares[i][j].getTile() == null) {
@@ -351,7 +351,7 @@ public class Board {
 	/**
 	 * Fills empty squares once a move has been completed.
 	 */
-	protected void fillEmptySquares() {
+	public void fillEmptySquares() {
 		for (int i = 0; i < SIZE_X; i++) {
 			for (int j = 0; j < SIZE_Y; j++) {
 				if (squares[i][j].getTile() == null) {
@@ -369,7 +369,7 @@ public class Board {
 	 *            The selection of tiles.
 	 * @return true if successful; false otherwise
 	 */
-	protected boolean removeSelection(Selection selection) {
+	public boolean removeSelection(Selection selection) {
 
 		// Verify selection exists
 		if (selection == null) {
@@ -384,82 +384,5 @@ public class Board {
 					.getY()].removeTile();
 		}
 		return true;
-	}
-
-	/**
-	 * Processes the six tile and target tile movement in the "Release" game
-	 * type.
-	 */
-	protected void processReleaseTiles() {
-		for (int i = 0; i < SIZE_X; i++) {
-			for (int j = 0; j < SIZE_Y; j++) {
-				if (squares[i][j].getTile().getType().equals(TileType.SIX)) {
-					if ((j + 1) < SIZE_Y
-							&& squares[i][j + 1].getTile().getType()
-									.equals(TileType.TARGET)) {
-						squares[i][j + 1].removeTile();
-						((SixTile) squares[i][j].getTile()).setProcessed(true);
-						squares[i][j + 1].addTile(squares[i][j].getTile());
-						squares[i][j].removeTile();
-					}
-				}
-			}
-		}
-	}
-
-	/**
-	 * Processes the squares that have been used in a selection in the
-	 * "Elimination" game type.
-	 */
-	protected void processEliminationSquares() {
-		for (int i = 0; i < SIZE_X; i++) {
-			for (int j = 0; j < SIZE_Y; j++) {
-				if (squares[i][j].getTile() == null) {
-					squares[i][j].setMarked(true);
-				}
-			}
-		}
-	}
-
-	/**
-	 * Processes a standard selection move with the specified selection.
-	 *
-	 * @param selection
-	 *            The selection to remove and process.
-	 */
-	public void processSelection(Selection selection) {
-		removeSelection(selection);
-		shiftTilesDownward();
-		fillEmptySquares();
-	}
-
-	/**
-	 * Processes a selection move with the specified selection. Updates the
-	 * squares affected by marking them for the "Elimination" game type.
-	 *
-	 * @param selection
-	 *            The selection to remove and process.
-	 */
-	public void processEliminationSelection(Selection selection) {
-		removeSelection(selection);
-		processEliminationSquares();
-		shiftTilesDownward();
-		fillEmptySquares();
-	}
-
-	/**
-	 * Processes a selection move with the specified selection. Updates the six
-	 * tiles and target tiles affected for the "Release" game type.
-	 *
-	 * @param selection
-	 *            The selection to remove and process.
-	 */
-	public void processReleaseSelection(Selection selection) {
-		removeSelection(selection);
-		shiftTilesDownward();
-		fillEmptySquares();
-		processReleaseTiles();
-		shiftTilesDownward();
-		fillEmptySquares();
 	}
 }

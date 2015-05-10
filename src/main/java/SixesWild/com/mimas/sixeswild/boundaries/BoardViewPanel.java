@@ -500,52 +500,6 @@ public class BoardViewPanel extends JPanel {
 	}
 
 	/**
-	 * Executes the selection in the current selection. Removes the tiles and
-	 * fills the empty squares with newly generated tiles. Returns the current
-	 * selection's calculated score.
-	 *
-	 * @return an integer
-	 */
-	public int doSelectionMove() {
-		int score = currentSelection.getScore();
-		gameBoard.processSelection(currentSelection);
-
-		logger.log(Level.INFO, "Board processed a selection move.");
-		return score;
-	}
-
-	/**
-	 * Executes the selection in the current selection. Removes the tiles and
-	 * fills the empty squares with newly generated tiles. Marks the squares
-	 * that were regenerated. Returns the current selection's calculated score.
-	 *
-	 * @return an integer
-	 */
-	public int doEliminationSelectionMove() {
-		int score = currentSelection.getScore();
-		gameBoard.processEliminationSelection(currentSelection);
-
-		logger.log(Level.INFO, "Board processed an elimination selection move.");
-		return score;
-	}
-
-	/**
-	 * Executes the selection in the current selection. Removes the tiles and
-	 * fills the empty squares with newly generated tiles. Replaces the target
-	 * tiles with the six tiles when they land above them. Returns the current
-	 * selection's calculated score.
-	 *
-	 * @return an integer
-	 */
-	public int doReleaseSelectionMove() {
-		int score = currentSelection.getScore();
-		gameBoard.processReleaseSelection(currentSelection);
-
-		logger.log(Level.INFO, "Board processed a release selection move.");
-		return score;
-	}
-
-	/**
 	 * Executes the reset board move.
 	 */
 	public void doResetBoardMove() {

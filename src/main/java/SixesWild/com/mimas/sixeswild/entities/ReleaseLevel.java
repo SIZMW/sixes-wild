@@ -84,6 +84,44 @@ public class ReleaseLevel extends GameLevel {
 
 	/*
 	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * SixesWild.com.mimas.sixeswild.entities.GameLevel#processSelection(SixesWild
+	 * .com.mimas.sixeswild.entities.Selection)
+	 */
+	@Override
+	public void processSelection(Selection selection) {
+		board.removeSelection(selection);
+		board.shiftTilesDownward();
+		board.fillEmptySquares();
+
+		// Process the six tiles and the target tiles
+		for (int i = 0; i < board.SIZE_X; i++) {
+			for (int j = 0; j < board.SIZE_Y; j++) {
+				
+				// If a six tile is above a target tile, move it into the target
+				if (board.getSquare(i, j).getTile().getType()
+						.equals(TileType.SIX)) {
+					if ((j + 1) < board.SIZE_Y
+							&& board.getSquare(i, j + 1).getTile().getType()
+									.equals(TileType.TARGET)) {
+						board.getSquare(i, j + 1).removeTile();
+						((SixTile) board.getSquare(i, j).getTile())
+								.setProcessed(true);
+						board.getSquare(i, j + 1).addTile(
+								board.getSquare(i, j).getTile());
+						board.getSquare(i, j).removeTile();
+					}
+				}
+			}
+		}
+
+		board.shiftTilesDownward();
+		board.fillEmptySquares();
+	}
+
+	/*
+	 * (non-Javadoc)
 	 *
 	 * @see SixesWild.com.mimas.sixeswild.entities.GameLevel#makeCopy()
 	 */
