@@ -1,5 +1,6 @@
 package SixesWild.com.mimas.sixeswild.entities;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -57,12 +58,30 @@ public class Selection {
 	}
 
 	/**
+	 * Returns the size of the selection.
+	 *
+	 * @return an integer
+	 */
+	public int size() {
+		return squareSet.size();
+	}
+
+	/**
 	 * Returns the selection as an array.
 	 *
 	 * @return an Array
 	 */
 	public Object[] getArray() {
 		return squareSet.toArray();
+	}
+
+	/**
+	 * Returns the selection as a list
+	 *
+	 * @return an ArrayList
+	 */
+	public ArrayList<Square> getSelectionAsArrayList() {
+		return new ArrayList<Square>(squareSet);
 	}
 
 	/**
@@ -236,52 +255,6 @@ public class Selection {
 		}
 
 		return score * multiplier;
-	}
-
-	/**
-	 * Returns whether the selection is still valid to continue a swap move.
-	 *
-	 * @return true if selection is valid; false otherwise
-	 */
-	public boolean isSwapStillValid() {
-
-		// If selection does not have only two tiles
-		if (squareSet.size() > 2) {
-			return false;
-		}
-
-		for (Square e : squareSet) {
-
-			// Check for invalid types in selection
-			if (!e.getTile().getType().equals(TileType.NUMBER)) {
-				return false;
-			}
-		}
-
-		return true;
-	}
-
-	/**
-	 * Returns whether the selection is valid to complete a swap move.
-	 *
-	 * @return true if selection is valid; false otherwise
-	 */
-	public boolean isSwapValid() {
-
-		// If selection does not have only two tiles
-		if (squareSet.size() != 2) {
-			return false;
-		}
-
-		for (Square e : squareSet) {
-
-			// Check for invalid types in selection
-			if (!e.getTile().getType().equals(TileType.NUMBER)) {
-				return false;
-			}
-		}
-
-		return true;
 	}
 
 	/**

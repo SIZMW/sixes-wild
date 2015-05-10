@@ -315,31 +315,9 @@ public class TestBoard extends TestCase {
 	}
 
 	/**
-	 * Tests the processing of a swap selection.
-	 */
-	public void testProcessSwap() {
-		assertFalse(numberBoard.processSwapMove(null));
-
-		numberBoard.setSquare(new NumberTile(2, 1), 0, 0, false);
-		numberBoard.setSquare(new NumberTile(3, 1), 0, 1, false);
-
-		selection.add(numberBoard.getSquare(0, 0));
-		selection.add(numberBoard.getSquare(0, 1));
-
-		assertTrue(selection.isSwapValid());
-
-		numberBoard.processSwapMove(selection);
-
-		assertEquals(numberBoard.getSquare(0, 1).getTile().getNumber(), 2);
-		assertEquals(numberBoard.getSquare(0, 0).getTile().getNumber(), 3);
-	}
-
-	/**
 	 * Tests the processing of an elimination selection.
 	 */
 	public void testProcessElimination() {
-		assertFalse(numberBoard.processSwapMove(null));
-
 		numberBoard.setSquare(new NumberTile(3, 1), 0, 0, false);
 		numberBoard.setSquare(new NumberTile(3, 1), 0, 1, false);
 

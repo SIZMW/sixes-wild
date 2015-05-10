@@ -13,7 +13,7 @@ public class TestSelection extends TestCase {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see junit.framework.TestCase#setUp()
 	 */
 	@Override
@@ -124,24 +124,14 @@ public class TestSelection extends TestCase {
 	}
 
 	/**
-	 * Tests the swap validity of the selection.
+	 * Tests the size of the selection.
 	 */
-	public void testSwapValid() {
+	public void testSelectionSize() {
 		selection.add(new Square(new NumberTile(2, 1), 1, 1, false));
 		selection.add(new Square(new NumberTile(2, 3), 1, 2, false));
-
-		assertTrue(selection.isSwapStillValid());
-		assertTrue(selection.isSwapValid());
-
-		selection.remove(new Square(new NumberTile(2, 3), 1, 2, false));
-		selection.add(new Square(new NullTile(), 2, 2, false));
-		assertFalse(selection.isSwapStillValid());
-		assertFalse(selection.isSwapValid());
-
 		selection.add(new Square(new NumberTile(2, 1), 1, 3, false));
 
-		assertFalse(selection.isSwapStillValid());
-		assertFalse(selection.isSwapValid());
+		assertEquals(selection.size(), 3);
 	}
 
 	/**

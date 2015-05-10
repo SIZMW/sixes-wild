@@ -289,7 +289,7 @@ public class BoardViewPanel extends JPanel {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see javax.swing.JComponent#paintComponent(java.awt.Graphics)
 	 */
 	@Override
@@ -553,15 +553,6 @@ public class BoardViewPanel extends JPanel {
 		gameBoard.resetBoard();
 
 		logger.log(Level.INFO, "Board processed a reset board move.");
-	}
-
-	/**
-	 * Executes the swap tile move.
-	 */
-	public void doSwapTileMove() {
-		gameBoard.processSwapMove(currentSelection);
-
-		logger.log(Level.INFO, "Board processed a swap tile move.");
 	}
 
 	/**
