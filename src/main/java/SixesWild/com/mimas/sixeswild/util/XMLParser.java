@@ -306,9 +306,8 @@ public final class XMLParser {
 			int removeTileMoves = Integer.parseInt(doc
 					.getElementsByTagName("RemoveTile").item(0)
 					.getTextContent());
-			int otherMoveMoves = Integer
-					.parseInt(doc.getElementsByTagName("OtherMove").item(0)
-							.getTextContent());
+			int otherMoveMoves = Integer.parseInt(doc
+					.getElementsByTagName("XStacy").item(0).getTextContent());
 			SpecialMoves specialMoves = new SpecialMoves(resetBoardMoves,
 					swapTileMoves, removeTileMoves, otherMoveMoves);
 
@@ -509,7 +508,7 @@ public final class XMLParser {
 			specialMoveConstraintsElement.appendChild(removeTileElement);
 
 			// Other move element / value
-			Element otherMoveElement = doc.createElement("OtherMove");
+			Element otherMoveElement = doc.createElement("XStacy");
 			otherMoveElement.appendChild(doc.createTextNode(""
 					+ level.getSpecialMoves().getXStacySpecialMoveCount()));
 			specialMoveConstraintsElement.appendChild(otherMoveElement);

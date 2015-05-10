@@ -16,7 +16,7 @@
 <ResetBoard>5</ResetBoard>
 <SwapTile>5</SwapTile>
 <RemoveTile>5</RemoveTile>
-<OtherMove>5</OtherMove>
+<XStacy>5</XStacy>
 </SpecialMoveConstraints>
 <PointThresholds>
 <Point>10000</Point>
