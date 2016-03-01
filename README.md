@@ -84,7 +84,7 @@ The level builder is used to create playable levels with tiles that can be added
 * Logging Output:
   * File output for debugging purposes.
  
-## Execution
+## Usage
 Building this project requires [Maven 3](https://maven.apache.org/download.cgi) and [JDK 1.7](http://www.oracle.com/technetwork/java/javase/downloads/index.html) To build the standalone JAR files, run the following command from the root project directory:
 ```
 mvn package
